@@ -64,6 +64,9 @@ Config.SCOPES_ROBOT_STATE = false;
 % Activate scopes for visualizing the smoothed reference orientations
 Config.SCOPES_SMOOTH_ORIENT = false;
 
+% Activate scopes for visualizing the control gains
+Config.SCOPES_GAIN_SCHEDULING = false;
+
 % SIMULATION SETUP
 %
 % If true, joint references are modified in order not to be in conflict with
@@ -89,6 +92,9 @@ Config.FILTER_IMU_PITCH = false;
 
 % If true, the robot will move its CoM while balancing, following a sine trajectory
 Config.DEMO_MOVEMENTS = false;
+
+% If true, simulation is stopped when qpOASES outputs a "-2" error (QP is unfeasible)
+Config.CHECK_QP_ERROR = true;
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Advanced setup - do not change these parameters unless you know what you're doing
@@ -132,10 +138,10 @@ Config.t_step = 0.01; % [s]
 
 % Frames name list
 Frames.IMU = 'imu_frame';
+Frames.COM = 'com';
 Frames.BASE_LINK = 'root_link';
 Frames.LEFT_FOOT = 'l_sole';
 Frames.RIGHT_FOOT = 'r_sole';
-Frames.COM = 'com';
 Frames.ROT_TASK_LINK = 'neck_2';
 
 % STARTUP PROCEDURE

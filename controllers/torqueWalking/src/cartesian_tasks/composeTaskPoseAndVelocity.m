@@ -4,23 +4,23 @@
 % USAGE: please note that this function has been designed for being inserted 
 %        in a Simulink model.
 %
-% FORMAT: [pos_vel_CoM, pose_vel_LFoot, pose_vel_RFoot, orient_vel_Rot_task] = ...
-%             composeTaskPoseAndVelocity(vel_CoM, vel_LFoot, vel_RFoot, vel_Rot_task, ...
-%                                        w_H_CoM, w_H_l_sole, w_H_r_sole, w_H_Rot_task)    
+% FORMAT: [pos_vel_CoM, pose_vel_LFoot, pose_vel_RFoot, orient_vel_rot_task] = ...
+%             composeTaskPoseAndVelocity(vel_CoM, vel_LFoot, vel_RFoot, vel_rot_task, ...
+%                                        w_H_CoM, w_H_l_sole, w_H_r_sole, w_H_rot_task)    
 %
 % INPUT: - vel_CoM = [3 * 1] CoM velocity
 %        - vel_LFoot = [6 * 1] LFoot velocity
 %        - vel_RFoot = [6 * 1] RFoot velocity
-%        - vel_Root = [3 * 1] Root velocity
+%        - vel_rot_task = [3 * 1] rotational task velocity
 %        - w_H_CoM = [4 * 4] pose CoM
 %        - w_H_l_sole = [4 * 4] pose LFoot
 %        - w_H_r_sole = [4 * 4] pose RFoot
-%        - w_H_Rot_task = [4 * 4] pose rotational task
+%        - w_H_rot_task = [4 * 4] pose rotational task
 %
 % OUTPUT: - pos_vel_CoM = [3 * 2] CoM position and velocity
 %         - pose_vel_LFoot = [6 * 4] LFoot pose and velocity
 %         - pose_vel_RFoot = [6 * 4] RFoot pose and velocity
-%         - orient_vel_Rot_task = [3 * 4] rotational task link orientation and angular velocity 
+%         - orient_vel_rot_task = [3 * 4] rotational task link orientation and angular velocity 
 %
 % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
 %          
@@ -31,9 +31,9 @@
 %
 
 %% --- Initialization ---
-function [pos_vel_CoM, pose_vel_LFoot, pose_vel_RFoot, orient_vel_Rot_task] = ...
-             composeTaskPoseAndVelocity(vel_CoM, vel_LFoot, vel_RFoot, vel_Rot_task, ...
-                                        w_H_CoM, w_H_l_sole, w_H_r_sole, w_H_Rot_task)
+function [pos_vel_CoM, pose_vel_LFoot, pose_vel_RFoot, orient_vel_rot_task] = ...
+             composeTaskPoseAndVelocity(vel_CoM, vel_LFoot, vel_RFoot, vel_rot_task, ...
+                                        w_H_CoM, w_H_l_sole, w_H_r_sole, w_H_rot_task)
                                                                     
     % compose CoM position and velocity
     pos_vel_CoM     = [w_H_CoM(1:3,4), vel_CoM];
@@ -47,5 +47,5 @@ function [pos_vel_CoM, pose_vel_LFoot, pose_vel_RFoot, orient_vel_Rot_task] = ..
                        w_H_r_sole(1:3,1:3), vel_RFoot(4:6)];
                   
     % compose Root orientation and velocity
-    orient_vel_Rot_task = [w_H_Rot_task(1:3,1:3), vel_Rot_task];
+    orient_vel_rot_task = [w_H_rot_task(1:3,1:3), vel_rot_task];
 end

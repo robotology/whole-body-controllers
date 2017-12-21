@@ -34,7 +34,7 @@ if strcmp(DEMO_TYPE,'EXAMPLE_STATE_MACHINE')
     
     % True if left foot is initially in contact with the ground (if false,
     % right foot is assumed to be in contact)
-    Config.LFoot_in_contact_at0 = false;
+    Config.LFoot_in_contact_at0 = true;
 
     %% Smoothing of reference trajectories
 
@@ -42,28 +42,28 @@ if strcmp(DEMO_TYPE,'EXAMPLE_STATE_MACHINE')
     Config.SMOOTH_COM_REF      = true;
     Config.SMOOTH_LFOOT_POS    = true;
     Config.SMOOTH_RFOOT_POS    = true;
-    Config.SMOOTH_LFOOT_ORIENT = false; 
-    Config.SMOOTH_RFOOT_ORIENT = false; 
-    Config.SMOOTH_ROT_TASK_REF = false;
-    Config.SMOOTH_JOINT_REF    = false; 
+    Config.SMOOTH_LFOOT_ORIENT = true; 
+    Config.SMOOTH_RFOOT_ORIENT = true; 
+    Config.SMOOTH_ROT_TASK_REF = true;
+    Config.SMOOTH_JOINT_REF    = true; 
 
     % Smoothing time for tasks and joints references [s]
-    Config.smoothingTime_CoM    = [2;2;2];
-    Config.smoothingTime_LFoot  = [2;2;2];
-    Config.smoothingTime_RFoot  = [2;2;2];
-    Config.smoothingTime_joints = [2;2;2];
+    Config.smoothingTime_CoM    = [2;2;2;2;2;2;2];
+    Config.smoothingTime_LFoot  = [2;2;2;2;2;2;2];
+    Config.smoothingTime_RFoot  = [2;2;2;2;2;2;2];
+    Config.smoothingTime_joints = [2;2;2;2;2;2;2];
 
     % Gains that will influence the smoothing of reference orientations. The
     % higher, the faster. Only positive or null values.
-    Config.LFoot_Kp_smoothing    = [1;1;1];
-    Config.LFoot_Kd_smoothing    = [1;1;1];
-    Config.RFoot_Kp_smoothing    = [1;1;1];
-    Config.RFoot_Kd_smoothing    = [1;1;1];
-    Config.rot_task_Kp_smoothing = [1;1;1];
-    Config.rot_task_Kd_smoothing = [1;1;1];
+    Config.LFoot_Kp_smoothing    = [1;1;1;1;1;1;1];
+    Config.LFoot_Kd_smoothing    = [1;1;1;1;1;1;1];
+    Config.RFoot_Kp_smoothing    = [1;1;1;1;1;1;1];
+    Config.RFoot_Kd_smoothing    = [1;1;1;1;1;1;1];
+    Config.rot_task_Kp_smoothing = [1;1;1;1;1;1;1];
+    Config.rot_task_Kd_smoothing = [1;1;1;1;1;1;1];
 
     % Smoothing time for gain scheduling [s].
-    Config.smoothingTimeGains    = [1;1;1];
+    Config.smoothingTimeGains    = [1;1;1;1;1;1;1];
    
     %% Gains matrices
 
@@ -79,23 +79,23 @@ if strcmp(DEMO_TYPE,'EXAMPLE_STATE_MACHINE')
     Gains.Kd_CoM = 2*sqrt(Gains.Kp_CoM);
 
     % Feet position and velocity gains
-    Gains.Kp_LFoot =   [50, 50, 50, 10, 10, 10; ...  % state = 1 two feet balancing
-                        50, 50, 50, 10, 10, 10; ...  % state = 2 move CoM on left foot
-                        50, 50, 50, 10, 10, 10; ...  % state = 3 left foot balancing
-                        50, 50, 50, 10, 10, 10; ...  % state = 4 move right foot origin
-                        50, 50, 50, 10, 10, 10; ...  % state = 5 move right foot orientation
-                        50, 50, 50, 10, 10, 10; ...  % state = 6 move right foot back
-                        50, 50, 50, 10, 10, 10];     % state = 7 two feet balancing
+    Gains.Kp_LFoot =   [50, 50, 50, 30, 30, 30; ...  % state = 1 two feet balancing
+                        50, 50, 50, 30, 30, 30; ...  % state = 2 move CoM on left foot
+                        50, 50, 50, 30, 30, 30; ...  % state = 3 left foot balancing
+                        50, 50, 50, 30, 30, 30; ...  % state = 4 move right foot origin
+                        50, 50, 50, 30, 30, 30; ...  % state = 5 move right foot orientation
+                        50, 50, 50, 30, 30, 30; ...  % state = 6 move right foot back
+                        50, 50, 50, 30, 30, 30];     % state = 7 two feet balancing
               
     Gains.Kd_LFoot = 2*sqrt(Gains.Kp_LFoot);
 
-    Gains.Kp_RFoot =   [50, 50, 50, 10, 10, 10; ...  % state = 1 two feet balancing
-                        50, 50, 50, 10, 10, 10; ...  % state = 2 move CoM on left foot
-                        50, 50, 50, 10, 10, 10; ...  % state = 3 left foot balancing
-                        50, 50, 50, 10, 10, 10; ...  % state = 4 move right foot origin
-                        50, 50, 50, 10, 10, 10; ...  % state = 5 move right foot orientation
-                        50, 50, 50, 10, 10, 10; ...  % state = 6 move right foot back
-                        50, 50, 50, 10, 10, 10];     % state = 7 two feet balancing
+    Gains.Kp_RFoot =   [50, 50, 50, 30, 30, 30; ...  % state = 1 two feet balancing
+                        50, 50, 50, 30, 30, 30; ...  % state = 2 move CoM on left foot
+                        50, 50, 50, 30, 30, 30; ...  % state = 3 left foot balancing
+                        50, 50, 50, 30, 30, 30; ...  % state = 4 move right foot origin
+                        50, 50, 50, 30, 30, 30; ...  % state = 5 move right foot orientation
+                        50, 50, 50, 30, 30, 30; ...  % state = 6 move right foot back
+                        50, 50, 50, 30, 30, 30];     % state = 7 two feet balancing
 
     Gains.Kd_RFoot = 2*sqrt(Gains.Kp_RFoot); 
 

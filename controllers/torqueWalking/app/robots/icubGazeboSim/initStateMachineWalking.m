@@ -74,15 +74,15 @@ if strcmp(DEMO_TYPE,'MPC_WALKING')
     Gains.Kd_CoM = 2*sqrt(Gains.Kp_CoM);
 
     % Feet position and velocity gains
-    Gains.Kp_LFoot = [50, 50, 50, 10, 10, 10; ... % state = 1 two feet balancing
-                      50, 50, 50, 10, 10, 10; ... % state = 2 left foot balancing
-                      50, 50, 50, 10, 10, 10];    % state = 3 right foot balancing
+    Gains.Kp_LFoot = [50, 50, 50, 20, 20, 20; ... % state = 1 two feet balancing
+                      50, 50, 50, 20, 20, 20; ... % state = 2 left foot balancing
+                      50, 50, 50, 20, 20, 20];    % state = 3 right foot balancing
               
     Gains.Kd_LFoot = 2*sqrt(Gains.Kp_LFoot);
 
-    Gains.Kp_RFoot = [50, 50, 50, 10, 10, 10; ... % state = 1 two feet balancing
-                      50, 50, 50, 10, 10, 10; ... % state = 2 left foot balancing
-                      50, 50, 50, 10, 10, 10];    % state = 3 right foot balancing
+    Gains.Kp_RFoot = [50, 50, 50, 20, 20, 20; ... % state = 1 two feet balancing
+                      50, 50, 50, 20, 20, 20; ... % state = 2 left foot balancing
+                      50, 50, 50, 20, 20, 20];    % state = 3 right foot balancing
 
     Gains.Kd_RFoot = 2*sqrt(Gains.Kp_RFoot); 
 

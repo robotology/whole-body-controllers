@@ -37,9 +37,10 @@
 %                 think of finding u that minimizes the error between
 %                 sDDot and sDDot^* while satisfying [2]-[3], plus the 
 %                 friction cones and unilateral constraints on the contact 
-%                 forces. In short:
+%                 forces. Furthermore, we aim at minimizing also the torques
+%                 necessary for achieving the required task. In short:
 %
-%                     min_u |sDDot(u)-sDDot^*|^2
+%                     min_u |sDDot(u)-sDDot^* + K_t*tau|^2
 % 
 %                         s.t.  C*f < b
 %                               J_c(q)*nuDot + J_cDot_nu = 0
@@ -120,7 +121,7 @@ function [Hessian,gradient,ConstraintMatrix_equality,biasVectorConstraint_equali
     St_invM_h = St*invM*h;
     
     % Hessian matrix for minimizing also joint torques
-    S_tau     = [eye(ROBOT_DOF) zeros(ROBOT_DOF,12)];
+    S_tau     = [zeros(ROBOT_DOF,12) eye(ROBOT_DOF)];
     
     % Hessian matrix and gradient for QP solver
     Hessian   =  transpose(St_invM_B)*St_invM_B + Sat.weight_tau*transpose(S_tau)*S_tau;
@@ -154,8 +155,8 @@ function [Hessian,gradient,ConstraintMatrix_equality,biasVectorConstraint_equali
     %
     % The same hold for the right foot
     %
-    w_R_l_sole                = w_H_l_sole(1:3,1:3);
-    w_R_r_sole                = w_H_r_sole(1:3,1:3);
+    w_R_l_sole = w_H_l_sole(1:3,1:3);
+    w_R_r_sole = w_H_r_sole(1:3,1:3);
   
     ConstraintMatrixLeftFoot  = ConstraintsMatrix_feet * blkdiag(transpose(w_R_l_sole),transpose(w_R_l_sole));
     ConstraintMatrixRightFoot = ConstraintsMatrix_feet * blkdiag(transpose(w_R_r_sole),transpose(w_R_r_sole));

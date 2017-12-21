@@ -75,6 +75,7 @@ function [Hessian, gradient, ConstraintMatrix, biasVectorConstraint] = ...
      correction = 1e-9.*size(3, size(s,1) +6);
      ConstraintMatrix(16:18,:) = ConstraintMatrix(16:18,:) -correction;
      %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      
      % compute bias vector constraints
      biasVectorConstraint = acc_task_star -JDot_nu;

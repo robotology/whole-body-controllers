@@ -6,9 +6,9 @@
 %        in a Simulink model.
 %
 % FORMAT: acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_LFoot_des, ...
-%                                               pose_vel_acc_RFoot_des,orient_vel_acc_Rot_task_des, ...
-%                                               pos_vel_CoM, pose_vel_LFoot, pose_vel_RFoot, orient_vel_Rot_task, ...
-%                                               Kp_Kd_CoM, Kp_Kd_LFoot, Kp_Kd_RFoot, Kp_Kd_Rot_task, feetInContact, Sat)     
+%                                               pose_vel_acc_RFoot_des,orient_vel_acc_rot_task_des, ...
+%                                               pos_vel_CoM, pose_vel_LFoot, pose_vel_RFoot, orient_vel_rot_task, ...
+%                                               Kp_Kd_CoM, Kp_Kd_LFoot, Kp_Kd_RFoot, Kp_Kd_rot_task, feetInContact, Sat)     
 %
 % INPUT: - pos_vel_acc_CoM_des = [3 * 3] desired CoM position, velocity and acceleration
 %        - pose_vel_acc_LFoot_des = [6 * 5] desired LFoot pose, velocity
@@ -16,18 +16,18 @@
 %                                   is: [pos, linear_vel, linear_acc, zeros(3,2);
 %                                        Rotation, angular_vel, angular_acc] 
 %        - pose_vel_acc_RFoot_des = [6 * 5] desired RFoot pose, velocity and acceleration
-%        - orient_vel_acc_Rot_task_des = [3 * 5] desired Rotational task link orientation, angular velocity and acceleration.
+%        - orient_vel_acc_rot_task_des = [3 * 5] desired Rotational task link orientation, angular velocity and acceleration.
 %                                        NOTE that the format is: [Rotation, angular_vel, angular_acc]                                     
 %        - pos_vel_CoM = [3 * 2] CoM position and velocity
 %        - pose_vel_LFoot = [6 * 4] LFoot pose and velocity. NOTE that the format
 %                           is: [pos, linear_vel, zeros(3,1);
 %                                Rotation, angular_vel]
 %        - pose_vel_RFoot = [6 * 4] RFoot pose and velocity
-%        - orient_vel_Rot_task = [3 * 4] Rotational task link orientation and angular velocity 
+%        - orient_vel_rot_task = [3 * 4] Rotational task link orientation and angular velocity 
 %        - Kp_Kd_CoM = [3 * 2] CoM position and velocity gains
 %        - Kp_Kd_LFoot = [6 * 2] LFoot pose and velocity gains
 %        - Kp_Kd_RFoot = [6 * 2] RFoot pose and velocity gains
-%        - Kp_Kd_Rot_task = [3 * 2] Rotational task link orientation and angular velocity gains
+%        - Kp_Kd_rot_task = [3 * 2] Rotational task link orientation and angular velocity gains
 %        - feetInContact = [2 * 1] feet contact status (0 not active, 1 active)
 %        - Sat = a structure containing user defined saturation parameters
 %
@@ -42,9 +42,9 @@
 %
 
 %% --- Initialization ---
-function acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_LFoot_des,pose_vel_acc_RFoot_des,orient_vel_acc_Rot_task_des, ...
-                                               pos_vel_CoM, pose_vel_LFoot, pose_vel_RFoot, orient_vel_Rot_task, ...
-                                               Kp_Kd_CoM, Kp_Kd_LFoot, Kp_Kd_RFoot, Kp_Kd_Rot_task, feetInContact, Sat)
+function acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_LFoot_des,pose_vel_acc_RFoot_des,orient_vel_acc_rot_task_des, ...
+                                               pos_vel_CoM, pose_vel_LFoot, pose_vel_RFoot, orient_vel_rot_task, ...
+                                               Kp_Kd_CoM, Kp_Kd_LFoot, Kp_Kd_RFoot, Kp_Kd_rot_task, feetInContact, Sat)
 
     % LFoot position, and linear velocity
     pos_LFoot    = pose_vel_LFoot(1:3,1);
@@ -66,9 +66,9 @@ function acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_
     pos_CoM      = pos_vel_CoM(1:3,1);
     vel_CoM      = pos_vel_CoM(1:3,2);
     
-    % Rotation task link orientation, and angular velocity
-    w_R_Rot_task     = orient_vel_Rot_task(1:3,1:3);
-    omega_Rot_task   = orient_vel_Rot_task(1:3,4);
+    % Rotational task link orientation, and angular velocity
+    w_R_rot_task     = orient_vel_rot_task(1:3,1:3);
+    omega_rot_task   = orient_vel_rot_task(1:3,4);
         
     % LFoot desired position, linear velocity and acceleration
     pos_LFoot_des      = pose_vel_acc_LFoot_des(1:3,1);
@@ -96,9 +96,9 @@ function acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_
     acc_CoM_des        = pos_vel_acc_CoM_des(1:3,3);
     
     % Rotational task link desired orientation, angular velocity and acceleration
-    w_R_Rot_task_des       = orient_vel_acc_Rot_task_des(1:3,1:3);
-    omega_Rot_task_des     = orient_vel_acc_Rot_task_des(1:3,4);
-    omegaDot_Rot_task_des  = orient_vel_acc_Rot_task_des(1:3,5);
+    w_R_rot_task_des       = orient_vel_acc_rot_task_des(1:3,1:3);
+    omega_rot_task_des     = orient_vel_acc_rot_task_des(1:3,4);
+    omegaDot_rot_task_des  = orient_vel_acc_rot_task_des(1:3,5);
     
     % LFoot position and linear velocity gains
     Kp_LFoot       = diag(Kp_Kd_LFoot(1:3,1));
@@ -121,8 +121,8 @@ function acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_
     Kd_CoM         = diag(Kp_Kd_CoM(1:3,2));    
     
     % Rotational task link orientation and angular velocity gains
-    Kp_Rot_task    = diag(Kp_Kd_Rot_task(1:3,1));
-    Kd_Rot_task    = diag(Kp_Kd_Rot_task(1:3,2));
+    Kp_rot_task    = diag(Kp_Kd_rot_task(1:3,1));
+    Kd_rot_task    = diag(Kp_Kd_rot_task(1:3,2));
     
     %% Linear PID controllers for position tasks
     
@@ -168,7 +168,7 @@ function acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_
     end
     
     % desired rotational task link angular acceleration
-    omegaDot_Rot_task_star = rotationalPID(w_R_Rot_task, omega_Rot_task, w_R_Rot_task_des, omega_Rot_task_des, omegaDot_Rot_task_des, Kp_Rot_task, Kd_Rot_task);
+    omegaDot_rot_task_star = rotationalPID(w_R_rot_task, omega_rot_task, w_R_rot_task_des, omega_rot_task_des, omegaDot_rot_task_des, Kp_rot_task, Kd_rot_task);
     
     %% Tasks accelerations 
     
@@ -181,6 +181,6 @@ function acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_
     %
     acc_task_star = [acc_LFoot_star; omegaDot_LFoot_star; ...
                      acc_RFoot_star; omegaDot_RFoot_star; ...
-                     acc_CoM_star;   omegaDot_Rot_task_star];
+                     acc_CoM_star;   omegaDot_rot_task_star];
     
 end
