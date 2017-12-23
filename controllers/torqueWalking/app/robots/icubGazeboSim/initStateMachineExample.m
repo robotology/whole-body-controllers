@@ -122,10 +122,6 @@ if strcmp(DEMO_TYPE,'EXAMPLE_STATE_MACHINE')
                         20  20  20,  10  10  10  8,  10  10  10  8,  30  30  30  60  10  10,  30  30  30  60  10  10]; ... % state = 7 two feet balancing
     
     Gains.dampings   = zeros(size(Gains.impedances));
-
-    %% Constraints for QP for balancing - friction cone - z-moment - in terms of f
-    forceFrictionCoefficient     = 1;  
-    torsionalFrictionCoefficient = 1/75;
     
 end
 

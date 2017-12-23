@@ -26,7 +26,6 @@ close all
 
 % setenv('YARP_ROBOT_NAME','iCubGenova04');
   setenv('YARP_ROBOT_NAME','icubGazeboSim');
-% setenv('YARP_ROBOT_NAME','iCubGenova02');
 
 % SELECT THE DEMO TO BE PERFORMED:
 %
@@ -36,10 +35,7 @@ close all
 %    - 'MPC_WALKING' = the model is connected to an MPC controller which
 %                      streams references and contact status for walking.
 %
-%    - 'EXAMPLE_STATE_MACHINE' = a simple state machine for testing the
-%                                controller while executing different task.
-%
-DEMO_TYPE = 'MPC_WALKING';
+DEMO_TYPE = 'COORDINATOR';
 
 % Simulation time
 Config.t_end = inf; % [s]
@@ -104,35 +100,6 @@ Config.CHECK_QP_ERROR = true;
 addpath(genpath('./src'));
 addpath(genpath('../../library'));
 
-% True if the controller is connected to Gazebo simulator. 
-if strcmp(getenv('YARP_ROBOT_NAME'),'icubGazeboSim')
-    
-    Config.ON_GAZEBO = true;
-else
-    Config.ON_GAZEBO = false;
-end
-
-%% Demo type selector
-
-% True if the walking with MPC demo is selected 
-if strcmp(DEMO_TYPE,'MPC_WALKING')
-    
-    % Emergency stop if ports are streaming null data
-    Config.CHECK_PORTS_WALKING = true;
-    Config.WALKING_WITH_MPC = true;
-else
-    Config.CHECK_PORTS_WALKING = false;
-    Config.WALKING_WITH_MPC = false;
-end
-
-% True if the example state machine demo is selected
-if strcmp(DEMO_TYPE,'EXAMPLE_STATE_MACHINE')
-    
-    Config.STATE_MACHINE_EXAMPLE = true;
-else
-    Config.STATE_MACHINE_EXAMPLE = false;
-end
-
 % Simulation step (fixed step integrator)
 Config.t_step = 0.01; % [s]
 
@@ -144,29 +111,48 @@ Frames.LEFT_FOOT = 'l_sole';
 Frames.RIGHT_FOOT = 'r_sole';
 Frames.ROT_TASK_LINK = 'neck_2';
 
-% STARTUP PROCEDURE
+%% STARTUP PROCEDURE
 %
-% Simulink model requires all parameters to be defined in order to run the
-% model. Hence, the model must load every time all the parameters, even if they
-% are DEMO-SPECIFIC, i.e. they just affect one demo. For this reason, all the
-% demo-configuration files must be executed every time. Each specific 
-% configuration file is divided into 2 parts: first, parameters which are 
-% in common with another demo will be ALL OVERWRITTEN if and only if that 
-% particular demo has been selected. Then, parameters which are DEMO-SPECIFIC 
-% and does not affect the other demos will be anyway loaded.
-% DO NOT MODIFY THIS BEHAVIOUR.
+% A file called configRobot.m which contains a list of robot specific
+% parameters, but in common for all demos is run Then, the configuration
+% file corresponding to the specified demo is run.
 %
-% Run configuration script for internal coordinator
-internalCordinatorFCN = fullfile('app/robots', getenv('YARP_ROBOT_NAME'),'initCoordinator.m');
-run(internalCordinatorFCN);
+configRobotFCN = fullfile('app/robots', getenv('YARP_ROBOT_NAME'),'configRobot.m');
+run(configRobotFCN);
 
-% Run configuration script for walking with MPC
-stateMachineWalkingFCN = fullfile('app/robots', getenv('YARP_ROBOT_NAME'),'initStateMachineWalking.m');
-run(stateMachineWalkingFCN);
+if strcmp(DEMO_TYPE, 'COORDINATOR')
+    
+    % Run configuration script for internal coordinator
+    internalCordinatorFCN = fullfile('app/robots', getenv('YARP_ROBOT_NAME'),'initCoordinator.m');
+    run(internalCordinatorFCN);
+end
 
-% Run configuration script for exmple state machine
-stateMachineExampleFCN = fullfile('app/robots', getenv('YARP_ROBOT_NAME'),'initStateMachineExample.m');
-run(stateMachineExampleFCN);
+if strcmp(DEMO_TYPE,'MPC_WALKING')
+    
+    % Run configuration script for walking with MPC
+    stateMachineWalkingFCN = fullfile('app/robots', getenv('YARP_ROBOT_NAME'),'initStateMachineWalking.m');
+    run(stateMachineWalkingFCN);
+    
+    % Emergency stop if ports are streaming null data
+    Config.CHECK_PORTS_WALKING = true;
+    Config.WALKING_WITH_MPC = true;
+    
+    % Inverse kinematics is not used for MPC for walking
+    Config.USE_INVERSE_KINEMATICS = false;
+else
+    Config.CHECK_PORTS_WALKING = false;
+    Config.WALKING_WITH_MPC = false;
+end
+
+if strcmp(DEMO_TYPE,'EXAMPLE_STATE_MACHINE')
+
+    % Run configuration script for exmple state machine
+    stateMachineExampleFCN = fullfile('app/robots', getenv('YARP_ROBOT_NAME'),'initStateMachineExample.m');
+     run(stateMachineExampleFCN);
+    Config.STATE_MACHINE_EXAMPLE = true;
+else
+    Config.STATE_MACHINE_EXAMPLE = false;
+end
 
 % Ports name list (requires WBT_robotName to be setted)
 Ports.LEFT_FOOT_EXT_WRENCH  = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';

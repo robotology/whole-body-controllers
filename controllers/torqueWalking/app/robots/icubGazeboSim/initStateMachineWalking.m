@@ -17,9 +17,6 @@
 % OVERWRITE SOME CONFIGURATION PARAMETERS FOR RUNNING THE MPC-WALKING DEMO
 if strcmp(DEMO_TYPE,'MPC_WALKING')
 
-    % Deactivate inverse kinematics
-    Config.USE_INVERSE_KINEMATICS = false;
-
     % Joint torque saturation
     Sat.tau_max = 60; % [Nm]
 
@@ -101,10 +98,6 @@ if strcmp(DEMO_TYPE,'MPC_WALKING')
                         20  20  20,  10  10  10  8,  10  10  10  8,  30  30  30  60  10  10,  30  30  30  60  10  10]; ... % state = 3 right foot balancing
                      
     Gains.dampings   = zeros(size(Gains.impedances));
-
-    %% Constraints for QP for balancing - friction cone - z-moment - in terms of f
-    forceFrictionCoefficient     = 1;  
-    torsionalFrictionCoefficient = 1/75;
     
 end
 
