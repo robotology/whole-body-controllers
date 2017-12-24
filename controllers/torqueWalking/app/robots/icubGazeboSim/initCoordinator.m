@@ -14,6 +14,49 @@
 
 %% --- Initialization ---
 
+% SIMULATION SETUP
+%
+% Frames name list
+Frames.IMU = 'imu_frame';
+Frames.COM = 'com';
+Frames.BASE_LINK = 'root_link';
+Frames.LEFT_FOOT = 'l_sole';
+Frames.RIGHT_FOOT = 'r_sole';
+Frames.ROT_TASK_LINK = 'neck_2';
+
+% Emergency stop if MPC ports are streaming null data
+Config.CHECK_PORTS_WALKING = false;
+Config.WALKING_WITH_MPC = false;
+
+% If true, joint references are modified in order not to be in conflict with
+% the Cartesian tasks. The new joint references are calculated by means of an
+% integration based inverse kinematics
+Config.USE_INVERSE_KINEMATICS = false;
+
+% If true, the output of QP solver will be forced to be continuous
+Config.QP_USE_CONTINUITY_CONSTRAINTS = true;
+Config.QP_IKIN_USE_CONTINUITY_CONSTRAINTS = true;
+
+% If true, the IMU orientation is used in order to estimate the
+% base-to-world transformation matrix
+Config.USE_IMU4EST_BASE = false;
+
+% If true, the orientation provided by the IMU is corrected using the neck
+% positions (requires the neck port to be active)
+Config.CORRECT_IMU_WITH_NECK_POS = true;
+
+% If true, IMU pitch and yaw are not considered for estimating base-to-world transform
+Config.FILTER_IMU_YAW = false;
+Config.FILTER_IMU_PITCH = false;
+
+% If true, the robot will move its CoM while balancing, following a sine trajectory
+Config.DEMO_MOVEMENTS = false;
+
+% If true, simulation is stopped when qpOASES outputs a "-2" error (QP is unfeasible)
+Config.CHECK_QP_ERROR = true;
+
+%% Robot setup 
+
 % Joint torque saturation
 Sat.tau_max = 60; % [Nm]
 
@@ -109,3 +152,17 @@ Gains.dampings   = zeros(1, ROBOT_DOF);
 Gains.ikin_impedances = Gains.impedances;
 Gains.ikin_dampings   = 2*sqrt(Gains.ikin_impedances); 
     
+%% Constraints for QP for balancing - friction cone - z-moment - in terms of f
+
+% The friction cone is approximated by using linear interpolation of the circle. 
+% So, numberOfPoints defines the number of points used to interpolate the 
+% circle in each cicle's quadrant 
+numberOfPoints               = 4; 
+forceFrictionCoefficient     = 1;  
+torsionalFrictionCoefficient = 1/75;
+fZmin                        = 10; % Min vertical force [N]
+
+% Size of the foot
+Config.footSize              = [-0.05  0.10;     % xMin, xMax
+                                -0.025 0.025];   % yMin, yMax 
+                            
