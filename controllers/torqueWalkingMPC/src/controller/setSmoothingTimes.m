@@ -1,8 +1,8 @@
-% CONFIGURESMOOTHINGTIMES given the current state, it assigns the smoothing
-%                         time for smoothing tasks and joints references.
+% SETSMOOTHINGTIMES given the current state, it assigns the smoothing
+%                   time for smoothing tasks and joints references.
 %
 % FORMAT: [smoothingTime_CoM, smoothingTime_LFoot, smoothingTime_RFoot, smoothingTime_joints] ...
-%              = configureSmoothingTimes(state,Config) 
+%              = setSmoothingTimes(state,Config) 
 %
 % INPUT:  - state = current robot state
 %         - Config = structure of user-defined configuration parameters
@@ -22,7 +22,7 @@
 
 %% --- Initialization ---
 
-function [smoothingTime_CoM, smoothingTime_LFoot, smoothingTime_RFoot, smoothingTime_joints] = configureSmoothingTimes(state,Config)
+function [smoothingTime_CoM, smoothingTime_LFoot, smoothingTime_RFoot, smoothingTime_joints] = setSmoothingTimes(state,Config)
 
     % Set smoothing times according to the current state
     smoothingTime_CoM    = Config.smoothingTime_CoM(state);

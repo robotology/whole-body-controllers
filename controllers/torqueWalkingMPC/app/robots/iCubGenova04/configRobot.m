@@ -15,7 +15,7 @@
 %% --- Initialization ---
 
 % Syncronization with Gazebo simulator
-Config.ON_GAZEBO = true;
+Config.ON_GAZEBO = false;
 
 % Dimension of the joint space
 ROBOT_DOF = 23;

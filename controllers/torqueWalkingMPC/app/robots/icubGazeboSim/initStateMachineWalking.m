@@ -24,7 +24,7 @@ Frames.LEFT_FOOT = 'l_sole';
 Frames.RIGHT_FOOT = 'r_sole';
 Frames.ROT_TASK_LINK = 'chest';
 
-% Emergency stop if ports are streaming null data
+% Emergency stop if ports are streaming null data (MPC_WALKING DEMO ONLY)
 Config.CHECK_PORTS_WALKING = true;
 Config.WALKING_WITH_MPC = true; 
 
@@ -49,8 +49,16 @@ Config.CORRECT_IMU_WITH_NECK_POS = true;
 Config.FILTER_IMU_YAW = false;
 Config.FILTER_IMU_PITCH = false;
 
-% If true, the robot will move its CoM while balancing, following a sine trajectory
-Config.DEMO_MOVEMENTS = false;
+% True if left foot is initially in contact with the ground (if false,
+% right foot is assumed to be in contact) (EXAMPLE_STATEMACHINE DEMO ONLY)
+Config.LFoot_in_contact_at0 = true;
+
+% If true, the robot will just balance on two feet (EXAMPLE_STATEMACHINE DEMO ONLY)
+Config.ONLY_BALANCING = false;
+
+% If Config.ONLY_BALANCING = false, this is the time the robot will balance
+% before it starts moving (EXAMPLE_STATEMACHINE DEMO ONLY)
+Config.t_balancing = 1;
 
 % If true, simulation is stopped when qpOASES outputs a "-2" error (QP is unfeasible)
 Config.CHECK_QP_ERROR = true; 
@@ -74,10 +82,6 @@ Sat.toll_feetInContact = 0.1;
 
 % Damping for the pseudoinverse used for computing the floating base velocity
 Sat.pinvDamp_nu_b = 1e-6;
-
-% True if left foot is initially in contact with the ground (if false,
-% right foot is assumed to be in contact)
-Config.LFoot_in_contact_at0 = true;
 
 %% Smoothing of reference trajectories
 
@@ -107,20 +111,6 @@ Config.rot_task_Kd_smoothing = [1;1;1];
 
 % Smoothing time for gain scheduling [s].
 Config.smoothingTimeGains    = [1;1;1];
-   
-%% CoM references
-if Config.DEMO_MOVEMENTS 
-
-    Config.noOscillationTime       =  0;
-    Config.directionOfOscillation  = [0;1;0];  % [x; y; z]
-    Config.amplitudeOfOscillation  =  0.02;    % amplitude of oscillations in meters 
-    Config.frequencyOfOscillation  =  0.2;     % frequency of oscillations in hertz 
-else
-    Config.noOscillationTime       =  0;
-    Config.directionOfOscillation  = [0;0;0];
-    Config.amplitudeOfOscillation  =  0.0; 
-    Config.frequencyOfOscillation  =  0.0;
-end
 
 %% Gains matrices
 

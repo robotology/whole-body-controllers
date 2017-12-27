@@ -29,13 +29,13 @@ close all
 
 % SELECT THE DEMO TO BE PERFORMED:
 %
-%    - 'COORDINATOR' = the robot balances and performs simple movements using 
-%                      a state machine.
-%
+%    - 'EXAMPLE_STATEMACHINE' = the robot balances and performs simple movements using 
+%                               a state machine.
+% 
 %    - 'MPC_WALKING' = the model is connected to an MPC controller which
 %                      streams references and contact status for walking.
 %
-DEMO_TYPE = 'MPC_WALKING';
+DEMO_TYPE = 'EXAMPLE_STATEMACHINE';
 
 % Simulation time
 Config.t_end = inf; % [s]
@@ -83,11 +83,11 @@ Config.t_step = 0.01; % [s]
 configRobotFCN = fullfile('app/robots', getenv('YARP_ROBOT_NAME'),'configRobot.m');
 run(configRobotFCN);
 
-if strcmp(DEMO_TYPE, 'COORDINATOR')
+if strcmp(DEMO_TYPE, 'EXAMPLE_STATEMACHINE')
     
     % Run configuration script for internal coordinator
-    internalCordinatorFCN = fullfile('app/robots', getenv('YARP_ROBOT_NAME'),'initCoordinator.m');
-    run(internalCordinatorFCN);
+    stateMachineExampleFCN = fullfile('app/robots', getenv('YARP_ROBOT_NAME'),'initStateMachineExample.m');
+    run(stateMachineExampleFCN);
 end
 
 if strcmp(DEMO_TYPE,'MPC_WALKING')
@@ -103,5 +103,5 @@ end
     (forceFrictionCoefficient, numberOfPoints, torsionalFrictionCoefficient, Config.footSize, fZmin);
 
 disp('Initialize torqueWalkingMPC')
-disp(['Robot: ',getenv('YARP_ROBOT_NAME')])
-disp(['Demo type: ', DEMO_TYPE])
+disp(['Selected robot: ',getenv('YARP_ROBOT_NAME')])
+disp(['Selected demo: ', DEMO_TYPE])
