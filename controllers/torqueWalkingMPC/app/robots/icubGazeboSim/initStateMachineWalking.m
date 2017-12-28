@@ -78,7 +78,7 @@ Sat.nuDDot_max = 10000;
 Sat.weight_tau = 0.1;
 
 % Numerical tolerance for assuming a foot on contact
-Sat.toll_feetInContact = 1;
+Sat.toll_feetInContact = 0.1;
 
 % Damping for the pseudoinverse used for computing the floating base velocity
 Sat.pinvDamp_nu_b = 1e-5;
@@ -111,6 +111,10 @@ Config.rot_task_Kd_smoothing = [1;1;1];
 
 % Smoothing time for gain scheduling [s].
 Config.smoothingTimeGains    = [1;1;1];
+
+% Minimum value of the vertical force at contact location for the contact
+% to be considered as active (MPC_WALKING DEMO ONLY)
+Config.threshold_contact_activation = 2.5; % [N]
 
 %% CoM and feet references (EXAMPLE_STATEMACHINE DEMO ONLY)
 

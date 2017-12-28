@@ -12,11 +12,11 @@
 %         - w_H_RFoot_0 = [4 * 4] initial world to RFoot transform
 %         - w_H_rot_task_0 = [4 * 4] initial world to rotational task Link transform
 %         - t = simulation time
-%         - Config = user defined configuration
 %         - LFoot_H_b = [4 * 4] base to left foot transform
 %         - RFoot_H_b = [4 * 4] base to right foot transform
 %         - LFoot_wrench = [6 * 1] external forces and moments acting on the left foot
 %         - RFoot_wrench = [6 * 1] external forces and moments acting on the right foot
+%         - Config = user defined configuration
 %
 % OUTPUT: - state = current state of state machine
 %         - references_CoM = [3 * 3] desired CoM position, velocity and acceleration

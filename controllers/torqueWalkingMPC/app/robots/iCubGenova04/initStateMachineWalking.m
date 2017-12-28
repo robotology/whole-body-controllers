@@ -112,6 +112,10 @@ Config.rot_task_Kd_smoothing = [1;1;1];
 % Smoothing time for gain scheduling [s].
 Config.smoothingTimeGains    = [1;1;1];
 
+% Minimum value of the vertical force at contact location for the contact
+% to be considered as active (MPC_WALKING DEMO ONLY)
+Config.threshold_contact_activation = 2.5; % [N]
+
 %% CoM and feet references (EXAMPLE_STATEMACHINE DEMO ONLY)
 
 % add a delta to the right foot position. 

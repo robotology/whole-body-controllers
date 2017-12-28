@@ -5,7 +5,8 @@
 %        in a Simulink model.
 %
 % FORMAT: [state, references_CoM, references_LFoot, references_RFoot, references_rot_task, feetInContact, references_s, w_H_b] = stateMachineWalking ...
-%             (s_0, pos_vel_acc_CoM_des_walking, s_des_walking, feetInContact_walking, LFoot_H_b, RFoot_H_b, w_H_rot_task_0, w_walking_H_b)
+%             (s_0, pos_vel_acc_CoM_des_walking, s_des_walking, feetInContact_walking, LFoot_H_b, RFoot_H_b, w_H_rot_task_0, w_walking_H_b, ...
+%              LFoot_wrench, RFoot_wrench, Config)
 %
 % INPUT:  - s_0 = [ROBOT_DOF * 1] initial joints positions
 %         - pos_vel_acc_CoM_des_walking = [3 * 3] CoM references from MPC
@@ -15,6 +16,9 @@
 %         - RFoot_H_b = [4 * 4] base to  RFoot transform
 %         - w_H_rot_task_0 = [4 * 4] rot task to world transform
 %         - w_walking_H_b = [4 * 4] base to world (MPC) transform
+%         - LFoot_wrench = [6 * 1] external forces and moments acting on the left foot
+%         - RFoot_wrench = [6 * 1] external forces and moments acting on the right foot
+%         - Config = user defined configuration
 %
 % OUTPUT: - state = current state of state machine
 %         - references_CoM = [3 * 3] desired CoM position, velocity and acceleration
@@ -39,7 +43,8 @@
 
 %% --- Initialization ---
 function [state, references_CoM, references_LFoot, references_RFoot, references_rot_task, feetInContact, references_s, w_H_b] = stateMachineWalking ...
-             (s_0, pos_vel_acc_CoM_des_walking, s_des_walking, feetInContact_walking, w_walking_H_LFoot, w_walking_H_RFoot, w_H_rot_task_0, w_walking_H_b)
+             (s_0, pos_vel_acc_CoM_des_walking, s_des_walking, feetInContact_walking, w_walking_H_LFoot, w_walking_H_RFoot, w_H_rot_task_0, w_walking_H_b, ...
+              LFoot_wrench, RFoot_wrench, Config)
          
     % State selector:
     %
@@ -47,23 +52,48 @@ function [state, references_CoM, references_LFoot, references_RFoot, references_
     % state = 2 left foot balancing
     % state = 3 right foot balancing
     %
-    toll  = 0.1;
-    state = 1;
+    persistent currentState
     
+    if isempty(currentState)
+        
+        currentState = 1;
+    end
+     
+    % Active contacts
+    toll          = 0.1;
+    
+    % two feet balancing. Activate this state only if the vertical force at feet
+    % is above a certain threshold
+    if sum(feetInContact_walking) > (2-toll) && LFoot_wrench(3) > Config.threshold_contact_activation && RFoot_wrench(3) > Config.threshold_contact_activation
+   
+       currentState  = 1;
+       feetInContact = transpose(feetInContact_walking);
+       
+    elseif currentState == 2
+        
+        feetInContact = [1 0];       
+    else        
+        feetInContact = [0 1];
+    end
+    
+    % left foot balancing
     if feetInContact_walking(2) < toll
         
-        state = 2;
+        currentState = 2;
+        feetInContact = transpose(feetInContact_walking);
         
+    % right foot balancing    
     elseif feetInContact_walking(1) < toll
         
-        state = 3;
+        currentState = 3;
+        feetInContact = transpose(feetInContact_walking);
     end
     
     % Base to world transform
     w_H_b = w_walking_H_b;
     
-    % Active contacts
-    feetInContact = transpose(feetInContact_walking);
+    % Update state
+    state = currentState;
        
     % Joint references
     s_des        = [s_des_walking(1:3); s_0(4:11); s_des_walking(4:15)];
@@ -72,10 +102,10 @@ function [state, references_CoM, references_LFoot, references_RFoot, references_
     % CoM references
     references_CoM = [pos_vel_acc_CoM_des_walking(1:3), pos_vel_acc_CoM_des_walking(4:6), pos_vel_acc_CoM_des_walking(7:9)];
     
-    references_LFoot    = [w_walking_H_LFoot(1:3,4), zeros(3,4);
-                           w_walking_H_LFoot(1:3,1:3), zeros(3,2)];
-    references_RFoot    = [w_walking_H_RFoot(1:3,4), zeros(3,4);
-                           w_walking_H_RFoot(1:3,1:3), zeros(3,2)];
+    references_LFoot = [w_walking_H_LFoot(1:3,4), zeros(3,4);
+                        w_walking_H_LFoot(1:3,1:3), zeros(3,2)];
+    references_RFoot = [w_walking_H_RFoot(1:3,4), zeros(3,4);
+                        w_walking_H_RFoot(1:3,1:3), zeros(3,2)];
                        
     %% Update rotational task reference.
     

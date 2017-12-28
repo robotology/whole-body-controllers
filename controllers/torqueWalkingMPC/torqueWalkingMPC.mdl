@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.492"
+    ComputedModelVersion    "1.493"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -63,11 +63,11 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"4657"
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
 	Extents			[1821.0, 911.0]
-	ZoomFactor		[1.3883647798742136]
-	Offset			[-1064.6668495186864, -177.08380520951306]
+	ZoomFactor		[1.2057124156453833]
+	Offset			[-335.15519968551985, -59.958499854927311]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -100,9 +100,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Dec 28 12:01:02 2017"
-  RTWModifiedTimeStamp	  436363259
-  ModelVersionFormat	  "1.%<AutoIncrement:492>"
+  LastModifiedDate	  "Thu Dec 28 14:24:32 2017"
+  RTWModifiedTimeStamp	  436371858
+  ModelVersionFormat	  "1.%<AutoIncrement:493>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1204,7 +1204,7 @@ Model {
   System {
     Name		    "torqueWalkingMPC"
     Location		    [65, 24, 1920, 1080]
-    Open		    off
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -17387,7 +17387,7 @@ Model {
 	  System {
 	    Name		    "State Machines"
 	    Location		    [65, 24, 1920, 1080]
-	    Open		    on
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -33950,6 +33950,9 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 170 0 0]
     viewObj		    169
+    visible		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    43
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -33987,7 +33990,8 @@ Stateflow {
       " Config);\n         \n    % Footstep planner\n    if Config.WALKING_WITH_MPC\n        \n        [state, referenc"
       "es_CoM, references_LFoot, references_RFoot, references_rot_task, feetInContact, references_s, w_H_b] = stateMach"
       "ineWalking ...\n            (s_0, pos_vel_acc_CoM_des_walking, s_des_walking, feetInContact_walking, w_walking_H"
-      "_LFoot, w_walking_H_RFoot, w_H_rot_task_0, w_walking_H_b);\n    end\nend"
+      "_LFoot, w_walking_H_RFoot, w_H_rot_task_0, w_walking_H_b, ...\n             LFoot_wrench, RFoot_wrench, Config);"
+      "\n    end\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
