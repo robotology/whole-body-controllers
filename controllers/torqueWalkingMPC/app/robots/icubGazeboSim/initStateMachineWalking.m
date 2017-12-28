@@ -22,7 +22,7 @@ Frames.COM = 'com';
 Frames.BASE_LINK = 'root_link';
 Frames.LEFT_FOOT = 'l_sole';
 Frames.RIGHT_FOOT = 'r_sole';
-Frames.ROT_TASK_LINK = 'chest';
+Frames.ROT_TASK_LINK = 'neck_2';
 
 % Emergency stop if ports are streaming null data (MPC_WALKING DEMO ONLY)
 Config.CHECK_PORTS_WALKING = true;
@@ -34,7 +34,7 @@ Config.WALKING_WITH_MPC = true;
 Config.USE_INVERSE_KINEMATICS = false;
 
 % If true, the output of QP solver will be forced to be continuous
-Config.QP_USE_CONTINUITY_CONSTRAINTS = true;
+Config.QP_USE_CONTINUITY_CONSTRAINTS = false;
 Config.QP_IKIN_USE_CONTINUITY_CONSTRAINTS = true;
 
 % If true, the IMU orientation is used in order to estimate the
@@ -75,13 +75,13 @@ Sat.tauDot_max = 10000;
 Sat.nuDDot_max = 10000;
 
 % Weight for the joint minimization task
-Sat.weight_tau = 0.01;
+Sat.weight_tau = 0.1;
 
 % Numerical tolerance for assuming a foot on contact
-Sat.toll_feetInContact = 0.1;
+Sat.toll_feetInContact = 1;
 
 % Damping for the pseudoinverse used for computing the floating base velocity
-Sat.pinvDamp_nu_b = 1e-6;
+Sat.pinvDamp_nu_b = 1e-5;
 
 %% Smoothing of reference trajectories
 
@@ -111,6 +111,17 @@ Config.rot_task_Kd_smoothing = [1;1;1];
 
 % Smoothing time for gain scheduling [s].
 Config.smoothingTimeGains    = [1;1;1];
+
+%% CoM and feet references (EXAMPLE_STATEMACHINE DEMO ONLY)
+
+% add a delta to the right foot position. 
+%
+% dimension: [m]
+% format: [x;y;z]
+%
+Config.deltaPos_RFoot = [ 0.00 0.00 0.00; ...   % state = 1 two feet balancing
+                          0.00 0.00 0.00; ...   % state = 2 left foot balancing
+                          0.00 0.00 0.00];      % state = 3 right foot balancing
 
 %% Gains matrices
 

@@ -35,7 +35,7 @@ close all
 %    - 'MPC_WALKING' = the model is connected to an MPC controller which
 %                      streams references and contact status for walking.
 %
-DEMO_TYPE = 'EXAMPLE_STATEMACHINE';
+DEMO_TYPE = 'MPC_WALKING';
 
 % Simulation time
 Config.t_end = inf; % [s]

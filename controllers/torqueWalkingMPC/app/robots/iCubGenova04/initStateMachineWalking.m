@@ -112,6 +112,17 @@ Config.rot_task_Kd_smoothing = [1;1;1];
 % Smoothing time for gain scheduling [s].
 Config.smoothingTimeGains    = [1;1;1];
 
+%% CoM and feet references (EXAMPLE_STATEMACHINE DEMO ONLY)
+
+% add a delta to the right foot position. 
+%
+% dimension: [m]
+% format: [x;y;z]
+%
+Config.deltaPos_RFoot = [ 0.00 0.00 0.00; ...   % state = 1 two feet balancing
+                          0.00 0.00 0.00; ...   % state = 2 left foot balancing
+                          0.00 0.00 0.00];      % state = 3 right foot balancing
+
 %% Gains matrices
 
 % CoM position and velocity gains

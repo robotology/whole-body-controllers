@@ -77,15 +77,23 @@ function [state, references_CoM, references_LFoot, references_RFoot, references_
     references_RFoot    = [w_walking_H_RFoot(1:3,4), zeros(3,4);
                            w_walking_H_RFoot(1:3,1:3), zeros(3,2)];
                        
-    % Rotational task references. The yaw angle is the mean of the left foot 
-    % and right foot yaw.
+    %% Update rotational task reference.
+    
+    % compute roll-pitch-yaw from rotation matrix for both feet
     roll_pitch_yaw_LFoot = rollPitchYawFromRotation(w_walking_H_LFoot(1:3,1:3));
-    roll_pitch_yaw_RFoot = rollPitchYawFromRotation(w_walking_H_RFoot(1:3,1:3));    
+    roll_pitch_yaw_RFoot = rollPitchYawFromRotation(w_walking_H_RFoot(1:3,1:3)); 
+    
+    % compute the mean of the two yaw angles
     mean_yaw = atan2(sin(roll_pitch_yaw_LFoot(3))+sin(roll_pitch_yaw_RFoot(3)), cos(roll_pitch_yaw_LFoot(3))+cos(roll_pitch_yaw_RFoot(3)));
      
-    % updated rotational task
-    roll_pitch_yaw_rot_task_0 = rollPitchYawFromRotation(w_H_rot_task_0(1:3,1:3));
-    w_R_rot_task = rotz(mean_yaw)*roty(roll_pitch_yaw_rot_task_0(2))*rotx(roll_pitch_yaw_rot_task_0(1));
+    % ASSUMPTION: THE FRAME "w_walking" HAS THE SAME ORIENTATION OF FEET
+    % FRAMES AT TIME 0. In this case, this is the relative rotation between 
+    % the w_walking frame and a frame whose yaw is rotated by "mean_yaw" angle
+    w_walking_R_w_yaw_rotated = rotz(-mean_yaw);
     
-    references_rot_task = [w_R_rot_task, zeros(3,2)];
+    % update rotational task references
+    w_walking_R_rot_task = w_H_rot_task_0(1:3,1:3);
+    w_R_rot_task         = transpose(w_walking_R_w_yaw_rotated)*w_walking_R_rot_task;
+    references_rot_task  = [w_R_rot_task, zeros(3,2)];
+    
 end
