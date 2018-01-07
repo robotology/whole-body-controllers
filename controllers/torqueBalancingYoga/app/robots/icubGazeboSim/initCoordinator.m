@@ -1,0 +1,153 @@
+% INITCOORDINATOR initializes the robot configuration for running
+%                'COORDINATOR' demo. 
+%
+
+%% --- Initialization ---
+
+% Feet in contact (COORDINATOR DEMO ONLY)
+Config.LEFT_RIGHT_FOOT_IN_CONTACT = [1 1];
+
+% Initial foot on ground. If false, right foot is used as default contact
+% frame (this does not means that the other foot cannot be in contact too).
+% (COORDINATOR DEMO ONLY)
+Config.LEFT_FOOT_IN_CONTACT_AT_0 = true;
+
+% If true, the robot CoM will follow a desired reference trajectory (COORDINATOR DEMO ONLY)
+Config.DEMO_MOVEMENTS = false;
+
+% If equal to true, the desired streamed values of the center of mass 
+% are smoothed internally 
+Config.SMOOTH_COM_DES = false;   
+
+% If equal to true, the desired streamed values of the postural tasks are
+% smoothed internally 
+Config.SMOOTH_JOINT_DES = false;   
+
+% torque saturation
+Sat.torque = 34; 
+
+%% Control gains
+
+% PARAMETERS FOR TWO FEET BALANCING
+if sum(Config.LEFT_RIGHT_FOOT_IN_CONTACT) == 2
+    
+    Gain.KP_COM             = diag([50 50 50]);
+    Gain.KD_COM             = 2*sqrt(Gain.KP_COM)*0;
+    Gain.KP_AngularMomentum = 10 ;
+    Gain.KD_AngularMomentum = 2*sqrt(Gain.KP_AngularMomentum);
+
+    % Impedances acting in the null space of the desired contact forces 
+    impTorso            = [10   10   20]; 
+
+    impArms             = [10   10   10    8];
+
+    impLeftLeg          = [30   30   30    60   10   10]; 
+
+    impRightLeg         = [30   30   30    60   10   10];                                            
+end
+
+% PARAMETERS FOR ONE FOOT BALANCING
+if sum(Config.LEFT_RIGHT_FOOT_IN_CONTACT) == 1
+    
+    Gain.KP_COM               = diag([50  100  50]);
+    Gain.KD_COM               = diag([0   0    0]);
+    Gain.KP_AngularMomentum   = 1 ;
+    Gain.KD_AngularMomentum   = 1 ;
+
+    % Impedances acting in the null space of the desired contact forces    
+    impTorso            = [20   20   30];
+    
+    impArms             = [15   15   15    8];
+                        
+    impLeftLeg          = [30   30   30    120   10   10];
+
+    impRightLeg         = [30   30   30    60    10   10];   
+end
+
+Gain.impedances         = [impTorso(1,:),impArms(1,:),impArms(1,:),impLeftLeg(1,:),impRightLeg(1,:)];
+Gain.dampings           = 0*sqrt(Gain.impedances);
+
+if (size(Gain.impedances,2) ~= ROBOT_DOF)
+    error('Dimension mismatch between ROBOT_DOF and dimension of the variable impedences. Check these variables in the file gains.m');
+end
+
+% Smoothing time gain scheduling (YOGA DEMO ONLY)
+Gain.SmoothingTimeGainScheduling = 0.02;
+
+%% References for CoM trajectory (COORDINATOR DEMO ONLY)
+
+% that the robot waits before starting the left-and-right 
+Config.noOscillationTime = 0;   
+
+if Config.DEMO_MOVEMENTS && sum(Config.LEFT_RIGHT_FOOT_IN_CONTACT) == 2
+        
+    Config.directionOfOscillation = [0;1;0];
+    % amplitude of oscillations in meters
+    Config.amplitudeOfOscillation = 0.02;
+    % frequency of oscillations in hertz
+    Config.frequencyOfOscillation = 0.2;
+else
+    Config.directionOfOscillation  = [0;0;0];
+    Config.amplitudeOfOscillation  = 0.0;  
+    Config.frequencyOfOscillation  = 0.0;
+end
+
+%% State machine parameters
+
+% smoothing time for joints and CoM
+Sm.smoothingTimeCoM_Joints = 1; 
+
+% time between two yoga positions (YOGA DEMO ONLY)
+Sm.joints_pauseBetweenYogaMoves = 0;
+
+% contact forces threshold (YOGA DEMO ONLY)
+Sm.wrench_thresholdContactOn  = 1;
+Sm.wrench_thresholdContactOff = 1;
+
+% threshold on CoM and joints error (YOGA DEMO ONLY)
+Sm.CoM_threshold                = 0; 
+Sm.joints_thresholdNotInContact = 0;
+Sm.joints_thresholdInContact    = 0;
+
+% initial state for state machine (YOGA DEMO ONLY)
+Sm.stateAt0 = 1;
+
+% delta to be summed to the reference CoM position (YOGA DEMO ONLY)
+Sm.CoM_delta = [0; 0; 0];
+
+% joint references (YOGA DEMO ONLY)
+Sm.joints_references   = zeros(1,ROBOT_DOF);
+Sm.joints_leftYogaRef  = zeros(1,ROBOT_DOF+1);
+Sm.joints_rightYogaRef = zeros(1,ROBOT_DOF+1);
+
+% configuration parameters for state machine (YOGA DEMO ONLY) 
+Sm.tBalancing           = 1;
+Sm.tBalancingBeforeYoga = 1;
+Sm.skipYoga             = false;
+Sm.demoOnlyBalancing    = false;
+Sm.demoOnlyRightFoot    = false;
+Sm.yogaAlsoOnRightFoot  = false;
+Sm.yogaInLoop           = false;
+
+%% Constraints for QP for balancing
+
+% The friction cone is approximated by using linear interpolation of the circle. 
+% So, numberOfPoints defines the number of points used to interpolate the circle 
+% in each cicle's quadrant
+numberOfPoints               = 4;  
+forceFrictionCoefficient     = 1;  
+torsionalFrictionCoefficient = 1/75;
+
+% physical size of the foot                             
+feet_size                    = [-0.07  0.07;   % xMin, xMax
+                                -0.03  0.03];  % yMin, yMax    
+ 
+fZmin                        = 10;
+
+%% Regularization parameters
+Reg.pinvDamp_nu_b = 1e-7;
+Reg.pinvDamp      = 0.01; 
+Reg.pinvTol       = 1e-5;
+Reg.impedances    = 0.1;
+Reg.dampings      = 0;
+Reg.HessianQP     = 1e-5;

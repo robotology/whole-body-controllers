@@ -11,7 +11,7 @@
 %         - Config = user defined configuration
 %
 %
-% OUTPUT: - references_CoM = [3 * 3] desired CoM position, velocity and acceleration
+% OUTPUT: - references_CoM = [9 * 1] desired CoM position, velocity and acceleration
 %
 % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
 %          
@@ -43,5 +43,5 @@ function references_CoM = referenceGeneratorCoM(pos_CoM_0, t, Config)
         acc_CoM_des =           -Amplitude*(2*pi*frequency)^2*sin(2*pi*frequency*t)*Config.directionOfOscillation;
     end
     
-    references_CoM = [pos_CoM_des, vel_CoM_des, acc_CoM_des];
+    references_CoM = [pos_CoM_des; vel_CoM_des; acc_CoM_des];
 end
