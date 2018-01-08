@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.498"
+    ComputedModelVersion    "1.499"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -63,11 +63,12 @@ Model {
   Creator		  "gnava"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "gabri"
+  LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jan 07 23:28:03 2018"
-  RTWModifiedTimeStamp	  437268483
-  ModelVersionFormat	  "1.%<AutoIncrement:498>"
+  LastModifiedDate	  "Mon Jan 08 19:55:51 2018"
+  RTWModifiedTimeStamp	  437342150
+  ModelVersionFormat	  "1.%<AutoIncrement:499>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -181,6 +182,7 @@ Model {
 	  AbsTol		  "auto"
 	  FixedStep		  "Config.t_step"
 	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -557,14 +559,17 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
+	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
@@ -621,6 +626,7 @@ Model {
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
+	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      GenerateSampleERTMain   off
@@ -634,6 +640,7 @@ Model {
 	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -676,7 +683,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    [ 81, 81, 951, 689 ]
+      ConfigPrmDlgPosition    [ 81, 81, 951, 689 ]  
     }
     PropName		    "ConfigurationSets"
   }
@@ -869,6 +876,7 @@ Model {
     }
     Block {
       BlockType		      M-S-Function
+      FunctionName	      "matlabfile"
       DisplayMFileStacktrace  on
     }
     Block {
@@ -895,7 +903,6 @@ Model {
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
-      OutputWhenUnConnected   off
     }
     Block {
       BlockType		      PermuteDimensions
@@ -983,6 +990,8 @@ Model {
       MaskHideContents	      off
       SFBlockType	      "NONE"
       GeneratePreprocessorConditionals off
+      PropagateVariantConditions off
+      TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
     }
     Block {
@@ -1394,26 +1403,38 @@ Model {
 	      Port {
 		PortNumber		2
 		Name			"Hessian"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"gradient"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"ConstraintMatrix_equality"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"biasVectorConstraint_equality"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		6
 		Name			"ConstraintMatrix_inequality"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		7
 		Name			"biasVectorConstraint_inequality"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -4193,6 +4214,8 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "nu_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -4999,6 +5022,8 @@ Model {
 		  Port {
 		    PortNumber		    2
 		    Name		    "acc_task_star"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -5342,18 +5367,26 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "pos_vel_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "pose_vel_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "pose_vel_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "orient_vel_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -6784,18 +6817,26 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "Hessian"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "gradient"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "ConstraintMatrix"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "biasVectorConstraint"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -7213,6 +7254,8 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "pose_bDot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -7451,6 +7494,8 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "pose_b_0"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -7562,6 +7607,8 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -8232,22 +8279,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8268,22 +8325,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8304,22 +8371,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8340,22 +8417,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8376,22 +8463,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8412,22 +8509,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8448,22 +8555,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8721,8 +8838,8 @@ Model {
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
 		  SaveName		  ikin_s_des_DATA
-		  YMin			  "-11.90222~-45.26212~-46.08845~-9.03078~-11.447"
-		  YMax			  "4.48373~58.05814~58.53626~11.29409~8.91964"
+		  YMin			  -11.90222~-45.26212~-46.08845~-9.03078~-11.447
+		  YMax			  4.48373~58.05814~58.53626~11.29409~8.91964
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -8765,8 +8882,8 @@ Model {
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
 		  SaveName		  ikin_sDot_des_DATA
-		  YMin			  "-0.47456~-14.50445~-15.39339~-10.51045~-10.40594"
-		  YMax			  "2.4217~15.9588~9.33321~10.38569~10.51431"
+		  YMin			  -0.47456~-14.50445~-15.39339~-10.51045~-10.40594
+		  YMax			  2.4217~15.9588~9.33321~10.38569~10.51431
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -8809,8 +8926,8 @@ Model {
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
 		  SaveName		  ikin_s_err_DATA
-		  YMin			  "-5.9022~-0.98644~-1.02648~-5.57984~-5.5405"
-		  YMax			  "6.12835~0.97735~0.94334~5.54057~5.57971"
+		  YMin			  -5.9022~-0.98644~-1.02648~-5.57984~-5.5405
+		  YMax			  6.12835~0.97735~0.94334~5.54057~5.57971
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -8853,8 +8970,8 @@ Model {
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
 		  SaveName		  ikin_sDot_err_DATA
-		  YMin			  "-0.00011~-0.000021~-0.00064~-0.00028~-0.00066"
-		  YMax			  "0.00008~0.000046~0.00101~0.00072~0.00021"
+		  YMin			  -0.00011~-0.000021~-0.00064~-0.00028~-0.00066
+		  YMax			  0.00008~0.000046~0.00101~0.00072~0.00021
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -8897,8 +9014,8 @@ Model {
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
 		  SaveName		  ikin_sDDot_ref_DATA
-		  YMin			  "-7.50203~-26.23833~-26.94758~-27.71259~-52.07014"
-		  YMax			  "9.24166~25.25396~16.65308~52.07839~27.71067"
+		  YMin			  -7.50203~-26.23833~-26.94758~-27.71259~-52.07014
+		  YMax			  9.24166~25.25396~16.65308~52.07839~27.71067
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -8941,8 +9058,8 @@ Model {
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
 		  SaveName		  ikin_s_ref_DATA
-		  YMin			  "-0.01536~-39.51806~-39.51735~-0.19432~-0.34639"
-		  YMax			  "0.30074~57.93102~57.8583~0.09325~0.2485"
+		  YMin			  -0.01536~-39.51806~-39.51735~-0.19432~-0.34639
+		  YMax			  0.30074~57.93102~57.8583~0.09325~0.2485
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -8985,8 +9102,8 @@ Model {
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
 		  SaveName		  ikin_sDot_ref_DATA
-		  YMin			  "-1.00000~-1.00000~-1.00000~-1.00000~-1.00000"
-		  YMax			  "1.00000~1.00000~1.00000~1.00000~1.00000"
+		  YMin			  -1.00000~-1.00000~-1.00000~-1.00000~-1.00000
+		  YMax			  1.00000~1.00000~1.00000~1.00000~1.00000
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -10325,6 +10442,8 @@ Model {
 		  Port {
 		    PortNumber		    2
 		    Name		    "acc_task_star"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -10668,18 +10787,26 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "pos_vel_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "pose_vel_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "pose_vel_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "orient_vel_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -12277,46 +12404,68 @@ Model {
 		  Port {
 		    PortNumber		    2
 		    Name		    "Kp_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "Kd_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "Kp_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "Kd_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    6
 		    Name		    "Kp_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    7
 		    Name		    "Kd_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    8
 		    Name		    "Kp_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    9
 		    Name		    "Kd_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    10
 		    Name		    "impedances"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    11
 		    Name		    "dampings"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    12
 		    Name		    "smoothingTimeGains"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -14368,14 +14517,20 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "omegaDot_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "omegaDot_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "omegaDot_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -15168,14 +15323,20 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "RDot_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "RDot_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "RDot_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -15901,18 +16062,26 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "smoothingTime_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "smoothingTime_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "smoothingTime_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "smoothingTime_joints"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16945,6 +17114,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16963,6 +17134,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -17113,6 +17286,8 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -17294,6 +17469,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -17678,6 +17855,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -17696,6 +17875,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -17846,6 +18027,8 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -18027,6 +18210,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -18619,6 +18804,8 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_walking_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -18731,6 +18918,8 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_walking_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -19247,6 +19436,8 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "nu_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -20137,34 +20328,50 @@ Model {
 		    Port {
 		    PortNumber		    2
 		    Name		    "state"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "references_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "references_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "references_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    6
 		    Name		    "references_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    7
 		    Name		    "feetInContact"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    8
 		    Name		    "references_s"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    9
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -22987,8 +23194,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      rotErr_LFoot_ref_DATA
-	      YMin		      "0.9~-0.00000000000000000071"
-	      YMax		      "2.00000~0.00000000000000000005"
+	      YMin		      0.9~-0.00000000000000000071
+	      YMax		      2.00000~0.00000000000000000005
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -23028,8 +23235,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      rotError_RFoot_ref_DATA
-	      YMin		      "-1.24985~-1.19701"
-	      YMax		      "1.24998~1.24383"
+	      YMin		      -1.24985~-1.19701
+	      YMax		      1.24998~1.24383
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -23069,8 +23276,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      rotErr_Root_ref_DATA
-	      YMin		      "0.9999999999999993~-0.00000000000000002"
-	      YMax		      "1.0000000000000009~0.00000000000000017"
+	      YMin		      0.9999999999999993~-0.00000000000000002
+	      YMax		      1.0000000000000009~0.00000000000000017
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -23566,10 +23773,14 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force measured left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"moments measured left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -23585,10 +23796,14 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force measured right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"moments measured right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -23604,10 +23819,14 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force desired right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"moments measured right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -23623,10 +23842,14 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force desired left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"moments measured left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -23647,22 +23870,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -23683,22 +23916,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -23719,22 +23962,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -23753,8 +24006,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      exitFlagQP_DATA
-	      YMin		      "-1.125~0.75"
-	      YMax		      "0.125~3.25"
+	      YMin		      -1.125~0.75
+	      YMax		      0.125~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -23808,6 +24061,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force error left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -23826,6 +24081,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"moments measured left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -23844,6 +24101,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force error right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -23862,6 +24121,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"moments measured right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -23880,8 +24141,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      tauDes_DATA
-	      YMin		      "-53.57868~-19.05275~-25.27462~-20.80325~-55.64267~0.75"
-	      YMax		      "24.62059~21.25591~19.39736~16.76345~66.50343~3.25"
+	      YMin		      -53.57868~-19.05275~-25.27462~-20.80325~-55.64267~0.75
+	      YMax		      24.62059~21.25591~19.39736~16.76345~66.50343~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -23925,8 +24186,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      LFoot_forces_DATA
-	      YMin		      "-129.37779~-67.86586~-208.91926~0.75"
-	      YMax		      "323.35949~339.54275~414.87623~3.25"
+	      YMin		      -129.37779~-67.86586~-208.91926~0.75
+	      YMax		      323.35949~339.54275~414.87623~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -23968,8 +24229,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      RFoot_forces_DATA
-	      YMin		      "-186.2003~-68.01121~-196.68783~0.75"
-	      YMax		      "344.2728~340.26999~180.95626~3.25"
+	      YMin		      -186.2003~-68.01121~-196.68783~0.75
+	      YMax		      344.2728~340.26999~180.95626~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -24016,6 +24277,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_WBDT"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24039,6 +24302,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wR_WBDT"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24057,8 +24322,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      tauMeas_DATA
-	      YMin		      "-68.23983~-72.62414~-64.42624~-62.24689~-69.9424~0.75"
-	      YMax		      "74.12243~74.73602~70.33173~75.8162~68.37982~3.25"
+	      YMin		      -68.23983~-72.62414~-64.42624~-62.24689~-69.9424~0.75
+	      YMax		      74.12243~74.73602~70.33173~75.8162~68.37982~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -24102,8 +24367,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      LFoot_moments_DATA
-	      YMin		      "-58.62138~-58.62138~-58.62138~-58.62138"
-	      YMax		      "275.46472~275.46472~275.46472~275.46472"
+	      YMin		      -58.62138~-58.62138~-58.62138~-58.62138
+	      YMax		      275.46472~275.46472~275.46472~275.46472
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -24145,8 +24410,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      RFoot_moments_DATA
-	      YMin		      "-0.39235~-1.00000~-0.39235~0.9"
-	      YMax		      "2.63626~1.00000~2.63626~1.1"
+	      YMin		      -0.39235~-1.00000~-0.39235~0.9
+	      YMax		      2.63626~1.00000~2.63626~1.1
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -24188,8 +24453,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      tauErr_DATA
-	      YMin		      "-21.19301~-15.40032~-16.23554~-28.77317~-27.38859~0.75"
-	      YMax		      "25.49644~20.6188~19.45962~25.35579~25.11667~3.25"
+	      YMin		      -21.19301~-15.40032~-16.23554~-28.77317~-27.38859~0.75
+	      YMax		      25.49644~20.6188~19.45962~25.35579~25.11667~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -24844,22 +25109,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24880,22 +25155,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24914,8 +25199,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      impedances_DATA
-	      YMin		      "-10~-10~-10~-10~-10~-10"
-	      YMax		      "10~10~10~10~10~10"
+	      YMin		      -10~-10~-10~-10~-10~-10
+	      YMax		      10~10~10~10~10~10
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -24941,7 +25226,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [403 202 963 622]
+	      Location		      [403 514 963 934]
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -24959,8 +25244,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      dampings_DATA
-	      YMin		      "-10~-10~-10~-10~-10~-10"
-	      YMax		      "10~10~10~10~10~10"
+	      YMin		      -10~-10~-10~-10~-10~-10
+	      YMax		      10~10~10~10~10~10
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -24986,7 +25271,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [403 202 963 622]
+	      Location		      [403 514 963 934]
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -25004,8 +25289,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      Kp_rot_task_DATA
-	      YMin		      "-0.15075~0.9"
-	      YMax		      "0.68063~1.1"
+	      YMin		      -0.15075~0.9
+	      YMax		      0.68063~1.1
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -25045,8 +25330,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      Kp_CoM_DATA
-	      YMin		      "40.00000~0.75"
-	      YMax		      "60.00000~3.25"
+	      YMin		      40.00000~0.75
+	      YMax		      60.00000~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -25086,8 +25371,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      Kp_LFoot_DATA
-	      YMin		      "27.5~0.75"
-	      YMax		      "52.5~3.25"
+	      YMin		      27.5~0.75
+	      YMax		      52.5~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -25127,8 +25412,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      Kp_RFoot_DATA
-	      YMin		      "-0.15075~0.9"
-	      YMax		      "0.68063~1.1"
+	      YMin		      -0.15075~0.9
+	      YMax		      0.68063~1.1
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -25168,8 +25453,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      Kd_CoM_DATA
-	      YMin		      "12.3762~0.625"
-	      YMax		      "15.10531~4.375"
+	      YMin		      12.3762~0.625
+	      YMax		      15.10531~4.375
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -25209,8 +25494,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      Kd_LFoot_DATA
-	      YMin		      "10.55599~0.75"
-	      YMax		      "14.5406~3.25"
+	      YMin		      10.55599~0.75
+	      YMax		      14.5406~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -25250,8 +25535,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      Kd_RFoot_DATA
-	      YMin		      "-0.15075~0.9"
-	      YMax		      "0.68063~1.1"
+	      YMin		      -0.15075~0.9
+	      YMax		      0.68063~1.1
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -25291,8 +25576,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      Kd_rot_task_DATA
-	      YMin		      "-0.15075~0.9"
-	      YMax		      "0.68063~1.1"
+	      YMin		      -0.15075~0.9
+	      YMax		      0.68063~1.1
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -25671,22 +25956,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -25707,22 +26002,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -25743,22 +26048,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -25779,22 +26094,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -25897,8 +26222,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      basePos_DATA
-	      YMin		      "-0.20029~0.75"
-	      YMax		      "0.92593~3.25"
+	      YMin		      -0.20029~0.75
+	      YMax		      0.92593~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -25938,8 +26263,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      baseVel_DATA
-	      YMin		      "-0.41349~0.75"
-	      YMax		      "0.49364~3.25"
+	      YMin		      -0.41349~0.75
+	      YMax		      0.49364~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -25979,8 +26304,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      jointDes_DATA
-	      YMin		      "-1.73238~-39.09396~-39.16347~-0.13035~-0.1588~0.9"
-	      YMax		      "-0.13168~54.24597~54.26229~0.09217~0.03558~1.1"
+	      YMin		      -1.73238~-39.09396~-39.16347~-0.13035~-0.1588~0.9
+	      YMax		      -0.13168~54.24597~54.26229~0.09217~0.03558~1.1
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -26024,8 +26349,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      feetInContact_DATA
-	      YMin		      "-0.125~0.75"
-	      YMax		      "1.125~3.25"
+	      YMin		      -0.125~0.75
+	      YMax		      1.125~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -26065,8 +26390,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      jointErr_DATA
-	      YMin		      "-10.0481~-14.25395~-12.82312~-15.16191~-15.05108~0.75"
-	      YMax		      "10.63111~10.66532~10.34559~9.36985~9.54972~3.25"
+	      YMin		      -10.0481~-14.25395~-12.82312~-15.16191~-15.05108~0.75
+	      YMax		      10.63111~10.66532~10.34559~9.36985~9.54972~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -26110,8 +26435,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      jointVel_DATA
-	      YMin		      "-22.02483~-54.17338~-59.81389~-28.54859~-29.79467~0.75"
-	      YMax		      "21.72199~42.41291~49.23324~62.06883~60.67695~3.25"
+	      YMin		      -22.02483~-54.17338~-59.81389~-28.54859~-29.79467~0.75
+	      YMax		      21.72199~42.41291~49.23324~62.06883~60.67695~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -26155,8 +26480,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      jointMeas_DATA
-	      YMin		      "-12.2455~-64.79663~-127.11597~-45.09359~-43.9411~0.75"
-	      YMax		      "70.11382~60.78722~193.40456~24.67766~34.7354~3.25"
+	      YMin		      -12.2455~-64.79663~-127.11597~-45.09359~-43.9411~0.75
+	      YMax		      70.11382~60.78722~193.40456~24.67766~34.7354~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -26668,8 +26993,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      forKin_CoM_DATA
-	      YMin		      "-0.08753~-0.06676~-0.07613~0.5"
-	      YMax		      "0.5825~0.57742~0.06621~5.5"
+	      YMin		      -0.08753~-0.06676~-0.07613~0.5
+	      YMax		      0.5825~0.57742~0.06621~5.5
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -26711,8 +27036,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      forKin_LFoot_DATA
-	      YMin		      "-0.1046~-0.10318~-0.01904~0.75"
-	      YMax		      "0.92419~0.92861~0.01513~3.25"
+	      YMin		      -0.1046~-0.10318~-0.01904~0.75
+	      YMax		      0.92419~0.92861~0.01513~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -26814,8 +27139,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      forKin_RFoot_DATA
-	      YMin		      "-0.18934~-0.19035~-0.01929~0.75"
-	      YMax		      "0.97544~0.97687~0.01522~3.25"
+	      YMin		      -0.18934~-0.19035~-0.01929~0.75
+	      YMax		      0.97544~0.97687~0.01522~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -26881,8 +27206,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      rotErr_LFoot_DATA
-	      YMin		      "0.99542~-0.11017~0.75"
-	      YMax		      "1.00051~0.11026~3.25"
+	      YMin		      0.99542~-0.11017~0.75
+	      YMax		      1.00051~0.11026~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -26923,8 +27248,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      rotErr_RFoot_DATA
-	      YMin		      "0.99764~-0.0799~0.75"
-	      YMax		      "1.00026~0.07989~3.25"
+	      YMin		      0.99764~-0.0799~0.75
+	      YMax		      1.00026~0.07989~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -26965,8 +27290,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      rotErr_Root_DATA
-	      YMin		      "0.99875~-0.05009~0.75"
-	      YMax		      "1.00014~0.05028~3.25"
+	      YMin		      0.99875~-0.05009~0.75
+	      YMax		      1.00014~0.05028~3.25
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -28543,7 +28868,7 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000012
+#   Stateflow 80000010
 #
 #
 Stateflow {
