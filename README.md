@@ -35,7 +35,7 @@ If all the required dependencies are installed, it is just necessary to clone th
 
 ### Mantainers
 
-Gabriele Nava (@gabrielenava)
+Gabriele Nava (https://github.com/gabrielenava)
 
 
 
