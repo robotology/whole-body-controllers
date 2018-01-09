@@ -2,7 +2,7 @@
 
 This module implements a torque control balancing and walking strategy. It computes the joint torques that minimize the error between the actual and a desired joint dynamics. The optimization procedure is subject to a set of equality and inequality contraints, and it is solved by means of a Quadratic Programming solver.
 
-For walking demo, CoM and joint references are provided by an external module implementing an MPC-LIP algorithm. For more information, **check this [documentation]()**.
+For walking demo, CoM and joint references are provided by an external module implementing an MPC-LIP algorithm. For more information, **check this [documentation](https://github.com/loc2/component_wholebody-teleoperation/blob/master/doc/how_to_run_torqueWalking_simulations.md)**.
 
 ### Compatibility
 
