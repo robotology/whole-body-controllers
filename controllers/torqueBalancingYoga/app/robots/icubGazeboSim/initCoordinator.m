@@ -74,6 +74,18 @@ end
 % Smoothing time gain scheduling (YOGA DEMO ONLY)
 Gain.SmoothingTimeGainScheduling = 0.02;
 
+%% Parameters for motors reflected inertia
+
+% inverse of the transmission ratio
+Config.invGamma = 100*eye(ROBOT_DOF);
+
+% motors inertia
+Config.I_m      = 1e-5*eye(ROBOT_DOF);
+
+% gain for feedforward term in joint torques calculation. Valid range: a
+% value between 0 and 1
+Config.K_ff     = 1;
+
 %% References for CoM trajectory (COORDINATOR DEMO ONLY)
 
 % that the robot waits before starting the left-and-right 
