@@ -68,12 +68,12 @@ Sm.smoothingTimeCoM = 0.5;
 
 % contact forces threshold (YOGA DEMO ONLY)
 Sm.wrench_thresholdContactLFoot  = [0;    % NOT USED
-                                    60;   % state ==  2  MOVE COM FORWARD
+                                    100;   % state ==  2  MOVE COM FORWARD
                                     140;  % state ==  3  TWO FEET BALANCING
                                     0];   % NOT USED
 
 Sm.wrench_thresholdContactRFoot  = [0     % NOT USED
-                                    60;   % state ==  2  MOVE COM FORWARD
+                                    100;   % state ==  2  MOVE COM FORWARD
                                     140;  % state ==  3  TWO FEET BALANCING
                                     0];   % NOT USED
                      
@@ -97,7 +97,7 @@ Sm.stateAt0 = 1;
 Sm.CoM_delta        = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT LEG
                        0.0     0.0   0.0;       % NOT USED
                        0.0867  0.0   0.0;       % state ==  2  MOVE COM FORWARD
-                       0.00    0.0   0.0;       % state ==  3  TWO FEET BALANCING
+                       0.005   0.0   0.0;       % state ==  3  TWO FEET BALANCING
                        0.03    0.0   0.22];     % state ==  4  LIFTING UP
 
 % configuration parameters for state machine (STANDUP DEMO ONLY) 

@@ -82,7 +82,7 @@ function  [w_H_b, constraints, CoM_des, qj_des, impedances, KPCoM, KDCoM, curren
         tDelta                    = t-tSwitch;
         jointsAndCoMSmoothingTime = Sm.smoothingTimeCoM_Joints(state);
         
-        if (wrench_leftFoot(3) > Sm.wrench_thresholdContactLFoot(state)) &&  (wrench_rightFoot(3) > Sm.wrench_thresholdContactRFoot(state)) && tDelta > 1
+        if (wrench_leftFoot(3) > Sm.wrench_thresholdContactLFoot(state)) &&  (wrench_rightFoot(3) > Sm.wrench_thresholdContactRFoot(state)) && tDelta > 0.5
             state       = 4;
             tSwitch     = t;
             CoMprevious = xCoM;
