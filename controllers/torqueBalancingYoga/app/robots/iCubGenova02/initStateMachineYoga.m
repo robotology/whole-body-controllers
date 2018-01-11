@@ -127,7 +127,7 @@ Sm.CoM_delta       = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF
 % configuration parameters for state machine (YOGA DEMO ONLY) 
 Sm.tBalancing           = 1;
 Sm.tBalancingBeforeYoga = 1;
-Sm.yogaExtended         = true;
+Sm.yogaExtended         = false;
 Sm.skipYoga             = false;
 Sm.demoOnlyBalancing    = false;
 Sm.demoOnlyRightFoot    = false;

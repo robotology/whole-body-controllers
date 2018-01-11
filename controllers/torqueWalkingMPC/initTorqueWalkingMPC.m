@@ -25,7 +25,8 @@ close all
 % Set the YARP_ROBOT_NAME environmental variable
 
 % setenv('YARP_ROBOT_NAME','iCubGenova04');
-  setenv('YARP_ROBOT_NAME','icubGazeboSim');
+% setenv('YARP_ROBOT_NAME','icubGazeboSim');
+  setenv('YARP_ROBOT_NAME','iCubGenova02');
 
 % SELECT THE DEMO TO BE PERFORMED:
 %
@@ -35,7 +36,7 @@ close all
 %    - 'MPC_WALKING' = the model is connected to an MPC controller which
 %                      streams references and contact status for walking.
 %
-DEMO_TYPE = 'MPC_WALKING';
+DEMO_TYPE = 'EXAMPLE_STATEMACHINE';
 
 % Simulation time
 Config.t_end = inf; % [s]

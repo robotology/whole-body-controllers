@@ -27,8 +27,8 @@ clc
 % and set the environmental variable YARP_ROBOT_NAME = icubGazeboSim. 
 
 % setenv('YARP_ROBOT_NAME','iCubGenova04');
-% setenv('YARP_ROBOT_NAME','iCubGenova02');
-  setenv('YARP_ROBOT_NAME','icubGazeboSim');
+  setenv('YARP_ROBOT_NAME','iCubGenova02');
+% setenv('YARP_ROBOT_NAME','icubGazeboSim');
 
 % simulation time  
 Config.Ts              = 0.01;
@@ -36,7 +36,7 @@ Config.SIMULATION_TIME = inf;
 
 % Default behaviour: gravity compensation. If MOVING = true, the robot will also move 
 % all actuated joints following a sine trajectory
-MOVING = false;
+MOVING = true;
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONFIGURATIONS COMPLETED: loading gains and parameters for the specific robot

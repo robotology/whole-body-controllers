@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.498"
+    ComputedModelVersion    "1.499"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -20,7 +20,7 @@ Model {
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
   DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 11 0"
+  SuppressorTable	  "22 serialization::archive 11 0 3 0 0 0 11 0"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -66,8 +66,8 @@ Model {
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
 	Extents			[1821.0, 911.0]
-	ZoomFactor		[1.2057124156453833]
-	Offset			[-335.15519968551985, -59.958499854927311]
+	ZoomFactor		[1.2050300656648256]
+	Offset			[-335.58280738636108, -60.379767408639168]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -98,11 +98,12 @@ Model {
   Creator		  "gnava"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "gabri"
+  LastModifiedBy	  "icub"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jan 07 23:27:58 2018"
-  RTWModifiedTimeStamp	  437268477
-  ModelVersionFormat	  "1.%<AutoIncrement:498>"
+  LastModifiedDate	  "Thu Jan 11 14:57:04 2018"
+  RTWModifiedTimeStamp	  437583082
+  ModelVersionFormat	  "1.%<AutoIncrement:499>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -210,6 +211,7 @@ Model {
 	  AbsTol		  "auto"
 	  FixedStep		  "Config.t_step"
 	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -665,14 +667,17 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
+	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
@@ -737,6 +742,7 @@ Model {
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
+	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
@@ -752,6 +758,7 @@ Model {
 	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -842,7 +849,7 @@ Model {
       Name		      "Configuration"
       ExtraOptions	      ""
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    [ 81, 81, 951, 689 ]
+      ConfigPrmDlgPosition     [ 81, 81, 951, 689 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -1037,6 +1044,7 @@ Model {
     }
     Block {
       BlockType		      M-S-Function
+      FunctionName	      "matlabfile"
       DisplayMFileStacktrace  on
     }
     Block {
@@ -1065,8 +1073,6 @@ Model {
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
-      MustResolveToSignalObject	off
-      OutputWhenUnConnected   off
     }
     Block {
       BlockType		      PermuteDimensions
@@ -1198,7 +1204,7 @@ Model {
   System {
     Name		    "torqueWalkingMPC"
     Location		    [65, 24, 1920, 1080]
-    Open		    off
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1565,31 +1571,43 @@ Model {
 	      Parameters	      "Sat"
 	      PortCounts	      "[15 7]"
 	      SFunctionDeploymentMode off
-	      EnableBusSupport	      off
+	      EnableBusSupport	      on
 	      SFcnIsStateOwnerBlock   off
 	      Port {
 		PortNumber		2
 		Name			"Hessian"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"gradient"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"ConstraintMatrix_equality"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"biasVectorConstraint_equality"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		6
 		Name			"ConstraintMatrix_inequality"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		7
 		Name			"biasVectorConstraint_inequality"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -4365,11 +4383,13 @@ Model {
 		    Parameters		    "Sat"
 		    PortCounts		    "[4 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "nu_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -5172,11 +5192,13 @@ Model {
 		  Parameters		  "Sat"
 		  PortCounts		  "[13 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "acc_task_star"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -5516,23 +5538,31 @@ Model {
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[8 5]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "pos_vel_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "pose_vel_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "pose_vel_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "orient_vel_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -6959,23 +6989,31 @@ Model {
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[8 5]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "Hessian"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "gradient"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "ConstraintMatrix"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "biasVectorConstraint"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -7389,11 +7427,13 @@ Model {
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[2 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "pose_bDot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -7628,11 +7668,13 @@ Model {
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "pose_b_0"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -7740,11 +7782,13 @@ Model {
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -8415,22 +8459,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8451,22 +8505,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8487,22 +8551,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8523,22 +8597,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8559,22 +8643,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8595,22 +8689,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8631,22 +8735,32 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -10850,11 +10964,13 @@ Model {
 		  Parameters		  "Sat"
 		  PortCounts		  "[13 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "acc_task_star"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -11194,23 +11310,31 @@ Model {
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[8 5]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "pos_vel_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "pose_vel_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "pose_vel_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "orient_vel_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -12804,51 +12928,73 @@ Model {
 		  Parameters		  "Config,Gains"
 		  PortCounts		  "[1 12]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "Kp_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "Kd_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "Kp_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "Kd_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    6
 		    Name		    "Kp_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    7
 		    Name		    "Kd_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    8
 		    Name		    "Kp_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    9
 		    Name		    "Kd_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    10
 		    Name		    "impedances"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    11
 		    Name		    "dampings"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    12
 		    Name		    "smoothingTimeGains"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -14383,7 +14529,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"144"
+		ZoomFactor		"145"
 		Block {
 		  BlockType		  Inport
 		  Name			  "w_R_LFoot_des"
@@ -14896,19 +15042,25 @@ Model {
 		    Parameters		    "Config"
 		    PortCounts		    "[10 4]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "omegaDot_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "omegaDot_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "omegaDot_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -15697,19 +15849,25 @@ Model {
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[6 4]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "RDot_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "RDot_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "RDot_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16431,23 +16589,31 @@ Model {
 		    Parameters		    "Config"
 		    PortCounts		    "[1 5]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "smoothingTime_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "smoothingTime_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "smoothingTime_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "smoothingTime_joints"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -17480,6 +17646,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -17498,6 +17666,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -17644,11 +17814,13 @@ Model {
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -17830,6 +18002,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -18214,6 +18388,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -18232,6 +18408,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -18378,11 +18556,13 @@ Model {
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -18564,6 +18744,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -19152,11 +19334,13 @@ Model {
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_walking_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -19265,11 +19449,13 @@ Model {
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_walking_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -19782,11 +19968,13 @@ Model {
 		    Parameters		    "Sat"
 		    PortCounts		    "[4 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "nu_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -20673,39 +20861,55 @@ Model {
 		    Parameters		    "Config"
 		    PortCounts		    "[16 9]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "state"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "references_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "references_LFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "references_RFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    6
 		    Name		    "references_rot_task"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    7
 		    Name		    "feetInContact"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    8
 		    Name		    "references_s"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    9
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -21759,7 +21963,7 @@ Model {
 	      SourceType	      "YARP Read"
 	      portName		      "PORTS.LFOOT_DES "
 	      signalSize	      "7"
-	      blocking		      on
+	      blocking		      off
 	      timestamp		      off
 	      autoconnect	      on
 	      errorOnConnection	      off
@@ -24133,10 +24337,14 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force measured left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"moments measured left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24152,10 +24360,14 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force measured right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"moments measured right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24171,10 +24383,14 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force desired right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"moments measured right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24190,10 +24406,14 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force desired left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"moments measured left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24214,22 +24434,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24250,22 +24480,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24286,22 +24526,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24383,6 +24633,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force error left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24401,6 +24653,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"moments measured left foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24419,6 +24673,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"force error right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24437,6 +24693,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"moments measured right foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24698,6 +24956,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_WBDT"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -24721,6 +24981,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wR_WBDT"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -25679,22 +25941,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -25715,22 +25987,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -26596,22 +26878,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -26632,22 +26924,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -26668,22 +26970,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -26704,22 +27016,32 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -29832,7 +30154,7 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000012
+#   Stateflow 80000010
 #
 #
 Stateflow {

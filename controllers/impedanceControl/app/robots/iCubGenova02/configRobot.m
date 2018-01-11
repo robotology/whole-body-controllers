@@ -12,7 +12,7 @@ if MOVING
     Kp     = 10*diag(ones(1,ROBOT_DOF));
     Kd     = 2*sqrt(Kp)*0;
     
-    AMPLS  = 5*ones(1,ROBOT_DOF);
+    AMPLS  = 15*ones(1,ROBOT_DOF);
     FREQS  = 0.25*ones(1,ROBOT_DOF);
    
 else

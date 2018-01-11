@@ -83,6 +83,10 @@ Sat.toll_feetInContact = 0.1;
 % Damping for the pseudoinverse used for computing the floating base velocity
 Sat.pinvDamp_nu_b = 1e-6;
 
+% If true, the feet accelerations are zero when the foot is in contact. If false, 
+% feet accelerations are equal to a feedforward + feedback terms
+Sat.zeroAccWhenFeetInContact = false;
+
 %% Smoothing of reference trajectories
 
 % If true, reference trajectories are smoothed internally

@@ -128,7 +128,7 @@ function acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_
     
     % desired left foot acceleration. If balancing on left foot, then
     % the desired left foot acceleration is zero
-    if feetInContact(1) > (1-Sat.toll_feetInContact)
+    if feetInContact(1) > (1-Sat.toll_feetInContact) && Sat.zeroAccWhenFeetInContact
         
         acc_LFoot_star = zeros(3,1);
     else
@@ -137,7 +137,7 @@ function acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_
         
     % desired right foot acceleration. If balancing on right foot, then
     % the desired right foot acceleration is zero
-    if feetInContact(2) > (1-Sat.toll_feetInContact)
+    if feetInContact(2) > (1-Sat.toll_feetInContact) && Sat.zeroAccWhenFeetInContact
         
         acc_RFoot_star = zeros(3,1);
     else
@@ -151,7 +151,7 @@ function acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_
 
     % desired left foot angular acceleration. If balancing on left foot, 
     % then the desired left foot angular acceleration is zero
-    if feetInContact(1) > (1-Sat.toll_feetInContact)
+    if feetInContact(1) > (1-Sat.toll_feetInContact) && Sat.zeroAccWhenFeetInContact
         
         omegaDot_LFoot_star = zeros(3,1);
     else
@@ -160,7 +160,7 @@ function acc_task_star = setTasksAccelerations(pos_vel_acc_CoM_des,pose_vel_acc_
         
     % desired right foot angular acceleration. If balancing on right foot, 
     % then the desired right foot angular acceleration is zero
-    if feetInContact(2) > (1-Sat.toll_feetInContact)
+    if feetInContact(2) > (1-Sat.toll_feetInContact) && Sat.zeroAccWhenFeetInContact
         
         omegaDot_RFoot_star = zeros(3,1);
     else
