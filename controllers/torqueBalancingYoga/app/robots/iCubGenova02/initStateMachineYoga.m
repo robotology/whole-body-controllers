@@ -80,7 +80,7 @@ Gain.SmoothingTimeGainScheduling = 2;
 Sm.smoothingTimeCoM_Joints       = [1;   %% state ==  1  TWO FEET BALANCING
                                     1;   %% state ==  2  COM TRANSITION TO LEFT FOOT
                                     1;   %% state ==  3  LEFT FOOT BALANCING 
-                                    1.5; %% state ==  4  YOGA LEFT FOOT
+                                    2;   %% state ==  4  YOGA LEFT FOOT
                                     2;   %% state ==  5  PREPARING FOR SWITCHING
                                     2;   %% state ==  6  LOOKING FOR CONTACT 
                                     1;   %% state ==  7  TRANSITION INIT POSITION
@@ -125,14 +125,14 @@ Sm.CoM_delta       = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF
                       0.0,  0.00,  0.0];  %% NOT USED
 
 % configuration parameters for state machine (YOGA DEMO ONLY) 
-Sm.tBalancing           = 1;
-Sm.tBalancingBeforeYoga = 1;
-Sm.yogaExtended         = false;
-Sm.skipYoga             = false;
-Sm.demoOnlyBalancing    = false;
-Sm.demoOnlyRightFoot    = false;
-Sm.yogaAlsoOnRightFoot  = true;
-Sm.yogaInLoop           = false;
+Sm.tBalancing               = 1;
+Sm.tBalancingBeforeYoga     = 1;
+Sm.yogaExtended             = true;
+Sm.skipYoga                 = false;
+Sm.demoOnlyBalancing        = false;
+Sm.demoStartsOnRightSupport = false;
+Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from right foot
+Sm.yogaInLoop               = false;
 
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [  zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED 

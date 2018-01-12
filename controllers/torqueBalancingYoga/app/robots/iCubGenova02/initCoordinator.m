@@ -133,13 +133,13 @@ Sm.joints_leftYogaRef  = zeros(1,ROBOT_DOF+1);
 Sm.joints_rightYogaRef = zeros(1,ROBOT_DOF+1);
 
 % configuration parameters for state machine (YOGA DEMO ONLY) 
-Sm.tBalancing           = 1;
-Sm.tBalancingBeforeYoga = 1;
-Sm.skipYoga             = false;
-Sm.demoOnlyBalancing    = false;
-Sm.demoOnlyRightFoot    = false;
-Sm.yogaAlsoOnRightFoot  = false;
-Sm.yogaInLoop           = false;
+Sm.tBalancing               = 1;
+Sm.tBalancingBeforeYoga     = 1;
+Sm.skipYoga                 = false;
+Sm.demoOnlyBalancing        = false;
+Sm.demoStartsOnRightSupport = false;
+Sm.yogaAlsoOnRightFoot      = false;
+Sm.yogaInLoop               = false;
 
 %% Constraints for QP for balancing
 

@@ -29,7 +29,7 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
          
            state = 2;
            
-           if Sm.demoOnlyRightFoot
+           if Sm.demoStartsOnRightSupport
                
                 w_H_fixedLink   = w_H_fixedLink*l_sole_H_b/r_sole_H_b;
                 state = 8;
@@ -338,7 +338,7 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
               state = 2; 
               w_H_fixedLink   = w_H_fixedLink*r_sole_H_b/l_sole_H_b;
               
-              if Sm.demoOnlyRightFoot
+              if Sm.demoStartsOnRightSupport
                  state = 8;           
                  w_H_fixedLink   = w_H_fixedLink*l_sole_H_b/r_sole_H_b;
               end

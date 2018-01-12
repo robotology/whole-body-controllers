@@ -68,12 +68,12 @@ Sm.smoothingTimeCoM = 0.5;
 
 % contact forces threshold (YOGA DEMO ONLY)
 Sm.wrench_thresholdContactLFoot  = [0;    % NOT USED
-                                    100;   % state ==  2  MOVE COM FORWARD
+                                    96;   % state ==  2  MOVE COM FORWARD
                                     140;  % state ==  3  TWO FEET BALANCING
                                     0];   % NOT USED
 
 Sm.wrench_thresholdContactRFoot  = [0     % NOT USED
-                                    100;   % state ==  2  MOVE COM FORWARD
+                                    96;   % state ==  2  MOVE COM FORWARD
                                     140;  % state ==  3  TWO FEET BALANCING
                                     0];   % NOT USED
                      

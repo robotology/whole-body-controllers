@@ -125,13 +125,13 @@ Sm.CoM_delta       = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF
                       0.0,  0.00, 0.0];  %% NOT USED
 
 % configuration parameters for state machine (YOGA DEMO ONLY) 
-Sm.tBalancing           = 1;
-Sm.tBalancingBeforeYoga = 1;
-Sm.skipYoga             = false;
-Sm.demoOnlyBalancing    = false;
-Sm.demoOnlyRightFoot    = false;
-Sm.yogaAlsoOnRightFoot  = true;
-Sm.yogaInLoop           = false;
+Sm.tBalancing               = 1;
+Sm.tBalancingBeforeYoga     = 1;
+Sm.skipYoga                 = false;
+Sm.demoOnlyBalancing        = false;
+Sm.demoStartsOnRightSupport = false;
+Sm.yogaAlsoOnRightFoot      = false;
+Sm.yogaInLoop               = false;
 
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [zeros(1,ROBOT_DOF);                                %% NOT USED
