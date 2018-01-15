@@ -75,7 +75,7 @@ Sat.tauDot_max = 10000;
 Sat.nuDDot_max = 10000;
 
 % Weight for the joint minimization task
-Sat.weight_tau = 0.001;
+Sat.weight_tau = 0.1;
 
 % Numerical tolerance for assuming a foot on contact
 Sat.toll_feetInContact = 0.1;
@@ -162,22 +162,22 @@ Gains.Kp_RFoot = [50, 50, 50, 30, 30, 30; ... % state = 1 two feet balancing
 Gains.Kd_RFoot = 2*sqrt(Gains.Kp_RFoot)/20; 
 
 % Root link orientation and angular velocity gains
-Gains.Kp_rot_task = [20, 20, 20; ...  % state = 1 two feet balancing
+Gains.Kp_rot_task = [25, 25, 25; ...  % state = 1 two feet balancing
                      40, 40, 40; ...  % state = 2 move CoM on left foot
                      25, 25, 25; ...  % state = 3 left foot balancing
                      30, 30, 30; ...  % state = 4 prepare for switching
                      20, 20, 20];     % state = 5 two feet balancing
                  
-Gains.Kd_rot_task =  2*sqrt(Gains.Kp_rot_task)/20; 
+Gains.Kd_rot_task =  2*sqrt(Gains.Kp_rot_task)/40; 
 
 % Joint position and velocity gains
     
                     % torso      % left arm       % right arm      % left leg               % right leg                                   
-Gains.impedances = [30  30  30,  30  30  30  30,  30  30  30  30,  30  50  30  60  80  80,  30  50  30  60  80  80;  ... % state = 1 two feet balancing          
+Gains.impedances = [30  30  30,  50  50  50  100,  50  50  50  100,  30  50  30  60  80  80,  30  50  30  60  80  80;  ... % state = 1 two feet balancing          
                     30  30  30,  20  20  20  20,  20  20  20  20,  35  40  35  65  10  15,  35  40  35  65  10  15;  ... % state = 2 move CoM on left foot
                     25  25  25,  10  10  10  10,  10  10  10  10,  40  35  30  70  20  10,  40  35  30  70  20  10;  ... % state = 3 left foot balancing
                     35  35  35,  15  15  15  15,  15  15  15  15,  25  30  25  55  25  25,  25  30  25  55  25  25;  ... % state = 4 prepare for switching
-                    20  20  20,  10  10  10  10,  10  10  10  10,  30  35  40  60  10  20,  30  35  40  60  10  20];     % state = 5 two feet balancing
+                    20  20  20,  10  10  10  10,  10  10  10  10,  30  35  40  60  10  20,  30  35  40  60  10  20]*2.5;     % state = 5 two feet balancing
                      
 Gains.dampings   = zeros(size(Gains.impedances));
 
