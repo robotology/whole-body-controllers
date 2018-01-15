@@ -71,8 +71,8 @@ WBT_modelName          = 'matlabTorqueBalancing';
 % Ports name list
 Ports.WBD_LEFTLEG_EE   = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';
 Ports.WBD_RIGHTLEG_EE  = '/wholeBodyDynamics/right_leg/cartesianEndEffectorWrench:o';
-Ports.RIGHT_ARM        = '/wholeBodyDynamics/left_arm/endEffectorWrench:o';
-Ports.LEFT_ARM         = '/wholeBodyDynamics/right_arm/endEffectorWrench:o';
+Ports.RIGHT_ARM        = '/wholeBodyDynamics/right_arm/endEffectorWrench:o';
+Ports.LEFT_ARM         = '/wholeBodyDynamics/left_arm/endEffectorWrench:o';
 
 % Controller period [s]
 Config.Ts              = 0.01; 
