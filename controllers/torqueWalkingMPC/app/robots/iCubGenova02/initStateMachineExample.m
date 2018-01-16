@@ -54,11 +54,11 @@ Config.FILTER_IMU_PITCH = false;
 Config.LFoot_in_contact_at0 = true;
 
 % If true, the robot will just balance on two feet (EXAMPLE_STATEMACHINE DEMO ONLY)
-Config.ONLY_BALANCING = true;
+Config.ONLY_BALANCING = false;
 
 % If Config.ONLY_BALANCING = false, this is the time the robot will balance
 % before it starts moving (EXAMPLE_STATEMACHINE DEMO ONLY)
-Config.t_balancing = 2;
+Config.t_balancing = 10;
 
 % If true, simulation is stopped when qpOASES outputs a "-2" error (QP is unfeasible)
 Config.CHECK_QP_ERROR = true;
@@ -66,10 +66,10 @@ Config.CHECK_QP_ERROR = true;
 %% Robot setup 
 
 % Joint torque saturation
-Sat.tau_max = 60; % [Nm]
+Sat.tau_max = 30; % [Nm]
 
 % Saturation on torque derivative (for QP solver)
-Sat.tauDot_max = 10000;
+Sat.tauDot_max = 1000;
 
 % Saturation on state jerk (for QP based inverse kinematics)
 Sat.nuDDot_max = 10000;
@@ -101,7 +101,7 @@ Config.SMOOTH_JOINT_REF    = true;
 % Smoothing time for tasks and joints references [s]
 Config.smoothingTime_CoM    = [2;2.5;2;2;1.5];
 Config.smoothingTime_LFoot  = [1;1.5;2;2;2.5];
-Config.smoothingTime_RFoot  = [2;1;1.5;2;3];
+Config.smoothingTime_RFoot  = [2;1;2;2;3];
 Config.smoothingTime_joints = [2;2;1;1.5;2];
 
 % Gains that will influence the smoothing of reference orientations. The
@@ -137,35 +137,35 @@ Config.deltaPos_RFoot = [ 0.000 0.00  0.000; ...   % state = 1 two feet balancin
 
 % CoM position and velocity gains
 Gains.Kp_CoM = [50, 50, 50; ...  % state = 1 two feet balancing
-                40, 40, 40; ...  % state = 2 move CoM on left foot
-                55, 55, 55; ...  % state = 3 left foot balancing
+                50, 50, 50; ...  % state = 2 move CoM on left foot
+                50, 50, 50; ...  % state = 3 left foot balancing
                 50, 50, 50; ...  % state = 4 prepare for switching
-                45, 45, 45];     % state = 5 two feet balancing
+                50, 50, 50];     % state = 5 two feet balancing
                 
 Gains.Kd_CoM = 2*sqrt(Gains.Kp_CoM)/20;
 
 % Feet position and velocity gains
-Gains.Kp_LFoot = [50, 50, 50, 30, 30, 30; ... % state = 1 two feet balancing
-                  40, 40, 40, 40, 40, 40; ... % state = 2 move CoM on left foot
-                  60, 60, 60, 45, 45, 45; ... % state = 3 left foot balancing
-                  55, 55, 55, 45, 45, 45; ... % state = 4 prepare for switching
-                  60, 60, 60, 45, 45, 45];    % state = 5 two feet balancing
+Gains.Kp_LFoot = [50, 50, 50, 20, 20, 20; ... % state = 1 two feet balancing
+                  50, 50, 50, 20, 20, 20; ... % state = 2 move CoM on left foot
+                  50, 50, 50, 20, 20, 20; ... % state = 3 left foot balancing
+                  50, 50, 50, 20, 20, 20; ... % state = 4 prepare for switching
+                  50, 50, 50, 20, 20, 20];    % state = 5 two feet balancing
               
-Gains.Kd_LFoot = 2*sqrt(Gains.Kp_LFoot)/20;
+Gains.Kd_LFoot = 2*sqrt(Gains.Kp_LFoot)/40;
 
-Gains.Kp_RFoot = [50, 50, 50, 30, 30, 30; ... % state = 1 two feet balancing
-                  40, 40, 40, 40, 40, 40; ... % state = 2 move CoM on left foot
-                  60, 60, 60, 45, 45, 45; ... % state = 3 left foot balancing
-                  55, 55, 55, 45, 45, 45; ... % state = 4 prepare for switching
-                  60, 60, 60, 45, 45, 45];    % state = 5 two feet balancing
+Gains.Kp_RFoot = [50, 50, 50, 20, 20, 20; ... % state = 1 two feet balancing
+                  50, 50, 50, 10, 10, 10; ... % state = 2 move CoM on left foot
+                  70, 70, 70, 10, 10, 10; ... % state = 3 left foot balancing
+                  70, 70, 70, 10, 10, 10; ... % state = 4 prepare for switching
+                  50, 50, 50, 10, 10, 10;];   % state = 5 two feet balancing
 
-Gains.Kd_RFoot = 2*sqrt(Gains.Kp_RFoot)/20; 
+Gains.Kd_RFoot = 2*sqrt(Gains.Kp_RFoot)/40; 
 
 % Root link orientation and angular velocity gains
-Gains.Kp_rot_task = [25, 25, 25; ...  % state = 1 two feet balancing
-                     40, 40, 40; ...  % state = 2 move CoM on left foot
-                     25, 25, 25; ...  % state = 3 left foot balancing
-                     30, 30, 30; ...  % state = 4 prepare for switching
+Gains.Kp_rot_task = [20, 20, 20; ...  % state = 1 two feet balancing
+                     10, 10, 10; ...  % state = 2 move CoM on left foot
+                     10, 10, 10; ...  % state = 3 left foot balancing
+                     10, 10, 10; ...  % state = 4 prepare for switching
                      20, 20, 20];     % state = 5 two feet balancing
                  
 Gains.Kd_rot_task =  2*sqrt(Gains.Kp_rot_task)/40; 
@@ -173,11 +173,11 @@ Gains.Kd_rot_task =  2*sqrt(Gains.Kp_rot_task)/40;
 % Joint position and velocity gains
     
                     % torso      % left arm       % right arm      % left leg               % right leg                                   
-Gains.impedances = [30  30  30,  50  50  50  100,  50  50  50  100,  30  50  30  60  80  80,  30  50  30  60  80  80;  ... % state = 1 two feet balancing          
+Gains.impedances = [30  30  30,  50  50  50  100, 50  50  50  100, 30  50  30  60  80  80,  30  50  30  60  80  80;  ... % state = 1 two feet balancing          
                     30  30  30,  20  20  20  20,  20  20  20  20,  35  40  35  65  10  15,  35  40  35  65  10  15;  ... % state = 2 move CoM on left foot
-                    25  25  25,  10  10  10  10,  10  10  10  10,  40  35  30  70  20  10,  40  35  30  70  20  10;  ... % state = 3 left foot balancing
-                    35  35  35,  15  15  15  15,  15  15  15  15,  25  30  25  55  25  25,  25  30  25  55  25  25;  ... % state = 4 prepare for switching
-                    20  20  20,  10  10  10  10,  10  10  10  10,  30  35  40  60  10  20,  30  35  40  60  10  20]*2.5;     % state = 5 two feet balancing
+                    30  30  30,  20  20  20  20,  20  20  20  20,  35  40  35  65  10  15,  35  40  35  65  10  15;  ... % state = 3 left foot balancing
+                    30  30  30,  20  20  20  20,  20  20  20  20,  35  40  35  65  10  15,  35  40  35  65  10  15;  ... % state = 4 prepare for switching
+                    30  30  30,  50  50  50  100, 50  50  50  100, 30  50  30  60  80  80,  30  50  30  60  80  80]*2.5;     % state = 5 two feet balancing
                      
 Gains.dampings   = zeros(size(Gains.impedances));
 
