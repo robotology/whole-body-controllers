@@ -17,6 +17,10 @@
 % Syncronization with Gazebo simulator
 Config.ON_GAZEBO = false;
 
+% Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
+% inertias are included in the system mass matrix.
+Config.USE_MOTOR_REFLECTED_INERTIA = false;
+
 % Dimension of the joint space
 ROBOT_DOF = 23;
 

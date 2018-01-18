@@ -10,7 +10,7 @@ The repository contains the Simulink model `torqueWalkingMPC.mdl`, which is gene
 
 ### Supported robots
 
-Currently, supported robots are: `iCubGenova04`, `iCubGenova02`, `icubGazeboSim`.
+Currently, supported robots are: `iCubGenova04`, `iCubGenova02`, `icubGazeboSim`, `iCubGazeboV2_5`.
 
 ## Module details
 

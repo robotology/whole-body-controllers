@@ -38,7 +38,7 @@ The repository contains the Simulink model `torqueBalancingStandup.mdl`, which i
 
 ### Supported robots
 
-Currently, supported robots are: `iCubGenova04`, `iCubGenova02`, `icubGazeboSim`.
+Currently, supported robots are: `iCubGenova04`, `iCubGenova02`, `icubGazeboSim`, `iCubGazeboV2_5`.
 
 ## Module details
 

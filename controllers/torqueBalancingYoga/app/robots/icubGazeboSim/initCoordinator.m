@@ -78,13 +78,22 @@ Gain.SmoothingTimeGainScheduling = 0.02;
 
 % inverse of the transmission ratio
 Config.invGamma = 100*eye(ROBOT_DOF);
+% torso yaw has a bigger reduction ratio
+Config.invGamma(3,3) = 200;
 
-% motors inertia
-Config.I_m      = 1e-5*eye(ROBOT_DOF);
+% motors inertia (Kg*m^2)
+legsMotors_I_m           = 0.0827*1e-4;
+torsoPitchRollMotors_I_m = 0.0827*1e-4;
+torsoYawMotors_I_m       = 0.0585*1e-4;
+armsMotors_I_m           = 0.0585*1e-4;
+Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
+                                 torsoYawMotors_I_m;
+                                 armsMotors_I_m*ones(8,1);
+                                 legsMotors_I_m*ones(12,1)]);
 
 % gain for feedforward term in joint torques calculation. Valid range: a
 % value between 0 and 1
-Config.K_ff     = 1;
+Config.K_ff     = 0;
 
 %% References for CoM trajectory (COORDINATOR DEMO ONLY)
 

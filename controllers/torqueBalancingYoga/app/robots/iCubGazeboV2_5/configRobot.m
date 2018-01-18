@@ -3,11 +3,11 @@
 %
 
 %% --- Initialization ---
-Config.ON_GAZEBO         = false;
+Config.ON_GAZEBO         = true;
 ROBOT_DOF                = 23;
 ROBOT_DOF_FOR_SIMULINK   = eye(ROBOT_DOF);
 
-WBT_robotName            = 'icub';
+WBT_robotName            = 'icubSim';
 WBT_wbiList              = '(torso_pitch,torso_roll,torso_yaw,l_shoulder_pitch, l_shoulder_roll, l_shoulder_yaw, l_elbow, r_shoulder_pitch,r_shoulder_roll, r_shoulder_yaw, r_elbow, l_hip_pitch, l_hip_roll, l_hip_yaw, l_knee, l_ankle_pitch, l_ankle_roll, r_hip_pitch,r_hip_roll,r_hip_yaw,r_knee,r_ankle_pitch,r_ankle_roll)';
 
 % Frames list
@@ -16,18 +16,6 @@ Frames.IMU               = 'imu_frame';
 Frames.LEFT_FOOT         = 'l_sole';
 Frames.RIGHT_FOOT        = 'r_sole';
 Frames.COM               = 'com';
-Frames.LEFT_LEG          = 'l_upper_leg_contact';
-Frames.RIGHT_LEG         = 'r_upper_leg_contact';
-Frames.LEFT_HAND         = 'l_hand_dh_frame';
-Frames.RIGHT_HAND        = 'r_hand_dh_frame';
-
-%% iCub STANDUP demo parameters
-% when Config.STANDUP_WITH_HUMAN is setted to TRUE, the robot will be aware 
-% of the external forces at the arms provided by the human and it will use
-% also them for lifting up.
-Config.STANDUP_WITH_HUMAN = true;
-
-%% Other parameters
 
 % Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
 % inertias are included in the system mass matrix.
@@ -64,4 +52,3 @@ Config.USE_QP_SOLVER     = true;
 % Ports name list
 Ports.IMU               = ['/' WBT_robotName '/inertial'];
 Ports.NECK_POS          = ['/' WBT_robotName '/head/state:o'];
-

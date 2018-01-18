@@ -10,7 +10,7 @@ The repository contains the Simulink model `impedanceControl.mdl`, which is gene
 
 ### Supported robots
 
-Currently, supported robots are: `iCubGenova04`, `iCunGenova02`, `icubGazeboSim`.
+Currently, supported robots are: `iCubGenova04`, `iCunGenova02`, `icubGazeboSim`, `iCubGazeboV2_5`.
 
 ## Module details
 

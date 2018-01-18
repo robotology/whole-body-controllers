@@ -29,6 +29,10 @@ Config.STANDUP_WITH_HUMAN = false;
 
 %% Other parameters
 
+% Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
+% inertias are included in the system mass matrix.
+Config.USE_MOTOR_REFLECTED_INERTIA = false;
+
 % Config.USE_IMU4EST_BASE: if set to false, the base frame is estimated by 
 % assuming that either the left or the right foot stay stuck on the ground. 
 % Which foot the controller uses depends on the contact forces acting on it. 
