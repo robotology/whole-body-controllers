@@ -67,7 +67,6 @@ Config.CHECK_LIMITS          = false;
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONFIGURATIONS COMPLETED: loading gains and parameters for the specific robot
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-WBT_modelName            = 'matlabTorqueBalancing';
 
 % Ports name list
 Ports.WBD_LEFTLEG_EE   = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';

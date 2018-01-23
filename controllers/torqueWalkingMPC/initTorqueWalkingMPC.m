@@ -37,7 +37,7 @@ close all
 %    - 'MPC_WALKING' = the model is connected to an MPC controller which
 %                      streams references and contact status for walking.
 %
-DEMO_TYPE = 'EXAMPLE_STATEMACHINE';
+DEMO_TYPE = 'MPC_WALKING';
 
 % Simulation time
 Config.t_end = inf; % [s]
@@ -64,6 +64,10 @@ Config.SCOPES_SMOOTH_ORIENT = false;
 
 % Activate scopes for visualizing the control gains
 Config.SCOPES_GAIN_SCHEDULING = false;
+
+% Config.CHECK_LIMITS: if set to true, the controller will stop as soon as 
+% any of the joint limit is touched. 
+Config.CHECK_LIMITS          = false;
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Advanced setup - do not change these parameters unless you know what you're doing

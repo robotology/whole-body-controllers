@@ -28,9 +28,9 @@ clc
 % To do this, you can uncomment the 
 
 % setenv('YARP_ROBOT_NAME','iCubGenova04');
-% setenv('YARP_ROBOT_NAME','icubGazeboSim');
+  setenv('YARP_ROBOT_NAME','icubGazeboSim');
 % setenv('YARP_ROBOT_NAME','iCubGenova02');
-  setenv('YARP_ROBOT_NAME','iCubGazeboV2_5');  
+% setenv('YARP_ROBOT_NAME','iCubGazeboV2_5');  
 
 % Simulation time in seconds
 Config.SIMULATION_TIME = inf;   
@@ -67,7 +67,6 @@ Config.CHECK_LIMITS          = false;
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONFIGURATIONS COMPLETED: loading gains and parameters for the specific robot
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-WBT_modelName          = 'matlabTorqueBalancing';
 
 % Ports name list
 Ports.WBD_LEFTLEG_EE   = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';
