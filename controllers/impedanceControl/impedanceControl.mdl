@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.269"
+    ComputedModelVersion    "1.270"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -65,9 +65,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1801.0, 863.0]
+	Extents			[1821.0, 905.0]
 	ZoomFactor		[2.061627906976744]
-	Offset			[223.20924985899603, 131.1993795826283]
+	Offset			[223.20924985899597, 131.1993795826283]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -87,7 +87,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABeAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAKAD///8AAAcrAAADmQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAKAD///8AAAc/AAADyQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACA/////wAAAAAAAAAA/////wEAAADo/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFo/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAANR/////wAAAAAAAAAA/"
@@ -100,9 +100,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jan 08 19:44:14 2018"
-  RTWModifiedTimeStamp	  437341328
-  ModelVersionFormat	  "1.%<AutoIncrement:269>"
+  LastModifiedDate	  "Tue Jan 23 17:12:47 2018"
+  RTWModifiedTimeStamp	  438628305
+  ModelVersionFormat	  "1.%<AutoIncrement:270>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1115,25 +1115,34 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "206"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "430"
+    SIDHighWatermark	    "434"
     Block {
       BlockType		      Reference
-      Name		      "Get Estimate"
-      SID		      "138"
-      Ports		      [0, 1]
-      Position		      [230, 297, 310, 333]
-      ZOrder		      384
-      BackgroundColor	      "[0.513700, 0.851000, 0.670600]"
-      ShowName		      off
-      LibraryVersion	      "1.383"
-      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Estimate"
-      SourceType	      "Get Estimate"
+      Name		      "Configuration"
+      SID		      "432"
+      Ports		      []
+      Position		      [245, 230, 320, 260]
+      ZOrder		      635
+      LibraryVersion	      "1.480"
+      SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
+      SourceType	      ""
       ContentPreviewEnabled   off
-      estimateType	      "Joints Position"
-      robotName		      "WBT_robotName"
-      localName		      "WBT_modelName"
-      wbiFile		      "WBT_wbiFilename"
-      wbiList		      "WBT_wbiList"
+      ConfigSource	      "Workspace"
+      ConfigObject	      "'WBTConfigRobot'"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Get Measurement"
+      SID		      "431"
+      Ports		      [0, 1]
+      Position		      [245, 303, 320, 327]
+      ZOrder		      634
+      BackgroundColor	      "[0.513700, 0.851000, 0.670600]"
+      LibraryVersion	      "1.480"
+      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+      SourceType	      "Get Measurement"
+      ContentPreviewEnabled   off
+      measuredType	      "Joints Position"
     }
     Block {
       BlockType		      SubSystem
@@ -1164,7 +1173,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"332"
+	ZoomFactor		"336"
 	Block {
 	  BlockType		  Inport
 	  Name			  "joint angles"
@@ -1189,15 +1198,10 @@ Model {
 	  Ports			  [2, 1]
 	  Position		  [210, 105, 350, 205]
 	  ZOrder		  641
-	  LibraryVersion	  "1.383"
+	  LibraryVersion	  "1.480"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Gravity Forces"
 	  SourceType		  "Gravity bias"
 	  ContentPreviewEnabled	  off
-	  robotName		  "WBT_robotName"
-	  localName		  "WBT_modelName"
-	  wbiFile		  "WBT_wbiFilename"
-	  wbiList		  "WBT_wbiList"
-	  explicitGravity	  off
 	  Port {
 	    PortNumber		    1
 	    Name		    "gravityTorques floating base"
@@ -1288,7 +1292,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"187"
+	ZoomFactor		"189"
 	Block {
 	  BlockType		  Inport
 	  Name			  "joint angles"
@@ -1337,22 +1341,17 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Get Estimate1"
-	  SID			  "150"
+	  Name			  "Get Measurement"
+	  SID			  "433"
 	  Ports			  [0, 1]
-	  Position		  [335, 87, 410, 113]
-	  ZOrder		  385
+	  Position		  [335, 88, 405, 112]
+	  ZOrder		  635
 	  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-	  ShowName		  off
-	  LibraryVersion	  "1.383"
-	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
-	  SourceType		  "Get Estimate"
+	  LibraryVersion	  "1.480"
+	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+	  SourceType		  "Get Measurement"
 	  ContentPreviewEnabled	  off
-	  estimateType		  "Joints Velocity"
-	  robotName		  "WBT_robotName"
-	  localName		  "WBT_modelName"
-	  wbiFile		  "WBT_wbiFilename"
-	  wbiList		  "WBT_wbiList"
+	  measuredType		  "Joints Velocity"
 	}
 	Block {
 	  BlockType		  Sum
@@ -1429,7 +1428,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "224"
+	    ZoomFactor		    "237"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "qj"
@@ -1490,14 +1489,10 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [95, -256, 235, -189]
 	      ZOrder		      673
-	      LibraryVersion	      "1.383"
+	      LibraryVersion	      "1.480"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 	      SourceType	      "Mass Matrix"
 	      ContentPreviewEnabled   off
-	      robotName		      "WBT_robotName"
-	      localName		      "WBT_modelName"
-	      wbiFile		      "WBT_wbiFilename"
-	      wbiList		      "WBT_wbiList"
 	    }
 	    Block {
 	      BlockType		      Product
@@ -1547,7 +1542,8 @@ Model {
 	      Ports		      [3]
 	      Position		      [380, -403, 420, -347]
 	      ZOrder		      668
-	      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData5'))"
+	      ScopeSpecificationString "C++SS(StrPVP('SaveName','ScopeData5'),StrPVP('LimitDataPoints','on'),StrPVP('DataForm"
+	      "at','Array'),StrPVP('Decimation','1'),StrPVP('BlockParamSampleInput','off'))"
 	      NumInputPorts	      "3"
 	    }
 	    Block {
@@ -1558,7 +1554,7 @@ Model {
 	      Position		      [-65, -546, -10, -524]
 	      ZOrder		      672
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
-	      LibraryVersion	      "1.383"
+	      LibraryVersion	      "1.480"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -1768,8 +1764,8 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  324
-	  SrcBlock		  "Get Estimate1"
+	  ZOrder		  341
+	  SrcBlock		  "Get Measurement"
 	  SrcPort		  1
 	  DstBlock		  "Sum3"
 	  DstPort		  2
@@ -1866,24 +1862,19 @@ Model {
       ZOrder		      383
       BackgroundColor	      "[0.827500, 0.576500, 0.603900]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.480"
       SourceBlock	      "WBToolboxLibrary/wholeBodyActuators/Set References"
       SourceType	      "Set References"
       ContentPreviewEnabled   off
       controlType	      "Torque"
-      fullOrSubControl	      "Full"
-      controlledJoints	      "''"
-      robotName		      "WBT_robotName"
-      localName		      "WBT_modelName"
-      wbiFile		      "WBT_wbiFilename"
-      wbiList		      "WBT_wbiList"
+      refSpeed		      "50"
     }
     Block {
       BlockType		      Sum
       Name		      "Sum1"
       SID		      "314"
       Ports		      [2, 1]
-      Position		      [745, 269, 830, 456]
+      Position		      [730, 269, 815, 456]
       ZOrder		      633
       ShowName		      off
       InputSameDT	      off
@@ -1907,7 +1898,7 @@ Model {
       Variant		      off
       System {
 	Name			"Visualization"
-	Location		[65, 24, 1920, 1080]
+	Location		[86, 34, 1941, 1090]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1948,44 +1939,16 @@ Model {
 	  BlockType		  Reference
 	  Name			  "DoFs converter"
 	  SID			  "412"
-	  Ports			  [1, 5]
+	  Ports			  [5, 1]
 	  Position		  [465, 119, 560, 221]
 	  ZOrder		  652
-	  LibraryVersion	  "1.383"
+	  LibraryVersion	  "1.480"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
 	  yarp2WBIOption	  "From WBI to YARP"
-	  robotName		  "WBT_robotName"
-	  localName		  "WBT_modelName"
-	  wbiFile		  "WBT_wbiFilename"
-	  wbiList		  "WBT_wbiList"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    2
-	    Name		    "left_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    3
-	    Name		    "right_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    4
-	    Name		    "left_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    5
-	    Name		    "right_leg"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -1994,44 +1957,16 @@ Model {
 	  BlockType		  Reference
 	  Name			  "DoFs converter1"
 	  SID			  "414"
-	  Ports			  [1, 5]
+	  Ports			  [5, 1]
 	  Position		  [465, 254, 560, 356]
 	  ZOrder		  654
-	  LibraryVersion	  "1.383"
+	  LibraryVersion	  "1.480"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
 	  yarp2WBIOption	  "From WBI to YARP"
-	  robotName		  "WBT_robotName"
-	  localName		  "WBT_modelName"
-	  wbiFile		  "WBT_wbiFilename"
-	  wbiList		  "WBT_wbiList"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    2
-	    Name		    "left_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    3
-	    Name		    "right_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    4
-	    Name		    "left_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    5
-	    Name		    "right_leg"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -2040,44 +1975,16 @@ Model {
 	  BlockType		  Reference
 	  Name			  "DoFs converter2"
 	  SID			  "416"
-	  Ports			  [1, 5]
+	  Ports			  [5, 1]
 	  Position		  [465, 404, 560, 506]
 	  ZOrder		  656
-	  LibraryVersion	  "1.383"
+	  LibraryVersion	  "1.480"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
 	  yarp2WBIOption	  "From WBI to YARP"
-	  robotName		  "WBT_robotName"
-	  localName		  "WBT_modelName"
-	  wbiFile		  "WBT_wbiFilename"
-	  wbiList		  "WBT_wbiList"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    2
-	    Name		    "left_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    3
-	    Name		    "right_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    4
-	    Name		    "left_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    5
-	    Name		    "right_leg"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -2086,66 +1993,33 @@ Model {
 	  BlockType		  Reference
 	  Name			  "DoFs converter3"
 	  SID			  "418"
-	  Ports			  [1, 5]
+	  Ports			  [5, 1]
 	  Position		  [465, 554, 560, 656]
 	  ZOrder		  658
-	  LibraryVersion	  "1.383"
+	  LibraryVersion	  "1.480"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
 	  yarp2WBIOption	  "From WBI to YARP"
-	  robotName		  "WBT_robotName"
-	  localName		  "WBT_modelName"
-	  wbiFile		  "WBT_wbiFilename"
-	  wbiList		  "WBT_wbiList"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
-	  Port {
-	    PortNumber		    2
-	    Name		    "left_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    3
-	    Name		    "right_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    4
-	    Name		    "left_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    5
-	    Name		    "right_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Get Estimate2"
-	  SID			  "171"
+	  Name			  "Get Measurement"
+	  SID			  "434"
 	  Ports			  [0, 1]
-	  Position		  [105, 152, 185, 188]
-	  ZOrder		  590
+	  Position		  [115, 158, 180, 182]
+	  ZOrder		  659
 	  BackgroundColor	  "[0.827500, 0.576500, 0.603900]"
-	  ShowName		  off
-	  LibraryVersion	  "1.383"
-	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Estimate"
-	  SourceType		  "Get Estimate"
+	  LibraryVersion	  "1.480"
+	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+	  SourceType		  "Get Measurement"
 	  ContentPreviewEnabled	  off
-	  estimateType		  "Joints Torque"
-	  robotName		  "WBT_robotName"
-	  localName		  "WBT_modelName"
-	  wbiFile		  "WBT_wbiFilename"
-	  wbiList		  "WBT_wbiList"
+	  measuredType		  "Joints Torque"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torqueMeasured"
@@ -2536,15 +2410,16 @@ Model {
 	  ZOrder		  440
 	  SrcBlock		  "gravityTorques"
 	  SrcPort		  1
+	  Points		  [285, 0]
 	  DstBlock		  "DoFs converter3"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "torqueMeasured"
-	  ZOrder		  416
-	  SrcBlock		  "Get Estimate2"
+	  ZOrder		  468
+	  SrcBlock		  "Get Measurement"
 	  SrcPort		  1
-	  Points		  [65, 0]
+	  Points		  [70, 0]
 	  Branch {
 	    ZOrder		    418
 	    DstBlock		    "Sum2"
@@ -2553,6 +2428,7 @@ Model {
 	  Branch {
 	    ZOrder		    417
 	    Labels		    [1, 1]
+	    Points		    [195, 0]
 	    DstBlock		    "DoFs converter"
 	    DstPort		    1
 	  }
@@ -2563,6 +2439,7 @@ Model {
 	  Labels		  [-1, 0]
 	  SrcBlock		  "DoFs converter"
 	  SrcPort		  1
+	  Points		  [0, -40]
 	  DstBlock		  "tauMeas"
 	  DstPort		  1
 	}
@@ -2570,8 +2447,7 @@ Model {
 	  Name			  "left_arm"
 	  ZOrder		  412
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter"
-	  SrcPort		  2
+	  Points		  [565, 150]
 	  DstBlock		  "tauMeas"
 	  DstPort		  2
 	}
@@ -2579,8 +2455,7 @@ Model {
 	  Name			  "left_leg"
 	  ZOrder		  413
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter"
-	  SrcPort		  4
+	  Points		  [565, 190]
 	  DstBlock		  "tauMeas"
 	  DstPort		  4
 	}
@@ -2588,8 +2463,7 @@ Model {
 	  Name			  "right_arm"
 	  ZOrder		  414
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter"
-	  SrcPort		  3
+	  Points		  [565, 170]
 	  DstBlock		  "tauMeas"
 	  DstPort		  3
 	}
@@ -2597,8 +2471,7 @@ Model {
 	  Name			  "right_leg"
 	  ZOrder		  415
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter"
-	  SrcPort		  5
+	  Points		  [565, 210]
 	  DstBlock		  "tauMeas"
 	  DstPort		  5
 	}
@@ -2608,6 +2481,7 @@ Model {
 	  Labels		  [-1, 0]
 	  SrcBlock		  "DoFs converter1"
 	  SrcPort		  1
+	  Points		  [0, -40]
 	  DstBlock		  "tauError"
 	  DstPort		  1
 	}
@@ -2615,8 +2489,7 @@ Model {
 	  Name			  "left_arm"
 	  ZOrder		  420
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter1"
-	  SrcPort		  2
+	  Points		  [565, 285]
 	  DstBlock		  "tauError"
 	  DstPort		  2
 	}
@@ -2624,8 +2497,7 @@ Model {
 	  Name			  "left_leg"
 	  ZOrder		  421
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter1"
-	  SrcPort		  4
+	  Points		  [565, 325]
 	  DstBlock		  "tauError"
 	  DstPort		  4
 	}
@@ -2633,8 +2505,7 @@ Model {
 	  Name			  "right_arm"
 	  ZOrder		  422
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter1"
-	  SrcPort		  3
+	  Points		  [565, 305]
 	  DstBlock		  "tauError"
 	  DstPort		  3
 	}
@@ -2642,8 +2513,7 @@ Model {
 	  Name			  "right_leg"
 	  ZOrder		  423
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter1"
-	  SrcPort		  5
+	  Points		  [565, 345]
 	  DstBlock		  "tauError"
 	  DstPort		  5
 	}
@@ -2653,6 +2523,7 @@ Model {
 	  Labels		  [1, 1]
 	  SrcBlock		  "Sum2"
 	  SrcPort		  1
+	  Points		  [180, 0]
 	  DstBlock		  "DoFs converter1"
 	  DstPort		  1
 	}
@@ -2662,6 +2533,7 @@ Model {
 	  Labels		  [-1, 0]
 	  SrcBlock		  "DoFs converter2"
 	  SrcPort		  1
+	  Points		  [0, -40]
 	  DstBlock		  "tauDes"
 	  DstPort		  1
 	}
@@ -2669,8 +2541,7 @@ Model {
 	  Name			  "left_arm"
 	  ZOrder		  426
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter2"
-	  SrcPort		  2
+	  Points		  [565, 435]
 	  DstBlock		  "tauDes"
 	  DstPort		  2
 	}
@@ -2678,8 +2549,7 @@ Model {
 	  Name			  "left_leg"
 	  ZOrder		  427
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter2"
-	  SrcPort		  4
+	  Points		  [565, 475]
 	  DstBlock		  "tauDes"
 	  DstPort		  4
 	}
@@ -2687,8 +2557,7 @@ Model {
 	  Name			  "right_arm"
 	  ZOrder		  428
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter2"
-	  SrcPort		  3
+	  Points		  [565, 455]
 	  DstBlock		  "tauDes"
 	  DstPort		  3
 	}
@@ -2706,6 +2575,7 @@ Model {
 	  Branch {
 	    ZOrder		    432
 	    Labels		    [1, 1]
+	    Points		    [195, 0]
 	    DstBlock		    "DoFs converter2"
 	    DstPort		    1
 	  }
@@ -2714,8 +2584,7 @@ Model {
 	  Name			  "right_leg"
 	  ZOrder		  434
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter2"
-	  SrcPort		  5
+	  Points		  [565, 495]
 	  DstBlock		  "tauDes"
 	  DstPort		  5
 	}
@@ -2725,6 +2594,7 @@ Model {
 	  Labels		  [-1, 0]
 	  SrcBlock		  "DoFs converter3"
 	  SrcPort		  1
+	  Points		  [0, -40]
 	  DstBlock		  "gravTorques"
 	  DstPort		  1
 	}
@@ -2732,8 +2602,7 @@ Model {
 	  Name			  "left_arm"
 	  ZOrder		  436
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter3"
-	  SrcPort		  2
+	  Points		  [565, 585]
 	  DstBlock		  "gravTorques"
 	  DstPort		  2
 	}
@@ -2741,8 +2610,7 @@ Model {
 	  Name			  "left_leg"
 	  ZOrder		  437
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter3"
-	  SrcPort		  4
+	  Points		  [565, 625]
 	  DstBlock		  "gravTorques"
 	  DstPort		  4
 	}
@@ -2750,8 +2618,7 @@ Model {
 	  Name			  "right_arm"
 	  ZOrder		  438
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter3"
-	  SrcPort		  3
+	  Points		  [565, 605]
 	  DstBlock		  "gravTorques"
 	  DstPort		  3
 	}
@@ -2759,8 +2626,7 @@ Model {
 	  Name			  "right_leg"
 	  ZOrder		  439
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter3"
-	  SrcPort		  5
+	  Points		  [565, 645]
 	  DstBlock		  "gravTorques"
 	  DstPort		  5
 	}
@@ -2771,7 +2637,7 @@ Model {
       Name		      "synchronizer"
       SID		      "301"
       Ports		      []
-      Position		      [432, 173, 552, 223]
+      Position		      [432, 183, 552, 233]
       ZOrder		      631
       ForegroundColor	      "red"
       BackgroundColor	      "green"
@@ -2786,7 +2652,7 @@ Model {
       }
       System {
 	Name			"synchronizer"
-	Location		[65, 24, 1920, 1080]
+	Location		[86, 34, 1941, 1090]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2810,7 +2676,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "GAZEBO_SYNCHRONIZER"
-	    Location		    [73, 32, 1753, 1082]
+	    Location		    [86, 34, 1941, 1090]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2822,7 +2688,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "628"
+	    ZoomFactor		    "866"
 	    Block {
 	      BlockType		      EnablePort
 	      Name		      "Enable"
@@ -2840,7 +2706,7 @@ Model {
 	      ZOrder		      539
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.383"
+	      LibraryVersion	      "1.480"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
 	      period		      "Config.Ts"
@@ -2885,7 +2751,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "REAL_TIME_SYNC"
-	    Location		    [73, 32, 1753, 1082]
+	    Location		    [86, 34, 1941, 1090]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2897,7 +2763,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "855"
+	    ZoomFactor		    "910"
 	    Block {
 	      BlockType		      EnablePort
 	      Name		      "Enable"
@@ -2916,7 +2782,7 @@ Model {
 	      ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
 	      BackgroundColor	      "gray"
 	      ShowName		      off
-	      LibraryVersion	      "1.383"
+	      LibraryVersion	      "1.480"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
 	      period		      "Config.Ts"
@@ -2950,10 +2816,10 @@ Model {
       }
     }
     Line {
-      ZOrder		      25
-      SrcBlock		      "Get Estimate"
+      ZOrder		      347
+      SrcBlock		      "Get Measurement"
       SrcPort		      1
-      Points		      [32, 0]
+      Points		      [22, 0]
       Branch {
 	ZOrder			338
 	Points			[0, 95]
@@ -2971,7 +2837,7 @@ Model {
       ZOrder		      337
       SrcBlock		      "Gravity compensation"
       SrcPort		      1
-      Points		      [0, 0; 75, 0]
+      Points		      [75, 0]
       Branch {
 	ZOrder			330
 	Points			[0, 70]
@@ -2999,7 +2865,7 @@ Model {
       ZOrder		      321
       SrcBlock		      "Sum1"
       SrcPort		      1
-      Points		      [34, 0]
+      Points		      [49, 0]
       Branch {
 	ZOrder			336
 	Labels			[-1, 0]

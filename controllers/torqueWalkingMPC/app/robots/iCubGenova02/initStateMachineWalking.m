@@ -89,10 +89,8 @@ Sat.zeroAccWhenFeetInContact = false;
 
 %% Parameters for motors reflected inertia
 
-% inverse of the transmission ratio
-Config.invGamma = 100*eye(ROBOT_DOF);
-% torso yaw has a bigger reduction ratio
-Config.invGamma(3,3) = 200;
+% transmission ratio
+Config.Gamma = 0.01*eye(ROBOT_DOF);
 
 % motors inertia (Kg*m^2)
 legsMotors_I_m           = 0.0827*1e-4;
@@ -104,9 +102,34 @@ Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  armsMotors_I_m*ones(8,1);
                                  legsMotors_I_m*ones(12,1)]);
 
+% parameters for coupling matrices                            
+t  = 0.625;
+r  = 0.022;
+R  = 0.04;
+
+% coupling matrices
+T_LShoulder = [-1  0  0;
+               -1 -t  0;
+                0  t -t];
+
+T_RShoulder = [ 1  0  0;
+                1  t  0;
+                0 -t  t];
+
+T_torso = [0   -0.5     0.5;
+           0    0.5     0.5;
+           r/R  r/(2*R) r/(2*R)];
+       
+if Config.INCLUDE_COUPLING
+       
+    Config.T = blkdiag(T_torso,T_LShoulder,1,T_RShoulder,1,eye(12));
+else          
+    Config.T = eye(ROBOT_DOF);
+end
+
 % gain for feedforward term in joint torques calculation. Valid range: a
 % value between 0 and 1
-Config.K_ff     = 0;
+Config.K_ff  = 0;
 
 %% Smoothing of reference trajectories
 

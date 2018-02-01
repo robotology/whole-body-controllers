@@ -28,31 +28,31 @@ Sat.torque = 60;
 
 %% Regularization parameters
 Reg.pinvDamp_nu_b = 1e-7;
-Reg.pinvDamp      = 1; 
+Reg.pinvDamp      = 0.07; 
 Reg.pinvTol       = 1e-5;
 Reg.impedances    = 0.1;
 Reg.dampings      = 0;
 Reg.HessianQP     = 1e-7;    
                             
 %% COM AND JOINT GAINS 
-Gain.KP_COM     =      [50    50  10  % state ==  1  TWO FEET BALANCING
-                        50    50  10  % state ==  2  COM TRANSITION TO LEFT 
-                        50    50  10  % state ==  3  LEFT FOOT BALANCING
-                        50    50  10  % state ==  4  YOGA LEFT FOOT 
-                        50    50  10  % state ==  5  PREPARING FOR SWITCHING 
-                        50    50  10  % state ==  6  LOOKING FOR CONTACT
-                        50    50  10  % state ==  7  TRANSITION TO INITIAL POSITION 
-                        50    50  10  % state ==  8  COM TRANSITION TO RIGHT FOOT
-                        50    50  10  % state ==  9  RIGHT FOOT BALANCING
-                        50    50  10  % state == 10  YOGA RIGHT FOOT 
-                        50    50  10  % state == 11  PREPARING FOR SWITCHING 
-                        50    50  10  % state == 12  LOOKING FOR CONTACT
-                        50    50  10];% state == 13  TRANSITION TO INITIAL POSITION
+Gain.KP_COM     =      [50    100  5  % state ==  1  TWO FEET BALANCING
+                        50    100  5  % state ==  2  COM TRANSITION TO LEFT 
+                        50    100  5  % state ==  3  LEFT FOOT BALANCING
+                        50    100  5  % state ==  4  YOGA LEFT FOOT 
+                        50    100  5  % state ==  5  PREPARING FOR SWITCHING 
+                        50    100  5  % state ==  6  LOOKING FOR CONTACT
+                        50    100  5  % state ==  7  TRANSITION TO INITIAL POSITION 
+                        50    100  5  % state ==  8  COM TRANSITION TO RIGHT FOOT
+                        50    100  5  % state ==  9  RIGHT FOOT BALANCING
+                        50    100  5  % state == 10  YOGA RIGHT FOOT 
+                        50    100  5  % state == 11  PREPARING FOR SWITCHING 
+                        50    100  5  % state == 12  LOOKING FOR CONTACT
+                        50    100  5];% state == 13  TRANSITION TO INITIAL POSITION
 
 Gain.KD_COM = 2*sqrt(Gain.KP_COM)/20;
 
-Gain.KP_AngularMomentum  = 0.25 ;
-Gain.KD_AngularMomentum  = 2*sqrt(Gain.KP_AngularMomentum);
+Gain.KP_AngularMomentum  = 3;
+Gain.KD_AngularMomentum  = 2*sqrt(Gain.KP_AngularMomentum)/5;
 
 %                   %   TORSO  %%      LEFT ARM   %%      RIGHT ARM   %%         LEFT LEG            %%         RIGHT LEG           %% 
 Gain.impedances  = [10   30   20, 10   10    10    8, 10   10    10    8, 30   30   20    20    100 100, 30   50   30    60    100 100  % state ==  1  TWO FEET BALANCING
@@ -69,7 +69,12 @@ Gain.impedances  = [10   30   20, 10   10    10    8, 10   10    10    8, 30   3
                     30   30   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,100  350   20   200     10 100  % state == 12  LOOKING FOR CONTACT
                     30   30   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,100  350   20   200     10 100];% state == 13  TRANSITION TO INITIAL POSITION
 
-Gain.dampings    = 0*sqrt(Gain.impedances(1,:));  
+Gain.impedances(4,18:23)  = Gain.impedances(4,18:23)*1.2; 
+Gain.impedances(10,18:23) = Gain.impedances(10,18:23)*2; 
+Gain.impedances(4,12:13)  = Gain.impedances(4,12:13)*4; 
+Gain.impedances(4,2)      = Gain.impedances(4,2)*1;
+ 
+Gain.dampings = 0*sqrt(Gain.impedances(1,:));  
 
 % Smoothing time gain scheduling (YOGA DEMO ONLY)
 Gain.SmoothingTimeGainScheduling = 2;
@@ -80,13 +85,13 @@ Gain.SmoothingTimeGainScheduling = 2;
 Sm.smoothingTimeCoM_Joints       = [1;   %% state ==  1  TWO FEET BALANCING
                                     1;   %% state ==  2  COM TRANSITION TO LEFT FOOT
                                     1;   %% state ==  3  LEFT FOOT BALANCING 
-                                    2;   %% state ==  4  YOGA LEFT FOOT
+                                    0.4; %% state ==  4  YOGA LEFT FOOT
                                     2;   %% state ==  5  PREPARING FOR SWITCHING
                                     2;   %% state ==  6  LOOKING FOR CONTACT 
                                     1;   %% state ==  7  TRANSITION INIT POSITION
                                     1;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
                                     1;   %% state ==  9  RIGHT FOOT BALANCING 
-                                    1.5; %% state == 10  YOGA RIGHT FOOT
+                                    0.5; %% state == 10  YOGA RIGHT FOOT
                                     2;   %% state == 11  PREPARING FOR SWITCHING
                                     5;   %% state == 12  LOOKING FOR CONTACT 
                                     10]; %% state == 13  TRANSITION INIT POSITION
@@ -111,15 +116,15 @@ Sm.stateAt0 = 1;
 Sm.CoM_delta       = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT
                       0.0,  0.00,  0.0;   %% NOT USED
                       0.0,  0.00,  0.0;   %% state ==  2  COM TRANSITION TO LEFT FOOT
-                      0.0,  0.00,  0.0;   %% state ==  3  LEFT FOOT BALANCING 
+                      0.0,  0.005, 0.0;   %% state ==  3  LEFT FOOT BALANCING 
                       0.0,  0.005, 0.0;   %% state ==  4  YOGA LEFT FOOT
                       0.0,  0.00,  0.0;   %% state ==  5  PREPARING FOR SWITCHING
-                      0.0, -0.09,  0.0;   %% state ==  6  LOOKING FOR CONTACT 
+                      0.02,-0.09,  0.0;   %% state ==  6  LOOKING FOR CONTACT 
                       0.0,  0.00,  0.0;   %% NOT USED
                       % THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE RIGHT FOOT
                       0.0,  0.00,  0.0;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
                       0.0,  0.00,  0.0;   %% state ==  9  RIGHT FOOT BALANCING 
-                      0.0, -0.015, 0.0;   %% state == 10  YOGA RIGHT FOOT
+                      0.0, -0.01,  0.0;   %% state == 10  YOGA RIGHT FOOT
                       0.0,  0.00,  0.0;   %% state == 11  PREPARING FOR SWITCHING
                       0.0,  0.09,  0.0;   %% state == 12  LOOKING FOR CONTACT 
                       0.0,  0.00,  0.0];  %% NOT USED
@@ -130,7 +135,7 @@ Sm.tBalancingBeforeYoga     = 1;
 Sm.yogaExtended             = true;
 Sm.skipYoga                 = false;
 Sm.demoOnlyBalancing        = false;
-Sm.demoStartsOnRightSupport = false;
+Sm.demoStartsOnRightSupport = true;
 Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from right foot
 Sm.yogaInLoop               = false;
 
@@ -145,7 +150,7 @@ Sm.joints_references = [  zeros(1,ROBOT_DOF);                                %% 
                           0.1253,0.8135,0.3051,0.7928, ...                   %    
                           0.0563,0.6789,0.3340,0.6214, ...                   %
                          -0.0015,-0.1109,-0.0001,0.0003,0.0160,0.1630, ...   %  
-                          0.0005,0.0793,-0.0014,-0.0051,0.0073,-0.1151];     % 
+                          0.0005,0.0793,-0.0014,-0.0051,-0.1060,-0.1151];    % 
                           zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED 
                         [-0.0348,0.0779,0.0429, ...                          %% state == 5  PREPARING FOR SWITCHING
                          -0.1493,0.8580,0.2437,0.8710, ...                   %
@@ -186,13 +191,13 @@ q1 =        [-0.0790,0.2279, 0.4519, ...
              -1.1621,0.6663, 0.4919, 0.9947, ... 
              -1.0717,1.2904,-0.2447, 1.0948, ...
               0.2092,0.2060, 0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.3484,0.4008,-0.0004,-0.3672,-0.0530,-0.0875];
+              0.3484,0.4008,-0.0004,-0.3672,-0.1060,-0.0875];
 
 q2 =        [-0.0790,0.2279, 0.4519, ...
              -1.1621,0.6663, 0.4965, 0.9947, ...
              -1.0717,1.2904,-0.2493, 1.0948, ...
               0.2092,0.2060, 0.0006,-0.1741,-0.1044,0.0700, ... 
-              0.3714,0.9599, 1.3253,-1.6594, 0.6374,-0.0614];
+              0.3714,0.9599, 1.3253,-1.6594,-0.1060,-0.0614];
           
 q3 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
@@ -370,10 +375,8 @@ Config.frequencyOfOscillation  = 0.0;
 
 %% Parameters for motors reflected inertia
 
-% inverse of the transmission ratio
-Config.invGamma = 100*eye(ROBOT_DOF);
-% torso yaw has a bigger reduction ratio
-Config.invGamma(3,3) = 200;
+% transmission ratio
+Config.Gamma = 0.01*eye(ROBOT_DOF);
 
 % motors inertia (Kg*m^2)
 legsMotors_I_m           = 0.0827*1e-4;
@@ -385,9 +388,34 @@ Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  armsMotors_I_m*ones(8,1);
                                  legsMotors_I_m*ones(12,1)]);
 
+% parameters for coupling matrices                            
+t  = 0.625;
+r  = 0.022;
+R  = 0.04;
+
+% coupling matrices
+T_LShoulder = [-1  0  0;
+               -1 -t  0;
+                0  t -t];
+
+T_RShoulder = [ 1  0  0;
+                1  t  0;
+                0 -t  t];
+
+T_torso = [0   -0.5     0.5;
+           0    0.5     0.5;
+           r/R  r/(2*R) r/(2*R)];
+       
+if Config.INCLUDE_COUPLING
+       
+    Config.T = blkdiag(T_torso,T_LShoulder,1,T_RShoulder,1,eye(12));
+else          
+    Config.T = eye(ROBOT_DOF);
+end
+
 % gain for feedforward term in joint torques calculation. Valid range: a
 % value between 0 and 1
-Config.K_ff     = 0;
+Config.K_ff  = 0;
 
 %% Constraints for QP for balancing
 

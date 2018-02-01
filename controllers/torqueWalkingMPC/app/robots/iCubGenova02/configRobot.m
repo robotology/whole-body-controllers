@@ -18,21 +18,33 @@
 Config.ON_GAZEBO = false;
 
 % Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
-% inertias are included in the system mass matrix.
-Config.USE_MOTOR_REFLECTED_INERTIA = false;
+% inertias are included in the system mass matrix. If
+% Config.INCLUDE_COUPLING is true, then the coupling effect (some joints
+% motion is the result of more than one motor motion) is taken into account.
+Config.USE_MOTOR_REFLECTED_INERTIA = true;
+Config.INCLUDE_COUPLING            = true;
 
 % Dimension of the joint space
 ROBOT_DOF = 23;
 
-% Joint list and robot name for configuring WBToolbox
-WBT_wbiList   = '(torso_pitch,torso_roll,torso_yaw,l_shoulder_pitch, l_shoulder_roll, l_shoulder_yaw, l_elbow, r_shoulder_pitch,r_shoulder_roll, r_shoulder_yaw, r_elbow, l_hip_pitch, l_hip_roll, l_hip_yaw, l_knee, l_ankle_pitch, l_ankle_roll, r_hip_pitch,r_hip_roll,r_hip_yaw,r_knee,r_ankle_pitch,r_ankle_roll)';
-WBT_robotName = 'icub';
+% Robot configuration for WBT3.0
+WBTConfigRobot           = WBToolbox.Configuration;
+WBTConfigRobot.RobotName = 'icub';
+WBTConfigRobot.UrdfFile  = 'model.urdf';
+WBTConfigRobot.LocalName = 'WBT';
 
-% Ports name list (requires WBT_robotName to be setted)
+WBTConfigRobot.ControlBoardsNames = {'right_arm','left_arm','right_leg','left_leg','torso'};
+WBTConfigRobot.ControlledJoints   = {'torso_pitch','torso_roll','torso_yaw', ...
+                                     'l_shoulder_pitch','l_shoulder_roll','l_shoulder_yaw','l_elbow', ...
+                                     'r_shoulder_pitch','r_shoulder_roll','r_shoulder_yaw','r_elbow', ...
+                                     'l_hip_pitch','l_hip_roll','l_hip_yaw','l_knee','l_ankle_pitch','l_ankle_roll', ...
+                                     'r_hip_pitch','r_hip_roll','r_hip_yaw','r_knee','r_ankle_pitch','r_ankle_roll'};
+
+% Ports name list (requires RobotName to be setted)
 Ports.LEFT_FOOT_EXT_WRENCH  = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';
 Ports.RIGHT_FOOT_EXT_WRENCH = '/wholeBodyDynamics/right_leg/cartesianEndEffectorWrench:o';
-Ports.IMU = ['/' WBT_robotName '/inertial'];
-Ports.NECK_POS = ['/' WBT_robotName '/head/state:o'];
+Ports.IMU                   = ['/' WBTConfigRobot.RobotName '/inertial'];
+Ports.NECK_POS              = ['/' WBTConfigRobot.RobotName '/head/state:o'];
 
 % Ports for connecting the model with the MPC controller
 PORTS.COM_DES = '/walking-coordinator/com:o';

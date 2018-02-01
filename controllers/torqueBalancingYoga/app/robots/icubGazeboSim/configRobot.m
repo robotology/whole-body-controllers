@@ -7,9 +7,18 @@ Config.ON_GAZEBO         = true;
 ROBOT_DOF                = 23;
 ROBOT_DOF_FOR_SIMULINK   = eye(ROBOT_DOF);
 
-WBT_robotName            = 'icubSim';
-WBT_wbiList              = '(torso_pitch,torso_roll,torso_yaw,l_shoulder_pitch, l_shoulder_roll, l_shoulder_yaw, l_elbow, r_shoulder_pitch,r_shoulder_roll, r_shoulder_yaw, r_elbow, l_hip_pitch, l_hip_roll, l_hip_yaw, l_knee, l_ankle_pitch, l_ankle_roll, r_hip_pitch,r_hip_roll,r_hip_yaw,r_knee,r_ankle_pitch,r_ankle_roll)';
+% Robot configuration for WBT3.0
+WBTConfigRobot           = WBToolbox.Configuration;
+WBTConfigRobot.RobotName = 'icubSim';
+WBTConfigRobot.UrdfFile  = 'model.urdf';
+WBTConfigRobot.LocalName = 'WBT';
 
+WBTConfigRobot.ControlBoardsNames = {'right_arm','left_arm','right_leg','left_leg','torso'};
+WBTConfigRobot.ControlledJoints   = {'torso_pitch','torso_roll','torso_yaw', ...
+                                     'l_shoulder_pitch','l_shoulder_roll','l_shoulder_yaw','l_elbow', ...
+                                     'r_shoulder_pitch','r_shoulder_roll','r_shoulder_yaw','r_elbow', ...
+                                     'l_hip_pitch','l_hip_roll','l_hip_yaw','l_knee','l_ankle_pitch','l_ankle_roll', ...
+                                     'r_hip_pitch','r_hip_roll','r_hip_yaw','r_knee','r_ankle_pitch','r_ankle_roll'};
 % Frames list
 Frames.BASE              = 'root_link'; 
 Frames.IMU               = 'imu_frame';
@@ -18,8 +27,11 @@ Frames.RIGHT_FOOT        = 'r_sole';
 Frames.COM               = 'com';
 
 % Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
-% inertias are included in the system mass matrix.
+% inertias are included in the system mass matrix. If
+% Config.INCLUDE_COUPLING is true, then the coupling effect (some joints
+% motion is the result of more than one motor motion) is taken into account.
 Config.USE_MOTOR_REFLECTED_INERTIA = false;
+Config.INCLUDE_COUPLING            = false;
 
 % Config.USE_IMU4EST_BASE: if set to false, the base frame is estimated by 
 % assuming that either the left or the right foot stay stuck on the ground. 
@@ -50,5 +62,5 @@ Config.CORRECT_NECK_IMU  = true;
 Config.USE_QP_SOLVER     = true; 
 
 % Ports name list
-Ports.IMU               = ['/' WBT_robotName '/inertial'];
-Ports.NECK_POS          = ['/' WBT_robotName '/head/state:o'];
+Ports.IMU               = ['/' WBTConfigRobot.RobotName '/inertial'];
+Ports.NECK_POS          = ['/' WBTConfigRobot.RobotName '/head/state:o'];
