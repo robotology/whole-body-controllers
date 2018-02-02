@@ -24,7 +24,7 @@ Sat.torque = 34;
 
 %% Regularization parameters
 Reg.pinvDamp_nu_b  = 1e-3;
-Reg.pinvDamp       = 1; 
+Reg.pinvDamp       = 0.07; 
 Reg.pinvTol        = 1e-5;
 Reg.impedances     = 0.1;
 Reg.dampings       = 0;
@@ -33,13 +33,13 @@ Reg.norm_tolerance = 1e-4;
                             
 %% COM AND JOINT GAINS 
 Gain.KP_COM     =      [50   50  50;     % state ==  1  BALANCING ON THE LEGS
-                        20   20  20;     % state ==  2  MOVE COM FORWARD
-                        20   20  20;     % state ==  3  TWO FEET BALANCING
+                        50   50  50;     % state ==  2  MOVE COM FORWARD
+                        50   50  50;     % state ==  3  TWO FEET BALANCING
                         50   50  50];    % state ==  4  LIFTING UP
 
 Gain.KD_COM = 2*sqrt(Gain.KP_COM)*0;
 
-Gain.KP_AngularMomentum  = 1;
+Gain.KP_AngularMomentum  = 2;
 Gain.KD_AngularMomentum  = 2*sqrt(Gain.KP_AngularMomentum);
 
 %                   %   TORSO  %%      LEFT ARM   %%      RIGHT ARM   %%        LEFT LEG            %%         RIGHT LEG          %% 
@@ -68,12 +68,12 @@ Sm.smoothingTimeCoM = 0.5;
 
 % contact forces threshold (YOGA DEMO ONLY)
 Sm.wrench_thresholdContactLFoot  = [0;    % NOT USED
-                                    96;   % state ==  2  MOVE COM FORWARD
+                                    90;   % state ==  2  MOVE COM FORWARD
                                     140;  % state ==  3  TWO FEET BALANCING
                                     0];   % NOT USED
 
 Sm.wrench_thresholdContactRFoot  = [0     % NOT USED
-                                    96;   % state ==  2  MOVE COM FORWARD
+                                    90;   % state ==  2  MOVE COM FORWARD
                                     140;  % state ==  3  TWO FEET BALANCING
                                     0];   % NOT USED
                      

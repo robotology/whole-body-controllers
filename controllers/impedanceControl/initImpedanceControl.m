@@ -28,8 +28,8 @@ clc
 
 % setenv('YARP_ROBOT_NAME','iCubGenova04');
 % setenv('YARP_ROBOT_NAME','iCubGenova02');
-% setenv('YARP_ROBOT_NAME','icubGazeboSim');
-  setenv('YARP_ROBOT_NAME','iCubGazeboV2_5');
+  setenv('YARP_ROBOT_NAME','icubGazeboSim');
+% setenv('YARP_ROBOT_NAME','iCubGazeboV2_5');
 
 % simulation time  
 Config.Ts              = 0.01;

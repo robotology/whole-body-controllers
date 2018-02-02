@@ -94,7 +94,7 @@ function [Hessian,gradient,ConstraintMatrix_equality,biasVectorConstraint_equali
           balancingControllerMPC(feetInContact, M, h, J, impedances, ...
                                  dampings, s, sDot, s_sDot_sDDot_des, acc_task_star, ...
                                  JDot_nu, ConstraintsMatrix_feet, biasVectorConstraint_feet, ...
-                                 w_H_l_sole, w_H_r_sole, Sat) 
+                                 w_H_l_sole, w_H_r_sole, Sat, weightsForces) 
 
     % Dimension of the joint space
     ROBOT_DOF = size(s,1);
@@ -120,11 +120,19 @@ function [Hessian,gradient,ConstraintMatrix_equality,biasVectorConstraint_equali
     St_invM_B = St*invM*B;
     St_invM_h = St*invM*h;
     
-    % Hessian matrix for minimizing also joint torques
+    % Hessian matrix for minimizing joint torques and contact forces
     S_tau     = [zeros(ROBOT_DOF,12) eye(ROBOT_DOF)];
+    S_fz      = eye(6);
+    S_fLeft   = [S_fz,zeros(6,6),zeros(6,ROBOT_DOF)];
+    S_fRight  = [zeros(6,6),S_fz,zeros(6,ROBOT_DOF)];
+    
+    alphaL = weightsForces(1);
+    alphaR = weightsForces(2);
     
     % Hessian matrix and gradient for QP solver
-    Hessian   =  transpose(St_invM_B)*St_invM_B + Sat.weight_tau*transpose(S_tau)*S_tau;
+    Hessian   =  transpose(St_invM_B)*St_invM_B + Sat.weight_tau*transpose(S_tau)*S_tau + ...
+                 Sat.weight_fLeft*alphaR*transpose(S_fLeft)*S_fLeft + Sat.weight_fRight*alphaL*transpose(S_fRight)*S_fRight;
+             
     gradient  = -transpose(St_invM_B)*(St_invM_h +sDDot_star);
 
     % Multiplier of u in the equality constraint equation and bias terms

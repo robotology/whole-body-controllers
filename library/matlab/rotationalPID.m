@@ -46,11 +46,17 @@ function w_omegaDot_star = rotationalPID(w_R_b,w_omega,w_R_b_des,w_omega_des,w_o
     b_omega      = transpose(w_R_b) * w_omega;
     b_omega_des  = transpose(w_R_b_des) * w_omega_des;
     
-    % omegaDot_star in the body frame (rotational PID)
-    b_omegaDot_star = -Kp*Kd*skewVee(transpose(w_R_b_des)*w_R_b)  ...
-                      -Kd*(b_omega -b_omega_des)...
-                      -Kp*skewVee(transpose(w_R_b_des)*w_R_b*skew(b_omega) -skew(b_omega_des)*transpose(w_R_b_des)*w_R_b);
+    %% ORIGINAL FORMULATION (see: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.62.8655&rep=rep1&type=pdf, section 5.11.6, p.173) 
+    %
+    % b_omegaDot_star = -Kp*Kd*skewVee(transpose(w_R_b_des)*w_R_b) ...
+    %                   -Kd*(b_omega -b_omega_des) ...
+    %                   -Kp*skewVee(transpose(w_R_b_des)*w_R_b*skew(b_omega) -skew(b_omega_des)*transpose(w_R_b_des)*w_R_b);
     
+    %% MODIFIED TO AVOID COUPLING BETWEEN ROTATION AND ANGULAR VELOCITY
+    % omegaDot_star in the body frame (rotational PID)
+    b_omegaDot_star = -Kp*skewVee(transpose(w_R_b_des)*w_R_b) ...
+                      -Kd*(b_omega -b_omega_des);
+                  
     % omegaDot_star in the world frame
     w_omegaDot_star = w_R_b*b_omegaDot_star + w_omegaDot_des;
 end

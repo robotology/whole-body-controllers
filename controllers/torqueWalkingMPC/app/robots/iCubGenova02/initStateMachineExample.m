@@ -74,8 +74,10 @@ Sat.tauDot_max = 1000;
 % Saturation on state jerk (for QP based inverse kinematics)
 Sat.nuDDot_max = 10000;
 
-% Weight for the joint minimization task
-Sat.weight_tau = 0.1;
+% Weight for the torque and forces minimization task
+Sat.weight_tau    = 1;
+Sat.weight_fRight = 0.01;
+Sat.weight_fLeft  = 0.01;
 
 % Numerical tolerance for assuming a foot on contact
 Sat.toll_feetInContact = 0.1;
@@ -197,20 +199,20 @@ Gains.Kp_LFoot = [50, 50, 50, 20, 20, 20; ... % state = 1 two feet balancing
               
 Gains.Kd_LFoot = 2*sqrt(Gains.Kp_LFoot)/40;
 
-Gains.Kp_RFoot = [50, 50, 50, 20, 20, 20; ... % state = 1 two feet balancing
-                  50, 50, 50, 10, 10, 10; ... % state = 2 move CoM on left foot
-                  70, 70, 70, 10, 10, 10; ... % state = 3 left foot balancing
-                  70, 70, 70, 10, 10, 10; ... % state = 4 prepare for switching
-                  50, 50, 50, 10, 10, 10;];   % state = 5 two feet balancing
+Gains.Kp_RFoot = [100, 100, 100, 1000, 1000, 1000; ... % state = 1 two feet balancing
+                  100, 100, 100, 1000, 1000, 1000; ... % state = 2 move CoM on left foot
+                  100, 100, 100, 1000, 1000, 1000; ... % state = 3 left foot balancing
+                  100, 100, 100, 1000, 1000, 1000; ... % state = 4 prepare for switching
+                  100, 100, 100, 1000, 1000, 1000];   % state = 5 two feet balancing
 
 Gains.Kd_RFoot = 2*sqrt(Gains.Kp_RFoot)/40; 
 
 % Root link orientation and angular velocity gains
-Gains.Kp_rot_task = [20, 20, 20; ...  % state = 1 two feet balancing
-                     10, 10, 10; ...  % state = 2 move CoM on left foot
-                     10, 10, 10; ...  % state = 3 left foot balancing
-                     10, 10, 10; ...  % state = 4 prepare for switching
-                     20, 20, 20];     % state = 5 two feet balancing
+Gains.Kp_rot_task = [200, 200, 200; ...  % state = 1 two feet balancing
+                     200, 200, 200; ...  % state = 2 move CoM on left foot
+                     200, 200, 200; ...  % state = 3 left foot balancing
+                     200, 200, 200; ...  % state = 4 prepare for switching
+                     200, 200, 200];     % state = 5 two feet balancing
                  
 Gains.Kd_rot_task =  2*sqrt(Gains.Kp_rot_task)/40; 
 

@@ -12,8 +12,8 @@
 %         - w_H_RFoot_0 = [4 * 4] initial world to RFoot transform
 %         - w_H_rot_task_0 = [4 * 4] initial world to rotational task Link transform
 %         - t = simulation time
-%         - LFoot_H_b = [4 * 4] base to left foot transform
-%         - RFoot_H_b = [4 * 4] base to right foot transform
+%         - b_H_LFoot = [4 * 4] base to left foot transform
+%         - b_H_RFoot = [4 * 4] base to right foot transform
 %         - LFoot_wrench = [6 * 1] external forces and moments acting on the left foot
 %         - RFoot_wrench = [6 * 1] external forces and moments acting on the right foot
 %         - Config = user defined configuration
@@ -41,7 +41,7 @@
 
 %% --- Initialization ---
 function [state, references_CoM, references_LFoot, references_RFoot, references_rot_task, feetInContact, references_s, w_H_b] = stateMachineExample ...
-             (s_0, w_H_CoM_0, w_H_LFoot_0, w_H_RFoot_0, w_H_rot_task_0, t, LFoot_H_b, RFoot_H_b, LFoot_wrench, RFoot_wrench, Config)
+             (s_0, w_H_CoM_0, w_H_LFoot_0, w_H_RFoot_0, w_H_rot_task_0, t, b_H_LFoot, b_H_RFoot, LFoot_wrench, RFoot_wrench, Config)
           
      persistent currentState t_switch w_H_fixed_link
      
@@ -69,9 +69,9 @@ function [state, references_CoM, references_LFoot, references_RFoot, references_
      % World to base transform (world frame coincides with the fixed link at 0)
      if ~Config.LFoot_in_contact_at0
          
-         w_H_b = w_H_fixed_link*RFoot_H_b;
+         w_H_b = w_H_fixed_link/b_H_RFoot;
      else
-         w_H_b = w_H_fixed_link*LFoot_H_b;
+         w_H_b = w_H_fixed_link/b_H_LFoot;
      end
      
      % Change state
@@ -98,7 +98,7 @@ function [state, references_CoM, references_LFoot, references_RFoot, references_
             % Config.LFoot_in_contact_at0 = false 
             if ~Config.LFoot_in_contact_at0 
                
-                w_H_fixed_link = w_H_fixed_link*RFoot_H_b/LFoot_H_b;            
+                w_H_fixed_link = w_H_fixed_link/b_H_RFoot*b_H_LFoot;            
             end
         end
      end
@@ -108,7 +108,7 @@ function [state, references_CoM, references_LFoot, references_RFoot, references_
      if currentState == 3
      
          % World to base transform 
-         w_H_b = w_H_fixed_link*LFoot_H_b;
+         w_H_b = w_H_fixed_link/b_H_LFoot;
      
          % Keep CoM on left foot    
          references_CoM = [[w_H_LFoot_0(1:2,4);w_H_CoM_0(3,4)], zeros(3,2)];
@@ -133,7 +133,7 @@ function [state, references_CoM, references_LFoot, references_RFoot, references_
      if currentState == 4
      
          % World to base transform 
-         w_H_b = w_H_fixed_link*LFoot_H_b;
+         w_H_b = w_H_fixed_link/b_H_LFoot;
      
          % Keep CoM on left foot    
          references_CoM = [[w_H_LFoot_0(1:2,4);w_H_CoM_0(3,4)], zeros(3,2)];
@@ -154,7 +154,7 @@ function [state, references_CoM, references_LFoot, references_RFoot, references_
      if currentState == 5
      
          % World to base transform 
-         w_H_b = w_H_fixed_link*LFoot_H_b;
+         w_H_b = w_H_fixed_link/b_H_LFoot;
     
          % Feet in contact
          feetInContact = [1,1];

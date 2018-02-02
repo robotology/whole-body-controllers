@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.270"
+    ComputedModelVersion    "1.271"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -41,7 +41,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [86.0, 34.0, 1855.0, 1056.0]
+      Location		      [65.0, 24.0, 1855.0, 1056.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -65,9 +65,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1821.0, 905.0]
+	Extents			[1821.0, 911.0]
 	ZoomFactor		[2.061627906976744]
-	Offset			[223.20924985899597, 131.1993795826283]
+	Offset			[223.20924985899597, 131.19937958262827]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -100,9 +100,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jan 23 17:12:47 2018"
-  RTWModifiedTimeStamp	  438628305
-  ModelVersionFormat	  "1.%<AutoIncrement:270>"
+  LastModifiedDate	  "Fri Feb 02 11:13:20 2018"
+  RTWModifiedTimeStamp	  439470715
+  ModelVersionFormat	  "1.%<AutoIncrement:271>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1101,7 +1101,7 @@ Model {
   }
   System {
     Name		    "impedanceControl"
-    Location		    [86, 34, 1941, 1090]
+    Location		    [65, 24, 1920, 1080]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1115,7 +1115,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "206"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "434"
+    SIDHighWatermark	    "436"
     Block {
       BlockType		      Reference
       Name		      "Configuration"
@@ -1161,7 +1161,7 @@ Model {
       }
       System {
 	Name			"Gravity compensation"
-	Location		[86, 34, 1941, 1090]
+	Location		[65, 24, 1920, 1080]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1280,7 +1280,7 @@ Model {
       }
       System {
 	Name			"PID feedback controller"
-	Location		[86, 34, 1941, 1090]
+	Location		[65, 24, 1920, 1080]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1416,7 +1416,7 @@ Model {
 	  }
 	  System {
 	    Name		    "references"
-	    Location		    [86, 34, 1941, 1090]
+	    Location		    [65, 24, 1920, 1080]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1898,7 +1898,7 @@ Model {
       Variant		      off
       System {
 	Name			"Visualization"
-	Location		[86, 34, 1941, 1090]
+	Location		[65, 24, 1920, 1080]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1939,16 +1939,40 @@ Model {
 	  BlockType		  Reference
 	  Name			  "DoFs converter"
 	  SID			  "412"
-	  Ports			  [5, 1]
+	  Ports			  [1, 5]
 	  Position		  [465, 119, 560, 221]
 	  ZOrder		  652
 	  LibraryVersion	  "1.480"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
-	  yarp2WBIOption	  "From WBI to YARP"
+	  yarp2WBIOption	  "From YARP to WBI"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "left_arm"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "right_arm"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "left_leg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "right_leg"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -1957,16 +1981,40 @@ Model {
 	  BlockType		  Reference
 	  Name			  "DoFs converter1"
 	  SID			  "414"
-	  Ports			  [5, 1]
+	  Ports			  [1, 5]
 	  Position		  [465, 254, 560, 356]
 	  ZOrder		  654
 	  LibraryVersion	  "1.480"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
-	  yarp2WBIOption	  "From WBI to YARP"
+	  yarp2WBIOption	  "From YARP to WBI"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "left_arm"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "right_arm"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "left_leg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "right_leg"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -1974,17 +2022,41 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "DoFs converter2"
-	  SID			  "416"
-	  Ports			  [5, 1]
+	  SID			  "435"
+	  Ports			  [1, 5]
 	  Position		  [465, 404, 560, 506]
-	  ZOrder		  656
+	  ZOrder		  660
 	  LibraryVersion	  "1.480"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
-	  yarp2WBIOption	  "From WBI to YARP"
+	  yarp2WBIOption	  "From YARP to WBI"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "left_arm"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "right_arm"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "left_leg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "right_leg"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -1992,17 +2064,41 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "DoFs converter3"
-	  SID			  "418"
-	  Ports			  [5, 1]
+	  SID			  "436"
+	  Ports			  [1, 5]
 	  Position		  [465, 554, 560, 656]
-	  ZOrder		  658
+	  ZOrder		  661
 	  LibraryVersion	  "1.480"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
-	  yarp2WBIOption	  "From WBI to YARP"
+	  yarp2WBIOption	  "From YARP to WBI"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "left_arm"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "right_arm"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "left_leg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "right_leg"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -2407,10 +2503,9 @@ Model {
 	  NumInputPorts		  "5"
 	}
 	Line {
-	  ZOrder		  440
+	  ZOrder		  522
 	  SrcBlock		  "gravityTorques"
 	  SrcPort		  1
-	  Points		  [285, 0]
 	  DstBlock		  "DoFs converter3"
 	  DstPort		  1
 	}
@@ -2428,7 +2523,6 @@ Model {
 	  Branch {
 	    ZOrder		    417
 	    Labels		    [1, 1]
-	    Points		    [195, 0]
 	    DstBlock		    "DoFs converter"
 	    DstPort		    1
 	  }
@@ -2439,39 +2533,42 @@ Model {
 	  Labels		  [-1, 0]
 	  SrcBlock		  "DoFs converter"
 	  SrcPort		  1
-	  Points		  [0, -40]
 	  DstBlock		  "tauMeas"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "left_arm"
-	  ZOrder		  412
+	  ZOrder		  497
 	  Labels		  [-1, 0]
-	  Points		  [565, 150]
+	  SrcBlock		  "DoFs converter"
+	  SrcPort		  2
 	  DstBlock		  "tauMeas"
 	  DstPort		  2
 	}
 	Line {
 	  Name			  "left_leg"
-	  ZOrder		  413
+	  ZOrder		  495
 	  Labels		  [-1, 0]
-	  Points		  [565, 190]
+	  SrcBlock		  "DoFs converter"
+	  SrcPort		  4
 	  DstBlock		  "tauMeas"
 	  DstPort		  4
 	}
 	Line {
 	  Name			  "right_arm"
-	  ZOrder		  414
+	  ZOrder		  496
 	  Labels		  [-1, 0]
-	  Points		  [565, 170]
+	  SrcBlock		  "DoFs converter"
+	  SrcPort		  3
 	  DstBlock		  "tauMeas"
 	  DstPort		  3
 	}
 	Line {
 	  Name			  "right_leg"
-	  ZOrder		  415
+	  ZOrder		  498
 	  Labels		  [-1, 0]
-	  Points		  [565, 210]
+	  SrcBlock		  "DoFs converter"
+	  SrcPort		  5
 	  DstBlock		  "tauMeas"
 	  DstPort		  5
 	}
@@ -2481,39 +2578,42 @@ Model {
 	  Labels		  [-1, 0]
 	  SrcBlock		  "DoFs converter1"
 	  SrcPort		  1
-	  Points		  [0, -40]
 	  DstBlock		  "tauError"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "left_arm"
-	  ZOrder		  420
+	  ZOrder		  499
 	  Labels		  [-1, 0]
-	  Points		  [565, 285]
+	  SrcBlock		  "DoFs converter1"
+	  SrcPort		  2
 	  DstBlock		  "tauError"
 	  DstPort		  2
 	}
 	Line {
 	  Name			  "left_leg"
-	  ZOrder		  421
+	  ZOrder		  501
 	  Labels		  [-1, 0]
-	  Points		  [565, 325]
+	  SrcBlock		  "DoFs converter1"
+	  SrcPort		  4
 	  DstBlock		  "tauError"
 	  DstPort		  4
 	}
 	Line {
 	  Name			  "right_arm"
-	  ZOrder		  422
+	  ZOrder		  500
 	  Labels		  [-1, 0]
-	  Points		  [565, 305]
+	  SrcBlock		  "DoFs converter1"
+	  SrcPort		  3
 	  DstBlock		  "tauError"
 	  DstPort		  3
 	}
 	Line {
 	  Name			  "right_leg"
-	  ZOrder		  423
+	  ZOrder		  502
 	  Labels		  [-1, 0]
-	  Points		  [565, 345]
+	  SrcBlock		  "DoFs converter1"
+	  SrcPort		  5
 	  DstBlock		  "tauError"
 	  DstPort		  5
 	}
@@ -2523,41 +2623,42 @@ Model {
 	  Labels		  [1, 1]
 	  SrcBlock		  "Sum2"
 	  SrcPort		  1
-	  Points		  [180, 0]
 	  DstBlock		  "DoFs converter1"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "torso"
-	  ZOrder		  425
+	  ZOrder		  505
 	  Labels		  [-1, 0]
 	  SrcBlock		  "DoFs converter2"
 	  SrcPort		  1
-	  Points		  [0, -40]
 	  DstBlock		  "tauDes"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "left_arm"
-	  ZOrder		  426
+	  ZOrder		  507
 	  Labels		  [-1, 0]
-	  Points		  [565, 435]
+	  SrcBlock		  "DoFs converter2"
+	  SrcPort		  2
 	  DstBlock		  "tauDes"
 	  DstPort		  2
 	}
 	Line {
 	  Name			  "left_leg"
-	  ZOrder		  427
+	  ZOrder		  508
 	  Labels		  [-1, 0]
-	  Points		  [565, 475]
+	  SrcBlock		  "DoFs converter2"
+	  SrcPort		  4
 	  DstBlock		  "tauDes"
 	  DstPort		  4
 	}
 	Line {
 	  Name			  "right_arm"
-	  ZOrder		  428
+	  ZOrder		  509
 	  Labels		  [-1, 0]
-	  Points		  [565, 455]
+	  SrcBlock		  "DoFs converter2"
+	  SrcPort		  3
 	  DstBlock		  "tauDes"
 	  DstPort		  3
 	}
@@ -2568,65 +2669,68 @@ Model {
 	  SrcPort		  1
 	  Points		  [90, 0]
 	  Branch {
+	    ZOrder		    510
+	    Labels		    [1, 1]
+	    DstBlock		    "DoFs converter2"
+	    DstPort		    1
+	  }
+	  Branch {
 	    ZOrder		    433
 	    DstBlock		    "Sum2"
 	    DstPort		    2
 	  }
-	  Branch {
-	    ZOrder		    432
-	    Labels		    [1, 1]
-	    Points		    [195, 0]
-	    DstBlock		    "DoFs converter2"
-	    DstPort		    1
-	  }
 	}
 	Line {
 	  Name			  "right_leg"
-	  ZOrder		  434
+	  ZOrder		  506
 	  Labels		  [-1, 0]
-	  Points		  [565, 495]
+	  SrcBlock		  "DoFs converter2"
+	  SrcPort		  5
 	  DstBlock		  "tauDes"
 	  DstPort		  5
 	}
 	Line {
 	  Name			  "torso"
-	  ZOrder		  435
+	  ZOrder		  517
 	  Labels		  [-1, 0]
 	  SrcBlock		  "DoFs converter3"
 	  SrcPort		  1
-	  Points		  [0, -40]
 	  DstBlock		  "gravTorques"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "left_arm"
-	  ZOrder		  436
+	  ZOrder		  519
 	  Labels		  [-1, 0]
-	  Points		  [565, 585]
+	  SrcBlock		  "DoFs converter3"
+	  SrcPort		  2
 	  DstBlock		  "gravTorques"
 	  DstPort		  2
 	}
 	Line {
 	  Name			  "left_leg"
-	  ZOrder		  437
+	  ZOrder		  520
 	  Labels		  [-1, 0]
-	  Points		  [565, 625]
+	  SrcBlock		  "DoFs converter3"
+	  SrcPort		  4
 	  DstBlock		  "gravTorques"
 	  DstPort		  4
 	}
 	Line {
 	  Name			  "right_arm"
-	  ZOrder		  438
+	  ZOrder		  518
 	  Labels		  [-1, 0]
-	  Points		  [565, 605]
+	  SrcBlock		  "DoFs converter3"
+	  SrcPort		  3
 	  DstBlock		  "gravTorques"
 	  DstPort		  3
 	}
 	Line {
 	  Name			  "right_leg"
-	  ZOrder		  439
+	  ZOrder		  521
 	  Labels		  [-1, 0]
-	  Points		  [565, 645]
+	  SrcBlock		  "DoFs converter3"
+	  SrcPort		  5
 	  DstBlock		  "gravTorques"
 	  DstPort		  5
 	}

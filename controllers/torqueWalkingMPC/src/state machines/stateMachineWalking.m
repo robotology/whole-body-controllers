@@ -5,17 +5,17 @@
 %        in a Simulink model.
 %
 % FORMAT: [state, references_CoM, references_LFoot, references_RFoot, references_rot_task, feetInContact, references_s, w_H_b] = stateMachineWalking ...
-%             (s_0, pos_vel_acc_CoM_des_walking, s_des_walking, feetInContact_walking, LFoot_H_b, RFoot_H_b, w_H_rot_task_0, w_walking_H_b, ...
+%             (s_0, pos_vel_acc_CoM_des_walking, s_des_walking, feetInContact_walking, b_H_l, b_H_r, w_H_rot_task_0, w_walking_H_b_initial, ...
 %              LFoot_wrench, RFoot_wrench, Config)
 %
 % INPUT:  - s_0 = [ROBOT_DOF * 1] initial joints positions
 %         - pos_vel_acc_CoM_des_walking = [3 * 3] CoM references from MPC
 %         - s_des_walking = [ROBOT_DOF * 1] joints references from MPC
 %         - feetInContact_walking  = [2 * 1] active contacts with MPC
-%         - LFoot_H_b = [4 * 4] base to  LFoot transform
-%         - RFoot_H_b = [4 * 4] base to  RFoot transform
+%         - b_H_l = [4 * 4] base to  LFoot transform
+%         - b_H_r = [4 * 4] base to  RFoot transform
 %         - w_H_rot_task_0 = [4 * 4] rot task to world transform
-%         - w_walking_H_b = [4 * 4] base to world (MPC) transform
+%         - w_walking_H_b_initial = [4 * 4] base to world (MPC) transform in the initial configuration
 %         - LFoot_wrench = [6 * 1] external forces and moments acting on the left foot
 %         - RFoot_wrench = [6 * 1] external forces and moments acting on the right foot
 %         - Config = user defined configuration
@@ -42,9 +42,9 @@
 %
 
 %% --- Initialization ---
-function [state, references_CoM, references_LFoot, references_RFoot, references_rot_task, feetInContact, references_s, w_H_b] = stateMachineWalking ...
-             (s_0, pos_vel_acc_CoM_des_walking, s_des_walking, feetInContact_walking, w_walking_H_LFoot, w_walking_H_RFoot, w_H_rot_task_0, w_walking_H_b, ...
-              LFoot_wrench, RFoot_wrench, Config)
+function [state, references_CoM, references_LFoot, references_RFoot, references_rot_task, feetInContact, references_s, w_H_b, leftIsFixed_out] = stateMachineWalking ...
+             (s_0, pos_vel_acc_CoM_des_walking, s_des_walking, feetInContact_walking, b_H_l, b_H_r, w_walking_H_LFoot, w_walking_H_RFoot, w_H_rot_task_0, w_walking_H_b_initial, ...
+              LFoot_is_fixed, LFoot_wrench, RFoot_wrench, Config)
          
     % State selector:
     %
@@ -53,6 +53,9 @@ function [state, references_CoM, references_LFoot, references_RFoot, references_
     % state = 3 right foot balancing
     %
     persistent currentState
+    persistent leftAsFixedLink
+    persistent w_H_fixedLink
+    persistent time
     
     if isempty(currentState)
         
@@ -71,9 +74,9 @@ function [state, references_CoM, references_LFoot, references_RFoot, references_
        
     elseif currentState == 2
         
-        feetInContact = [1 0];       
-    else        
-        feetInContact = [0 1];
+       feetInContact = [1,0];      
+    else       
+       feetInContact = [0,1];     
     end
     
     % left foot balancing
@@ -89,14 +92,88 @@ function [state, references_CoM, references_LFoot, references_RFoot, references_
         feetInContact = transpose(feetInContact_walking);
     end
     
+    if isempty(leftAsFixedLink)
+        leftAsFixedLink = (round(LFoot_is_fixed) > 0.9);
+    end
+    
+    if isempty(w_H_fixedLink)
+        if (round(LFoot_is_fixed) > 0.9)
+            w_H_fixedLink = w_walking_H_LFoot;
+        else
+            w_H_fixedLink = w_walking_H_RFoot;
+        end
+    end
+    
+    if isempty(time)
+        time = 0.0;
+    end
+    
+    if leftAsFixedLink
+        if (RFoot_wrench(3) > Config.threshold_contact_on) && (round(LFoot_is_fixed) > 0.9)
+            time = time + 0.01;
+        else
+            time = 0.0;
+        end
+    else
+        if (LFoot_wrench(3) > Config.threshold_contact_on) && (round(LFoot_is_fixed) < 0.1)
+            time = time + 0.01;
+        else
+            time = 0.0;
+        end
+    end
+    
+    if leftAsFixedLink
+        %if (RFoot_wrench(3) > LFoot_wrench(3)) && (RFoot_wrench(3) > Config.threshold_contact_on) && (LFoot_wrench(3) < Config.threshold_contact_off) && (round(LFoot_is_fixed) > 0.9)
+        if time > 0.1
+            time = 0.0;
+            leftAsFixedLink = false;
+            l_H_r = b_H_l \ b_H_r;
+            eulerAnglesL = rollPitchYawFromRotation(l_H_r(1:3,1:3));
+            yawAngleL = eulerAnglesL(3);
+            filtered_l_H_r = zeros(4,4);
+            filtered_l_H_r(1:3,1:3) = rotz(yawAngleL);
+            filtered_l_H_r(4,4) = 1;
+            filtered_l_H_r(1:2,4) = l_H_r(1:2,4);
+            w_H_fixedLink = w_H_fixedLink * filtered_l_H_r;
+        end
+    else
+        %if (LFoot_wrench(3) > RFoot_wrench(3)) && (LFoot_wrench(3) > Config.threshold_contact_on) && (RFoot_wrench(3) < Config.threshold_contact_off) && (round(LFoot_is_fixed) < 0.1)
+        if time > 0.1
+            time = 0.0;
+            leftAsFixedLink = true;
+            r_H_l = b_H_r \ b_H_l;
+            eulerAnglesR = rollPitchYawFromRotation(r_H_l(1:3,1:3));
+            yawAngleR = eulerAnglesR(3);
+            filtered_r_H_l = zeros(4,4);
+            filtered_r_H_l(1:3,1:3) = rotz(yawAngleR);
+            filtered_r_H_l(4,4) = 1;
+            filtered_r_H_l(1:2,4) = r_H_l(1:2,4);
+            w_H_fixedLink = w_H_fixedLink * filtered_r_H_l;
+        end
+    end
+    
+    if isempty(w_H_fixedLink)
+        if (round(LFoot_is_fixed) > 0.9)
+            w_H_fixedLink = w_walking_H_LFoot;
+        else
+            w_H_fixedLink = w_walking_H_RFoot;
+        end
+    end
+    
+    
     % Base to world transform
-    w_H_b = w_walking_H_b;
+    if leftAsFixedLink
+        w_H_b = w_H_fixedLink/b_H_l;
+    else
+        w_H_b = w_H_fixedLink/b_H_r;
+    end
+    leftIsFixed_out = leftAsFixedLink;
     
     % Update state
     state = currentState;
        
     % Joint references
-    s_des        = [s_des_walking(1:3); s_0(4:11); s_des_walking(4:15)];
+    s_des        =  s_des_walking; % [s_des_walking(1:3); s_0(4:11); s_des_walking(4:15)];
     references_s = [s_des, zeros(size(s_0,1),2)];
          
     % CoM references

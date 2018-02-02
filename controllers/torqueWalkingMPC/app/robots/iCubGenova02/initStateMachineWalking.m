@@ -22,7 +22,7 @@ Frames.COM = 'com';
 Frames.BASE_LINK = 'root_link';
 Frames.LEFT_FOOT = 'l_sole';
 Frames.RIGHT_FOOT = 'r_sole';
-Frames.ROT_TASK_LINK = 'chest';
+Frames.ROT_TASK_LINK = 'neck_2';
 
 % Emergency stop if ports are streaming null data (MPC_WALKING DEMO ONLY)
 Config.CHECK_PORTS_WALKING = true;
@@ -69,19 +69,21 @@ Config.CHECK_QP_ERROR = true;
 Sat.tau_max = 60; % [Nm]
 
 % Saturation on torque derivative (for QP solver)
-Sat.tauDot_max = 10000;
+Sat.tauDot_max = 1000;
 
 % Saturation on state jerk (for QP based inverse kinematics)
 Sat.nuDDot_max = 10000;
 
-% Weight for the joint minimization task
-Sat.weight_tau = 0.01;
+% Weight for the torque and forces minimization task
+Sat.weight_tau    = 1;
+Sat.weight_fRight = 0.01;
+Sat.weight_fLeft  = 0.01;
 
 % Numerical tolerance for assuming a foot on contact
 Sat.toll_feetInContact = 0.1;
 
 % Damping for the pseudoinverse used for computing the floating base velocity
-Sat.pinvDamp_nu_b = 1e-6;
+Sat.pinvDamp_nu_b = 1e-7;
 
 % If true, the feet accelerations are zero when the foot is in contact. If false, 
 % feet accelerations are equal to a feedforward + feedback terms
@@ -164,6 +166,9 @@ Config.smoothingTimeGains    = [1;1;1];
 % to be considered as active (MPC_WALKING DEMO ONLY)
 Config.threshold_contact_activation = 2.5; % [N]
 
+Config.threshold_contact_on  = 150;
+Config.threshold_contact_off = 200;
+
 %% CoM and feet references (EXAMPLE_STATEMACHINE DEMO ONLY)
 
 % add a delta to the right foot position. 
@@ -178,38 +183,38 @@ Config.deltaPos_RFoot = [ 0.00 0.00 0.00; ...   % state = 1 two feet balancing
 %% Gains matrices
 
 % CoM position and velocity gains
-Gains.Kp_CoM = [50, 50, 50; ...  % state = 1 two feet balancing
-                50, 50, 50; ...  % state = 2 left foot balancing
-                50, 50, 50];     % state = 3 right foot balancing
+Gains.Kp_CoM = [100, 100, 100; ...  % state = 1 two feet balancing
+                100, 100, 100; ...  % state = 2 left foot balancing
+                100, 100, 100];     % state = 3 right foot balancing
                 
-Gains.Kd_CoM = 2*sqrt(Gains.Kp_CoM);
+Gains.Kd_CoM = 2*sqrt(Gains.Kp_CoM)/20;
 
 % Feet position and velocity gains
-Gains.Kp_LFoot = [50, 50, 50, 30, 30, 30; ... % state = 1 two feet balancing
-                  50, 50, 50, 30, 30, 30; ... % state = 2 left foot balancing
-                  50, 50, 50, 30, 30, 30];    % state = 3 right foot balancing
+Gains.Kp_LFoot = [100, 100, 100, 1000, 1000, 1000; ... % state = 1 two feet balancing
+                  100, 100, 100, 1000, 1000, 1000; ... % state = 2 left foot balancing
+                  100, 100, 100, 1000, 1000, 1000]*0.75;   % state = 3 right foot balancing
               
-Gains.Kd_LFoot = 2*sqrt(Gains.Kp_LFoot);
+Gains.Kd_LFoot = 2*sqrt(Gains.Kp_LFoot)/40;
 
-Gains.Kp_RFoot = [50, 50, 50, 30, 30, 30; ... % state = 1 two feet balancing
-                  50, 50, 50, 30, 30, 30; ... % state = 2 left foot balancing
-                  50, 50, 50, 30, 30, 30];    % state = 3 right foot balancing
+Gains.Kp_RFoot = [100, 100, 100, 1000, 1000, 1000; ... % state = 1 two feet balancing
+                  100, 100, 100, 1000, 1000, 1000; ... % state = 2 left foot balancing
+                  100, 100, 100, 1000, 1000, 1000]*0.75;    % state = 3 right foot balancing
 
-Gains.Kd_RFoot = 2*sqrt(Gains.Kp_RFoot); 
+Gains.Kd_RFoot = 2*sqrt(Gains.Kp_RFoot)/40; 
 
 % Root link orientation and angular velocity gains
-Gains.Kp_rot_task = [20, 20, 20; ...  % state = 1 two feet balancing
-                     20, 20, 20; ...  % state = 2 left foot balancing
-                     20, 20, 20];     % state = 3 right foot balancing
+Gains.Kp_rot_task = [100, 100, 100; ...  % state = 1 two feet balancing
+                     100, 100, 100; ...  % state = 2 left foot balancing
+                     100, 100, 100]*0.5;     % state = 3 right foot balancing
                  
-Gains.Kd_rot_task =  2*sqrt(Gains.Kp_rot_task); 
+Gains.Kd_rot_task =  2*sqrt(Gains.Kp_rot_task)/40; 
 
 % Joint position and velocity gains
     
                     % torso      % left arm      % right arm     % left leg               % right leg                                   
-Gains.impedances = [20  20  20,  10  10  10  8,  10  10  10  8,  30  30  30  60  10  10,  30  30  30  60  10  10;  ... % state = 1 two feet balancing          
-                    20  20  20,  10  10  10  8,  10  10  10  8,  30  30  30  60  10  10,  30  30  30  60  10  10;  ... % state = 2 left foot balancing
-                    20  20  20,  10  10  10  8,  10  10  10  8,  30  30  30  60  10  10,  30  30  30  60  10  10]; ... % state = 3 right foot balancing
+Gains.impedances = [30  30  30,  50  50  50  100, 50  50  50  100, 30  50  30  60  80  80,  30  100  30  60  80  80;  ... % state = 1 two feet balancing          
+                    30  30  30,  50  50  50  100, 50  50  50  100, 30  50  30  60  80  80,  30  100  30  60  80  80;  ... % state = 2 left foot balancing
+                    30  30  30,  50  50  50  100, 50  50  50  100, 30  50  30  60  80  80,  30  100  30  60  80  80]*2.5; ... % state = 3 right foot balancing
                      
 Gains.dampings   = zeros(size(Gains.impedances));
 
@@ -223,11 +228,11 @@ Gains.ikin_dampings   = 2*sqrt(Gains.ikin_impedances);
 % So, numberOfPoints defines the number of points used to interpolate the 
 % circle in each cicle's quadrant 
 numberOfPoints               = 4; 
-forceFrictionCoefficient     = 1;  
+forceFrictionCoefficient     = 1/3;  
 torsionalFrictionCoefficient = 1/75;
 fZmin                        = 10; % Min vertical force [N]
 
 % Size of the foot
-Config.footSize              = [-0.05  0.10;     % xMin, xMax
-                                -0.025 0.025];   % yMin, yMax  
+Config.footSize              = [-0.07  0.12 ;    % xMin, xMax
+                                -0.045 0.05 ];   % yMin, yMax
     

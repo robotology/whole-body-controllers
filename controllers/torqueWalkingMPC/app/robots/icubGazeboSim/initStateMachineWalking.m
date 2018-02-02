@@ -74,8 +74,10 @@ Sat.tauDot_max = 10000;
 % Saturation on state jerk (for QP based inverse kinematics)
 Sat.nuDDot_max = 10000;
 
-% Weight for the joint minimization task
-Sat.weight_tau = 0.1;
+% Weight for the torque and forces minimization task
+Sat.weight_tau    = 1;
+Sat.weight_fRight = 0.01;
+Sat.weight_fLeft  = 0.01;
 
 % Numerical tolerance for assuming a foot on contact
 Sat.toll_feetInContact = 0.1;

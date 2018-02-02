@@ -26,8 +26,8 @@ close all
 
 % setenv('YARP_ROBOT_NAME','iCubGenova04');
 % setenv('YARP_ROBOT_NAME','icubGazeboSim');
-% setenv('YARP_ROBOT_NAME','iCubGenova02');
-  setenv('YARP_ROBOT_NAME','iCubGazeboV2_5');
+  setenv('YARP_ROBOT_NAME','iCubGenova02');
+% setenv('YARP_ROBOT_NAME','iCubGazeboV2_5');
 
 % SELECT THE DEMO TO BE PERFORMED:
 %
@@ -67,7 +67,7 @@ Config.SCOPES_GAIN_SCHEDULING = false;
 
 % Config.CHECK_LIMITS: if set to true, the controller will stop as soon as 
 % any of the joint limit is touched. 
-Config.CHECK_LIMITS          = false;
+Config.CHECK_LIMITS = false;
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Advanced setup - do not change these parameters unless you know what you're doing

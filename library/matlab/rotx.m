@@ -1,6 +1,6 @@
 % ROTX computes a rotation along the x axis (rotation matrix).
 %
-% FORMAT: R = rotz(alpha)     
+% FORMAT: R = rotx(alpha)     
 %
 % INPUT:  - alpha = angle in radians
 %
