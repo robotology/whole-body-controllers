@@ -245,9 +245,7 @@ function QPBalancingMPC(block)
         
         % to avoid the equality constraints to be unfeasible for numerical 
         % errors, a small tolerance is added to the bias vectors
-        eps      = [0.0001*ones(3,1); 0.0001*ones(3,1); ...
-                    0.0001*ones(3,1); 0.0001*ones(3,1); ...
-                    0.0001*ones(3,1); 0.0001*ones(3,1)];
+       	eps = 0.0001*ones(size(biasVectorConstraint_equality,1),1);
                 
         % upper bound constraints    
         ubA  = [biasVectorConstraint_inequality;
