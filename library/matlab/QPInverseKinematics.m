@@ -171,10 +171,9 @@ function QPInverseKinematics(block)
         
         % to avoid the equality constraints to be unfeasible for numerical errors,
         % a small tolerance is added to the bias vectors
-        eps = zeros(size(biasVectorConstraint,1),1);
-        for i = 1:6:size(biasVectorConstraint,1)
-            eps(i:i+5, 1) = [0.001*ones(3,1); 0.1*ones(3,1)];
-        end
+        eps      = [0.001*ones(3,1); 0.1*ones(3,1); ...
+                    0.001*ones(3,1); 0.1*ones(3,1); ...
+                    0.001*ones(3,1); 0.1*ones(3,1)];
                     
         ubA  = biasVectorConstraint+eps;
         lbA  = biasVectorConstraint-eps;

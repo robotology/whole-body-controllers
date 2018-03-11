@@ -54,17 +54,17 @@ function w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base
         rollPitchYawFiltered_link(2) = rollPitchYaw_link_0(2);
     end
 
-    wImu_R_link    = rotz(rollPitchYawFiltered_link(3))*roty(rollPitchYawFiltered_link(2))*rotx(rollPitchYawFiltered_link(1));
+    wImu_R_link   = rotz(rollPitchYawFiltered_link(3))*roty(rollPitchYawFiltered_link(2))*rotx(rollPitchYawFiltered_link(1));
 
     % IMU inertial frame to fixed link transform
-    wImu_H_link    = [wImu_R_link,   zeros(3,1)
-                      zeros(1,3),       1     ];
+    wImu_H_link   = [wImu_R_link,   zeros(3,1)
+                     zeros(1,3),       1     ];
           
-    wImu_H_link_0  = [wImu_R_link_0, zeros(3,1)
-                      zeros(1,3),       1     ];
+    wImu_H_link_0 = [wImu_R_link_0, zeros(3,1)
+                     zeros(1,3),       1     ];
 
     % IMU inertial frame to base link transform             
-    wImu_H_base    = wImu_H_link * link_H_base;
+    wImu_H_base   = wImu_H_link * link_H_base;
 
     %% Correct IMU with neck position
     wImu_H_wImuAssumingNeckToZero = correctImuWithNeckPos(neck_pos);

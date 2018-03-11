@@ -71,6 +71,7 @@ function [Hessian, gradient, ConstraintMatrix, biasVectorConstraint] = ...
     
      %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      %% TEMPORARY FIX FOR SOLVING A BUG IN QPOAES WITH EQUALITY CONSTRAINTS
+     %% see also: https://github.com/robotology-dependencies/qpOASES/issues/4
      %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
      correction = 1e-9.*size(3, size(s,1) +6);
      ConstraintMatrix(16:18,:) = ConstraintMatrix(16:18,:) -correction;

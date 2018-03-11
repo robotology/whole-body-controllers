@@ -3,9 +3,9 @@
 
 The procedure to run the torque balancing module is still quite elaborate. Users willing to use the module should follow this list.
 
-- Set the environmental variable YARP_ROBOT_NAME in the `.bashrc` according to the robot one wants to use (e.g. icubGazeboSim for simulations, or iCubGenova04, etc. for experiments).
+- Set the environmental variable YARP_ROBOT_NAME in the `.bashrc` according to the robot one wants to use (e.g. icubGazeboSim for simulations, or iCubGenova04, etc. for experiments). **NOTE:** there exists another model for simulations, `iCubGazeboV2_5`, but it is still under testing. Use `icubGazeboSim` for simulations.
 
-- Launch yarpserver (with --write option if necessary).
+- Launch the `yarpserver` (with `--write` option if necessary).
 
 - Launch gazebo. If you want to use the synchronization between the controller and the simulator to avoid real-time factor related problems, launch gazebo as follows: `gazebo -slibgazebo_yarp_clock.so`.
  

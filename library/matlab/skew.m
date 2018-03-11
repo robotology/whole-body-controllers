@@ -1,4 +1,4 @@
-% SKEW function to generate a [3 * 3] Skew Symmetric matrix out of a 
+% SKEW function to generate a [3 * 3] skew-symmetric matrix out of a 
 %      [3 * 1] vector.
 %
 % FORMAT: X = skew(x)  

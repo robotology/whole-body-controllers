@@ -3,7 +3,7 @@
 
 The procedure to run the torque balancing module is still quite elaborate. Users willing to use the module should follow this list.
 
-- Set the environmental variable YARP_ROBOT_NAME in the `.bashrc` according to the robot one wants to use (e.g. icubGazeboSim for simulations, or iCubGenova04, etc. for experiments).
+- Set the environmental variable `YARP_ROBOT_NAME` in the `.bashrc` according to the robot one wants to use (e.g. icubGazeboSim for simulations, or iCubGenova04, etc. for experiments).
  
 - Bring the robot in a suitable home position (e.g. `$ yarpmotorgui --from homePoseBalancing.ini` and then select a custom position by clicking on `Global Joints Commands/Custom postions`.
 

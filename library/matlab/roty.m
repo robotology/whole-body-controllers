@@ -1,6 +1,6 @@
 % ROTY computes a rotation along the y axis (rotation matrix).
 %
-% FORMAT: R = rotz(alpha)     
+% FORMAT: R = roty(alpha)     
 %
 % INPUT:  - alpha = angle in radians
 %

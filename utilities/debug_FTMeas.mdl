@@ -1,12 +1,12 @@
 Model {
-  Name			  "debugFTMeas"
+  Name			  "debug_FTMeas"
   Version		  8.8
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.25"
+    ComputedModelVersion    "1.27"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -20,7 +20,7 @@ Model {
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
   DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 3 0 0 0 11 0"
+  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 11 0"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -98,12 +98,11 @@ Model {
   Creator		  "DanielePucci"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "gnava"
+  LastModifiedBy	  "gabri"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jan 08 19:50:20 2018"
-  RTWModifiedTimeStamp	  437341816
-  ModelVersionFormat	  "1.%<AutoIncrement:25>"
-  ConfigurationManager	  "none"
+  LastModifiedDate	  "Sun Mar 11 13:10:03 2018"
+  RTWModifiedTimeStamp	  442674603
+  ModelVersionFormat	  "1.%<AutoIncrement:27>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -152,12 +151,12 @@ Model {
     $PropName		    "DataLoggingOverride"
     $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
-    model_		    "debugFTMeas"
+    model_		    "debug_FTMeas"
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
       Dimension		      1
-      Cell		      "debugFTMeas"
+      Cell		      "debug_FTMeas"
       PropName		      "logAsSpecifiedByModels_"
     }
     Array {
@@ -211,7 +210,6 @@ Model {
 	  AbsTol		  "auto"
 	  FixedStep		  "0.01"
 	  InitialStep		  "auto"
-	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -630,7 +628,7 @@ Model {
 	      Version		      "1.16.5"
 	      Array {
 		Type			"Cell"
-		Dimension		26
+		Dimension		28
 		Cell			"IgnoreCustomStorageClasses"
 		Cell			"ParameterTuningSideEffectCode"
 		Cell			"IgnoreTestpoints"
@@ -657,6 +655,8 @@ Model {
 		Cell			"ReqsInCode"
 		Cell			"CustomSymbolStrModelFcn"
 		Cell			"CustomUserTokenString"
+		Cell			"CustomSymbolStrEmxType"
+		Cell			"CustomSymbolStrEmxFcn"
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
@@ -666,17 +666,14 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
-	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
-	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
-	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
@@ -741,7 +738,6 @@ Model {
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
-	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
@@ -757,7 +753,6 @@ Model {
 	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
-	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -848,7 +843,7 @@ Model {
       Name		      "Configuration"
       ExtraOptions	      ""
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 100, 58, 1180, 720 ] 
+      ConfigPrmDlgPosition    [ 100, 58, 1180, 720 ]
     }
     PropName		    "ConfigurationSets"
   }
@@ -947,9 +942,9 @@ Model {
     }
   }
   System {
-    Name		    "debugFTMeas"
+    Name		    "debug_FTMeas"
     Location		    [65, 24, 1920, 1080]
-    Open		    on
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -976,14 +971,10 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force right foot"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque right foot"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -999,14 +990,10 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force left foot"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque left foot"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1022,14 +1009,10 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force right leg"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque right leg"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1045,14 +1028,10 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force left leg"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque left leg"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1068,14 +1047,10 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force right arm"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque right arm"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1091,14 +1066,10 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force left arm"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque left arm"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1143,7 +1114,7 @@ Model {
       " 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862"
       "745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'Dis"
       "playLayoutDimensions',[2 2],'TimeRangeSamples','60','TimeRangeFrames','60'),extmgr.Configuration('Tools','Plot N"
-      "avigation',true),extmgr.Configuration('Tools','Measurements',true,'Version','2015b')),'Version','2015b','Positio"
+      "avigation',true),extmgr.Configuration('Tools','Measurements',true,'Version','2015b')),'Version','2017b','Positio"
       "n',[409 227 1301 663])"
       NumInputPorts	      "4"
     }
@@ -1190,7 +1161,7 @@ Model {
       "1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392"
       "156863]),'DisplayLayoutDimensions',[2 2],'DisplayContentCache',[],'TimeRangeSamples','60','TimeRangeFrames','60'"
       "),extmgr.Configuration('Tools','Plot Navigation',true,'PreviousAutoscale','XY','OnceAtStop',false),extmgr.Config"
-      "uration('Tools','Measurements',true,'Version','2015b')),'Version','2015b','Position',[1 5 1862 980])"
+      "uration('Tools','Measurements',true,'Version','2015b')),'Version','2017b','Position',[1 5 1862 980])"
       NumInputPorts	      "4"
     }
     Block {
@@ -1234,7 +1205,7 @@ Model {
       "5098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'Displ"
       "ayLayoutDimensions',[2 2],'DisplayContentCache',[],'TimeRangeSamples','60','TimeRangeFrames','60'),extmgr.Config"
       "uration('Tools','Plot Navigation',true,'PreviousAutoscale','XY','OnceAtStop',false),extmgr.Configuration('Tools'"
-      ",'Measurements',true,'Version','2016b')),'Version','2016b','Position',[66 5 1855 968])"
+      ",'Measurements',true,'Version','2016b')),'Version','2017b','Position',[66 5 1855 968])"
       NumInputPorts	      "4"
     }
     Block {
@@ -1247,7 +1218,7 @@ Model {
       ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
       BackgroundColor	      "gray"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
       period		      "0.01"
@@ -1345,11 +1316,12 @@ Model {
       ZOrder		      519
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/right_foot/analog:o'"
       signalSize	      "6"
+      timeout		      "0.5"
       blocking		      off
       timestamp		      off
       autoconnect	      on
@@ -1357,8 +1329,6 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog right foot"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1370,11 +1340,12 @@ Model {
       ZOrder		      521
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/left_foot/analog:o'"
       signalSize	      "6"
+      timeout		      "0.5"
       blocking		      off
       timestamp		      off
       autoconnect	      on
@@ -1382,8 +1353,6 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog left foot"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1395,11 +1364,12 @@ Model {
       ZOrder		      528
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/right_leg/analog:o'"
       signalSize	      "6"
+      timeout		      "0.5"
       blocking		      off
       timestamp		      off
       autoconnect	      on
@@ -1407,8 +1377,6 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog right leg"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1420,11 +1388,12 @@ Model {
       ZOrder		      530
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/left_leg/analog:o'"
       signalSize	      "6"
+      timeout		      "0.5"
       blocking		      off
       timestamp		      off
       autoconnect	      on
@@ -1432,8 +1401,6 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog left leg"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1445,11 +1412,12 @@ Model {
       ZOrder		      537
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/right_arm/analog:o'"
       signalSize	      "6"
+      timeout		      "0.5"
       blocking		      off
       timestamp		      off
       autoconnect	      on
@@ -1457,8 +1425,6 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog right arm"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1470,11 +1436,12 @@ Model {
       ZOrder		      539
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/left_arm/analog:o'"
       signalSize	      "6"
+      timeout		      "0.5"
       blocking		      off
       timestamp		      off
       autoconnect	      on
@@ -1482,8 +1449,6 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog left arm"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1495,7 +1460,7 @@ Model {
       ZOrder		      524
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       ContentPreviewEnabled   off
@@ -1509,7 +1474,7 @@ Model {
       ZOrder		      526
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       ContentPreviewEnabled   off
@@ -1523,7 +1488,7 @@ Model {
       ZOrder		      533
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       ContentPreviewEnabled   off
@@ -1537,7 +1502,7 @@ Model {
       ZOrder		      535
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       ContentPreviewEnabled   off
@@ -1551,7 +1516,7 @@ Model {
       ZOrder		      542
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       ContentPreviewEnabled   off
@@ -1565,7 +1530,7 @@ Model {
       ZOrder		      544
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.383"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       ContentPreviewEnabled   off
@@ -1889,13 +1854,13 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000010
+#   Stateflow 80000012
 #
 #
 Stateflow {
   machine {
     id			    1
-    name		    "debugFTMeas"
+    name		    "debug_FTMeas"
     created		    "05-May-2016 17:01:28"
     isLibrary		    0
     sfVersion		    80000010

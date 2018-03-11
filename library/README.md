@@ -1,5 +1,5 @@
 # Library
 
-- A collection of functions/scripts in common between different controllers. Only Matlab Functions are available for the moment.
+- A collection of functions/scripts used by the controllers. Only Matlab Functions are available for the moment.
 
 
