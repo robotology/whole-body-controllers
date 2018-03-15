@@ -330,6 +330,7 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
         impedances  = Gain.impedances(state,:);
         KPCoM       = Gain.KP_COM(state,:);   
         KDCoM       = Gain.KD_COM(state,:);   
+         CoM_des    = CoM_0 + Sm.CoM_delta(state,:)'; 
         
         if t - tSwitch > Sm.tBalancing 
             

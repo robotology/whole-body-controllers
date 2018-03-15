@@ -13,7 +13,7 @@ Config.LEFT_RIGHT_FOOT_IN_CONTACT = [1 1];
 Config.LEFT_FOOT_IN_CONTACT_AT_0 = true;
 
 % If true, the robot CoM will follow a desired reference trajectory (COORDINATOR DEMO ONLY)
-Config.DEMO_MOVEMENTS = false;
+Config.DEMO_MOVEMENTS = true;
 
 % If equal to true, the desired streamed values of the center of mass 
 % are smoothed internally 
@@ -24,7 +24,7 @@ Config.SMOOTH_COM_DES = false;
 Config.SMOOTH_JOINT_DES = false;   
 
 % torque saturation
-Sat.torque = 34; 
+Sat.torque = 15; 
 
 %% Control gains
 
@@ -118,6 +118,24 @@ end
 % value between 0 and 1
 Config.K_ff  = 0;
 
+% Multiplier of viscous friction as seen in the motors dynamics
+Kbemf = [0.00125  0.00125  0.00125 ...                    % torso
+         0.002  0.0005 0.0007 0.0007 ...                  % left arm
+         0.002  0.0005 0.0007 0.0007 ...                  % right arm
+         0.0035 0.002  0.001  0.002  0.0025  0.0025 ...   % left leg
+         0.004  0.002  0.001  0.002  0.0025  0.0025]/2;   % right leg
+     
+% Multiplier of viscous friction as seen in the joint dynamics
+invTGamma_transpose = eye(size(Config.Gamma))/(transpose(Config.T*Config.Gamma));
+invTGamma           = eye(size(Config.Gamma))/(Config.T*Config.Gamma);
+
+if Config.EXPLOIT_FRICTION
+
+    Gain.Kf = invTGamma_transpose*diag(Kbemf)*invTGamma;
+else
+    Gain.Kf = zeros(23);
+end
+
 %% References for CoM trajectory (COORDINATOR DEMO ONLY)
 
 % that the robot waits before starting the left-and-right 
@@ -127,9 +145,9 @@ if Config.DEMO_MOVEMENTS && sum(Config.LEFT_RIGHT_FOOT_IN_CONTACT) == 2
         
     Config.directionOfOscillation = [0;1;0];
     % amplitude of oscillations in meters
-    Config.amplitudeOfOscillation = 0.02;
+    Config.amplitudeOfOscillation = 0.015;
     % frequency of oscillations in hertz
-    Config.frequencyOfOscillation = 1;
+    Config.frequencyOfOscillation = 0.5;
 else
     Config.directionOfOscillation  = [0;0;0];
     Config.amplitudeOfOscillation  = 0.0;  
@@ -139,7 +157,7 @@ end
 %% State machine parameters
 
 % smoothing time for joints and CoM
-Sm.smoothingTimeCoM_Joints = 3; 
+Sm.smoothingTimeCoM_Joints = 1; 
 
 % time between two yoga positions (YOGA DEMO ONLY)
 Sm.joints_pauseBetweenYogaMoves = 0;
@@ -183,15 +201,18 @@ forceFrictionCoefficient     = 1/3;
 torsionalFrictionCoefficient = 1/75;
 
 % physical size of the foot                             
-feet_size                    = [-0.07 0.12;     % xMin, xMax
-                                -0.04 0.04 ];   % yMin, yMax    
+feet_size                    = [-0.07  0.12 ;    % xMin, xMax
+                                -0.045 0.05 ];   % yMin, yMax   
  
 fZmin                        = 10;
 
 %% Regularization parameters
-Reg.pinvDamp_nu_b = 1e-7;
-Reg.pinvDamp      = 2; 
-Reg.pinvTol       = 1e-5;
-Reg.impedances    = 0.1;
-Reg.dampings      = 0;
-Reg.HessianQP     = 1e-5;
+Reg.pinvDamp_nu_b          = 1e-7;
+Reg.pinvDamp               = 0.01; 
+Reg.pinvTol                = 1e-5;
+Reg.impedances             = 0.1;
+Reg.dampings               = 0;
+Reg.HessianQP              = 1e-5;
+Reg.pinvDamp_friction_expl = 0.05;
+Reg.pinvDamp_friction_comp = 5;
+

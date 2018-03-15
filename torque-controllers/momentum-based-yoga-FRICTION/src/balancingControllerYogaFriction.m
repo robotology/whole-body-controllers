@@ -15,11 +15,10 @@
 %  * Public License for more details
 %  */
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function  [tauModel, Sigma, NA, f_HDot, ...
           HessianMatrixQP1Foot, gradientQP1Foot, ConstraintsMatrixQP1Foot, bVectorConstraintsQp1Foot, ...
           HessianMatrixQP2Feet, gradientQP2Feet, ConstraintsMatrixQP2Feet, bVectorConstraintsQp2Feet, ...
-          errorCoM, f_noQP, HError, HDotDes, HDotDes_test,alpha,JcMinvJct] = ...
+          errorCoM, f_noQP, HError, HDotDes, HDotDes_old,alpha,JcMinvJct] = ...
               balancingControllerYogaFriction(constraints, ROBOT_DOF_FOR_SIMULINK, ConstraintsMatrix, bVectorConstraints, ...
                   qj, qjDes, nu, M, h, H, intHw, w_H_l_sole, w_H_r_sole, JL, JR, dJL_nu, dJR_nu, xCoM, J_CoM, desired_x_dx_ddx_CoM, ...
                   gainsPCOM, gainsDCOM, impedances, qjDesDot, JG, Gain, Reg)
@@ -112,7 +111,7 @@ function  [tauModel, Sigma, NA, f_HDot, ...
     JcMinvSt        = JcMinv*St;
     JcMinvJct       = JcMinv*transpose(Jc);
     
-    % multiplier of f in tau
+    % multiplier of f in tau_0
     JBar            = transpose(Jc(:,7:end)) -Mbj'/Mb*transpose(Jc(:,1:6)); 
 
     Pinv_JcMinvSt   = pinvDamped(JcMinvSt,Reg.pinvDamp); 
@@ -128,6 +127,9 @@ function  [tauModel, Sigma, NA, f_HDot, ...
     % versions of the controller
     impedances      = diag(impedances)*pinv(NLMbar,Reg.pinvTol) + Reg.impedances*eye(ROBOT_DOF);
     dampings        = diag(dampings)*pinv(NLMbar,Reg.pinvTol)   + Reg.dampings*eye(ROBOT_DOF); 
+    
+    % Multiplier of f in tau        
+    Sigma           = -(Pinv_JcMinvSt*JcMinvJct + nullJcMinvSt*JBar);
   
     %% QP PARAMETERS FOR TWO FEET STANDING
     % In the case the robot stands on two feet, the control objective is 
@@ -166,64 +168,83 @@ function  [tauModel, Sigma, NA, f_HDot, ...
     constraintMatrixRightFoot = ConstraintsMatrix * blkdiag(w_R_r_sole',w_R_r_sole');
     ConstraintsMatrix2Feet    = blkdiag(constraintMatrixLeftFoot,constraintMatrixRightFoot);
     bVectorConstraints2Feet   = [bVectorConstraints;bVectorConstraints];
-    
-    % Terms used in Eq. 0)
-    tauModel  = Pinv_JcMinvSt*(JcMinv*h -Jc_nuDot) + nullJcMinvSt*(h(7:end) - Mbj'/Mb*h(1:6) ...
-               -impedances*NLMbar*qjTilde -dampings*NLMbar*(qjDot-qjDesDot) +Gain.Kf*qjDesDot);
-           
-    Sigma     = -(Pinv_JcMinvSt*JcMinvJct + nullJcMinvSt*JBar);
-    
-    
-     %% NEW TERMS
+
+    %% EXPLOITING FRICTION: MODIFICATIONS
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    HDes = [(m*(desired_x_dx_ddx_CoM(:,2))); zeros(3,1)];
+             
+    % Momentum error  
+    HDes   = [(m*(desired_x_dx_ddx_CoM(:,2))); zeros(3,1)];
     HError = H-HDes;
     
-    % Time varying contact jacobian
- 
-    JcMinvR          = JR/M;
-    JcMinvStR        = JcMinvR*St;
-    JcMinvJctR       = JcMinvR*transpose(JR);
-    
-    % Compute multiplier of nu_b  
-    pinvJb = (transpose(Jc(:,1:6))*Jc(:,1:6) + Reg.pinvDamp_nu_b*eye(6))\transpose(Jc(:,1:6));  
+    % Required matrices     
+    if constraints(1) > 0.5 && constraints(2) < 0.5
+        
+        % left foot balancing
+        JcMinv_left     = JcMinv(1:6,:);
+        JcMinvJct_left  = JcMinvJct(1:6,1:6);
+        A_left          = AL;
+                   
+        % Inverse of JcMinvJct 
+        inv_JcMinvJct_left_comp = pinvDamped(JcMinvJct_left,Reg.pinvDamp_friction_comp);
+        inv_JcMinvJct_left_expl = pinvDamped(JcMinvJct_left,Reg.pinvDamp_friction_expl);
+        JBar_friction_left      = transpose(Jc(1:6,7:end)) -Mbj'/Mb*transpose(Jc(1:6,1:6)); 
   
-    % Reduced CMM
-    JG_red = -JG(1:6,1:6)*pinvJb*Jc(:,7:end) +JG(1:6,7:end);
-    
-    if sum(constraints) > 1.5
-            
-        B1 = A*(pinvDamped(JcMinvJct,Reg.pinvDampB1))*JcMinvSt;
-        B2 = A*(pinvDamped(JcMinvJct,Reg.pinvDampB2))*JcMinvSt;
-        Null_friction = eye(ROBOT_DOF)+transpose(B2)*JG_red;
+        % multiplier of friction forces
+        B_friction_comp         = A_left*inv_JcMinvJct_left_comp*JcMinv_left;
+        B_friction_expl         = A_left*inv_JcMinvJct_left_expl*JcMinv_left;
+        C_friction_comp         = JBar_friction_left*inv_JcMinvJct_left_comp*JcMinv_left;
+
+    elseif constraints(2) > 0.5 && constraints(1) < 0.5
         
-        
-        alpha = transpose(HError)*B2*Gain.Kf*Null_friction*qjDot;
+        % right foot balancing
+        JcMinv_right    = JcMinv(7:end,:);
+        JcMinvJct_right = JcMinvJct(7:end,7:end);
+        A_right         = AR;
+                   
+        % Inverse of JcMinvJct 
+        inv_JcMinvJct_right_comp = pinvDamped(JcMinvJct_right,Reg.pinvDamp_friction_comp);
+        inv_JcMinvJct_right_expl = pinvDamped(JcMinvJct_right,Reg.pinvDamp_friction_expl);
+        JBar_friction_right      = transpose(Jc(7:end,7:end)) -Mbj'/Mb*transpose(Jc(7:end,1:6)); 
+  
+        % multiplier of friction forces
+        B_friction_comp         = A_right*inv_JcMinvJct_right_comp*JcMinv_right;
+        B_friction_expl         = A_right*inv_JcMinvJct_right_expl*JcMinv_right;
+        C_friction_comp         = JBar_friction_right*inv_JcMinvJct_right_comp*JcMinv_right;
         
     else
         
-        B1 = AR*(pinvDamped(JcMinvJctR,Reg.pinvDampB1))*JcMinvStR;
-        B2 = AR*(pinvDamped(JcMinvJctR,Reg.pinvDampB2))*JcMinvStR;
-        Null_friction = eye(ROBOT_DOF)+transpose(B2)*JG_red;
-         
-        alpha = transpose(HError)*B2*Gain.Kf*Null_friction*qjDot;
+        % two feet balancing
+        JcMinv_both    = JcMinv;
+        JcMinvJct_both = JcMinvJct;
+        A_both         = A;
+           
+        % Inverse of JcMinvJct 
+        inv_JcMinvJct_both_comp = pinvDamped(JcMinvJct_both,Reg.pinvDamp_friction_comp);
+        inv_JcMinvJct_both_expl = pinvDamped(JcMinvJct_both,Reg.pinvDamp_friction_expl);
+        JBar_friction_both      = transpose(Jc(:,7:end)) -Mbj'/Mb*transpose(Jc(:,1:6)); 
+  
+        % multiplier of friction forces
+        B_friction_comp         = A_both*inv_JcMinvJct_both_comp*JcMinv_both;
+        B_friction_expl         = A_both*inv_JcMinvJct_both_expl*JcMinv_both;
+        C_friction_comp         = JBar_friction_both*inv_JcMinvJct_both_comp*JcMinv_both;
     end
+     
+    % Desired rate-of-change of the robot momentum and tauModel (MODIFIED)
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    HDotDes     = [m*xDDcomStar ;
+                  -Gain.KD_AngularMomentum*H(4:end)-Gain.KP_AngularMomentum*intHw] + ...
+                  B_friction_expl*St*Gain.Kf*transpose(St)*transpose(B_friction_expl)*HDes -...
+                  B_friction_comp*St*Gain.Kf*transpose(St)*transpose(B_friction_comp)*H -...
+                  B_friction_comp*St*Gain.Kf*nu(7:end);
+     
+    tauModel    = Pinv_JcMinvSt*(JcMinv*h -Jc_nuDot) + ...
+                  nullJcMinvSt*(h(7:end) - Mbj'/Mb*h(1:6) -impedances*NLMbar*qjTilde -dampings*NLMbar*(qjDot-qjDesDot) + ...
+                  Gain.Kf*qjDesDot -C_friction_comp*St*Gain.Kf*nu(7:end));
+              
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
-    if alpha < -0.1
-        
-    % Desired rate-of-change of the robot momentum
-    HDotDes   = [m*xDDcomStar ;
-                -Gain.KD_AngularMomentum*H(4:end)-Gain.KP_AngularMomentum*intHw] +B1*Gain.Kf*transpose(B1)*HDes;
-                 
-    else
-        
-    % Desired rate-of-change of the robot momentum
-    HDotDes   = [m*xDDcomStar ;
-                -Gain.KD_AngularMomentum*H(4:end)-Gain.KP_AngularMomentum*intHw] +B1*Gain.Kf*transpose(B1)*HDes +0*B2*Gain.Kf*Null_friction*qjDot;
-    end
-    
-    % Desired rate-of-change of the robot momentum
-    HDotDes_test   = [m*xDDcomStar ;
+    % Desired rate-of-change of the robot momentum (OLD)
+    HDotDes_old  = [m*xDDcomStar ;
                      -Gain.KD_AngularMomentum*H(4:end)-Gain.KP_AngularMomentum*intHw];
 
     % Contact wrenches realizing the desired rate-of-change of the robot
@@ -273,8 +294,8 @@ function  [tauModel, Sigma, NA, f_HDot, ...
                                 constraints(2) * (1 - constraints(1)) * constraintMatrixRightFoot;
     bVectorConstraintsQp1Foot = transpose(bVectorConstraints);
 
-    A1Foot                    =  AL*constraints(1)*(1-constraints(2)) + AR*constraints(2)*(1-constraints(1));
-    HessianMatrixQP1Foot      =  A1Foot'*A1Foot + eye(size(A1Foot,2))*Reg.HessianQP;
+    A1Foot                    = AL*constraints(1)*(1-constraints(2)) + AR*constraints(2)*(1-constraints(1));
+    HessianMatrixQP1Foot      = A1Foot'*A1Foot + eye(size(A1Foot,2))*Reg.HessianQP;
     gradientQP1Foot           = transpose(-A1Foot'*(HDotDes - gravityWrench));
 
     %% DEBUG DIAGNOSTICS
@@ -288,52 +309,10 @@ function  [tauModel, Sigma, NA, f_HDot, ...
     % Error on the center of mass
     errorCoM                  =  xCoM - desired_x_dx_ddx_CoM(:,1);
     
-    
-    %% NEW TERMS
+    %% DEBUG FRICTION
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    HDes = [(m*(desired_x_dx_ddx_CoM(:,2))); zeros(3,1)];
-    HError = H-HDes;
     
-    % Time varying contact jacobian
- 
-    JcMinvR          = JR/M;
-    JcMinvStR        = JcMinvR*St;
-    JcMinvJctR       = JcMinvR*transpose(JR);
-    
-    % Compute multiplier of nu_b  
-    pinvJb = (transpose(Jc(:,1:6))*Jc(:,1:6) + Reg.pinvDamp_nu_b*eye(6))\transpose(Jc(:,1:6));  
-  
-    % Reduced CMM
-    JG_red = -JG(1:6,1:6)*pinvJb*Jc(:,7:end) +JG(1:6,7:end);
-    
-    if sum(constraints) > 1.5
-        
-        
-        B = A*(pinvDamped(JcMinvJct,Reg.pinvDamp))*JcMinvSt;
-        Null_friction = eye(ROBOT_DOF)+transpose(B)*JG_red;
-        
-        
-        alpha = transpose(HError)*B*Gain.Kf*Null_friction*qjDot;
-        
-    else
-        
-        B = AR*(pinvDamped(JcMinvJctR,Reg.pinvDamp))*JcMinvStR;
-        Null_friction = eye(ROBOT_DOF)+transpose(B)*JG_red;
-         
-        alpha = transpose(HError)*B*Gain.Kf*Null_friction*qjDot;
-    end
-    
-    if alpha < -0.1
-        
-    % Desired rate-of-change of the robot momentum
-    HDotDes_test_old   = [m*xDDcomStar ;
-                     -Gain.KD_AngularMomentum*H(4:end)-Gain.KP_AngularMomentum*intHw] +B*Gain.Kf*transpose(B)*HDes;
-                 
-    else
-        
-    % Desired rate-of-change of the robot momentum
-    HDotDes_test_old   = [m*xDDcomStar ;
-                     -Gain.KD_AngularMomentum*H(4:end)-Gain.KP_AngularMomentum*intHw] +B*Gain.Kf*transpose(B)*HDes -B*Gain.Kf*Null_friction*qjDot;
-    end
+    % Parameter in the Lyapunov function
+    alpha = transpose(HError)*B_friction_expl*St*Gain.Kf*transpose(St)*(eye(ROBOT_DOF+6) + transpose(B_friction_expl)*JG)*nu;
 
 end

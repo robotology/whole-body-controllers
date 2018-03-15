@@ -26,9 +26,9 @@ clc
 % 
 % and set the environmental variable YARP_ROBOT_NAME = icubGazeboSim. 
 
-% setenv('YARP_ROBOT_NAME','iCubGenova04');
+  setenv('YARP_ROBOT_NAME','iCubGenova04');
 % setenv('YARP_ROBOT_NAME','iCubGenova02');
-  setenv('YARP_ROBOT_NAME','icubGazeboSim');
+% setenv('YARP_ROBOT_NAME','icubGazeboSim');
 % setenv('YARP_ROBOT_NAME','iCubGazeboV2_5');
 
 % simulation time  
@@ -37,11 +37,15 @@ Config.SIMULATION_TIME = inf;
 
 % Default behaviour: gravity compensation. If MOVING = true, the robot will also move 
 % all actuated joints following a sine trajectory
-MOVING = false;
+MOVING = true;
 
 % If Config.SAVE_WORKSPACE = True, every time the simulink model is run the
 % workspace is saved after stopping the simulation
 Config.SAVE_WORKSPACE = true;
+
+% If EXPLOIT_FRICTION = true, the joint friction is exploited for improving
+% the tracking performances
+EXPLOIT_FRICTION = true;
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONFIGURATIONS COMPLETED: loading gains and parameters for the specific robot

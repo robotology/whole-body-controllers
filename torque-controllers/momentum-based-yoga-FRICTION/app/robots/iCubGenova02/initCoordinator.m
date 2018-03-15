@@ -207,11 +207,10 @@ feet_size                    = [-0.07  0.12 ;    % xMin, xMax
 fZmin                        = 10;
 
 %% Regularization parameters
-Reg.pinvDamp_nu_b = 1e-7;
-Reg.pinvDamp      = 0.01; 
-Reg.pinvTol       = 1e-5;
-Reg.impedances    = 0.1;
-Reg.dampings      = 0;
-Reg.HessianQP     = 1e-5;
-Reg.pinvDampB1    = 0.25;
-Reg.pinvDampB2    = 1;
+Reg.pinvDamp_nu_b     = 1e-7;
+Reg.pinvDamp          = 0.01; 
+Reg.pinvTol           = 1e-5;
+Reg.impedances        = 0.1;
+Reg.dampings          = 0;
+Reg.HessianQP         = 1e-5;
+Reg.pinvDamp_friction = 0.25;

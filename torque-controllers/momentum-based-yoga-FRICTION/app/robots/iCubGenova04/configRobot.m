@@ -31,6 +31,7 @@ Frames.COM               = 'com';
 % motion is the result of more than one motor motion) is taken into account.
 Config.USE_MOTOR_REFLECTED_INERTIA = true;
 Config.INCLUDE_COUPLING            = true;
+Config.EXPLOIT_FRICTION            = true;
 
 % Config.USE_IMU4EST_BASE: if set to false, the base frame is estimated by 
 % assuming that either the left or the right foot stay stuck on the ground. 
@@ -63,3 +64,7 @@ Config.USE_QP_SOLVER     = true;
 % Ports name list
 Ports.IMU               = ['/' WBTConfigRobot.RobotName '/inertial'];
 Ports.NECK_POS          = ['/' WBTConfigRobot.RobotName '/head/state:o'];
+
+% Ports name list
+Ports.WBD_LEFTLEG_EE   = '/wholeBodyDynamics/left_foot/cartesianEndEffectorWrench:o';
+Ports.WBD_RIGHTLEG_EE  = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';

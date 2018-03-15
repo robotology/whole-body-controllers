@@ -27,14 +27,12 @@ Config.SMOOTH_JOINT_DES = true;
 Sat.torque = 60;
 
 %% Regularization parameters
-Reg.pinvDamp_nu_b = 1e-7;
-Reg.pinvDamp      = 0.07; 
-Reg.pinvTol       = 1e-5;
-Reg.impedances    = 0.1;
-Reg.dampings      = 0;
-Reg.HessianQP     = 1e-7;   
-Reg.pinvDampB1    = 0.13;
-Reg.pinvDampB2    = 5;
+Reg.pinvDamp_nu_b     = 1e-7;
+Reg.pinvDamp          = 0.07; 
+Reg.pinvTol           = 1e-5;
+Reg.impedances        = 0.1;
+Reg.dampings          = 0;
+Reg.pinvDamp_friction = 0.25;
                             
 %% COM AND JOINT GAINS 
 Gain.KP_COM     =      [50    100  5  % state ==  1  TWO FEET BALANCING
@@ -83,7 +81,7 @@ Gain.SmoothingTimeGainScheduling = 2;
 
 % smoothing time for joints and CoM
 Sm.smoothingTimeCoM_Joints       = [1;    %% state ==  1  TWO FEET BALANCING
-                                    1;    %% state ==  2  COM TRANSITION TO LEFT FOOT
+                                    2;    %% state ==  2  COM TRANSITION TO LEFT FOOT
                                     1;    %% state ==  3  LEFT FOOT BALANCING 
                                     1.55; %% state ==  4  YOGA LEFT FOOT
                                     2;    %% state ==  5  PREPARING FOR SWITCHING
@@ -91,7 +89,7 @@ Sm.smoothingTimeCoM_Joints       = [1;    %% state ==  1  TWO FEET BALANCING
                                     1;    %% state ==  7  TRANSITION INIT POSITION
                                     2;    %% state ==  8  COM TRANSITION TO RIGHT FOOT
                                     1;    %% state ==  9  RIGHT FOOT BALANCING 
-                                    0.6;  %% state == 10  YOGA RIGHT FOOT
+                                    1.55; %% state == 10  YOGA RIGHT FOOT
                                     2;    %% state == 11  PREPARING FOR SWITCHING
                                     5;    %% state == 12  LOOKING FOR CONTACT 
                                     10];  %% state == 13  TRANSITION INIT POSITION
