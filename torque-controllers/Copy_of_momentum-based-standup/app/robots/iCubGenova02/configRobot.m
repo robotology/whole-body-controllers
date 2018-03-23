@@ -3,15 +3,16 @@
 %
 
 %% --- Initialization ---
-Config.ON_GAZEBO         = true;
+Config.ON_GAZEBO         = false;
 ROBOT_DOF                = 23;
 ROBOT_DOF_FOR_SIMULINK   = eye(ROBOT_DOF);
 
 % Robot configuration for WBT3.0
-WBTConfigRobot                    = WBToolbox.Configuration;
-WBTConfigRobot.RobotName          = 'icubSim';
-WBTConfigRobot.UrdfFile           = 'model.urdf';
-WBTConfigRobot.LocalName          = 'WBT';
+WBTConfigRobot           = WBToolbox.Configuration;
+WBTConfigRobot.RobotName = 'icub';
+WBTConfigRobot.UrdfFile  = 'model.urdf';
+WBTConfigRobot.LocalName = 'WBT';
+
 WBTConfigRobot.ControlBoardsNames = {'torso','left_arm','right_arm','left_leg','right_leg'};
 WBTConfigRobot.ControlledJoints   = {'torso_pitch','torso_roll','torso_yaw', ...
                                      'l_shoulder_pitch','l_shoulder_roll','l_shoulder_yaw','l_elbow', ...
@@ -24,13 +25,25 @@ Frames.IMU               = 'imu_frame';
 Frames.LEFT_FOOT         = 'l_sole';
 Frames.RIGHT_FOOT        = 'r_sole';
 Frames.COM               = 'com';
+Frames.LEFT_LEG          = 'l_upper_leg_contact';
+Frames.RIGHT_LEG         = 'r_upper_leg_contact';
+Frames.LEFT_HAND         = 'l_hand_dh_frame';
+Frames.RIGHT_HAND        = 'r_hand_dh_frame';
+
+%% iCub STANDUP demo parameters
+% when Config.STANDUP_WITH_HUMAN is setted to TRUE, the robot will be aware 
+% of the external forces at the arms provided by the human and it will use
+% also them for lifting up.
+Config.STANDUP_WITH_HUMAN = true;
+
+%% Other parameters
 
 % Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
 % inertias are included in the system mass matrix. If
 % Config.INCLUDE_COUPLING is true, then the coupling effect (some joints
 % motion is the result of more than one motor motion) is taken into account.
-Config.USE_MOTOR_REFLECTED_INERTIA = false;
-Config.INCLUDE_COUPLING            = false;
+Config.USE_MOTOR_REFLECTED_INERTIA = true;
+Config.INCLUDE_COUPLING            = true;
 
 % Config.USE_IMU4EST_BASE: if set to false, the base frame is estimated by 
 % assuming that either the left or the right foot stay stuck on the ground. 
@@ -61,5 +74,6 @@ Config.CORRECT_NECK_IMU  = true;
 Config.USE_QP_SOLVER     = true; 
 
 % Ports name list
-Ports.IMU               = ['/' WBTConfigRobot.RobotName '/inertial'];
-Ports.NECK_POS          = ['/' WBTConfigRobot.RobotName '/head/state:o'];
+Ports.IMU                = ['/' WBTConfigRobot.RobotName '/inertial'];
+Ports.NECK_POS           = ['/' WBTConfigRobot.RobotName '/head/state:o'];
+

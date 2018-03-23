@@ -13,11 +13,7 @@ Config.LEFT_RIGHT_FOOT_IN_CONTACT = [1 1];
 Config.LEFT_FOOT_IN_CONTACT_AT_0 = true;
 
 % If true, the robot CoM will follow a desired reference trajectory (COORDINATOR DEMO ONLY)
-Config.DEMO_MOVEMENTS = false;
-
-% If equal to true, the desired streamed values of the center of mass 
-% are smoothed internally 
-Config.SMOOTH_COM_DES = false;   
+Config.DEMO_MOVEMENTS = true; 
 
 % If equal to true, the desired streamed values of the postural tasks are
 % smoothed internally 
@@ -31,7 +27,7 @@ Sat.torque = 34;
 % PARAMETERS FOR TWO FEET BALANCING
 if sum(Config.LEFT_RIGHT_FOOT_IN_CONTACT) == 2
     
-    Gain.KP_COM             = diag([50 100 5]);
+    Gain.KP_COM             = diag([50 50 50]);
     Gain.KD_COM             = 2*sqrt(Gain.KP_COM)*0;
     Gain.KP_AngularMomentum = 5;
     Gain.KD_AngularMomentum = 2*sqrt(Gain.KP_AngularMomentum);
@@ -71,8 +67,26 @@ if (size(Gain.impedances,2) ~= ROBOT_DOF)
     error('Dimension mismatch between ROBOT_DOF and dimension of the variable impedences. Check these variables in the file gains.m');
 end
 
-% Smoothing time gain scheduling (YOGA DEMO ONLY)
-Gain.SmoothingTimeGainScheduling = 2;
+% Smoothing time gain scheduling (STANDUP DEMO ONLY)
+Gain.SmoothingTimeGainScheduling = 0.02;
+
+%% References for CoM trajectory (COORDINATOR DEMO ONLY)
+
+% that the robot waits before starting the left-and-right 
+Config.noOscillationTime = 0;   
+
+if Config.DEMO_MOVEMENTS && sum(Config.LEFT_RIGHT_FOOT_IN_CONTACT) == 2
+        
+    Config.directionOfOscillation = [0;1;0];
+    % amplitude of oscillations in meters
+    Config.amplitudeOfOscillation = 0.02;
+    % frequency of oscillations in hertz
+    Config.frequencyOfOscillation = 0.2;
+else
+    Config.directionOfOscillation  = [0;0;0];
+    Config.amplitudeOfOscillation  = 0.0;  
+    Config.frequencyOfOscillation  = 0.0;
+end
 
 %% Parameters for motors reflected inertia
 
@@ -118,60 +132,32 @@ end
 % value between 0 and 1
 Config.K_ff  = 0;
 
-%% References for CoM trajectory (COORDINATOR DEMO ONLY)
-
-% that the robot waits before starting the left-and-right 
-Config.noOscillationTime = 0;   
-
-if Config.DEMO_MOVEMENTS && sum(Config.LEFT_RIGHT_FOOT_IN_CONTACT) == 2
-        
-    Config.directionOfOscillation = [0;1;0];
-    % amplitude of oscillations in meters
-    Config.amplitudeOfOscillation = 0.02;
-    % frequency of oscillations in hertz
-    Config.frequencyOfOscillation = 1;
-else
-    Config.directionOfOscillation  = [0;0;0];
-    Config.amplitudeOfOscillation  = 0.0;  
-    Config.frequencyOfOscillation  = 0.0;
-end
-
 %% State machine parameters
 
 % smoothing time for joints and CoM
-Sm.smoothingTimeCoM_Joints = 3; 
+Sm.smoothingTimeCoM_Joints = 1; 
 
-% time between two yoga positions (YOGA DEMO ONLY)
-Sm.joints_pauseBetweenYogaMoves = 0;
+% if Sm.smoothingTimeCoM_Joints = 0, this will allow to smooth anyway the
+% CoM reference trajectory
+Sm.smoothingTimeCoM = 1;
 
-% contact forces threshold (YOGA DEMO ONLY)
-Sm.wrench_thresholdContactOn  = 1;
-Sm.wrench_thresholdContactOff = 1;
+% contact forces threshold (STANDUP DEMO ONLY)
+Sm.wrench_thresholdContactLFoot = 1;
+Sm.wrench_thresholdContactRFoot = 1;
+Sm.wrench_thresholdContactLHand = 1;
+Sm.wrench_thresholdContactRHand = 1;
 
-% threshold on CoM and joints error (YOGA DEMO ONLY)
-Sm.CoM_threshold                = 0; 
-Sm.joints_thresholdNotInContact = 0;
-Sm.joints_thresholdInContact    = 0;
-
-% initial state for state machine (YOGA DEMO ONLY)
+% initial state for state machine (STANDUP DEMO ONLY)
 Sm.stateAt0 = 1;
 
-% delta to be summed to the reference CoM position (YOGA DEMO ONLY)
+% delta to be summed to the reference CoM position (STANDUP DEMO ONLY)
 Sm.CoM_delta = [0; 0; 0];
 
-% joint references (YOGA DEMO ONLY)
-Sm.joints_references   = zeros(1,ROBOT_DOF);
-Sm.joints_leftYogaRef  = zeros(1,ROBOT_DOF+1);
-Sm.joints_rightYogaRef = zeros(1,ROBOT_DOF+1);
+% joint references (STANDUP DEMO ONLY)
+Sm.joints_standUpPositions = zeros(1,9);
 
-% configuration parameters for state machine (YOGA DEMO ONLY) 
-Sm.tBalancing               = 1;
-Sm.tBalancingBeforeYoga     = 1;
-Sm.skipYoga                 = false;
-Sm.demoOnlyBalancing        = false;
-Sm.demoStartsOnRightSupport = false;
-Sm.yogaAlsoOnRightFoot      = false;
-Sm.yogaInLoop               = false;
+% configuration parameters for state machine (STANDUP DEMO ONLY) 
+Sm.tBalancing           = 1;
 
 %% Constraints for QP for balancing
 
@@ -179,19 +165,23 @@ Sm.yogaInLoop               = false;
 % So, numberOfPoints defines the number of points used to interpolate the circle 
 % in each cicle's quadrant
 numberOfPoints               = 4;  
-forceFrictionCoefficient     = 1/3;  
-torsionalFrictionCoefficient = 1/75;
+forceFrictionCoefficient     = 1/5;  
+torsionalFrictionCoefficient = 1/150;
 
 % physical size of the foot                             
-feet_size                    = [-0.07 0.12;     % xMin, xMax
-                                -0.04 0.04 ];   % yMin, yMax    
+feet_size                    = [-0.07   0.12;    % xMin, xMax
+                                -0.045  0.05];   % yMin, yMax  
+                           
+leg_size                     = [-0.025  0.025 ; % xMin, xMax
+                                -0.005  0.005]; % yMin, yMax 
  
 fZmin                        = 10;
 
 %% Regularization parameters
-Reg.pinvDamp_nu_b = 1e-7;
-Reg.pinvDamp      = 2; 
-Reg.pinvTol       = 1e-5;
-Reg.impedances    = 0.1;
-Reg.dampings      = 0;
-Reg.HessianQP     = 1e-5;
+Reg.pinvDamp_nu_b  = 1e-7;
+Reg.pinvDamp       = 0.01; 
+Reg.pinvTol        = 1e-5;
+Reg.impedances     = 0.1;
+Reg.dampings       = 0;
+Reg.HessianQP      = 1e-7;
+Reg.norm_tolerance = 1e-4;

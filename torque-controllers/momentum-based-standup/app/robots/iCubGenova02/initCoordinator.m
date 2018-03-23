@@ -1,4 +1,4 @@
-% INITCOORDINATOR initializes the robot configuration for running
+% INITCOORDINATOR initializes the robot configuration for running the
 %                'COORDINATOR' demo. 
 %
 
@@ -7,63 +7,58 @@
 % Feet in contact (COORDINATOR DEMO ONLY)
 Config.LEFT_RIGHT_FOOT_IN_CONTACT = [1 1];
 
-% Initial foot on ground. If false, right foot is used as default contact
-% frame (this does not means that the other foot cannot be in contact too).
-% (COORDINATOR DEMO ONLY)
-Config.LEFT_FOOT_IN_CONTACT_AT_0 = true;
-
 % If true, the robot CoM will follow a desired reference trajectory (COORDINATOR DEMO ONLY)
-Config.DEMO_MOVEMENTS = true; 
+Config.DEMO_MOVEMENTS             = true;
 
-% If equal to true, the desired streamed values of the postural tasks are
+% If equal to true, the desired values of the center of mass 
+% are smoothed internally 
+Config.SMOOTH_COM_DES             = false;   
+
+% If equal to true, the desired values of the postural tasks are
 % smoothed internally 
-Config.SMOOTH_JOINT_DES = false;   
+Config.SMOOTH_JOINT_DES           = false;   
 
-% torque saturation
-Sat.torque = 34; 
+% Torque saturation
+Sat.torque                        = 34; 
 
-%% Control gains
+%% Gains for momentum and postural task
 
-% PARAMETERS FOR TWO FEET BALANCING
+% TWO FEET BALANCING
 if sum(Config.LEFT_RIGHT_FOOT_IN_CONTACT) == 2
     
-    Gain.KP_COM             = diag([50 50 50]);
-    Gain.KD_COM             = 2*sqrt(Gain.KP_COM)*0;
-    Gain.KP_AngularMomentum = 5;
-    Gain.KD_AngularMomentum = 2*sqrt(Gain.KP_AngularMomentum);
+    % Momentum gains
+    Gain.Kp_CoM             = diag([50 50 50]);
+    Gain.Kd_CoM             = 2*sqrt(Gain.Kp_CoM)*0;
+    Gain.Ki_AngularMomentum = 5 ;
+    Gain.Kp_AngularMomentum = 2*sqrt(Gain.Ki_AngularMomentum);
 
-    % Impedances acting in the null space of the desired contact forces 
-    impTorso            = [10   10   20]; 
-
-    impArms             = [10   10   10    8];
-
-    impLeftLeg          = [30   30   30    60   10   10]; 
-
-    impRightLeg         = [30   30   30    60   10   10];                                            
+    % Joint space gains
+    Kp_Torso            = [10   10   20]; 
+    Kp_Arms             = [10   10   10    8];
+    Kp_LeftLeg          = [30   30   30    60   10   10]; 
+    Kp_RightLeg         = [30   30   30    60   10   10];                                            
 end
 
-% PARAMETERS FOR ONE FOOT BALANCING
+% ONE FOOT BALANCING
 if sum(Config.LEFT_RIGHT_FOOT_IN_CONTACT) == 1
     
-    Gain.KP_COM               = diag([50  100  50]);
-    Gain.KD_COM               = diag([0   0    0]);
-    Gain.KP_AngularMomentum   = 1 ;
-    Gain.KD_AngularMomentum   = 1 ;
+    % Momentum gains
+    Gain.Kp_CoM             = diag([50 100 50]);
+    Gain.Kd_CoM             = 2*sqrt(Gain.Kp_CoM)*0;
+    Gain.Ki_AngularMomentum = 1 ;
+    Gain.Kp_AngularMomentum = 2*sqrt(Gain.Ki_AngularMomentum);
 
-    % Impedances acting in the null space of the desired contact forces    
-    impTorso            = [20   20   30];
-    
-    impArms             = [15   15   15    8];
-                        
-    impLeftLeg          = [30   30   30    120   10   10];
-
-    impRightLeg         = [30   30   30    60    10   10];   
+    % Joint space gains
+    Kp_Torso            = [20   20   30]; 
+    Kp_Arms             = [15   15   15    8];
+    Kp_LeftLeg          = [30   30   30    60   10   10]; 
+    Kp_RightLeg         = [30   30   30    60   10   10];                                            
 end
 
-Gain.impedances         = [impTorso(1,:),impArms(1,:),impArms(1,:),impLeftLeg(1,:),impRightLeg(1,:)];
-Gain.dampings           = 0*sqrt(Gain.impedances);
+Gain.Kp_joints          = [Kp_Torso(1,:),Kp_Arms(1,:),Kp_Arms(1,:),Kp_LeftLeg(1,:),Kp_RightLeg(1,:)];
+Gain.Kd_joints          = 2*sqrt(Gain.Kp_joints)*0;
 
-if (size(Gain.impedances,2) ~= ROBOT_DOF)
+if (size(Gain.Kp_joints,2) ~= ROBOT_DOF)
     error('Dimension mismatch between ROBOT_DOF and dimension of the variable impedences. Check these variables in the file gains.m');
 end
 
@@ -80,7 +75,7 @@ if Config.DEMO_MOVEMENTS && sum(Config.LEFT_RIGHT_FOOT_IN_CONTACT) == 2
     Config.directionOfOscillation = [0;1;0];
     % amplitude of oscillations in meters
     Config.amplitudeOfOscillation = 0.02;
-    % frequency of oscillations in hertz
+    % frequency of oscillations in Hertz
     Config.frequencyOfOscillation = 0.2;
 else
     Config.directionOfOscillation  = [0;0;0];
@@ -91,35 +86,40 @@ end
 %% Parameters for motors reflected inertia
 
 % transmission ratio
-Config.Gamma = 0.01*eye(ROBOT_DOF);
+Config.Gamma                           = 0.01*eye(ROBOT_DOF);
 
 % motors inertia (Kg*m^2)
-legsMotors_I_m           = 0.0827*1e-4;
-torsoPitchRollMotors_I_m = 0.0827*1e-4;
-torsoYawMotors_I_m       = 0.0585*1e-4;
-armsMotors_I_m           = 0.0585*1e-4;
-Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
-                                 torsoYawMotors_I_m;
-                                 armsMotors_I_m*ones(8,1);
-                                 legsMotors_I_m*ones(12,1)]);
+legsMotors_I_m                         = 0.0827*1e-4;
+torsoPitchRollMotors_I_m               = 0.0827*1e-4;
+torsoYawMotors_I_m                     = 0.0585*1e-4;
+armsMotors_I_m                         = 0.0585*1e-4;
+
+% gain for feedforward term in joint torques calculation. Valid range: a
+% value between 0 and 1
+Config.K_ff                            = 0;
+
+Config.I_m                             = diag([torsoPitchRollMotors_I_m*ones(2,1);
+                                               torsoYawMotors_I_m;
+                                               armsMotors_I_m*ones(8,1);
+                                               legsMotors_I_m*ones(12,1)]);
 
 % parameters for coupling matrices                            
-t  = 0.625;
-r  = 0.022;
-R  = 0.04;
+t                                      = 0.625;
+r                                      = 0.022;
+R                                      = 0.04;
 
 % coupling matrices
-T_LShoulder = [-1  0  0;
-               -1 -t  0;
-                0  t -t];
+T_LShoulder                            = [-1  0  0;
+                                          -1 -t  0;
+                                           0  t -t];
 
-T_RShoulder = [ 1  0  0;
-                1  t  0;
-                0 -t  t];
+T_RShoulder                            = [ 1  0  0;
+                                           1  t  0;
+                                           0 -t  t];
 
-T_torso = [0   -0.5     0.5;
-           0    0.5     0.5;
-           r/R  r/(2*R) r/(2*R)];
+T_torso                                = [0   -0.5     0.5;
+                                          0    0.5     0.5;
+                                          r/R  r/(2*R) r/(2*R)];
        
 if Config.INCLUDE_COUPLING
        
@@ -128,18 +128,14 @@ else
     Config.T = eye(ROBOT_DOF);
 end
 
-% gain for feedforward term in joint torques calculation. Valid range: a
-% value between 0 and 1
-Config.K_ff  = 0;
-
 %% State machine parameters
 
 % smoothing time for joints and CoM
-Sm.smoothingTimeCoM_Joints = 1; 
+Sm.smoothingTime_CoM_Joints = 1; 
 
 % if Sm.smoothingTimeCoM_Joints = 0, this will allow to smooth anyway the
 % CoM reference trajectory
-Sm.smoothingTimeCoM = 1;
+Sm.smoothingTime_CoM = 1;
 
 % contact forces threshold (STANDUP DEMO ONLY)
 Sm.wrench_thresholdContactLFoot = 1;
@@ -164,24 +160,23 @@ Sm.tBalancing           = 1;
 % The friction cone is approximated by using linear interpolation of the circle. 
 % So, numberOfPoints defines the number of points used to interpolate the circle 
 % in each cicle's quadrant
-numberOfPoints               = 4;  
-forceFrictionCoefficient     = 1/5;  
-torsionalFrictionCoefficient = 1/150;
+numberOfPoints                         = 4;  
+forceFrictionCoefficient               = 1/3;  
+torsionalFrictionCoefficient           = 1/75;
 
 % physical size of the foot                             
-feet_size                    = [-0.07   0.12;    % xMin, xMax
-                                -0.045  0.05];   % yMin, yMax  
-                           
-leg_size                     = [-0.025  0.025 ; % xMin, xMax
-                                -0.005  0.005]; % yMin, yMax 
+feet_size                              = [-0.07  0.12;   % xMin, xMax
+                                          -0.04  0.04];  % yMin, yMax    
  
-fZmin                        = 10;
+fZmin                                  = 10;
+
+[ConstraintsMatrix,bVectorConstraints] = constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,feet_size,fZmin);
 
 %% Regularization parameters
-Reg.pinvDamp_nu_b  = 1e-7;
-Reg.pinvDamp       = 0.01; 
-Reg.pinvTol        = 1e-5;
-Reg.impedances     = 0.1;
-Reg.dampings       = 0;
-Reg.HessianQP      = 1e-7;
+Reg.pinvDamp_nu_b = 1e-7;
+Reg.pinvDamp      = 0.01; 
+Reg.pinvTol       = 1e-5;
+Reg.Kp_joints_tol = 0.1;
+Reg.Kd_joints_tol = 0;
+Reg.HessianQP     = 1e-5;
 Reg.norm_tolerance = 1e-4;

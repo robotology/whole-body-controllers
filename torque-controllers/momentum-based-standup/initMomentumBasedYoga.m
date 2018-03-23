@@ -38,18 +38,18 @@ Config.SIMULATION_TIME = inf;
 %% PRELIMINARY CONFIGURATIONS 
 % Sm.SM_TYPE: defines the kind of state machines that can be chosen.
 %
-% 'YOGA': the robot will perform the YOGA++ demo. The associated
-%         configuration parameters can be found under the folder:
+% 'STANDUP': the robot will stand up from a chair. The associated
+%            configuration parameters can be found under the folder
 %
-%         app/robots/YARP_ROBOT_NAME/initStateMachineYoga.m
+%            robots/YARP_ROBOT_NAME/initStateMachineStandup.m
 %   
 % 'COORDINATOR': the robot can either stay still, or follow a desired
 %                center-of-mass trajectory. The associated configuration 
 %                parameters can be found under the folder:
 %
-%                app/robots/YARP_ROBOT_NAME/initRefGen.m
+%                app/robots/YARP_ROBOT_NAME/initCoordinator.m
 % 
-SM_TYPE                      = 'YOGA';
+SM_TYPE                      = 'STANDUP';
 
 % Config.SCOPES: if set to true, all visualizers for debugging are active
 Config.SCOPES_ALL            = true;
@@ -64,8 +64,6 @@ Config.SCOPES_QP             = false;
 % any of the joint limit is touched. 
 Config.CHECK_LIMITS          = false;
 
-% DATA PROCESSING
-%
 % If Config.SAVE_WORKSPACE = True, every time the simulink model is run the
 % workspace is saved after stopping the simulation
 Config.SAVE_WORKSPACE = true;
@@ -77,9 +75,11 @@ Config.SAVE_WORKSPACE = true;
 % Ports name list
 Ports.WBD_LEFTLEG_EE   = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';
 Ports.WBD_RIGHTLEG_EE  = '/wholeBodyDynamics/right_leg/cartesianEndEffectorWrench:o';
+Ports.RIGHT_ARM        = '/wholeBodyDynamics/right_arm/endEffectorWrench:o';
+Ports.LEFT_ARM         = '/wholeBodyDynamics/left_arm/endEffectorWrench:o';
 
 % Controller period [s]
-Config.Ts                = 0.01; 
+Config.Ts              = 0.01; 
 
 addpath('./src/')
 addpath(genpath('../../library'));
@@ -89,19 +89,28 @@ run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m'));
 
 % Run demo-specific configuration parameters
 Sm.SM_MASK_COORDINATOR = bin2dec('001');
-Sm.SM_MASK_YOGA        = bin2dec('010');
+Sm.SM_MASK_STANDUP     = bin2dec('010');
 
 if strcmpi(SM_TYPE, 'COORDINATOR')
     
     Sm.SM_TYPE_BIN = Sm.SM_MASK_COORDINATOR;
     demoSpecificParameters = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initCoordinator.m');
     run(demoSpecificParameters);
+    % If true, the robot will perform the STANDUP demo
+    Config.iCubStandUp = false; 
     
-elseif strcmpi(SM_TYPE, 'YOGA')
+elseif strcmpi(SM_TYPE, 'STANDUP')
     
-    Sm.SM_TYPE_BIN = Sm.SM_MASK_YOGA;
-    demoSpecificParameters = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initStateMachineYoga.m');
+    Sm.SM_TYPE_BIN = Sm.SM_MASK_STANDUP;
+    demoSpecificParameters = fullfile('app/robots',getenv('YARP_ROBOT_NAME'),'initStateMachineStandup.m');
     run(demoSpecificParameters);
+    % If true, the robot will perform the STANDUP demo
+    Config.iCubStandUp = true; 
 end
 
-[ConstraintsMatrix,bVectorConstraints] = constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,feet_size,fZmin);
+%% Contact constraints: legs and feet
+% feet constraints
+[ConstraintsMatrixFeet,bVectorConstraintsFeet] = constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,feet_size,fZmin);
+% legs constraints
+[ConstraintsMatrixLegs,bVectorConstraintsLegs] = constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,leg_size,fZmin);
+

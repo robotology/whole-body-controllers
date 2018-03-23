@@ -1,5 +1,5 @@
 % INITSTATEMACHINEYOGA initializes the robot configuration for running
-%                      'YOGA' demo. 
+%                      the 'YOGA' demo. 
 % 
 
 %% --- Initialization ---
@@ -7,35 +7,22 @@
 % Feet in contact (COORDINATOR DEMO ONLY)
 Config.LEFT_RIGHT_FOOT_IN_CONTACT = [1 1];
 
-% Initial foot on ground. If false, right foot is used as default contact
-% frame (this does not means that the other foot cannot be in contact too).
-% (COORDINATOR DEMO ONLY)
-Config.LEFT_FOOT_IN_CONTACT_AT_0 = true;
-
 % If true, the robot CoM will follow a desired reference trajectory (COORDINATOR DEMO ONLY)
 Config.DEMO_MOVEMENTS = false;
 
-% If equal to one, the desired streamed values of the center of mass 
+% If equal to one, the desired values of the center of mass 
 % are smoothed internally 
 Config.SMOOTH_COM_DES = true;   
 
-% If equal to one, the desired streamed values of the postural tasks are
+% If equal to one, the desired values of the postural tasks are
 % smoothed internally 
 Config.SMOOTH_JOINT_DES = true;   
 
 % torque saturation
 Sat.torque = 60;
-
-%% Regularization parameters
-Reg.pinvDamp_nu_b = 1e-7;
-Reg.pinvDamp      = 0.07; 
-Reg.pinvTol       = 1e-5;
-Reg.impedances    = 0.1;
-Reg.dampings      = 0;
-Reg.HessianQP     = 1e-7;    
                             
 %% COM AND JOINT GAINS 
-Gain.KP_COM     =      [50    100  5  % state ==  1  TWO FEET BALANCING
+Gain.Kp_CoM     =      [50    100  5  % state ==  1  TWO FEET BALANCING
                         50    100  5  % state ==  2  COM TRANSITION TO LEFT 
                         50    100  5  % state ==  3  LEFT FOOT BALANCING
                         50    100  5  % state ==  4  YOGA LEFT FOOT 
@@ -49,13 +36,13 @@ Gain.KP_COM     =      [50    100  5  % state ==  1  TWO FEET BALANCING
                         50    100  5  % state == 12  LOOKING FOR CONTACT
                         50    100  5];% state == 13  TRANSITION TO INITIAL POSITION
 
-Gain.KD_COM = 2*sqrt(Gain.KP_COM)/20;
+Gain.Kd_CoM = 2*sqrt(Gain.Kp_CoM)/20;
 
-Gain.KP_AngularMomentum  = 3;
-Gain.KD_AngularMomentum  = 2*sqrt(Gain.KP_AngularMomentum)/5;
+Gain.Ki_AngularMomentum  = 3;
+Gain.Kp_AngularMomentum  = 2*sqrt(Gain.Ki_AngularMomentum)/5;
 
 %                   %   TORSO  %%      LEFT ARM   %%      RIGHT ARM   %%         LEFT LEG            %%         RIGHT LEG           %% 
-Gain.impedances  = [10   30   20, 10   10    10    8, 10   10    10    8, 30   30   20    20    100 100, 30   50   30    60    100 100  % state ==  1  TWO FEET BALANCING
+Gain.Kp_joints   = [10   30   20, 10   10    10    8, 10   10    10    8, 30   30   20    20    100 100, 30   50   30    60    100 100  % state ==  1  TWO FEET BALANCING
                     10   30   20, 10   10    10    8, 10   10    10    8, 30   30   20    20    100 100, 30   50   30    60    100 100  % state ==  2  COM TRANSITION TO LEFT 
                     10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60    100 100, 30   30   20    20    100 100  % state ==  3  LEFT FOOT BALANCING
                     30   30   30, 10   10    10   10, 10   10    10   10,100  200  100   400    100 100,100   50   30   100    100 100  % state ==  4  YOGA LEFT FOOT 
@@ -69,10 +56,10 @@ Gain.impedances  = [10   30   20, 10   10    10    8, 10   10    10    8, 30   3
                     30   30   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,100  350   20   200     10 100  % state == 12  LOOKING FOR CONTACT
                     30   30   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,100  350   20   200     10 100];% state == 13  TRANSITION TO INITIAL POSITION
 
-Gain.impedances(10,18:23) = Gain.impedances(10,18:23)*2; 
-Gain.impedances(10,1:3)   = Gain.impedances(10,1:3)*3;
+Gain.Kp_joints(10,18:23) = Gain.Kp_joints(10,18:23)*2; 
+Gain.Kp_joints(10,1:3)   = Gain.Kp_joints(10,1:3)*3;
  
-Gain.dampings = 0*sqrt(Gain.impedances(1,:));  
+Gain.Kd_joints = 2*sqrt(Gain.Kp_joints(1,:))*0;  
 
 % Smoothing time gain scheduling (YOGA DEMO ONLY)
 Gain.SmoothingTimeGainScheduling = 2;
@@ -80,16 +67,16 @@ Gain.SmoothingTimeGainScheduling = 2;
 %% STATE MACHINE PARMETERS
 
 % smoothing time for joints and CoM
-Sm.smoothingTimeCoM_Joints       = [1;    %% state ==  1  TWO FEET BALANCING
+Sm.smoothingTime_CoM_Joints      = [1;    %% state ==  1  TWO FEET BALANCING
                                     1;    %% state ==  2  COM TRANSITION TO LEFT FOOT
                                     1;    %% state ==  3  LEFT FOOT BALANCING 
-                                    1.5; %% state ==  4  YOGA LEFT FOOT
+                                    1.5;  %% state ==  4  YOGA LEFT FOOT
                                     2;    %% state ==  5  PREPARING FOR SWITCHING
                                     2;    %% state ==  6  LOOKING FOR CONTACT 
                                     1;    %% state ==  7  TRANSITION INIT POSITION
                                     1;    %% state ==  8  COM TRANSITION TO RIGHT FOOT
                                     1;    %% state ==  9  RIGHT FOOT BALANCING 
-                                    1.5; %% state == 10  YOGA RIGHT FOOT
+                                    1.5;  %% state == 10  YOGA RIGHT FOOT
                                     2;    %% state == 11  PREPARING FOR SWITCHING
                                     5;    %% state == 12  LOOKING FOR CONTACT 
                                     10];  %% state == 13  TRANSITION INIT POSITION
@@ -98,13 +85,13 @@ Sm.smoothingTimeCoM_Joints       = [1;    %% state ==  1  TWO FEET BALANCING
 Sm.joints_pauseBetweenYogaMoves  = 5;
 
 % contact forces threshold (YOGA DEMO ONLY)
-Sm.wrench_thresholdContactOn  = 50;
-Sm.wrench_thresholdContactOff = 100;
+Sm.wrench_thresholdContactOn     = 50;
+Sm.wrench_thresholdContactOff    = 100;
 
 % threshold on CoM and joints error (YOGA DEMO ONLY)
-Sm.CoM_threshold                = 0.01; 
-Sm.joints_thresholdNotInContact = 5;
-Sm.joints_thresholdInContact    = 50;
+Sm.CoM_threshold                 = 0.01; 
+Sm.joints_thresholdNotInContact  = 5;
+Sm.joints_thresholdInContact     = 50;
 
 % initial state for state machine (YOGA DEMO ONLY)
 Sm.stateAt0 = 1;
@@ -133,56 +120,56 @@ Sm.tBalancingBeforeYoga     = 1;
 Sm.yogaExtended             = true;
 Sm.skipYoga                 = false;
 Sm.demoOnlyBalancing        = false;
-Sm.demoStartsOnRightSupport = false;
+Sm.demoStartsOnRightSupport = true;
 Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from right foot
 Sm.yogaInLoop               = false;
 
 %% Joint references (YOGA DEMO ONLY)
-Sm.joints_references = [  zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED 
-                        [-0.0348,0.0779,0.0429, ...                          %% state == 2  COM TRANSITION TO LEFT 
-                         -0.1493,0.8580,0.2437,0.8710, ...                   %
-                         -0.1493,0.8580,0.2437,0.8710, ...                   %
-                         -0.0015,-0.1109,-0.0001,0.0003,0.0160,0.1630, ...   %  
-                          0.0005,0.0793,-0.0014,-0.0051,0.0073,-0.1151];     %  
-                        [ 0.0864,0.0258,0.0152, ...                          %% state == 3  LEFT FOOT BALANCING
-                          0.1253,0.8135,0.3051,0.7928, ...                   %    
-                          0.0563,0.6789,0.3340,0.6214, ...                   %
-                         -0.0015,-0.1109,-0.0001,0.0003,0.0160,0.1630, ...   %  
-                          0.0005,0.0793,-0.0014,-0.0051,-0.1060,-0.1151];    % 
-                          zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED 
-                        [-0.0348,0.0779,0.0429, ...                          %% state == 5  PREPARING FOR SWITCHING
-                         -0.1493,0.8580,0.2437,0.8710, ...                   %
-                         -0.1493,0.8580,0.2437,0.8710, ...                   %
-                         -0.0015,-0.1109,-0.0001,0.0003,0.0160,0.1630, ...   %  
-                          0.0005,0.0793,-0.0014,-0.0051,0.0073,-0.1151];     % 
-                        [ 0.0864,0.0258,0.0152, ...                          %% state == 6  LOOKING FOR CONTACT
-                          0.1253,0.8135,0.3051,0.7928, ...                   %
-                          0.0563,0.6789,0.3340,0.6214, ...                   %
-                          0.0107,-0.0741,-0.0001,-0.0120,0.0252,0.1369, ...  %
-                         -0.0026,0.0225,0.0093,-0.0020,0.0027,-0.0277];      %   
-                          zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED
-                        [ 0.0864,0.0258,0.0152, ...                          %% state == 8  COM TRANSITION TO RIGHT FOOT
-                          0.1253,0.8135,0.3051,0.7928, ...                   %
-                          0.0563,0.6789,0.3340,0.6214, ...                   %
-                          0.0107,-0.0741,-0.0001,-0.0120,0.0252,0.1369, ...  %
-                         -0.0026,0.0225,0.0093,-0.0020,0.0027,-0.0277];      % 
-                        [ 0.0864,0.0258,0.0152, ...                          %% state == 9  RIGHT FOOT BALANCING
-                          0.1253,0.8135,0.3051,0.7928, ...                   %    
-                          0.0563,0.6789,0.3340,0.6214, ...                   %
-                          0.0005,0.0793,-0.0014,-0.0051,0.0073,-0.1151, ...  %  
-                         -0.0015,-0.1109,-0.0001,0.0003,0.0160,0.1630];      %  
-                          zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED  
-                        [-0.0348,0.0779,0.0429, ...                          %% state == 11  PREPARING FOR SWITCHING
-                         -0.1493,0.8580,0.2437,0.8710, ...                   %
-                         -0.1493,0.8580,0.2437,0.8710, ...                   %
-                          0.0005,0.0793,-0.0014,-0.0051,0.0073,-0.1151, ...  %  
-                         -0.0015,-0.1109,-0.0001,0.0003,0.0160,0.1630];      %     
-                        [ 0.0864,0.0258,0.0152, ...                          %% state == 12  LOOKING FOR CONTACT
-                          0.1253,0.8135,0.3051,0.7928, ...                   %
-                          0.0563,0.6789,0.3340,0.6214, ...                   %
-                         -0.0026,0.0225,0.0093,-0.0020,0.0027,-0.0277, ...   %
-                          0.0107,-0.0741,-0.0001,-0.0120,0.0252,0.1369];     %   
-                          zeros(1,ROBOT_DOF)];                               %% THIS REFERENCE IS IGNORED       
+Sm.joints_references = [zeros(1,ROBOT_DOF);                                %% NOT USED
+                       [-0.0348,0.0779,0.0429, ...                         %% state == 2  COM TRANSITION TO LEFT 
+                        -0.1493,0.8580,0.2437,0.8710, ...                  %
+                        -0.1493,0.8580,0.2437,0.8710, ...                  %
+                        -0.0015,-0.1109,-0.0001,0.0003,0.0160,0.1630, ...  %  
+                         0.0005,0.0793,-0.0014,-0.0051,0.0073,-0.1151];    %  
+                       [ 0.0864,0.0258,0.0152, ...                         %% state == 3  LEFT FOOT BALANCING
+                         0.1253,0.8135,0.3051,0.7928, ...                  %    
+                         0.0563,0.6789,0.3340,0.6214, ...                  %
+                        -0.0015,-0.1109,-0.0001,0.0003,0.0160,0.1630, ...  %  
+                         0.0005,0.0793,-0.0014,-0.0051,-0.1060,-0.1151];   % 
+                        zeros(1,ROBOT_DOF);                                %% NOT USED
+                       [-0.0348,0.0779,0.0429, ...                         %% state == 5  PREPARING FOR SWITCHING
+                        -0.1493,0.8580,0.2437,0.8710, ...                  %
+                        -0.1493,0.8580,0.2437,0.8710, ...                  %
+                        -0.0015,-0.1109,-0.0001,0.0003,0.0160,0.1630, ...  %  
+                         0.0005,0.0793,-0.0014,-0.0051,0.0073,-0.1151];    %                                  
+                       [ 0.0864,0.0258,0.0152, ...                         %% state == 6  LOOKING FOR CONTACT
+                         0.1253,0.8135,0.3051,0.7928, ...                  %
+                         0.0563,0.6789,0.3340,0.6214, ...                  %
+                         0.0107,-0.0741,-0.0001,-0.0120,0.0252,0.1369,...  %
+                        -0.0026,0.0225,0.0093,-0.0020,0.0027,-0.0277];     %   
+                        zeros(1,ROBOT_DOF);                                %% NOT USED
+                       [ 0.0864,0.0258,0.0152, ...                         %% state == 8  COM TRANSITION TO RIGHT FOOT
+                         0.1253,0.8135,0.3051,0.7928, ...                  %
+                         0.0563,0.6789,0.3340,0.6214, ...                  %
+                         0.0107,-0.0741,-0.0001,-0.0120,0.0252,0.1369,...  %
+                        -0.0026,0.0225,0.0093,-0.0020,0.0027,-0.0277];     % 
+                       [ 0.0864,0.0258,0.0152, ...                         %% state == 9  RIGHT FOOT BALANCING
+                         0.1253,0.8135,0.3051,0.7928, ...                  %    
+                         0.0563,0.6789,0.3340,0.6214, ...                  %
+                         0.0005,0.0793,-0.0014,-0.0051,0.0073,-0.1151, ... %  
+                        -0.0015,-0.1109,-0.0001,0.0003,0.0160,0.1630];     %  
+                        zeros(1,ROBOT_DOF);                                %% NOT USED
+                       [-0.0348,0.0779,0.0429, ...                         %% state == 11  PREPARING FOR SWITCHING
+                        -0.1493,0.8580,0.2437,0.8710, ...                  %
+                        -0.1493,0.8580,0.2437,0.8710, ...                  %
+                         0.0005,0.0793,-0.0014,-0.0051,0.0073,-0.1151, ... %  
+                        -0.0015,-0.1109,-0.0001,0.0003,0.0160,0.1630];     %                                  
+                       [ 0.0864,0.0258,0.0152, ...                         %% state == 12  LOOKING FOR CONTACT
+                         0.1253,0.8135,0.3051,0.7928, ...                  %
+                         0.0563,0.6789,0.3340,0.6214, ...                  %
+                        -0.0026,0.0225,0.0093,-0.0020,0.0027,-0.0277,...   %
+                         0.0107,-0.0741,-0.0001,-0.0120,0.0252,0.1369];    %   
+                        zeros(1,ROBOT_DOF)];                               %% NOT USED   
 
 % YOGA MOVESET (LEFT YOGA, EXTENDED)
 q1 =        [-0.0790,0.2279, 0.4519, ...
@@ -374,35 +361,40 @@ Config.frequencyOfOscillation  = 0.0;
 %% Parameters for motors reflected inertia
 
 % transmission ratio
-Config.Gamma = 0.01*eye(ROBOT_DOF);
+Config.Gamma             = 0.01*eye(ROBOT_DOF);
 
 % motors inertia (Kg*m^2)
 legsMotors_I_m           = 0.0827*1e-4;
 torsoPitchRollMotors_I_m = 0.0827*1e-4;
 torsoYawMotors_I_m       = 0.0585*1e-4;
 armsMotors_I_m           = 0.0585*1e-4;
+
 Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  torsoYawMotors_I_m;
                                  armsMotors_I_m*ones(8,1);
                                  legsMotors_I_m*ones(12,1)]);
+                             
+% gain for feedforward term in joint torques calculation. Valid range: a
+% value between 0 and 1
+Config.K_ff              = 0;
 
 % parameters for coupling matrices                            
-t  = 0.625;
-r  = 0.022;
-R  = 0.04;
+t                        = 0.625;
+r                        = 0.022;
+R                        = 0.04;
 
 % coupling matrices
-T_LShoulder = [-1  0  0;
-               -1 -t  0;
-                0  t -t];
+T_LShoulder              = [-1  0  0;
+                            -1 -t  0;
+                             0  t -t];
 
-T_RShoulder = [ 1  0  0;
-                1  t  0;
-                0 -t  t];
+T_RShoulder              = [ 1  0  0;
+                             1  t  0;
+                             0 -t  t];
 
-T_torso = [0   -0.5     0.5;
-           0    0.5     0.5;
-           r/R  r/(2*R) r/(2*R)];
+T_torso                  = [0   -0.5     0.5;
+                            0    0.5     0.5;
+                            r/R  r/(2*R) r/(2*R)];
        
 if Config.INCLUDE_COUPLING
        
@@ -410,10 +402,6 @@ if Config.INCLUDE_COUPLING
 else          
     Config.T = eye(ROBOT_DOF);
 end
-
-% gain for feedforward term in joint torques calculation. Valid range: a
-% value between 0 and 1
-Config.K_ff  = 0;
 
 %% Constraints for QP for balancing
 
@@ -428,6 +416,16 @@ fZmin                        = 10;
 % physical size of the foot                             
 feet_size                    = [-0.07  0.12 ;    % xMin, xMax
                                 -0.045 0.05 ];   % yMin, yMax  
+
+[ConstraintsMatrix,bVectorConstraints] = constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,feet_size,fZmin);
+
+%% Regularization parameters
+Reg.pinvDamp_nu_b = 1e-7;
+Reg.pinvDamp      = 0.07; 
+Reg.pinvTol       = 1e-5;
+Reg.impedances    = 0.1;
+Reg.dampings      = 0;
+Reg.HessianQP     = 1e-7; 
                             
 %% Cleanup
 clear q1 q2 q3 q4;

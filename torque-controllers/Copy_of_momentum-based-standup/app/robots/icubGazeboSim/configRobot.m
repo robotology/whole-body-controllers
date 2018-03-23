@@ -25,6 +25,18 @@ Frames.IMU               = 'imu_frame';
 Frames.LEFT_FOOT         = 'l_sole';
 Frames.RIGHT_FOOT        = 'r_sole';
 Frames.COM               = 'com';
+Frames.LEFT_LEG          = 'l_upper_leg_contact';
+Frames.RIGHT_LEG         = 'r_upper_leg_contact';
+Frames.LEFT_HAND         = 'l_hand_dh_frame';
+Frames.RIGHT_HAND        = 'r_hand_dh_frame';
+
+%% iCub STANDUP demo parameters
+% when Config.STANDUP_WITH_HUMAN is setted to TRUE, the robot will be aware 
+% of the external forces at the arms provided by the human and it will use
+% also them for lifting up.
+Config.STANDUP_WITH_HUMAN = false;
+
+%% Other parameters
 
 % Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
 % inertias are included in the system mass matrix. If
@@ -62,7 +74,5 @@ Config.CORRECT_NECK_IMU  = true;
 Config.USE_QP_SOLVER     = true; 
 
 % Ports name list
-Ports.IMU               = ['/' WBTConfigRobot.RobotName '/inertial'];
-Ports.NECK_POS          = ['/' WBTConfigRobot.RobotName '/head/state:o'];
-Ports.WRENCH_LEFT_FOOT  = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';
-Ports.WRENCH_RIGHT_FOOT = '/wholeBodyDynamics/right_leg/cartesianEndEffectorWrench:o';
+Ports.IMU                = ['/' WBTConfigRobot.RobotName '/inertial'];
+Ports.NECK_POS           = ['/' WBTConfigRobot.RobotName '/head/state:o'];
