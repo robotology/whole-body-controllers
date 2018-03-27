@@ -23,6 +23,5 @@ function H = evalDHMatrix(a, d, alpha, theta)
     H = [ cos(theta), -sin(theta)*cos(alpha),  sin(theta)*sin(alpha), cos(theta)*a
           sin(theta),  cos(theta)*cos(alpha), -cos(theta)*sin(alpha), sin(theta)*a
                    0,             sin(alpha),             cos(alpha),            d
-                   0,                      0,                      0,            1];
-                
+                   0,                      0,                      0,            1];              
 end

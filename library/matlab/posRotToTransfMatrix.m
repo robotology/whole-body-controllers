@@ -21,9 +21,9 @@
 
 %% --- Initialization ---
 
-function H = posRotToTransfMatrix(pos, R) 
+function H = posRotToTransfMatrix(pos,R) 
 
-    H          = eye(4);
-    H(1:3,1:3) = R;
-    H(1:3, 4)  = pos; 
+    H           = eye(4);
+    H(1:3,1:3)  = R;
+    H(1:3, 4)   = pos; 
 end

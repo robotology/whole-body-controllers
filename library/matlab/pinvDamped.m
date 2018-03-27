@@ -18,5 +18,5 @@
 %% --- Initialization ---
 function pinvDampA = pinvDamped(A,regDamp)
 
-    pinvDampA = transpose(A)/(A*transpose(A) + regDamp*eye(size(A,1)));   
+    pinvDampA = transpose(A)/(A*transpose(A) +regDamp*eye(size(A,1)));   
 end

@@ -17,7 +17,7 @@
 %% --- Initialization ---
 function R = rotz(alpha)
 
-   R      =  zeros(3, 3);
+   R      =  zeros(3,3);
    R(3,3) =  1;
    R(1,1) =  cos(alpha);
    R(1,2) = -sin(alpha);

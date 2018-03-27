@@ -20,6 +20,6 @@
 %% --- Initialization ---
 function R = rotationFromQuaternion(q)
 
-    % rotation matrix:
-    R = eye(3) + 2*q(1)*skew(q(2:4)) + 2*skew(q(2:4))^2;
+    % rotation matrix
+    R = eye(3) +2*q(1)*skew(q(2:4)) +2*skew(q(2:4))^2;
 end

@@ -18,10 +18,10 @@
 function reflectedInertia = computeMotorsInertia(Config)
 
      % compute motors reflected inertia
-     Gamma               = Config.Gamma;
-     T                   = Config.T;
-     I_m                 = Config.I_m;     
-     invTGamma           = eye(size(Gamma))/(T*Gamma);
-     invTGamma_t         = eye(size(Gamma))/(transpose(T*Gamma));
-     reflectedInertia    = invTGamma_t*I_m*invTGamma;     
+     Gamma              = Config.Gamma;
+     T                  = Config.T;
+     I_m                = Config.I_m;     
+     invTGamma          = eye(size(Gamma))/(T*Gamma);
+     invTGamma_t        = eye(size(Gamma))/(transpose(T*Gamma));
+     reflectedInertia   = invTGamma_t*I_m*invTGamma;     
 end

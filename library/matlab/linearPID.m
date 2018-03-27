@@ -25,5 +25,5 @@
 function acc_star = linearPID(pos,vel,pos_des,vel_des,acc_des,Kp,Kd) 
     
     % classical PID controller
-    acc_star = acc_des -Kp*(pos-pos_des) -Kd*(vel-vel_des);    
+    acc_star  = acc_des -Kp*(pos-pos_des) -Kd*(vel-vel_des);    
 end

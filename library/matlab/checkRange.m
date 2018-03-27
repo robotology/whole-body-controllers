@@ -20,10 +20,10 @@
 %% --- Initialization ---
 function inRange = checkRange(umin, umax, u, tol)
 
-    res = u < umin + tol | u > umax - tol;
-    res = sum(res);
+    res  = u < umin + tol | u > umax - tol;
+    res  = sum(res);
     
-    if res==0
+    if res == 0
         inRange = 1;
     else
         inRange = 0;

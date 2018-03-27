@@ -44,9 +44,9 @@
 function w_omegaDot_star = rotationalPID_acceleration(w_R_b,w_omega,w_R_b_des,w_omega_des,w_omegaDot_des,Kp,Kd)
     
     % Modified gains to use the control with the real robot
-    c0 = 0.001;
-    c1 = Kd;
-    c2 = Kp;
+    c0  = 0.001;
+    c1  = Kd;
+    c2  = Kp;
     
     % ROTATIONAL PID (see also: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.62.8655&rep=rep1&type=pdf, section 5.11.6, p.173) 
     skv             = skewVee(w_R_b*transpose(w_R_b_des));

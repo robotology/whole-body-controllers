@@ -69,7 +69,7 @@ function w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base
     %% Correct IMU with neck position
     wImu_H_wImuAssumingNeckToZero = correctImuWithNeckPos(neck_pos);
 
-    wImu_H_base = wImu_H_wImuAssumingNeckToZero * wImu_H_base;
-    w_H_b       = wImu_H_link_0\wImu_H_base;
+    wImu_H_base  = wImu_H_wImuAssumingNeckToZero * wImu_H_base;
+    w_H_b        = wImu_H_link_0\wImu_H_base;
     
 end

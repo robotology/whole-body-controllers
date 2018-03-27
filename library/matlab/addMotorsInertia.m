@@ -65,5 +65,5 @@ function M_with_inertia = addMotorsInertia(M,Config)
          M_reflected_inertia = zeros(size(M));
      end
          
-     M_with_inertia = M + M_reflected_inertia;
+     M_with_inertia = M +M_reflected_inertia;
 end
