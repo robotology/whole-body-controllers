@@ -6,7 +6,7 @@
 % the terminate button.
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-rmpath(genpath('./src/'))
+rmpath('./src/')
 rmpath(genpath('../../library'));
 
 % Create a folder for collecting data
@@ -18,10 +18,7 @@ if Config.SAVE_WORKSPACE
     end
     
    matFileList = dir(['./experiments',date,'/*.mat']);  
-   c            = clock; 
+   c           = clock; 
    
    save(['./experiments',date,'/exp_',num2str(c(4)),'-',num2str(c(5)),'.mat'])
 end
-
-
-    

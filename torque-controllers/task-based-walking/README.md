@@ -10,7 +10,7 @@ The repository contains the Simulink model `taskBasedWalking.mdl`, which is gene
 
 ### Supported robots
 
-Currently, supported robots are: `iCubGenova04`.
+Currently, supported robots are: `iCubGenova04`, `icubGazeboSim`.
 
 ## Module details
 

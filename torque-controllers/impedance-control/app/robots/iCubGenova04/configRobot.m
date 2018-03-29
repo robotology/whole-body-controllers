@@ -77,7 +77,6 @@ invTGamma           = eye(size(Config.Gamma))/(Config.T*Config.Gamma);
 if EXPLOIT_FRICTION
 
     Gain.Kf = invTGamma_transpose*diag(Kbemf)*invTGamma;
-         Kp = 0.5*Gain.Kf*Gain.Kf;
 else
     Gain.Kf = zeros(23);
 end

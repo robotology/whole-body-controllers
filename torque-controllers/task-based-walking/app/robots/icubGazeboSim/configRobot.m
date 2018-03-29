@@ -17,6 +17,30 @@
 % Syncronization with Gazebo simulator
 Config.ON_GAZEBO                     = true;
 
+% Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
+% inertias are included in the system mass matrix. If
+% Config.INCLUDE_COUPLING is true, then the coupling effect (some joints
+% motion is the result of more than one motor motion) is taken into account.
+Config.USE_MOTOR_REFLECTED_INERTIA   = false;
+Config.INCLUDE_COUPLING              = false;
+
+% Emergency stop if ports are streaming null data
+Config.CHECK_PORTS_WALKING           = true;
+
+% If true, simulation is stopped when qpOASES outputs a "-2" error (QP is unfeasible)
+Config.CHECK_QP_ERROR                = true; 
+
+% If true, the output of QP solver will be forced to be continuous
+Config.QP_USE_CONTINUITY_CONSTRAINTS = true;
+
+% If true, the xSensIMU orientation is used in order to estimate the
+% base-to-world transformation matrix
+Config.USE_XSENS_IMU4EST_BASE        = false;
+
+% If true, the xSensIMU angular velocity is used in order to estimate the
+% base angular velocity in x-y direction (w.r.t. world frame)
+Config.USE_XSENS_IMU4EST_XY_ANG_VEL  = false;
+
 % If true, the IMU orientation is used in order to estimate the
 % base-to-world transformation matrix
 Config.USE_IMU4EST_BASE              = false;
@@ -58,3 +82,15 @@ Ports.LEFT_FOOT_EXT_WRENCH           = '/wholeBodyDynamics/left_foot/cartesianEn
 Ports.RIGHT_FOOT_EXT_WRENCH          = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';
 Ports.IMU                            = ['/' WBTConfigRobot.RobotName '/inertial'];
 Ports.NECK_POS                       = ['/' WBTConfigRobot.RobotName '/head/state:o'];
+
+% Ports for connecting the model with the MPC controller
+Ports.FORCE_WEIGHTS                  = '/walking-coordinator/weights:o';
+Ports.COM_DES                        = '/walking-coordinator/com:o';
+Ports.Q_DES                          = '/walking-coordinator/joints:o';
+Ports.LFOOT_DES                      = '/walking-coordinator/leftFoot:o';
+Ports.RFOOT_DES                      = '/walking-coordinator/rightFoot:o';
+Ports.ACTIVE_CONTACTS                = '/walking-coordinator/contact:o';
+Ports.LFOOT_IS_FIXED                 = '/walking-coordinator/leftStanding:o';
+Ports.ACK                            = '/walking-coordinator/done:i';
+Ports.BASE_POSE                      = '/walking-coordinator/wHb:i';
+                            
