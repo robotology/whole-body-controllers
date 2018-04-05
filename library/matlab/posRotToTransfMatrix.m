@@ -20,7 +20,6 @@
 %
 
 %% --- Initialization ---
-
 function H = posRotToTransfMatrix(pos,R) 
 
     H           = eye(4);

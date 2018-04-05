@@ -4,20 +4,20 @@
 %  the default version is MATLAB 2016b. IF YOU OWE A MATLAB VERSION GREATER 
 %  THAN 2016B, REMEMBER TO EXPORT ALL MODELS TO THE DEFAULT SUPPORTED 
 %  VERSION BEFORE PUBLISHING ANY MODIFICATIONS, OTHERWISE OTHER USERS MAY 
-%  NOT BE ABLE TO USE THE TOOLBOX!
+%  NOT BE ABLE TO USE THE REPO!
 %
 clc
 clear 
 close all
 
-fprintf('\nWholeBodyControl Toolbox\n');
+fprintf('\nwhole-body-controllers\n');
 fprintf('\nExport project to a previous Matlab version\n');
 fprintf('\nOldest supported version: R2014a\n');
 
 fprintf('\n######################################################\n');
 fprintf('\nWarning: this function exports only Simulink models.\n');
 fprintf('\nIf a .m file requires a dependency (toolbox, new matlab version)\n');
-fprintf('\nthat is not compatible with your installation, the WBC toolbox\n');
+fprintf('\nthat is not compatible with your installation, the controller\n');
 fprintf('\nmay not work properly. Consider running also tests after the export.\n');
 fprintf('\n######################################################\n\n');
 

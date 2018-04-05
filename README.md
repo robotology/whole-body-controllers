@@ -13,13 +13,15 @@ This repository depends upon the following Software/repositories:
 - [icub-gazebo](https://github.com/robotology/icub-gazebo) and [icub-gazebo-wholebody](https://github.com/robotology-playground/icub-gazebo-wholebody) to access iCub models.
 - [codyco-modules](https://github.com/robotology/codyco-superbuild) (Optional, for using [home positions](https://github.com/robotology/codyco-modules/tree/master/src/modules/torqueBalancing/app/robots) and [wholeBodyDynamics](https://github.com/robotology/codyco-modules/tree/master/src/devices/wholeBodyDynamics) device).
 
-**NOTE:** it is suggested to install `codyco-modules`,`icub-gazebo`,`icub-gazebo-wholebody`, `Gazebo-yarp-plugins` and `WB-Toolbox` (and their dependencies) using the [codyco-superbuild](https://github.com/robotology/codyco-superbuild) (enable `CODYCO_USES_GAZEBO`, `CODYCO_USES_MATLAB`, options).
+**NOTE:** it is suggested to install `codyco-modules`,`icub-gazebo`,`icub-gazebo-wholebody`, `Gazebo-yarp-plugins` and `WB-Toolbox` (and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_USES_GAZEBO`, `ROBOTOLOGY_ENABLE_DYNAMICS`, options).
 
 ## Structure of the repo
 
 - **config**: a collection of scripts for correctly configure this repo. [[README]](config/README.md)
 
 - **torque-controllers**: Simulink torque controllers for balancing and walking of humanoid robots. [[README]](torque-controllers/README.md)
+
+- **position-controllers**: Simulink position controllers for balancing and walking of humanoid robots. [[README]](position-controllers/README.md)
 
 - **doc**: guidelines on how to create/use Simulink models for control. [[README]](doc/README.md)
 

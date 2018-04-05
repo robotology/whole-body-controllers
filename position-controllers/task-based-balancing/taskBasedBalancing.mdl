@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.772"
+    ComputedModelVersion    "1.775"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -474,7 +474,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [106.0, 39.0, 3734.0, 2121.0]
+      Location		      [106.0, -7.0, 3734.0, 2167.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -496,11 +496,11 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"7959"
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
 	Extents			[3696.0, 1916.0]
-	ZoomFactor		[3.0314049586776859]
-	Offset			[-374.61832061068708, -593.5250817884405]
+	ZoomFactor		[3.3175874722207865]
+	Offset			[-79.53128115653044, -65.219933948155528]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -534,9 +534,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Mar 29 11:37:13 2018"
-  RTWModifiedTimeStamp	  444224231
-  ModelVersionFormat	  "1.%<AutoIncrement:772>"
+  LastModifiedDate	  "Thu Apr 05 16:51:21 2018"
+  RTWModifiedTimeStamp	  444847795
+  ModelVersionFormat	  "1.%<AutoIncrement:775>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -1653,8 +1653,8 @@ Model {
   }
   System {
     Name		    "taskBasedBalancing"
-    Location		    [106, 39, 3840, 2160]
-    Open		    off
+    Location		    [106, -7, 3840, 2160]
+    Open		    on
     PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1666,7 +1666,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "340"
+    ZoomFactor		    "332"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "8269"
     Block {
@@ -1736,7 +1736,6 @@ Model {
 	  ZOrder		  761
 	  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 	  SourceType		  "Holder"
@@ -1752,7 +1751,6 @@ Model {
 	  ZOrder		  757
 	  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 	  SourceType		  "Holder"
@@ -2077,7 +2075,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3749"
+		SIDHighWatermark	"3752"
 		Block {
 		  BlockType		  Inport
 		  Name			  "J_LeftFoot"
@@ -2116,20 +2114,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "6911::3748"
+		  SID			  "6911::3751"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  117
+		  ZOrder		  120
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "6911::3747"
+		  SID			  "6911::3750"
 		  Tag			  "Stateflow S-Function taskBasedBalancing 1"
 		  Ports			  [4, 2]
 		  Position		  [180, 102, 230, 203]
-		  ZOrder		  116
+		  ZOrder		  119
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Sat"
 		  PortCounts		  "[4 2]"
@@ -2144,9 +2142,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "6911::3749"
+		  SID			  "6911::3752"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  118
+		  ZOrder		  121
 		}
 		Block {
 		  BlockType		  Outport
@@ -2157,28 +2155,28 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  1
+		  ZOrder		  8
 		  SrcBlock		  "J_LeftFoot"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  2
+		  ZOrder		  9
 		  SrcBlock		  "J_RightFoot"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  3
+		  ZOrder		  10
 		  SrcBlock		  "feetInContact"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  4
+		  ZOrder		  11
 		  SrcBlock		  "sDot"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -2186,7 +2184,7 @@ Model {
 		}
 		Line {
 		  Name			  "nu_b"
-		  ZOrder		  5
+		  ZOrder		  12
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -2194,14 +2192,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  6
+		  ZOrder		  13
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  7
+		  ZOrder		  14
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -2791,7 +2789,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "82"
+	    SIDHighWatermark	    "85"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "pos_vel_acc_CoM_des"
@@ -2911,20 +2909,20 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "6942::81"
+	      SID		      "6942::84"
 	      Ports		      [1, 1]
 	      Position		      [270, 230, 320, 270]
-	      ZOrder		      71
+	      ZOrder		      74
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "6942::80"
+	      SID		      "6942::83"
 	      Tag		      "Stateflow S-Function taskBasedBalancing 3"
 	      Ports		      [13, 2]
 	      Position		      [180, 90, 230, 370]
-	      ZOrder		      70
+	      ZOrder		      73
 	      FunctionName	      "sf_sfun"
 	      Parameters	      "Sat"
 	      PortCounts	      "[13 2]"
@@ -2939,9 +2937,9 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "6942::82"
+	      SID		      "6942::85"
 	      Position		      [460, 241, 480, 259]
-	      ZOrder		      72
+	      ZOrder		      75
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -2952,91 +2950,91 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      ZOrder		      1
+	      ZOrder		      17
 	      SrcBlock		      "pos_vel_acc_CoM_des"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      2
+	      ZOrder		      18
 	      SrcBlock		      "pose_vel_acc_LFoot_des"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
-	      ZOrder		      3
+	      ZOrder		      19
 	      SrcBlock		      "pose_vel_acc_RFoot_des"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
 	    }
 	    Line {
-	      ZOrder		      4
+	      ZOrder		      20
 	      SrcBlock		      "orient_vel_acc_rot_task_des"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      4
 	    }
 	    Line {
-	      ZOrder		      5
+	      ZOrder		      21
 	      SrcBlock		      "pos_vel_CoM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      5
 	    }
 	    Line {
-	      ZOrder		      6
+	      ZOrder		      22
 	      SrcBlock		      "pose_vel_LFoot"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      6
 	    }
 	    Line {
-	      ZOrder		      7
+	      ZOrder		      23
 	      SrcBlock		      "pose_vel_RFoot"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      7
 	    }
 	    Line {
-	      ZOrder		      8
+	      ZOrder		      24
 	      SrcBlock		      "orient_vel_rot_task"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      8
 	    }
 	    Line {
-	      ZOrder		      9
+	      ZOrder		      25
 	      SrcBlock		      "Kp_Kd_CoM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      9
 	    }
 	    Line {
-	      ZOrder		      10
+	      ZOrder		      26
 	      SrcBlock		      "Kp_Kd_LFoot"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      10
 	    }
 	    Line {
-	      ZOrder		      11
+	      ZOrder		      27
 	      SrcBlock		      "Kp_Kd_RFoot"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      11
 	    }
 	    Line {
-	      ZOrder		      12
+	      ZOrder		      28
 	      SrcBlock		      "Kp_Kd_rot_task"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      12
 	    }
 	    Line {
-	      ZOrder		      13
+	      ZOrder		      29
 	      SrcBlock		      "useFeetPIDs"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -3044,7 +3042,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "acc_task_star"
-	      ZOrder		      14
+	      ZOrder		      30
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -3052,14 +3050,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      15
+	      ZOrder		      31
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      16
+	      ZOrder		      32
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -3183,7 +3181,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"97"
+		SIDHighWatermark	"100"
 		Block {
 		  BlockType		  Inport
 		  Name			  "vel_CoM"
@@ -3258,20 +3256,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "6951::96"
+		  SID			  "6951::99"
 		  Ports			  [1, 1]
 		  Position		  [270, 280, 320, 320]
-		  ZOrder		  87
+		  ZOrder		  90
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "6951::95"
+		  SID			  "6951::98"
 		  Tag			  "Stateflow S-Function taskBasedBalancing 4"
 		  Ports			  [8, 5]
 		  Position		  [180, 100, 230, 280]
-		  ZOrder		  86
+		  ZOrder		  89
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[8 5]"
 		  SFunctionDeploymentMode off
@@ -3297,9 +3295,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "6951::97"
+		  SID			  "6951::100"
 		  Position		  [460, 291, 480, 309]
-		  ZOrder		  88
+		  ZOrder		  91
 		}
 		Block {
 		  BlockType		  Outport
@@ -3337,56 +3335,56 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  1
+		  ZOrder		  15
 		  SrcBlock		  "vel_CoM"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  2
+		  ZOrder		  16
 		  SrcBlock		  "vel_LFoot"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  3
+		  ZOrder		  17
 		  SrcBlock		  "vel_RFoot"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  4
+		  ZOrder		  18
 		  SrcBlock		  "vel_rot_task"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  4
 		}
 		Line {
-		  ZOrder		  5
+		  ZOrder		  19
 		  SrcBlock		  "w_H_CoM"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  5
 		}
 		Line {
-		  ZOrder		  6
+		  ZOrder		  20
 		  SrcBlock		  "w_H_l_sole"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  6
 		}
 		Line {
-		  ZOrder		  7
+		  ZOrder		  21
 		  SrcBlock		  "w_H_r_sole"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  7
 		}
 		Line {
-		  ZOrder		  8
+		  ZOrder		  22
 		  SrcBlock		  "w_H_rot_task"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -3394,7 +3392,7 @@ Model {
 		}
 		Line {
 		  Name			  "pos_vel_CoM"
-		  ZOrder		  9
+		  ZOrder		  23
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -3403,7 +3401,7 @@ Model {
 		}
 		Line {
 		  Name			  "pose_vel_LFoot"
-		  ZOrder		  10
+		  ZOrder		  24
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  3
@@ -3412,7 +3410,7 @@ Model {
 		}
 		Line {
 		  Name			  "pose_vel_RFoot"
-		  ZOrder		  11
+		  ZOrder		  25
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  4
@@ -3421,7 +3419,7 @@ Model {
 		}
 		Line {
 		  Name			  "orient_vel_rot_task"
-		  ZOrder		  12
+		  ZOrder		  26
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  5
@@ -3429,14 +3427,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  13
+		  ZOrder		  27
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  14
+		  ZOrder		  28
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  Points		  [20, 0]
@@ -4446,7 +4444,6 @@ Model {
 	  Position		  [620, -48, 650, -17]
 	  ZOrder		  952
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  Operator		  "OR"
 	  AllPortsSameDT	  off
 	  OutDataTypeStr	  "boolean"
@@ -4605,7 +4602,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"67"
+		SIDHighWatermark	"70"
 		Block {
 		  BlockType		  Inport
 		  Name			  "s"
@@ -4680,20 +4677,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "7006::66"
+		  SID			  "7006::69"
 		  Ports			  [1, 1]
 		  Position		  [270, 280, 320, 320]
-		  ZOrder		  57
+		  ZOrder		  60
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "7006::65"
+		  SID			  "7006::68"
 		  Tag			  "Stateflow S-Function taskBasedBalancing 5"
 		  Ports			  [8, 5]
 		  Position		  [180, 100, 230, 280]
-		  ZOrder		  56
+		  ZOrder		  59
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[8 5]"
 		  SFunctionDeploymentMode off
@@ -4719,9 +4716,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "7006::67"
+		  SID			  "7006::70"
 		  Position		  [460, 291, 480, 309]
-		  ZOrder		  58
+		  ZOrder		  61
 		}
 		Block {
 		  BlockType		  Outport
@@ -4759,56 +4756,56 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  1
+		  ZOrder		  15
 		  SrcBlock		  "s"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  2
+		  ZOrder		  16
 		  SrcBlock		  "nu"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  3
+		  ZOrder		  17
 		  SrcBlock		  "s_sDot_sDDot_ref"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  4
+		  ZOrder		  18
 		  SrcBlock		  "impedances"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  4
 		}
 		Line {
-		  ZOrder		  5
+		  ZOrder		  19
 		  SrcBlock		  "dampings"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  5
 		}
 		Line {
-		  ZOrder		  6
+		  ZOrder		  20
 		  SrcBlock		  "J"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  6
 		}
 		Line {
-		  ZOrder		  7
+		  ZOrder		  21
 		  SrcBlock		  "JDot_nu"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  7
 		}
 		Line {
-		  ZOrder		  8
+		  ZOrder		  22
 		  SrcBlock		  "acc_task_star"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -4816,7 +4813,7 @@ Model {
 		}
 		Line {
 		  Name			  "Hessian"
-		  ZOrder		  9
+		  ZOrder		  23
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4825,7 +4822,7 @@ Model {
 		}
 		Line {
 		  Name			  "gradient"
-		  ZOrder		  10
+		  ZOrder		  24
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  3
@@ -4834,7 +4831,7 @@ Model {
 		}
 		Line {
 		  Name			  "ConstraintMatrix"
-		  ZOrder		  11
+		  ZOrder		  25
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  4
@@ -4843,7 +4840,7 @@ Model {
 		}
 		Line {
 		  Name			  "biasVectorConstraint"
-		  ZOrder		  12
+		  ZOrder		  26
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  5
@@ -4851,14 +4848,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  13
+		  ZOrder		  27
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  14
+		  ZOrder		  28
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  Points		  [20, 0]
@@ -5092,7 +5089,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "68"
+		    SIDHighWatermark	    "71"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "pose_b"
@@ -5113,20 +5110,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "7020::67"
+		    SID			    "7020::70"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    53
+		    ZOrder		    56
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "7020::66"
+		    SID			    "7020::69"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 16"
 		    Ports		    [2, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    52
+		    ZOrder		    55
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[2 2]"
 		    SFunctionDeploymentMode off
@@ -5140,9 +5137,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "7020::68"
+		    SID			    "7020::71"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    54
+		    ZOrder		    57
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -5153,7 +5150,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    1
+		    ZOrder		    6
 		    SrcBlock		    "pose_b"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -5161,7 +5158,7 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    2
+		    ZOrder		    7
 		    SrcBlock		    "nu_b"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -5169,7 +5166,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "pose_bDot"
-		    ZOrder		    3
+		    ZOrder		    8
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -5177,14 +5174,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    4
+		    ZOrder		    9
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    5
+		    ZOrder		    10
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -5341,7 +5338,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "67"
+		    SIDHighWatermark	    "70"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "w_H_b_0"
@@ -5353,20 +5350,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "7032::66"
+		    SID			    "7032::69"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    52
+		    ZOrder		    55
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "7032::65"
+		    SID			    "7032::68"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 18"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    51
+		    ZOrder		    54
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
@@ -5380,9 +5377,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "7032::67"
+		    SID			    "7032::70"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    53
+		    ZOrder		    56
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -5393,7 +5390,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    1
+		    ZOrder		    5
 		    SrcBlock		    "w_H_b_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -5401,7 +5398,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "pose_b_0"
-		    ZOrder		    2
+		    ZOrder		    6
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -5409,14 +5406,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    3
+		    ZOrder		    7
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    4
+		    ZOrder		    8
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -5454,7 +5451,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "67"
+		    SIDHighWatermark	    "70"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "pose_b"
@@ -5466,20 +5463,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "7033::66"
+		    SID			    "7033::69"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    52
+		    ZOrder		    55
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "7033::65"
+		    SID			    "7033::68"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 15"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    51
+		    ZOrder		    54
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
@@ -5493,9 +5490,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "7033::67"
+		    SID			    "7033::70"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    53
+		    ZOrder		    56
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -5506,7 +5503,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    1
+		    ZOrder		    5
 		    SrcBlock		    "pose_b"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -5514,7 +5511,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    2
+		    ZOrder		    6
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -5522,14 +5519,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    3
+		    ZOrder		    7
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    4
+		    ZOrder		    8
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -8245,7 +8242,7 @@ Model {
       BlockType		      Constant
       Name		      "ON_GAZEBO\n3"
       SID		      "7086"
-      Position		      [260, -61, 435, -49]
+      Position		      [250, -61, 425, -49]
       ZOrder		      989
       ShowName		      off
       Value		      "Config.USE_INVERSE_KINEMATICS"
@@ -8350,7 +8347,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"81"
+		SIDHighWatermark	"84"
 		Block {
 		  BlockType		  Inport
 		  Name			  "state"
@@ -8362,20 +8359,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "7930::80"
+		  SID			  "7930::83"
 		  Ports			  [1, 1]
 		  Position		  [270, 530, 320, 570]
-		  ZOrder		  70
+		  ZOrder		  73
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "7930::79"
+		  SID			  "7930::82"
 		  Tag			  "Stateflow S-Function taskBasedBalancing 8"
 		  Ports			  [1, 12]
 		  Position		  [180, 95, 230, 355]
-		  ZOrder		  69
+		  ZOrder		  72
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Config,Gains"
 		  PortCounts		  "[1 12]"
@@ -8430,9 +8427,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "7930::81"
+		  SID			  "7930::84"
 		  Position		  [460, 541, 480, 559]
-		  ZOrder		  71
+		  ZOrder		  74
 		}
 		Block {
 		  BlockType		  Outport
@@ -8533,7 +8530,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  1
+		  ZOrder		  15
 		  SrcBlock		  "state"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -8541,7 +8538,7 @@ Model {
 		}
 		Line {
 		  Name			  "Kp_CoM"
-		  ZOrder		  2
+		  ZOrder		  16
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -8550,7 +8547,7 @@ Model {
 		}
 		Line {
 		  Name			  "Kd_CoM"
-		  ZOrder		  3
+		  ZOrder		  17
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  3
@@ -8559,7 +8556,7 @@ Model {
 		}
 		Line {
 		  Name			  "Kp_LFoot"
-		  ZOrder		  4
+		  ZOrder		  18
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  4
@@ -8568,7 +8565,7 @@ Model {
 		}
 		Line {
 		  Name			  "Kd_LFoot"
-		  ZOrder		  5
+		  ZOrder		  19
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  5
@@ -8577,7 +8574,7 @@ Model {
 		}
 		Line {
 		  Name			  "Kp_RFoot"
-		  ZOrder		  6
+		  ZOrder		  20
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  6
@@ -8586,7 +8583,7 @@ Model {
 		}
 		Line {
 		  Name			  "Kd_RFoot"
-		  ZOrder		  7
+		  ZOrder		  21
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  7
@@ -8595,7 +8592,7 @@ Model {
 		}
 		Line {
 		  Name			  "Kp_rot_task"
-		  ZOrder		  8
+		  ZOrder		  22
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  8
@@ -8604,7 +8601,7 @@ Model {
 		}
 		Line {
 		  Name			  "Kd_rot_task"
-		  ZOrder		  9
+		  ZOrder		  23
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  9
@@ -8613,7 +8610,7 @@ Model {
 		}
 		Line {
 		  Name			  "impedances"
-		  ZOrder		  10
+		  ZOrder		  24
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  10
@@ -8622,7 +8619,7 @@ Model {
 		}
 		Line {
 		  Name			  "dampings"
-		  ZOrder		  11
+		  ZOrder		  25
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  11
@@ -8631,7 +8628,7 @@ Model {
 		}
 		Line {
 		  Name			  "smoothingTimeGains"
-		  ZOrder		  12
+		  ZOrder		  26
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  12
@@ -8639,14 +8636,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  13
+		  ZOrder		  27
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  14
+		  ZOrder		  28
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -10363,7 +10360,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "93"
+		    SIDHighWatermark	    "96"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "w_R_LFoot_des"
@@ -10429,20 +10426,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4571::92"
+		    SID			    "4571::95"
 		    Ports		    [1, 1]
 		    Position		    [270, 245, 320, 285]
-		    ZOrder		    81
+		    ZOrder		    84
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4571::91"
+		    SID			    "4571::94"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 12"
 		    Ports		    [7, 4]
 		    Position		    [180, 100, 230, 260]
-		    ZOrder		    80
+		    ZOrder		    83
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[7 4]"
@@ -10465,9 +10462,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4571::93"
+		    SID			    "4571::96"
 		    Position		    [460, 256, 480, 274]
-		    ZOrder		    82
+		    ZOrder		    85
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -10496,49 +10493,49 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    138
+		    ZOrder		    150
 		    SrcBlock		    "w_R_LFoot_des"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    139
+		    ZOrder		    151
 		    SrcBlock		    "w_R_RFoot_des"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    140
+		    ZOrder		    152
 		    SrcBlock		    "w_R_rot_task_des"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    141
+		    ZOrder		    153
 		    SrcBlock		    "w_R_LFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    142
+		    ZOrder		    154
 		    SrcBlock		    "w_R_RFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    143
+		    ZOrder		    155
 		    SrcBlock		    "w_R_rot_task"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    6
 		    }
 		    Line {
-		    ZOrder		    144
+		    ZOrder		    156
 		    SrcBlock		    "state"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -10546,7 +10543,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "RDot_LFoot"
-		    ZOrder		    145
+		    ZOrder		    157
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -10555,7 +10552,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "RDot_RFoot"
-		    ZOrder		    146
+		    ZOrder		    158
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    3
@@ -10564,7 +10561,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "RDot_rot_task"
-		    ZOrder		    147
+		    ZOrder		    159
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    4
@@ -10572,14 +10569,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    148
+		    ZOrder		    160
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    149
+		    ZOrder		    161
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    Points		    [20, 0]
@@ -11239,7 +11236,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "57"
+		    SIDHighWatermark	    "60"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "state"
@@ -11251,20 +11248,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "5315::56"
+		    SID			    "5315::59"
 		    Ports		    [1, 1]
 		    Position		    [270, 280, 320, 320]
-		    ZOrder		    47
+		    ZOrder		    50
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "5315::55"
+		    SID			    "5315::58"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 17"
 		    Ports		    [1, 5]
 		    Position		    [180, 100, 230, 220]
-		    ZOrder		    46
+		    ZOrder		    49
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[1 5]"
@@ -11291,9 +11288,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "5315::57"
+		    SID			    "5315::60"
 		    Position		    [460, 291, 480, 309]
-		    ZOrder		    48
+		    ZOrder		    51
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -11331,7 +11328,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    173
+		    ZOrder		    180
 		    SrcBlock		    "state"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -11339,7 +11336,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "smoothingTime_CoM"
-		    ZOrder		    174
+		    ZOrder		    181
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -11349,7 +11346,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "smoothingTime_joints"
-		    ZOrder		    175
+		    ZOrder		    182
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    3
@@ -11358,7 +11355,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "smoothingTime_LFoot"
-		    ZOrder		    176
+		    ZOrder		    183
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    4
@@ -11367,7 +11364,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "smoothingTime_RFoot"
-		    ZOrder		    177
+		    ZOrder		    184
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    5
@@ -11375,14 +11372,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    178
+		    ZOrder		    185
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    179
+		    ZOrder		    186
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -11521,7 +11518,6 @@ Model {
 		  Position		  [285, 443, 345, 457]
 		  ZOrder		  710
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  Value			  "zeros(3,2)"
 		}
 		Block {
@@ -12106,7 +12102,7 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"Compute Transformation Matrices"
-		Location		[106, -7, 3840, 2160]
+		Location		[106, 39, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
@@ -12363,7 +12359,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3746"
+		    SIDHighWatermark	    "3749"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -12421,20 +12417,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "7886::3745"
+		    SID			    "7886::3748"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    145
+		    ZOrder		    148
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "7886::3744"
+		    SID			    "7886::3747"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 36"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    144
+		    ZOrder		    147
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
@@ -12449,9 +12445,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "7886::3746"
+		    SID			    "7886::3749"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    146
+		    ZOrder		    149
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -12462,42 +12458,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    1
+		    ZOrder		    10
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    2
+		    ZOrder		    11
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    3
+		    ZOrder		    12
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    4
+		    ZOrder		    13
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    5
+		    ZOrder		    14
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    6
+		    ZOrder		    15
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -12505,7 +12501,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    7
+		    ZOrder		    16
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -12513,14 +12509,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    8
+		    ZOrder		    17
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    9
+		    ZOrder		    18
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -13068,7 +13064,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3746"
+		    SIDHighWatermark	    "3749"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -13126,20 +13122,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "7911::3745"
+		    SID			    "7911::3748"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    145
+		    ZOrder		    148
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "7911::3744"
+		    SID			    "7911::3747"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 13"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    144
+		    ZOrder		    147
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
@@ -13154,9 +13150,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "7911::3746"
+		    SID			    "7911::3749"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    146
+		    ZOrder		    149
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -13167,42 +13163,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    1
+		    ZOrder		    10
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    2
+		    ZOrder		    11
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    3
+		    ZOrder		    12
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    4
+		    ZOrder		    13
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    5
+		    ZOrder		    14
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    6
+		    ZOrder		    15
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -13210,7 +13206,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    7
+		    ZOrder		    16
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -13218,14 +13214,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    8
+		    ZOrder		    17
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    9
+		    ZOrder		    18
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -13774,7 +13770,6 @@ Model {
 	      Position		      [-240, 130, -165, 140]
 	      ZOrder		      914
 	      ShowName		      off
-	      HideAutomaticName	      off
 	      GotoTag		      "state"
 	      TagVisibility	      "global"
 	    }
@@ -13785,7 +13780,6 @@ Model {
 	      Position		      [-240, 185, -165, 195]
 	      ZOrder		      926
 	      ShowName		      off
-	      HideAutomaticName	      off
 	      GotoTag		      "CoM_ref"
 	      TagVisibility	      "global"
 	    }
@@ -13796,7 +13790,6 @@ Model {
 	      Position		      [-230, 49, -165, 61]
 	      ZOrder		      916
 	      ShowName		      off
-	      HideAutomaticName	      off
 	      GotoTag		      "s"
 	      TagVisibility	      "global"
 	    }
@@ -13923,7 +13916,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "118"
+		    SIDHighWatermark	    "121"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "s_0"
@@ -14007,20 +14000,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4671::114"
+		    SID			    "4671::120"
 		    Ports		    [1, 1]
 		    Position		    [270, 390, 320, 430]
-		    ZOrder		    100
+		    ZOrder		    106
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4671::113"
+		    SID			    "4671::119"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 10"
 		    Ports		    [9, 8]
-		    Position		    [180, 90, 230, 290]
-		    ZOrder		    99
+		    Position		    [180, 100, 230, 300]
+		    ZOrder		    105
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config,Sat"
 		    PortCounts		    "[9 8]"
@@ -14059,9 +14052,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4671::115"
+		    SID			    "4671::121"
 		    Position		    [460, 401, 480, 419]
-		    ZOrder		    101
+		    ZOrder		    107
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -14126,63 +14119,63 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    2069
+		    ZOrder		    2087
 		    SrcBlock		    "s_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    2070
+		    ZOrder		    2088
 		    SrcBlock		    "w_H_rot_task_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    2071
+		    ZOrder		    2089
 		    SrcBlock		    "w_H_CoM_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    2072
+		    ZOrder		    2090
 		    SrcBlock		    "w_H_LFoot_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    2073
+		    ZOrder		    2091
 		    SrcBlock		    "w_H_RFoot_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    2074
+		    ZOrder		    2092
 		    SrcBlock		    "b_H_LFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    6
 		    }
 		    Line {
-		    ZOrder		    2075
+		    ZOrder		    2093
 		    SrcBlock		    "b_H_RFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    7
 		    }
 		    Line {
-		    ZOrder		    2076
+		    ZOrder		    2094
 		    SrcBlock		    "LFoot_wrench"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    8
 		    }
 		    Line {
-		    ZOrder		    2077
+		    ZOrder		    2095
 		    SrcBlock		    "RFoot_wrench"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -14190,16 +14183,17 @@ Model {
 		    }
 		    Line {
 		    Name		    "state"
-		    ZOrder		    2078
+		    ZOrder		    2096
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
+		    Points		    [0, -30]
 		    DstBlock		    "state"
 		    DstPort		    1
 		    }
 		    Line {
 		    Name		    "references_CoM"
-		    ZOrder		    2079
+		    ZOrder		    2097
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    3
@@ -14208,7 +14202,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "references_LFoot"
-		    ZOrder		    2080
+		    ZOrder		    2098
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    4
@@ -14217,7 +14211,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "references_RFoot"
-		    ZOrder		    2081
+		    ZOrder		    2099
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    5
@@ -14226,7 +14220,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "references_rot_task"
-		    ZOrder		    2082
+		    ZOrder		    2100
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    6
@@ -14235,7 +14229,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "feetInContact"
-		    ZOrder		    2083
+		    ZOrder		    2101
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    7
@@ -14244,7 +14238,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "references_s"
-		    ZOrder		    2084
+		    ZOrder		    2102
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    8
@@ -14252,14 +14246,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    2085
+		    ZOrder		    2103
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    2086
+		    ZOrder		    2104
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -14939,7 +14933,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3731"
+		    SIDHighWatermark	    "3734"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "umin"
@@ -14978,20 +14972,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "6301::3730"
+		    SID			    "6301::3733"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    80
+		    ZOrder		    83
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "6301::3729"
+		    SID			    "6301::3732"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 22"
 		    Ports		    [4, 2]
 		    Position		    [180, 102, 230, 203]
-		    ZOrder		    79
+		    ZOrder		    82
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[4 2]"
 		    SFunctionDeploymentMode off
@@ -15005,9 +14999,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "6301::3731"
+		    SID			    "6301::3734"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    81
+		    ZOrder		    84
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -15018,28 +15012,28 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    1
+		    ZOrder		    8
 		    SrcBlock		    "umin"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    2
+		    ZOrder		    9
 		    SrcBlock		    "umax"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    3
+		    ZOrder		    10
 		    SrcBlock		    "u"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    4
+		    ZOrder		    11
 		    SrcBlock		    "tol"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -15047,7 +15041,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "inRange"
-		    ZOrder		    5
+		    ZOrder		    12
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -15055,14 +15049,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    6
+		    ZOrder		    13
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    7
+		    ZOrder		    14
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -15626,7 +15620,7 @@ Model {
       System {
 	Name			"Visualization"
 	Location		[106, 39, 3840, 2160]
-	Open			on
+	Open			off
 	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -15767,7 +15761,6 @@ Model {
 	  Position		  [130, -118, 235, -102]
 	  ZOrder		  861
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  GotoTag		  "dampings"
 	  TagVisibility		  "global"
 	}
@@ -15833,7 +15826,6 @@ Model {
 	  Position		  [-75, -508, -45, -477]
 	  ZOrder		  822
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  Operator		  "OR"
 	  AllPortsSameDT	  off
 	  OutDataTypeStr	  "boolean"
@@ -15846,7 +15838,6 @@ Model {
 	  Position		  [695, -393, 725, -362]
 	  ZOrder		  825
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  Operator		  "OR"
 	  AllPortsSameDT	  off
 	  OutDataTypeStr	  "boolean"
@@ -15859,7 +15850,6 @@ Model {
 	  Position		  [310, -408, 340, -377]
 	  ZOrder		  826
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  Operator		  "OR"
 	  AllPortsSameDT	  off
 	  OutDataTypeStr	  "boolean"
@@ -18020,7 +18010,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "30"
+		    SIDHighWatermark	    "33"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "R_0"
@@ -18032,20 +18022,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "8228::29"
+		    SID			    "8228::32"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    20
+		    ZOrder		    23
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "8228::28"
+		    SID			    "8228::31"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 23"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    19
+		    ZOrder		    22
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
@@ -18059,9 +18049,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "8228::30"
+		    SID			    "8228::33"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    21
+		    ZOrder		    24
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -18072,7 +18062,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    1
+		    ZOrder		    5
 		    SrcBlock		    "R_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -18080,7 +18070,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "rollPitchYaw"
-		    ZOrder		    2
+		    ZOrder		    6
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -18088,14 +18078,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    3
+		    ZOrder		    7
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    4
+		    ZOrder		    8
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -18296,7 +18286,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "30"
+		    SIDHighWatermark	    "33"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "R_0"
@@ -18308,20 +18298,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "8236::29"
+		    SID			    "8236::32"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    20
+		    ZOrder		    23
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "8236::28"
+		    SID			    "8236::31"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 24"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    19
+		    ZOrder		    22
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
@@ -18335,9 +18325,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "8236::30"
+		    SID			    "8236::33"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    21
+		    ZOrder		    24
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -18348,7 +18338,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    1
+		    ZOrder		    5
 		    SrcBlock		    "R_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -18356,7 +18346,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "rollPitchYaw"
-		    ZOrder		    2
+		    ZOrder		    6
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -18364,14 +18354,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    3
+		    ZOrder		    7
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    4
+		    ZOrder		    8
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -18515,7 +18505,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "30"
+		    SIDHighWatermark	    "33"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "R_0"
@@ -18527,20 +18517,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "8243::29"
+		    SID			    "8243::32"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    20
+		    ZOrder		    23
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "8243::28"
+		    SID			    "8243::31"
 		    Tag			    "Stateflow S-Function taskBasedBalancing 27"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    19
+		    ZOrder		    22
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
@@ -18554,9 +18544,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "8243::30"
+		    SID			    "8243::33"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    21
+		    ZOrder		    24
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -18567,7 +18557,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    1
+		    ZOrder		    5
 		    SrcBlock		    "R_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -18575,7 +18565,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "rollPitchYaw"
-		    ZOrder		    2
+		    ZOrder		    6
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -18583,14 +18573,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    3
+		    ZOrder		    7
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    4
+		    ZOrder		    8
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -19278,7 +19268,7 @@ Model {
       ZOrder		      770
       SrcBlock		      "ON_GAZEBO\n3"
       SrcPort		      1
-      Points		      [35, 0]
+      Points		      [45, 0]
       Branch {
 	ZOrder			843
 	DstBlock		"Inverse Kinematics"

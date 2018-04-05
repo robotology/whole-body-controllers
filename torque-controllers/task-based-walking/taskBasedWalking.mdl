@@ -1,12 +1,12 @@
 Model {
   Name			  "taskBasedWalking"
-  Version		  9.0
+  Version		  8.8
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.743"
+    ComputedModelVersion    "1.744"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -15,534 +15,12 @@ Model {
     HasInitializeEvent	    0
     HasTerminateEvent	    0
     IsExportFunctionModel   0
-    NumParameterArguments   0
-    NumExternalFileReferences 78
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-      Path		      "taskBasedWalking/Balancing Controller (Reactive QP control)/Compute joint torques (motor reflected "
-      "inertia)/Get Measurement"
-      SID		      "6277"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-      Path		      "taskBasedWalking/Balancing Controller (Reactive QP control)/Get Measurement"
-      SID		      "6281"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Balancing Controller (Reactive QP control)/holder "
-      SID		      "4159"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Balancing Controller (Reactive QP control)/weightsForces (MPC)"
-      SID		      "6365"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Configuration"
-      Path		      "taskBasedWalking/Configuration"
-      SID		      "6294"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Dynamic and Kinematic Quantities/Jacobians and JDo"
-      "t_nu/DotJ Nu CoM"
-      SID		      "4189"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Dynamic and Kinematic Quantities/Jacobians and JDo"
-      "t_nu/DotJ Nu LFoot"
-      SID		      "4192"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Dynamic and Kinematic Quantities/Jacobians and JDo"
-      "t_nu/DotJ Nu RFoot"
-      SID		      "4190"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Dynamic and Kinematic Quantities/Jacobians and JDo"
-      "t_nu/DotJ Nu rotational task"
-      SID		      "4191"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Dynamic and Kinematic Quantities/Jacobians and JDo"
-      "t_nu/Jacobian CoM"
-      SID		      "4193"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Dynamic and Kinematic Quantities/Jacobians and JDo"
-      "t_nu/Jacobian LFoot"
-      SID		      "4194"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Dynamic and Kinematic Quantities/Jacobians and JDo"
-      "t_nu/Jacobian RFoot"
-      SID		      "4195"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Dynamic and Kinematic Quantities/Jacobians and JDo"
-      "t_nu/Jacobian rotational task"
-      SID		      "4196"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Bias Forces"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Dynamic and Kinematic Quantities/Mass Matrix and B"
-      "ias Forces/Get Bias Forces"
-      SID		      "4210"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Dynamic and Kinematic Quantities/Mass Matrix and B"
-      "ias Forces/Mass Matrix"
-      SID		      "4211"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Tasks Accelerations/ComputeTasksPoseAndVelocity/Ta"
-      "sk position and orientation/CoM"
-      SID		      "4455"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Tasks Accelerations/ComputeTasksPoseAndVelocity/Ta"
-      "sk position and orientation/LFoot"
-      SID		      "4456"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Tasks Accelerations/ComputeTasksPoseAndVelocity/Ta"
-      "sk position and orientation/RFoot"
-      SID		      "4457"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-      Path		      "taskBasedWalking/Dynamics and Kinematics/Compute Tasks Accelerations/ComputeTasksPoseAndVelocity/Ta"
-      "sk position and orientation/rotational task"
-      SID		      "4458"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
-      Path		      "taskBasedWalking/Robot State and References/Gain Scheduling/Minimum Jerk Trajectory Generator5"
-      SID		      "4544"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/Smooth References /Smooth Reference Orientations/Comput"
-      "e Smoothed Ref Orientations/holder "
-      SID		      "4618"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/Smooth References /Smooth Reference Orientations/Comput"
-      "e Smoothed Ref Orientations/holder 1"
-      SID		      "4619"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/Smooth References /Smooth Reference Orientations/Comput"
-      "e Smoothed Ref Orientations/holder 2"
-      SID		      "4620"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
-      Path		      "taskBasedWalking/Robot State and References/Smooth References /Smooth Reference Positions/Minimum J"
-      "erk Trajectory Generator"
-      SID		      "4633"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
-      Path		      "taskBasedWalking/Robot State and References/Smooth References /Smooth Reference Positions/Minimum J"
-      "erk Trajectory Generator1"
-      SID		      "4634"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
-      Path		      "taskBasedWalking/Robot State and References/Smooth References /Smooth Reference Positions/Minimum J"
-      "erk Trajectory Generator2"
-      SID		      "4635"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
-      Path		      "taskBasedWalking/Robot State and References/Smooth References /Smooth Reference Positions/Minimum J"
-      "erk Trajectory Generator3"
-      SID		      "4636"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute State Velocity/Feet Jacobians/Jac"
-      "obian LFoot"
-      SID		      "4764"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute State Velocity/Feet Jacobians/Jac"
-      "obian RFoot"
-      SID		      "4765"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute State Velocity/Get Measurement"
-      SID		      "6293"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute Transformation Matrices/Compute F"
-      "eet to Base Link Transforms/LFoot to base link transform/Fixed base to imu transform"
-      SID		      "6420"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute Transformation Matrices/Compute F"
-      "eet to Base Link Transforms/LFoot to base link transform/Neck Position"
-      SID		      "6424"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute Transformation Matrices/Compute F"
-      "eet to Base Link Transforms/LFoot to base link transform/holder 1"
-      SID		      "6428"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute Transformation Matrices/Compute F"
-      "eet to Base Link Transforms/LFoot to base link transform/holder 2"
-      SID		      "6429"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute Transformation Matrices/Compute F"
-      "eet to Base Link Transforms/LFoot to world transform (fixed base)"
-      SID		      "4704"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute Transformation Matrices/Compute F"
-      "eet to Base Link Transforms/RFoot to base link transform/Fixed base to imu transform"
-      SID		      "6641"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute Transformation Matrices/Compute F"
-      "eet to Base Link Transforms/RFoot to base link transform/Neck Position"
-      SID		      "6645"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute Transformation Matrices/Compute F"
-      "eet to Base Link Transforms/RFoot to base link transform/holder 1"
-      SID		      "6649"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute Transformation Matrices/Compute F"
-      "eet to Base Link Transforms/RFoot to base link transform/holder 2"
-      SID		      "6650"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute Transformation Matrices/Compute F"
-      "eet to Base Link Transforms/RFoot to world transform (fixed base)"
-      SID		      "5443"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Compute Transformation Matrices/Compute F"
-      "ixed Foot to World Transform (MPC)/holder "
-      SID		      "6361"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Get Measurement"
-      SID		      "6292"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/IMU measurements"
-      SID		      "4557"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/LFoot_is_fixed (MPC)"
-      SID		      "4853"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/Emergency Stop/holder 1"
-      SID		      "5503"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/RFoot to world transform (fixed base)"
-      SID		      "6820"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Write"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/Smooth the Base Pose and send it to the MPC/Send w_H_b to the planner"
-      SID		      "6445"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/Smooth the Base Pose and send it to the MPC/Smooth Reference Orientation/holder "
-      SID		      "6604"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/Smooth the Base Pose and send it to the MPC/Smooth Reference Position"
-      SID		      "6561"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/feetInContact (MPC)"
-      SID		      "4840"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/holder 1"
-      SID		      "6660"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/holder 5"
-      SID		      "4677"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/left_foot_wrench"
-      SID		      "6161"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/pos_vel_acc_CoM_des (MPC)"
-      SID		      "4843"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/right_foot_wrench"
-      SID		      "6162"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/rotational task"
-      SID		      "4684"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/s_des (MPC)"
-      SID		      "4842"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/Select Current References and Estimate w_"
-      "H_b/waist_IMU"
-      SID		      "6743"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/pos_quat_LFoot (MPC)"
-      SID		      "5134"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Robot State and References/State Machine/pos_quat_RFoot (MPC) "
-      SID		      "5135"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Limits"
-      Path		      "taskBasedWalking/Robot State and References/emergency stop: joint limits/Get Limits"
-      SID		      "6300"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyActuators/Set References"
-      Path		      "taskBasedWalking/Set References"
-      SID		      "4828"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Write"
-      Path		      "taskBasedWalking/Sync with MPC/Yarp Write"
-      SID		      "5643"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/DoFs converter"
-      Path		      "taskBasedWalking/Visualization/Visualize Forces and Torques/DoFs converter"
-      SID		      "4141"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/DoFs converter"
-      Path		      "taskBasedWalking/Visualization/Visualize Forces and Torques/DoFs converter1"
-      SID		      "4142"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/DoFs converter"
-      Path		      "taskBasedWalking/Visualization/Visualize Forces and Torques/DoFs converter2"
-      SID		      "4143"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/DoFs converter"
-      Path		      "taskBasedWalking/Visualization/Visualize Forces and Torques/DoFs converter4"
-      SID		      "6756"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/DoFs converter"
-      Path		      "taskBasedWalking/Visualization/Visualize Forces and Torques/DoFs converter5"
-      SID		      "6759"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Visualization/Visualize Forces and Torques/left_foot_wrench"
-      SID		      "4153"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "taskBasedWalking/Visualization/Visualize Forces and Torques/left_foot_wrench1"
-      SID		      "4154"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/DoFs converter"
-      Path		      "taskBasedWalking/Visualization/Visualize Gain Scheduling/DoFs converter1"
-      SID		      "5876"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/DoFs converter"
-      Path		      "taskBasedWalking/Visualization/Visualize Gain Scheduling/DoFs converter4"
-      SID		      "5874"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/DoFs converter"
-      Path		      "taskBasedWalking/Visualization/Visualize Joints and Floating Base State/DoFs converter"
-      SID		      "4778"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/DoFs converter"
-      Path		      "taskBasedWalking/Visualization/Visualize Joints and Floating Base State/DoFs converter1"
-      SID		      "4779"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/DoFs converter"
-      Path		      "taskBasedWalking/Visualization/Visualize Joints and Floating Base State/DoFs converter2"
-      SID		      "4780"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/DoFs converter"
-      Path		      "taskBasedWalking/Visualization/Visualize Joints and Floating Base State/DoFs converter3"
-      SID		      "4781"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
-      Path		      "taskBasedWalking/synchronizer/GAZEBO_SYNCHRONIZER/Simulator Synchronizer"
-      SID		      "4832"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
-      Path		      "taskBasedWalking/synchronizer/REAL_TIME_SYNC/Real Time Synchronizer"
-      SID		      "4837"
-      Type		      "LIBRARY_BLOCK"
-    }
-    OrderedModelArguments   1
   }
   LogicAnalyzerGraphicalSettings ""
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
   DiagnosticSuppressor	  "on"
   SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 11 0"
-  CustomCodeFunctionData  ""
-  SLCCPlugin		  "on"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -617,23 +95,21 @@ Model {
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
-  HideAutomaticNames	  on
   Created		  "Wed Nov 29 15:01:02 2017"
   Creator		  "gnava"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Mar 28 15:58:22 2018"
-  RTWModifiedTimeStamp	  444152907
-  ModelVersionFormat	  "1.%<AutoIncrement:743>"
+  LastModifiedDate	  "Thu Apr 05 16:32:21 2018"
+  RTWModifiedTimeStamp	  444846740
+  ModelVersionFormat	  "1.%<AutoIncrement:744>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
   WideLines		  off
   ShowLineDimensions	  on
   ShowPortDataTypes	  off
-  PortDataTypeDisplayFormat "AliasTypeOnly"
   ShowEditTimeErrors	  on
   ShowEditTimeWarnings	  on
   ShowEditTimeAdvisorChecks off
@@ -654,14 +130,12 @@ Model {
   BlockNameDataTip	  off
   BlockParametersDataTip  off
   BlockDescriptionStringDataTip	off
-  BlockVariantConditionDataTip off
   ToolBar		  on
   StatusBar		  on
   BrowserShowLibraryLinks off
   FunctionConnectors	  off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
-  VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
   NumberOfSteps		  1
   SnapshotBufferSize	  10
@@ -716,13 +190,12 @@ Model {
   ExtModeAutoUpdateStatusClock on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
-  OrderedModelArguments	  on
   Array {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      8
-      Version		      "1.17.1"
+      Version		      "1.16.5"
       DisabledProps	      []
       Description	      ""
       Array {
@@ -730,7 +203,7 @@ Model {
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  9
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
@@ -749,6 +222,7 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  EnableMultiTasking	  on
+	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "FixedStepDiscrete"
 	  SolverName		  "FixedStepDiscrete"
@@ -765,11 +239,10 @@ Model {
 	  SampleTimeConstraint	  "Unconstrained"
 	  InsertRTBMode		  "Whenever possible"
 	  SampleTimeProperty	  []
-	  DecoupledContinuousIntegration off
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  10
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
 	  Decimation		  "1"
@@ -804,13 +277,12 @@ Model {
 	  ReturnWorkspaceOutputsName "out"
 	  Refine		  "1"
 	  LoggingToFile		  off
-	  DatasetSignalFormat	  "timeseries"
 	  LoggingFileName	  "out.mat"
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  11
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -865,14 +337,10 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "off"
 	  AccelVerboseBuild	  off
-	  OptimizeBlockOrder	  "off"
-	  OptimizeDataStoreBuffers on
-	  BusAssignmentInplaceUpdate on
-	  DifferentSizesBufferReuse off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  12
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -911,7 +379,6 @@ Model {
 	  MultiTaskRateTransMsg	  "error"
 	  SingleTaskRateTransMsg  "none"
 	  TasksWithSamePriorityMsg "warning"
-	  ExportedTasksRateTransMsg "none"
 	  SigSpecEnsureSampleTimeMsg "warning"
 	  CheckMatrixSingularityMsg "none"
 	  IntegerOverflowMsg	  "warning"
@@ -953,7 +420,6 @@ Model {
 	  StateNameClashWarn	  "none"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  SimStateOlderReleaseMsg "error"
-	  ChecksumConsistencyForSSReuse	"none"
 	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
@@ -961,7 +427,6 @@ Model {
 	  SymbolicDimMinMaxWarning "warning"
 	  LossOfSymbolicDimsSimulationWarning "warning"
 	  LossOfSymbolicDimsCodeGenerationWarning "error"
-	  SymbolicDimsDataTypeCodeGenerationDiagnostic "error"
 	  BlockIODiagnostic	  "none"
 	  SFUnusedDataAndEventsDiag "warning"
 	  SFUnexpectedBacktrackingDiag "error"
@@ -980,14 +445,10 @@ Model {
 	  AllowedUnitSystems	  "all"
 	  UnitsInconsistencyMsg	  "warning"
 	  AllowAutomaticUnitConversions	on
-	  RCSCRenamedMsg	  "warning"
-	  RCSCObservableMsg	  "warning"
-	  ForceCombineOutputUpdateInSim	off
-	  UnitDatabase		  ""
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  13
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
 	  ProdBitPerChar	  8
@@ -1035,7 +496,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  14
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
@@ -1054,7 +515,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  15
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
 	  SimCustomSourceCode	  ""
@@ -1078,13 +539,11 @@ Model {
 	  ModelFunctionsGlobalVisibility "on"
 	  CompileTimeRecursionLimit 50
 	  EnableRuntimeRecursion  on
-	  MATLABDynamicMemAlloc	  on
-	  MATLABDynamicMemAllocThreshold 65536
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  16
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    13
@@ -1132,7 +591,6 @@ Model {
 	  CustomLibrary		  ""
 	  CustomDefine		  ""
 	  CustomLAPACKCallback	  ""
-	  CustomFFTCallback	  ""
 	  CustomInitializer	  ""
 	  CustomTerminator	  ""
 	  Toolchain		  "Automatically locate an installed toolchain"
@@ -1168,7 +626,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      17
-	      Version		      "1.17.1"
+	      Version		      "1.16.5"
 	      Array {
 		Type			"Cell"
 		Dimension		27
@@ -1217,7 +675,6 @@ Model {
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
 	      MangleLength	      1
-	      SharedChecksumLength    8
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
 	      CustomSymbolStrField    "$N$M"
@@ -1228,8 +685,6 @@ Model {
 	      CustomSymbolStrTmpVar   "$N$M"
 	      CustomSymbolStrMacro    "$R$N$M"
 	      CustomSymbolStrUtil     "$N$C"
-	      CustomSymbolStrEmxType  "emxArray_$M$N"
-	      CustomSymbolStrEmxFcn   "emx$M$N"
 	      CustomUserTokenString   ""
 	      CustomCommentsFcn	      ""
 	      DefineNamingRule	      "None"
@@ -1241,7 +696,6 @@ Model {
 	      InsertBlockDesc	      off
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
-	      StateflowObjectComments on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
 	      InternalIdentifierFile  ""
@@ -1254,7 +708,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      18
-	      Version		      "1.17.1"
+	      Version		      "1.16.5"
 	      Array {
 		Type			"Cell"
 		Dimension		15
@@ -1283,7 +737,7 @@ Model {
 	      TargetLangStandard      "C99 (ISO)"
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
-	      MultiwordTypeDef	      "System defined"
+	      ERTMultiwordTypeDef     "System defined"
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
@@ -1326,11 +780,6 @@ Model {
 	      UseToolchainInfoCompliant	on
 	      GenerateSharedConstants on
 	      CoderGroups	      []
-	      AccessMethods	      []
-	      LookupTableObjectStructAxisOrder "1,2,3,4,..."
-	      LUTObjectStructOrderExplicitValues "Size,Breakpoints,Table"
-	      LUTObjectStructOrderEvenSpacing "Size,Breakpoints,Table"
-	      ArrayLayout	      "Column-major"
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -1352,7 +801,7 @@ Model {
 	}
 	SlCovCC.ConfigComp {
 	  $ObjectID		  19
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -1388,7 +837,6 @@ Model {
 	  CovUseTimeInterval	  off
 	  CovStartTime		  0
 	  CovStopTime		  0
-	  CovMcdcMode		  "Masking"
 	}
 	PropName		"Components"
       }
@@ -1424,7 +872,6 @@ Model {
     FontWeight		    "normal"
     FontAngle		    "normal"
     ShowName		    on
-    HideAutomaticName	    on
     BlockRotation	    0
     BlockMirror		    off
   }
@@ -1438,12 +885,7 @@ Model {
     FontSize		    10
     FontWeight		    "normal"
     FontAngle		    "normal"
-    MarkupType		    "model"
     UseDisplayTextAsClickCallback off
-    AnnotationType	    "note_annotation"
-    FixedHeight		    off
-    FixedWidth		    off
-    Interpreter		    "off"
   }
   LineDefaults {
     FontName		    "Helvetica"
@@ -1455,7 +897,7 @@ Model {
     SelfModifiable	    "off"
     IconFrame		    "on"
     IconOpaque		    "opaque"
-    RunInitForIconRedraw    "analyze"
+    RunInitForIconRedraw    "off"
     IconRotate		    "none"
     PortRotate		    "default"
     IconUnits		    "autoscale"
@@ -1635,8 +1077,6 @@ Model {
       InitialOutput	      "[]"
       MustResolveToSignalObject	off
       OutputWhenUnConnected   off
-      OutputWhenUnconnectedValue "0"
-      VectorParamsAs1DForOutWhenUnconnected off
     }
     Block {
       BlockType		      PermuteDimensions
@@ -1725,12 +1165,10 @@ Model {
       MaskHideContents	      off
       SFBlockType	      "NONE"
       GeneratePreprocessorConditionals off
-      AllowZeroVariantControls off
       PropagateVariantConditions off
       TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
       IsWebBlock	      off
-      IsObserver	      off
     }
     Block {
       BlockType		      Sum
@@ -1770,8 +1208,7 @@ Model {
   System {
     Name		    "taskBasedWalking"
     Location		    [106, -7, 3840, 2160]
-    Open		    on
-    PortBlocksUseCompactNotation off
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1799,7 +1236,6 @@ Model {
 	Name			"Balancing Controller (Reactive QP control)"
 	Location		[106, -7, 3840, 2160]
 	Open			off
-	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1981,7 +1417,6 @@ Model {
 	    Name		    "Balancing Controller Function"
 	    Location		    [223, 338, 826, 833]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -2456,7 +1891,6 @@ Model {
 	    Name		    "Compute joint torques (motor reflected inertia)"
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -2501,7 +1935,6 @@ Model {
 		Name			"(transpose(T*Gamma))^{-1}*I_m*(T*Gamma)^{-1}"
 		Location		[223, 338, 826, 833]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -2630,7 +2063,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	      SourceType	      "Get Measurement"
-	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      measuredType	      "Joints Acceleration"
 	    }
@@ -2641,7 +2073,6 @@ Model {
 	      Position		      [-325, -113, -240, -97]
 	      ZOrder		      878
 	      ShowName		      off
-	      HideAutomaticName	      off
 	      GotoTag		      "sDDot"
 	      TagVisibility	      "global"
 	    }
@@ -2652,7 +2083,6 @@ Model {
 	      Position		      [-80, -120, 25, -100]
 	      ZOrder		      879
 	      ShowName		      off
-	      HideAutomaticName	      off
 	      GotoTag		      "feedforward_tau_joints"
 	      TagVisibility	      "global"
 	    }
@@ -2789,7 +2219,6 @@ Model {
 	    Name		    "Emergency Stop"
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -2932,7 +2361,6 @@ Model {
 	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	  SourceType		  "Get Measurement"
-	  SourceProductName	  "Whole Body Toolbox"
 	  ContentPreviewEnabled	  off
 	  measuredType		  "Joints Torque"
 	}
@@ -2943,7 +2371,6 @@ Model {
 	  Position		  [1225, 160, 1265, 180]
 	  ZOrder		  699
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  GotoTag		  "tau_des"
 	  TagVisibility		  "global"
 	}
@@ -2954,7 +2381,6 @@ Model {
 	  Position		  [970, 290, 1010, 310]
 	  ZOrder		  700
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  GotoTag		  "f_LFoot"
 	  TagVisibility		  "global"
 	}
@@ -2965,7 +2391,6 @@ Model {
 	  Position		  [970, 474, 1010, 496]
 	  ZOrder		  701
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  GotoTag		  "f_RFoot"
 	  TagVisibility		  "global"
 	}
@@ -2985,7 +2410,6 @@ Model {
 	  Position		  [510, 87, 555, 103]
 	  ZOrder		  915
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  GotoTag		  "tau"
 	  TagVisibility		  "global"
 	}
@@ -3014,7 +2438,6 @@ Model {
 	    Name		    "QPSolver (Reactive QP control)"
 	    Location		    [65, 24, 1366, 768]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3248,11 +2671,9 @@ Model {
 	  ZOrder		  55
 	  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 	  SourceType		  "Holder"
-	  SourceProductName	  "Whole Body Toolbox"
 	  ContentPreviewEnabled	  off
 	}
 	Block {
@@ -3266,7 +2687,6 @@ Model {
 	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
-	  SourceProductName	  "Whole Body Toolbox"
 	  portName		  "Ports.FORCE_WEIGHTS"
 	  signalSize		  "2"
 	  timeout		  "0.5"
@@ -3567,10 +2987,15 @@ Model {
       LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
       SourceType	      ""
-      SourceProductName	      "Whole Body Toolbox"
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
+      RobotName		      "'icub'"
+      UrdfFile		      "'model.urdf'"
+      ControlledJoints	      "{'l_elbow','l_shoulder_pitch','torso_roll'}"
+      ControlBoardsNames      "{'left_arm','right_arm','torso'}"
+      LocalName		      "'WBT'"
+      GravityVector	      "[0,0,-9.81]"
     }
     Block {
       BlockType		      SubSystem
@@ -3586,7 +3011,6 @@ Model {
 	Name			"Dynamics and Kinematics"
 	Location		[106, -7, 3840, 2160]
 	Open			off
-	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3764,7 +3188,6 @@ Model {
 	    Name		    "Compute Dynamic and Kinematic Quantities"
 	    Location		    [106, 39, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3865,7 +3288,6 @@ Model {
 		Name			"Jacobians and JDot_nu"
 		Location		[106, 39, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -3922,7 +3344,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.COM"
 		}
@@ -3936,7 +3357,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.LEFT_FOOT"
 		}
@@ -3950,7 +3370,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.RIGHT_FOOT"
 		}
@@ -3964,7 +3383,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.ROT_TASK_LINK"
 		}
@@ -3978,7 +3396,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.COM"
 		}
@@ -3992,7 +3409,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.LEFT_FOOT"
 		}
@@ -4006,7 +3422,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.RIGHT_FOOT"
 		}
@@ -4020,7 +3435,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.ROT_TASK_LINK"
 		}
@@ -4369,7 +3783,6 @@ Model {
 		Name			"Mass Matrix and Bias Forces"
 		Location		[106, 39, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -4429,7 +3842,6 @@ Model {
 		    Name		    "Add motors reflected inertias"
 		    Location		    [106, 39, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -4466,7 +3878,6 @@ Model {
 		    Name		    "Add motor reflected inertias"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -4596,7 +4007,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Bias Forces"
 		  SourceType		  "Get Generalized Bias Forces"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -4609,7 +4019,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 		  SourceType		  "Mass Matrix"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -5068,7 +4477,6 @@ Model {
 	    Name		    "Compute Tasks Accelerations"
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -5240,7 +4648,6 @@ Model {
 		Name			"Compute tasks accelerations"
 		Location		[223, 338, 826, 833]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -5541,7 +4948,6 @@ Model {
 		Name			"ComputeTasksPoseAndVelocity"
 		Location		[106, 39, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -5632,7 +5038,6 @@ Model {
 		    Name		    "Compose Task Pose and Velocity"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -5971,7 +5376,6 @@ Model {
 		    Name		    "Task position and orientation"
 		    Location		    [106, 39, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -6010,7 +5414,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.COM"
 		    }
@@ -6024,7 +5427,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.LEFT_FOOT"
 		    }
@@ -6038,7 +5440,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.RIGHT_FOOT"
 		    }
@@ -6052,7 +5453,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.ROT_TASK_LINK"
 		    }
@@ -6503,7 +5903,6 @@ Model {
 	      Position		      [1665, 55, 1760, 75]
 	      ZOrder		      855
 	      ShowName		      off
-	      HideAutomaticName	      off
 	      GotoTag		      "acc_task_star"
 	      TagVisibility	      "global"
 	    }
@@ -7171,7 +6570,6 @@ Model {
 	Name			"Robot State and References"
 	Location		[106, -7, 3840, 2160]
 	Open			off
-	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -7197,7 +6595,6 @@ Model {
 	    Name		    "Gain Scheduling"
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -7245,7 +6642,6 @@ Model {
 		Name			"Gain Scheduling Function"
 		Location		[223, 338, 826, 833]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -7661,7 +7057,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
-	      SourceProductName	      "Whole Body Toolbox"
 	      externalSettlingTime    on
 	      settlingTime	      "3"
 	      sampleTime	      "Config.t_step"
@@ -8071,7 +7466,6 @@ Model {
 	    Name		    "Smooth References "
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -8149,7 +7543,6 @@ Model {
 		Name			"Choose Smoothed or Direct References"
 		Location		[106, -7, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -8893,7 +8286,6 @@ Model {
 		Name			"Smooth Reference Orientations"
 		Location		[106, -7, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -8953,7 +8345,6 @@ Model {
 		    Name		    "Compose Smoothed References"
 		    Location		    [106, -7, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -9206,7 +8597,6 @@ Model {
 		    Name		    "Compute Smoothed Ref Orientations"
 		    Location		    [106, -7, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -9270,7 +8660,6 @@ Model {
 		    Name		    "Compute Rotation Matrix Derivative"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -9614,7 +9003,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -9628,7 +9016,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -9642,7 +9029,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -10073,7 +9459,6 @@ Model {
 		Name			"Smooth Reference Positions"
 		Location		[106, -7, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -10146,7 +9531,6 @@ Model {
 		    Name		    "Configure Settling Times"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -10367,7 +9751,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 		  SourceType		  "Minimum Jerk Trajectory Generator"
-		  SourceProductName	  "Whole Body Toolbox"
 		  externalSettlingTime	  on
 		  settlingTime		  "3"
 		  sampleTime		  "Config.t_step"
@@ -10386,7 +9769,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 		  SourceType		  "Minimum Jerk Trajectory Generator"
-		  SourceProductName	  "Whole Body Toolbox"
 		  externalSettlingTime	  on
 		  settlingTime		  "3"
 		  sampleTime		  "Config.t_step"
@@ -10405,7 +9787,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 		  SourceType		  "Minimum Jerk Trajectory Generator"
-		  SourceProductName	  "Whole Body Toolbox"
 		  externalSettlingTime	  on
 		  settlingTime		  "3"
 		  sampleTime		  "Config.t_step"
@@ -10424,7 +9805,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 		  SourceType		  "Minimum Jerk Trajectory Generator"
-		  SourceProductName	  "Whole Body Toolbox"
 		  externalSettlingTime	  on
 		  settlingTime		  "3"
 		  sampleTime		  "Config.t_step"
@@ -10440,7 +9820,6 @@ Model {
 		  Position		  [285, 443, 345, 457]
 		  ZOrder		  710
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  Value			  "zeros(3,2)"
 		}
 		Block {
@@ -11002,7 +10381,6 @@ Model {
 	    Name		    "State Machine"
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -11028,7 +10406,6 @@ Model {
 		Name			"Compute State Velocity"
 		Location		[106, -7, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -11103,7 +10480,6 @@ Model {
 		    Name		    "Compute Base Velocity"
 		    Location		    [19, 45, 910, 1950]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -11255,7 +10631,6 @@ Model {
 		  ZOrder		  923
 		  NamePlacement		  "alternate"
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  Value			  "Config.SMOOTH_BASE_VEL"
 		}
 		Block {
@@ -11265,7 +10640,6 @@ Model {
 		  Position		  [485, -180, 705, -160]
 		  ZOrder		  963
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  Value			  "Config.USE_XSENS_IMU4EST_XY_ANG_VEL"
 		}
 		Block {
@@ -11292,7 +10666,6 @@ Model {
 		    Name		    "Feet Jacobians"
 		    Location		    [106, 39, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -11331,7 +10704,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.LEFT_FOOT"
 		    }
@@ -11345,7 +10717,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.RIGHT_FOOT"
 		    }
@@ -11427,7 +10798,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 		  SourceType		  "Get Measurement"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  measuredType		  "Joints Velocity"
 		}
@@ -11461,7 +10831,6 @@ Model {
 		  Position		  [655, -147, 685, -133]
 		  ZOrder		  958
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  InputPortWidth	  "3"
 		  IndexOptions		  "Index vector (dialog)"
 		  Indices		  "[1:2]"
@@ -11474,7 +10843,6 @@ Model {
 		  Position		  [1105, -351, 1155, -249]
 		  ZOrder		  922
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  Criteria		  "u2 > Threshold"
 		  InputSameDT		  off
 		  SaturateOnIntegerOverflow off
@@ -11486,7 +10854,6 @@ Model {
 		  Position		  [760, -218, 825, -122]
 		  ZOrder		  962
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  Criteria		  "u2 > Threshold"
 		  InputSameDT		  off
 		  SaturateOnIntegerOverflow off
@@ -11660,7 +11027,6 @@ Model {
 		Name			"Compute Transformation Matrices"
 		Location		[106, -7, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -11732,7 +11098,6 @@ Model {
 		    Name		    "Compute Feet to Base Link Transforms"
 		    Location		    [106, -7, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -11783,7 +11148,6 @@ Model {
 		    Name		    "LFoot to base link transform"
 		    Location		    [106, -7, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -11840,7 +11204,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.IMU"
 		    }
@@ -11905,7 +11268,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
-		    SourceProductName	    "Whole Body Toolbox"
 		    portName		    "Ports.NECK_POS"
 		    signalSize		    "6"
 		    timeout		    "0.5"
@@ -11953,7 +11315,6 @@ Model {
 		    Name		    "fromImuToHomogeousTransformFCN"
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -12142,7 +11503,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -12157,7 +11517,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -12173,7 +11532,6 @@ Model {
 		    Name		    "neck transform"
 		    Location		    [106, -7, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -12471,7 +11829,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.LEFT_FOOT"
 		    }
@@ -12488,7 +11845,6 @@ Model {
 		    Name		    "RFoot to base link transform"
 		    Location		    [106, -7, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -12545,7 +11901,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.IMU"
 		    }
@@ -12610,7 +11965,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
-		    SourceProductName	    "Whole Body Toolbox"
 		    portName		    "Ports.NECK_POS"
 		    signalSize		    "6"
 		    timeout		    "0.5"
@@ -12658,7 +12012,6 @@ Model {
 		    Name		    "fromImuToHomogeousTransformFCN"
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -12847,7 +12200,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -12862,7 +12214,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -12878,7 +12229,6 @@ Model {
 		    Name		    "neck transform"
 		    Location		    [106, -7, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -13176,7 +12526,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.RIGHT_FOOT"
 		    }
@@ -13307,7 +12656,6 @@ Model {
 		    Name		    "Compute Fixed Foot to World Transform (MPC)"
 		    Location		    [106, -7, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -13381,7 +12729,6 @@ Model {
 		    Name		    "From Position + Quaternion to Transf Matrix"
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -13533,7 +12880,6 @@ Model {
 		    Name		    "MATLAB Function"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -13703,7 +13049,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -13983,7 +13328,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	      SourceType	      "Get Measurement"
-	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      measuredType	      "Joints Position"
 	    }
@@ -14003,7 +13347,6 @@ Model {
 	      Position		      [-185, 255, -110, 265]
 	      ZOrder		      914
 	      ShowName		      off
-	      HideAutomaticName	      off
 	      GotoTag		      "state"
 	      TagVisibility	      "global"
 	    }
@@ -14014,7 +13357,6 @@ Model {
 	      Position		      [-185, 50, -115, 60]
 	      ZOrder		      915
 	      ShowName		      off
-	      HideAutomaticName	      off
 	      GotoTag		      "nu"
 	      TagVisibility	      "global"
 	    }
@@ -14025,7 +13367,6 @@ Model {
 	      Position		      [-185, -106, -120, -94]
 	      ZOrder		      916
 	      ShowName		      off
-	      HideAutomaticName	      off
 	      GotoTag		      "s"
 	      TagVisibility	      "global"
 	    }
@@ -14036,7 +13377,6 @@ Model {
 	      Position		      [-185, 0, -115, 10]
 	      ZOrder		      918
 	      ShowName		      off
-	      HideAutomaticName	      off
 	      GotoTag		      "feetInContact"
 	      TagVisibility	      "global"
 	    }
@@ -14051,7 +13391,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
-	      SourceProductName	      "Whole Body Toolbox"
 	      portName		      "Ports.IMU"
 	      signalSize	      "12"
 	      timeout		      "0.5"
@@ -14071,7 +13410,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
-	      SourceProductName	      "Whole Body Toolbox"
 	      portName		      "Ports.LFOOT_IS_FIXED"
 	      signalSize	      "1"
 	      timeout		      "0.5"
@@ -14094,7 +13432,6 @@ Model {
 		Name			"Select Current References and Estimate w_H_b"
 		Location		[106, -7, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -14183,7 +13520,6 @@ Model {
 		  Position		  [650, 327, 825, 343]
 		  ZOrder		  991
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  Value			  "Config.USE_XSENS_IMU4EST_BASE"
 		}
 		Block {
@@ -14200,7 +13536,6 @@ Model {
 		    Name		    "Emergency Stop"
 		    Location		    [106, -7, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -14288,7 +13623,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Line {
@@ -14342,7 +13676,6 @@ Model {
 		  Position		  [990, 544, 1070, 566]
 		  ZOrder		  958
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  GotoTag		  "leftIsFixed"
 		  TagVisibility		  "global"
 		}
@@ -14353,7 +13686,6 @@ Model {
 		  Position		  [985, 604, 1075, 626]
 		  ZOrder		  961
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  GotoTag		  "feetInContactMPC"
 		  TagVisibility		  "global"
 		}
@@ -14373,7 +13705,6 @@ Model {
 		  Position		  [985, 574, 1075, 596]
 		  ZOrder		  967
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  GotoTag		  "useFeetPIDs"
 		  TagVisibility		  "global"
 		}
@@ -14384,7 +13715,6 @@ Model {
 		  Position		  [695, 377, 780, 393]
 		  ZOrder		  972
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  GotoTag		  "w_H_b_withIMU"
 		  TagVisibility		  "global"
 		}
@@ -14395,7 +13725,6 @@ Model {
 		  Position		  [700, 278, 780, 292]
 		  ZOrder		  981
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  GotoTag		  "w_H_b"
 		  TagVisibility		  "global"
 		}
@@ -14418,7 +13747,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.RIGHT_FOOT"
 		}
@@ -14440,7 +13768,6 @@ Model {
 		    Name		    "STATE MACHINES"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -14999,7 +14326,6 @@ Model {
 		    Name		    "Smooth the Base Pose and send it to the MPC"
 		    Location		    [106, -7, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15026,7 +14352,6 @@ Model {
 		    Position		    [610, 339, 740, 351]
 		    ZOrder		    942
 		    ShowName		    off
-		    HideAutomaticName	    off
 		    Value		    "Config.smoothingTime_Base"
 		    }
 		    Block {
@@ -15036,7 +14361,6 @@ Model {
 		    Position		    [1080, 345, 1225, 355]
 		    ZOrder		    967
 		    ShowName		    off
-		    HideAutomaticName	    off
 		    Value		    "Config.SMOOTH_BASE_POS"
 		    }
 		    Block {
@@ -15046,7 +14370,6 @@ Model {
 		    Position		    [1075, 440, 1235, 450]
 		    ZOrder		    969
 		    ShowName		    off
-		    HideAutomaticName	    off
 		    Value		    "Config.SMOOTH_BASE_ORIENT"
 		    }
 		    Block {
@@ -15067,7 +14390,6 @@ Model {
 		    Name		    "From Pos Rot to Transf MAtrix"
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15198,7 +14520,6 @@ Model {
 		    Name		    "From Transf Matrix To Position+Quaternion Base"
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15342,7 +14663,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Write"
 		    SourceType		    "YARP Write"
-		    SourceProductName	    "Whole Body Toolbox"
 		    portName		    "Ports.BASE_POSE"
 		    autoconnect		    on
 		    errorOnConnection	    off
@@ -15360,7 +14680,6 @@ Model {
 		    Name		    "Smooth Reference Orientation"
 		    Location		    [106, 39, 3840, 2160]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15397,7 +14716,6 @@ Model {
 		    Name		    "Compute Rotation Matrix Derivative"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15585,7 +14903,6 @@ Model {
 		    Position		    [895, 569, 945, 836]
 		    ZOrder		    791
 		    ShowName		    off
-		    HideAutomaticName	    off
 		    InitialConditionSource  "external"
 		    InitialCondition	    "zeros(3,1)"
 		    InitialConditionSetting "State (most efficient)"
@@ -15600,7 +14917,6 @@ Model {
 		    Position		    [785, 688, 855, 702]
 		    ZOrder		    795
 		    ShowName		    off
-		    HideAutomaticName	    off
 		    GotoTag		    "V_base"
 		    TagVisibility	    "global"
 		    }
@@ -15611,7 +14927,6 @@ Model {
 		    Position		    [785, 717, 855, 733]
 		    ZOrder		    796
 		    ShowName		    off
-		    HideAutomaticName	    off
 		    GotoTag		    "VDot_base"
 		    TagVisibility	    "global"
 		    }
@@ -15626,7 +14941,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
-		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -15729,7 +15043,6 @@ Model {
 		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 		    SourceType		    "Minimum Jerk Trajectory Generator"
-		    SourceProductName	    "Whole Body Toolbox"
 		    externalSettlingTime    on
 		    settlingTime	    "3"
 		    sampleTime		    "Config.t_step"
@@ -15745,7 +15058,6 @@ Model {
 		    Position		    [1265, 309, 1315, 391]
 		    ZOrder		    966
 		    ShowName		    off
-		    HideAutomaticName	    off
 		    Criteria		    "u2 > Threshold"
 		    InputSameDT		    off
 		    SaturateOnIntegerOverflow off
@@ -15757,7 +15069,6 @@ Model {
 		    Position		    [1265, 407, 1315, 483]
 		    ZOrder		    968
 		    ShowName		    off
-		    HideAutomaticName	    off
 		    Criteria		    "u2 > Threshold"
 		    InputSameDT		    off
 		    SaturateOnIntegerOverflow off
@@ -15935,7 +15246,6 @@ Model {
 		  Position		  [850, 296, 905, 374]
 		  ZOrder		  990
 		  ShowName		  off
-		  HideAutomaticName	  off
 		  Criteria		  "u2 > Threshold"
 		  InputSameDT		  off
 		  SaturateOnIntegerOverflow off
@@ -15951,7 +15261,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
-		  SourceProductName	  "Whole Body Toolbox"
 		  portName		  "Ports.ACTIVE_CONTACTS"
 		  signalSize		  "2"
 		  timeout		  "0.5"
@@ -15972,7 +15281,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -15987,7 +15295,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -16001,7 +15308,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
-		  SourceProductName	  "Whole Body Toolbox"
 		  portName		  "Ports.LEFT_FOOT_EXT_WRENCH"
 		  signalSize		  "6"
 		  timeout		  "0.5"
@@ -16021,7 +15327,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
-		  SourceProductName	  "Whole Body Toolbox"
 		  portName		  "Ports.COM_DES"
 		  signalSize		  "9"
 		  timeout		  "0.5"
@@ -16041,7 +15346,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
-		  SourceProductName	  "Whole Body Toolbox"
 		  portName		  "Ports.RIGHT_FOOT_EXT_WRENCH"
 		  signalSize		  "6"
 		  timeout		  "0.5"
@@ -16060,7 +15364,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
-		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.ROT_TASK_LINK"
 		}
@@ -16075,7 +15378,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
-		  SourceProductName	  "Whole Body Toolbox"
 		  portName		  "Ports.Q_DES"
 		  signalSize		  "23"
 		  timeout		  "0.5"
@@ -16095,7 +15397,6 @@ Model {
 		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 		  SourceType		  "YARP Read"
-		  SourceProductName	  "Whole Body Toolbox"
 		  portName		  "'/icub/xsens_inertial'"
 		  signalSize		  "12"
 		  timeout		  "0.5"
@@ -16561,7 +15862,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
-	      SourceProductName	      "Whole Body Toolbox"
 	      portName		      "Ports.LFOOT_DES "
 	      signalSize	      "7"
 	      timeout		      "0.5"
@@ -16581,7 +15881,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
-	      SourceProductName	      "Whole Body Toolbox"
 	      portName		      "Ports.RFOOT_DES "
 	      signalSize	      "7"
 	      timeout		      "0.5"
@@ -16979,7 +16278,6 @@ Model {
 	    Name		    "emergency stop: joint limits"
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -17026,7 +16324,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Limits"
 	      SourceType	      "Get Limits"
-	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      limitsSource	      "ControlBoard"
 	      limitsType	      "Position"
@@ -17050,7 +16347,6 @@ Model {
 		Name			"MATLAB Function"
 		Location		[121, 45, 868, 1245]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -17594,7 +16890,6 @@ Model {
       LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/wholeBodyActuators/Set References"
       SourceType	      "Set References"
-      SourceProductName	      "Whole Body Toolbox"
       ContentPreviewEnabled   off
       controlType	      "Torque"
       refSpeed		      "50"
@@ -17621,7 +16916,6 @@ Model {
 	Name			"Sync with MPC"
 	Location		[106, 39, 3840, 2160]
 	Open			off
-	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -17693,7 +16987,6 @@ Model {
 	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Write"
 	  SourceType		  "YARP Write"
-	  SourceProductName	  "Whole Body Toolbox"
 	  portName		  "Ports.ACK"
 	  autoconnect		  on
 	  errorOnConnection	  off
@@ -17758,7 +17051,6 @@ Model {
 	Name			"Visualization"
 	Location		[106, -7, 3840, 2160]
 	Open			off
-	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -17806,7 +17098,6 @@ Model {
 	  Position		  [530, 267, 640, 283]
 	  ZOrder		  984
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  GotoTag		  "acc_task_star"
 	  TagVisibility		  "global"
 	}
@@ -18020,7 +17311,6 @@ Model {
 	  Position		  [130, -118, 235, -102]
 	  ZOrder		  861
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  GotoTag		  "dampings"
 	  TagVisibility		  "global"
 	}
@@ -18059,7 +17349,6 @@ Model {
 	  Position		  [-320, -158, -260, -142]
 	  ZOrder		  1013
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  GotoTag		  "waist_IMU"
 	  TagVisibility		  "global"
 	}
@@ -18136,7 +17425,6 @@ Model {
 	  Position		  [-315, -458, -245, -442]
 	  ZOrder		  1012
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  GotoTag		  "inertial"
 	  TagVisibility		  "global"
 	}
@@ -18214,7 +17502,6 @@ Model {
 	  Position		  [-75, -508, -45, -477]
 	  ZOrder		  822
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  Operator		  "OR"
 	  AllPortsSameDT	  off
 	  OutDataTypeStr	  "boolean"
@@ -18227,7 +17514,6 @@ Model {
 	  Position		  [230, -53, 260, -22]
 	  ZOrder		  823
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  Operator		  "OR"
 	  AllPortsSameDT	  off
 	  OutDataTypeStr	  "boolean"
@@ -18240,7 +17526,6 @@ Model {
 	  Position		  [710, -33, 740, -2]
 	  ZOrder		  824
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  Operator		  "OR"
 	  AllPortsSameDT	  off
 	  OutDataTypeStr	  "boolean"
@@ -18253,7 +17538,6 @@ Model {
 	  Position		  [725, -393, 755, -362]
 	  ZOrder		  825
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  Operator		  "OR"
 	  AllPortsSameDT	  off
 	  OutDataTypeStr	  "boolean"
@@ -18266,7 +17550,6 @@ Model {
 	  Position		  [310, -408, 340, -377]
 	  ZOrder		  826
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  Operator		  "OR"
 	  AllPortsSameDT	  off
 	  OutDataTypeStr	  "boolean"
@@ -18305,7 +17588,6 @@ Model {
 	  Position		  [-15, -36, 190, -24]
 	  ZOrder		  798
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  Value			  "Config.SCOPES_TORQUES_AND_FORCES"
 	}
 	Block {
@@ -18315,7 +17597,6 @@ Model {
 	  Position		  [35, -51, 145, -39]
 	  ZOrder		  835
 	  ShowName		  off
-	  HideAutomaticName	  off
 	  Value			  "Config.SCOPES_ALL"
 	}
 	Block {
@@ -18377,7 +17658,6 @@ Model {
 	    Name		    "Visualize Cartesian Tasks"
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -19000,7 +18280,6 @@ Model {
 		Name			"Rotation Error Left Foot"
 		Location		[106, -7, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -19066,7 +18345,6 @@ Model {
 		    Name		    "Rot error using roll-pitch-yaw"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -19282,7 +18560,6 @@ Model {
 		Name			"Rotation Error Right Foot"
 		Location		[106, -7, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -19348,7 +18625,6 @@ Model {
 		    Name		    "Rot error using roll-pitch-yaw"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -19501,7 +18777,6 @@ Model {
 		Name			"Rotation Error Rot Task"
 		Location		[106, -7, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -19567,7 +18842,6 @@ Model {
 		    Name		    "Rot error using roll-pitch-yaw"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -20653,7 +19927,6 @@ Model {
 	    Name		    "Visualize Forces and Torques"
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -20830,7 +20103,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
-	      SourceProductName	      "Whole Body Toolbox"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
@@ -20863,7 +20135,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
-	      SourceProductName	      "Whole Body Toolbox"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
@@ -20896,7 +20167,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
-	      SourceProductName	      "Whole Body Toolbox"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
@@ -20929,7 +20199,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
-	      SourceProductName	      "Whole Body Toolbox"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
@@ -20962,7 +20231,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
-	      SourceProductName	      "Whole Body Toolbox"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
@@ -21457,7 +20725,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
-	      SourceProductName	      "Whole Body Toolbox"
 	      portName		      "Ports.LEFT_FOOT_EXT_WRENCH"
 	      signalSize	      "6"
 	      timeout		      "0.5"
@@ -21482,7 +20749,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
-	      SourceProductName	      "Whole Body Toolbox"
 	      portName		      "Ports.RIGHT_FOOT_EXT_WRENCH"
 	      signalSize	      "6"
 	      timeout		      "0.5"
@@ -22527,7 +21793,6 @@ Model {
 	    Name		    "Visualize Gain Scheduling"
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -22655,7 +21920,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
-	      SourceProductName	      "Whole Body Toolbox"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
@@ -22688,7 +21952,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
-	      SourceProductName	      "Whole Body Toolbox"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
@@ -23478,7 +22741,6 @@ Model {
 	    Name		    "Visualize Joints and Floating Base State"
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -23638,7 +22900,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
-	      SourceProductName	      "Whole Body Toolbox"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
@@ -23671,7 +22932,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
-	      SourceProductName	      "Whole Body Toolbox"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
@@ -23704,7 +22964,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
-	      SourceProductName	      "Whole Body Toolbox"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
@@ -23737,7 +22996,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
-	      SourceProductName	      "Whole Body Toolbox"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
@@ -23927,7 +23185,6 @@ Model {
 		Name			"Rotation Error Base"
 		Location		[106, -7, 3840, 2160]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -23964,7 +23221,6 @@ Model {
 		    Name		    "Rot error using roll-pitch-yaw"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -24096,7 +23352,6 @@ Model {
 		Name			"Rotation Error Base IMU "
 		Location		[65, 24, 1366, 768]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -24133,7 +23388,6 @@ Model {
 		    Name		    "Rot error using roll-pitch-yaw"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -25792,7 +25046,6 @@ Model {
 	    Name		    "Visualize Smoothing (orientation)"
 	    Location		    [106, -7, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -26055,7 +25308,6 @@ Model {
 		Name			"Rotation Error Left Foot"
 		Location		[65, 24, 1920, 1080]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -26121,7 +25373,6 @@ Model {
 		    Name		    "Rot error using roll-pitch-yaw"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -26330,7 +25581,6 @@ Model {
 		Name			"Rotation Error Right Foot"
 		Location		[65, 24, 1920, 1080]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -26396,7 +25646,6 @@ Model {
 		    Name		    "Rot error using roll-pitch-yaw"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -26549,7 +25798,6 @@ Model {
 		Name			"Rotation Error Rot Task"
 		Location		[65, 24, 1920, 1080]
 		Open			off
-		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -26615,7 +25863,6 @@ Model {
 		    Name		    "Rot error using roll-pitch-yaw"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
-		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -27527,7 +26774,6 @@ Model {
 	Name			"synchronizer"
 	Location		[106, 39, 3840, 2160]
 	Open			off
-	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -27552,7 +26798,6 @@ Model {
 	    Name		    "GAZEBO_SYNCHRONIZER"
 	    Location		    [106, 39, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -27584,7 +26829,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
-	      SourceProductName	      "Whole Body Toolbox"
 	      period		      "Config.t_step"
 	      serverPortName	      "'/clock/rpc'"
 	      clientPortName	      "'/WBT_synchronizer/rpc:o'"
@@ -27629,7 +26873,6 @@ Model {
 	    Name		    "REAL_TIME_SYNC"
 	    Location		    [106, 39, 3840, 2160]
 	    Open		    off
-	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -27662,7 +26905,6 @@ Model {
 	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
-	      SourceProductName	      "Whole Body Toolbox"
 	      period		      "Config.t_step"
 	    }
 	  }
@@ -27940,7 +27182,7 @@ Stateflow {
     name		    "taskBasedWalking"
     created		    "29-Nov-2017 15:01:26"
     isLibrary		    0
-    sfVersion		    80000012
+    sfVersion		    80000010
     firstTarget		    312
   }
   chart {
