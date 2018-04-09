@@ -20,5 +20,5 @@ At start, the module calls the initialization file `initMomentumBasedYoga.m`. On
 
 ### Robot and demo specific configurations
 
-The gains and references for a specific robot (specified by the variable YARP_ROBOT_NAME) or a specific demo can be found in the folder `app/robots/YARP_ROBOT_NAME`.
+The gains and references for a specific robot (specified by the variable `YARP_ROBOT_NAME`) or a specific demo can be found in the folder `app/robots/YARP_ROBOT_NAME`.
 

@@ -78,8 +78,8 @@ WBTConfigRobot.ControlledJoints      = {'torso_pitch','torso_roll','torso_yaw', 
                                         'r_hip_pitch','r_hip_roll','r_hip_yaw','r_knee','r_ankle_pitch','r_ankle_roll'};
 
 % Ports name list (requires RobotName to be setted)
-Ports.LEFT_FOOT_EXT_WRENCH           = '/wholeBodyDynamics/left_foot/cartesianEndEffectorWrench:o';
-Ports.RIGHT_FOOT_EXT_WRENCH          = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';
+Ports.LEFT_FOOT_EXT_WRENCH           = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';
+Ports.RIGHT_FOOT_EXT_WRENCH          = '/wholeBodyDynamics/right_leg/cartesianEndEffectorWrench:o';
 Ports.IMU                            = ['/' WBTConfigRobot.RobotName '/inertial'];
 Ports.NECK_POS                       = ['/' WBTConfigRobot.RobotName '/head/state:o'];
 

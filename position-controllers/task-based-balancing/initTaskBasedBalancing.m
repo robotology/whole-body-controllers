@@ -23,7 +23,7 @@ close all
 %     gazebo -slibgazebo_yarp_clock.so
 %
 % Set the YARP_ROBOT_NAME environmental variable
-
+%
 setenv('YARP_ROBOT_NAME','icubGazeboSim');
 
 % Simulation time

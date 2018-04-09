@@ -12,5 +12,5 @@ Simulink models for debugging.
 
 - `debug_seesawIMU.mdl`: This model is used for checking if the seesaw IMU (located in the seesaw board) is correclty aligned with the gravity. **USAGE:** this model is supposed to be used only with the `seesaw board`.
 
-- `releaseLegStressesWhileStanding.sh`: Run this script to release the internal stresses in the robot legs while standing on two feet. **USAGE:** this script is supposed to be used only with `iCubGenova02` and `iCubGenova04`. Run on a terminal `cd $THIS FOLDER && sh releaseLegStressesWhileStanding.sh`.
+- `releaseLegStressesWhileStanding.sh`: Run this script to release the internal stresses in the robot legs while standing on two feet. **USAGE:** this script is supposed to be used only with `iCubGenova02` and `iCubGenova04`. Run on a terminal `cd PATH/TO/THIS/FOLDER && sh releaseLegStressesWhileStanding.sh`.
 

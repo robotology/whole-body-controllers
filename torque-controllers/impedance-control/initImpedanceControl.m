@@ -26,9 +26,9 @@ clc
 % 
 % and set the environmental variable YARP_ROBOT_NAME = icubGazeboSim. 
 
-  setenv('YARP_ROBOT_NAME','iCubGenova04');
+% setenv('YARP_ROBOT_NAME','iCubGenova04');
 % setenv('YARP_ROBOT_NAME','iCubGenova02');
-% setenv('YARP_ROBOT_NAME','icubGazeboSim');
+  setenv('YARP_ROBOT_NAME','icubGazeboSim');
 % setenv('YARP_ROBOT_NAME','iCubGazeboV2_5');
 
 % simulation time  
@@ -44,7 +44,8 @@ MOVING = false;
 Config.SAVE_WORKSPACE = true;
 
 % If EXPLOIT_FRICTION = true, the joint friction is exploited for improving
-% the tracking performances
+% the tracking performances. WARNING! DO NOT USE IT TOGETHER WITH FRICTION
+% COMPENSATION
 EXPLOIT_FRICTION = false;
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

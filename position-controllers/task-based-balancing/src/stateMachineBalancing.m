@@ -78,7 +78,7 @@ function  [state, references_CoM, references_LFoot, references_RFoot, references
         state           = 2;
         references_CoM  = [[w_H_LFoot_0(1,4);w_H_LFoot_0(2,4);w_H_CoM_0(3,4)], zeros(3,2)];
         
-        if RFoot_wrench(3) < Config.threshold_contact_off
+        if RFoot_wrench(3) < Config.threshold_contact_off && time > 4
             
             state = 3;
         end

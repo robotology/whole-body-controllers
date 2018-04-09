@@ -1,7 +1,6 @@
 ## Module description
 
-This module implements a position control balancing strategy. It computes the joint positions (control input) taking directly the desired joint references or starting from a cartesian task reference. Then, the joints positions are computed through inverse kinematics. 
-The inverse kinematics is subject to a set of equality and inequality contraints, and it is solved by means of a Quadratic Programming solver.
+This module implements a position control balancing strategy. It computes the joint positions (control input) taking directly the desired joint references or starting from a cartesian task reference. Then, the joints positions are computed through inverse kinematics. The inverse kinematics is subject to a set of equality and inequality contraints, and it is solved by means of a Quadratic Programming solver.
 
 ### Compatibility
 
@@ -15,9 +14,9 @@ Currently, supported robots are: `icubGazeboSim`.
 
 ### Configuration file
 
-At start, the module calls the initialization file initTaskBasedBalancing.m. Once opened, this file contains some configuration variables. Please follow the instruction inside this script to properly configure your simulation.
+At start, the module calls the initialization file `initTaskBasedBalancing.m`. Once opened, this file contains some configuration variables. Please follow the instruction inside this script to properly configure your simulation.
 
 ### Robot and demo specific configurations
 
-The gains and references for a specific robot (specified by the variable YARP_ROBOT_NAME) or a specific demo can be found in the folder `app/robots/YARP_ROBOT_NAME`.
+The gains and references for a specific robot (specified by the variable `YARP_ROBOT_NAME`) or a specific demo can be found in the folder `app/robots/YARP_ROBOT_NAME`.
 

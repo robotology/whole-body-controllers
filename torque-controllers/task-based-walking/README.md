@@ -16,9 +16,9 @@ Currently, supported robots are: `iCubGenova04`, `icubGazeboSim`.
 
 ### Configuration file
 
-At start, the module calls the initialization file initTaskBasedWaking.m. Once opened, this file contains some configuration variables. Please follow the instruction inside this script to properly configure your simulation.
+At start, the module calls the initialization file `initTaskBasedWaking.m`. Once opened, this file contains some configuration variables. Please follow the instruction inside this script to properly configure your simulation.
 
 ### Robot and demo specific configurations
 
-The gains and references for a specific robot (specified by the variable YARP_ROBOT_NAME) or a specific demo can be found in the folder `app/robots/YARP_ROBOT_NAME`.
+The gains and references for a specific robot (specified by the variable `YARP_ROBOT_NAME`) or a specific demo can be found in the folder `app/robots/YARP_ROBOT_NAME`.
 

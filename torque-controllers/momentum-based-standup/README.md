@@ -10,7 +10,7 @@ In order to run the simulation of iCub standing up from a chair, make sure you h
 
  - Both iCub and the chair models are stored into [icub-gazebo-wholebody](https://github.com/robotology-playground/icub-gazebo-wholebody) repository.
 
- It is suggested to install the above mentioned repository using [codyco-superbuild](https://github.com/robotology/codyco-superbuild) (enable `CODYCO_USES_GAZEBO`, `CODYCO_USES_MATLAB`, options).
+ It is suggested to install the above mentioned repository using [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_USES_GAZEBO`, `ROBOTOLOGY_USES_MATLAB`, options).
  
 ### Installation
 
@@ -44,8 +44,8 @@ Currently, supported robots are: `iCubGenova04`, `iCubGenova02`, `icubGazeboSim`
 
 ### Configuration file
 
-At start, the module calls the initialization file initMomentumBasedStandup.m. Once opened, this file contains some configuration variables. Please follow the instruction inside the script to properly configure your simulation.
+At start, the module calls the initialization file `initMomentumBasedStandup.m`. Once opened, this file contains some configuration variables. Please follow the instruction inside the script to properly configure your simulation.
 
 ### Robot and demo specific configurations
 
-The gains and references for a specific robot (specified by the variable YARP_ROBOT_NAME) or a specific demo can be found in the folder `app/robots/YARP_ROBOT_NAME`.
+The gains and references for a specific robot (specified by the variable `YARP_ROBOT_NAME`) or a specific demo can be found in the folder `app/robots/YARP_ROBOT_NAME`.

@@ -86,38 +86,38 @@ Config.threshold_contact_off     = 200; % [N]
 % CoM position and velocity gains
 Gains.Kp_CoM                     = [60, 70, 70; ...  % state = 1 two feet balancing
                                     60, 70, 70; ...  % state = 2 left foot balancing
-                                    60, 70, 70]/2;     % state = 3 right foot balancing
+                                    60, 70, 70]/5;   % state = 3 right foot balancing
                 
-Gains.Kd_CoM                     = [2*sqrt(Gains.Kp_CoM(:,1))/7, 2*sqrt(Gains.Kp_CoM(:,1))/7, 2*sqrt(Gains.Kp_CoM(:,1))/10];
+Gains.Kd_CoM                     = 2*sqrt(Gains.Kp_CoM);
 
 % Feet position and velocity gains              
 Gains.Kp_LFoot                   = [75, 75, 100, 50, 50, 50; ...   % state = 1 two feet balancing
                                     75, 75, 100, 50, 50, 50; ...   % state = 2 left foot balancing
-                                    75, 75, 100, 50, 50, 50]/2;      % state = 3 right foot balancing
+                                    75, 75, 100, 50, 50, 50]/5;    % state = 3 right foot balancing
               
-Gains.Kd_LFoot                   = 2*sqrt(Gains.Kp_LFoot)/50;
+Gains.Kd_LFoot                   = 2*sqrt(Gains.Kp_LFoot);
 
 Gains.Kp_RFoot                   = [75, 75, 100, 50, 50, 50; ...   % state = 1 two feet balancing
                                     75, 75, 100, 50, 50, 50; ...   % state = 2 left foot balancing
-                                    75, 75, 100, 50, 50, 50]/2;      % state = 3 right foot balancing
+                                    75, 75, 100, 50, 50, 50]/5;    % state = 3 right foot balancing
 
-Gains.Kd_RFoot                   = 2*sqrt(Gains.Kp_RFoot)/50; 
+Gains.Kd_RFoot                   = 2*sqrt(Gains.Kp_RFoot); 
 
 % Root link orientation and angular velocity gains
 Gains.Kp_rot_task                = [100, 100, 100; ...    % state = 1 two feet balancing
                                     100, 100, 100; ...    % state = 2 left foot balancing
-                                    100, 100, 100]/2;     % state = 3 right foot balancing
+                                    100, 100, 100]/5;     % state = 3 right foot balancing
                  
-Gains.Kd_rot_task                =  2*sqrt(Gains.Kp_rot_task)/40; 
+Gains.Kd_rot_task                =  2*sqrt(Gains.Kp_rot_task); 
 
 % Joint position and velocity gains
     
                                     % torso      % left arm    % right arm   % left leg               % right leg                                   
-Gains.impedances                 = [60  60  60,  50 50 50 50,  50 50 50 50,  80 200 100 120 200 200,  80 200 100 120 200 200;  ...       % state = 1 two feet balancing          
-                                    60  60  60,  50 50 50 50,  50 50 50 50,  80 200 100 120 200 200,  80 200 100 120 200 200;  ...       % state = 2 left foot balancing
-                                    60  60  60,  50 50 50 50,  50 50 50 50,  80 200 100 120 200 200,  80 200 100 120 200 200]/5; ...     % state = 3 right foot balancing
+Gains.impedances                 = [30  30  30,  10 10 10 10,  10 10 10 10,  8 20 10 12 20 20,  8 20 10 12 20 20;  ...       % state = 1 two feet balancing          
+                                    30  30  30,  10 10 10 10,  10 10 10 10,  8 20 10 12 20 20,  8 20 10 12 20 20;  ...       % state = 2 left foot balancing
+                                    30  30  30,  10 10 10 10,  10 10 10 10,  8 20 10 12 20 20,  8 20 10 12 20 20]; ...       % state = 3 right foot balancing
                      
-Gains.dampings                   = 2*sqrt(Gains.impedances)*0;
+Gains.dampings                   = 2*sqrt(Gains.impedances)*0.1;
     
 %% Constraints for QP for balancing - friction cone - z-moment - in terms of f
 
