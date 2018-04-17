@@ -27,8 +27,8 @@ clc
 % and set the environmental variable YARP_ROBOT_NAME = icubGazeboSim.
 % To do this, you can uncomment the following lines.
 
-% setenv('YARP_ROBOT_NAME','iCubGenova04');
-  setenv('YARP_ROBOT_NAME','icubGazeboSim');
+  setenv('YARP_ROBOT_NAME','iCubGenova04');
+% setenv('YARP_ROBOT_NAME','icubGazeboSim');
 % setenv('YARP_ROBOT_NAME','iCubGenova02');
 
 % Simulation time in seconds
