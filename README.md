@@ -4,8 +4,6 @@ A collection of Matlab/Simulink whole body controllers for balancing and walking
 
 ## Dependencies
 
-## Dependencies
-
 This repository depends upon the following Software/repositories:
 
 - [Matlab/Simulink](https://it.mathworks.com/products/matlab.html), at least version **R2014a**
