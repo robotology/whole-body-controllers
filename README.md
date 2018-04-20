@@ -33,7 +33,7 @@ This repository depends upon the following Software/repositories:
 
 ## Installation and usage
 
-If all the required dependencies are correctly installed and configured, it is just necessary to clone this repository on your pc. To use the controllers, follow the [documentation](doc/README.md) and the controllers READMEs.
+If all the required dependencies are correctly installed and configured, it is just necessary to clone this repository on your pc. An alternative is to install this repository through the `robotology-superbuild`. It is required to enable the option `ROBOTOLOGY_ENABLE_DYNAMICS`.
 
 ### Mantainers
 
