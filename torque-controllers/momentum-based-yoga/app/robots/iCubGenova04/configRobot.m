@@ -63,6 +63,6 @@ Config.USE_QP_SOLVER     = true;
 % Ports name list
 Ports.IMU               = ['/' WBTConfigRobot.RobotName '/inertial'];
 Ports.NECK_POS          = ['/' WBTConfigRobot.RobotName '/head/state:o'];
+Ports.WRENCH_LEFT_FOOT  = '/wholeBodyDynamics/left_foot/cartesianEndEffectorWrench:o';
+Ports.WRENCH_RIGHT_FOOT = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';
 
-Ports.WBD_LEFTLEG_EE   = '/wholeBodyDynamics/left_foot/cartesianEndEffectorWrench:o';
-Ports.WBD_RIGHTLEG_EE  = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';

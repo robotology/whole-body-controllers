@@ -43,6 +43,11 @@ MOVING = false;
 % workspace is saved after stopping the simulation
 Config.SAVE_WORKSPACE = true;
 
+% If EXPLOIT_FRICTION = true, the joint friction is exploited for improving
+% the tracking performances. WARNING! DO NOT USE IT TOGETHER WITH FRICTION
+% COMPENSATION
+EXPLOIT_FRICTION = false;
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONFIGURATIONS COMPLETED: loading gains and parameters for the specific robot
 run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m')); 

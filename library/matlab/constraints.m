@@ -84,8 +84,8 @@ function [ConstraintsMatrix, bVectorConstraints] = constraints(staticFrictionCoe
                           0,    0,                -footSize(2,2),           1,           0,            0]; %  torque_x -dimMaxFoot_y*F_z                 < 0 
 
     % add inequality constraints                  
-    ConstraintsMatrix  =  [ A_ineq;
-                            ConstraintsMatrix ];     
+    ConstraintsMatrix  =  [A_ineq;
+                           ConstraintsMatrix ];     
 
     bVectorConstraints = [zeros(size(A_ineq,1), 1); zeros(7,1)];
 

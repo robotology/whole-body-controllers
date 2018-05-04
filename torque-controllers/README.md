@@ -1,4 +1,4 @@
-# Controllers
+# Torque-controllers
 
 Simulink torque controllers for balancing and walking of humanoid robots. 
 

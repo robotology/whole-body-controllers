@@ -17,13 +17,13 @@ function  [w_H_b, constraints, CoM_des, qj_des, impedances, KPCoM, KDCoM, curren
     w_H_b                     = eye(4);
     qj_des                    = qj_0;
     CoM_des                   = xCoM_0;
-    jointsAndCoMSmoothingTime = Sm.smoothingTimeCoM_Joints(state);
+    jointsAndCoMSmoothingTime = Sm.smoothingTime_CoM_Joints(state);
 
     %% BALANCING ON THE LEGS
     if state == 1 
         
         w_H_b                     =  w_H_fixedLink * l_upper_leg_contact_H_b;
-        jointsAndCoMSmoothingTime = Sm.smoothingTimeCoM_Joints(state);
+        jointsAndCoMSmoothingTime = Sm.smoothingTime_CoM_Joints(state);
         
         % after tBalancing time, start moving CoM forward. If
         % Config.STANDUP_WITH_HUMAN is enbabled, the robot waits for external 
@@ -56,7 +56,7 @@ function  [w_H_b, constraints, CoM_des, qj_des, impedances, KPCoM, KDCoM, curren
         
         tDelta                    = t-tSwitch;
         CoM_des                   = xCoM_0 + transpose(Sm.CoM_delta(state,:));
-        jointsAndCoMSmoothingTime = Sm.smoothingTimeCoM_Joints(state);
+        jointsAndCoMSmoothingTime = Sm.smoothingTime_CoM_Joints(state);
         
         if (wrench_rightFoot(3)+wrench_leftFoot(3)) > (Sm.wrench_thresholdContactLFoot(state) + Sm.wrench_thresholdContactRFoot(state)) && tDelta > 1.5
             state           = 3;
@@ -80,7 +80,7 @@ function  [w_H_b, constraints, CoM_des, qj_des, impedances, KPCoM, KDCoM, curren
         
         CoM_des                   = CoMprevious + transpose(Sm.CoM_delta(state,:));
         tDelta                    = t-tSwitch;
-        jointsAndCoMSmoothingTime = Sm.smoothingTimeCoM_Joints(state);
+        jointsAndCoMSmoothingTime = Sm.smoothingTime_CoM_Joints(state);
         
         if (wrench_leftFoot(3) > Sm.wrench_thresholdContactLFoot(state)) &&  (wrench_rightFoot(3) > Sm.wrench_thresholdContactRFoot(state)) && tDelta > 0.5
             state       = 4;
@@ -102,12 +102,12 @@ function  [w_H_b, constraints, CoM_des, qj_des, impedances, KPCoM, KDCoM, curren
         qj_des(1)             = Sm.joints_standUpPositions(state,9);
         
         CoM_des                   = CoMprevious + transpose(Sm.CoM_delta(state,:));    
-        jointsAndCoMSmoothingTime = Sm.smoothingTimeCoM_Joints(state);             
+        jointsAndCoMSmoothingTime = Sm.smoothingTime_CoM_Joints(state);             
     end
     
     currentState       = state;
-    impedances         = Gain.impedances(state,:);
-    KPCoM              = Gain.KP_COM(state,:);   
-    KDCoM              = Gain.KD_COM(state,:);  
+    impedances         = Gain.Kp_joints(state,:);
+    KPCoM              = Gain.Kp_CoM(state,:);   
+    KDCoM              = Gain.Kd_CoM(state,:);  
     
 end

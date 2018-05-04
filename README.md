@@ -21,11 +21,13 @@ This repository depends upon the following Software/repositories:
 
 - **torque-controllers**: Simulink torque controllers for balancing and walking of humanoid robots. [[README]](torque-controllers/README.md)
 
+- **position-controllers**: Simulink position controllers for balancing and walking of humanoid robots. [[README]](position-controllers/README.md)
+
 - **doc**: guidelines on how to create/use Simulink models for control. [[README]](doc/README.md)
 
 - **legacy**: legacy version of all Simulink models in the repo, written in the lowest supported matlab version (R2014a). [[README]](legacy/README.md)
 
-- **library**: a library of functions/scripts used by the controllers. [[README]](library/README.md)
+- **library**: an internal library of functions/scripts used by the controllers. [[README]](library/README.md)
 
 - **utilities**: Simulink models for debugging sensors on the real robot. [[README]](utilities/README.md)
 

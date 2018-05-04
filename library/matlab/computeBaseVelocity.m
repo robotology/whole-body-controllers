@@ -27,7 +27,7 @@ function nu_b = computeBaseVelocity(J_LeftFoot, J_RightFoot, feetInContact, sDot
               feetInContact(2)*J_RightFoot];
 
     % Compute multiplier of nu_b  
-    pinvJb = (transpose(Jc(:,1:6))*Jc(:,1:6) + Sat.pinvDamp_nu_b*eye(6))\transpose(Jc(:,1:6));  
+    pinvJb = (transpose(Jc(:,1:6))*Jc(:,1:6) +Sat.pinvDamp_nu_b*eye(6))\transpose(Jc(:,1:6));  
   
     % Base velocity
     nu_b   = -pinvJb*Jc(:,7:end)*sDot;

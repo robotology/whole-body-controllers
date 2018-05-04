@@ -8,11 +8,10 @@ ROBOT_DOF                = 23;
 ROBOT_DOF_FOR_SIMULINK   = eye(ROBOT_DOF);
 
 % Robot configuration for WBT3.0
-WBTConfigRobot           = WBToolbox.Configuration;
-WBTConfigRobot.RobotName = 'icub';
-WBTConfigRobot.UrdfFile  = 'model.urdf';
-WBTConfigRobot.LocalName = 'WBT';
-
+WBTConfigRobot                    = WBToolbox.Configuration;
+WBTConfigRobot.RobotName          = 'icub';
+WBTConfigRobot.UrdfFile           = 'model.urdf';
+WBTConfigRobot.LocalName          = 'WBT';
 WBTConfigRobot.ControlBoardsNames = {'torso','left_arm','right_arm','left_leg','right_leg'};
 WBTConfigRobot.ControlledJoints   = {'torso_pitch','torso_roll','torso_yaw', ...
                                      'l_shoulder_pitch','l_shoulder_roll','l_shoulder_yaw','l_elbow', ...
@@ -74,6 +73,9 @@ Config.CORRECT_NECK_IMU  = true;
 Config.USE_QP_SOLVER     = true; 
 
 % Ports name list
-Ports.IMU                = ['/' WBTConfigRobot.RobotName '/inertial'];
-Ports.NECK_POS           = ['/' WBTConfigRobot.RobotName '/head/state:o'];
-
+Ports.IMU               = ['/' WBTConfigRobot.RobotName '/inertial'];
+Ports.NECK_POS          = ['/' WBTConfigRobot.RobotName '/head/state:o'];
+Ports.WRENCH_LEFT_FOOT  = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';
+Ports.WRENCH_RIGHT_FOOT = '/wholeBodyDynamics/right_leg/cartesianEndEffectorWrench:o';
+Ports.RIGHT_ARM         = '/wholeBodyDynamics/right_arm/endEffectorWrench:o';
+Ports.LEFT_ARM          = '/wholeBodyDynamics/left_arm/endEffectorWrench:o';

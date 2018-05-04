@@ -7,49 +7,39 @@
 % Feet in contact (COORDINATOR DEMO ONLY)
 Config.LEFT_RIGHT_FOOT_IN_CONTACT = [1 1];
 
-% Initial foot on ground. If false, right foot is used as default contact
-% frame (this does not means that the other foot cannot be in contact too).
-% (COORDINATOR DEMO ONLY)
-Config.LEFT_FOOT_IN_CONTACT_AT_0 = true;
-
 % If true, the robot CoM will follow a desired reference trajectory (COORDINATOR DEMO ONLY)
 Config.DEMO_MOVEMENTS = false; 
 
-% If equal to one, the desired streamed values of the postural tasks are
+% If equal to one, the desired values of the center of mass 
+% are smoothed internally 
+Config.SMOOTH_COM_DES = true;   
+
+% If equal to one, the desired values of the postural tasks are
 % smoothed internally 
 Config.SMOOTH_JOINT_DES = true;   
 
 % torque saturation
 Sat.torque = 34;
-
-%% Regularization parameters
-Reg.pinvDamp_nu_b  = 1e-3;
-Reg.pinvDamp       = 0.07; 
-Reg.pinvTol        = 1e-5;
-Reg.impedances     = 0.1;
-Reg.dampings       = 0;
-Reg.HessianQP      = 1e-2; 
-Reg.norm_tolerance = 1e-4;
                             
 %% COM AND JOINT GAINS 
-Gain.KP_COM     =      [50   50  50;     % state ==  1  BALANCING ON THE LEGS
+Gain.Kp_CoM     =      [50   50  50;     % state ==  1  BALANCING ON THE LEGS
                         50   50  50;     % state ==  2  MOVE COM FORWARD
                         50   50  50;     % state ==  3  TWO FEET BALANCING
                         50   50  50];    % state ==  4  LIFTING UP
 
-Gain.KD_COM = 2*sqrt(Gain.KP_COM)*0;
+Gain.Kd_CoM = 2*sqrt(Gain.Kp_CoM)*0;
 
-Gain.KP_AngularMomentum  = 2;
-Gain.KD_AngularMomentum  = 2*sqrt(Gain.KP_AngularMomentum);
+Gain.Ki_AngularMomentum  = 2;
+Gain.Kp_AngularMomentum  = 2*sqrt(Gain.Ki_AngularMomentum);
 
 %                   %   TORSO  %%      LEFT ARM   %%      RIGHT ARM   %%        LEFT LEG            %%         RIGHT LEG          %% 
-Gain.impedances  = [10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60    50  50, 30   50   30    60    50  50;   % state ==  1  BALANCING ON THE LEGS
+Gain.Kp_joints   = [10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60    50  50, 30   50   30    60    50  50;   % state ==  1  BALANCING ON THE LEGS
                     10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60    50  50, 30   50   30    60    50  50;   % state ==  2  MOVE COM FORWARD
                     10   30   20, 10   10    10    8, 10   10    10    8, 30   50   30    60    50  50, 30   50   30    60    50  50;   % state ==  3  TWO FEET BALANCING
                     10   30   20, 20   20    10    8, 20   20    10    8, 30   50   30    60    50  50, 30   50   30    60    50  50];  % state ==  4  LIFTING UP
 
-Gain.impedances(3,:) = Gain.impedances(3,:)./2;      
-Gain.dampings        = 0*sqrt(Gain.impedances(1,:));  
+Gain.Kp_joints(3,:) = Gain.Kp_joints(3,:)./2;
+Gain.Kd_joints      = 0*sqrt(Gain.Kd_joints(1,:));  
 
 % Smoothing time gain scheduling (STANDUP DEMO ONLY)
 Gain.SmoothingTimeGainScheduling = 2;
@@ -57,16 +47,16 @@ Gain.SmoothingTimeGainScheduling = 2;
 %% STATE MACHINE PARMETERS
 
 % smoothing time for joints and CoM
-Sm.smoothingTimeCoM_Joints       = [1;    % state ==  1  BALANCING ON THE LEGS
+Sm.smoothingTime_CoM_Joints      = [1;    % state ==  1  BALANCING ON THE LEGS
                                     0.5;  % state ==  2  MOVE COM FORWARD
                                     0;    % state ==  3  TWO FEET BALANCING
                                     2];   % state ==  4  LIFTING UP 
   
-% if Sm.smoothingTimeCoM_Joints = 0, this will allow to smooth anyway the
+% if Sm.smoothingTime_CoM_Joints = 0, this will allow to smooth anyway the
 % CoM reference trajectory                                
-Sm.smoothingTimeCoM = 0.5;
+Sm.smoothingTime_CoM = 0.5;
 
-% contact forces threshold (YOGA DEMO ONLY)
+% contact forces threshold (STANDUP DEMO ONLY)
 Sm.wrench_thresholdContactLFoot  = [0;    % NOT USED
                                     90;   % state ==  2  MOVE COM FORWARD
                                     140;  % state ==  3  TWO FEET BALANCING
@@ -122,35 +112,40 @@ Config.frequencyOfOscillation  = 0.0;
 %% Parameters for motors reflected inertia
 
 % transmission ratio
-Config.Gamma = 0.01*eye(ROBOT_DOF);
+Config.Gamma             = 0.01*eye(ROBOT_DOF);
 
 % motors inertia (Kg*m^2)
 legsMotors_I_m           = 0.0827*1e-4;
 torsoPitchRollMotors_I_m = 0.0827*1e-4;
 torsoYawMotors_I_m       = 0.0585*1e-4;
 armsMotors_I_m           = 0.0585*1e-4;
+
 Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  torsoYawMotors_I_m;
                                  armsMotors_I_m*ones(8,1);
                                  legsMotors_I_m*ones(12,1)]);
+                             
+% gain for feedforward term in joint torques calculation. Valid range: a
+% value between 0 and 1
+Config.K_ff              = 0;
 
 % parameters for coupling matrices                            
-t  = 0.625;
-r  = 0.022;
-R  = 0.04;
+t                        = 0.625;
+r                        = 0.022;
+R                        = 0.04;
 
 % coupling matrices
-T_LShoulder = [-1  0  0;
-               -1 -t  0;
-                0  t -t];
+T_LShoulder              = [-1  0  0;
+                            -1 -t  0;
+                             0  t -t];
 
-T_RShoulder = [ 1  0  0;
-                1  t  0;
-                0 -t  t];
+T_RShoulder              = [ 1  0  0;
+                             1  t  0;
+                             0 -t  t];
 
-T_torso = [0   -0.5     0.5;
-           0    0.5     0.5;
-           r/R  r/(2*R) r/(2*R)];
+T_torso                  = [0   -0.5     0.5;
+                            0    0.5     0.5;
+                            r/R  r/(2*R) r/(2*R)];
        
 if Config.INCLUDE_COUPLING
        
@@ -158,10 +153,6 @@ if Config.INCLUDE_COUPLING
 else          
     Config.T = eye(ROBOT_DOF);
 end
-
-% gain for feedforward term in joint torques calculation. Valid range: a
-% value between 0 and 1
-Config.K_ff  = 0;
 
 %% Constraints for QP for balancing
 
@@ -180,3 +171,17 @@ feet_size                    = [-0.05  0.05;    % xMin, xMax
 leg_size                     = [-0.025  0.05 ;  % xMin, xMax
                                 -0.025  0.025]; % yMin, yMax 
                             
+% legs constraints
+[ConstraintsMatrixLegs,bVectorConstraintsLegs] = constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,leg_size,fZmin);
+
+% feet constraints
+[ConstraintsMatrix,bVectorConstraints] = constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,feet_size,fZmin);
+
+%% Regularization parameters
+Reg.pinvDamp_nu_b  = 1e-3;
+Reg.pinvDamp       = 0.07; 
+Reg.pinvTol        = 1e-5;
+Reg.impedances     = 0.1;
+Reg.dampings       = 0;
+Reg.HessianQP      = 1e-2; 
+Reg.norm_tolerance = 1e-4;

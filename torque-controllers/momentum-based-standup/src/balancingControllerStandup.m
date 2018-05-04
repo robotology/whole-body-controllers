@@ -15,14 +15,13 @@
 %  * Public License for more details
 %  */
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [tauModel, Sigma, NA, f_HDot, ...
+function [tau_model, Sigma, NA, f_HDot, ...
           HessianMatrixQP1Foot, gradientQP1Foot, ConstraintsMatrixQP1Foot, bVectorConstraintsQp1Foot, ...
           HessianMatrixQP2FeetOrLegs, gradientQP2FeetOrLegs, ConstraintsMatrixQP2FeetOrLegs, bVectorConstraintsQp2FeetOrLegs, ...
-          errorCoM, f_noQP, correctionFromSupportForce, H_error, V] =  ...
-              balancingControllerStandup(constraints, ROBOT_DOF_FOR_SIMULINK, ConstraintsMatrix, bVectorConstraints, ...
-                                         qj, qjDes, nu, M, h, H, intHw, w_H_l_contact, w_H_r_contact, JL, JR, dJL_nu, dJR_nu, xCoM, J_CoM, desired_x_dx_ddx_CoM, ...
-                                         gainsPCOM, gainsDCOM, impedances, Reg, Gain, w_H_lArm, w_H_rArm, LArmWrench, RArmWrench, STANDUP_WITH_HUMAN, state)
-       
+          CoM_error, correctionFromSupportForce, H_error, V] =  ...
+              balancingControllerStandup(feet_in_contact, ROBOT_DOF_FOR_SIMULINK, ConstraintsMatrix, bVectorConstraints, ...
+                                         s, s_des, nu, M, h, L, intL, w_H_l_contact, w_H_r_contact, JL, JR, dJL_nu, dJR_nu,...
+                                         x_CoM, J_CoM, desired_x_xDot_xDDot_CoM, Kp_CoM, Kd_CoM, Kp_joints, Reg, Gain, w_H_lArm, w_H_rArm, LArmWrench, RArmWrench, STANDUP_WITH_HUMAN, state)
     % BALANCING CONTROLLER
 
     %% DEFINITION OF CONTROL AND DYNAMIC VARIABLES
@@ -35,7 +34,7 @@ function [tauModel, Sigma, NA, f_HDot, ...
     pos_leftArm     = w_H_lArm(1:3,4);
     pos_rightArm    = w_H_rArm(1:3,4);
     
-    dampings       = Gain.dampings;
+    Kd_joints      = Gain.Kd_joints;
     ROBOT_DOF      = size(ROBOT_DOF_FOR_SIMULINK,1);
     gravAcc        = 9.81;
    
@@ -62,26 +61,26 @@ function [tauModel, Sigma, NA, f_HDot, ...
                       zeros(3,1)];
 
     % Velocity of the center of mass
-    xCoM_dot       = J_CoM(1:3,:)*nu;
+    xDot_CoM       = J_CoM(1:3,:)*nu;
     
     % Joint velocity
-    qjDot          = nu(7:end);
+    sDot           = nu(7:end);
     
     % Joint position error
-    qjTilde        =  qj-qjDes;
+    s_tilde        =  s-s_des;
     
     % Desired acceleration for the center of mass
-    xDDcomStar     = desired_x_dx_ddx_CoM(:,3) -gainsPCOM.*(xCoM - desired_x_dx_ddx_CoM(:,1)) -gainsDCOM.*(xCoM_dot - desired_x_dx_ddx_CoM(:,2));
+    xDDot_CoM_star = desired_x_xDot_xDDot_CoM(:,3) -Kp_CoM.*(x_CoM - desired_x_xDot_xDDot_CoM(:,1)) -Kd_CoM.*(xDot_CoM - desired_x_xDot_xDDot_CoM(:,2));
                     
     % Application point of the contact force on the right contact link w.r.t. CoM
-    Pr              = pos_rightContact -xCoM; 
+    Pr              = pos_rightContact -x_CoM; 
     
     % Application point of the contact force on the left contact link w.r.t. CoM
     Pl              = pos_leftContact  -xCoM; 
     
     % Arms location w.r.t. CoM
-    PlArm           = pos_leftArm   -xCoM; 
-    PrArm           = pos_rightArm  -xCoM;
+    PlArm           = pos_leftArm   -x_CoM; 
+    PrArm           = pos_rightArm  -x_CoM;
 
     % The following variables serve for determening the rate-of-change of
     % the robot's momentum. In particular, when balancing on two feet, one has:
