@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.27"
+    ComputedModelVersion    "1.30"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,7 +29,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [65.0, 24.0, 1855.0, 1056.0]
+      Location		      [106.0, 39.0, 3734.0, 2121.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -53,9 +53,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1821.0, 911.0]
-	ZoomFactor		[1.5305470526645726]
-	Offset			[-1099.1470562604572, -14.106009045593964]
+	Extents			[3696.0, 1916.0]
+	ZoomFactor		[3.1308824412005944]
+	Offset			[-1094.4715827767177, -22.484021435387149]
       }
     }
   }
@@ -63,11 +63,11 @@ Model {
   Creator		  "DanielePucci"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "gabri"
+  LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Mar 11 13:10:04 2018"
-  RTWModifiedTimeStamp	  442674604
-  ModelVersionFormat	  "1.%<AutoIncrement:27>"
+  LastModifiedDate	  "Fri May 04 10:39:32 2018"
+  RTWModifiedTimeStamp	  447331172
+  ModelVersionFormat	  "1.%<AutoIncrement:30>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -776,7 +776,7 @@ Model {
   }
   System {
     Name		    "debug_FTMeas_legacy"
-    Location		    [65, 24, 1920, 1080]
+    Location		    [106, 39, 3840, 2160]
     Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -788,7 +788,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "153"
+    ZoomFactor		    "313"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "42"
     Block {
@@ -946,7 +946,7 @@ Model {
 	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 	MarkerStyles		"none|none|none|none|none|none"
       }
-      Location		      [409 -122 1710 541]
+      Location		      [409 1270 1710 1933]
     }
     Block {
       BlockType		      Scope
@@ -989,7 +989,7 @@ Model {
 	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 	MarkerStyles		"none|none|none|none|none|none"
       }
-      Location		      [1 -217 1863 763]
+      Location		      [1 1175 1863 2155]
     }
     Block {
       BlockType		      Scope
@@ -1032,7 +1032,7 @@ Model {
 	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 	MarkerStyles		"none|none|none|none|none|none"
       }
-      Location		      [66 -205 1921 763]
+      Location		      [66 1187 1921 2155]
     }
     Block {
       BlockType		      Reference
@@ -1296,7 +1296,7 @@ Model {
       Name		      "holder\n1"
       SID		      "24"
       Ports		      [1, 1]
-      Position		      [-970, 254, -910, 276]
+      Position		      [-955, 254, -895, 276]
       ZOrder		      526
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
@@ -1338,7 +1338,7 @@ Model {
       Name		      "holder\n4"
       SID		      "41"
       Ports		      [1, 1]
-      Position		      [-970, 339, -910, 361]
+      Position		      [-955, 339, -895, 361]
       ZOrder		      542
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
@@ -1352,7 +1352,7 @@ Model {
       Name		      "holder\n5"
       SID		      "42"
       Ports		      [1, 1]
-      Position		      [-970, 414, -910, 436]
+      Position		      [-955, 414, -895, 436]
       ZOrder		      544
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
@@ -1364,7 +1364,6 @@ Model {
     Line {
       Name		      "analog right foot"
       ZOrder		      47
-      Labels		      [2, 0]
       SrcBlock		      "Yarp Read"
       SrcPort		      1
       Points		      [34, 0; 0, 25]
@@ -1376,6 +1375,7 @@ Model {
       }
       Branch {
 	ZOrder			48
+	Labels			[1, 0]
 	DstBlock		"Sum1"
 	DstPort			1
       }
@@ -1401,7 +1401,6 @@ Model {
     Line {
       Name		      "analog left foot"
       ZOrder		      40
-      Labels		      [0, 0]
       SrcBlock		      "Yarp Read1"
       SrcPort		      1
       Points		      [45, 0]
@@ -1413,6 +1412,7 @@ Model {
       }
       Branch {
 	ZOrder			98
+	Labels			[1, 0]
 	DstBlock		"Sum"
 	DstPort			1
       }
@@ -1455,7 +1455,7 @@ Model {
       ZOrder		      46
       SrcBlock		      "holder\n1"
       SrcPort		      1
-      Points		      [45, 0]
+      Points		      [30, 0]
       DstBlock		      "Sum1"
       DstPort		      2
     }
@@ -1506,7 +1506,6 @@ Model {
     Line {
       Name		      "analog left leg"
       ZOrder		      58
-      Labels		      [0, 0]
       SrcBlock		      "Yarp Read3"
       SrcPort		      1
       Points		      [25, 0]
@@ -1518,6 +1517,7 @@ Model {
       }
       Branch {
 	ZOrder			56
+	Labels			[1, 0]
 	DstBlock		"Sum2"
 	DstPort			1
       }
@@ -1611,12 +1611,12 @@ Model {
     Line {
       Name		      "analog left arm"
       ZOrder		      83
-      Labels		      [0, 0]
       SrcBlock		      "Yarp Read5"
       SrcPort		      1
       Points		      [30, 0]
       Branch {
 	ZOrder			95
+	Labels			[1, 0]
 	DstBlock		"Sum4"
 	DstPort			1
       }
@@ -1649,7 +1649,7 @@ Model {
       ZOrder		      86
       SrcBlock		      "holder\n4"
       SrcPort		      1
-      Points		      [45, 0]
+      Points		      [30, 0]
       DstBlock		      "Sum4"
       DstPort		      2
     }
@@ -1665,7 +1665,7 @@ Model {
       ZOrder		      88
       SrcBlock		      "holder\n5"
       SrcPort		      1
-      Points		      [45, 0]
+      Points		      [30, 0]
       DstBlock		      "Sum5"
       DstPort		      2
     }

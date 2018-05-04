@@ -7,7 +7,6 @@ Simulink torque controllers for balancing and walking of humanoid robots.
 - **impedance-control** [[README]](impedance-control/README.md)
 - **momentum-based-standup** [[README]](momentum-based-standup/README.md)
 - **momentum-based-yoga** [[README]](momentum-based-yoga/README.md)
-- **task-based-walking** [[README]](task-based-walking/README.md)
 
 ## Usage
 
