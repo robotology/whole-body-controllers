@@ -43,5 +43,5 @@ function references_CoM = referenceGeneratorCoM(pos_CoM_0, t, Config)
         acc_CoM_des =           -Amplitude*(2*pi*frequency)^2*sin(2*pi*frequency*t)*Config.directionOfOscillation;
     end
     
-    references_CoM = [pos_CoM_des; vel_CoM_des; acc_CoM_des];
+    references_CoM  = [pos_CoM_des; vel_CoM_des; acc_CoM_des];
 end

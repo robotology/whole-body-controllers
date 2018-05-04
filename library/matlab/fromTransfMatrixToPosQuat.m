@@ -41,7 +41,7 @@ function q = fromTransfMatrixToPosQuat(H)
     qy = (r02 -r20)/(4*qw);
     qz = (r10 -r01)/(4*qw);
 
-    qt_b   = [qw; qx; qy; qz];
+    qt_b = [qw; qx; qy; qz];
 
     % Final state converted into quaternion rapresentation
     q = [H(1:3,4); qt_b];

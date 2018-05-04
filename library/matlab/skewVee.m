@@ -21,7 +21,7 @@
 function x = skewVee(X)
 
     % skew symmetric part of X
-    X_skew = 0.5*(X -transpose(X)); 
+    X_skew  = 0.5*(X -transpose(X)); 
     
     % vector composing the matrix
     x = [-X_skew(2,3)

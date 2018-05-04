@@ -35,7 +35,7 @@ function rollPitchYaw = rollPitchYawFromRotation(R)
             rollPitchYaw(1) = 0;
         end
     else
-        rollPitchYaw(3) = atan2(-R(2,3),R(2,2));
-        rollPitchYaw(1) = 0;
+        rollPitchYaw(3)  = atan2(-R(2,3),R(2,2));
+        rollPitchYaw(1)  = 0;
     end
 end

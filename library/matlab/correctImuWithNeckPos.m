@@ -27,7 +27,7 @@ function imu_H_imuAssumingNeckToZero = correctImuWithNeckPos(neckJoints)
     H_56 = evalDHMatrix(18.5*1e-3, 110.8*1e-3, -pi/2, +pi/2); 
     H_61 = evalDHMatrix(        0,   6.6*1e-3,  pi/2,     0); 
 
-    imuAssumingNeckToZero_H_neckBase = H_34 * H_45 * H_56 * H_61;
+    imuAssumingNeckToZero_H_neckBase = H_34*H_45*H_56*H_61;
 
     % Compute the imu_H_neckBase transform 
     H_34 = evalDHMatrix( 9.5*1e-3,          0,  pi/2, neckJoints(1) +pi/2);
@@ -35,7 +35,7 @@ function imu_H_imuAssumingNeckToZero = correctImuWithNeckPos(neckJoints)
     H_56 = evalDHMatrix(18.5*1e-3, 110.8*1e-3, -pi/2, neckJoints(3) +pi/2); 
     H_61 = evalDHMatrix(        0,   6.6*1e-3,  pi/2,                   0); 
 
-    imu_H_neckBase = H_34 * H_45 * H_56 * H_61;
+    imu_H_neckBase = H_34*H_45*H_56*H_61;
 
     imu_H_imuAssumingNeckToZero = imu_H_neckBase/(imuAssumingNeckToZero_H_neckBase);
 end
