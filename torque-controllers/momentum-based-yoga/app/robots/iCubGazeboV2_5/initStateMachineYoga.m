@@ -71,6 +71,11 @@ Gain.impedances  = [10   30   20, 10   10    10    8, 10   10    10    8, 30   3
 
 Gain.dampings    = 0*sqrt(Gain.impedances(1,:));  
 
+% symmetric gains
+Gain.impedances(8:12,:)     = Gain.impedances(2:6,:);
+Gain.impedances(8:12,12:17) = Gain.impedances(2:6,18:23);
+Gain.impedances(8:12,18:23) = Gain.impedances(2:6,12:17);
+
 % Smoothing time gain scheduling (YOGA DEMO ONLY)
 Gain.SmoothingTimeGainScheduling = 2;
 
@@ -131,7 +136,7 @@ Sm.yogaExtended             = true;
 Sm.skipYoga                 = false;
 Sm.demoOnlyBalancing        = false;
 Sm.demoStartsOnRightSupport = false;
-Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from right foot
+Sm.yogaAlsoOnRightFoot      = true; % TO DO: yoga on both feet starting from right foot
 Sm.yogaInLoop               = false;
 
 %% Joint references (YOGA DEMO ONLY)
