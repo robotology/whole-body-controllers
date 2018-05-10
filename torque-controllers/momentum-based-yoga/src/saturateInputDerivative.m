@@ -16,12 +16,13 @@ end
 uDelta_maxAbs = Config.tauDot_maxAbs;
 
 % evaluate the max and min allowed input
-u_max =  uDelta_maxAbs*Config.Ts + uPrev;
-u_min = -uDelta_maxAbs*Config.Ts + uPrev;
+delta_u_max =  uDelta_maxAbs*Config.Ts; 
+delta_u_min = -uDelta_maxAbs*Config.Ts;
 
-uSat = saturateInput(u, u_min, u_max);
+delta_u_Sat = saturateInput(u-uPrev, delta_u_min, delta_u_max);
 
 % update uPrev
+uSat  = uPrev + delta_u_Sat;
 uPrev = uSat;
 
 end

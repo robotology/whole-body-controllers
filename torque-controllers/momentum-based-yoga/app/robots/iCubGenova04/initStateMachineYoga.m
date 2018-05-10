@@ -142,7 +142,7 @@ Sm.yogaExtended             = true;
 Sm.skipYoga                 = false;
 Sm.demoOnlyBalancing        = false;
 Sm.demoStartsOnRightSupport = false;
-Sm.yogaAlsoOnRightFoot      = true; % TO DO: yoga on both feet starting from right foot
+Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from right foot
 Sm.yogaInLoop               = false;
 
 %% Joint references (YOGA DEMO ONLY)
