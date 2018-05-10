@@ -26,6 +26,9 @@ Config.SMOOTH_JOINT_DES = true;
 % torque saturation
 Sat.torque = 60;
 
+% torque derivative max absolute value
+Config.tauDot_maxAbs = 300;
+
 %% Regularization parameters
 Reg.pinvDamp_nu_b = 1e-7;
 Reg.pinvDamp      = 1;%0.07; 

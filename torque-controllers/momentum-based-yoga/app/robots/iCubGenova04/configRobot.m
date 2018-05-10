@@ -25,6 +25,11 @@ Frames.LEFT_FOOT         = 'l_sole';
 Frames.RIGHT_FOOT        = 'r_sole';
 Frames.COM               = 'com';
 
+% Config.SATURATE_TORQUE_DERIVATIVE: if true, the derivative of the control
+% input is saturated. In this way, it is possible to reduce high frequency
+% oscillations and discontinuities in the control input.
+Config.SATURATE_TORQUE_DERIVATIVE  = true;
+
 % Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
 % inertias are included in the system mass matrix. If
 % Config.INCLUDE_COUPLING is true, then the coupling effect (some joints

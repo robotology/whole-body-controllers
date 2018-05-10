@@ -26,6 +26,9 @@ Config.SMOOTH_JOINT_DES = false;
 % torque saturation
 Sat.torque = 34; 
 
+% torque derivative max absolute value
+Config.tauDot_maxAbs = 300;
+
 %% Control gains
 
 % PARAMETERS FOR TWO FEET BALANCING
