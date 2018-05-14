@@ -91,15 +91,15 @@ Gain.SmoothingTimeGainScheduling = 2;
 Sm.smoothingTimeCoM_Joints       = [1;    %% state ==  1  TWO FEET BALANCING
                                     1;    %% state ==  2  COM TRANSITION TO LEFT FOOT
                                     1;    %% state ==  3  LEFT FOOT BALANCING 
-                                    0.55;    %% state ==  4  YOGA LEFT FOOT
+                                    0.9;    %% state ==  4  YOGA LEFT FOOT
                                     2;    %% state ==  5  PREPARING FOR SWITCHING
                                     2;    %% state ==  6  LOOKING FOR CONTACT 
                                     1;    %% state ==  7  TRANSITION INIT POSITION
                                     1;    %% state ==  8  COM TRANSITION TO RIGHT FOOT
                                     1;    %% state ==  9  RIGHT FOOT BALANCING 
-                                    0.55;    %% state == 10  YOGA RIGHT FOOT
+                                    0.9;    %% state == 10  YOGA RIGHT FOOT
                                     2;    %% state == 11  PREPARING FOR SWITCHING
-                                    5;    %% state == 12  LOOKING FOR CONTACT 
+                                    2;    %% state == 12  LOOKING FOR CONTACT 
                                     5];  %% state == 13  TRANSITION INIT POSITION
 
 % time between two yoga positions (YOGA DEMO ONLY)
@@ -132,7 +132,7 @@ Sm.CoM_delta       = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF
                       0.0, -0.015,  0.0;   %% state ==  9  RIGHT FOOT BALANCING 
                       0.0, -0.017,  0.0;   %% state == 10  YOGA RIGHT FOOT
                       0.0,  0.00,  0.0;   %% state == 11  PREPARING FOR SWITCHING
-                      0.02,  0.02,  0.0;   %% state == 12  LOOKING FOR CONTACT 
+                      0.02,  0.025,  0.0;   %% state == 12  LOOKING FOR CONTACT 
                       0.0,  0.00,  0.0];  %% NOT USED
 
 % configuration parameters for state machine (YOGA DEMO ONLY) 
@@ -141,7 +141,7 @@ Sm.tBalancingBeforeYoga     = 1;
 Sm.yogaExtended             = true;
 Sm.skipYoga                 = false;
 Sm.demoOnlyBalancing        = false;
-Sm.demoStartsOnRightSupport = false;
+Sm.demoStartsOnRightSupport = true;
 Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from right foot
 Sm.yogaInLoop               = false;
 
