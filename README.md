@@ -13,7 +13,7 @@ This repository depends upon the following Software/repositories:
 - [icub-gazebo](https://github.com/robotology/icub-gazebo) and [icub-gazebo-wholebody](https://github.com/robotology-playground/icub-gazebo-wholebody) to access iCub models.
 - [codyco-modules](https://github.com/robotology/codyco-modules) (Optional, for using [home positions](https://github.com/robotology/codyco-modules/tree/master/src/modules/torqueBalancing/app/robots) and [wholeBodyDynamics](https://github.com/robotology/codyco-modules/tree/master/src/devices/wholeBodyDynamics) device).
 
-**NOTE:** it is suggested to install `codyco-modules`,`icub-gazebo`,`icub-gazebo-wholebody`, `gazebo-yarp-plugins` and `WB-Toolbox` (and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_USES_GAZEBO`, `ROBOTOLOGY_ENABLE_DYNAMICS`, `ROBOTOLOGY_USES_MATLAB` options).
+**NOTE:** it is suggested to install `whole-body-controllers` and most of its dependencies (namely, `codyco-modules`,`icub-gazebo`,`icub-gazebo-wholebody`, `gazebo-yarp-plugins` and `WB-Toolbox` and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_USES_GAZEBO`, `ROBOTOLOGY_ENABLE_DYNAMICS`, `ROBOTOLOGY_USES_MATLAB` options).
 
 ## Structure of the repo
 
