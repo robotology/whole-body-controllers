@@ -1,12 +1,12 @@
 Model {
   Name			  "debug_FTMeas_shoes"
-  Version		  9.0
+  Version		  8.8
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.31"
+    ComputedModelVersion    "1.32"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -15,71 +15,12 @@ Model {
     HasInitializeEvent	    0
     HasTerminateEvent	    0
     IsExportFunctionModel   0
-    NumParameterArguments   0
-    NumExternalFileReferences 9
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
-      Path		      "debug_FTMeas_shoes/Real Time Synchronizer"
-      SID		      "16"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_FTMeas_shoes/Yarp Read"
-      SID		      "17"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_FTMeas_shoes/Yarp Read1"
-      SID		      "20"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_FTMeas_shoes/Yarp Read4"
-      SID		      "39"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_FTMeas_shoes/Yarp Read5"
-      SID		      "40"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "debug_FTMeas_shoes/holder "
-      SID		      "22"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "debug_FTMeas_shoes/holder 1"
-      SID		      "24"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "debug_FTMeas_shoes/holder 4"
-      SID		      "41"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/holder\n"
-      Path		      "debug_FTMeas_shoes/holder 5"
-      SID		      "42"
-      Type		      "LIBRARY_BLOCK"
-    }
-    OrderedModelArguments   1
   }
   LogicAnalyzerGraphicalSettings ""
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
   DiagnosticSuppressor	  "on"
   SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 11 0"
-  CustomCodeFunctionData  ""
-  SLCCPlugin		  "on"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -153,23 +94,21 @@ Model {
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
-  HideAutomaticNames	  on
   Created		  "Wed Nov 04 16:59:24 2015"
   Creator		  "DanielePucci"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Apr 05 16:41:44 2018"
-  RTWModifiedTimeStamp	  444847302
-  ModelVersionFormat	  "1.%<AutoIncrement:31>"
+  LastModifiedDate	  "Tue May 29 14:12:03 2018"
+  RTWModifiedTimeStamp	  449503923
+  ModelVersionFormat	  "1.%<AutoIncrement:32>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
   WideLines		  off
   ShowLineDimensions	  off
   ShowPortDataTypes	  off
-  PortDataTypeDisplayFormat "AliasTypeOnly"
   ShowEditTimeErrors	  on
   ShowEditTimeWarnings	  on
   ShowEditTimeAdvisorChecks off
@@ -190,14 +129,12 @@ Model {
   BlockNameDataTip	  off
   BlockParametersDataTip  off
   BlockDescriptionStringDataTip	off
-  BlockVariantConditionDataTip off
   ToolBar		  on
   StatusBar		  on
   BrowserShowLibraryLinks off
   FunctionConnectors	  off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
-  VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
   NumberOfSteps		  1
   SnapshotBufferSize	  10
@@ -252,13 +189,12 @@ Model {
   ExtModeAutoUpdateStatusClock on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
-  OrderedModelArguments	  on
   Array {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      8
-      Version		      "1.17.1"
+      Version		      "1.16.5"
       DisabledProps	      []
       Description	      ""
       Array {
@@ -266,7 +202,7 @@ Model {
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  9
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
@@ -285,6 +221,7 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  EnableMultiTasking	  on
+	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "FixedStepDiscrete"
 	  SolverName		  "FixedStepDiscrete"
@@ -301,11 +238,10 @@ Model {
 	  SampleTimeConstraint	  "Unconstrained"
 	  InsertRTBMode		  "Whenever possible"
 	  SampleTimeProperty	  []
-	  DecoupledContinuousIntegration off
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  10
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
 	  Decimation		  "1"
@@ -340,13 +276,12 @@ Model {
 	  ReturnWorkspaceOutputsName "out"
 	  Refine		  "1"
 	  LoggingToFile		  off
-	  DatasetSignalFormat	  "timeseries"
 	  LoggingFileName	  "out.mat"
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  11
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -401,14 +336,10 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "off"
 	  AccelVerboseBuild	  off
-	  OptimizeBlockOrder	  "off"
-	  OptimizeDataStoreBuffers on
-	  BusAssignmentInplaceUpdate on
-	  DifferentSizesBufferReuse off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  12
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -447,7 +378,6 @@ Model {
 	  MultiTaskRateTransMsg	  "error"
 	  SingleTaskRateTransMsg  "none"
 	  TasksWithSamePriorityMsg "warning"
-	  ExportedTasksRateTransMsg "none"
 	  SigSpecEnsureSampleTimeMsg "warning"
 	  CheckMatrixSingularityMsg "none"
 	  IntegerOverflowMsg	  "warning"
@@ -489,7 +419,6 @@ Model {
 	  StateNameClashWarn	  "none"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  SimStateOlderReleaseMsg "error"
-	  ChecksumConsistencyForSSReuse	"none"
 	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
@@ -497,7 +426,6 @@ Model {
 	  SymbolicDimMinMaxWarning "warning"
 	  LossOfSymbolicDimsSimulationWarning "warning"
 	  LossOfSymbolicDimsCodeGenerationWarning "error"
-	  SymbolicDimsDataTypeCodeGenerationDiagnostic "error"
 	  BlockIODiagnostic	  "none"
 	  SFUnusedDataAndEventsDiag "warning"
 	  SFUnexpectedBacktrackingDiag "warning"
@@ -516,14 +444,10 @@ Model {
 	  AllowedUnitSystems	  "all"
 	  UnitsInconsistencyMsg	  "warning"
 	  AllowAutomaticUnitConversions	on
-	  RCSCRenamedMsg	  "warning"
-	  RCSCObservableMsg	  "warning"
-	  ForceCombineOutputUpdateInSim	off
-	  UnitDatabase		  ""
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  13
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
 	  ProdBitPerChar	  8
@@ -571,7 +495,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  14
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
@@ -590,7 +514,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  15
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  ""
 	  SimCustomSourceCode	  ""
@@ -614,13 +538,11 @@ Model {
 	  ModelFunctionsGlobalVisibility "on"
 	  CompileTimeRecursionLimit 50
 	  EnableRuntimeRecursion  on
-	  MATLABDynamicMemAlloc	  on
-	  MATLABDynamicMemAllocThreshold 65536
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  16
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    13
@@ -668,7 +590,6 @@ Model {
 	  CustomLibrary		  ""
 	  CustomDefine		  ""
 	  CustomLAPACKCallback	  ""
-	  CustomFFTCallback	  ""
 	  CustomInitializer	  ""
 	  CustomTerminator	  ""
 	  Toolchain		  "Automatically locate an installed toolchain"
@@ -704,7 +625,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      17
-	      Version		      "1.17.1"
+	      Version		      "1.16.5"
 	      Array {
 		Type			"Cell"
 		Dimension		28
@@ -754,7 +675,6 @@ Model {
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
 	      MangleLength	      1
-	      SharedChecksumLength    8
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
 	      CustomSymbolStrField    "$N$M"
@@ -765,8 +685,6 @@ Model {
 	      CustomSymbolStrTmpVar   "$N$M"
 	      CustomSymbolStrMacro    "$R$N$M"
 	      CustomSymbolStrUtil     "$N$C"
-	      CustomSymbolStrEmxType  "emxArray_$M$N"
-	      CustomSymbolStrEmxFcn   "emx$M$N"
 	      CustomUserTokenString   ""
 	      CustomCommentsFcn	      ""
 	      DefineNamingRule	      "None"
@@ -778,7 +696,6 @@ Model {
 	      InsertBlockDesc	      off
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
-	      StateflowObjectComments on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
 	      InternalIdentifierFile  ""
@@ -791,7 +708,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      18
-	      Version		      "1.17.1"
+	      Version		      "1.16.5"
 	      Array {
 		Type			"Cell"
 		Dimension		15
@@ -820,7 +737,7 @@ Model {
 	      TargetLangStandard      "C89/C90 (ANSI)"
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
-	      MultiwordTypeDef	      "System defined"
+	      ERTMultiwordTypeDef     "System defined"
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
@@ -863,11 +780,6 @@ Model {
 	      UseToolchainInfoCompliant	on
 	      GenerateSharedConstants on
 	      CoderGroups	      []
-	      AccessMethods	      []
-	      LookupTableObjectStructAxisOrder "1,2,3,4,..."
-	      LUTObjectStructOrderExplicitValues "Size,Breakpoints,Table"
-	      LUTObjectStructOrderEvenSpacing "Size,Breakpoints,Table"
-	      ArrayLayout	      "Column-major"
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -889,7 +801,7 @@ Model {
 	}
 	SlCovCC.ConfigComp {
 	  $ObjectID		  19
-	  Version		  "1.17.1"
+	  Version		  "1.16.5"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -925,7 +837,6 @@ Model {
 	  CovUseTimeInterval	  off
 	  CovStartTime		  0
 	  CovStopTime		  0
-	  CovMcdcMode		  "Masking"
 	}
 	PropName		"Components"
       }
@@ -961,7 +872,6 @@ Model {
     FontWeight		    "normal"
     FontAngle		    "normal"
     ShowName		    on
-    HideAutomaticName	    on
     BlockRotation	    0
     BlockMirror		    off
   }
@@ -975,12 +885,7 @@ Model {
     FontSize		    10
     FontWeight		    "normal"
     FontAngle		    "normal"
-    MarkupType		    "model"
     UseDisplayTextAsClickCallback off
-    AnnotationType	    "note_annotation"
-    FixedHeight		    off
-    FixedWidth		    off
-    Interpreter		    "off"
   }
   LineDefaults {
     FontName		    "Helvetica"
@@ -992,7 +897,7 @@ Model {
     SelfModifiable	    "off"
     IconFrame		    "on"
     IconOpaque		    "opaque"
-    RunInitForIconRedraw    "analyze"
+    RunInitForIconRedraw    "off"
     IconRotate		    "none"
     PortRotate		    "default"
     IconUnits		    "autoscale"
@@ -1039,8 +944,7 @@ Model {
   System {
     Name		    "debug_FTMeas_shoes"
     Location		    [106, 39, 3840, 2160]
-    Open		    on
-    PortBlocksUseCompactNotation off
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1275,10 +1179,9 @@ Model {
       ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
       BackgroundColor	      "gray"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.600"
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
-      SourceProductName	      "Whole Body Toolbox"
       period		      "0.01"
     }
     Block {
@@ -1346,10 +1249,9 @@ Model {
       ZOrder		      519
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.600"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
       portName		      "'ft/ftShoe_Right_Front/analog:o'"
       signalSize	      "6"
       timeout		      "0.5"
@@ -1371,10 +1273,9 @@ Model {
       ZOrder		      521
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.600"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
       portName		      "'ft/ftShoe_Left_Front/analog:o'"
       signalSize	      "6"
       timeout		      "0.5"
@@ -1396,10 +1297,9 @@ Model {
       ZOrder		      537
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.600"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
       portName		      "'ft/ftShoe_Right_Rear/analog:o'"
       signalSize	      "6"
       timeout		      "0.5"
@@ -1421,10 +1321,9 @@ Model {
       ZOrder		      539
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.600"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
       portName		      "'ft/ftShoe_Left_Rear/analog:o'"
       signalSize	      "6"
       timeout		      "0.5"
@@ -1446,10 +1345,9 @@ Model {
       ZOrder		      524
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.600"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
-      SourceProductName	      "Whole Body Toolbox"
       ContentPreviewEnabled   off
     }
     Block {
@@ -1461,10 +1359,9 @@ Model {
       ZOrder		      526
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.600"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
-      SourceProductName	      "Whole Body Toolbox"
       ContentPreviewEnabled   off
     }
     Block {
@@ -1476,10 +1373,9 @@ Model {
       ZOrder		      542
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.600"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
-      SourceProductName	      "Whole Body Toolbox"
       ContentPreviewEnabled   off
     }
     Block {
@@ -1491,10 +1387,9 @@ Model {
       ZOrder		      544
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.600"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
-      SourceProductName	      "Whole Body Toolbox"
       ContentPreviewEnabled   off
     }
     Line {
@@ -1717,7 +1612,7 @@ Stateflow {
     name		    "debug_FTMeas_shoes"
     created		    "05-May-2016 17:01:28"
     isLibrary		    0
-    sfVersion		    80000012
+    sfVersion		    80000010
     firstTarget		    2
   }
   target {
