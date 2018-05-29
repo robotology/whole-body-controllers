@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.32"
+    ComputedModelVersion    "1.33"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -63,11 +63,12 @@ Model {
   Creator		  "DanielePucci"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "gnava"
+  LastModifiedBy	  "icub"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri May 04 10:39:33 2018"
-  RTWModifiedTimeStamp	  447331173
-  ModelVersionFormat	  "1.%<AutoIncrement:32>"
+  LastModifiedDate	  "Tue May 29 17:04:47 2018"
+  RTWModifiedTimeStamp	  449514287
+  ModelVersionFormat	  "1.%<AutoIncrement:33>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -181,6 +182,7 @@ Model {
 	  AbsTol		  "auto"
 	  FixedStep		  "0.01"
 	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -558,14 +560,17 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
+	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
@@ -622,6 +627,7 @@ Model {
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
+	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      GenerateSampleERTMain   off
@@ -635,6 +641,7 @@ Model {
 	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -677,7 +684,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    [ 100, 58, 1180, 720 ]
+      ConfigPrmDlgPosition    [ 100, 58, 1180, 720 ]  
     }
     PropName		    "ConfigurationSets"
   }
@@ -804,10 +811,14 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force right front"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque right front"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -823,10 +834,14 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force left front"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque left front"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -842,10 +857,14 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force right rear"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque right rear"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -861,10 +880,14 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force left rear"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque left rear"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -883,8 +906,8 @@ Model {
       MaxDataPoints	      5000
       SaveToWorkspace	      off
       SaveName		      ScopeData2
-      YMin		      "-19.48535~-2.11395"
-      YMax		      "29.67908~1.5329"
+      YMin		      -19.48535~-2.11395
+      YMax		      29.67908~1.5329
       SampleInput	      off
       SampleTime	      -1
       ZoomMode		      on
@@ -906,7 +929,7 @@ Model {
 	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 	MarkerStyles		"none|none|none|none|none|none"
       }
-      Location		      [66 1158 1921 2159]
+      Location		      [66 78 1921 1079]
     }
     Block {
       BlockType		      Scope
@@ -924,8 +947,8 @@ Model {
       MaxDataPoints	      5000
       SaveToWorkspace	      off
       SaveName		      ScopeData1
-      YMin		      "-19.48535~-2.11395"
-      YMax		      "29.67908~1.5329"
+      YMin		      -19.48535~-2.11395
+      YMax		      29.67908~1.5329
       SampleInput	      off
       SampleTime	      -1
       ZoomMode		      on
@@ -947,7 +970,7 @@ Model {
 	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 	MarkerStyles		"none|none|none|none|none|none"
       }
-      Location		      [66 1158 1921 2159]
+      Location		      [66 78 1921 1079]
     }
     Block {
       BlockType		      Scope
@@ -965,8 +988,8 @@ Model {
       MaxDataPoints	      5000
       SaveToWorkspace	      off
       SaveName		      ScopeData
-      YMin		      "-19.48535~-2.11395"
-      YMax		      "29.67908~1.5329"
+      YMin		      -19.48535~-2.11395
+      YMax		      29.67908~1.5329
       SampleInput	      off
       SampleTime	      -1
       ZoomMode		      on
@@ -988,7 +1011,7 @@ Model {
 	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 	MarkerStyles		"none|none|none|none|none|none"
       }
-      Location		      [66 1158 1921 2159]
+      Location		      [66 78 1921 1079]
     }
     Block {
       BlockType		      Scope
@@ -1006,8 +1029,8 @@ Model {
       MaxDataPoints	      5000
       SaveToWorkspace	      off
       SaveName		      ScopeData4
-      YMin		      "-19.48535~-2.11395"
-      YMax		      "29.67908~1.5329"
+      YMin		      -19.48535~-2.11395
+      YMax		      29.67908~1.5329
       SampleInput	      off
       SampleTime	      -1
       ZoomMode		      on
@@ -1029,7 +1052,7 @@ Model {
 	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 	MarkerStyles		"none|none|none|none|none|none"
       }
-      Location		      [66 1158 1921 2159]
+      Location		      [66 78 1921 1079]
     }
     Block {
       BlockType		      Reference
@@ -1041,7 +1064,7 @@ Model {
       ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
       BackgroundColor	      "gray"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
       period		      "0.01"
@@ -1111,7 +1134,7 @@ Model {
       ZOrder		      519
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'ft/ftShoe_Right_Front/analog:o'"
@@ -1124,6 +1147,8 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog right front"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1135,7 +1160,7 @@ Model {
       ZOrder		      521
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'ft/ftShoe_Left_Front/analog:o'"
@@ -1148,6 +1173,8 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog left front"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1159,7 +1186,7 @@ Model {
       ZOrder		      537
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'ft/ftShoe_Right_Rear/analog:o'"
@@ -1172,6 +1199,8 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog right rear"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1183,7 +1212,7 @@ Model {
       ZOrder		      539
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'ft/ftShoe_Left_Rear/analog:o'"
@@ -1196,6 +1225,8 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog left rear"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1207,7 +1238,7 @@ Model {
       ZOrder		      524
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       ContentPreviewEnabled   off
@@ -1221,7 +1252,7 @@ Model {
       ZOrder		      526
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       ContentPreviewEnabled   off
@@ -1235,7 +1266,7 @@ Model {
       ZOrder		      542
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       ContentPreviewEnabled   off
@@ -1249,7 +1280,7 @@ Model {
       ZOrder		      544
       BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       ContentPreviewEnabled   off
@@ -1465,7 +1496,7 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000012
+#   Stateflow 80000010
 #
 #
 Stateflow {

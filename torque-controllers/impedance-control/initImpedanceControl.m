@@ -37,7 +37,7 @@ Config.SIMULATION_TIME = inf;
 
 % Default behaviour: gravity compensation. If MOVING = true, the robot will also move 
 % all actuated joints following a sine trajectory
-MOVING = false;
+MOVING                = false;
 
 % If Config.SAVE_WORKSPACE = True, every time the simulink model is run the
 % workspace is saved after stopping the simulation

@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.26"
+    ComputedModelVersion    "1.27"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -63,11 +63,12 @@ Model {
   Creator		  "DanielePucci"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "gnava"
+  LastModifiedBy	  "icub"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri May 04 10:39:31 2018"
-  RTWModifiedTimeStamp	  447331171
-  ModelVersionFormat	  "1.%<AutoIncrement:26>"
+  LastModifiedDate	  "Tue May 29 17:04:44 2018"
+  RTWModifiedTimeStamp	  449514284
+  ModelVersionFormat	  "1.%<AutoIncrement:27>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -181,6 +182,7 @@ Model {
 	  AbsTol		  "auto"
 	  FixedStep		  "0.01"
 	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -558,14 +560,17 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
+	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
@@ -622,6 +627,7 @@ Model {
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
+	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      GenerateSampleERTMain   off
@@ -635,6 +641,7 @@ Model {
 	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -677,7 +684,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    [ 100, 58, 1180, 720 ]
+      ConfigPrmDlgPosition    [ 100, 58, 1180, 720 ]  
     }
     PropName		    "ConfigurationSets"
   }
@@ -814,8 +821,8 @@ Model {
       MaxDataPoints	      5000
       SaveToWorkspace	      off
       SaveName		      ScopeData1
-      YMin		      "-0.27073~-5"
-      YMax		      "0.28409~5"
+      YMin		      -0.27073~-5
+      YMax		      0.28409~5
       SampleInput	      off
       SampleTime	      -1
       ZoomMode		      on
@@ -837,7 +844,7 @@ Model {
 	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 	MarkerStyles		"none|none|none|none|none|none"
       }
-      Location		      [71 1483 1341 2153]
+      Location		      [71 403 1341 1073]
     }
     Block {
       BlockType		      Reference
@@ -849,7 +856,7 @@ Model {
       ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
       BackgroundColor	      "gray"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
       period		      "0.01"
@@ -876,7 +883,7 @@ Model {
       ZOrder		      515
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/inertial'"
@@ -889,6 +896,8 @@ Model {
       Port {
 	PortNumber		1
 	Name			"Bosch IMU"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Line {

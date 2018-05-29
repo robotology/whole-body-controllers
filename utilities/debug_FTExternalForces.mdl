@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.33"
+    ComputedModelVersion    "1.34"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -20,7 +20,7 @@ Model {
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
   DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 11 0"
+  SuppressorTable	  "22 serialization::archive 11 0 3 0 0 0 11 0"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -41,7 +41,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [65.0, -4.0, 1855.0, 1084.0]
+      Location		      [65.0, 24.0, 1855.0, 1056.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -65,9 +65,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1817.0, 907.0]
-	ZoomFactor		[1.0]
-	Offset			[-1435.2285186068684, -126.34418549504744]
+	Extents			[1821.0, 911.0]
+	ZoomFactor		[1.0499405469678953]
+	Offset			[-1714.6919592298982, -84.334088335220883]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -85,9 +85,9 @@ Model {
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAAAAAAAAPwCA"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABeAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAAc/AAADyQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAKAD///8AAAc/AAADyQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACA/////wAAAAAAAAAA/////wEAAADo/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFo/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAANR/////wAAAAAAAAAA/"
@@ -98,11 +98,12 @@ Model {
   Creator		  "DanielePucci"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "gnava"
+  LastModifiedBy	  "icub"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue May 29 14:12:01 2018"
-  RTWModifiedTimeStamp	  449503921
-  ModelVersionFormat	  "1.%<AutoIncrement:33>"
+  LastModifiedDate	  "Tue May 29 16:58:23 2018"
+  RTWModifiedTimeStamp	  449513899
+  ModelVersionFormat	  "1.%<AutoIncrement:34>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -210,6 +211,7 @@ Model {
 	  AbsTol		  "auto"
 	  FixedStep		  "0.01"
 	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -666,14 +668,17 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
+	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
@@ -738,6 +743,7 @@ Model {
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
+	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
@@ -753,6 +759,7 @@ Model {
 	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -843,7 +850,7 @@ Model {
       Name		      "Configuration"
       ExtraOptions	      ""
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    [ 100, 58, 1180, 720 ]
+      ConfigPrmDlgPosition     [ 100, 58, 1180, 720 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -964,8 +971,6 @@ Model {
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
-      MustResolveToSignalObject	off
-      OutputWhenUnConnected   off
     }
     Block {
       BlockType		      S-Function
@@ -1011,29 +1016,13 @@ Model {
       IsWebBlock	      off
     }
     Block {
-      BlockType		      Sum
-      IconShape		      "rectangular"
-      Inputs		      "++"
-      CollapseMode	      "All dimensions"
-      CollapseDim	      "1"
-      InputSameDT	      on
-      AccumDataTypeStr	      "Inherit: Inherit via internal rule"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Same as first input"
-      LockScale		      off
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	on
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      Terminator
     }
   }
   System {
     Name		    "debug_FTExternalForces"
-    Location		    [65, -4, 1920, 1080]
-    Open		    off
+    Location		    [65, 24, 1920, 1080]
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1044,7 +1033,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "105"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "58"
     Block {
@@ -1052,7 +1041,7 @@ Model {
       Name		      "Demux"
       SID		      "18"
       Ports		      [1, 2]
-      Position		      [-785, 226, -780, 259]
+      Position		      [-905, -39, -900, -6]
       ZOrder		      520
       ShowName		      off
       Outputs		      "2"
@@ -1060,10 +1049,14 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force right foot"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque right foot"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1071,7 +1064,7 @@ Model {
       Name		      "Demux1"
       SID		      "19"
       Ports		      [1, 2]
-      Position		      [-785, 196, -780, 229]
+      Position		      [-905, -69, -900, -36]
       ZOrder		      522
       ShowName		      off
       Outputs		      "2"
@@ -1079,10 +1072,14 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force left foot"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque left foot"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1090,7 +1087,7 @@ Model {
       Name		      "Demux2"
       SID		      "25"
       Ports		      [1, 2]
-      Position		      [-225, 211, -220, 249]
+      Position		      [-905, 181, -900, 219]
       ZOrder		      529
       ShowName		      off
       Outputs		      "2"
@@ -1098,10 +1095,14 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force right leg"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque right leg"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1109,7 +1110,7 @@ Model {
       Name		      "Demux3"
       SID		      "26"
       Ports		      [1, 2]
-      Position		      [-225, 171, -220, 209]
+      Position		      [-905, 141, -900, 179]
       ZOrder		      531
       ShowName		      off
       Outputs		      "2"
@@ -1117,10 +1118,14 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force left leg"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque left leg"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1128,7 +1133,7 @@ Model {
       Name		      "Demux4"
       SID		      "34"
       Ports		      [1, 2]
-      Position		      [-785, 371, -780, 409]
+      Position		      [-905, 71, -900, 109]
       ZOrder		      538
       ShowName		      off
       Outputs		      "2"
@@ -1136,10 +1141,14 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force right arm"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque right arm"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -1147,7 +1156,7 @@ Model {
       Name		      "Demux5"
       SID		      "35"
       Ports		      [1, 2]
-      Position		      [-785, 331, -780, 369]
+      Position		      [-905, 31, -900, 69]
       ZOrder		      540
       ShowName		      off
       Outputs		      "2"
@@ -1155,36 +1164,22 @@ Model {
       Port {
 	PortNumber		1
 	Name			"force left arm"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
       Port {
 	PortNumber		2
 	Name			"torque left arm"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display2"
-      SID		      "57"
-      Ports		      [1]
-      Position		      [35, 595, 125, 625]
-      ZOrder		      559
-      Decimation	      "1"
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display5"
-      SID		      "58"
-      Ports		      [1]
-      Position		      [35, 655, 125, 685]
-      ZOrder		      560
-      Decimation	      "1"
     }
     Block {
       BlockType		      SubSystem
       Name		      "MATLAB Function"
       SID		      "43"
       Ports		      [1, 1]
-      Position		      [-810, -23, -740, 23]
+      Position		      [-905, 367, -835, 413]
       ZOrder		      545
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
@@ -1241,6 +1236,8 @@ Model {
 	  Port {
 	    PortNumber		    2
 	    Name		    "y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -1295,7 +1292,7 @@ Model {
       Name		      "MATLAB Function1"
       SID		      "44"
       Ports		      [1, 1]
-      Position		      [-810, 57, -740, 103]
+      Position		      [-905, 432, -835, 478]
       ZOrder		      546
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
@@ -1352,6 +1349,8 @@ Model {
 	  Port {
 	    PortNumber		    2
 	    Name		    "y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -1406,7 +1405,7 @@ Model {
       Name		      "MATLAB Function2"
       SID		      "45"
       Ports		      [1, 1]
-      Position		      [-795, 452, -725, 498]
+      Position		      [-905, 627, -835, 673]
       ZOrder		      547
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
@@ -1463,6 +1462,8 @@ Model {
 	  Port {
 	    PortNumber		    2
 	    Name		    "y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -1517,7 +1518,7 @@ Model {
       Name		      "MATLAB Function3"
       SID		      "46"
       Ports		      [1, 1]
-      Position		      [-795, 527, -725, 573]
+      Position		      [-905, 692, -835, 738]
       ZOrder		      548
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
@@ -1574,6 +1575,8 @@ Model {
 	  Port {
 	    PortNumber		    2
 	    Name		    "y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -1628,7 +1631,7 @@ Model {
       Name		      "MATLAB Function4"
       SID		      "47"
       Ports		      [1, 1]
-      Position		      [-160, 57, -90, 103]
+      Position		      [-905, 497, -835, 543]
       ZOrder		      549
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
@@ -1685,6 +1688,8 @@ Model {
 	  Port {
 	    PortNumber		    2
 	    Name		    "y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -1739,7 +1744,7 @@ Model {
       Name		      "MATLAB Function5"
       SID		      "48"
       Ports		      [1, 1]
-      Position		      [-160, 292, -90, 338]
+      Position		      [-905, 562, -835, 608]
       ZOrder		      550
       ErrorFcn		      "Stateflow.Translate.translate"
       PermitHierarchicalResolution "ExplicitOnly"
@@ -1796,6 +1801,8 @@ Model {
 	  Port {
 	    PortNumber		    2
 	    Name		    "y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -1850,7 +1857,7 @@ Model {
       Name		      "Measurements FTs arrms"
       SID		      "36"
       Ports		      [4]
-      Position		      [-620, 332, -545, 408]
+      Position		      [-740, 32, -665, 108]
       ZOrder		      536
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
@@ -1896,7 +1903,7 @@ Model {
       Name		      "Measurements FTs arrms1"
       SID		      "49"
       Ports		      [6]
-      Position		      [-405, 512, -330, 588]
+      Position		      [-535, 351, -405, 754]
       ZOrder		      551
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
@@ -1942,7 +1949,7 @@ Model {
       Name		      "Measurements FTs feet"
       SID		      "10"
       Ports		      [4]
-      Position		      [-615, 194, -545, 261]
+      Position		      [-740, -71, -670, -4]
       ZOrder		      31
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
@@ -1988,7 +1995,7 @@ Model {
       Name		      "Measurements FTs legs"
       SID		      "27"
       Ports		      [4]
-      Position		      [-5, 172, 60, 248]
+      Position		      [-740, 139, -660, 221]
       ZOrder		      527
       ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
@@ -2032,110 +2039,26 @@ Model {
       Name		      "Real Time Synchronizer"
       SID		      "16"
       Ports		      []
-      Position		      [-375, 349, -250, 386]
+      Position		      [-535, 244, -410, 281]
       ZOrder		      514
       ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
       BackgroundColor	      "gray"
       ShowName		      off
-      LibraryVersion	      "1.600"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
       period		      "0.01"
-    }
-    Block {
-      BlockType		      Sum
-      Name		      "Sum"
-      SID		      "21"
-      Ports		      [2, 1]
-      Position		      [-870, 145, -850, 165]
-      ZOrder		      523
-      ShowName		      off
-      IconShape		      "round"
-      Inputs		      "|+-"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Sum
-      Name		      "Sum1"
-      SID		      "23"
-      Ports		      [2, 1]
-      Position		      [-870, 235, -850, 255]
-      ZOrder		      525
-      ShowName		      off
-      IconShape		      "round"
-      Inputs		      "|+-"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Sum
-      Name		      "Sum2"
-      SID		      "28"
-      Ports		      [2, 1]
-      Position		      [-275, 145, -255, 165]
-      ZOrder		      532
-      ShowName		      off
-      IconShape		      "round"
-      Inputs		      "|+-"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Sum
-      Name		      "Sum3"
-      SID		      "29"
-      Ports		      [2, 1]
-      Position		      [-275, 220, -255, 240]
-      ZOrder		      534
-      ShowName		      off
-      IconShape		      "round"
-      Inputs		      "|+-"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Sum
-      Name		      "Sum4"
-      SID		      "37"
-      Ports		      [2, 1]
-      Position		      [-870, 310, -850, 330]
-      ZOrder		      541
-      ShowName		      off
-      IconShape		      "round"
-      Inputs		      "|+-"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Sum
-      Name		      "Sum5"
-      SID		      "38"
-      Ports		      [2, 1]
-      Position		      [-870, 380, -850, 400]
-      ZOrder		      543
-      ShowName		      off
-      IconShape		      "round"
-      Inputs		      "|+-"
-      InputSameDT	      off
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      SaturateOnIntegerOverflow	off
     }
     Block {
       BlockType		      Reference
       Name		      "Yarp Read"
       SID		      "17"
       Ports		      [0, 1]
-      Position		      [-1090, 200, -1030, 250]
+      Position		      [-1290, -33, -1235, -7]
       ZOrder		      519
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.600"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/right_foot/analog:o'"
@@ -2148,6 +2071,8 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog right foot"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -2155,11 +2080,11 @@ Model {
       Name		      "Yarp Read1"
       SID		      "20"
       Ports		      [0, 1]
-      Position		      [-1090, 135, -1030, 185]
+      Position		      [-1290, -63, -1235, -37]
       ZOrder		      521
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.600"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/left_foot/analog:o'"
@@ -2172,6 +2097,8 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog left foot"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -2179,11 +2106,11 @@ Model {
       Name		      "Yarp Read2"
       SID		      "30"
       Ports		      [0, 1]
-      Position		      [-455, 210, -395, 260]
+      Position		      [-1285, 185, -1225, 215]
       ZOrder		      528
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.600"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/right_leg/analog:o'"
@@ -2196,6 +2123,8 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog right leg"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -2203,11 +2132,11 @@ Model {
       Name		      "Yarp Read3"
       SID		      "31"
       Ports		      [0, 1]
-      Position		      [-455, 135, -395, 185]
+      Position		      [-1285, 145, -1225, 175]
       ZOrder		      530
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.600"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/left_leg/analog:o'"
@@ -2220,6 +2149,8 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog left leg"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -2227,11 +2158,11 @@ Model {
       Name		      "Yarp Read4"
       SID		      "39"
       Ports		      [0, 1]
-      Position		      [-1090, 370, -1030, 420]
+      Position		      [-1285, 76, -1225, 104]
       ZOrder		      537
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.600"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/right_arm/analog:o'"
@@ -2244,6 +2175,8 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog right arm"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -2251,11 +2184,11 @@ Model {
       Name		      "Yarp Read5"
       SID		      "40"
       Ports		      [0, 1]
-      Position		      [-1090, 300, -1030, 350]
+      Position		      [-1285, 37, -1225, 63]
       ZOrder		      539
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.600"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
       SourceType	      "YARP Read"
       portName		      "'/icub/left_arm/analog:o'"
@@ -2268,14 +2201,25 @@ Model {
       Port {
 	PortNumber		1
 	Name			"analog left arm"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
       }
+    }
+    Block {
+      BlockType		      Display
+      Name		      "left_arm norm"
+      SID		      "57"
+      Ports		      [1]
+      Position		      [-710, 600, -620, 630]
+      ZOrder		      559
+      Decimation	      "1"
     }
     Block {
       BlockType		      Display
       Name		      "left_foot norm"
       SID		      "54"
       Ports		      [1]
-      Position		      [35, 355, 125, 385]
+      Position		      [-710, 345, -620, 375]
       ZOrder		      556
       Decimation	      "1"
     }
@@ -2284,8 +2228,17 @@ Model {
       Name		      "left_leg norm"
       SID		      "55"
       Ports		      [1]
-      Position		      [35, 470, 125, 500]
+      Position		      [-710, 470, -620, 500]
       ZOrder		      557
+      Decimation	      "1"
+    }
+    Block {
+      BlockType		      Display
+      Name		      "right_arm norm"
+      SID		      "58"
+      Ports		      [1]
+      Position		      [-710, 665, -620, 695]
+      ZOrder		      560
       Decimation	      "1"
     }
     Block {
@@ -2293,7 +2246,7 @@ Model {
       Name		      "right_foot norm"
       SID		      "53"
       Ports		      [1]
-      Position		      [35, 415, 125, 445]
+      Position		      [-710, 405, -620, 435]
       ZOrder		      555
       Decimation	      "1"
     }
@@ -2302,26 +2255,26 @@ Model {
       Name		      "right_leg norm"
       SID		      "56"
       Ports		      [1]
-      Position		      [35, 535, 125, 565]
+      Position		      [-710, 535, -620, 565]
       ZOrder		      558
       Decimation	      "1"
     }
     Line {
       Name		      "analog right foot"
       ZOrder		      47
-      Labels		      [3, 0]
       SrcBlock		      "Yarp Read"
       SrcPort		      1
-      Points		      [34, 0; 0, 20; 103, 0]
+      Points		      [139, 0]
       Branch {
-	ZOrder			138
-	Points			[0, -165]
-	DstBlock		"MATLAB Function1"
+	ZOrder			310
+	Labels			[-1, 1]
+	DstBlock		"Demux"
 	DstPort			1
       }
       Branch {
-	ZOrder			137
-	DstBlock		"Sum1"
+	ZOrder			138
+	Points			[0, 475]
+	DstBlock		"MATLAB Function1"
 	DstPort			1
       }
     }
@@ -2346,19 +2299,19 @@ Model {
     Line {
       Name		      "analog left foot"
       ZOrder		      40
-      Labels		      [2, 0]
       SrcBlock		      "Yarp Read1"
       SrcPort		      1
-      Points		      [0, -5; 131, 0]
+      Points		      [162, 0]
       Branch {
-	ZOrder			136
-	Points			[0, -155]
-	DstBlock		"MATLAB Function"
+	ZOrder			311
+	Labels			[-1, 1]
+	DstBlock		"Demux1"
 	DstPort			1
       }
       Branch {
-	ZOrder			135
-	DstBlock		"Sum"
+	ZOrder			214
+	Points			[0, 440]
+	DstBlock		"MATLAB Function"
 	DstPort			1
       }
     }
@@ -2381,36 +2334,21 @@ Model {
       DstPort		      2
     }
     Line {
-      ZOrder		      44
-      SrcBlock		      "Sum"
-      SrcPort		      1
-      Points		      [1, 0; 0, 60]
-      DstBlock		      "Demux1"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      50
-      SrcBlock		      "Sum1"
-      SrcPort		      1
-      DstBlock		      "Demux"
-      DstPort		      1
-    }
-    Line {
       Name		      "analog right leg"
       ZOrder		      53
-      Labels		      [2, 0]
       SrcBlock		      "Yarp Read2"
       SrcPort		      1
-      Points		      [0, -5; 95, 0]
+      Points		      [80, 0]
       Branch {
-	ZOrder			146
-	Points			[0, 85]
-	DstBlock		"MATLAB Function5"
+	ZOrder			296
+	Labels			[-1, 0]
+	DstBlock		"Demux2"
 	DstPort			1
       }
       Branch {
-	ZOrder			145
-	DstBlock		"Sum3"
+	ZOrder			240
+	Points			[0, 385]
+	DstBlock		"MATLAB Function5"
 	DstPort			1
       }
     }
@@ -2435,19 +2373,19 @@ Model {
     Line {
       Name		      "analog left leg"
       ZOrder		      58
-      Labels		      [2, 0]
       SrcBlock		      "Yarp Read3"
       SrcPort		      1
-      Points		      [0, -5; 92, 0]
+      Points		      [104, 0]
       Branch {
-	ZOrder			144
-	Points			[0, -75]
-	DstBlock		"MATLAB Function4"
+	ZOrder			297
+	Labels			[-1, 1]
+	DstBlock		"Demux3"
 	DstPort			1
       }
       Branch {
-	ZOrder			143
-	DstBlock		"Sum2"
+	ZOrder			236
+	Points			[0, 360]
+	DstBlock		"MATLAB Function4"
 	DstPort			1
       }
     }
@@ -2470,36 +2408,21 @@ Model {
       DstPort		      2
     }
     Line {
-      ZOrder		      62
-      SrcBlock		      "Sum2"
-      SrcPort		      1
-      Points		      [9, 0; 0, 35]
-      DstBlock		      "Demux3"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      64
-      SrcBlock		      "Sum3"
-      SrcPort		      1
-      DstBlock		      "Demux2"
-      DstPort		      1
-    }
-    Line {
       Name		      "analog right arm"
       ZOrder		      78
-      Labels		      [2, 0]
       SrcBlock		      "Yarp Read4"
       SrcPort		      1
-      Points		      [0, -5; 114, 0]
+      Points		      [38, 0]
       Branch {
-	ZOrder			142
-	Points			[0, 160]
-	DstBlock		"MATLAB Function3"
+	ZOrder			294
+	Labels			[-1, 1]
+	DstBlock		"Demux4"
 	DstPort			1
       }
       Branch {
-	ZOrder			141
-	DstBlock		"Sum5"
+	ZOrder			221
+	Points			[0, 625]
+	DstBlock		"MATLAB Function3"
 	DstPort			1
       }
     }
@@ -2526,17 +2449,17 @@ Model {
       ZOrder		      83
       SrcBlock		      "Yarp Read5"
       SrcPort		      1
-      Points		      [0, -5; 64, 0]
+      Points		      [59, 0]
       Branch {
-	ZOrder			140
-	Points			[0, 155]
-	DstBlock		"MATLAB Function2"
+	ZOrder			295
+	Labels			[-1, 1]
+	DstBlock		"Demux5"
 	DstPort			1
       }
       Branch {
-	ZOrder			139
-	Labels			[1, 0]
-	DstBlock		"Sum4"
+	ZOrder			217
+	Points			[0, 600]
+	DstBlock		"MATLAB Function2"
 	DstPort			1
       }
     }
@@ -2559,33 +2482,18 @@ Model {
       DstPort		      2
     }
     Line {
-      ZOrder		      87
-      SrcBlock		      "Sum4"
-      SrcPort		      1
-      Points		      [27, 0; 0, 30]
-      DstBlock		      "Demux5"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      89
-      SrcBlock		      "Sum5"
-      SrcPort		      1
-      DstBlock		      "Demux4"
-      DstPort		      1
-    }
-    Line {
       ZOrder		      149
       SrcBlock		      "MATLAB Function1"
       SrcPort		      1
-      Points		      [54, 0; 0, 455; 252, 0]
+      Points		      [96, 0]
       Branch {
-	ZOrder			189
-	Points			[0, -105]
+	ZOrder			308
+	Points			[0, -35]
 	DstBlock		"right_foot norm"
 	DstPort			1
       }
       Branch {
-	ZOrder			188
+	ZOrder			298
 	DstBlock		"Measurements FTs arrms1"
 	DstPort			2
       }
@@ -2594,15 +2502,15 @@ Model {
       ZOrder		      150
       SrcBlock		      "MATLAB Function4"
       SrcPort		      1
-      Points		      [9, 0; 0, 535; -362, 0; 0, -70; 4, 0]
+      Points		      [97, 0]
       Branch {
-	ZOrder			191
-	Points			[0, -60]
+	ZOrder			307
+	Points			[0, -35]
 	DstBlock		"left_leg norm"
 	DstPort			1
       }
       Branch {
-	ZOrder			190
+	ZOrder			300
 	DstBlock		"Measurements FTs arrms1"
 	DstPort			3
       }
@@ -2611,15 +2519,15 @@ Model {
       ZOrder		      151
       SrcBlock		      "MATLAB Function5"
       SrcPort		      1
-      Points		      [2, 0; 0, 293; -348, 0; 0, -53; 9, 0]
+      Points		      [98, 0]
       Branch {
-	ZOrder			193
-	Points			[0, 1; -30, 0; 0, -50; 431, 0; 0, 44]
+	ZOrder			306
+	Points			[0, -35]
 	DstBlock		"right_leg norm"
 	DstPort			1
       }
       Branch {
-	ZOrder			192
+	ZOrder			299
 	DstBlock		"Measurements FTs arrms1"
 	DstPort			4
       }
@@ -2628,15 +2536,15 @@ Model {
       ZOrder		      152
       SrcBlock		      "MATLAB Function2"
       SrcPort		      1
-      Points		      [133, 0; 0, 90; 167, 0]
+      Points		      [93, 0]
       Branch {
-	ZOrder			195
-	Points			[0, 20; -32, 0; 0, 39; 431, 0; 0, -14]
-	DstBlock		"Display2"
+	ZOrder			304
+	Points			[0, -35]
+	DstBlock		"left_arm norm"
 	DstPort			1
       }
       Branch {
-	ZOrder			194
+	ZOrder			302
 	DstBlock		"Measurements FTs arrms1"
 	DstPort			5
       }
@@ -2645,15 +2553,15 @@ Model {
       ZOrder		      153
       SrcBlock		      "MATLAB Function3"
       SrcPort		      1
-      Points		      [64, 0; 0, 25; 178, 0]
+      Points		      [98, 0]
       Branch {
-	ZOrder			197
-	Points			[0, 95]
-	DstBlock		"Display5"
+	ZOrder			303
+	Points			[0, -35]
+	DstBlock		"right_arm norm"
 	DstPort			1
       }
       Branch {
-	ZOrder			196
+	ZOrder			301
 	DstBlock		"Measurements FTs arrms1"
 	DstPort			6
       }
@@ -2662,15 +2570,15 @@ Model {
       ZOrder		      148
       SrcBlock		      "MATLAB Function"
       SrcPort		      1
-      Points		      [243, 0; 0, 525; 70, 0]
+      Points		      [96, 0]
       Branch {
-	ZOrder			187
-	Points			[0, -76; 181, 0; 0, -79]
+	ZOrder			309
+	Points			[0, -30]
 	DstBlock		"left_foot norm"
 	DstPort			1
       }
       Branch {
-	ZOrder			186
+	ZOrder			269
 	DstBlock		"Measurements FTs arrms1"
 	DstPort			1
       }
@@ -2679,7 +2587,7 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000012
+#   Stateflow 80000010
 #
 #
 Stateflow {
@@ -3069,6 +2977,9 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 24 0 0]
     viewObj		    23
+    visible		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART

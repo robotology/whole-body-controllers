@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3245"
+    ComputedModelVersion    "1.3246"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -20,7 +20,7 @@ Model {
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
   DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 11 0"
+  SuppressorTable	  "22 serialization::archive 11 0 3 0 0 0 11 0"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -42,7 +42,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [65.0, 24.0, 1301.0, 744.0]
+      Location		      [65.0, 24.0, 1855.0, 1056.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -66,9 +66,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1263.0, 595.0]
-	ZoomFactor		[0.97255574614065166]
-	Offset			[665.67989417989406, 336.60493827160491]
+	Extents			[1821.0, 911.0]
+	ZoomFactor		[1.522413793103448]
+	Offset			[716.93657984144954, 341.80407701019249]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -86,24 +86,25 @@ Model {
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAAAAAAAAPwCA"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABeAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAAUVAAACkQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAKAD///8AAAc/AAADyQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACA/////wAAAAAAAAAA/////wEAAADo/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFo/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAANR/////wAAAAAAAAAA/"
-      "////wEAAAOD/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
   Created		  "Tue Feb 18 10:13:36 2014"
   Creator		  "daniele"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "gnava"
+  LastModifiedBy	  "icub"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue May 29 14:11:56 2018"
-  RTWModifiedTimeStamp	  449503916
-  ModelVersionFormat	  "1.%<AutoIncrement:3245>"
+  LastModifiedDate	  "Tue May 29 16:36:56 2018"
+  RTWModifiedTimeStamp	  449512560
+  ModelVersionFormat	  "1.%<AutoIncrement:3246>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -212,6 +213,7 @@ Model {
 	  AbsTol		  "auto"
 	  FixedStep		  "Config.Ts"
 	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -670,14 +672,17 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
+	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
@@ -744,6 +749,7 @@ Model {
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
+	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
@@ -759,6 +765,7 @@ Model {
 	      CombineOutputUpdateFcns off
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -849,7 +856,7 @@ Model {
       Name		      "Configuration"
       ExtraOptions	      ""
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    [ 75, 71, 1155, 671 ]
+      ConfigPrmDlgPosition     [ 75, 71, 1155, 671 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -1023,6 +1030,7 @@ Model {
     }
     Block {
       BlockType		      M-S-Function
+      FunctionName	      "matlabfile"
       DisplayMFileStacktrace  on
     }
     Block {
@@ -1069,8 +1077,6 @@ Model {
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
-      MustResolveToSignalObject	off
-      OutputWhenUnConnected   off
     }
     Block {
       BlockType		      Product
@@ -1205,8 +1211,8 @@ Model {
   }
   System {
     Name		    "torqueBalancingStandup"
-    Location		    [65, 24, 1366, 768]
-    Open		    off
+    Location		    [65, 24, 1920, 1080]
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1217,7 +1223,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "97"
+    ZoomFactor		    "152"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "5015"
     Block {
@@ -1227,18 +1233,12 @@ Model {
       Ports		      []
       Position		      [845, 590, 920, 620]
       ZOrder		      553
-      LibraryVersion	      "1.600"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
       SourceType	      ""
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
-      RobotName		      "'icub'"
-      UrdfFile		      "'model.urdf'"
-      ControlledJoints	      "{'l_elbow','l_shoulder_pitch','torso_roll'}"
-      ControlBoardsNames      "{'left_arm','right_arm','torso'}"
-      LocalName		      "'WBT'"
-      GravityVector	      "[0,0,-9.81]"
     }
     Block {
       BlockType		      SubSystem
@@ -1731,6 +1731,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"baseOrientation"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1749,6 +1751,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"basePosition"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1764,10 +1768,14 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_QP"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"wR_QP"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1783,10 +1791,14 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"error_L"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"error_R"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1802,10 +1814,14 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_NO_QP"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"wR_NO_QP"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1815,29 +1831,39 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [355, 19, 450, 121]
 	      ZOrder		      585
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1847,29 +1873,39 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [355, 174, 450, 276]
 	      ZOrder		      586
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1879,29 +1915,39 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [355, 309, 450, 411]
 	      ZOrder		      587
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1911,29 +1957,39 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [1000, 39, 1095, 141]
 	      ZOrder		      588
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1943,29 +1999,39 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [1000, 174, 1095, 276]
 	      ZOrder		      589
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1975,29 +2041,39 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [1000, 309, 1095, 411]
 	      ZOrder		      590
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2044,7 +2120,7 @@ Model {
 	      Position		      [50, 346, 115, 374]
 	      ZOrder		      600
 	      BackgroundColor	      "[0.827500, 0.576500, 0.603900]"
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	      SourceType	      "Get Measurement"
 	      ContentPreviewEnabled   off
@@ -2058,7 +2134,7 @@ Model {
 	      Position		      [710, 76, 780, 104]
 	      ZOrder		      601
 	      BackgroundColor	      "[0.513700, 0.851000, 0.670600]"
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	      SourceType	      "Get Measurement"
 	      ContentPreviewEnabled   off
@@ -2066,6 +2142,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"qj"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2083,6 +2161,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"CoM_Desired"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2101,6 +2181,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torqueError"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2119,6 +2201,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"CoM_Measured"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -3801,11 +3885,13 @@ Model {
 		    Parameters		    "Config"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "M_with_inertia"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -3886,7 +3972,7 @@ Model {
 	      Ports		      [4, 1]
 	      Position		      [370, 281, 555, 344]
 	      ZOrder		      223
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
 	      SourceType	      "Centroidal Momentum"
 	      ContentPreviewEnabled   off
@@ -3924,7 +4010,7 @@ Model {
 	      Ports		      [4, 1]
 	      Position		      [395, 132, 535, 233]
 	      ZOrder		      222
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Bias Forces"
 	      SourceType	      "Get Generalized Bias Forces"
 	      ContentPreviewEnabled   off
@@ -3936,7 +4022,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [395, 19, 535, 86]
 	      ZOrder		      221
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 	      SourceType	      "Mass Matrix"
 	      ContentPreviewEnabled   off
@@ -4208,7 +4294,7 @@ Model {
 		  Position		  [1260, 645, 1420, 685]
 		  ZOrder		  827
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -4222,7 +4308,7 @@ Model {
 		  Position		  [1260, 590, 1420, 630]
 		  ZOrder		  828
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -4404,7 +4490,7 @@ Model {
 		  Ports			  [4, 1]
 		  Position		  [590, 334, 735, 376]
 		  ZOrder		  568
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
 		  ContentPreviewEnabled	  off
@@ -4417,7 +4503,7 @@ Model {
 		  Ports			  [4, 1]
 		  Position		  [590, 384, 735, 426]
 		  ZOrder		  547
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
 		  ContentPreviewEnabled	  off
@@ -4431,7 +4517,7 @@ Model {
 		  Position		  [590, 504, 735, 546]
 		  ZOrder		  545
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
 		  ContentPreviewEnabled	  off
@@ -4445,7 +4531,7 @@ Model {
 		  Position		  [590, 454, 735, 496]
 		  ZOrder		  566
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
 		  ContentPreviewEnabled	  off
@@ -4459,7 +4545,7 @@ Model {
 		  Position		  [580, 215, 740, 250]
 		  ZOrder		  573
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -4473,7 +4559,7 @@ Model {
 		  Position		  [580, 165, 740, 200]
 		  ZOrder		  565
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -4487,7 +4573,7 @@ Model {
 		  Position		  [580, 91, 740, 129]
 		  ZOrder		  546
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -4501,7 +4587,7 @@ Model {
 		  Position		  [580, 41, 740, 79]
 		  ZOrder		  574
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -4581,7 +4667,7 @@ Model {
 		  Position		  [170, 250, 330, 290]
 		  ZOrder		  571
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -4595,7 +4681,7 @@ Model {
 		  Position		  [170, 200, 330, 240]
 		  ZOrder		  563
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -4609,7 +4695,7 @@ Model {
 		  Position		  [170, 135, 330, 175]
 		  ZOrder		  543
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -4623,7 +4709,7 @@ Model {
 		  Position		  [170, 85, 330, 125]
 		  ZOrder		  570
 		  ShowName		  off
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -5148,7 +5234,7 @@ Model {
 	      Position		      [105, 210, 270, 250]
 	      ZOrder		      835
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	      SourceType	      "Jacobian"
 	      ContentPreviewEnabled   off
@@ -5221,11 +5307,13 @@ Model {
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[2 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "legsInContact"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -5333,7 +5421,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [110, 230, 275, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -5995,7 +6083,7 @@ Model {
       Variant		      off
       System {
 	Name			"Robot State and References"
-	Location		[65, 24, 1366, 768]
+	Location		[65, 24, 1920, 1080]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -6007,7 +6095,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"86"
+	ZoomFactor		"125"
 	Block {
 	  BlockType		  Reference
 	  Name			  "Compare\nTo Zero"
@@ -6016,7 +6104,7 @@ Model {
 	  Position		  [-280, 2850, -250, 2880]
 	  ZOrder		  613
 	  ShowName		  off
-	  LibraryVersion	  "1.401"
+	  LibraryVersion	  "1.388"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
 	  SourceType		  "Compare To Zero"
 	  ContentPreviewEnabled	  off
@@ -6032,7 +6120,7 @@ Model {
 	  Position		  [-280, 2580, -250, 2610]
 	  ZOrder		  614
 	  ShowName		  off
-	  LibraryVersion	  "1.401"
+	  LibraryVersion	  "1.388"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
 	  SourceType		  "Compare To Zero"
 	  ContentPreviewEnabled	  off
@@ -6070,7 +6158,7 @@ Model {
 	  Position		  [-445, 2581, -385, 2609]
 	  ZOrder		  605
 	  ShowName		  off
-	  LibraryVersion	  "1.401"
+	  LibraryVersion	  "1.388"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
 	  SourceType		  "Bitwise Operator"
 	  logicop		  "AND"
@@ -6087,7 +6175,7 @@ Model {
 	  Position		  [-450, 2706, -380, 2734]
 	  ZOrder		  868
 	  BackgroundColor	  "[0.513700, 0.851000, 0.670600]"
-	  LibraryVersion	  "1.600"
+	  LibraryVersion	  "1.602"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	  SourceType		  "Get Measurement"
 	  ContentPreviewEnabled	  off
@@ -6294,7 +6382,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 25, 740, 85]
 		    ZOrder		    729
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -6307,7 +6395,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 190, 740, 250]
 		    ZOrder		    737
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -6329,6 +6417,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -6347,6 +6437,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -6357,7 +6449,7 @@ Model {
 		    Position		    [980, 308, 1055, 332]
 		    ZOrder		    742
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "Ports.NECK_POS"
@@ -6494,11 +6586,13 @@ Model {
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -6592,7 +6686,7 @@ Model {
 		    ZOrder		    739
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -6606,7 +6700,7 @@ Model {
 		    ZOrder		    740
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -6680,6 +6774,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -6945,7 +7041,7 @@ Model {
 		  Position		  [490, -73, 655, -42]
 		  ZOrder		  725
 		  NamePlacement		  "alternate"
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -6958,7 +7054,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [485, -33, 655, 3]
 		  ZOrder		  896
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -7220,11 +7316,13 @@ Model {
 		    Parameters		    "Reg"
 		    PortCounts		    "[4 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "nu_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -7343,7 +7441,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [745, 475, 905, 530]
 		    ZOrder		    687
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -7356,7 +7454,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [745, 565, 905, 620]
 		    ZOrder		    688
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -7437,7 +7535,7 @@ Model {
 		  Position		  [215, -99, 285, -71]
 		  ZOrder		  869
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 		  SourceType		  "Get Measurement"
 		  ContentPreviewEnabled	  off
@@ -7600,7 +7698,7 @@ Model {
 	      Position		      [-560, 303, -510, 317]
 	      ZOrder		      679
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.IMU"
@@ -7691,11 +7789,13 @@ Model {
 		  Parameters		  "Config"
 		  PortCounts		  "[2 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "references_CoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -7783,7 +7883,7 @@ Model {
 	      ZOrder		      577
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -7797,7 +7897,7 @@ Model {
 	      ZOrder		      579
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -7861,7 +7961,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [110, 230, 275, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -8275,7 +8375,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Select State and References"
-	    Location		    [65, 24, 1366, 768]
+	    Location		    [65, 24, 1920, 1080]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -8287,7 +8387,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "73"
+	    ZoomFactor		    "114"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "StateAndReferences"
@@ -8309,26 +8409,38 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"CoMDes"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"qDes"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"state"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		6
 		Name			"nu"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		7
 		Name			"qj"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		8
 		Name			"smoothingTimeMinJerkComDesQDes"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -8351,7 +8463,7 @@ Model {
 	      Position		      [640, 115, 780, 155]
 	      ZOrder		      598
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    on
@@ -8370,11 +8482,11 @@ Model {
 	      Position		      [755, -10, 905, 30]
 	      ZOrder		      597
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    on
-	      settlingTime	      "references.com.smoothingTime "
+	      settlingTime	      "0.1"
 	      sampleTime	      "Config.Ts"
 	      resetOnSettlingTime     off
 	      firstDerivatives	      on
@@ -8522,6 +8634,8 @@ Model {
 		    PortNumber		    1
 		    Name		    "smoothingTimeComAndJoints"
 		    PropagatedSignals	    "smoothingTimeMinJerkComDesQDes"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8535,6 +8649,8 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "Left right foot in contact"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8558,6 +8674,8 @@ Model {
 		    PortNumber		    1
 		    Name		    "state"
 		    PropagatedSignals	    "state"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8590,10 +8708,14 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "vb"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "wb"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8603,29 +8725,39 @@ Model {
 		  Ports			  [1, 5]
 		  Position		  [500, 244, 595, 346]
 		  ZOrder		  659
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 		  SourceType		  "DoFs converter"
 		  yarp2WBIOption	  "From YARP to WBI"
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8635,29 +8767,39 @@ Model {
 		  Ports			  [1, 5]
 		  Position		  [500, 514, 595, 616]
 		  ZOrder		  660
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 		  SourceType		  "DoFs converter"
 		  yarp2WBIOption	  "From YARP to WBI"
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -9871,11 +10013,13 @@ Model {
 		    Parameters		    "Reg"
 		    PortCounts		    "[4 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "nu_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10003,7 +10147,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [240, 240, 400, 280]
 		    ZOrder		    756
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -10016,7 +10160,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [235, 360, 395, 400]
 		    ZOrder		    755
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -10029,7 +10173,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [235, 410, 395, 450]
 		    ZOrder		    757
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -10042,7 +10186,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [240, 290, 395, 330]
 		    ZOrder		    754
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -10124,11 +10268,13 @@ Model {
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[2 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "legsInContact"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10375,7 +10521,7 @@ Model {
 		  Position		  [655, -354, 725, -326]
 		  ZOrder		  869
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 		  SourceType		  "Get Measurement"
 		  ContentPreviewEnabled	  off
@@ -10593,7 +10739,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 25, 740, 85]
 		    ZOrder		    729
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10606,7 +10752,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 190, 740, 250]
 		    ZOrder		    737
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10628,6 +10774,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10646,6 +10794,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10656,7 +10806,7 @@ Model {
 		    Position		    [980, 308, 1055, 332]
 		    ZOrder		    742
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "Ports.NECK_POS"
@@ -10793,11 +10943,13 @@ Model {
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10891,7 +11043,7 @@ Model {
 		    ZOrder		    739
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -10905,7 +11057,7 @@ Model {
 		    ZOrder		    740
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -10979,6 +11131,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -11243,7 +11397,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [165, 22, 330, 53]
 		  ZOrder		  894
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -11315,7 +11469,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 25, 740, 85]
 		    ZOrder		    729
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -11328,7 +11482,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 190, 740, 250]
 		    ZOrder		    737
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -11350,6 +11504,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -11368,6 +11524,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -11378,7 +11536,7 @@ Model {
 		    Position		    [980, 308, 1055, 332]
 		    ZOrder		    742
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "Ports.NECK_POS"
@@ -11515,11 +11673,13 @@ Model {
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -11613,7 +11773,7 @@ Model {
 		    ZOrder		    739
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -11627,7 +11787,7 @@ Model {
 		    ZOrder		    740
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -11701,6 +11861,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -11965,7 +12127,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [165, 107, 330, 138]
 		  ZOrder		  899
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -12142,7 +12304,7 @@ Model {
 	      Position		      [405, 320, 505, 340]
 	      ZOrder		      594
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    off
@@ -12264,6 +12426,8 @@ Model {
 		    PortNumber		    1
 		    Name		    "wL_WBDT"
 		    PropagatedSignals	    "state"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -12277,6 +12441,8 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "wR_WBDT"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -12354,23 +12520,31 @@ Model {
 		    Parameters		    "Sm"
 		    PortCounts		    "[1 5]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "thresholdContactLeftHand"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "thresholdContactRightHand"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "thresholdContactLeftFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "thresholdContactRightFoot"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -12976,7 +13150,7 @@ Model {
 	      ZOrder		      583
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -12990,7 +13164,7 @@ Model {
 	      ZOrder		      584
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -13003,7 +13177,7 @@ Model {
 	      Position		      [-460, 388, -410, 402]
 	      ZOrder		      654
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.IMU"
@@ -13023,7 +13197,7 @@ Model {
 	      ZOrder		      944
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.WBD_LEFTLEG_EE"
@@ -13036,6 +13210,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_WBDT"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -13047,7 +13223,7 @@ Model {
 	      ZOrder		      950
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.RIGHT_ARM"
@@ -13060,6 +13236,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wR_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -13071,7 +13249,7 @@ Model {
 	      ZOrder		      951
 	      ForegroundColor	      "[0.666667, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.LEFT_ARM"
@@ -13084,6 +13262,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_arm"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -13095,7 +13275,7 @@ Model {
 	      ZOrder		      945
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.WBD_RIGHTLEG_EE"
@@ -13108,6 +13288,8 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wR_WBDT"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -13129,6 +13311,8 @@ Model {
 		PortNumber		2
 		Name			"constraintsSmooth"
 		PropagatedSignals	"constraints"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      System {
 		Name			"stateMachineStandupFCN"
@@ -13266,43 +13450,61 @@ Model {
 		  Parameters		  "Gain,Sm"
 		  PortCounts		  "[11 10]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "constraints"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "CoM_des"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "qj_des"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    6
 		    Name		    "impedances"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    7
 		    Name		    "KPCoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    8
 		    Name		    "KDCoM"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    9
 		    Name		    "currentState"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    10
 		    Name		    "jointsAndCoMSmoothingTime"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -13616,7 +13818,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [110, 230, 275, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -14165,7 +14367,7 @@ Model {
 	  Position		  [-445, 2851, -385, 2879]
 	  ZOrder		  606
 	  ShowName		  off
-	  LibraryVersion	  "1.401"
+	  LibraryVersion	  "1.388"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
 	  SourceType		  "Bitwise Operator"
 	  logicop		  "AND"
@@ -14651,7 +14853,7 @@ Model {
       ZOrder		      549
       BackgroundColor	      "[0.827500, 0.576500, 0.603900]"
       ShowName		      off
-      LibraryVersion	      "1.600"
+      LibraryVersion	      "1.602"
       SourceBlock	      "WBToolboxLibrary/wholeBodyActuators/Set References"
       SourceType	      "Set References"
       ContentPreviewEnabled   off
@@ -14916,11 +15118,15 @@ Model {
 	    PortNumber		    13
 	    Name		    "CoM_Error"
 	    PropagatedSignals	    "errorCoM"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    14
 	    Name		    "fNoQP"
 	    PropagatedSignals	    "f_noQP"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
 	  }
 	  System {
 	    Name		    "Balancing Controller\n"
@@ -15219,75 +15425,109 @@ Model {
 	      Parameters	      "Gain,Reg"
 	      PortCounts	      "[29 18]"
 	      SFunctionDeploymentMode off
-	      EnableBusSupport	      off
+	      EnableBusSupport	      on
 	      SFcnIsStateOwnerBlock   off
 	      Port {
 		PortNumber		2
 		Name			"tauModel"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"Sigma"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"NA"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"f_HDot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		6
 		Name			"HessianMatrixQP1Foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		7
 		Name			"gradientQP1Foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		8
 		Name			"ConstraintsMatrixQP1Foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		9
 		Name			"bVectorConstraintsQp1Foot"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		10
 		Name			"HessianMatrixQP2FeetOrLegs"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		11
 		Name			"gradientQP2FeetOrLegs"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		12
 		Name			"ConstraintsMatrixQP2FeetOrLegs"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		13
 		Name			"bVectorConstraintsQp2FeetOrLegs"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		14
 		Name			"errorCoM"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		15
 		Name			"f_noQP"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		16
 		Name			"correctionFromSupportForce"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		17
 		Name			"H_error"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		18
 		Name			"V"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -15887,7 +16127,7 @@ Model {
 	      Ports		      [4, 1]
 	      Position		      [1135, -184, 1360, 254]
 	      ZOrder		      73
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
 	      SourceType	      "Centroidal Momentum"
 	      ContentPreviewEnabled   off
@@ -16008,7 +16248,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 25, 740, 85]
 		    ZOrder		    729
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -16021,7 +16261,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 190, 740, 250]
 		    ZOrder		    737
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -16043,6 +16283,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16061,6 +16303,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16071,7 +16315,7 @@ Model {
 		    Position		    [980, 308, 1055, 332]
 		    ZOrder		    742
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "Ports.NECK_POS"
@@ -16208,11 +16452,13 @@ Model {
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16306,7 +16552,7 @@ Model {
 		    ZOrder		    739
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -16320,7 +16566,7 @@ Model {
 		    ZOrder		    740
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -16394,6 +16640,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16658,7 +16906,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [165, 22, 330, 53]
 		  ZOrder		  894
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -16730,7 +16978,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 25, 740, 85]
 		    ZOrder		    729
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -16743,7 +16991,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 190, 740, 250]
 		    ZOrder		    737
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -16765,6 +17013,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16783,6 +17033,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16793,7 +17045,7 @@ Model {
 		    Position		    [980, 308, 1055, 332]
 		    ZOrder		    742
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "Ports.NECK_POS"
@@ -16930,11 +17182,13 @@ Model {
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -17028,7 +17282,7 @@ Model {
 		    ZOrder		    739
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -17042,7 +17296,7 @@ Model {
 		    ZOrder		    740
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.600"
+		    LibraryVersion	    "1.602"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -17116,6 +17370,8 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -17380,7 +17636,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [165, 107, 330, 138]
 		  ZOrder		  899
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -17584,7 +17840,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [240, 240, 390, 280]
 		  ZOrder		  756
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -17597,7 +17853,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [235, 360, 395, 400]
 		  ZOrder		  755
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -17610,7 +17866,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [235, 410, 395, 450]
 		  ZOrder		  757
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -17623,7 +17879,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [240, 290, 395, 330]
 		  ZOrder		  754
-		  LibraryVersion	  "1.600"
+		  LibraryVersion	  "1.602"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -17863,11 +18119,13 @@ Model {
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[2 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "legsInContact"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -18011,11 +18269,13 @@ Model {
 		  Parameters		  "Reg"
 		  PortCounts		  "[4 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "nu_b_equivalent"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -18132,7 +18392,7 @@ Model {
 	      Position		      [45, -72, 95, -58]
 	      ZOrder		      727
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.IMU"
@@ -18663,6 +18923,8 @@ Model {
 		  Port {
 		    PortNumber		    2
 		    Name		    "Exit flag QP two feet"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -18730,6 +18992,8 @@ Model {
 		    PortNumber		    1
 		    Name		    "exitFlagQP"
 		    PropagatedSignals	    "Exit flag QP two feet"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -19246,11 +19510,13 @@ Model {
 		  Parameters		  "Config"
 		  PortCounts		  "[1 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "reflectedInertia"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -19331,7 +19597,7 @@ Model {
 	      Position		      [-360, -139, -270, -111]
 	      ZOrder		      869
 	      BackgroundColor	      "[0.925500, 0.870600, 0.133300]"
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	      SourceType	      "Get Measurement"
 	      ContentPreviewEnabled   off
@@ -19684,7 +19950,7 @@ Model {
 	  ZOrder		  866
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 	  ShowName		  off
-	  LibraryVersion	  "1.600"
+	  LibraryVersion	  "1.602"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "Ports.RIGHT_ARM"
@@ -19704,7 +19970,7 @@ Model {
 	  ZOrder		  867
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 	  ShowName		  off
-	  LibraryVersion	  "1.600"
+	  LibraryVersion	  "1.602"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "Ports.LEFT_ARM"
@@ -20203,7 +20469,7 @@ Model {
 	  ZOrder		  551
 	  BackgroundColor	  "[0.513700, 0.851000, 0.670600]"
 	  ShowName		  off
-	  LibraryVersion	  "1.600"
+	  LibraryVersion	  "1.602"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Limits"
 	  SourceType		  "Get Limits"
 	  ContentPreviewEnabled	  off
@@ -20296,11 +20562,13 @@ Model {
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[4 2]"
 	      SFunctionDeploymentMode off
-	      EnableBusSupport	      off
+	      EnableBusSupport	      on
 	      SFcnIsStateOwnerBlock   off
 	      Port {
 		PortNumber		2
 		Name			"inRange"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -20492,7 +20760,7 @@ Model {
 	      ZOrder		      539
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
 	      period		      "Config.Ts"
@@ -20568,7 +20836,7 @@ Model {
 	      ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
 	      BackgroundColor	      "gray"
 	      ShowName		      off
-	      LibraryVersion	      "1.600"
+	      LibraryVersion	      "1.602"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
 	      period		      "Config.Ts"
@@ -20597,7 +20865,7 @@ Model {
 	  Position		  [-45, -89, 20, -71]
 	  ZOrder		  696
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
-	  LibraryVersion	  "1.600"
+	  LibraryVersion	  "1.602"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Clock"
 	  SourceType		  "YARP Clock"
 	}
@@ -20867,7 +21135,7 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000012
+#   Stateflow 80000010
 #
 #
 Stateflow {
