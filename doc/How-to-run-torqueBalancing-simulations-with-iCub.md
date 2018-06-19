@@ -3,7 +3,7 @@
 
 The procedure to run the torque balancing module is still quite elaborate. Users willing to use the module should follow this list.
 
-- Set the environmental variable YARP_ROBOT_NAME in the `.bashrc` according to the robot one wants to use (e.g. icubGazeboSim for simulations, or iCubGenova04, etc. for experiments). **NOTE:** there exists another model for simulations, `iCubGazeboV2_5`, but it is still under testing. Use `icubGazeboSim` for simulations.
+- Set the environmental variable YARP_ROBOT_NAME in the `.bashrc` according to the robot one wants to use (e.g. icubGazeboSim for simulations, or iCubGenova04, etc. for experiments). **NOTE:** there exists another model for simulations, `iCubGazeboV2_5`, but it is still under testing. Use `icubGazeboSim` for simulations.  Please **note** also that for the time being, the same environmental variable must be set also in the Matlab environment, by properly choosing the `YARP_ROBOT_NAME` in the controllers' [initialization script](https://github.com/robotology/whole-body-controllers/blob/master/torque-controllers/momentum-based-yoga/initTorqueBalancingYoga.m).
 
 - Launch the `yarpserver` (with `--write` option if necessary).
 
