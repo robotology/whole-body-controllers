@@ -1,14 +1,20 @@
 
-## HOW TO RUN A SIMULATION WITH TORQUE CONTROL ON ICUB
+## HOW TO RUN BALANCING WITH TORQUE CONTROL ON ICUB
 
 The procedure to run the torque balancing module is still quite elaborate. Users willing to use the module should follow this list.
 
-- Set the environmental variable `YARP_ROBOT_NAME` in the `.bashrc` according to the robot one wants to use (e.g. icubGazeboSim for simulations, or iCubGenova04, etc. for experiments).
+- Set the environmental variable `YARP_ROBOT_NAME` in the `.bashrc` according to the robot one wants to use (e.g. icubGazeboSim for simulations, or iCubGenova04, etc. for experiments). Please **note** that for the time being, the same environmental variable must be set also in the Matlab environment, by properly choosing the `YARP_ROBOT_NAME` in the controllers' [initialization script](https://github.com/robotology/whole-body-controllers/blob/master/torque-controllers/momentum-based-yoga/initTorqueBalancingYoga.m).
  
+#### Before putting the robot feet on the ground:
+
 - Bring the robot in a suitable home position (e.g. `$ yarpmotorgui --from homePoseBalancing.ini` and then select a custom position by clicking on `Global Joints Commands/Custom postions`.
 
 - Type on a terminal `yarp rpc /wholeBodyDynamics/rpc` and execute the command `calib all 300`. It will remove offsets from FT sensors measurements.
- 
+
+- Then, put the robot on the ground.
+
+#### After putting the robot on the ground:
+
 - Open the simulink model and run the module.
 
 #### Citing this contribution
