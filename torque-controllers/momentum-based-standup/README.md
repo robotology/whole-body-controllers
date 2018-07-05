@@ -10,7 +10,7 @@ In order to run the simulation of iCub standing up from a chair, make sure you h
 
  - Both iCub and the chair models are stored into [icub-gazebo-wholebody](https://github.com/robotology-playground/icub-gazebo-wholebody) repository.
 
- It is suggested to install the above mentioned repository using [codyco-superbuild](https://github.com/robotology/codyco-superbuild) (enable `CODYCO_USES_GAZEBO`, `CODYCO_USES_MATLAB`, options).
+ It is suggested to install the above mentioned repository using [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_ENABLE_DYNAMICS`, `ROBOTOLOGY_USES_GAZEBO` and `ROBOTOLOGY_USES_MATLAB` options).
  
 ### Installation
 
