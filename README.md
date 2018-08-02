@@ -15,6 +15,19 @@ This repository depends upon the following Software/repositories:
 
 **NOTE:** it is suggested to install `whole-body-controllers` and most of its dependencies (namely, `codyco-modules`,`icub-gazebo`,`icub-gazebo-wholebody`, `gazebo-yarp-plugins` and `WB-Toolbox` and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_USES_GAZEBO`, `ROBOTOLOGY_ENABLE_DYNAMICS`, `ROBOTOLOGY_USES_MATLAB` options).
 
+## Installation and usage
+
+- set the environmental variable `YARP_ROBOT_NAME` in the `.bashrc` file to be the name of the robot you want to control. List of supported robot names:
+
+| Robot Names | 
+|:-------------:|
+| iCubGenova02 |  
+| iCubGenova04 | 
+| iCubGazeboV2_5 |
+| icubGazeboSim |
+
+- if all the required dependencies are correctly installed and configured, just clone this repository on your pc. No further actions are required. An alternative is to install this repository through the `robotology-superbuild`. It is required to enable the option `ROBOTOLOGY_ENABLE_DYNAMICS`. **Important:** it is necessary to set the 
+
 ## Structure of the repo
 
 - **config**: a collection of scripts for correctly configure this repo. [[README]](config/README.md)
@@ -29,14 +42,37 @@ This repository depends upon the following Software/repositories:
 
 - **utilities**: Simulink models for debugging sensors on the real robot. [[README]](utilities/README.md)
 
-## Installation and usage
+#### Where do I find new features and legacy repos?
 
-If all the required dependencies are correctly installed and configured, it is just necessary to clone this repository on your pc. An alternative is to install this repository through the `robotology-superbuild`. It is required to enable the option `ROBOTOLOGY_ENABLE_DYNAMICS`.
+##### Available controllers 
+
+- [impedance-control](https://github.com/robotology/whole-body-controllers/tree/master/torque-controllers/impedance-control)
+- [momentum-based-standup](https://github.com/robotology/whole-body-controllers/tree/master/torque-controllers/momentum-based-standup)
+- [momentum-based-yoga](https://github.com/robotology/whole-body-controllers/tree/master/torque-controllers/momentum-based-yoga)
+- [utilities](https://github.com/robotology/whole-body-controllers/tree/master/utilities)
+
+##### Matlab functions library
+
+- [matlab library](https://github.com/robotology/whole-body-controllers/tree/master/library/matlab)
+
+##### Active Forks (new features)
+
+- [force-parametrization](https://github.com/ahmadgazar/whole-body-controllers)
+- [PhRI-standup](https://github.com/Yeshasvitvs/wholeBodyControllers)
+- [exploit friction and walking controller](https://github.com/gabrielenava/whole-body-controllers)
+
+##### Legacy
+
+- [seesaw controller and integration-based-ikin](https://github.com/gabrielenava/whole-body-controllers/tree/legacy)
+- [automatic gain tuning](https://github.com/gabrielenava/mex-wholebodymodel/tree/master/controllers/torqueBalancingGainTuning)
+- [elastic joints control](https://github.com/gabrielenava/mex-wholebodymodel/tree/master/controllers/torqueBalancing_JE)
+- Walkman control: https://github.com/gabrielenava/mex-wholebodymodel/tree/master/controllers/torqueBalancingWalkman and https://github.com/gabrielenava/WBI-Toolbox-controllers/tree/walkman
+- [joint-space control and centroidal transformation](https://github.com/gabrielenava/mex-wholebodymodel/tree/master/controllers/torqueBalancingJointControl)
+
+#### Associated repositories
+
+- [idyntree-high-level-wrappers](https://github.com/gabrielenava/idyntree-high-level-wrappers)
 
 ### Mantainers
 
 Gabriele Nava ([@gabrielenava](https://github.com/gabrielenava))
-
-
-
-
