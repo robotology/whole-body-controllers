@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3247"
+    ComputedModelVersion    "1.3249"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -30,7 +30,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [65.0, 24.0, 1855.0, 1056.0]
+      Location		      [65.0, -4.0, 2495.0, 1444.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -54,9 +54,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1821.0, 911.0]
-	ZoomFactor		[1.522413793103448]
-	Offset			[716.93657984144954, 341.80407701019249]
+	Extents			[2457.0, 1267.0]
+	ZoomFactor		[2.1252144082332762]
+	Offset			[736.9406779661017, 344.4124293785311]
       }
     }
   }
@@ -64,12 +64,11 @@ Model {
   Creator		  "daniele"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "icub"
+  LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue May 29 17:04:39 2018"
-  RTWModifiedTimeStamp	  449514278
-  ModelVersionFormat	  "1.%<AutoIncrement:3247>"
-  ConfigurationManager	  "none"
+  LastModifiedDate	  "Thu Aug 02 20:01:56 2018"
+  RTWModifiedTimeStamp	  455140916
+  ModelVersionFormat	  "1.%<AutoIncrement:3249>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -184,7 +183,6 @@ Model {
 	  AbsTol		  "auto"
 	  FixedStep		  "Config.Ts"
 	  InitialStep		  "auto"
-	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -564,17 +562,14 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
-	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
-	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
-	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
@@ -633,7 +628,6 @@ Model {
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
-	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      GenerateSampleERTMain   off
@@ -647,7 +641,6 @@ Model {
 	      CombineOutputUpdateFcns off
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
-	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -690,7 +683,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    [ 75, 71, 1155, 671 ]  
+      ConfigPrmDlgPosition    [ 75, 71, 1155, 671 ]
     }
     PropName		    "ConfigurationSets"
   }
@@ -862,7 +855,6 @@ Model {
     }
     Block {
       BlockType		      M-S-Function
-      FunctionName	      "matlabfile"
       DisplayMFileStacktrace  on
     }
     Block {
@@ -907,6 +899,7 @@ Model {
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
+      OutputWhenUnConnected   off
     }
     Block {
       BlockType		      Product
@@ -987,8 +980,6 @@ Model {
       MaskHideContents	      off
       SFBlockType	      "NONE"
       GeneratePreprocessorConditionals off
-      PropagateVariantConditions off
-      TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
     }
     Block {
@@ -1039,7 +1030,7 @@ Model {
   }
   System {
     Name		    "torqueBalancingStandup_legacy"
-    Location		    [65, 24, 1920, 1080]
+    Location		    [65, -4, 2560, 1440]
     Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1051,7 +1042,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "152"
+    ZoomFactor		    "213"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "5015"
     Block {
@@ -1061,13 +1052,13 @@ Model {
       Ports		      []
       Position		      [845, 590, 920, 620]
       ZOrder		      553
-      LibraryVersion	      "1.602"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
       SourceType	      ""
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
-      RobotName		      "'icubSim'"
+      RobotName		      "'icub'"
       UrdfFile		      "'model.urdf'"
       ControlledJoints	      "{'l_elbow','l_shoulder_pitch','torso_roll'}"
       ControlBoardsNames      "{'left_arm','right_arm','torso'}"
@@ -1094,7 +1085,7 @@ Model {
       }
       System {
 	Name			"Dump and visualize"
-	Location		[65, 24, 1366, 768]
+	Location		[65, 24, 2560, 1440]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1106,7 +1097,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"111"
+	ZoomFactor		"242"
 	Block {
 	  BlockType		  From
 	  Name			  "From"
@@ -1190,7 +1181,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Human assistance"
-	    Location		    [65, 24, 1366, 768]
+	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1202,7 +1193,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "226"
+	    ZoomFactor		    "494"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "state"
@@ -1254,8 +1245,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      off
 	      SaveName		      ScopeData1
-	      YMin		      -10~-5
-	      YMax		      10~5
+	      YMin		      "-10~-5"
+	      YMax		      "10~5"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -1277,7 +1268,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [680 330 1240 750]
+	      Location		      [1000 538 1560 958]
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -1295,8 +1286,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      off
 	      SaveName		      ScopeData2
-	      YMin		      -10~-5
-	      YMax		      10~5
+	      YMin		      "-10~-5"
+	      YMax		      "10~5"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -1318,7 +1309,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [680 330 1240 750]
+	      Location		      [1000 510 1560 930]
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -1335,9 +1326,9 @@ Model {
 	      LimitDataPoints	      off
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
-	      SaveName		      HumanSupport6DForce
-	      YMin		      -10~-5
-	      YMax		      10~5
+	      SaveName		      humanSupport6DForceData
+	      YMin		      "-10~-5"
+	      YMax		      "10~5"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -1359,7 +1350,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [675 333 1245 783]
+	      Location		      [670 724 1250 1204]
 	    }
 	    Line {
 	      ZOrder		      427
@@ -1451,7 +1442,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Robot data"
-	    Location		    [65, 24, 1366, 768]
+	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1463,7 +1454,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "74"
+	    ZoomFactor		    "145"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "tau_des"
@@ -1559,8 +1550,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      comData
-	      YMin		      -0.19126~-0.18642~-0.08704~0.625
-	      YMax		      0.65111~0.69931~0.0213~4.375
+	      YMin		      "-0.19126~-0.18642~-0.08704~0.625"
+	      YMax		      "0.65111~0.69931~0.0213~4.375"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -1584,7 +1575,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [66 78 1921 1079]
+	      Location		      [66 106 1921 1107]
 	    }
 	    Block {
 	      BlockType		      Selector
@@ -1602,8 +1593,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"baseOrientation"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1622,8 +1611,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"basePosition"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1639,14 +1626,10 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_QP"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"wR_QP"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1662,14 +1645,10 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"error_L"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"error_R"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1685,14 +1664,10 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_NO_QP"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"wR_NO_QP"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1702,39 +1677,29 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [355, 19, 450, 121]
 	      ZOrder		      585
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1744,39 +1709,29 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [355, 174, 450, 276]
 	      ZOrder		      586
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1786,39 +1741,29 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [355, 309, 450, 411]
 	      ZOrder		      587
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1828,39 +1773,29 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [1000, 39, 1095, 141]
 	      ZOrder		      588
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1870,39 +1805,29 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [1000, 174, 1095, 276]
 	      ZOrder		      589
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1912,39 +1837,29 @@ Model {
 	      Ports		      [1, 5]
 	      Position		      [1000, 309, 1095, 411]
 	      ZOrder		      590
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/DoFs converter"
 	      SourceType	      "DoFs converter"
 	      yarp2WBIOption	      "From YARP to WBI"
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1991,7 +1906,7 @@ Model {
 	      Position		      [50, 346, 115, 374]
 	      ZOrder		      600
 	      BackgroundColor	      "[0.827500, 0.576500, 0.603900]"
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	      SourceType	      "Get Measurement"
 	      ContentPreviewEnabled   off
@@ -2005,7 +1920,7 @@ Model {
 	      Position		      [710, 76, 780, 104]
 	      ZOrder		      601
 	      BackgroundColor	      "[0.513700, 0.851000, 0.670600]"
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	      SourceType	      "Get Measurement"
 	      ContentPreviewEnabled   off
@@ -2013,8 +1928,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"qj"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2032,8 +1945,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"CoM_Desired"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2052,8 +1963,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torqueError"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2072,8 +1981,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"CoM_Measured"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2120,8 +2027,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      basePoseData
-	      YMin		      -0.24275~-0.24275
-	      YMax		      0.62134~0.62134
+	      YMin		      "-0.24275~-0.24275"
+	      YMax		      "0.62134~0.62134"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -2143,7 +2050,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [640 396 1920 1044]
+	      Location		      [640 424 1920 1072]
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2159,15 +2066,15 @@ Model {
 	      ShowLegends	      off
 	      LimitDataPoints	      off
 	      MaxDataPoints	      5000
-	      SaveToWorkspace	      off
-	      SaveName		      ScopeData2
-	      YMin		      -58.62138~-58.62138~-58.62138~-58.62138~-58.62138~-58.62138~-58.62138
-	      YMax		      275.46472~275.46472~275.46472~275.46472~275.46472~275.46472~275.46472
+	      SaveToWorkspace	      on
+	      SaveName		      feetForcesData
+	      YMin		      "-58.62138~-58.62138~-58.62138~-58.62138~-58.62138~-58.62138~-58.62138"
+	      YMax		      "275.46472~275.46472~275.46472~275.46472~275.46472~275.46472~275.46472"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
 	      Grid		      on
-	      DataFormat	      Array
+	      DataFormat	      StructureWithTime
 	      Decimation	      1
 	      List {
 		ListType		AxesTitles
@@ -2189,7 +2096,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [56 123 1336 771]
+	      Location		      [76 151 1356 799]
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2208,8 +2115,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      jointData
-	      YMin		      -27.84492~-27.84492~-27.84492~-27.84492~-27.84492~-27.84492
-	      YMax		      29.50386~29.50386~29.50386~29.50386~29.50386~29.50386
+	      YMin		      "-27.84492~-27.84492~-27.84492~-27.84492~-27.84492~-27.84492"
+	      YMax		      "29.50386~29.50386~29.50386~29.50386~29.50386~29.50386"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -2235,7 +2142,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [56 78 1367 767]
+	      Location		      [76 116 1387 805]
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2254,8 +2161,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      jointDesiredData
-	      YMin		      -30.77436~-30.77436~-30.77436~-30.77436~-30.77436~-30.77436
-	      YMax		      32.14439~32.14439~32.14439~32.14439~32.14439~32.14439
+	      YMin		      "-30.77436~-30.77436~-30.77436~-30.77436~-30.77436~-30.77436"
+	      YMax		      "32.14439~32.14439~32.14439~32.14439~32.14439~32.14439"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -2281,7 +2188,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [1 95 1709 986]
+	      Location		      [71 126 1789 1047]
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2299,8 +2206,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      jointErrorData
-	      YMin		      -35.04513~-17.018~-14.7238~-49.66887~-49.19464~0.625
-	      YMax		      5.70055~13.97901~13.09087~60.79298~53.42299~4.375
+	      YMin		      "-35.04513~-17.018~-14.7238~-49.66887~-49.19464~0.625"
+	      YMax		      "5.70055~13.97901~13.09087~60.79298~53.42299~4.375"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -2326,7 +2233,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [314 360 1594 1008]
+	      Location		      [314 388 1594 1036]
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2344,8 +2251,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      tauDesiredData
-	      YMin		      -33.67172~-6.75276~-6.40163~-33.97622~-32.54104~0.625
-	      YMax		      5.99981~2.69995~2.26579~27.17621~23.941~4.375
+	      YMin		      "-33.67172~-6.75276~-6.40163~-33.97622~-32.54104~0.625"
+	      YMax		      "5.99981~2.69995~2.26579~27.17621~23.941~4.375"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -2389,8 +2296,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      tauErrorData
-	      YMin		      -2.83014~-2.95269~-2.4544~-82.79251~-82.65526~1.00000
-	      YMax		      24.89482~2.14822~2.02082~54.75895~54.92062~3.00000
+	      YMin		      "-2.83014~-2.95269~-2.4544~-82.79251~-82.65526~1.00000"
+	      YMax		      "24.89482~2.14822~2.02082~54.75895~54.92062~3.00000"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -2416,7 +2323,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [66 134 1346 767]
+	      Location		      [76 162 1356 795]
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2434,8 +2341,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      tauMeasuredData
-	      YMin		      -2.46024~-3.39272~-3.27773~-5.7445~-5.79418~1.00000
-	      YMax		      0.43372~2.74619~2.17409~2.80564~2.76133~3.00000
+	      YMin		      "-2.46024~-3.39272~-3.27773~-5.7445~-5.79418~1.00000"
+	      YMax		      "0.43372~2.74619~2.17409~2.80564~2.76133~3.00000"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -2461,7 +2368,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [56 123 1336 823]
+	      Location		      [76 151 1356 851]
 	    }
 	    Line {
 	      ZOrder		      391
@@ -3195,7 +3102,7 @@ Model {
       Variant		      off
       System {
 	Name			"Dynamics and Kinematics"
-	Location		[65, 24, 1366, 768]
+	Location		[65, 24, 2560, 1440]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -3207,7 +3114,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"93"
+	ZoomFactor		"203"
 	Block {
 	  BlockType		  Inport
 	  Name			  "w_H_b"
@@ -3254,7 +3161,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Dynamics"
-	    Location		    [65, 24, 1366, 768]
+	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -3266,7 +3173,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "167"
+	    ZoomFactor		    "328"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "w_H_b"
@@ -3353,7 +3260,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "37"
+		    SIDHighWatermark	    "40"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "M"
@@ -3365,38 +3272,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4985::36"
+		    SID			    "4985::39"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    26
+		    ZOrder		    29
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4985::35"
+		    SID			    "4985::38"
 		    Tag			    "Stateflow S-Function torqueBalancingStandup_legacy 6"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    25
+		    ZOrder		    28
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    Port {
 		    PortNumber		    2
 		    Name		    "M_with_inertia"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4985::37"
+		    SID			    "4985::40"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    27
+		    ZOrder		    30
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -3407,7 +3312,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    21
+		    ZOrder		    25
 		    SrcBlock		    "M"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -3415,7 +3320,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "M_with_inertia"
-		    ZOrder		    22
+		    ZOrder		    26
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -3423,14 +3328,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    23
+		    ZOrder		    27
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    24
+		    ZOrder		    28
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -3469,7 +3374,7 @@ Model {
 	      Ports		      [4, 1]
 	      Position		      [370, 281, 555, 344]
 	      ZOrder		      223
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
 	      SourceType	      "Centroidal Momentum"
 	      ContentPreviewEnabled   off
@@ -3507,7 +3412,7 @@ Model {
 	      Ports		      [4, 1]
 	      Position		      [395, 132, 535, 233]
 	      ZOrder		      222
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Bias Forces"
 	      SourceType	      "Get Generalized Bias Forces"
 	      ContentPreviewEnabled   off
@@ -3519,7 +3424,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [395, 19, 535, 86]
 	      ZOrder		      221
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 	      SourceType	      "Mass Matrix"
 	      ContentPreviewEnabled   off
@@ -3694,7 +3599,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Kinematics"
-	    Location		    [65, 24, 1366, 768]
+	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -3706,7 +3611,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "98"
+	    ZoomFactor		    "214"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "nu"
@@ -3791,7 +3696,7 @@ Model {
 		  Position		  [1260, 645, 1420, 685]
 		  ZOrder		  827
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -3805,7 +3710,7 @@ Model {
 		  Position		  [1260, 590, 1420, 630]
 		  ZOrder		  828
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -3987,7 +3892,7 @@ Model {
 		  Ports			  [4, 1]
 		  Position		  [590, 334, 735, 376]
 		  ZOrder		  568
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
 		  ContentPreviewEnabled	  off
@@ -4000,7 +3905,7 @@ Model {
 		  Ports			  [4, 1]
 		  Position		  [590, 384, 735, 426]
 		  ZOrder		  547
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
 		  ContentPreviewEnabled	  off
@@ -4014,7 +3919,7 @@ Model {
 		  Position		  [590, 504, 735, 546]
 		  ZOrder		  545
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
 		  ContentPreviewEnabled	  off
@@ -4028,7 +3933,7 @@ Model {
 		  Position		  [590, 454, 735, 496]
 		  ZOrder		  566
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 		  SourceType		  "DotJ Nu"
 		  ContentPreviewEnabled	  off
@@ -4042,7 +3947,7 @@ Model {
 		  Position		  [580, 215, 740, 250]
 		  ZOrder		  573
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -4056,7 +3961,7 @@ Model {
 		  Position		  [580, 165, 740, 200]
 		  ZOrder		  565
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -4070,7 +3975,7 @@ Model {
 		  Position		  [580, 91, 740, 129]
 		  ZOrder		  546
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -4084,7 +3989,7 @@ Model {
 		  Position		  [580, 41, 740, 79]
 		  ZOrder		  574
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -4164,7 +4069,7 @@ Model {
 		  Position		  [170, 250, 330, 290]
 		  ZOrder		  571
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -4178,7 +4083,7 @@ Model {
 		  Position		  [170, 200, 330, 240]
 		  ZOrder		  563
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -4192,7 +4097,7 @@ Model {
 		  Position		  [170, 135, 330, 175]
 		  ZOrder		  543
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -4206,7 +4111,7 @@ Model {
 		  Position		  [170, 85, 330, 125]
 		  ZOrder		  570
 		  ShowName		  off
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -4731,7 +4636,7 @@ Model {
 	      Position		      [105, 210, 270, 250]
 	      ZOrder		      835
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	      SourceType	      "Jacobian"
 	      ContentPreviewEnabled   off
@@ -4766,7 +4671,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"4521"
+		SIDHighWatermark	"4524"
 		Block {
 		  BlockType		  Inport
 		  Name			  "icubStandup"
@@ -4787,37 +4692,35 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "4875::4520"
+		  SID			  "4875::4523"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  33
+		  ZOrder		  36
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "4875::4519"
+		  SID			  "4875::4522"
 		  Tag			  "Stateflow S-Function torqueBalancingStandup_legacy 9"
 		  Ports			  [2, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  32
+		  ZOrder		  35
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[2 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "legsInContact"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "4875::4521"
+		  SID			  "4875::4524"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  34
+		  ZOrder		  37
 		}
 		Block {
 		  BlockType		  Outport
@@ -4828,7 +4731,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  26
+		  ZOrder		  31
 		  SrcBlock		  "icubStandup"
 		  SrcPort		  1
 		  Points		  [120, 0]
@@ -4836,7 +4739,7 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  27
+		  ZOrder		  32
 		  SrcBlock		  "state"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -4844,7 +4747,7 @@ Model {
 		}
 		Line {
 		  Name			  "legsInContact"
-		  ZOrder		  28
+		  ZOrder		  33
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4852,14 +4755,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  29
+		  ZOrder		  34
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  30
+		  ZOrder		  35
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -4917,7 +4820,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [110, 230, 275, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -5579,7 +5482,7 @@ Model {
       Variant		      off
       System {
 	Name			"Robot State and References"
-	Location		[65, 24, 1920, 1080]
+	Location		[65, -4, 2560, 1440]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -5591,7 +5494,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"125"
+	ZoomFactor		"170"
 	Block {
 	  BlockType		  Reference
 	  Name			  "Compare\nTo Zero"
@@ -5600,7 +5503,7 @@ Model {
 	  Position		  [-280, 2850, -250, 2880]
 	  ZOrder		  613
 	  ShowName		  off
-	  LibraryVersion	  "1.388"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
 	  SourceType		  "Compare To Zero"
 	  ContentPreviewEnabled	  off
@@ -5616,7 +5519,7 @@ Model {
 	  Position		  [-280, 2580, -250, 2610]
 	  ZOrder		  614
 	  ShowName		  off
-	  LibraryVersion	  "1.388"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
 	  SourceType		  "Compare To Zero"
 	  ContentPreviewEnabled	  off
@@ -5654,7 +5557,7 @@ Model {
 	  Position		  [-445, 2581, -385, 2609]
 	  ZOrder		  605
 	  ShowName		  off
-	  LibraryVersion	  "1.388"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
 	  SourceType		  "Bitwise Operator"
 	  logicop		  "AND"
@@ -5671,7 +5574,7 @@ Model {
 	  Position		  [-450, 2706, -380, 2734]
 	  ZOrder		  868
 	  BackgroundColor	  "[0.513700, 0.851000, 0.670600]"
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	  SourceType		  "Get Measurement"
 	  ContentPreviewEnabled	  off
@@ -5878,7 +5781,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 25, 740, 85]
 		    ZOrder		    729
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -5891,7 +5794,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 190, 740, 250]
 		    ZOrder		    737
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -5913,8 +5816,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -5933,8 +5834,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -5945,7 +5844,7 @@ Model {
 		    Position		    [980, 308, 1055, 332]
 		    ZOrder		    742
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "Ports.NECK_POS"
@@ -6006,7 +5905,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3752"
+		    SIDHighWatermark	    "3755"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -6064,38 +5963,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4059::3751"
+		    SID			    "4059::3754"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    151
+		    ZOrder		    154
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4059::3750"
+		    SID			    "4059::3753"
 		    Tag			    "Stateflow S-Function torqueBalancingStandup_legacy 2"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    150
+		    ZOrder		    153
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4059::3752"
+		    SID			    "4059::3755"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    152
+		    ZOrder		    155
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -6106,42 +6003,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    82
+		    ZOrder		    91
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    83
+		    ZOrder		    92
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    84
+		    ZOrder		    93
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    85
+		    ZOrder		    94
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    86
+		    ZOrder		    95
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    87
+		    ZOrder		    96
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -6149,7 +6046,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    88
+		    ZOrder		    97
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -6157,14 +6054,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    89
+		    ZOrder		    98
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    90
+		    ZOrder		    99
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -6181,7 +6078,7 @@ Model {
 		    ZOrder		    739
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -6195,7 +6092,7 @@ Model {
 		    ZOrder		    740
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -6269,8 +6166,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -6536,7 +6431,7 @@ Model {
 		  Position		  [490, -73, 655, -42]
 		  ZOrder		  725
 		  NamePlacement		  "alternate"
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -6549,7 +6444,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [485, -33, 655, 3]
 		  ZOrder		  896
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -6754,7 +6649,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3761"
+		    SIDHighWatermark	    "3764"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "J_LeftFoot"
@@ -6793,38 +6688,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4090::3760"
+		    SID			    "4090::3763"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    129
+		    ZOrder		    132
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4090::3759"
+		    SID			    "4090::3762"
 		    Tag			    "Stateflow S-Function torqueBalancingStandup_legacy 5"
 		    Ports		    [4, 2]
 		    Position		    [180, 102, 230, 203]
-		    ZOrder		    128
+		    ZOrder		    131
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Reg"
 		    PortCounts		    "[4 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    Port {
 		    PortNumber		    2
 		    Name		    "nu_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4090::3761"
+		    SID			    "4090::3764"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    130
+		    ZOrder		    133
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -6835,28 +6728,28 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    64
+		    ZOrder		    71
 		    SrcBlock		    "J_LeftFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    65
+		    ZOrder		    72
 		    SrcBlock		    "J_RightFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    66
+		    ZOrder		    73
 		    SrcBlock		    "feetInContact"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    67
+		    ZOrder		    74
 		    SrcBlock		    "qjDot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -6864,7 +6757,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "nu_b"
-		    ZOrder		    68
+		    ZOrder		    75
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -6872,14 +6765,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    69
+		    ZOrder		    76
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    70
+		    ZOrder		    77
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -6935,7 +6828,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [745, 475, 905, 530]
 		    ZOrder		    687
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -6948,7 +6841,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [745, 565, 905, 620]
 		    ZOrder		    688
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -7029,7 +6922,7 @@ Model {
 		  Position		  [215, -99, 285, -71]
 		  ZOrder		  869
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 		  SourceType		  "Get Measurement"
 		  ContentPreviewEnabled	  off
@@ -7192,7 +7085,7 @@ Model {
 	      Position		      [-560, 303, -510, 317]
 	      ZOrder		      679
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.IMU"
@@ -7244,7 +7137,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3737"
+		SIDHighWatermark	"3740"
 		Block {
 		  BlockType		  Inport
 		  Name			  "pos_CoM_0"
@@ -7265,38 +7158,36 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "2134::3736"
+		  SID			  "2134::3739"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  139
+		  ZOrder		  142
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "2134::3735"
+		  SID			  "2134::3738"
 		  Tag			  "Stateflow S-Function torqueBalancingStandup_legacy 10"
 		  Ports			  [2, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  138
+		  ZOrder		  141
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Config"
 		  PortCounts		  "[2 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "references_CoM"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "2134::3737"
+		  SID			  "2134::3740"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  140
+		  ZOrder		  143
 		}
 		Block {
 		  BlockType		  Outport
@@ -7307,7 +7198,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  46
+		  ZOrder		  51
 		  SrcBlock		  "pos_CoM_0"
 		  SrcPort		  1
 		  Points		  [120, 0]
@@ -7315,7 +7206,7 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  47
+		  ZOrder		  52
 		  SrcBlock		  "t"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -7323,7 +7214,7 @@ Model {
 		}
 		Line {
 		  Name			  "references_CoM"
-		  ZOrder		  48
+		  ZOrder		  53
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -7331,14 +7222,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  49
+		  ZOrder		  54
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  50
+		  ZOrder		  55
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -7376,7 +7267,7 @@ Model {
 	      ZOrder		      577
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -7390,7 +7281,7 @@ Model {
 	      ZOrder		      579
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -7454,7 +7345,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [110, 230, 275, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -7868,7 +7759,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Select State and References"
-	    Location		    [65, 24, 1920, 1080]
+	    Location		    [65, -4, 2560, 1440]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -7880,7 +7771,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "114"
+	    ZoomFactor		    "160"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "StateAndReferences"
@@ -7902,38 +7793,26 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"CoMDes"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"qDes"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"state"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		6
 		Name			"nu"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		7
 		Name			"qj"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		8
 		Name			"smoothingTimeMinJerkComDesQDes"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -7956,7 +7835,7 @@ Model {
 	      Position		      [640, 115, 780, 155]
 	      ZOrder		      598
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    on
@@ -7975,7 +7854,7 @@ Model {
 	      Position		      [755, -10, 905, 30]
 	      ZOrder		      597
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    on
@@ -8103,7 +7982,7 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"Visualize Gain Tuning  "
-		Location		[65, 24, 1366, 768]
+		Location		[65, -4, 2560, 1440]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -8115,7 +7994,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"97"
+		ZoomFactor		"211"
 		Block {
 		  BlockType		  Inport
 		  Name			  "smoothingTimeComAndJoints"
@@ -8127,8 +8006,6 @@ Model {
 		    PortNumber		    1
 		    Name		    "smoothingTimeComAndJoints"
 		    PropagatedSignals	    "smoothingTimeMinJerkComDesQDes"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8142,8 +8019,6 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "Left right foot in contact"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8167,8 +8042,6 @@ Model {
 		    PortNumber		    1
 		    Name		    "state"
 		    PropagatedSignals	    "state"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8201,14 +8074,10 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "vb"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "wb"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8218,39 +8087,29 @@ Model {
 		  Ports			  [1, 5]
 		  Position		  [500, 244, 595, 346]
 		  ZOrder		  659
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 		  SourceType		  "DoFs converter"
 		  yarp2WBIOption	  "From YARP to WBI"
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8260,39 +8119,29 @@ Model {
 		  Ports			  [1, 5]
 		  Position		  [500, 514, 595, 616]
 		  ZOrder		  660
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 		  SourceType		  "DoFs converter"
 		  yarp2WBIOption	  "From YARP to WBI"
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -8335,8 +8184,8 @@ Model {
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  off
 		  SaveName		  ScopeData3
-		  YMin			  8.75~7.75~7.75~3.75~-1.00000~1.00000
-		  YMax			  21.25~10.25~10.25~66.25~1.00000~3.00000
+		  YMin			  "8.75~7.75~7.75~3.75~-1.00000~1.00000"
+		  YMax			  "21.25~10.25~10.25~66.25~1.00000~3.00000"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -8362,7 +8211,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [56 78 1367 767]
+		  Location		  [76 116 1387 805]
 		}
 		Block {
 		  BlockType		  Scope
@@ -8402,7 +8251,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [1000 510 1560 930]
+		  Location		  [1000 538 1560 958]
 		}
 		Block {
 		  BlockType		  Selector
@@ -8446,8 +8295,8 @@ Model {
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  off
 		  SaveName		  ScopeData4
-		  YMin			  -0.375~-0.375
-		  YMax			  13.375~13.375
+		  YMin			  "-0.375~-0.375"
+		  YMax			  "13.375~13.375"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -8469,7 +8318,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [179 455 1300 1435]
+		  Location		  [179 459 1300 1439]
 		}
 		Block {
 		  BlockType		  Scope
@@ -8487,8 +8336,8 @@ Model {
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
 		  SaveName		  baseVelocityData
-		  YMin			  -0.04416~-0.04416~-0.04416
-		  YMax			  0.05054~0.05054~0.05054
+		  YMin			  "-0.04416~-0.04416~-0.04416"
+		  YMax			  "0.05054~0.05054~0.05054"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -8511,7 +8360,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [1 455 1921 1435]
+		  Location		  [66 459 1986 1439]
 		}
 		Block {
 		  BlockType		  Scope
@@ -8529,8 +8378,8 @@ Model {
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
 		  SaveName		  jointVelocitiesData
-		  YMin			  -20.50153~-20.50153~-20.50153~-20.50153~-20.50153~-20.50153
-		  YMax			  20.29706~20.29706~20.29706~20.29706~20.29706~20.29706
+		  YMin			  "-20.50153~-20.50153~-20.50153~-20.50153~-20.50153~-20.50153"
+		  YMax			  "20.29706~20.29706~20.29706~20.29706~20.29706~20.29706"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -8556,7 +8405,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [384 319 2304 1299]
+		  Location		  [384 347 2304 1327]
 		}
 		Line {
 		  Name			  "state"
@@ -9209,7 +9058,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "State Machine Standup"
-	    Location		    [65, 24, 1366, 768]
+	    Location		    [65, -4, 2560, 1440]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -9221,7 +9070,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "93"
+	    ZoomFactor		    "184"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "jointAngles"
@@ -9335,7 +9184,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3761"
+		    SIDHighWatermark	    "3764"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "J_LeftFixedLink"
@@ -9374,38 +9223,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4215::3760"
+		    SID			    "4215::3763"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    129
+		    ZOrder		    132
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4215::3759"
+		    SID			    "4215::3762"
 		    Tag			    "Stateflow S-Function torqueBalancingStandup_legacy 7"
 		    Ports		    [4, 2]
 		    Position		    [180, 102, 230, 203]
-		    ZOrder		    128
+		    ZOrder		    131
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Reg"
 		    PortCounts		    "[4 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    Port {
 		    PortNumber		    2
 		    Name		    "nu_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4215::3761"
+		    SID			    "4215::3764"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    130
+		    ZOrder		    133
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -9416,28 +9263,28 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    64
+		    ZOrder		    71
 		    SrcBlock		    "J_LeftFixedLink"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    65
+		    ZOrder		    72
 		    SrcBlock		    "J_RightFixedLink"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    66
+		    ZOrder		    73
 		    SrcBlock		    "feetInContact"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    67
+		    ZOrder		    74
 		    SrcBlock		    "qjDot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -9445,7 +9292,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "nu_b"
-		    ZOrder		    68
+		    ZOrder		    75
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -9453,14 +9300,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    69
+		    ZOrder		    76
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    70
+		    ZOrder		    77
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -9525,7 +9372,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [240, 240, 400, 280]
 		    ZOrder		    756
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -9538,7 +9385,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [235, 360, 395, 400]
 		    ZOrder		    755
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -9551,7 +9398,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [235, 410, 395, 450]
 		    ZOrder		    757
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -9564,7 +9411,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [240, 290, 395, 330]
 		    ZOrder		    754
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
 		    ContentPreviewEnabled   off
@@ -9608,7 +9455,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "4521"
+		    SIDHighWatermark	    "4524"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "icubStandup"
@@ -9629,37 +9476,35 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4804::4520"
+		    SID			    "4804::4523"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    33
+		    ZOrder		    36
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4804::4519"
+		    SID			    "4804::4522"
 		    Tag			    "Stateflow S-Function torqueBalancingStandup_legacy 14"
 		    Ports		    [2, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    32
+		    ZOrder		    35
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[2 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    Port {
 		    PortNumber		    2
 		    Name		    "legsInContact"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4804::4521"
+		    SID			    "4804::4524"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    34
+		    ZOrder		    37
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -9670,7 +9515,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    26
+		    ZOrder		    31
 		    SrcBlock		    "icubStandup"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -9678,7 +9523,7 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    27
+		    ZOrder		    32
 		    SrcBlock		    "state"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -9686,7 +9531,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "legsInContact"
-		    ZOrder		    28
+		    ZOrder		    33
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -9694,14 +9539,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    29
+		    ZOrder		    34
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    30
+		    ZOrder		    35
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -9898,7 +9743,7 @@ Model {
 		  Position		  [655, -354, 725, -326]
 		  ZOrder		  869
 		  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 		  SourceType		  "Get Measurement"
 		  ContentPreviewEnabled	  off
@@ -10116,7 +9961,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 25, 740, 85]
 		    ZOrder		    729
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10129,7 +9974,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 190, 740, 250]
 		    ZOrder		    737
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10151,8 +9996,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10171,8 +10014,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10183,7 +10024,7 @@ Model {
 		    Position		    [980, 308, 1055, 332]
 		    ZOrder		    742
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "Ports.NECK_POS"
@@ -10244,7 +10085,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3752"
+		    SIDHighWatermark	    "3755"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -10302,38 +10143,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4257::3751"
+		    SID			    "4257::3754"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    151
+		    ZOrder		    154
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4257::3750"
+		    SID			    "4257::3753"
 		    Tag			    "Stateflow S-Function torqueBalancingStandup_legacy 8"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    150
+		    ZOrder		    153
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4257::3752"
+		    SID			    "4257::3755"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    152
+		    ZOrder		    155
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -10344,42 +10183,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    82
+		    ZOrder		    91
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    83
+		    ZOrder		    92
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    84
+		    ZOrder		    93
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    85
+		    ZOrder		    94
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    86
+		    ZOrder		    95
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    87
+		    ZOrder		    96
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -10387,7 +10226,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    88
+		    ZOrder		    97
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -10395,14 +10234,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    89
+		    ZOrder		    98
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    90
+		    ZOrder		    99
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -10419,7 +10258,7 @@ Model {
 		    ZOrder		    739
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -10433,7 +10272,7 @@ Model {
 		    ZOrder		    740
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -10507,8 +10346,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10773,7 +10610,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [165, 22, 330, 53]
 		  ZOrder		  894
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -10845,7 +10682,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 25, 740, 85]
 		    ZOrder		    729
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10858,7 +10695,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 190, 740, 250]
 		    ZOrder		    737
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -10880,8 +10717,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10900,8 +10735,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10912,7 +10745,7 @@ Model {
 		    Position		    [980, 308, 1055, 332]
 		    ZOrder		    742
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "Ports.NECK_POS"
@@ -10973,7 +10806,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3752"
+		    SIDHighWatermark	    "3755"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -11031,38 +10864,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4282::3751"
+		    SID			    "4282::3754"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    151
+		    ZOrder		    154
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4282::3750"
+		    SID			    "4282::3753"
 		    Tag			    "Stateflow S-Function torqueBalancingStandup_legacy 3"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    150
+		    ZOrder		    153
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4282::3752"
+		    SID			    "4282::3755"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    152
+		    ZOrder		    155
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -11073,42 +10904,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    82
+		    ZOrder		    91
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    83
+		    ZOrder		    92
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    84
+		    ZOrder		    93
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    85
+		    ZOrder		    94
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    86
+		    ZOrder		    95
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    87
+		    ZOrder		    96
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -11116,7 +10947,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    88
+		    ZOrder		    97
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -11124,14 +10955,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    89
+		    ZOrder		    98
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    90
+		    ZOrder		    99
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -11148,7 +10979,7 @@ Model {
 		    ZOrder		    739
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -11162,7 +10993,7 @@ Model {
 		    ZOrder		    740
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -11236,8 +11067,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -11502,7 +11331,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [165, 107, 330, 138]
 		  ZOrder		  899
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -11679,7 +11508,7 @@ Model {
 	      Position		      [405, 320, 505, 340]
 	      ZOrder		      594
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
 	      externalSettlingTime    off
@@ -11759,7 +11588,7 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"Visualise extrnal wrenches"
-		Location		[65, 24, 1366, 768]
+		Location		[65, -4, 2560, 1440]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -11771,7 +11600,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"97"
+		ZoomFactor		"213"
 		Block {
 		  BlockType		  Inport
 		  Name			  "wL_arm"
@@ -11801,8 +11630,6 @@ Model {
 		    PortNumber		    1
 		    Name		    "wL_WBDT"
 		    PropagatedSignals	    "state"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -11816,8 +11643,6 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "wR_WBDT"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -11865,7 +11690,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "4523"
+		    SIDHighWatermark	    "4526"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "state"
@@ -11877,56 +11702,48 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4536::4522"
+		    SID			    "4536::4525"
 		    Ports		    [1, 1]
 		    Position		    [270, 280, 320, 320]
-		    ZOrder		    36
+		    ZOrder		    39
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4536::4521"
+		    SID			    "4536::4524"
 		    Tag			    "Stateflow S-Function torqueBalancingStandup_legacy 37"
 		    Ports		    [1, 5]
 		    Position		    [180, 100, 230, 220]
-		    ZOrder		    35
+		    ZOrder		    38
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Sm"
 		    PortCounts		    "[1 5]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    Port {
 		    PortNumber		    2
 		    Name		    "thresholdContactLeftHand"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    3
 		    Name		    "thresholdContactRightHand"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    4
 		    Name		    "thresholdContactLeftFoot"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    Port {
 		    PortNumber		    5
 		    Name		    "thresholdContactRightFoot"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4536::4523"
+		    SID			    "4536::4526"
 		    Position		    [460, 291, 480, 309]
-		    ZOrder		    37
+		    ZOrder		    40
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -11964,7 +11781,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    61
+		    ZOrder		    68
 		    SrcBlock		    "state"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -11972,7 +11789,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "thresholdContactLeftHand"
-		    ZOrder		    62
+		    ZOrder		    69
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -11982,7 +11799,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "thresholdContactRightHand"
-		    ZOrder		    63
+		    ZOrder		    70
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    3
@@ -11991,7 +11808,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "thresholdContactLeftFoot"
-		    ZOrder		    64
+		    ZOrder		    71
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    4
@@ -12000,7 +11817,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "thresholdContactRightFoot"
-		    ZOrder		    65
+		    ZOrder		    72
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    5
@@ -12008,14 +11825,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    66
+		    ZOrder		    73
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    67
+		    ZOrder		    74
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -12066,9 +11883,9 @@ Model {
 		  LimitDataPoints	  off
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
-		  SaveName		  LArmExtWrench
-		  YMin			  -21.838~-0.9375~0.625
-		  YMax			  22.3485~8.4375~4.375
+		  SaveName		  lArmExtWrenchData
+		  YMin			  "-21.838~-0.9375~0.625"
+		  YMax			  "22.3485~8.4375~4.375"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -12091,7 +11908,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [1 95 1281 743]
+		  Location		  [66 106 1356 784]
 		}
 		Block {
 		  BlockType		  Scope
@@ -12108,9 +11925,9 @@ Model {
 		  LimitDataPoints	  off
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
-		  SaveName		  LLegExtWrench
-		  YMin			  -31.08193~-16.25~0.75
-		  YMax			  201.0836~146.25~3.25
+		  SaveName		  leftFootExtWrenchData
+		  YMin			  "-31.08193~-16.25~0.75"
+		  YMax			  "201.0836~146.25~3.25"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -12133,7 +11950,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [225 199 2080 1172]
+		  Location		  [225 255 2080 1228]
 		}
 		Block {
 		  BlockType		  Scope
@@ -12150,9 +11967,9 @@ Model {
 		  LimitDataPoints	  off
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
-		  SaveName		  RArmExtWrench
-		  YMin			  -5.06473~-1.25~0.625
-		  YMax			  4.14076~11.25~4.375
+		  SaveName		  rArmExtWrenchData
+		  YMin			  "-5.06473~-1.25~0.625"
+		  YMax			  "4.14076~11.25~4.375"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -12175,7 +11992,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [66 78 1921 1079]
+		  Location		  [66 106 1931 1137]
 		}
 		Block {
 		  BlockType		  Scope
@@ -12192,9 +12009,9 @@ Model {
 		  LimitDataPoints	  off
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
-		  SaveName		  RLegExtWrench
-		  YMin			  57.93316~-16.25~0.75
-		  YMax			  99.89127~146.25~3.25
+		  SaveName		  rightFootExtWrenchData
+		  YMin			  "57.93316~-16.25~0.75"
+		  YMax			  "99.89127~146.25~3.25"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -12217,7 +12034,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [66 78 1921 1079]
+		  Location		  [66 106 1931 1137]
 		}
 		Block {
 		  BlockType		  Scope
@@ -12233,10 +12050,10 @@ Model {
 		  ShowLegends		  on
 		  LimitDataPoints	  off
 		  MaxDataPoints		  5000
-		  SaveToWorkspace	  on
+		  SaveToWorkspace	  off
 		  SaveName		  sumExtLegForces
-		  YMin			  158.14122~-35.00000~0.625
-		  YMax			  214.16568~315.00000~4.375
+		  YMin			  "158.14122~-35.00000~0.625"
+		  YMax			  "214.16568~315.00000~4.375"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -12259,7 +12076,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [132 276 1987 1249]
+		  Location		  [132 304 1987 1277]
 		}
 		Line {
 		  Name			  "wR_WBDT"
@@ -12439,7 +12256,7 @@ Model {
 	      ZOrder		      583
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -12453,7 +12270,7 @@ Model {
 	      ZOrder		      584
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -12466,7 +12283,7 @@ Model {
 	      Position		      [-460, 388, -410, 402]
 	      ZOrder		      654
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.IMU"
@@ -12486,7 +12303,7 @@ Model {
 	      ZOrder		      944
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.WBD_LEFTLEG_EE"
@@ -12499,8 +12316,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_WBDT"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -12512,7 +12327,7 @@ Model {
 	      ZOrder		      950
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.RIGHT_ARM"
@@ -12525,8 +12340,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wR_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -12538,7 +12351,7 @@ Model {
 	      ZOrder		      951
 	      ForegroundColor	      "[0.666667, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.LEFT_ARM"
@@ -12551,8 +12364,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -12564,7 +12375,7 @@ Model {
 	      ZOrder		      945
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.WBD_RIGHTLEG_EE"
@@ -12577,8 +12388,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wR_WBDT"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -12600,8 +12409,6 @@ Model {
 		PortNumber		2
 		Name			"constraintsSmooth"
 		PropagatedSignals	"constraints"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      System {
 		Name			"stateMachineStandupFCN"
@@ -12618,7 +12425,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3738"
+		SIDHighWatermark	"3741"
 		SIDPrevWatermark	"9"
 		Block {
 		  BlockType		  Inport
@@ -12721,86 +12528,68 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "2220::3737"
+		  SID			  "2220::3740"
 		  Ports			  [1, 1]
 		  Position		  [270, 460, 320, 500]
-		  ZOrder		  136
+		  ZOrder		  139
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "2220::3736"
+		  SID			  "2220::3739"
 		  Tag			  "Stateflow S-Function torqueBalancingStandup_legacy 13"
 		  Ports			  [11, 10]
 		  Position		  [180, 95, 230, 335]
-		  ZOrder		  135
+		  ZOrder		  138
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Gain,Sm"
 		  PortCounts		  "[11 10]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "constraints"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "CoM_des"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "qj_des"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    6
 		    Name		    "impedances"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    7
 		    Name		    "KPCoM"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    8
 		    Name		    "KDCoM"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    9
 		    Name		    "currentState"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    10
 		    Name		    "jointsAndCoMSmoothingTime"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "2220::3738"
+		  SID			  "2220::3741"
 		  Position		  [460, 471, 480, 489]
-		  ZOrder		  137
+		  ZOrder		  140
 		}
 		Block {
 		  BlockType		  Outport
@@ -12883,77 +12672,77 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  366
+		  ZOrder		  388
 		  SrcBlock		  "wrench_rightFoot"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  367
+		  ZOrder		  389
 		  SrcBlock		  "wrench_leftFoot"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  368
+		  ZOrder		  390
 		  SrcBlock		  "wrench_leftHand"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  369
+		  ZOrder		  391
 		  SrcBlock		  "wrench_rightHand"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  4
 		}
 		Line {
-		  ZOrder		  370
+		  ZOrder		  392
 		  SrcBlock		  "xCoM_0"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  5
 		}
 		Line {
-		  ZOrder		  371
+		  ZOrder		  393
 		  SrcBlock		  "qj_0"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  6
 		}
 		Line {
-		  ZOrder		  372
+		  ZOrder		  394
 		  SrcBlock		  "xCoM"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  7
 		}
 		Line {
-		  ZOrder		  373
+		  ZOrder		  395
 		  SrcBlock		  "l_sole_H_b"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  8
 		}
 		Line {
-		  ZOrder		  374
+		  ZOrder		  396
 		  SrcBlock		  "l_upper_leg_contact_H_b"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  9
 		}
 		Line {
-		  ZOrder		  375
+		  ZOrder		  397
 		  SrcBlock		  "t"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  10
 		}
 		Line {
-		  ZOrder		  376
+		  ZOrder		  398
 		  SrcBlock		  "STANDUP_WITH_HUMAN"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -12961,7 +12750,7 @@ Model {
 		}
 		Line {
 		  Name			  "w_H_b"
-		  ZOrder		  377
+		  ZOrder		  399
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -12970,7 +12759,7 @@ Model {
 		}
 		Line {
 		  Name			  "constraints"
-		  ZOrder		  378
+		  ZOrder		  400
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  3
@@ -12979,7 +12768,7 @@ Model {
 		}
 		Line {
 		  Name			  "CoM_des"
-		  ZOrder		  379
+		  ZOrder		  401
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  4
@@ -12988,7 +12777,7 @@ Model {
 		}
 		Line {
 		  Name			  "qj_des"
-		  ZOrder		  380
+		  ZOrder		  402
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  5
@@ -12997,7 +12786,7 @@ Model {
 		}
 		Line {
 		  Name			  "impedances"
-		  ZOrder		  381
+		  ZOrder		  403
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  6
@@ -13006,7 +12795,7 @@ Model {
 		}
 		Line {
 		  Name			  "KPCoM"
-		  ZOrder		  382
+		  ZOrder		  404
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  7
@@ -13015,7 +12804,7 @@ Model {
 		}
 		Line {
 		  Name			  "KDCoM"
-		  ZOrder		  383
+		  ZOrder		  405
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  8
@@ -13024,7 +12813,7 @@ Model {
 		}
 		Line {
 		  Name			  "currentState"
-		  ZOrder		  384
+		  ZOrder		  406
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  9
@@ -13033,7 +12822,7 @@ Model {
 		}
 		Line {
 		  Name			  "jointsAndCoMSmoothingTime"
-		  ZOrder		  385
+		  ZOrder		  407
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  10
@@ -13041,14 +12830,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  386
+		  ZOrder		  408
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  387
+		  ZOrder		  409
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -13106,7 +12895,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [110, 230, 275, 290]
 		  ZOrder		  578
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -13655,7 +13444,7 @@ Model {
 	  Position		  [-445, 2851, -385, 2879]
 	  ZOrder		  606
 	  ShowName		  off
-	  LibraryVersion	  "1.388"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
 	  SourceType		  "Bitwise Operator"
 	  logicop		  "AND"
@@ -14141,7 +13930,7 @@ Model {
       ZOrder		      549
       BackgroundColor	      "[0.827500, 0.576500, 0.603900]"
       ShowName		      off
-      LibraryVersion	      "1.602"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/wholeBodyActuators/Set References"
       SourceType	      "Set References"
       ContentPreviewEnabled   off
@@ -14160,7 +13949,7 @@ Model {
       Variant		      off
       System {
 	Name			"controller_QP"
-	Location		[65, 24, 1366, 768]
+	Location		[65, 24, 2560, 1440]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -14172,7 +13961,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"50"
+	ZoomFactor		"110"
 	Block {
 	  BlockType		  Inport
 	  Name			  "M"
@@ -14406,15 +14195,11 @@ Model {
 	    PortNumber		    13
 	    Name		    "CoM_Error"
 	    PropagatedSignals	    "errorCoM"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    14
 	    Name		    "fNoQP"
 	    PropagatedSignals	    "f_noQP"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  System {
 	    Name		    "Balancing Controller\n"
@@ -14431,7 +14216,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "3746"
+	    SIDHighWatermark	    "3749"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "constraints"
@@ -14695,134 +14480,100 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "2407::3745"
+	      SID		      "2407::3748"
 	      Ports		      [1, 1]
 	      Position		      [270, 750, 320, 790]
-	      ZOrder		      148
+	      ZOrder		      151
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "2407::3744"
+	      SID		      "2407::3747"
 	      Tag		      "Stateflow S-Function torqueBalancingStandup_legacy 17"
 	      Ports		      [29, 18]
 	      Position		      [180, 50, 230, 650]
-	      ZOrder		      147
+	      ZOrder		      150
 	      FunctionName	      "sf_sfun"
 	      Parameters	      "Gain,Reg"
 	      PortCounts	      "[29 18]"
 	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
+	      EnableBusSupport	      off
 	      Port {
 		PortNumber		2
 		Name			"tauModel"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"Sigma"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"NA"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"f_HDot"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		6
 		Name			"HessianMatrixQP1Foot"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		7
 		Name			"gradientQP1Foot"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		8
 		Name			"ConstraintsMatrixQP1Foot"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		9
 		Name			"bVectorConstraintsQp1Foot"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		10
 		Name			"HessianMatrixQP2FeetOrLegs"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		11
 		Name			"gradientQP2FeetOrLegs"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		12
 		Name			"ConstraintsMatrixQP2FeetOrLegs"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		13
 		Name			"bVectorConstraintsQp2FeetOrLegs"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		14
 		Name			"errorCoM"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		15
 		Name			"f_noQP"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		16
 		Name			"correctionFromSupportForce"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		17
 		Name			"H_error"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		18
 		Name			"V"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "2407::3746"
+	      SID		      "2407::3749"
 	      Position		      [460, 761, 480, 779]
-	      ZOrder		      149
+	      ZOrder		      152
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -14977,203 +14728,203 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      ZOrder		      1116
+	      ZOrder		      1164
 	      SrcBlock		      "constraints"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      1117
+	      ZOrder		      1165
 	      SrcBlock		      "ROBOT_DOF_FOR_SIMULINK"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
-	      ZOrder		      1118
+	      ZOrder		      1166
 	      SrcBlock		      "ConstraintsMatrix"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
 	    }
 	    Line {
-	      ZOrder		      1119
+	      ZOrder		      1167
 	      SrcBlock		      "bVectorConstraints"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      4
 	    }
 	    Line {
-	      ZOrder		      1120
+	      ZOrder		      1168
 	      SrcBlock		      "qj"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      5
 	    }
 	    Line {
-	      ZOrder		      1121
+	      ZOrder		      1169
 	      SrcBlock		      "qjDes"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      6
 	    }
 	    Line {
-	      ZOrder		      1122
+	      ZOrder		      1170
 	      SrcBlock		      "nu"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      7
 	    }
 	    Line {
-	      ZOrder		      1123
+	      ZOrder		      1171
 	      SrcBlock		      "M"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      8
 	    }
 	    Line {
-	      ZOrder		      1124
+	      ZOrder		      1172
 	      SrcBlock		      "h"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      9
 	    }
 	    Line {
-	      ZOrder		      1125
+	      ZOrder		      1173
 	      SrcBlock		      "H"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      10
 	    }
 	    Line {
-	      ZOrder		      1126
+	      ZOrder		      1174
 	      SrcBlock		      "intHw"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      11
 	    }
 	    Line {
-	      ZOrder		      1127
+	      ZOrder		      1175
 	      SrcBlock		      "w_H_l_contact"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      12
 	    }
 	    Line {
-	      ZOrder		      1128
+	      ZOrder		      1176
 	      SrcBlock		      "w_H_r_contact"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      13
 	    }
 	    Line {
-	      ZOrder		      1129
+	      ZOrder		      1177
 	      SrcBlock		      "JL"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      14
 	    }
 	    Line {
-	      ZOrder		      1130
+	      ZOrder		      1178
 	      SrcBlock		      "JR"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      15
 	    }
 	    Line {
-	      ZOrder		      1131
+	      ZOrder		      1179
 	      SrcBlock		      "dJL_nu"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      16
 	    }
 	    Line {
-	      ZOrder		      1132
+	      ZOrder		      1180
 	      SrcBlock		      "dJR_nu"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      17
 	    }
 	    Line {
-	      ZOrder		      1133
+	      ZOrder		      1181
 	      SrcBlock		      "xCoM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      18
 	    }
 	    Line {
-	      ZOrder		      1134
+	      ZOrder		      1182
 	      SrcBlock		      "J_CoM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      19
 	    }
 	    Line {
-	      ZOrder		      1135
+	      ZOrder		      1183
 	      SrcBlock		      "desired_x_dx_ddx_CoM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      20
 	    }
 	    Line {
-	      ZOrder		      1136
+	      ZOrder		      1184
 	      SrcBlock		      "gainsPCOM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      21
 	    }
 	    Line {
-	      ZOrder		      1137
+	      ZOrder		      1185
 	      SrcBlock		      "gainsDCOM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      22
 	    }
 	    Line {
-	      ZOrder		      1138
+	      ZOrder		      1186
 	      SrcBlock		      "impedances"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      23
 	    }
 	    Line {
-	      ZOrder		      1139
+	      ZOrder		      1187
 	      SrcBlock		      "w_H_lArm"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      24
 	    }
 	    Line {
-	      ZOrder		      1140
+	      ZOrder		      1188
 	      SrcBlock		      "w_H_rArm"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      25
 	    }
 	    Line {
-	      ZOrder		      1141
+	      ZOrder		      1189
 	      SrcBlock		      "LArmWrench"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      26
 	    }
 	    Line {
-	      ZOrder		      1142
+	      ZOrder		      1190
 	      SrcBlock		      "RArmWrench"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      27
 	    }
 	    Line {
-	      ZOrder		      1143
+	      ZOrder		      1191
 	      SrcBlock		      "STANDUP_WITH_HUMAN"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      28
 	    }
 	    Line {
-	      ZOrder		      1144
+	      ZOrder		      1192
 	      SrcBlock		      "state"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -15181,7 +14932,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "tauModel"
-	      ZOrder		      1145
+	      ZOrder		      1193
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -15190,7 +14941,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "Sigma"
-	      ZOrder		      1146
+	      ZOrder		      1194
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      3
@@ -15199,7 +14950,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "NA"
-	      ZOrder		      1147
+	      ZOrder		      1195
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      4
@@ -15208,7 +14959,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "f_HDot"
-	      ZOrder		      1148
+	      ZOrder		      1196
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      5
@@ -15217,7 +14968,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "HessianMatrixQP1Foot"
-	      ZOrder		      1149
+	      ZOrder		      1197
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      6
@@ -15226,7 +14977,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "gradientQP1Foot"
-	      ZOrder		      1150
+	      ZOrder		      1198
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      7
@@ -15235,7 +14986,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "ConstraintsMatrixQP1Foot"
-	      ZOrder		      1151
+	      ZOrder		      1199
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      8
@@ -15244,7 +14995,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "bVectorConstraintsQp1Foot"
-	      ZOrder		      1152
+	      ZOrder		      1200
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      9
@@ -15253,7 +15004,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "HessianMatrixQP2FeetOrLegs"
-	      ZOrder		      1153
+	      ZOrder		      1201
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      10
@@ -15262,7 +15013,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "gradientQP2FeetOrLegs"
-	      ZOrder		      1154
+	      ZOrder		      1202
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      11
@@ -15271,7 +15022,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "ConstraintsMatrixQP2FeetOrLegs"
-	      ZOrder		      1155
+	      ZOrder		      1203
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      12
@@ -15280,7 +15031,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "bVectorConstraintsQp2FeetOrLegs"
-	      ZOrder		      1156
+	      ZOrder		      1204
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      13
@@ -15289,7 +15040,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "errorCoM"
-	      ZOrder		      1157
+	      ZOrder		      1205
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      14
@@ -15298,7 +15049,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "f_noQP"
-	      ZOrder		      1158
+	      ZOrder		      1206
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      15
@@ -15307,7 +15058,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "correctionFromSupportForce"
-	      ZOrder		      1159
+	      ZOrder		      1207
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      16
@@ -15316,7 +15067,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "H_error"
-	      ZOrder		      1160
+	      ZOrder		      1208
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      17
@@ -15325,7 +15076,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "V"
-	      ZOrder		      1161
+	      ZOrder		      1209
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      18
@@ -15333,14 +15084,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      1162
+	      ZOrder		      1210
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      1163
+	      ZOrder		      1211
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -15414,7 +15165,7 @@ Model {
 	      Ports		      [4, 1]
 	      Position		      [1135, -184, 1360, 254]
 	      ZOrder		      73
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
 	      SourceType	      "Centroidal Momentum"
 	      ContentPreviewEnabled   off
@@ -15535,7 +15286,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 25, 740, 85]
 		    ZOrder		    729
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -15548,7 +15299,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 190, 740, 250]
 		    ZOrder		    737
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -15570,8 +15321,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -15590,8 +15339,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -15602,7 +15349,7 @@ Model {
 		    Position		    [980, 308, 1055, 332]
 		    ZOrder		    742
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "Ports.NECK_POS"
@@ -15663,7 +15410,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3752"
+		    SIDHighWatermark	    "3755"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -15721,38 +15468,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4942::3751"
+		    SID			    "4942::3754"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    151
+		    ZOrder		    154
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4942::3750"
+		    SID			    "4942::3753"
 		    Tag			    "Stateflow S-Function torqueBalancingStandup_legacy 1"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    150
+		    ZOrder		    153
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4942::3752"
+		    SID			    "4942::3755"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    152
+		    ZOrder		    155
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -15763,42 +15508,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    46
+		    ZOrder		    55
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    47
+		    ZOrder		    56
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    48
+		    ZOrder		    57
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    49
+		    ZOrder		    58
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    50
+		    ZOrder		    59
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    51
+		    ZOrder		    60
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -15806,7 +15551,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    52
+		    ZOrder		    61
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -15814,14 +15559,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    53
+		    ZOrder		    62
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    54
+		    ZOrder		    63
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -15838,7 +15583,7 @@ Model {
 		    ZOrder		    739
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -15852,7 +15597,7 @@ Model {
 		    ZOrder		    740
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -15926,8 +15671,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16192,7 +15935,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [165, 22, 330, 53]
 		  ZOrder		  894
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -16264,7 +16007,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 25, 740, 85]
 		    ZOrder		    729
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -16277,7 +16020,7 @@ Model {
 		    Ports		    [2, 1]
 		    Position		    [575, 190, 740, 250]
 		    ZOrder		    737
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
 		    ContentPreviewEnabled   off
@@ -16299,8 +16042,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16319,8 +16060,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16331,7 +16070,7 @@ Model {
 		    Position		    [980, 308, 1055, 332]
 		    ZOrder		    742
 		    ForegroundColor	    "[0.490196, 0.000000, 0.000000]"
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
 		    portName		    "Ports.NECK_POS"
@@ -16392,7 +16131,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3752"
+		    SIDHighWatermark	    "3755"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -16450,38 +16189,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4967::3751"
+		    SID			    "4967::3754"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    151
+		    ZOrder		    154
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4967::3750"
+		    SID			    "4967::3753"
 		    Tag			    "Stateflow S-Function torqueBalancingStandup_legacy 4"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    150
+		    ZOrder		    153
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4967::3752"
+		    SID			    "4967::3755"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    152
+		    ZOrder		    155
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -16492,42 +16229,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    46
+		    ZOrder		    55
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    47
+		    ZOrder		    56
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    48
+		    ZOrder		    57
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    49
+		    ZOrder		    58
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    50
+		    ZOrder		    59
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    51
+		    ZOrder		    60
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -16535,7 +16272,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    52
+		    ZOrder		    61
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -16543,14 +16280,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    53
+		    ZOrder		    62
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    54
+		    ZOrder		    63
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -16567,7 +16304,7 @@ Model {
 		    ZOrder		    739
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -16581,7 +16318,7 @@ Model {
 		    ZOrder		    740
 		    BackgroundColor	    "[0.537255, 0.721569, 1.000000]"
 		    ShowName		    off
-		    LibraryVersion	    "1.602"
+		    LibraryVersion	    "1.497"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
 		    ContentPreviewEnabled   off
@@ -16655,8 +16392,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16921,7 +16656,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [165, 107, 330, 138]
 		  ZOrder		  899
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
 		  ContentPreviewEnabled	  off
@@ -17125,7 +16860,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [240, 240, 390, 280]
 		  ZOrder		  756
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -17138,7 +16873,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [235, 360, 395, 400]
 		  ZOrder		  755
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -17151,7 +16886,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [235, 410, 395, 450]
 		  ZOrder		  757
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -17164,7 +16899,7 @@ Model {
 		  Ports			  [2, 1]
 		  Position		  [240, 290, 395, 330]
 		  ZOrder		  754
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		  SourceType		  "Jacobian"
 		  ContentPreviewEnabled	  off
@@ -17366,7 +17101,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"4521"
+		SIDHighWatermark	"4524"
 		Block {
 		  BlockType		  Inport
 		  Name			  "icubStandup"
@@ -17387,37 +17122,35 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "4920::4520"
+		  SID			  "4920::4523"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  33
+		  ZOrder		  36
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "4920::4519"
+		  SID			  "4920::4522"
 		  Tag			  "Stateflow S-Function torqueBalancingStandup_legacy 11"
 		  Ports			  [2, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  32
+		  ZOrder		  35
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[2 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "legsInContact"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "4920::4521"
+		  SID			  "4920::4524"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  34
+		  ZOrder		  37
 		}
 		Block {
 		  BlockType		  Outport
@@ -17428,7 +17161,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  26
+		  ZOrder		  31
 		  SrcBlock		  "icubStandup"
 		  SrcPort		  1
 		  Points		  [120, 0]
@@ -17436,7 +17169,7 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  27
+		  ZOrder		  32
 		  SrcBlock		  "state"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -17444,7 +17177,7 @@ Model {
 		}
 		Line {
 		  Name			  "legsInContact"
-		  ZOrder		  28
+		  ZOrder		  33
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -17452,14 +17185,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  29
+		  ZOrder		  34
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  30
+		  ZOrder		  35
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -17496,7 +17229,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3738"
+		SIDHighWatermark	"3741"
 		Block {
 		  BlockType		  Inport
 		  Name			  "qjErr"
@@ -17535,38 +17268,36 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "3721::3737"
+		  SID			  "3721::3740"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  62
+		  ZOrder		  65
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "3721::3736"
+		  SID			  "3721::3739"
 		  Tag			  "Stateflow S-Function torqueBalancingStandup_legacy 20"
 		  Ports			  [4, 2]
 		  Position		  [180, 102, 230, 203]
-		  ZOrder		  61
+		  ZOrder		  64
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Reg"
 		  PortCounts		  "[4 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "nu_b_equivalent"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "3721::3738"
+		  SID			  "3721::3741"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  63
+		  ZOrder		  66
 		}
 		Block {
 		  BlockType		  Outport
@@ -17577,28 +17308,28 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  64
+		  ZOrder		  71
 		  SrcBlock		  "qjErr"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  65
+		  ZOrder		  72
 		  SrcBlock		  "JL"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  66
+		  ZOrder		  73
 		  SrcBlock		  "JR"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  67
+		  ZOrder		  74
 		  SrcBlock		  "activeFeetConstraints"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -17606,7 +17337,7 @@ Model {
 		}
 		Line {
 		  Name			  "nu_b_equivalent"
-		  ZOrder		  68
+		  ZOrder		  75
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -17614,14 +17345,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  69
+		  ZOrder		  76
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  70
+		  ZOrder		  77
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -17675,7 +17406,7 @@ Model {
 	      Position		      [45, -72, 95, -58]
 	      ZOrder		      727
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
 	      portName		      "Ports.IMU"
@@ -17882,7 +17613,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Compute joint torques"
-	    Location		    [65, 24, 1366, 768]
+	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -17894,7 +17625,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "95"
+	    ZoomFactor		    "187"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "LEFT_RIGHT_FOOT_IN_CONTACT"
@@ -18083,7 +17814,7 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"QPSolver"
-		Location		[65, 24, 1366, 768]
+		Location		[65, 24, 2560, 1440]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -18095,7 +17826,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"148"
+		ZoomFactor		"290"
 		Block {
 		  BlockType		  Inport
 		  Name			  "LEFT_RIGHT_FOOT_IN_CONTACT"
@@ -18206,8 +17937,6 @@ Model {
 		  Port {
 		    PortNumber		    2
 		    Name		    "Exit flag QP two feet"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -18251,7 +17980,7 @@ Model {
 		  Variant		  off
 		  System {
 		    Name		    "Visualize eventual QP failures"
-		    Location		    [65, 24, 1366, 768]
+		    Location		    [65, 24, 2560, 1440]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -18263,7 +17992,7 @@ Model {
 		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "481"
+		    ZoomFactor		    "952"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "exitFlagQP"
@@ -18275,8 +18004,6 @@ Model {
 		    PortNumber		    1
 		    Name		    "exitFlagQP"
 		    PropagatedSignals	    "Exit flag QP two feet"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -18312,8 +18039,8 @@ Model {
 		    MaxDataPoints	    5000
 		    SaveToWorkspace	    off
 		    SaveName		    ScopeData1
-		    YMin		    -1.00000~-0.5
-		    YMax		    1.00000~14.5
+		    YMin		    "-1.00000~-0.5"
+		    YMax		    "1.00000~14.5"
 		    SampleInput		    off
 		    SampleTime		    -1
 		    ZoomMode		    on
@@ -18335,7 +18062,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		    }
-		    Location		    [360 614 1543 1311]
+		    Location		    [360 642 1543 1339]
 		    }
 		    Line {
 		    Name		    "exitFlagQP"
@@ -18756,49 +18483,47 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"42"
+		SIDHighWatermark	"46"
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "5005::40"
+		  SID			  "5005::44"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  31
+		  ZOrder		  35
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  Ground
 		  Name			  " Ground "
-		  SID			  "5005::42"
+		  SID			  "5005::46"
 		  Position		  [20, 121, 40, 139]
-		  ZOrder		  33
+		  ZOrder		  37
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "5005::39"
+		  SID			  "5005::43"
 		  Tag			  "Stateflow S-Function torqueBalancingStandup_legacy 12"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  30
+		  ZOrder		  34
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Config"
 		  PortCounts		  "[1 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "reflectedInertia"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "5005::41"
+		  SID			  "5005::45"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  32
+		  ZOrder		  36
 		}
 		Block {
 		  BlockType		  Outport
@@ -18810,7 +18535,7 @@ Model {
 		}
 		Line {
 		  Name			  "reflectedInertia"
-		  ZOrder		  21
+		  ZOrder		  25
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -18818,21 +18543,21 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  22
+		  ZOrder		  26
 		  SrcBlock		  " Ground "
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  23
+		  ZOrder		  27
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  24
+		  ZOrder		  28
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -18871,7 +18596,7 @@ Model {
 	      Position		      [-360, -139, -270, -111]
 	      ZOrder		      869
 	      BackgroundColor	      "[0.925500, 0.870600, 0.133300]"
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	      SourceType	      "Get Measurement"
 	      ContentPreviewEnabled   off
@@ -19224,7 +18949,7 @@ Model {
 	  ZOrder		  866
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 	  ShowName		  off
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "Ports.RIGHT_ARM"
@@ -19244,7 +18969,7 @@ Model {
 	  ZOrder		  867
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 	  ShowName		  off
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Read"
 	  SourceType		  "YARP Read"
 	  portName		  "Ports.LEFT_ARM"
@@ -19743,7 +19468,7 @@ Model {
 	  ZOrder		  551
 	  BackgroundColor	  "[0.513700, 0.851000, 0.670600]"
 	  ShowName		  off
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Limits"
 	  SourceType		  "Get Limits"
 	  ContentPreviewEnabled	  off
@@ -19780,7 +19505,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "3737"
+	    SIDHighWatermark	    "3740"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "umin"
@@ -19819,37 +19544,35 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "2421::3736"
+	      SID		      "2421::3739"
 	      Ports		      [1, 1]
 	      Position		      [270, 230, 320, 270]
-	      ZOrder		      86
+	      ZOrder		      89
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "2421::3735"
+	      SID		      "2421::3738"
 	      Tag		      "Stateflow S-Function torqueBalancingStandup_legacy 18"
 	      Ports		      [4, 2]
 	      Position		      [180, 102, 230, 203]
-	      ZOrder		      85
+	      ZOrder		      88
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[4 2]"
 	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
+	      EnableBusSupport	      off
 	      Port {
 		PortNumber		2
 		Name			"inRange"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "2421::3737"
+	      SID		      "2421::3740"
 	      Position		      [460, 241, 480, 259]
-	      ZOrder		      87
+	      ZOrder		      90
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -19860,28 +19583,28 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      ZOrder		      92
+	      ZOrder		      99
 	      SrcBlock		      "umin"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      93
+	      ZOrder		      100
 	      SrcBlock		      "umax"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
-	      ZOrder		      94
+	      ZOrder		      101
 	      SrcBlock		      "u"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
 	    }
 	    Line {
-	      ZOrder		      95
+	      ZOrder		      102
 	      SrcBlock		      "tol"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -19889,7 +19612,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "inRange"
-	      ZOrder		      96
+	      ZOrder		      103
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -19897,14 +19620,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      97
+	      ZOrder		      104
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      98
+	      ZOrder		      105
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -20033,7 +19756,7 @@ Model {
 	      ZOrder		      539
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
 	      period		      "Config.Ts"
@@ -20109,7 +19832,7 @@ Model {
 	      ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
 	      BackgroundColor	      "gray"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
 	      period		      "Config.Ts"
@@ -20138,7 +19861,7 @@ Model {
 	  Position		  [-45, -89, 20, -71]
 	  ZOrder		  696
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Clock"
 	  SourceType		  "YARP Clock"
 	}
@@ -20408,7 +20131,7 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000010
+#   Stateflow 80000012
 #
 #
 Stateflow {

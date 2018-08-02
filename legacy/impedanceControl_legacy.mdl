@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.300"
+    ComputedModelVersion    "1.301"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -30,7 +30,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [65.0, 24.0, 1855.0, 1056.0]
+      Location		      [65.0, 24.0, 2495.0, 1416.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -54,9 +54,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1821.0, 911.0]
-	ZoomFactor		[2.1132965009208102]
-	Offset			[234.93777886224206, 144.95996583937534]
+	Extents			[2457.0, 1267.0]
+	ZoomFactor		[2.8745562130177515]
+	Offset			[240.12968299711815, 141.61815561959654]
       }
     }
   }
@@ -64,12 +64,11 @@ Model {
   Creator		  "daniele"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "icub"
+  LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue May 29 17:04:35 2018"
-  RTWModifiedTimeStamp	  449514275
-  ModelVersionFormat	  "1.%<AutoIncrement:300>"
-  ConfigurationManager	  "none"
+  LastModifiedDate	  "Thu Aug 02 20:01:50 2018"
+  RTWModifiedTimeStamp	  455140910
+  ModelVersionFormat	  "1.%<AutoIncrement:301>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -183,7 +182,6 @@ Model {
 	  AbsTol		  "auto"
 	  FixedStep		  "Config.Ts"
 	  InitialStep		  "auto"
-	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -563,17 +561,14 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
-	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
-	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
-	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
@@ -631,7 +626,6 @@ Model {
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
-	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      GenerateSampleERTMain   off
@@ -645,7 +639,6 @@ Model {
 	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
-	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -688,7 +681,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    [ 396, 258, 1456, 1010 ]  
+      ConfigPrmDlgPosition    [ 396, 258, 1456, 1010 ]
     }
     PropName		    "ConfigurationSets"
   }
@@ -842,6 +835,7 @@ Model {
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
+      OutputWhenUnConnected   off
     }
     Block {
       BlockType		      Product
@@ -909,8 +903,6 @@ Model {
       MaskHideContents	      off
       SFBlockType	      "NONE"
       GeneratePreprocessorConditionals off
-      PropagateVariantConditions off
-      TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
     }
     Block {
@@ -932,7 +924,7 @@ Model {
   }
   System {
     Name		    "impedanceControl_legacy"
-    Location		    [65, 24, 1920, 1080]
+    Location		    [65, 24, 2560, 1440]
     Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -944,7 +936,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "211"
+    ZoomFactor		    "287"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "462"
     Block {
@@ -952,15 +944,15 @@ Model {
       Name		      "Configuration"
       SID		      "432"
       Ports		      []
-      Position		      [245, 230, 320, 260]
+      Position		      [245, 240, 320, 270]
       ZOrder		      635
-      LibraryVersion	      "1.602"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
       SourceType	      ""
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
-      RobotName		      "'icubSim'"
+      RobotName		      "'icub'"
       UrdfFile		      "'model.urdf'"
       ControlledJoints	      "{'l_elbow','l_shoulder_pitch','torso_roll'}"
       ControlBoardsNames      "{'left_arm','right_arm','torso'}"
@@ -975,7 +967,7 @@ Model {
       Position		      [245, 303, 320, 327]
       ZOrder		      634
       BackgroundColor	      "[0.513700, 0.851000, 0.670600]"
-      LibraryVersion	      "1.602"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
       SourceType	      "Get Measurement"
       ContentPreviewEnabled   off
@@ -993,12 +985,10 @@ Model {
       Port {
 	PortNumber		1
 	Name			"gravityTorques"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
       System {
 	Name			"Gravity compensation"
-	Location		[65, 24, 1920, 1080]
+	Location		[65, 24, 2560, 1440]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1035,15 +1025,13 @@ Model {
 	  Ports			  [2, 1]
 	  Position		  [210, 105, 350, 205]
 	  ZOrder		  641
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Gravity Forces"
 	  SourceType		  "Gravity bias"
 	  ContentPreviewEnabled	  off
 	  Port {
 	    PortNumber		    1
 	    Name		    "gravityTorques floating base"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -1112,12 +1100,10 @@ Model {
 	PortNumber		1
 	Name			"PD control"
 	PropagatedSignals	"torqueDesired"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
       System {
 	Name			"PID feedback controller"
-	Location		[65, 24, 1920, 1080]
+	Location		[65, 24, 2560, 1440]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1129,7 +1115,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"171"
+	ZoomFactor		"232"
 	Block {
 	  BlockType		  Inport
 	  Name			  "joint angles"
@@ -1153,8 +1139,6 @@ Model {
 	  Port {
 	    PortNumber		    1
 	    Name		    "Kp*(qj_des - qj)"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -1178,7 +1162,7 @@ Model {
 	  Position		  [335, 158, 405, 172]
 	  ZOrder		  635
 	  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	  SourceType		  "Get Measurement"
 	  ContentPreviewEnabled	  off
@@ -1212,8 +1196,6 @@ Model {
 	  Port {
 	    PortNumber		    1
 	    Name		    "torqueDesired"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -1242,12 +1224,10 @@ Model {
 	  Port {
 	    PortNumber		    1
 	    Name		    "Mj*qjDD_des"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  System {
 	    Name		    "references"
-	    Location		    [65, 24, 1920, 1080]
+	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1320,7 +1300,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [95, -256, 235, -189]
 	      ZOrder		      673
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 	      SourceType	      "Mass Matrix"
 	      ContentPreviewEnabled   off
@@ -1377,7 +1357,7 @@ Model {
 	      Variant		      off
 	      System {
 		Name			"Visualization"
-		Location		[65, 24, 1920, 1080]
+		Location		[65, 24, 2560, 1440]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -1400,8 +1380,6 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torqueDesired"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -1411,39 +1389,29 @@ Model {
 		  Ports			  [1, 5]
 		  Position		  [465, 119, 560, 221]
 		  ZOrder		  652
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 		  SourceType		  "DoFs converter"
 		  yarp2WBIOption	  "From YARP to WBI"
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -1453,39 +1421,29 @@ Model {
 		  Ports			  [1, 5]
 		  Position		  [465, 254, 560, 356]
 		  ZOrder		  654
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 		  SourceType		  "DoFs converter"
 		  yarp2WBIOption	  "From YARP to WBI"
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -1495,39 +1453,29 @@ Model {
 		  Ports			  [1, 5]
 		  Position		  [465, 404, 560, 506]
 		  ZOrder		  660
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 		  SourceType		  "DoFs converter"
 		  yarp2WBIOption	  "From YARP to WBI"
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -1571,7 +1519,7 @@ Model {
 		  Position		  [115, 158, 180, 182]
 		  ZOrder		  659
 		  BackgroundColor	  "[0.513700, 0.851000, 0.670600]"
-		  LibraryVersion	  "1.602"
+		  LibraryVersion	  "1.497"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 		  SourceType		  "Get Measurement"
 		  ContentPreviewEnabled	  off
@@ -1579,8 +1527,6 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torqueMeasured"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -1599,8 +1545,6 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torqueError"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -1618,9 +1562,9 @@ Model {
 		  LimitDataPoints	  off
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
-		  SaveName		  qjDes
-		  YMin			  -19.45498~-64.64255~-62.0429~-10.72907~-10.51827
-		  YMax			  10.88562~67.27378~65.68488~20.79257~18.84043
+		  SaveName		  jointDesiredData
+		  YMin			  "-19.45498~-64.64255~-62.0429~-10.72907~-10.51827"
+		  YMax			  "10.88562~67.27378~65.68488~20.79257~18.84043"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -1645,7 +1589,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [353 327 1643 1048]
+		  Location		  [353 355 1643 1076]
 		}
 		Block {
 		  BlockType		  Scope
@@ -1662,9 +1606,9 @@ Model {
 		  LimitDataPoints	  off
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
-		  SaveName		  qjErr
-		  YMin			  -2.58811~-2.05965~-1.80349~-9.48486~-9.67523
-		  YMax			  2.46722~4.6546~4.43083~9.48486~9.4403
+		  SaveName		  jointErrorData
+		  YMin			  "-2.58811~-2.05965~-1.80349~-9.48486~-9.67523"
+		  YMax			  "2.46722~4.6546~4.43083~9.48486~9.4403"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -1689,7 +1633,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [373 356 1613 927]
+		  Location		  [373 384 1613 955]
 		}
 		Block {
 		  BlockType		  Scope
@@ -1706,9 +1650,9 @@ Model {
 		  LimitDataPoints	  off
 		  MaxDataPoints		  5000
 		  SaveToWorkspace	  on
-		  SaveName		  qjMeas
-		  YMin			  -0.13911~-1.04571~-1.03984~-0.10994~-0.10165
-		  YMax			  0.15522~1.32633~1.33197~0.25318~0.23223
+		  SaveName		  jointData
+		  YMin			  "-0.13911~-1.04571~-1.03984~-0.10994~-0.10165"
+		  YMax			  "0.15522~1.32633~1.33197~0.25318~0.23223"
 		  SampleInput		  off
 		  SampleTime		  -1
 		  ZoomMode		  on
@@ -1733,7 +1677,7 @@ Model {
 		    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 		    MarkerStyles	    "none|none|none|none|none|none"
 		  }
-		  Location		  [71 185 1351 876]
+		  Location		  [76 213 1356 904]
 		}
 		Line {
 		  Name			  "torqueMeasured"
@@ -1954,8 +1898,8 @@ Model {
 	      MaxDataPoints	      5000
 	      SaveToWorkspace	      on
 	      SaveName		      references
-	      YMin		      -61.68503~-5~-5
-	      YMax		      61.68503~5~5
+	      YMin		      "-61.68503~-5~-5"
+	      YMax		      "61.68503~5~5"
 	      SampleInput	      off
 	      SampleTime	      -1
 	      ZoomMode		      on
@@ -1978,7 +1922,7 @@ Model {
 		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
 		MarkerStyles		"none|none|none|none|none|none"
 	      }
-	      Location		      [675 389 1245 839]
+	      Location		      [675 749 1245 1199]
 	    }
 	    Block {
 	      BlockType		      Reference
@@ -1988,7 +1932,7 @@ Model {
 	      Position		      [-65, -546, -10, -524]
 	      ZOrder		      672
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -2300,11 +2244,11 @@ Model {
       Name		      "Set References"
       SID		      "137"
       Ports		      [1]
-      Position		      [1000, 340, 1075, 390]
+      Position		      [985, 340, 1060, 390]
       ZOrder		      383
       BackgroundColor	      "[0.827500, 0.576500, 0.603900]"
       ShowName		      off
-      LibraryVersion	      "1.602"
+      LibraryVersion	      "1.497"
       SourceBlock	      "WBToolboxLibrary/wholeBodyActuators/Set References"
       SourceType	      "Set References"
       ContentPreviewEnabled   off
@@ -2325,8 +2269,6 @@ Model {
       Port {
 	PortNumber		1
 	Name			"control input"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
       }
     }
     Block {
@@ -2334,13 +2276,13 @@ Model {
       Name		      "Visualization"
       SID		      "315"
       Ports		      [2]
-      Position		      [985, 443, 1090, 492]
+      Position		      [970, 443, 1075, 492]
       ZOrder		      -43
       RequestExecContextInheritance off
       Variant		      off
       System {
 	Name			"Visualization"
-	Location		[65, 24, 1920, 1080]
+	Location		[65, 24, 2560, 1440]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2364,8 +2306,6 @@ Model {
 	    PortNumber		    1
 	    Name		    "torqueDesired"
 	    PropagatedSignals	    "control input"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -2384,39 +2324,29 @@ Model {
 	  Ports			  [1, 5]
 	  Position		  [465, 119, 560, 221]
 	  ZOrder		  652
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
 	  yarp2WBIOption	  "From YARP to WBI"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    2
 	    Name		    "left_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    3
 	    Name		    "right_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    4
 	    Name		    "left_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    5
 	    Name		    "right_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -2426,39 +2356,29 @@ Model {
 	  Ports			  [1, 5]
 	  Position		  [465, 254, 560, 356]
 	  ZOrder		  654
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
 	  yarp2WBIOption	  "From YARP to WBI"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    2
 	    Name		    "left_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    3
 	    Name		    "right_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    4
 	    Name		    "left_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    5
 	    Name		    "right_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -2468,39 +2388,29 @@ Model {
 	  Ports			  [1, 5]
 	  Position		  [465, 404, 560, 506]
 	  ZOrder		  660
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
 	  yarp2WBIOption	  "From YARP to WBI"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    2
 	    Name		    "left_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    3
 	    Name		    "right_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    4
 	    Name		    "left_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    5
 	    Name		    "right_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -2510,39 +2420,29 @@ Model {
 	  Ports			  [1, 5]
 	  Position		  [465, 554, 560, 656]
 	  ZOrder		  661
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
 	  SourceType		  "DoFs converter"
 	  yarp2WBIOption	  "From YARP to WBI"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    2
 	    Name		    "left_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    3
 	    Name		    "right_arm"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    4
 	    Name		    "left_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    5
 	    Name		    "right_leg"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -2553,7 +2453,7 @@ Model {
 	  Position		  [115, 158, 180, 182]
 	  ZOrder		  659
 	  BackgroundColor	  "[0.827500, 0.576500, 0.603900]"
-	  LibraryVersion	  "1.602"
+	  LibraryVersion	  "1.497"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	  SourceType		  "Get Measurement"
 	  ContentPreviewEnabled	  off
@@ -2561,8 +2461,6 @@ Model {
 	  Port {
 	    PortNumber		    1
 	    Name		    "torqueMeasured"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -2581,8 +2479,6 @@ Model {
 	  Port {
 	    PortNumber		    1
 	    Name		    "torqueError"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	}
 	Block {
@@ -2599,10 +2495,10 @@ Model {
 	  ShowLegends		  on
 	  LimitDataPoints	  off
 	  MaxDataPoints		  5000
-	  SaveToWorkspace	  on
+	  SaveToWorkspace	  off
 	  SaveName		  gravTorque
-	  YMin			  -2.62369~-1.31451~-1.35483~-80.67711~-80.58848
-	  YMax			  22.48453~0.36849~0.37657~54.64406~54.86216
+	  YMin			  "-2.62369~-1.31451~-1.35483~-80.67711~-80.58848"
+	  YMax			  "22.48453~0.36849~0.37657~54.64406~54.86216"
 	  SampleInput		  off
 	  SampleTime		  -1
 	  ZoomMode		  on
@@ -2627,7 +2523,7 @@ Model {
 	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 	    MarkerStyles	    "none|none|none|none|none|none"
 	  }
-	  Location		  [66 182 1346 873]
+	  Location		  [76 210 1356 901]
 	}
 	Block {
 	  BlockType		  Scope
@@ -2644,9 +2540,9 @@ Model {
 	  LimitDataPoints	  off
 	  MaxDataPoints		  5000
 	  SaveToWorkspace	  on
-	  SaveName		  tauDes
-	  YMin			  -2.62369~-1.31451~-1.35483~-80.67711~-80.58848
-	  YMax			  22.48453~0.36849~0.37657~54.64406~54.86216
+	  SaveName		  tauDesiredData
+	  YMin			  "-2.62369~-1.31451~-1.35483~-80.67711~-80.58848"
+	  YMax			  "22.48453~0.36849~0.37657~54.64406~54.86216"
 	  SampleInput		  off
 	  SampleTime		  -1
 	  ZoomMode		  on
@@ -2671,7 +2567,7 @@ Model {
 	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 	    MarkerStyles	    "none|none|none|none|none|none"
 	  }
-	  Location		  [66 157 1356 878]
+	  Location		  [76 185 1366 906]
 	}
 	Block {
 	  BlockType		  Scope
@@ -2688,9 +2584,9 @@ Model {
 	  LimitDataPoints	  off
 	  MaxDataPoints		  5000
 	  SaveToWorkspace	  on
-	  SaveName		  tauErr
-	  YMin			  -2.62369~-1.31451~-1.35483~-80.67711~-80.58848
-	  YMax			  22.48453~0.36849~0.37657~54.64406~54.86216
+	  SaveName		  tauErrorData
+	  YMin			  "-2.62369~-1.31451~-1.35483~-80.67711~-80.58848"
+	  YMax			  "22.48453~0.36849~0.37657~54.64406~54.86216"
 	  SampleInput		  off
 	  SampleTime		  -1
 	  ZoomMode		  on
@@ -2715,7 +2611,7 @@ Model {
 	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 	    MarkerStyles	    "none|none|none|none|none|none"
 	  }
-	  Location		  [387 236 1667 927]
+	  Location		  [387 264 1667 955]
 	}
 	Block {
 	  BlockType		  Scope
@@ -2732,9 +2628,9 @@ Model {
 	  LimitDataPoints	  off
 	  MaxDataPoints		  5000
 	  SaveToWorkspace	  on
-	  SaveName		  tauMeas
-	  YMin			  -2.62369~-1.31451~-1.35483~-80.67711~-80.58848
-	  YMax			  22.48453~0.36849~0.37657~54.64406~54.86216
+	  SaveName		  tauMeasuredData
+	  YMin			  "-2.62369~-1.31451~-1.35483~-80.67711~-80.58848"
+	  YMax			  "22.48453~0.36849~0.37657~54.64406~54.86216"
 	  SampleInput		  off
 	  SampleTime		  -1
 	  ZoomMode		  on
@@ -2759,7 +2655,7 @@ Model {
 	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
 	    MarkerStyles	    "none|none|none|none|none|none"
 	  }
-	  Location		  [66 157 1356 878]
+	  Location		  [71 188 1371 939]
 	}
 	Line {
 	  ZOrder		  522
@@ -3069,7 +2965,7 @@ Model {
 	      ZOrder		      539
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
 	      period		      "Config.Ts"
@@ -3145,7 +3041,7 @@ Model {
 	      ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
 	      BackgroundColor	      "gray"
 	      ShowName		      off
-	      LibraryVersion	      "1.602"
+	      LibraryVersion	      "1.497"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
 	      period		      "Config.Ts"
@@ -3246,7 +3142,7 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000010
+#   Stateflow 80000012
 #
 #
 Stateflow {
