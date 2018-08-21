@@ -16,12 +16,12 @@
 %  */
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [tauModel, Sigma, NA, f_HDot, ...
+function [tauModel, Sigma, NA, f_LDot, ...
           HessianMatrixQP1Foot, gradientQP1Foot, ConstraintsMatrixQP1Foot, bVectorConstraintsQp1Foot, ...
           HessianMatrixQP2Feet, gradientQP2Feet, ConstraintsMatrixQP2Feet, bVectorConstraintsQp2Feet, ...
           errorCoM, f_noQP]    =  ...
               balancingControllerYoga(constraints, ROBOT_DOF_FOR_SIMULINK, ConstraintsMatrix, bVectorConstraints, ...
-                                      qj, qjDes, nu, M, h, H, intHw, w_H_l_sole, w_H_r_sole, JL, JR, dJL_nu, dJR_nu, xCoM, J_CoM, desired_x_dx_ddx_CoM, ...
+                                      qj, qjDes, nu, M, h, L, intLw, w_H_l_sole, w_H_r_sole, JL, JR, dJL_nu, dJR_nu, xCoM, J_CoM, desired_x_dx_ddx_CoM, ...
                                       gainsPCOM, gainsDCOM, impedances, Reg, Gain)
     %BALANCING CONTROLLER
 
@@ -78,7 +78,7 @@ function [tauModel, Sigma, NA, f_HDot, ...
     % The following variables serve for determening the rate-of-change of
     % the robot's momentum. In particular, when balancing on two feet, one has:
     %
-    %   dot(H) = gravityWrench +  AL*f_L + AR*f_R
+    %   dot(L) = gravityWrench +  AL*f_L + AR*f_R
     %          = gravityWrench + [AL,AR]*f
     %
     % where  f_L and f_R are the contact wrenches acting on the left and
@@ -89,7 +89,7 @@ function [tauModel, Sigma, NA, f_HDot, ...
     AR              = [ eye(3), zeros(3);
                         skew(Pr), eye(3)];
 
-    % dot(H) = mg + A*f
+    % dot(L) = mg + A*f
     A               = [AL, AR]; 
     
     pinvA           = pinv(A, Reg.pinvTol)*constraints(1)*constraints(2)  ...
@@ -134,7 +134,7 @@ function [tauModel, Sigma, NA, f_HDot, ...
     % contact forces. By direct calculations one shows that the joint
     % torqes take the following form:
     %
-    % 0) tau = tauModel + Sigma*f_HDot + SigmaNA*f0
+    % 0) tau = tauModel + Sigma*f_LDot + SigmaNA*f0
     %
     % where f0 is the redundancy of the contact wrenches. Then, the problem
     % is defined as follows:
@@ -173,23 +173,23 @@ function [tauModel, Sigma, NA, f_HDot, ...
     Sigma     = -(Pinv_JcMinvSt*JcMinvJct + nullJcMinvSt*JBar);
     
     % Desired rate-of-change of the robot momentum
-    HDotDes   = [m*xDDcomStar ;
-                -Gain.KD_AngularMomentum*H(4:end)-Gain.KP_AngularMomentum*intHw];
+    LDotDes   = [m*xDDcomStar ;
+                -Gain.KD_AngularMomentum*L(4:end)-Gain.KP_AngularMomentum*intLw];
 
     % Contact wrenches realizing the desired rate-of-change of the robot
-    % momentum HDotDes when standing on two feet. Note that f_HDot is
+    % momentum LDotDes when standing on two feet. Note that f_LDot is
     % different from zero only when both foot are in contact, i.e. 
     % constraints(1) = constraints(2) = 1. This because when the robot
-    % stands on one foot, the f_HDot is evaluated directly from the
+    % stands on one foot, the f_LDot is evaluated directly from the
     % optimizer (see next section).
-    f_HDot    = pinvA*(HDotDes - gravityWrench)*constraints(1)*constraints(2);
+    f_LDot    = pinvA*(LDotDes - gravityWrench)*constraints(1)*constraints(2);
     SigmaNA   = Sigma*NA;
    
     % The optimization problem 1) seeks for the redundancy of the external
     % wrench that minimize joint torques. Recall that the contact wrench can 
     % be written as:
     %
-    % f = f_HDot + NA*f_0 
+    % f = f_LDot + NA*f_0 
     %
     % Then, the constraints on the contact wrench is of the form
     %
@@ -197,14 +197,14 @@ function [tauModel, Sigma, NA, f_HDot, ...
     %
     % which in terms of f0 is:
     %
-    % ConstraintsMatrix2Feet*NA*f0 < bVectorConstraints - ConstraintsMatrix2Feet*f_HDot
+    % ConstraintsMatrix2Feet*NA*f0 < bVectorConstraints - ConstraintsMatrix2Feet*f_LDot
     ConstraintsMatrixQP2Feet  = ConstraintsMatrix2Feet*NA;
-    bVectorConstraintsQp2Feet = bVectorConstraints2Feet-ConstraintsMatrix2Feet*f_HDot;
+    bVectorConstraintsQp2Feet = bVectorConstraints2Feet-ConstraintsMatrix2Feet*f_LDot;
     
     % Evaluation of Hessian matrix and gradient vector for solving the
     % optimization problem 1).
     HessianMatrixQP2Feet      = SigmaNA'*SigmaNA + eye(size(SigmaNA,2))*Reg.HessianQP;
-    gradientQP2Feet           = SigmaNA'*(tauModel + Sigma*f_HDot);
+    gradientQP2Feet           = SigmaNA'*(tauModel + Sigma*f_LDot);
 
     %% QP PARAMETERS FOR ONE FOOT STANDING
     % In the case the robot stands on one foot, there is no redundancy of
@@ -212,7 +212,7 @@ function [tauModel, Sigma, NA, f_HDot, ...
     % minimizing the joint torques. For this reason, the minimization
     % problem is modified as follows:
     %
-    % 2) f = argmin|dot(H)(f) - dot(H)_des|^2
+    % 2) f = argmin|dot(L)(f) - dot(L)_des|^2
     %        s.t.
     %        ConstraintsMatrixQP1Foot*f < bVectorConstraintsQp1Foot
     %
@@ -225,15 +225,15 @@ function [tauModel, Sigma, NA, f_HDot, ...
 
     A1Foot                    =  AL*constraints(1)*(1-constraints(2)) + AR*constraints(2)*(1-constraints(1));
     HessianMatrixQP1Foot      =  A1Foot'*A1Foot + eye(size(A1Foot,2))*Reg.HessianQP;
-    gradientQP1Foot           = -A1Foot'*(HDotDes - gravityWrench);
+    gradientQP1Foot           = -A1Foot'*(LDotDes - gravityWrench);
 
     %% DEBUG DIAGNOSTICS
     
     % Unconstrained solution for the problem 1)
-    f0                        = -pinvDamped(SigmaNA, Reg.pinvDamp*1e-5)*(tauModel + Sigma*f_HDot);
+    f0                        = -pinvDamped(SigmaNA, Reg.pinvDamp*1e-5)*(tauModel + Sigma*f_LDot);
     
     % Unconstrained contact wrenches
-    f_noQP                    =  pinvA*(HDotDes - gravityWrench) + NA*f0*constraints(1)*constraints(2); 
+    f_noQP                    =  pinvA*(LDotDes - gravityWrench) + NA*f0*constraints(1)*constraints(2); 
     
     % Error on the center of mass
     errorCoM                  =  xCoM - desired_x_dx_ddx_CoM(:,1);
