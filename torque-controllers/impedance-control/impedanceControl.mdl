@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.302"
+    ComputedModelVersion    "1.305"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -42,7 +42,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [65.0, 24.0, 2495.0, 1416.0]
+      Location		      [65.0, -4.0, 2495.0, 1444.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -67,8 +67,8 @@ Model {
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
 	Extents			[2457.0, 1267.0]
-	ZoomFactor		[2.8745562130177515]
-	Offset			[240.12968299711815, 141.61815561959654]
+	ZoomFactor		[2.9265060240963856]
+	Offset			[240.21613832853029, 145.53025936599425]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -101,9 +101,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Aug 03 17:35:15 2018"
-  RTWModifiedTimeStamp	  455218514
-  ModelVersionFormat	  "1.%<AutoIncrement:302>"
+  LastModifiedDate	  "Tue Aug 21 18:25:55 2018"
+  RTWModifiedTimeStamp	  456776754
+  ModelVersionFormat	  "1.%<AutoIncrement:305>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -931,6 +931,12 @@ Model {
       PreserveConstantTs      off
     }
     Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
       BlockType		      EnablePort
       StatesWhenEnabling      "held"
       PropagateVarSize	      "Only when enabling"
@@ -1099,7 +1105,7 @@ Model {
   }
   System {
     Name		    "impedanceControl"
-    Location		    [65, 24, 2560, 1440]
+    Location		    [65, -4, 2560, 1440]
     Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1111,9 +1117,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "287"
+    ZoomFactor		    "293"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "462"
+    SIDHighWatermark	    "469"
     Block {
       BlockType		      Reference
       Name		      "Configuration"
@@ -1121,13 +1127,13 @@ Model {
       Ports		      []
       Position		      [245, 240, 320, 270]
       ZOrder		      635
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.650"
       SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
       SourceType	      ""
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
-      RobotName		      "'icub'"
+      RobotName		      "'icubSim'"
       UrdfFile		      "'model.urdf'"
       ControlledJoints	      "{'l_elbow','l_shoulder_pitch','torso_roll'}"
       ControlBoardsNames      "{'left_arm','right_arm','torso'}"
@@ -1142,7 +1148,7 @@ Model {
       Position		      [245, 303, 320, 327]
       ZOrder		      634
       BackgroundColor	      "[0.513700, 0.851000, 0.670600]"
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.650"
       SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
       SourceType	      "Get Measurement"
       ContentPreviewEnabled   off
@@ -1200,7 +1206,7 @@ Model {
 	  Ports			  [2, 1]
 	  Position		  [210, 105, 350, 205]
 	  ZOrder		  641
-	  LibraryVersion	  "1.497"
+	  LibraryVersion	  "1.650"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Gravity Forces"
 	  SourceType		  "Gravity bias"
 	  ContentPreviewEnabled	  off
@@ -1337,7 +1343,7 @@ Model {
 	  Position		  [335, 158, 405, 172]
 	  ZOrder		  635
 	  BackgroundColor	  "[0.513700, 0.674500, 1.000000]"
-	  LibraryVersion	  "1.497"
+	  LibraryVersion	  "1.650"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	  SourceType		  "Get Measurement"
 	  ContentPreviewEnabled	  off
@@ -1414,7 +1420,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "231"
+	    ZoomFactor		    "333"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "qj"
@@ -1475,7 +1481,7 @@ Model {
 	      Ports		      [2, 1]
 	      Position		      [95, -256, 235, -189]
 	      ZOrder		      673
-	      LibraryVersion	      "1.497"
+	      LibraryVersion	      "1.650"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 	      SourceType	      "Mass Matrix"
 	      ContentPreviewEnabled   off
@@ -1544,7 +1550,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"215"
+		ZoomFactor		"299"
 		Block {
 		  BlockType		  Inport
 		  Name			  "qjDesired"
@@ -1558,16 +1564,15 @@ Model {
 		  }
 		}
 		Block {
-		  BlockType		  Reference
-		  Name			  "DoFs converter"
-		  SID			  "446"
+		  BlockType		  Demux
+		  Name			  "Demux1"
+		  SID			  "467"
 		  Ports			  [1, 5]
-		  Position		  [465, 119, 560, 221]
-		  ZOrder		  652
-		  LibraryVersion	  "1.497"
-		  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
-		  SourceType		  "DoFs converter"
-		  yarp2WBIOption	  "From YARP to WBI"
+		  Position		  [550, 121, 555, 219]
+		  ZOrder		  665
+		  ShowName		  off
+		  Outputs		  "Config.numOfJointsForEachControlboard"
+		  DisplayOption		  "bar"
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
@@ -1590,16 +1595,15 @@ Model {
 		  }
 		}
 		Block {
-		  BlockType		  Reference
-		  Name			  "DoFs converter1"
-		  SID			  "447"
+		  BlockType		  Demux
+		  Name			  "Demux2"
+		  SID			  "468"
 		  Ports			  [1, 5]
-		  Position		  [465, 254, 560, 356]
-		  ZOrder		  654
-		  LibraryVersion	  "1.497"
-		  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
-		  SourceType		  "DoFs converter"
-		  yarp2WBIOption	  "From YARP to WBI"
+		  Position		  [550, 256, 555, 354]
+		  ZOrder		  666
+		  ShowName		  off
+		  Outputs		  "Config.numOfJointsForEachControlboard"
+		  DisplayOption		  "bar"
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
@@ -1622,16 +1626,15 @@ Model {
 		  }
 		}
 		Block {
-		  BlockType		  Reference
-		  Name			  "DoFs converter2"
-		  SID			  "448"
+		  BlockType		  Demux
+		  Name			  "Demux3"
+		  SID			  "469"
 		  Ports			  [1, 5]
-		  Position		  [465, 404, 560, 506]
-		  ZOrder		  660
-		  LibraryVersion	  "1.497"
-		  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
-		  SourceType		  "DoFs converter"
-		  yarp2WBIOption	  "From YARP to WBI"
+		  Position		  [550, 406, 555, 504]
+		  ZOrder		  667
+		  ShowName		  off
+		  Outputs		  "Config.numOfJointsForEachControlboard"
+		  DisplayOption		  "bar"
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
@@ -1694,7 +1697,7 @@ Model {
 		  Position		  [115, 158, 180, 182]
 		  ZOrder		  659
 		  BackgroundColor	  "[0.513700, 0.851000, 0.670600]"
-		  LibraryVersion	  "1.497"
+		  LibraryVersion	  "1.650"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 		  SourceType		  "Get Measurement"
 		  ContentPreviewEnabled	  off
@@ -2012,90 +2015,90 @@ Model {
 		}
 		Line {
 		  Name			  "torso"
-		  ZOrder		  5
+		  ZOrder		  48
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter"
+		  SrcBlock		  "Demux1"
 		  SrcPort		  1
 		  DstBlock		  "qjMeas"
 		  DstPort		  1
 		}
 		Line {
 		  Name			  "left_arm"
-		  ZOrder		  6
+		  ZOrder		  47
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter"
+		  SrcBlock		  "Demux1"
 		  SrcPort		  2
 		  DstBlock		  "qjMeas"
 		  DstPort		  2
 		}
 		Line {
 		  Name			  "left_leg"
-		  ZOrder		  7
+		  ZOrder		  45
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter"
+		  SrcBlock		  "Demux1"
 		  SrcPort		  4
 		  DstBlock		  "qjMeas"
 		  DstPort		  4
 		}
 		Line {
 		  Name			  "right_arm"
-		  ZOrder		  8
+		  ZOrder		  44
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter"
+		  SrcBlock		  "Demux1"
 		  SrcPort		  3
 		  DstBlock		  "qjMeas"
 		  DstPort		  3
 		}
 		Line {
 		  Name			  "right_leg"
-		  ZOrder		  9
+		  ZOrder		  46
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter"
+		  SrcBlock		  "Demux1"
 		  SrcPort		  5
 		  DstBlock		  "qjMeas"
 		  DstPort		  5
 		}
 		Line {
 		  Name			  "torso"
-		  ZOrder		  10
+		  ZOrder		  40
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter1"
+		  SrcBlock		  "Demux2"
 		  SrcPort		  1
 		  DstBlock		  "qjError"
 		  DstPort		  1
 		}
 		Line {
 		  Name			  "left_arm"
-		  ZOrder		  11
+		  ZOrder		  37
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter1"
+		  SrcBlock		  "Demux2"
 		  SrcPort		  2
 		  DstBlock		  "qjError"
 		  DstPort		  2
 		}
 		Line {
 		  Name			  "left_leg"
-		  ZOrder		  12
+		  ZOrder		  38
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter1"
+		  SrcBlock		  "Demux2"
 		  SrcPort		  4
 		  DstBlock		  "qjError"
 		  DstPort		  4
 		}
 		Line {
 		  Name			  "right_arm"
-		  ZOrder		  13
+		  ZOrder		  39
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter1"
+		  SrcBlock		  "Demux2"
 		  SrcPort		  3
 		  DstBlock		  "qjError"
 		  DstPort		  3
 		}
 		Line {
 		  Name			  "right_leg"
-		  ZOrder		  14
+		  ZOrder		  41
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter1"
+		  SrcBlock		  "Demux2"
 		  SrcPort		  5
 		  DstBlock		  "qjError"
 		  DstPort		  5
@@ -2111,36 +2114,36 @@ Model {
 		}
 		Line {
 		  Name			  "torso"
-		  ZOrder		  16
+		  ZOrder		  36
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter2"
+		  SrcBlock		  "Demux3"
 		  SrcPort		  1
 		  DstBlock		  "qjDes"
 		  DstPort		  1
 		}
 		Line {
 		  Name			  "left_arm"
-		  ZOrder		  17
+		  ZOrder		  35
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter2"
+		  SrcBlock		  "Demux3"
 		  SrcPort		  2
 		  DstBlock		  "qjDes"
 		  DstPort		  2
 		}
 		Line {
 		  Name			  "left_leg"
-		  ZOrder		  18
+		  ZOrder		  34
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter2"
+		  SrcBlock		  "Demux3"
 		  SrcPort		  4
 		  DstBlock		  "qjDes"
 		  DstPort		  4
 		}
 		Line {
 		  Name			  "right_arm"
-		  ZOrder		  19
+		  ZOrder		  32
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter2"
+		  SrcBlock		  "Demux3"
 		  SrcPort		  3
 		  DstBlock		  "qjDes"
 		  DstPort		  3
@@ -2165,32 +2168,32 @@ Model {
 		}
 		Line {
 		  Name			  "right_leg"
-		  ZOrder		  23
+		  ZOrder		  33
 		  Labels		  [-1, 0]
-		  SrcBlock		  "DoFs converter2"
+		  SrcBlock		  "Demux3"
 		  SrcPort		  5
 		  DstBlock		  "qjDes"
 		  DstPort		  5
 		}
 		Line {
-		  ZOrder		  29
+		  ZOrder		  49
 		  SrcBlock		  "Gain"
 		  SrcPort		  1
-		  DstBlock		  "DoFs converter"
+		  DstBlock		  "Demux1"
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  30
+		  ZOrder		  50
 		  SrcBlock		  "Gain1"
 		  SrcPort		  1
-		  DstBlock		  "DoFs converter1"
+		  DstBlock		  "Demux2"
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  31
+		  ZOrder		  51
 		  SrcBlock		  "Gain2"
 		  SrcPort		  1
-		  DstBlock		  "DoFs converter2"
+		  DstBlock		  "Demux3"
 		  DstPort		  1
 		}
 	      }
@@ -2239,7 +2242,7 @@ Model {
 	      Position		      [-65, -546, -10, -524]
 	      ZOrder		      672
 	      BackgroundColor	      "[0.537255, 0.721569, 1.000000]"
-	      LibraryVersion	      "1.497"
+	      LibraryVersion	      "1.650"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
 	      ContentPreviewEnabled   off
@@ -2555,12 +2558,13 @@ Model {
       ZOrder		      383
       BackgroundColor	      "[0.827500, 0.576500, 0.603900]"
       ShowName		      off
-      LibraryVersion	      "1.497"
+      LibraryVersion	      "1.650"
       SourceBlock	      "WBToolboxLibrary/wholeBodyActuators/Set References"
       SourceType	      "Set References"
       ContentPreviewEnabled   off
       controlType	      "Torque"
       refSpeed		      "50"
+      refAcceleration	      "1000000*(pi/180)"
     }
     Block {
       BlockType		      Sum
@@ -2601,7 +2605,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"157"
+	ZoomFactor		"220"
 	Block {
 	  BlockType		  Inport
 	  Name			  "tauDesired"
@@ -2625,16 +2629,15 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Block {
-	  BlockType		  Reference
-	  Name			  "DoFs converter"
-	  SID			  "412"
+	  BlockType		  Demux
+	  Name			  "Demux1"
+	  SID			  "463"
 	  Ports			  [1, 5]
-	  Position		  [465, 119, 560, 221]
-	  ZOrder		  652
-	  LibraryVersion	  "1.497"
-	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
-	  SourceType		  "DoFs converter"
-	  yarp2WBIOption	  "From YARP to WBI"
+	  Position		  [550, 121, 555, 219]
+	  ZOrder		  662
+	  ShowName		  off
+	  Outputs		  "Config.numOfJointsForEachControlboard"
+	  DisplayOption		  "bar"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
@@ -2657,16 +2660,15 @@ Model {
 	  }
 	}
 	Block {
-	  BlockType		  Reference
-	  Name			  "DoFs converter1"
-	  SID			  "414"
+	  BlockType		  Demux
+	  Name			  "Demux2"
+	  SID			  "464"
 	  Ports			  [1, 5]
-	  Position		  [465, 254, 560, 356]
-	  ZOrder		  654
-	  LibraryVersion	  "1.497"
-	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
-	  SourceType		  "DoFs converter"
-	  yarp2WBIOption	  "From YARP to WBI"
+	  Position		  [550, 256, 555, 354]
+	  ZOrder		  663
+	  ShowName		  off
+	  Outputs		  "Config.numOfJointsForEachControlboard"
+	  DisplayOption		  "bar"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
@@ -2689,16 +2691,15 @@ Model {
 	  }
 	}
 	Block {
-	  BlockType		  Reference
-	  Name			  "DoFs converter2"
-	  SID			  "435"
+	  BlockType		  Demux
+	  Name			  "Demux3"
+	  SID			  "465"
 	  Ports			  [1, 5]
-	  Position		  [465, 404, 560, 506]
-	  ZOrder		  660
-	  LibraryVersion	  "1.497"
-	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
-	  SourceType		  "DoFs converter"
-	  yarp2WBIOption	  "From YARP to WBI"
+	  Position		  [550, 406, 555, 504]
+	  ZOrder		  664
+	  ShowName		  off
+	  Outputs		  "Config.numOfJointsForEachControlboard"
+	  DisplayOption		  "bar"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
@@ -2721,16 +2722,15 @@ Model {
 	  }
 	}
 	Block {
-	  BlockType		  Reference
-	  Name			  "DoFs converter3"
-	  SID			  "436"
+	  BlockType		  Demux
+	  Name			  "Demux4"
+	  SID			  "466"
 	  Ports			  [1, 5]
-	  Position		  [465, 554, 560, 656]
-	  ZOrder		  661
-	  LibraryVersion	  "1.497"
-	  SourceBlock		  "WBToolboxLibrary/Utilities/DoFs converter"
-	  SourceType		  "DoFs converter"
-	  yarp2WBIOption	  "From YARP to WBI"
+	  Position		  [550, 556, 555, 654]
+	  ZOrder		  665
+	  ShowName		  off
+	  Outputs		  "Config.numOfJointsForEachControlboard"
+	  DisplayOption		  "bar"
 	  Port {
 	    PortNumber		    1
 	    Name		    "torso"
@@ -2760,7 +2760,7 @@ Model {
 	  Position		  [115, 158, 180, 182]
 	  ZOrder		  659
 	  BackgroundColor	  "[0.827500, 0.576500, 0.603900]"
-	  LibraryVersion	  "1.497"
+	  LibraryVersion	  "1.650"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	  SourceType		  "Get Measurement"
 	  ContentPreviewEnabled	  off
@@ -3145,10 +3145,10 @@ Model {
 	  NumInputPorts		  "5"
 	}
 	Line {
-	  ZOrder		  522
+	  ZOrder		  575
 	  SrcBlock		  "gravityTorques"
 	  SrcPort		  1
-	  DstBlock		  "DoFs converter3"
+	  DstBlock		  "Demux4"
 	  DstPort		  1
 	}
 	Line {
@@ -3158,148 +3158,148 @@ Model {
 	  SrcPort		  1
 	  Points		  [70, 0]
 	  Branch {
-	    ZOrder		    418
-	    DstBlock		    "Sum2"
+	    ZOrder		    570
+	    Labels		    [1, 1]
+	    DstBlock		    "Demux1"
 	    DstPort		    1
 	  }
 	  Branch {
-	    ZOrder		    417
-	    Labels		    [1, 1]
-	    DstBlock		    "DoFs converter"
+	    ZOrder		    418
+	    DstBlock		    "Sum2"
 	    DstPort		    1
 	  }
 	}
 	Line {
 	  Name			  "torso"
-	  ZOrder		  411
+	  ZOrder		  569
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter"
+	  SrcBlock		  "Demux1"
 	  SrcPort		  1
 	  DstBlock		  "tauMeas"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "left_arm"
-	  ZOrder		  497
+	  ZOrder		  565
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter"
+	  SrcBlock		  "Demux1"
 	  SrcPort		  2
 	  DstBlock		  "tauMeas"
 	  DstPort		  2
 	}
 	Line {
 	  Name			  "left_leg"
-	  ZOrder		  495
+	  ZOrder		  568
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter"
+	  SrcBlock		  "Demux1"
 	  SrcPort		  4
 	  DstBlock		  "tauMeas"
 	  DstPort		  4
 	}
 	Line {
 	  Name			  "right_arm"
-	  ZOrder		  496
+	  ZOrder		  567
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter"
+	  SrcBlock		  "Demux1"
 	  SrcPort		  3
 	  DstBlock		  "tauMeas"
 	  DstPort		  3
 	}
 	Line {
 	  Name			  "right_leg"
-	  ZOrder		  498
+	  ZOrder		  566
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter"
+	  SrcBlock		  "Demux1"
 	  SrcPort		  5
 	  DstBlock		  "tauMeas"
 	  DstPort		  5
 	}
 	Line {
 	  Name			  "torso"
-	  ZOrder		  419
+	  ZOrder		  560
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter1"
+	  SrcBlock		  "Demux2"
 	  SrcPort		  1
 	  DstBlock		  "tauError"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "left_arm"
-	  ZOrder		  499
+	  ZOrder		  561
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter1"
+	  SrcBlock		  "Demux2"
 	  SrcPort		  2
 	  DstBlock		  "tauError"
 	  DstPort		  2
 	}
 	Line {
 	  Name			  "left_leg"
-	  ZOrder		  501
+	  ZOrder		  564
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter1"
+	  SrcBlock		  "Demux2"
 	  SrcPort		  4
 	  DstBlock		  "tauError"
 	  DstPort		  4
 	}
 	Line {
 	  Name			  "right_arm"
-	  ZOrder		  500
+	  ZOrder		  562
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter1"
+	  SrcBlock		  "Demux2"
 	  SrcPort		  3
 	  DstBlock		  "tauError"
 	  DstPort		  3
 	}
 	Line {
 	  Name			  "right_leg"
-	  ZOrder		  502
+	  ZOrder		  563
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter1"
+	  SrcBlock		  "Demux2"
 	  SrcPort		  5
 	  DstBlock		  "tauError"
 	  DstPort		  5
 	}
 	Line {
 	  Name			  "torqueError"
-	  ZOrder		  424
+	  ZOrder		  571
 	  Labels		  [1, 1]
 	  SrcBlock		  "Sum2"
 	  SrcPort		  1
-	  DstBlock		  "DoFs converter1"
+	  DstBlock		  "Demux2"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "torso"
-	  ZOrder		  505
+	  ZOrder		  555
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter2"
+	  SrcBlock		  "Demux3"
 	  SrcPort		  1
 	  DstBlock		  "tauDes"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "left_arm"
-	  ZOrder		  507
+	  ZOrder		  559
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter2"
+	  SrcBlock		  "Demux3"
 	  SrcPort		  2
 	  DstBlock		  "tauDes"
 	  DstPort		  2
 	}
 	Line {
 	  Name			  "left_leg"
-	  ZOrder		  508
+	  ZOrder		  558
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter2"
+	  SrcBlock		  "Demux3"
 	  SrcPort		  4
 	  DstBlock		  "tauDes"
 	  DstPort		  4
 	}
 	Line {
 	  Name			  "right_arm"
-	  ZOrder		  509
+	  ZOrder		  557
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter2"
+	  SrcBlock		  "Demux3"
 	  SrcPort		  3
 	  DstBlock		  "tauDes"
 	  DstPort		  3
@@ -3311,9 +3311,9 @@ Model {
 	  SrcPort		  1
 	  Points		  [90, 0]
 	  Branch {
-	    ZOrder		    510
+	    ZOrder		    572
 	    Labels		    [1, 1]
-	    DstBlock		    "DoFs converter2"
+	    DstBlock		    "Demux3"
 	    DstPort		    1
 	  }
 	  Branch {
@@ -3324,54 +3324,54 @@ Model {
 	}
 	Line {
 	  Name			  "right_leg"
-	  ZOrder		  506
+	  ZOrder		  556
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter2"
+	  SrcBlock		  "Demux3"
 	  SrcPort		  5
 	  DstBlock		  "tauDes"
 	  DstPort		  5
 	}
 	Line {
 	  Name			  "torso"
-	  ZOrder		  517
+	  ZOrder		  551
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter3"
+	  SrcBlock		  "Demux4"
 	  SrcPort		  1
 	  DstBlock		  "gravTorques"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "left_arm"
-	  ZOrder		  519
+	  ZOrder		  553
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter3"
+	  SrcBlock		  "Demux4"
 	  SrcPort		  2
 	  DstBlock		  "gravTorques"
 	  DstPort		  2
 	}
 	Line {
 	  Name			  "left_leg"
-	  ZOrder		  520
+	  ZOrder		  552
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter3"
+	  SrcBlock		  "Demux4"
 	  SrcPort		  4
 	  DstBlock		  "gravTorques"
 	  DstPort		  4
 	}
 	Line {
 	  Name			  "right_arm"
-	  ZOrder		  518
+	  ZOrder		  550
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter3"
+	  SrcBlock		  "Demux4"
 	  SrcPort		  3
 	  DstBlock		  "gravTorques"
 	  DstPort		  3
 	}
 	Line {
 	  Name			  "right_leg"
-	  ZOrder		  521
+	  ZOrder		  554
 	  Labels		  [-1, 0]
-	  SrcBlock		  "DoFs converter3"
+	  SrcBlock		  "Demux4"
 	  SrcPort		  5
 	  DstBlock		  "gravTorques"
 	  DstPort		  5
@@ -3452,7 +3452,7 @@ Model {
 	      ZOrder		      539
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.497"
+	      LibraryVersion	      "1.650"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
 	      period		      "Config.Ts"
@@ -3528,7 +3528,7 @@ Model {
 	      ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
 	      BackgroundColor	      "gray"
 	      ShowName		      off
-	      LibraryVersion	      "1.497"
+	      LibraryVersion	      "1.650"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
 	      period		      "Config.Ts"
