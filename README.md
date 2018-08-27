@@ -1,6 +1,6 @@
 # whole-body-controllers
 
-A collection of Matlab/Simulink whole body controllers for balancing and walking of humanoid robots. 
+A collection of Matlab/Simulink whole body controllers for humanoid robots. 
 
 ## Dependencies
 
