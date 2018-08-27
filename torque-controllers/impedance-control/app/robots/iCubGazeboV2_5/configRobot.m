@@ -2,7 +2,7 @@
 Config.ON_GAZEBO = true;
 ROBOT_DOF        = 23;
 
-% Robot configuration for WBT3.0
+% Robot configuration for WBToolbox
 WBTConfigRobot           = WBToolbox.Configuration;
 WBTConfigRobot.RobotName = 'icubSim';
 WBTConfigRobot.UrdfFile  = 'model.urdf';

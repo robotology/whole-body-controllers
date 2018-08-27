@@ -7,7 +7,7 @@ Config.ON_GAZEBO         = false;
 ROBOT_DOF                = 23;
 ROBOT_DOF_FOR_SIMULINK   = eye(ROBOT_DOF);
 
-% Robot configuration for WBT3.0
+% Robot configuration for WBToolbox
 WBTConfigRobot                    = WBToolbox.Configuration;
 WBTConfigRobot.RobotName          = 'icub';
 WBTConfigRobot.UrdfFile           = 'model.urdf';
