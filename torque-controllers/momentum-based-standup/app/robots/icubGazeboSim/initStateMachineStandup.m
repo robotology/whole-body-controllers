@@ -32,12 +32,12 @@ Reg.HessianQP      = 1e-2;
 Reg.norm_tolerance = 1e-4;
                             
 %% COM AND JOINT GAINS 
-Gain.KP_COM     =      [50   50  50;     % state ==  1  BALANCING ON THE LEGS
-                        50   50  50;     % state ==  2  MOVE COM FORWARD
-                        50   50  50;     % state ==  3  TWO FEET BALANCING
-                        50   50  50];    % state ==  4  LIFTING UP
+Gain.KP_COM     =      [250   250  50;     % state ==  1  BALANCING ON THE LEGS
+                        250   250  50;     % state ==  2  MOVE COM FORWARD
+                        250   250  50;     % state ==  3  TWO FEET BALANCING
+                        250   250  50];    % state ==  4  LIFTING UP
 
-Gain.KD_COM = 2*sqrt(Gain.KP_COM);
+Gain.KD_COM = 2*sqrt(Gain.KP_COM)/10;
 
 Gain.KP_AngularMomentum  = 1;
 Gain.KD_AngularMomentum  = 2*sqrt(Gain.KP_AngularMomentum);
@@ -69,12 +69,12 @@ Sm.smoothingTimeCoM = 0.5;
 % contact forces threshold (YOGA DEMO ONLY)
 Sm.wrench_thresholdContactLFoot  = [0;    % NOT USED
                                     75;   % state ==  2  MOVE COM FORWARD
-                                    120;  % state ==  3  TWO FEET BALANCING
+                                    95;  % state ==  3  TWO FEET BALANCING
                                     0];   % NOT USED
 
 Sm.wrench_thresholdContactRFoot  = [0     % NOT USED
                                     75;   % state ==  2  MOVE COM FORWARD
-                                    120;  % state ==  3  TWO FEET BALANCING
+                                    95;  % state ==  3  TWO FEET BALANCING
                                     0];   % NOT USED
                      
 % external forces at arms threshold                    
@@ -95,10 +95,10 @@ Sm.stateAt0 = 1;
 % delta to be summed to the reference CoM position (STANDUP DEMO ONLY)
 
 Sm.CoM_delta        = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT LEG
-                       0.0     0.0   0.0;       % NOT USED
-                       0.1567  0.0   0.0;       % state ==  2  MOVE COM FORWARD
-                       0.08    0.0   0.0;       % state ==  3  TWO FEET BALANCING
-                       0.03    0.0   0.20];     % state ==  4  LIFTING UP
+                       0.0     0.0     0.0;       % NOT USED
+                       0.1277 -0.0295  0.0;       % state ==  2  MOVE COM FORWARD
+                       0.04   -0.0     0.0;       % state ==  3  TWO FEET BALANCING
+                       0.0     0.0     0.20];     % state ==  4  LIFTING UP
 
 % configuration parameters for state machine (STANDUP DEMO ONLY) 
 Sm.tBalancing           = 3;
@@ -109,7 +109,7 @@ Sm.tBalancing           = 3;
 Sm.joints_standUpPositions     = [0.0000      0.0000     0.0000    0.0000        0.0000           0.4363          0.0000          0.0000   0.0000;   % state ==  1  THIS REFERENCE IS NOT USED
                                   1.5402      0.1594    -1.7365   -0.2814       -1.6455           0.4363          0.5862          0.2473   0.4363;   % state ==  2  MOVE COM FORWARD
                                   1.1097      0.0122    -0.8365   -0.0714       -1.4615           0.4363          0.1545          0.2018   0.0611;   % state ==  3  TWO FEET BALANCING
-                                  0.2094      0.1047    -0.1745   -0.0349       -0.0873           0.2563          0.5862          0.2473   0.0000];  % state ==  4  LIFTING UP
+                                  0.2094      0.1047    -0.1745   -0.0349       -1.6455           0.4363          0.5862          0.2473   0.0000];  % state ==  4  LIFTING UP
 
 %% References for CoM trajectory (COORDINATOR DEMO ONLY)
 
@@ -178,5 +178,5 @@ feet_size                    = [-0.05  0.10;     % xMin, xMax
                                 -0.025 0.025];   % yMin, yMax 
                             
 leg_size                     = [-0.025  0.05 ;  % xMin, xMax
-                                -0.025  0.025]; % yMin, yMax 
+                                -0.025  0.025]*2; % yMin, yMax 
                             
