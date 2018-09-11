@@ -64,6 +64,11 @@ Config.CHECK_LIMITS          = false;
 % workspace is saved after stopping the simulation
 Config.SAVE_WORKSPACE        = false;
 
+% If CHECK_INTEGRATION_TIME = True, after stopping the simulation the
+% Simulink time is compared with the Yarp time to check if the desired
+% integration time step is respected
+Config.CHECK_INTEGRATION_TIME = false;
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONFIGURATIONS COMPLETED: loading gains and parameters for the specific robot
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

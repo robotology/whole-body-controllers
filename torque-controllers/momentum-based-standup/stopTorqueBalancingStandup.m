@@ -22,3 +22,37 @@ if Config.SAVE_WORKSPACE
    
    save(['./experiments',date,'/exp_',num2str(c(4)),'-',num2str(c(5)),'.mat'])
 end
+
+% Compare the Yarp time with the Simulink time to catch if the required
+% integration time step is respected during the simulation
+if Config.CHECK_INTEGRATION_TIME && exist('yarp_time','var')
+    
+    sim_time = yarp_time.time;
+    
+    % normalize the yarp time over the first value (at t_sim = 0)
+    yarp_time0 = yarp_time.signals.values - yarp_time.signals.values(1);
+    
+    % check 
+    figure
+    hold on
+    plot(yarp_time0,0:length(yarp_time0)-1,'o')
+    plot(sim_time,0:length(sim_time)-1,'o-')
+    xlabel('Time [s]')
+    ylabel('Iterations')
+    grid on
+    legend('Yarp Time','Simulink Time')
+    title('Yarp time vs. Simulink time')
+    
+    figure
+    plot(yarp_time0(1:end-1),diff(yarp_time0),'.-')
+    ylabel('Diff (Yarp Time) [s]')
+    xlabel('Absolute time [s]')
+    title('Delta Yarp time')
+    
+    figure
+    deltaThr = 0.018;
+    acc = diff(yarp_time0);
+    plot(diff(yarp_time0(acc>deltaThr)),'.-')
+    ylabel('Distance [s]')
+    title('Distance between huge delta Yarp time')
+end
