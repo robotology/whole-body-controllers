@@ -7,20 +7,20 @@
 #### Update yarp, icub-main and robotology-superbuild
 First, it is necessary to update the `yarp`, `icub-main` and `robotology-superbuild` directories on the iCub laptop, as well as on the computer used for launching the Simulink controllers (if different). You can do this by opening a terminal in the source folder of each repository (e.g. the `yarp` folder) and running the command:
 
-`git pull`  
+`git pull` 
 
 You don't have to repeat this operation on computers which share sources with the icub laptop.
 
 Then, if there are some updates, compile them by running the commands: 
 
-`cd build`  
-`ccmake  ../`  
-`make`  
+`cd build` 
+`ccmake  ../` 
+`make` 
 
 You also need to update all the repositories downloaded by means of the `robotology-superbuild`. Go into the `robotology-superbuild` folder and run:
 
-`cd build`  
-`make update-all`  
+`cd build` 
+`make update-all` 
 
 **IMPORTANT** before running `make-update all`, be sure all repositories downloaded with the superbuild are in `master` branch (they are inside the `robotology-superbuild/robotology` folder. Go into the source directory of each repo (e.g. `iDyntree`) and check the current github branch by running the `git status` command. If they are not in `master` branch, then be sure the `YCM_DEVEL_MODE` option is activated for the corresponding repository. You can check this in the `build` folder, by running:
 
@@ -28,20 +28,20 @@ You also need to update all the repositories downloaded by means of the `robotol
 
 and by looking at the status of the options of the format `YCM_DEVEL_MODE_name_of_the_repo`.
 
-To update the iCub on-board PC (pc104 or icub-head), first connect to it using the command  
+To update the iCub on-board PC (pc104 or icub-head), first connect to it using the command 
 
-`ssh pc104`   
-or  
+`ssh pc104` 
+or 
 `ssh icub-head` 
 
 and if necessary add -X option to redirect the graphic output to your local machine. Then follow the same procedure presented before.
 
 ## Firmware update
 
-*iCub software version anterior to 1.8.0*:  
+*iCub software version anterior to 1.8.0*: 
 - It is not recommended to perform the firmware update without the support from IIT.
 
-*Latest iCub software version*:   
+*Latest iCub software version*: 
 - Look [here](https://github.com/robotology/QA/issues/240) for instructions on how to perform an update using `Firmware-updater`.
 
 - You can find information about CAN-bus numbers and CAN-bus device drivers [here](http://wiki.icub.org/wiki/Can_addresses_and_associated_firmware#Can_Networks). 
@@ -54,10 +54,10 @@ On iCub it is sometimes required to re-calibrate the “zero position” associa
 
 - On a terminal run the  `yarpmotorgui`, then switch to the tab associated to the body part you want to calibrate. Then, click the `idle` button for the joints to calibrate, allowing you to move them freely. With the help of a level tool, move the joint such that you can measure that it is level. Read the joint encoder value corresponding to the "level" position. 
 
-- This value will be added in the specific file associated to the joint. On the `on-board PC`, go to the folder containing the "\.xml" calibration files for your robot and open the corresponding file (example: `.../robots/$ROBOT_NAME/calibrators/left\_leg\_calib.xml`). Add the encoder value that you have previously noted to the current "calibrationDelta" of the joint (each number of the parameter "calibrationDelta" corresponds to a joint). For example, we add some values to the line:  
+- This value will be added in the specific file associated to the joint. On the `on-board PC`, go to the folder containing the "\.xml" calibration files for your robot and open the corresponding file (example: `.../robots/$ROBOT_NAME/calibrators/left\_leg\_calib.xml`). Add the encoder value that you have previously noted to the current "calibrationDelta" of the joint (each number of the parameter "calibrationDelta" corresponds to a joint). For example, we add some values to the line: 
 
 ```
-<param name="calibrationDelta"> -5.0  8.7  -11.4  -0.6  0.0 </param>`  
+<param name="calibrationDelta"> -5.0  8.7  -11.4  -0.6  0.0 </param>` 
 
 ```
 Restart the robot to apply the modifications. Check that the joints were successfully calibrated.
@@ -73,11 +73,11 @@ In `yarpmotorgui`, switch to the tab associated to the head. Then, click the `id
 ## Launch the iCub 
 Once everything is correctly updated and calibrated:
 
-1. Switch on the power supplies (wait a little for the power to come to the iCub).  
+1. Switch on the power supplies (wait a little for the power to come to the iCub). 
  
-2. Launch `yarpmanager` on the icub external PC. Properly configure the `cluster`. Then run the application `icub_startup_wbd.xml`.  
+2. Launch `yarpmanager` on the icub external PC. Properly configure the `cluster`. Then run the application `icub_startup_wbd.xml`. 
  
 ## Some little things to know 
  
- - Be careful with the head and hands of the robot.  
+ - Be careful with the head and hands of the robot. 
  - How to hide DEBUG information: in the cmake information, put the variable DEBUG from DEBUG to RELEASE. 

@@ -6,7 +6,7 @@ A collection of Matlab/Simulink whole body controllers for humanoid robots.
 
 This repository depends upon the following Software/repositories:
 
-- [Matlab/Simulink](https://it.mathworks.com/products/matlab.html), at least version **R2014a**
+- [Matlab/Simulink](https://it.mathworks.com/products/matlab.html), at least version **R2014a** (default: **R2017b**)
 - [WB-Toolbox](https://github.com/robotology/WB-Toolbox)
 - [Gazebo Simulator](http://gazebosim.org/), at least version **7.8**
 - [gazebo-yarp-plugins](https://github.com/robotology/gazebo-yarp-plugins)
@@ -21,7 +21,7 @@ This repository depends upon the following Software/repositories:
 
 | Robot Names | 
 |:-------------:|
-| iCubGenova02 |  
+| iCubGenova02 | 
 | iCubGenova04 | 
 | iCubGazeboV2_5 |
 | icubGazeboSim |

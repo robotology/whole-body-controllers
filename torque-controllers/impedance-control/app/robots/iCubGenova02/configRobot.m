@@ -32,7 +32,7 @@ if MOVING
     
     % Impedance gains
     Kp     = 20*diag(ones(1,ROBOT_DOF));
-    Kd     = 2*sqrt(Kp);
+    Kd     = 2*sqrt(Kp)*0;
     
     AMPLS  = 7.5*ones(1,ROBOT_DOF);
     FREQS  = 0.5*ones(1,ROBOT_DOF);

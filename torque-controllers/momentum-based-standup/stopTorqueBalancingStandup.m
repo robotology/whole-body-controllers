@@ -32,7 +32,7 @@ if Config.CHECK_INTEGRATION_TIME && exist('yarp_time','var')
     % normalize the yarp time over the first value (at t_sim = 0)
     yarp_time0 = yarp_time.signals.values - yarp_time.signals.values(1);
     
-    % check 
+    % fast check of the yarp time vs. Simulink time 
     figure
     hold on
     plot(yarp_time0,0:length(yarp_time0)-1,'o')
@@ -42,17 +42,4 @@ if Config.CHECK_INTEGRATION_TIME && exist('yarp_time','var')
     grid on
     legend('Yarp Time','Simulink Time')
     title('Yarp time vs. Simulink time')
-    
-    figure
-    plot(yarp_time0(1:end-1),diff(yarp_time0),'.-')
-    ylabel('Diff (Yarp Time) [s]')
-    xlabel('Absolute time [s]')
-    title('Delta Yarp time')
-    
-    figure
-    deltaThr = 0.018;
-    acc = diff(yarp_time0);
-    plot(diff(yarp_time0(acc>deltaThr)),'.-')
-    ylabel('Distance [s]')
-    title('Distance between huge delta Yarp time')
 end
