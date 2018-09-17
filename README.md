@@ -19,12 +19,12 @@ This repository depends upon the following Software/repositories:
 
 - set the environmental variable `YARP_ROBOT_NAME` in the `.bashrc` file to be the name of the robot you want to control. List of supported robot names:
 
-| Robot Names | 
-|:-------------:|
-| iCubGenova02 | 
-| iCubGenova04 | 
-| iCubGazeboV2_5 |
-| icubGazeboSim |
+  | Robot Names | Associated URDF Model |
+  |:-------------:|:-------------:|
+  | iCubGenova02 | [model.urdf](https://github.com/robotology/icub-models/blob/master/iCub/robots/iCubGenova02/model.urdf) |
+  | iCubGenova04 | [model.urdf](https://github.com/robotology/icub-models/blob/master/iCub/robots/iCubGenova04/model.urdf) |
+  | iCubGazeboV2_5 |[model.urdf](https://github.com/robotology/icub-models/blob/master/iCub/robots/iCubGazeboV2_5/model.urdf)|
+  | icubGazeboSim |[model.urdf](https://github.com/robotology/yarp-wholebodyinterface/blob/master/app/robots/icubGazeboSim/model.urdf) |
 
 - if all the required dependencies are correctly installed and configured, just clone this repository on your pc. No further actions are required. An alternative is to install this repository through the `robotology-superbuild`. It is required to enable the option `ROBOTOLOGY_ENABLE_DYNAMICS`. **Important:** it is necessary to set the 
 
