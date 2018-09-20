@@ -324,7 +324,7 @@ Sm.joints_leftYogaRef  = [ 0,                              q1;
                           22*Sm.smoothingTimeCoM_Joints(4),q15;
                           23*Sm.smoothingTimeCoM_Joints(4),q16;
                           24*Sm.smoothingTimeCoM_Joints(4),q17;
-                          25*Sm.smoothingTimeCoM_Joints(4),q2];
+                          25*Sm.smoothingTimeCoM_Joints(4),q8];
                  
 Sm.joints_rightYogaRef      = Sm.joints_leftYogaRef;
 Sm.joints_rightYogaRef(:,1) = [0,                              ;
