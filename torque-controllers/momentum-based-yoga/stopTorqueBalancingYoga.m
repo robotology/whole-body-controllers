@@ -7,7 +7,7 @@
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 rmpath('./src/')
-rmpath(genpath('../../library'));
+rmpath('../../library/matlab');
 
 % Create a folder for collecting data
 if Config.SAVE_WORKSPACE

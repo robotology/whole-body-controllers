@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3287"
+    ComputedModelVersion    "1.3307"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -575,8 +575,8 @@ Model {
   SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 11 0"
   CustomCodeFunctionData  ""
   SLCCPlugin		  "on"
-  PostLoadFcn		  "%% Open the static GUI and try to adjust it \n \ntry\n\ntorqueBalGui = torqueBalancingGUI;\n\nset(to"
-  "rqueBalGui, 'Position', [100 50 62 12])\n\nend"
+  PostLoadFcn		  "%% Try to open the static GUI and try to adjust it \n \ntry\n\ntorqueBalGui = torqueBalancingGUI;\n\n"
+  "set(torqueBalGui, 'Position', [100 50 62 12])\n\nend"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -587,19 +587,20 @@ Model {
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
   CloseFcn		  "%% Try to close the GUI (the user might have already closed it)\n\ntry\n\n  close(torqueBalGui)\n\nend"
-  InitFcn		  "%% If possible, try to set the \"finished compiling\" checkbox to True\n\ntry\n\n set(sl_synch_handles.c"
-  "heckbox2,'Value',1);\n\nend\n\ncd(fileparts(which(bdroot)));\ninitTorqueBalancingYoga;\n\n"
-  StartFcn		  "%% Try to edit the GUI (the user may have already closed it)\n\ntry\n\n%% Compilation is finished. Unch"
-  "eck the \"compiling\" option\n\nset(sl_synch_handles.checkbox2,'Value',0);\n\n%% Get the current status of the push "
-  "button\n\npushButtonString = get( findobj(torqueBalGui, 'Tag', 'pushbutton1'), 'String'); \n\n%% If the string is 'S"
-  "tart Simulation', the start was not driven by the GUI.\n%% Therefore it is necessary to update the button message to"
-  " 'Stop Simulation' manually.\n\nif strcmp(pushButtonString, 'Start Simulation')\n\n  set(sl_synch_handles.pushbutton"
-  "1,'String','Stop Simulation')\n\nend \n\nend"
+  InitFcn		  "cd(fileparts(which(bdroot)));\ninitTorqueBalancingYoga;\n\n%% Try to modify the checkbox value after com"
+  "pilation is finished\ntry\n\nset(sl_synch_handles.checkbox2,'Value',1)\n\nend"
+  StartFcn		  "%% Try to edit the GUI (the user may have already closed it)\n\ntry\n\n%% Get the current status of the"
+  " push button\n\npushButtonString = get( findobj(torqueBalGui, 'Tag', 'pushbutton1'), 'String'); \n\n%% If the string"
+  " is 'Start Simulation', the start was not driven by the GUI.\n%% Therefore it is necessary to update the button mess"
+  "age to 'Stop Simulation' manually.\n\nif strcmp(pushButtonString, 'Start Simulation')\n\n  set(sl_synch_handles.push"
+  "button1,'String','Stop Simulation')\n\nend \n\nend"
   StopFcn		  "cd(fileparts(which(bdroot)));\nstopTorqueBalancingYoga;\n\n%% Try to edit the GUI (the user may have alr"
   "eady closed it)\n\ntry\n\n%% Get the current status of the push button\n\npushButtonString = get( findobj(torqueBalG"
   "ui, 'Tag', 'pushbutton1'), 'String'); \n\n%% If the string is 'Stop Simulation', the stop was not driven by the GUI."
   "\n%% Therefore it is necessary to update the button message to 'Start Simulation' manually.\n\nif strcmp(pushButtonS"
-  "tring, 'Stop Simulation')\n\n   set(sl_synch_handles.pushbutton1,'String','Start Simulation')\n\nend \n\nend"
+  "tring, 'Stop Simulation')\n\n   set(sl_synch_handles.pushbutton1,'String','Start Simulation')\n\nend \n\nend\n\ntry\n"
+  "\n%% Try to modify the checkbox value after stopping the model\nset(sl_synch_handles.checkbox2,'Value',0)\n\nend\n\n"
+  "\n"
   LastSavedArchitecture	  "glnxa64"
   Object {
     $PropName		    "BdWindowsInfo"
@@ -610,7 +611,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1322.0, 34.0, 1228.0, 1396.0]
+      Location		      [1123.0, 694.0, 790.0, 490.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -634,9 +635,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1190.0, 1219.0]
-	ZoomFactor		[0.94939759036144578]
-	Offset			[575.253807106599, -122.51903553299496]
+	Extents			[752.0, 313.0]
+	ZoomFactor		[0.51424050632911389]
+	Offset			[442.43230769230775, 186.77538461538461]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -656,10 +657,10 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAATMAAAFAQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAAMWAAABdwAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACA/////wAAAAAAAAAA/////wEAAADo/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFo/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAANR/////wAAAAAAAAAA/"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAALk/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
@@ -670,9 +671,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Sep 19 17:01:47 2018"
-  RTWModifiedTimeStamp	  459277304
-  ModelVersionFormat	  "1.%<AutoIncrement:3287>"
+  LastModifiedDate	  "Thu Sep 20 13:02:40 2018"
+  RTWModifiedTimeStamp	  459349330
+  ModelVersionFormat	  "1.%<AutoIncrement:3307>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -1809,8 +1810,8 @@ Model {
   }
   System {
     Name		    "torqueBalancingYoga"
-    Location		    [1322, 34, 2550, 1430]
-    Open		    on
+    Location		    [1123, 694, 1913, 1184]
+    Open		    off
     PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1822,7 +1823,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "95"
+    ZoomFactor		    "51"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "4629"
     Block {
@@ -1839,12 +1840,6 @@ Model {
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
-      RobotName		      "'icubSim'"
-      UrdfFile		      "'model.urdf'"
-      ControlledJoints	      "{'l_elbow','l_shoulder_pitch','torso_roll'}"
-      ControlBoardsNames      "{'left_arm','right_arm','torso'}"
-      LocalName		      "'WBT'"
-      GravityVector	      "[0,0,-9.81]"
     }
     Block {
       BlockType		      SubSystem

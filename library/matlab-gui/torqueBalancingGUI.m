@@ -84,7 +84,8 @@ function pushbutton1_Callback(hObject, eventdata, handles) %#ok<*INUSL,*DEFNU>
 
 mystring = get(hObject,'String');
 status   = get_param(bdroot,'simulationstatus');
-
+   
+   
 if strcmp(mystring,'Start Simulation')
     
     % Check the status of the simulation and start it if it's stopped
@@ -121,5 +122,5 @@ function checkbox2_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of checkbox2
-
+assignin('base','sl_synch_handles',handles)
  

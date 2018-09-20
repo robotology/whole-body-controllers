@@ -15,7 +15,7 @@
 %  * Public License for more details
 %  */
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%clear variables
+clearvars -except sl_synch_handles
 clc
 
 %% GENERAL SIMULATION INFO
@@ -77,7 +77,7 @@ Config.CHECK_INTEGRATION_TIME = false;
 Config.Ts                = 0.01; 
 
 addpath('./src/')
-addpath(genpath('../../library'));
+addpath('../../library/matlab');
 
 % Run robot-specific configuration parameters
 run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m')); 
