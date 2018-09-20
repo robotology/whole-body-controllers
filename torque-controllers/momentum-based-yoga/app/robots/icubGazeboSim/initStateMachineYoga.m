@@ -136,6 +136,14 @@ Sm.demoStartsOnRightSupport = false;
 Sm.yogaAlsoOnRightFoot      = false;
 Sm.yogaInLoop               = false;
 
+% leave this variable to false, it has been tuned with the Yoga Extended
+% (not available for icubGazeboSim)
+Sm.repeatYogaMoveset        = false;
+
+% smoothing time for the second time the Yoga moveset are performed (NOT USED)
+Sm.smoothingTimeSecondYogaLeft  = 0.6;
+Sm.smoothingTimeSecondYogaRight = 0.6;
+
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [zeros(1,ROBOT_DOF);                                %% NOT USED
                        [-0.0348,0.0779,0.0429, ...                         %% state == 2  COM TRANSITION TO LEFT 
@@ -250,6 +258,10 @@ Sm.joints_rightYogaRef(:,1) = [0;
                                5*Sm.smoothingTimeCoM_Joints(10);
                                6*Sm.smoothingTimeCoM_Joints(10);
                                7*Sm.smoothingTimeCoM_Joints(10)]; 
+                           
+% smoothing time vector for the second time the Yoga moveset are performed (NOT USED)
+Sm.joints_leftSecondYogaRef  = Sm.smoothingTimeSecondYogaLeft.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
+Sm.joints_rightSecondYogaRef = Sm.smoothingTimeSecondYogaRight.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
 
 % MIRROR YOGA LEFT MOVESET FOR RIGHT YOGA					 
 for i = 1:size(Sm.joints_rightYogaRef,1)	

@@ -145,6 +145,13 @@ Sm.demoStartsOnRightSupport = false;
 Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from right foot
 Sm.yogaInLoop               = false;
 
+% repeat the yoga movements faster. Uneffective if Sm.yogaExtended = false;
+Sm.repeatYogaMoveset            = true;
+
+% smoothing time for the second time the Yoga moveset are performed
+Sm.smoothingTimeSecondYogaLeft  = 0.8;
+Sm.smoothingTimeSecondYogaRight = 0.8;
+
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [  zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED 
                         [-0.0348,0.0779,0.0429, ...                          %% state == 2  COM TRANSITION TO LEFT 
@@ -350,9 +357,17 @@ Sm.joints_rightYogaRef(:,1) = [0,                              ;
                               24*Sm.smoothingTimeCoM_Joints(10);
                               25*Sm.smoothingTimeCoM_Joints(10)];
 
+% smoothing time vector for the second time the Yoga moveset are performed
+Sm.joints_leftSecondYogaRef  = Sm.smoothingTimeSecondYogaLeft.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
+Sm.joints_rightSecondYogaRef = Sm.smoothingTimeSecondYogaRight.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
+
 % if the demo is not "yogaExtended", stop at the 8th move
+% also, Sm.repeatYogaMoveset must be set to "false". The reason is that the
+% first and the last Yoga moveset for the "not extended" one are very
+% different, and the robot may "jump" when restarting the Yoga the second time
 if ~Sm.yogaExtended
    
+    Sm.repeatYogaMoveset        = false;
     Sm.joints_leftYogaRef       = Sm.joints_leftYogaRef(1:8,:);
     Sm.joints_rightYogaRef      = Sm.joints_rightYogaRef(1:8,:);
     Sm.joints_leftYogaRef(8,1)  = 15*Sm.smoothingTimeCoM_Joints(4);
