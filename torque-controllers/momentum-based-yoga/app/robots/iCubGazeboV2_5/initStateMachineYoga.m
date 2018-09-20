@@ -133,14 +133,21 @@ Sm.CoM_delta       = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF
                       0.0,  0.00,  0.0];  %% NOT USED
 
 % configuration parameters for state machine (YOGA DEMO ONLY) 
-Sm.tBalancing               = 1;
-Sm.tBalancingBeforeYoga     = 1;
-Sm.yogaExtended             = true;
-Sm.skipYoga                 = false;
-Sm.demoOnlyBalancing        = false;
-Sm.demoStartsOnRightSupport = false;
-Sm.yogaAlsoOnRightFoot      = true; % TO DO: yoga on both feet starting from right foot
-Sm.yogaInLoop               = false;
+Sm.tBalancing                   = 1;
+Sm.tBalancingBeforeYoga         = 1;
+Sm.yogaExtended                 = true;
+Sm.skipYoga                     = false;
+Sm.demoOnlyBalancing            = false;
+Sm.demoStartsOnRightSupport     = false;
+Sm.yogaAlsoOnRightFoot          = false; % TO DO: yoga on both feet starting from right foot
+Sm.yogaInLoop                   = false;
+
+% repeat the yoga movements faster. Uneffective if Sm.yogaExtended = false;
+Sm.repeatYogaMoveset            = true;
+
+% smoothing time for the second time the Yoga moveset are performed
+Sm.smoothingTimeSecondYogaLeft  = 0.6;
+Sm.smoothingTimeSecondYogaRight = 0.6;
 
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [  zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED 
@@ -194,13 +201,13 @@ q1 =        [-0.0790,0.2279, 0.4519, ...
              -1.1621,0.6663, 0.4919, 0.9947, ... 
              -1.0717,1.2904,-0.2447, 1.0948, ...
               0.2092,0.2060, 0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.3484,0.4008,-0.0004,-0.3672,-0.0530,-0.0875];
+              0.3484,0.4008,-0.0004,-0.3672,-0.1060,-0.0875];
 
 q2 =        [-0.0790,0.2279, 0.4519, ...
              -1.1621,0.6663, 0.4965, 0.9947, ...
              -1.0717,1.2904,-0.2493, 1.0948, ...
               0.2092,0.2060, 0.0006,-0.1741,-0.1044,0.0700, ... 
-              0.3714,0.9599, 1.3253,-1.6594, 0.6374,-0.0614];
+              0.3714,0.9599, 1.3253,-1.6594,-0.1060,-0.0614];
           
 q3 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
@@ -317,7 +324,7 @@ Sm.joints_leftYogaRef  = [ 0,                              q1;
                           22*Sm.smoothingTimeCoM_Joints(4),q15;
                           23*Sm.smoothingTimeCoM_Joints(4),q16;
                           24*Sm.smoothingTimeCoM_Joints(4),q17;
-                          25*Sm.smoothingTimeCoM_Joints(4),q8];
+                          25*Sm.smoothingTimeCoM_Joints(4),q2];
                  
 Sm.joints_rightYogaRef      = Sm.joints_leftYogaRef;
 Sm.joints_rightYogaRef(:,1) = [0,                              ;
@@ -347,9 +354,17 @@ Sm.joints_rightYogaRef(:,1) = [0,                              ;
                               24*Sm.smoothingTimeCoM_Joints(10);
                               25*Sm.smoothingTimeCoM_Joints(10)];
 
+% smoothing time vector for the second time the Yoga moveset are performed
+Sm.joints_leftSecondYogaRef  = Sm.smoothingTimeSecondYogaLeft.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
+Sm.joints_rightSecondYogaRef = Sm.smoothingTimeSecondYogaRight.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
+
 % if the demo is not "yogaExtended", stop at the 8th move
+% also, Sm.repeatYogaMoveset must be set to "false". The reason is that the
+% first and the last Yoga moveset for the "not extended" one are very
+% different, and the robot may "jump" when restarting the Yoga the second time
 if ~Sm.yogaExtended
    
+    Sm.repeatYogaMoveset        = false;
     Sm.joints_leftYogaRef       = Sm.joints_leftYogaRef(1:8,:);
     Sm.joints_rightYogaRef      = Sm.joints_rightYogaRef(1:8,:);
     Sm.joints_leftYogaRef(8,1)  = 15*Sm.smoothingTimeCoM_Joints(4);
