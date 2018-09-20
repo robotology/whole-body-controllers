@@ -380,9 +380,13 @@ Config.amplitudeOfOscillation  = 0.0;
 Config.frequencyOfOscillation  = 0.0;
 
 %% Parameters for motors reflected inertia
-
 % transmission ratio
 Config.Gamma = 0.01*eye(ROBOT_DOF);
+
+% modify the value of the transmission ratio for the hip pitch. 
+% TODO: avoid to hard-code the joint numbering
+Config.Gamma(end-5, end-5)  = 0.0067;
+Config.Gamma(end-11,end-11) = 0.0067;
 
 % motors inertia (Kg*m^2)
 legsMotors_I_m           = 0.0827*1e-4;
@@ -394,8 +398,12 @@ Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  armsMotors_I_m*ones(8,1);
                                  legsMotors_I_m*ones(12,1)]);
 
-% parameters for coupling matrices                            
-t  = 0.625;
+% parameters for coupling matrices. Updated according to the wiki:
+%
+% http://wiki.icub.org/wiki/ICub_coupled_joints 
+%
+% and corrected according to https://github.com/robotology/robots-configuration/issues/39
+t  = 0.615;
 r  = 0.022;
 R  = 0.04;
 
