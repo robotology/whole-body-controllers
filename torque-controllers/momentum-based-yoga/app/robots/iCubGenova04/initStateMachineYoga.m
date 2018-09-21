@@ -72,12 +72,9 @@ Gain.impedances  = [10   30   20, 10   10    10    8, 10   10    10    8, 30   3
                     30   30   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,100  350   20   200     10 100  % state == 12  LOOKING FOR CONTACT
                     30   40   30, 10   10    10   10, 10   10    10   10,220  550  220   200     65 300,100  350   20   200     10 100];% state == 13  TRANSITION TO INITIAL POSITION
 
-%Gain.impedances(4,12:17) = Gain.impedances(4,12:17)*2; 
-Gain.impedances(4,1:3)   = Gain.impedances(4,1:3)*3;
-                
-Gain.impedances(6,18:23) = Gain.impedances(6,18:23)*2; 
+Gain.impedances(4,1:3)    = Gain.impedances(4,1:3)*3;
+Gain.impedances(6,18:23)  = Gain.impedances(6,18:23)*2; 
 Gain.impedances(10,1:3)   = Gain.impedances(10,1:3)*3;
-
 Gain.impedances(13,1:3)   = Gain.impedances(13,1:3)*3;
  
 Gain.dampings = 0*sqrt(Gain.impedances(1,:));  
@@ -149,8 +146,8 @@ Sm.yogaInLoop               = false;
 Sm.repeatYogaMoveset            = true;
 
 % smoothing time for the second time the Yoga moveset are performed
-Sm.smoothingTimeSecondYogaLeft  = 0.8;
-Sm.smoothingTimeSecondYogaRight = 0.8;
+Sm.smoothingTimeSecondYogaLeft  = 0.5;
+Sm.smoothingTimeSecondYogaRight = 0.5;
 
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [  zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED 
@@ -301,6 +298,12 @@ q17 =        [-0.0852,-0.4273,0.0821, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
              -0.3514, 0.3107,1.3253,-0.0189, 0.5000,-0.0614];
+         
+q18 =        [-0.0852,-0.4273,0.0821, ...
+              0.1391, 1.4585,0.2464, 0.3042, ...
+             -0.4181, 1.6800,0.7373, 0.3031, ...
+              0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
+              0.3514, 1.3107,1.3253,-0.0189, 0.5000,-0.0614];
           
 Sm.joints_leftYogaRef  = [ 0,                              q1;
                            1*Sm.smoothingTimeCoM_Joints(4),q2;
@@ -327,7 +330,7 @@ Sm.joints_leftYogaRef  = [ 0,                              q1;
                           22*Sm.smoothingTimeCoM_Joints(4),q15;
                           23*Sm.smoothingTimeCoM_Joints(4),q16;
                           24*Sm.smoothingTimeCoM_Joints(4),q17;
-                          25*Sm.smoothingTimeCoM_Joints(4),q8];
+                          25*Sm.smoothingTimeCoM_Joints(4),q18];
                  
 Sm.joints_rightYogaRef      = Sm.joints_leftYogaRef;
 Sm.joints_rightYogaRef(:,1) = [0,                              ;
@@ -360,6 +363,10 @@ Sm.joints_rightYogaRef(:,1) = [0,                              ;
 % smoothing time vector for the second time the Yoga moveset are performed
 Sm.joints_leftSecondYogaRef  = Sm.smoothingTimeSecondYogaLeft.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
 Sm.joints_rightSecondYogaRef = Sm.smoothingTimeSecondYogaRight.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
+
+% keep a high smoothing time for switching from the first to the second yoga moveset
+Sm.joints_leftSecondYogaRef(1)  = 0.9;
+Sm.joints_rightSecondYogaRef(1) = 0.9;
 
 % if the demo is not "yogaExtended", stop at the 8th move
 % also, Sm.repeatYogaMoveset must be set to "false". The reason is that the
