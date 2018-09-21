@@ -128,9 +128,9 @@ Sm.CoM_delta       = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF
                       0.0,  0.012,  0.0;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
                       0.0, -0.015,  0.0;   %% state ==  9  RIGHT FOOT BALANCING 
                       0.0, -0.017,  0.0;   %% state == 10  YOGA RIGHT FOOT
-                      0.0,  0.00,  0.0;   %% state == 11  PREPARING FOR SWITCHING
-                      0.02,  0.025,  0.0;   %% state == 12  LOOKING FOR CONTACT 
-                      0.0,  0.00,  0.0];  %% NOT USED
+                      0.0,  0.00,   0.0;   %% state == 11  PREPARING FOR SWITCHING
+                      0.02, 0.025,  0.0;   %% state == 12  LOOKING FOR CONTACT 
+                      0.0,  0.00,   0.0];  %% NOT USED
 
 % configuration parameters for state machine (YOGA DEMO ONLY) 
 Sm.tBalancing               = 1;
@@ -146,8 +146,8 @@ Sm.yogaInLoop               = false;
 Sm.repeatYogaMoveset            = true;
 
 % smoothing time for the second time the Yoga moveset are performed
-Sm.smoothingTimeSecondYogaLeft  = 0.5;
-Sm.smoothingTimeSecondYogaRight = 0.5;
+Sm.smoothingTimeSecondYogaLeft  = 0.6;
+Sm.smoothingTimeSecondYogaRight = 0.6;
 
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [  zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED 
@@ -365,8 +365,8 @@ Sm.joints_leftSecondYogaRef  = Sm.smoothingTimeSecondYogaLeft.*(0:(length(Sm.joi
 Sm.joints_rightSecondYogaRef = Sm.smoothingTimeSecondYogaRight.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
 
 % keep a high smoothing time for switching from the first to the second yoga moveset
-Sm.joints_leftSecondYogaRef(1)  = 0.9;
-Sm.joints_rightSecondYogaRef(1) = 0.9;
+Sm.joints_leftSecondYogaRef(1)  = Sm.smoothingTimeCoM_Joints(4);
+Sm.joints_rightSecondYogaRef(1) = Sm.smoothingTimeCoM_Joints(10);
 
 % if the demo is not "yogaExtended", stop at the 8th move
 % also, Sm.repeatYogaMoveset must be set to "false". The reason is that the

@@ -146,8 +146,8 @@ Sm.yogaInLoop                   = false;
 Sm.repeatYogaMoveset            = true;
 
 % smoothing time for the second time the Yoga moveset are performed
-Sm.smoothingTimeSecondYogaLeft  = 0.6;
-Sm.smoothingTimeSecondYogaRight = 0.6;
+Sm.smoothingTimeSecondYogaLeft  = 1.2;
+Sm.smoothingTimeSecondYogaRight = 1.2;
 
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [  zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED 
@@ -357,6 +357,10 @@ Sm.joints_rightYogaRef(:,1) = [0,                              ;
 % smoothing time vector for the second time the Yoga moveset are performed
 Sm.joints_leftSecondYogaRef  = Sm.smoothingTimeSecondYogaLeft.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
 Sm.joints_rightSecondYogaRef = Sm.smoothingTimeSecondYogaRight.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
+
+% keep a high smoothing time for switching from the first to the second yoga moveset
+Sm.joints_leftSecondYogaRef(1)  = Sm.smoothingTimeCoM_Joints(4);
+Sm.joints_rightSecondYogaRef(1) = Sm.smoothingTimeCoM_Joints(10);
 
 % if the demo is not "yogaExtended", stop at the 8th move
 % also, Sm.repeatYogaMoveset must be set to "false". The reason is that the

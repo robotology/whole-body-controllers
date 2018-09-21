@@ -405,6 +405,17 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
     
     %% Update parameters
     currentState        = state;
-    jointsSmoothingTime = Sm.smoothingTimeCoM_Joints(state);
+    
+    % Update CoM and joints smoothing time for the repeated yoga demo
+    if secondYoga && state == 4 && t >= (Sm.joints_leftSecondYogaRef(2) + tSwitch)
+        
+        jointsSmoothingTime = Sm.smoothingTimeSecondYogaLeft;
+    
+    elseif secondYoga && state == 10 && t >= (Sm.joints_rightSecondYogaRef(2) + tSwitch)
+    
+        jointsSmoothingTime = Sm.smoothingTimeSecondYogaRight;
+    else
+        jointsSmoothingTime = Sm.smoothingTimeCoM_Joints(state);
+    end
     
 end
