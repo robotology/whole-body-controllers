@@ -74,11 +74,10 @@ Gain.impedances  = [10   30   20, 10   10    10    8, 10   10    10    8, 30   3
 
 Gain.impedances(10,18:23) = Gain.impedances(10,18:23)*1.5; 
 Gain.impedances(10,1:3)   = Gain.impedances(10,1:3)*2;
-
 Gain.impedances(4,12:17)  = Gain.impedances(4,12:17)*1.5; 
 Gain.impedances(4,1:3)    = Gain.impedances(4,1:3)*2;
-
-Gain.impedances(7,2:3)      = Gain.impedances(7,2:3)*1.5;
+Gain.impedances(4,4:11)   = Gain.impedances(4,4:11)*1.5;
+Gain.impedances(7,2:3)    = Gain.impedances(7,2:3)*1.5;
 
 Gain.dampings = 0*2*sqrt(Gain.impedances(1,:))/40;  
 
@@ -101,6 +100,12 @@ Sm.smoothingTimeCoM_Joints       = [1;    %% state ==  1  TWO FEET BALANCING
                                     2;    %% state == 11  PREPARING FOR SWITCHING
                                     5;    %% state == 12  LOOKING FOR CONTACT 
                                     10];  %% state == 13  TRANSITION INIT POSITION
+
+% scale factor smoothing time multiplies the smoothing factor during the
+% Yoga (state 4 and 10). The purpose is to reduce the time necessary for 
+% the reference to converge to the next position, but without changing also
+% the valuse stored in Sm.joints_leftYogaRef/Sm.joints_rightYogaRef (YOGA DEMO ONLY)
+Sm.scaleFactorSmoothingTime = 0.9;
 
 % time between two yoga positions (YOGA DEMO ONLY)
 Sm.joints_pauseBetweenYogaMoves  = 5;
@@ -125,7 +130,7 @@ Sm.CoM_delta       = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF
                       0.0,  0.005, 0.0;   %% state ==  3  LEFT FOOT BALANCING 
                       0.0,  0.005, 0.0;   %% state ==  4  YOGA LEFT FOOT
                       0.0,  0.00,  0.0;   %% state ==  5  PREPARING FOR SWITCHING
-                      0.02,-0.09,  0.0;   %% state ==  6  LOOKING FOR CONTACT 
+                      0.02,-0.08,  0.0;   %% state ==  6  LOOKING FOR CONTACT 
                       0.0,  0.00,  0.0;   %% NOT USED
                       % THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE RIGHT FOOT
                       0.0,  0.00,  0.0;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
@@ -146,7 +151,7 @@ Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from ri
 Sm.yogaInLoop               = false;
 
 % repeat the yoga movements faster. Uneffective if Sm.yogaExtended = false;
-Sm.repeatYogaMoveset            = true;
+Sm.repeatYogaMoveset        = false;
 
 % smoothing time for the second time the Yoga moveset are performed
 Sm.smoothingTimeSecondYogaLeft  = 0.6;

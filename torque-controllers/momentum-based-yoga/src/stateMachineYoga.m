@@ -414,8 +414,16 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
     elseif secondYoga && state == 10 && t >= (Sm.joints_rightSecondYogaRef(2) + tSwitch)
     
         jointsSmoothingTime = Sm.smoothingTimeSecondYogaRight;
-    else
-        jointsSmoothingTime = Sm.smoothingTimeCoM_Joints(state);
+    else       
+
+        if state == 4 || state == 10
+            
+            % during the yoga, reduce the time necessary for the reference
+            % to converge to the next position
+            jointsSmoothingTime = Sm.scaleFactorSmoothingTime*Sm.smoothingTimeCoM_Joints(state);
+        else
+            jointsSmoothingTime = Sm.smoothingTimeCoM_Joints(state);
+        end
     end
     
 end
