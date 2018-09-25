@@ -4,11 +4,13 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
     persistent state;
     persistent tSwitch;
     persistent w_H_fixedLink;
+    persistent secondYoga;
 
-    if isempty(state) || isempty(tSwitch) || isempty(w_H_fixedLink) 
+    if isempty(state) || isempty(tSwitch) || isempty(w_H_fixedLink) || isempty(secondYoga) 
         state         = Sm.stateAt0;
         tSwitch       = 0;
         w_H_fixedLink = eye(4);
+        secondYoga    = false;
     end
     
     CoM_des      = CoM_0;
@@ -108,20 +110,48 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
         KPCoM        = Gain.KP_COM(state,:);   
         KDCoM        = Gain.KD_COM(state,:);   
 
+        % iterate over the yoga positions
         for i = 1: size(Sm.joints_leftYogaRef,1)-1
             
-            if t > (Sm.joints_leftYogaRef(i,1) + tSwitch) && t <= (Sm.joints_leftYogaRef(i+1,1)+ tSwitch)
+            % positions for the first yoga
+            if t > (Sm.joints_leftYogaRef(i,1) + tSwitch) && t <= (Sm.joints_leftYogaRef(i+1,1)+ tSwitch) && secondYoga == false
                 
                 qj_des = Sm.joints_leftYogaRef(i,2:end)';
+                
+            % positions for the second yoga
+            elseif t > (Sm.joints_leftSecondYogaRef(i) + tSwitch) && t <= (Sm.joints_leftSecondYogaRef(i+1)+ tSwitch) && secondYoga == true
+                
+                qj_des = Sm.joints_leftYogaRef(i,2:end)';
+                
             end
         end
-        if t > (Sm.joints_leftYogaRef(end,1) + tSwitch) 
+        if t > (Sm.joints_leftYogaRef(end,1) + tSwitch) && secondYoga == false
             
             qj_des = Sm.joints_leftYogaRef(end,2:end)';
             
-            if t > (Sm.joints_leftYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves)
-                state   = 5;
-                tSwitch = t;
+            % if Sm.repeatYogaMoveset == true, repeat the Yoga
+            if t > (Sm.joints_leftYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatYogaMoveset == true
+                
+                tSwitch    = t;
+                secondYoga = true;
+                
+            elseif t > (Sm.joints_leftYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatYogaMoveset == false
+                
+                state      = 5;
+                tSwitch    = t;
+                secondYoga = false;
+            end
+        end        
+        if t > (Sm.joints_leftSecondYogaRef(end) + tSwitch) && secondYoga == true
+            
+            qj_des = Sm.joints_leftYogaRef(end,2:end)';
+            
+            % exit loop condition for the second yoga
+            if  t > (Sm.joints_leftSecondYogaRef(end) + tSwitch + Sm.smoothingTimeSecondYogaLeft + Sm.joints_pauseBetweenYogaMoves)
+                
+                state      = 5;
+                tSwitch    = t;
+                secondYoga = false;          
             end
         end
     end
@@ -263,21 +293,48 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
         KPCoM       = Gain.KP_COM(state,:);   
         KDCoM       = Gain.KD_COM(state,:);   
 
+        % iterate over the yoga positions
         for i = 1: size(Sm.joints_rightYogaRef,1)-1
             
-            if t > (Sm.joints_rightYogaRef(i,1) + tSwitch) && t <= (Sm.joints_rightYogaRef(i+1,1)+ tSwitch)
+            % positions for the first yoga
+            if t > (Sm.joints_rightYogaRef(i,1) + tSwitch) && t <= (Sm.joints_rightYogaRef(i+1,1)+ tSwitch) && secondYoga == false
                 
                 qj_des = Sm.joints_rightYogaRef(i,2:end)';
+                
+             % positions for the second yoga
+            elseif t > (Sm.joints_rightSecondYogaRef(i) + tSwitch) && t <= (Sm.joints_rightSecondYogaRef(i+1)+ tSwitch) && secondYoga == true
+                
+                qj_des = Sm.joints_rightYogaRef(i,2:end)';
+                
             end
         end
-        if t > Sm.joints_rightYogaRef(end,1) + tSwitch 
+        if t > (Sm.joints_rightYogaRef(end,1) + tSwitch) && secondYoga == false
             
             qj_des = Sm.joints_rightYogaRef(end,2:end)';
             
-            if t > (Sm.joints_rightYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) 
+            % if Sm.repeatYogaMoveset == true, repeat the Yoga
+            if t > (Sm.joints_rightYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatYogaMoveset == true
+                
+                tSwitch    = t;
+                secondYoga = true;
+                
+            elseif t > (Sm.joints_rightYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatYogaMoveset == false
             
-                state   = 11;
-                tSwitch = t;
+                state      = 11;
+                tSwitch    = t;
+                secondYoga = false;
+            end
+        end
+        if t > (Sm.joints_rightSecondYogaRef(end) + tSwitch) && secondYoga == true
+            
+            qj_des = Sm.joints_rightYogaRef(end,2:end)';
+            
+            % exit loop condition for the second yoga
+            if  t > (Sm.joints_rightSecondYogaRef(end) + tSwitch + Sm.smoothingTimeSecondYogaRight + Sm.joints_pauseBetweenYogaMoves)
+                
+                state      = 11;
+                tSwitch    = t;
+                secondYoga = false;          
             end
         end
     end
@@ -348,6 +405,25 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
     
     %% Update parameters
     currentState        = state;
-    jointsSmoothingTime = Sm.smoothingTimeCoM_Joints(state);
+    
+    % Update CoM and joints smoothing time for the repeated yoga demo
+    if secondYoga && state == 4 && t >= (Sm.joints_leftSecondYogaRef(2) + tSwitch)
+        
+        jointsSmoothingTime = Sm.smoothingTimeSecondYogaLeft;
+    
+    elseif secondYoga && state == 10 && t >= (Sm.joints_rightSecondYogaRef(2) + tSwitch)
+    
+        jointsSmoothingTime = Sm.smoothingTimeSecondYogaRight;
+    else       
+
+        if state == 4 || state == 10
+            
+            % during the yoga, reduce the time necessary for the reference
+            % to converge to the next position
+            jointsSmoothingTime = Sm.scaleFactorSmoothingTime*Sm.smoothingTimeCoM_Joints(state);
+        else
+            jointsSmoothingTime = Sm.smoothingTimeCoM_Joints(state);
+        end
+    end
     
 end

@@ -53,6 +53,7 @@ Config.SCOPES_EXT_WRENCHES   = false;
 Config.SCOPES_GAIN_SCHE_INFO = false;
 Config.SCOPES_MAIN           = false;
 Config.SCOPES_QP             = false;
+Config.SCOPES_INERTIA        = false;
 
 % Config.CHECK_LIMITS: if set to true, the controller will stop as soon as 
 % any of the joint limit is touched. 

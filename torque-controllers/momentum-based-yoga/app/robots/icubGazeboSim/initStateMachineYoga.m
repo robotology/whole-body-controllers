@@ -94,6 +94,12 @@ Sm.smoothingTimeCoM_Joints       = [5;   %% state ==  1  TWO FEET BALANCING
                                     5;   %% state == 12  LOOKING FOR CONTACT 
                                     4];  %% state == 13  TRANSITION INIT POSITION
 
+% scale factor smoothing time multiplies the smoothing factor during the
+% Yoga (state 4 and 10). The purpose is to reduce the time necessary for 
+% the reference to converge to the next position, but without changing also
+% the valuse stored in Sm.joints_leftYogaRef/Sm.joints_rightYogaRef (YOGA DEMO ONLY)
+Sm.scaleFactorSmoothingTime = 0.9;
+
 % time between two yoga positions (YOGA DEMO ONLY)
 Sm.joints_pauseBetweenYogaMoves = 3;
 
@@ -135,6 +141,14 @@ Sm.demoOnlyBalancing        = false;
 Sm.demoStartsOnRightSupport = false;
 Sm.yogaAlsoOnRightFoot      = false;
 Sm.yogaInLoop               = false;
+
+% leave this variable to false, it has been tuned with the Yoga Extended
+% (not available for icubGazeboSim)
+Sm.repeatYogaMoveset        = false;
+
+% smoothing time for the second time the Yoga moveset are performed (NOT USED)
+Sm.smoothingTimeSecondYogaLeft  = 0.6;
+Sm.smoothingTimeSecondYogaRight = 0.6;
 
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [zeros(1,ROBOT_DOF);                                %% NOT USED
@@ -250,6 +264,10 @@ Sm.joints_rightYogaRef(:,1) = [0;
                                5*Sm.smoothingTimeCoM_Joints(10);
                                6*Sm.smoothingTimeCoM_Joints(10);
                                7*Sm.smoothingTimeCoM_Joints(10)]; 
+                           
+% smoothing time vector for the second time the Yoga moveset are performed (NOT USED)
+Sm.joints_leftSecondYogaRef  = Sm.smoothingTimeSecondYogaLeft.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
+Sm.joints_rightSecondYogaRef = Sm.smoothingTimeSecondYogaRight.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
 
 % MIRROR YOGA LEFT MOVESET FOR RIGHT YOGA					 
 for i = 1:size(Sm.joints_rightYogaRef,1)	
