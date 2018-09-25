@@ -99,6 +99,12 @@ Sm.smoothingTimeCoM_Joints       = [1;    %% state ==  1  TWO FEET BALANCING
                                     2;    %% state == 12  LOOKING FOR CONTACT 
                                     5];  %% state == 13  TRANSITION INIT POSITION
 
+% scale factor smoothing time multiplies the smoothing factor during the
+% Yoga (state 4 and 10). The purpose is to reduce the time necessary for 
+% the reference to converge to the next position, but without changing also
+% the valuse stored in Sm.joints_leftYogaRef/Sm.joints_rightYogaRef (YOGA DEMO ONLY)
+Sm.scaleFactorSmoothingTime = 0.9;
+                                
 % time between two yoga positions (YOGA DEMO ONLY)
 Sm.joints_pauseBetweenYogaMoves  = 5;
 
@@ -143,7 +149,7 @@ Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from ri
 Sm.yogaInLoop               = false;
 
 % repeat the yoga movements faster. Uneffective if Sm.yogaExtended = false;
-Sm.repeatYogaMoveset            = true;
+Sm.repeatYogaMoveset        = false;
 
 % smoothing time for the second time the Yoga moveset are performed
 Sm.smoothingTimeSecondYogaLeft  = 0.6;

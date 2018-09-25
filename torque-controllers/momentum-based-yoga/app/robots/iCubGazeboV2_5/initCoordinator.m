@@ -153,6 +153,9 @@ end
 % smoothing time for joints and CoM
 Sm.smoothingTimeCoM_Joints = 3; 
 
+% scale factor smoothing time (YOGA DEMO ONLY)
+Sm.scaleFactorSmoothingTime = 0.9; 
+
 % time between two yoga positions (YOGA DEMO ONLY)
 Sm.joints_pauseBetweenYogaMoves = 0;
 
@@ -172,9 +175,11 @@ Sm.stateAt0 = 1;
 Sm.CoM_delta = [0; 0; 0];
 
 % joint references (YOGA DEMO ONLY)
-Sm.joints_references   = zeros(1,ROBOT_DOF);
-Sm.joints_leftYogaRef  = zeros(1,ROBOT_DOF+1);
-Sm.joints_rightYogaRef = zeros(1,ROBOT_DOF+1);
+Sm.joints_references         = zeros(1,ROBOT_DOF);
+Sm.joints_leftYogaRef        = zeros(1,ROBOT_DOF+1);
+Sm.joints_rightYogaRef       = zeros(1,ROBOT_DOF+1);
+Sm.joints_leftSecondYogaRef  = zeros(1,ROBOT_DOF+1);
+Sm.joints_rightSecondYogaRef = zeros(1,ROBOT_DOF+1);
 
 % configuration parameters for state machine (YOGA DEMO ONLY) 
 Sm.tBalancing               = 1;
@@ -184,6 +189,11 @@ Sm.demoOnlyBalancing        = false;
 Sm.demoStartsOnRightSupport = false;
 Sm.yogaAlsoOnRightFoot      = false;
 Sm.yogaInLoop               = false;
+Sm.repeatYogaMoveset        = false;
+
+% smoothing time for the second time the Yoga moveset are performed (YOGA DEMO ONLY)
+Sm.smoothingTimeSecondYogaLeft  = 1;
+Sm.smoothingTimeSecondYogaRight = 1;
 
 %% Constraints for QP for balancing
 

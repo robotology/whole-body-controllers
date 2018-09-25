@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3288"
+    ComputedModelVersion    "1.3290"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -20,7 +20,7 @@ Model {
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
   DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 3 0 0 0 11 0"
+  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 11 0"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -42,7 +42,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [65.0, 24.0, 1855.0, 1056.0]
+      Location		      [65.0, -4.0, 2495.0, 1444.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -64,11 +64,11 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
-	Extents			[1821.0, 911.0]
-	ZoomFactor		[1.4105431309904153]
-	Offset			[567.00396375990942, 207.07474518686297]
+	ViewObjType		"SimulinkSubsys"
+	LoadSaveID		"4519"
+	Extents			[2457.0, 1267.0]
+	ZoomFactor		[2.5618562647286631]
+	Offset			[-431.2538499639769, -296.28163274495677]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -86,9 +86,9 @@ Model {
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABeAP///wAAAAEAAAAAAAAAAPwCA"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAKAD///8AAAc/AAADyQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAAm/AAAFMQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACA/////wAAAAAAAAAA/////wEAAADo/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFo/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAANR/////wAAAAAAAAAA/"
@@ -99,12 +99,11 @@ Model {
   Creator		  "daniele"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "icub"
+  LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Sep 24 18:16:46 2018"
-  RTWModifiedTimeStamp	  459713531
-  ModelVersionFormat	  "1.%<AutoIncrement:3288>"
-  ConfigurationManager	  "none"
+  LastModifiedDate	  "Tue Sep 25 14:19:35 2018"
+  RTWModifiedTimeStamp	  459785975
+  ModelVersionFormat	  "1.%<AutoIncrement:3290>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -213,7 +212,6 @@ Model {
 	  AbsTol		  "auto"
 	  FixedStep		  "Config.Ts"
 	  InitialStep		  "auto"
-	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
 	  ZcThreshold		  "auto"
 	  ConsecutiveZCsStepRelTol "10*128*eps"
@@ -672,17 +670,14 @@ Model {
 	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
-	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      OperatorAnnotations     off
-	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
-	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
@@ -749,7 +744,6 @@ Model {
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
-	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
@@ -765,7 +759,6 @@ Model {
 	      CombineOutputUpdateFcns off
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
-	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
 	      SupportAbsoluteTime     on
@@ -856,7 +849,7 @@ Model {
       Name		      "Configuration"
       ExtraOptions	      ""
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 75, 71, 1155, 671 ] 
+      ConfigPrmDlgPosition    [ 75, 71, 1155, 671 ]
     }
     PropName		    "ConfigurationSets"
   }
@@ -1072,6 +1065,8 @@ Model {
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
+      MustResolveToSignalObject	off
+      OutputWhenUnConnected   off
     }
     Block {
       BlockType		      Product
@@ -1206,8 +1201,8 @@ Model {
   }
   System {
     Name		    "torqueBalancingYoga"
-    Location		    [65, 24, 1920, 1080]
-    Open		    on
+    Location		    [65, 24, 2560, 1440]
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1218,9 +1213,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "141"
+    ZoomFactor		    "195"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "4630"
+    SIDHighWatermark	    "4649"
     Block {
       BlockType		      Reference
       Name		      "Configuration"
@@ -1234,6 +1229,12 @@ Model {
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
+      RobotName		      "'icubSim'"
+      UrdfFile		      "'model.urdf'"
+      ControlledJoints	      "{'l_elbow','l_shoulder_pitch','torso_roll'}"
+      ControlBoardsNames      "{'left_arm','right_arm','torso'}"
+      LocalName		      "'WBT'"
+      GravityVector	      "[0,0,-9.81]"
     }
     Block {
       BlockType		      SubSystem
@@ -1449,8 +1450,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"CoM_Error"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1585,8 +1584,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"baseOrientation"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1605,8 +1602,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"basePosition"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1622,14 +1617,10 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_QP"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"wR_QP"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1645,32 +1636,22 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1686,32 +1667,22 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1727,32 +1698,22 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1768,14 +1729,10 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"error_L"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"error_R"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1791,14 +1748,10 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_NO_QP"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"wR_NO_QP"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1814,32 +1767,22 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1855,32 +1798,22 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1896,32 +1829,22 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1937,32 +1860,22 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -1978,32 +1891,22 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torso"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"left_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"right_arm"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"left_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"right_leg"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2058,8 +1961,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"qj"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2091,8 +1992,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"CoM_Desired"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2111,8 +2010,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torqueError"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2131,8 +2028,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"CoM_Measured"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -2179,8 +2074,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"torqueError"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -4113,7 +4006,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "49"
+		    SIDHighWatermark	    "52"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "M"
@@ -4125,39 +4018,37 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4518::48"
+		    SID			    "4518::51"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    38
+		    ZOrder		    41
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4518::47"
+		    SID			    "4518::50"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 6"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    37
+		    ZOrder		    40
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "M_with_inertia"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4518::49"
+		    SID			    "4518::52"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    39
+		    ZOrder		    42
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -4168,7 +4059,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    50
+		    ZOrder		    54
 		    SrcBlock		    "M"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -4176,7 +4067,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "M_with_inertia"
-		    ZOrder		    51
+		    ZOrder		    55
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -4184,14 +4075,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    52
+		    ZOrder		    56
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    53
+		    ZOrder		    57
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -5327,7 +5218,7 @@ Model {
 	  Position		  [-280, 2850, -250, 2880]
 	  ZOrder		  613
 	  ShowName		  off
-	  LibraryVersion	  "1.388"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
 	  SourceType		  "Compare To Zero"
 	  ContentPreviewEnabled	  off
@@ -5343,7 +5234,7 @@ Model {
 	  Position		  [-280, 2580, -250, 2610]
 	  ZOrder		  614
 	  ShowName		  off
-	  LibraryVersion	  "1.388"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
 	  SourceType		  "Compare To Zero"
 	  ContentPreviewEnabled	  off
@@ -5381,7 +5272,7 @@ Model {
 	  Position		  [-440, 2581, -380, 2609]
 	  ZOrder		  605
 	  ShowName		  off
-	  LibraryVersion	  "1.388"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
 	  SourceType		  "Bitwise Operator"
 	  logicop		  "AND"
@@ -5640,8 +5531,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -5660,8 +5549,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -5733,7 +5620,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3764"
+		    SIDHighWatermark	    "3767"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -5791,39 +5678,37 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4059::3763"
+		    SID			    "4059::3766"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    163
+		    ZOrder		    166
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4059::3762"
+		    SID			    "4059::3765"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 2"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    162
+		    ZOrder		    165
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4059::3764"
+		    SID			    "4059::3767"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    164
+		    ZOrder		    167
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -5834,42 +5719,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    118
+		    ZOrder		    127
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    119
+		    ZOrder		    128
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    120
+		    ZOrder		    129
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    121
+		    ZOrder		    130
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    122
+		    ZOrder		    131
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    123
+		    ZOrder		    132
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -5877,7 +5762,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    124
+		    ZOrder		    133
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -5885,14 +5770,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    125
+		    ZOrder		    134
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    126
+		    ZOrder		    135
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -5997,8 +5882,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -6482,7 +6365,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3773"
+		    SIDHighWatermark	    "3776"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "J_LeftFoot"
@@ -6521,39 +6404,37 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4090::3772"
+		    SID			    "4090::3775"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    141
+		    ZOrder		    144
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4090::3771"
+		    SID			    "4090::3774"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 5"
 		    Ports		    [4, 2]
 		    Position		    [180, 102, 230, 203]
-		    ZOrder		    140
+		    ZOrder		    143
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Reg"
 		    PortCounts		    "[4 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "nu_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4090::3773"
+		    SID			    "4090::3776"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    142
+		    ZOrder		    145
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -6564,28 +6445,28 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    92
+		    ZOrder		    99
 		    SrcBlock		    "J_LeftFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    93
+		    ZOrder		    100
 		    SrcBlock		    "J_RightFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    94
+		    ZOrder		    101
 		    SrcBlock		    "feetInContact"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    95
+		    ZOrder		    102
 		    SrcBlock		    "qjDot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -6593,7 +6474,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "nu_b"
-		    ZOrder		    96
+		    ZOrder		    103
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -6601,14 +6482,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    97
+		    ZOrder		    104
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    98
+		    ZOrder		    105
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -6973,7 +6854,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3749"
+		SIDHighWatermark	"3752"
 		Block {
 		  BlockType		  Inport
 		  Name			  "pos_CoM_0"
@@ -6994,39 +6875,37 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "2134::3748"
+		  SID			  "2134::3751"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  151
+		  ZOrder		  154
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "2134::3747"
+		  SID			  "2134::3750"
 		  Tag			  "Stateflow S-Function torqueBalancingYoga 10"
 		  Ports			  [2, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  150
+		  ZOrder		  153
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Config"
 		  PortCounts		  "[2 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "references_CoM"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "2134::3749"
+		  SID			  "2134::3752"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  152
+		  ZOrder		  155
 		}
 		Block {
 		  BlockType		  Outport
@@ -7037,7 +6916,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  66
+		  ZOrder		  71
 		  SrcBlock		  "pos_CoM_0"
 		  SrcPort		  1
 		  Points		  [120, 0]
@@ -7045,7 +6924,7 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  67
+		  ZOrder		  72
 		  SrcBlock		  "t"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -7053,7 +6932,7 @@ Model {
 		}
 		Line {
 		  Name			  "references_CoM"
-		  ZOrder		  68
+		  ZOrder		  73
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -7061,14 +6940,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  69
+		  ZOrder		  74
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  70
+		  ZOrder		  75
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -7632,38 +7511,26 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"CoMDes"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		2
 		Name			"qDes"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"state"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		6
 		Name			"nu"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		7
 		Name			"qj"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		8
 		Name			"smoothingTimeMinJerkComDesQDes"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -7855,8 +7722,6 @@ Model {
 		    PortNumber		    1
 		    Name		    "smoothingTimeComAndJoints"
 		    PropagatedSignals	    "smoothingTimeMinJerkComDesQDes"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -7870,8 +7735,6 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "Left right foot in contact"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -7895,8 +7758,6 @@ Model {
 		    PortNumber		    1
 		    Name		    "state"
 		    PropagatedSignals	    "state"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -7929,14 +7790,10 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "vb"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "wb"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -7952,32 +7809,22 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -7993,32 +7840,22 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "torso"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    2
 		    Name		    "left_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "right_arm"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "left_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "right_leg"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -9129,7 +8966,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3773"
+		    SIDHighWatermark	    "3776"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "J_LeftFoot"
@@ -9168,39 +9005,37 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4215::3772"
+		    SID			    "4215::3775"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    141
+		    ZOrder		    144
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4215::3771"
+		    SID			    "4215::3774"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 7"
 		    Ports		    [4, 2]
 		    Position		    [180, 102, 230, 203]
-		    ZOrder		    140
+		    ZOrder		    143
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Reg"
 		    PortCounts		    "[4 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "nu_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4215::3773"
+		    SID			    "4215::3776"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    142
+		    ZOrder		    145
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -9211,28 +9046,28 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    92
+		    ZOrder		    99
 		    SrcBlock		    "J_LeftFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    93
+		    ZOrder		    100
 		    SrcBlock		    "J_RightFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    94
+		    ZOrder		    101
 		    SrcBlock		    "feetInContact"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    95
+		    ZOrder		    102
 		    SrcBlock		    "qjDot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -9240,7 +9075,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "nu_b"
-		    ZOrder		    96
+		    ZOrder		    103
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -9248,14 +9083,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    97
+		    ZOrder		    104
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    98
+		    ZOrder		    105
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -9649,8 +9484,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -9669,8 +9502,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -9742,7 +9573,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3764"
+		    SIDHighWatermark	    "3767"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -9800,39 +9631,37 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4257::3763"
+		    SID			    "4257::3766"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    163
+		    ZOrder		    166
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4257::3762"
+		    SID			    "4257::3765"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 8"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    162
+		    ZOrder		    165
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4257::3764"
+		    SID			    "4257::3767"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    164
+		    ZOrder		    167
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -9843,42 +9672,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    118
+		    ZOrder		    127
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    119
+		    ZOrder		    128
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    120
+		    ZOrder		    129
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    121
+		    ZOrder		    130
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    122
+		    ZOrder		    131
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    123
+		    ZOrder		    132
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -9886,7 +9715,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    124
+		    ZOrder		    133
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -9894,14 +9723,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    125
+		    ZOrder		    134
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    126
+		    ZOrder		    135
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -10006,8 +9835,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10379,8 +10206,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10399,8 +10224,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -10472,7 +10295,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3764"
+		    SIDHighWatermark	    "3767"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -10530,39 +10353,37 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4282::3763"
+		    SID			    "4282::3766"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    163
+		    ZOrder		    166
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4282::3762"
+		    SID			    "4282::3765"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 3"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    162
+		    ZOrder		    165
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4282::3764"
+		    SID			    "4282::3767"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    164
+		    ZOrder		    167
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -10573,42 +10394,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    118
+		    ZOrder		    127
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    119
+		    ZOrder		    128
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    120
+		    ZOrder		    129
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    121
+		    ZOrder		    130
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    122
+		    ZOrder		    131
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    123
+		    ZOrder		    132
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -10616,7 +10437,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    124
+		    ZOrder		    133
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -10624,14 +10445,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    125
+		    ZOrder		    134
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    126
+		    ZOrder		    135
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -10736,8 +10557,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -11275,8 +11094,6 @@ Model {
 		    PortNumber		    1
 		    Name		    "wL_WBDT"
 		    PropagatedSignals	    "state"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -11290,8 +11107,6 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "wR_WBDT"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -11313,8 +11128,6 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "thresholdContactOn"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -11328,8 +11141,6 @@ Model {
 		  Port {
 		    PortNumber		    1
 		    Name		    "thresholdContactOff"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
@@ -11577,8 +11388,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wL_WBDT"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -11603,8 +11412,6 @@ Model {
 	      Port {
 		PortNumber		1
 		Name			"wR_WBDT"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
@@ -11626,8 +11433,6 @@ Model {
 		PortNumber		4
 		Name			"constraintsSmooth"
 		PropagatedSignals	"constraints"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      System {
 		Name			"stateMachineYogaFCN"
@@ -11644,7 +11449,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3750"
+		SIDHighWatermark	"3753"
 		SIDPrevWatermark	"9"
 		Block {
 		  BlockType		  Inport
@@ -11738,87 +11543,69 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "2220::3748"
+		  SID			  "2220::3752"
 		  Ports			  [1, 1]
 		  Position		  [270, 460, 320, 500]
-		  ZOrder		  147
+		  ZOrder		  150
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "2220::3747"
+		  SID			  "2220::3751"
 		  Tag			  "Stateflow S-Function torqueBalancingYoga 13"
 		  Ports			  [10, 10]
 		  Position		  [180, 100, 230, 320]
-		  ZOrder		  146
+		  ZOrder		  149
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Gain,Sm"
 		  PortCounts		  "[10 10]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    3
 		    Name		    "CoM_des"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    4
 		    Name		    "qj_des"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    5
 		    Name		    "constraints"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    6
 		    Name		    "impedances"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    7
 		    Name		    "KPCoM"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    8
 		    Name		    "KDCoM"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    9
 		    Name		    "currentState"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		  Port {
 		    PortNumber		    10
 		    Name		    "jointsSmoothingTime"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "2220::3749"
+		  SID			  "2220::3753"
 		  Position		  [460, 471, 480, 489]
-		  ZOrder		  148
+		  ZOrder		  151
 		}
 		Block {
 		  BlockType		  Outport
@@ -11901,70 +11688,70 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  422
+		  ZOrder		  443
 		  SrcBlock		  "wrench_rightFoot"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  423
+		  ZOrder		  444
 		  SrcBlock		  "wrench_leftFoot"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  424
+		  ZOrder		  445
 		  SrcBlock		  "CoM_0"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  425
+		  ZOrder		  446
 		  SrcBlock		  "q0"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  4
 		}
 		Line {
-		  ZOrder		  426
+		  ZOrder		  447
 		  SrcBlock		  "l_sole_CoM"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  5
 		}
 		Line {
-		  ZOrder		  427
+		  ZOrder		  448
 		  SrcBlock		  "r_sole_CoM"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  6
 		}
 		Line {
-		  ZOrder		  428
+		  ZOrder		  449
 		  SrcBlock		  "qj"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  7
 		}
 		Line {
-		  ZOrder		  429
+		  ZOrder		  450
 		  SrcBlock		  "t"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  8
 		}
 		Line {
-		  ZOrder		  430
+		  ZOrder		  451
 		  SrcBlock		  "l_sole_H_b"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  9
 		}
 		Line {
-		  ZOrder		  431
+		  ZOrder		  452
 		  SrcBlock		  "r_sole_H_b"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -11972,7 +11759,7 @@ Model {
 		}
 		Line {
 		  Name			  "w_H_b"
-		  ZOrder		  432
+		  ZOrder		  453
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -11981,7 +11768,7 @@ Model {
 		}
 		Line {
 		  Name			  "CoM_des"
-		  ZOrder		  433
+		  ZOrder		  454
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  3
@@ -11990,7 +11777,7 @@ Model {
 		}
 		Line {
 		  Name			  "qj_des"
-		  ZOrder		  434
+		  ZOrder		  455
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  4
@@ -11999,7 +11786,7 @@ Model {
 		}
 		Line {
 		  Name			  "constraints"
-		  ZOrder		  435
+		  ZOrder		  456
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  5
@@ -12008,7 +11795,7 @@ Model {
 		}
 		Line {
 		  Name			  "impedances"
-		  ZOrder		  436
+		  ZOrder		  457
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  6
@@ -12017,7 +11804,7 @@ Model {
 		}
 		Line {
 		  Name			  "KPCoM"
-		  ZOrder		  437
+		  ZOrder		  458
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  7
@@ -12026,7 +11813,7 @@ Model {
 		}
 		Line {
 		  Name			  "KDCoM"
-		  ZOrder		  438
+		  ZOrder		  459
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  8
@@ -12035,7 +11822,7 @@ Model {
 		}
 		Line {
 		  Name			  "currentState"
-		  ZOrder		  439
+		  ZOrder		  460
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  9
@@ -12044,7 +11831,7 @@ Model {
 		}
 		Line {
 		  Name			  "jointsSmoothingTime"
-		  ZOrder		  440
+		  ZOrder		  461
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  10
@@ -12052,16 +11839,17 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  441
+		  ZOrder		  462
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  442
+		  ZOrder		  463
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
+		  Points		  [20, 0]
 		  DstBlock		  " Demux "
 		  DstPort		  1
 		}
@@ -12744,7 +12532,7 @@ Model {
 	  Position		  [-445, 2851, -385, 2879]
 	  ZOrder		  606
 	  ShowName		  off
-	  LibraryVersion	  "1.388"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
 	  SourceType		  "Bitwise Operator"
 	  logicop		  "AND"
@@ -13469,15 +13257,11 @@ Model {
 	    PortNumber		    13
 	    Name		    "CoM_Error"
 	    PropagatedSignals	    "errorCoM"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    14
 	    Name		    "fNoQP"
 	    PropagatedSignals	    "f_noQP"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
 	  }
 	  System {
 	    Name		    "Balancing Controller\n"
@@ -13494,7 +13278,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "3749"
+	    SIDHighWatermark	    "3752"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "constraints"
@@ -13704,117 +13488,89 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "2407::3748"
+	      SID		      "2407::3751"
 	      Ports		      [1, 1]
 	      Position		      [270, 640, 320, 680]
-	      ZOrder		      151
+	      ZOrder		      154
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "2407::3747"
+	      SID		      "2407::3750"
 	      Tag		      "Stateflow S-Function torqueBalancingYoga 17"
 	      Ports		      [23, 15]
 	      Position		      [180, 65, 230, 545]
-	      ZOrder		      150
+	      ZOrder		      153
 	      FunctionName	      "sf_sfun"
 	      Parameters	      "Gain,Reg"
 	      PortCounts	      "[23 15]"
 	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
+	      EnableBusSupport	      off
 	      SFcnIsStateOwnerBlock   off
 	      Port {
 		PortNumber		2
 		Name			"tauModel"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
 		Name			"Sigma"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		4
 		Name			"NA"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		5
 		Name			"fLdotDesC1C2"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		6
 		Name			"HessianMatrixQP1Foot"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		7
 		Name			"gradientQP1Foot"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		8
 		Name			"ConstraintsMatrixQP1Foot"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		9
 		Name			"bVectorConstraintsQp1Foot"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		10
 		Name			"HessianMatrixQP2Feet"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		11
 		Name			"gradientQP2Feet"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		12
 		Name			"ConstraintsMatrixQP2Feet"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		13
 		Name			"bVectorConstraintsQp2Feet"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		14
 		Name			"errorCoM"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		15
 		Name			"f_noQP"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "2407::3749"
+	      SID		      "2407::3752"
 	      Position		      [460, 651, 480, 669]
-	      ZOrder		      152
+	      ZOrder		      155
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -13942,161 +13698,161 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      ZOrder		      840
+	      ZOrder		      879
 	      SrcBlock		      "constraints"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      841
+	      ZOrder		      880
 	      SrcBlock		      "ROBOT_DOF_FOR_SIMULINK"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
-	      ZOrder		      842
+	      ZOrder		      881
 	      SrcBlock		      "ConstraintsMatrix"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
 	    }
 	    Line {
-	      ZOrder		      843
+	      ZOrder		      882
 	      SrcBlock		      "bVectorConstraints"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      4
 	    }
 	    Line {
-	      ZOrder		      844
+	      ZOrder		      883
 	      SrcBlock		      "qj"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      5
 	    }
 	    Line {
-	      ZOrder		      845
+	      ZOrder		      884
 	      SrcBlock		      "qjDes"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      6
 	    }
 	    Line {
-	      ZOrder		      846
+	      ZOrder		      885
 	      SrcBlock		      "nu"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      7
 	    }
 	    Line {
-	      ZOrder		      847
+	      ZOrder		      886
 	      SrcBlock		      "M"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      8
 	    }
 	    Line {
-	      ZOrder		      848
+	      ZOrder		      887
 	      SrcBlock		      "h"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      9
 	    }
 	    Line {
-	      ZOrder		      849
+	      ZOrder		      888
 	      SrcBlock		      "L"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      10
 	    }
 	    Line {
-	      ZOrder		      850
+	      ZOrder		      889
 	      SrcBlock		      "intLw"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      11
 	    }
 	    Line {
-	      ZOrder		      851
+	      ZOrder		      890
 	      SrcBlock		      "w_H_l_sole"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      12
 	    }
 	    Line {
-	      ZOrder		      852
+	      ZOrder		      891
 	      SrcBlock		      "w_H_r_sole"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      13
 	    }
 	    Line {
-	      ZOrder		      853
+	      ZOrder		      892
 	      SrcBlock		      "JL"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      14
 	    }
 	    Line {
-	      ZOrder		      854
+	      ZOrder		      893
 	      SrcBlock		      "JR"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      15
 	    }
 	    Line {
-	      ZOrder		      855
+	      ZOrder		      894
 	      SrcBlock		      "dJLv"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      16
 	    }
 	    Line {
-	      ZOrder		      856
+	      ZOrder		      895
 	      SrcBlock		      "dJRv"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      17
 	    }
 	    Line {
-	      ZOrder		      857
+	      ZOrder		      896
 	      SrcBlock		      "xCoM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      18
 	    }
 	    Line {
-	      ZOrder		      858
+	      ZOrder		      897
 	      SrcBlock		      "J_CoM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      19
 	    }
 	    Line {
-	      ZOrder		      859
+	      ZOrder		      898
 	      SrcBlock		      "desired_x_dx_ddx_CoM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      20
 	    }
 	    Line {
-	      ZOrder		      860
+	      ZOrder		      899
 	      SrcBlock		      "gainsPCOM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      21
 	    }
 	    Line {
-	      ZOrder		      861
+	      ZOrder		      900
 	      SrcBlock		      "gainsDCOM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      22
 	    }
 	    Line {
-	      ZOrder		      862
+	      ZOrder		      901
 	      SrcBlock		      "impedances"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -14104,7 +13860,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "tauModel"
-	      ZOrder		      863
+	      ZOrder		      902
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -14113,7 +13869,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "Sigma"
-	      ZOrder		      864
+	      ZOrder		      903
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      3
@@ -14122,7 +13878,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "NA"
-	      ZOrder		      865
+	      ZOrder		      904
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      4
@@ -14131,7 +13887,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "fLdotDesC1C2"
-	      ZOrder		      866
+	      ZOrder		      905
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      5
@@ -14140,7 +13896,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "HessianMatrixQP1Foot"
-	      ZOrder		      867
+	      ZOrder		      906
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      6
@@ -14149,7 +13905,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "gradientQP1Foot"
-	      ZOrder		      868
+	      ZOrder		      907
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      7
@@ -14158,7 +13914,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "ConstraintsMatrixQP1Foot"
-	      ZOrder		      869
+	      ZOrder		      908
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      8
@@ -14167,7 +13923,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "bVectorConstraintsQp1Foot"
-	      ZOrder		      870
+	      ZOrder		      909
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      9
@@ -14176,7 +13932,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "HessianMatrixQP2Feet"
-	      ZOrder		      871
+	      ZOrder		      910
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      10
@@ -14185,7 +13941,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "gradientQP2Feet"
-	      ZOrder		      872
+	      ZOrder		      911
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      11
@@ -14194,7 +13950,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "ConstraintsMatrixQP2Feet"
-	      ZOrder		      873
+	      ZOrder		      912
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      12
@@ -14203,7 +13959,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "bVectorConstraintsQp2Feet"
-	      ZOrder		      874
+	      ZOrder		      913
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      13
@@ -14212,7 +13968,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "errorCoM"
-	      ZOrder		      875
+	      ZOrder		      914
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      14
@@ -14221,7 +13977,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "f_noQP"
-	      ZOrder		      876
+	      ZOrder		      915
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      15
@@ -14229,14 +13985,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      877
+	      ZOrder		      916
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      878
+	      ZOrder		      917
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -14467,8 +14223,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -14487,8 +14241,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -14560,7 +14312,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3764"
+		    SIDHighWatermark	    "3767"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -14618,39 +14370,37 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4438::3763"
+		    SID			    "4438::3766"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    163
+		    ZOrder		    166
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4438::3762"
+		    SID			    "4438::3765"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 1"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    162
+		    ZOrder		    165
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4438::3764"
+		    SID			    "4438::3767"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    164
+		    ZOrder		    167
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -14661,42 +14411,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    118
+		    ZOrder		    127
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    119
+		    ZOrder		    128
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    120
+		    ZOrder		    129
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    121
+		    ZOrder		    130
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    122
+		    ZOrder		    131
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    123
+		    ZOrder		    132
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -14704,7 +14454,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    124
+		    ZOrder		    133
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -14712,14 +14462,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    125
+		    ZOrder		    134
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    126
+		    ZOrder		    135
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -14824,8 +14574,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -15197,8 +14945,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "imu_H_link"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -15217,8 +14963,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "link_H_root"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -15290,7 +15034,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3764"
+		    SIDHighWatermark	    "3767"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -15348,39 +15092,37 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4463::3763"
+		    SID			    "4463::3766"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    163
+		    ZOrder		    166
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4463::3762"
+		    SID			    "4463::3765"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 4"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    162
+		    ZOrder		    165
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "w_H_b"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4463::3764"
+		    SID			    "4463::3767"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    164
+		    ZOrder		    167
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -15391,42 +15133,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    118
+		    ZOrder		    127
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    119
+		    ZOrder		    128
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    120
+		    ZOrder		    129
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    121
+		    ZOrder		    130
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    122
+		    ZOrder		    131
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    123
+		    ZOrder		    132
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -15434,7 +15176,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    124
+		    ZOrder		    133
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -15442,14 +15184,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    125
+		    ZOrder		    134
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    126
+		    ZOrder		    135
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -15554,8 +15296,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "neck pos"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -16012,7 +15752,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3750"
+		SIDHighWatermark	"3753"
 		Block {
 		  BlockType		  Inport
 		  Name			  "qjErr"
@@ -16051,39 +15791,37 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "3721::3749"
+		  SID			  "3721::3752"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  74
+		  ZOrder		  77
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "3721::3748"
+		  SID			  "3721::3751"
 		  Tag			  "Stateflow S-Function torqueBalancingYoga 20"
 		  Ports			  [4, 2]
 		  Position		  [180, 102, 230, 203]
-		  ZOrder		  73
+		  ZOrder		  76
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Reg"
 		  PortCounts		  "[4 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "nu_b_equivalent"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "3721::3750"
+		  SID			  "3721::3753"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  75
+		  ZOrder		  78
 		}
 		Block {
 		  BlockType		  Outport
@@ -16094,28 +15832,28 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  92
+		  ZOrder		  99
 		  SrcBlock		  "qjErr"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  93
+		  ZOrder		  100
 		  SrcBlock		  "JL"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  94
+		  ZOrder		  101
 		  SrcBlock		  "JR"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  95
+		  ZOrder		  102
 		  SrcBlock		  "activeFeetConstraints"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -16123,7 +15861,7 @@ Model {
 		}
 		Line {
 		  Name			  "nu_b_equivalent"
-		  ZOrder		  96
+		  ZOrder		  103
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -16131,14 +15869,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  97
+		  ZOrder		  104
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  98
+		  ZOrder		  105
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -16213,7 +15951,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"63"
+		SIDHighWatermark	"66"
 		Block {
 		  BlockType		  Inport
 		  Name			  "state"
@@ -16225,38 +15963,36 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "4027::62"
+		  SID			  "4027::65"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  53
+		  ZOrder		  56
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "4027::61"
+		  SID			  "4027::64"
 		  Tag			  "Stateflow S-Function torqueBalancingYoga 19"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  52
+		  ZOrder		  55
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[1 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "booleanState"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "4027::63"
+		  SID			  "4027::66"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  54
+		  ZOrder		  57
 		}
 		Block {
 		  BlockType		  Outport
@@ -16267,7 +16003,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  53
+		  ZOrder		  57
 		  SrcBlock		  "state"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -16275,7 +16011,7 @@ Model {
 		}
 		Line {
 		  Name			  "booleanState"
-		  ZOrder		  54
+		  ZOrder		  58
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -16283,14 +16019,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  55
+		  ZOrder		  59
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  56
+		  ZOrder		  60
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -16844,7 +16580,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "33"
+		    SIDHighWatermark	    "36"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "LR_FootInContact"
@@ -16856,38 +16592,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4590::32"
+		    SID			    "4590::35"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    23
+		    ZOrder		    26
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4590::31"
+		    SID			    "4590::34"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 15"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    22
+		    ZOrder		    25
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "onOneFoot"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4590::33"
+		    SID			    "4590::36"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    24
+		    ZOrder		    27
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -16898,7 +16632,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    9
+		    ZOrder		    13
 		    SrcBlock		    "LR_FootInContact"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -16906,7 +16640,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "onOneFoot"
-		    ZOrder		    10
+		    ZOrder		    14
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -16914,14 +16648,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    11
+		    ZOrder		    15
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    12
+		    ZOrder		    16
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -17055,7 +16789,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "34"
+		    SIDHighWatermark	    "37"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "H"
@@ -17076,38 +16810,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4600::33"
+		    SID			    "4600::36"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    24
+		    ZOrder		    27
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4600::32"
+		    SID			    "4600::35"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 22"
 		    Ports		    [2, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    23
+		    ZOrder		    26
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[2 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "analyticalSolution"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4600::34"
+		    SID			    "4600::37"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    25
+		    ZOrder		    28
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -17118,7 +16850,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    11
+		    ZOrder		    16
 		    SrcBlock		    "H"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -17126,7 +16858,7 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    12
+		    ZOrder		    17
 		    SrcBlock		    "g"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -17134,7 +16866,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "analyticalSolution"
-		    ZOrder		    13
+		    ZOrder		    18
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -17142,14 +16874,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    14
+		    ZOrder		    19
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    15
+		    ZOrder		    20
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -17197,7 +16929,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "41"
+		    SIDHighWatermark	    "44"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "analyticalSolution"
@@ -17227,39 +16959,37 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4602::40"
+		    SID			    "4602::43"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    25
+		    ZOrder		    28
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4602::39"
+		    SID			    "4602::42"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 12"
 		    Ports		    [3, 2]
 		    Position		    [180, 100, 230, 180]
-		    ZOrder		    24
+		    ZOrder		    27
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[3 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "f0"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4602::41"
+		    SID			    "4602::44"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    26
+		    ZOrder		    29
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -17270,21 +17000,21 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    13
+		    ZOrder		    19
 		    SrcBlock		    "analyticalSolution"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    14
+		    ZOrder		    20
 		    SrcBlock		    "primalSolution"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    15
+		    ZOrder		    21
 		    SrcBlock		    "QPStatus"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -17292,7 +17022,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "f0"
-		    ZOrder		    16
+		    ZOrder		    22
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -17300,14 +17030,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    17
+		    ZOrder		    23
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    18
+		    ZOrder		    24
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    Points		    [20, 0]
@@ -17482,7 +17212,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "34"
+		    SIDHighWatermark	    "37"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "primalSolution"
@@ -17503,38 +17233,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4606::33"
+		    SID			    "4606::36"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    24
+		    ZOrder		    27
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4606::32"
+		    SID			    "4606::35"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 16"
 		    Ports		    [2, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    23
+		    ZOrder		    26
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[2 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "f0_oneFoot"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4606::34"
+		    SID			    "4606::37"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    25
+		    ZOrder		    28
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -17545,7 +17273,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    11
+		    ZOrder		    16
 		    SrcBlock		    "primalSolution"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -17553,7 +17281,7 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    12
+		    ZOrder		    17
 		    SrcBlock		    "LR_FootInContact"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -17561,7 +17289,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "f0_oneFoot"
-		    ZOrder		    13
+		    ZOrder		    18
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -17569,14 +17297,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    14
+		    ZOrder		    19
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    15
+		    ZOrder		    20
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -17691,7 +17419,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "34"
+		    SIDHighWatermark	    "37"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "H"
@@ -17712,38 +17440,36 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4614::33"
+		    SID			    "4614::36"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    24
+		    ZOrder		    27
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4614::32"
+		    SID			    "4614::35"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 21"
 		    Ports		    [2, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    23
+		    ZOrder		    26
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[2 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "analyticalSolution"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4614::34"
+		    SID			    "4614::37"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    25
+		    ZOrder		    28
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -17754,7 +17480,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    11
+		    ZOrder		    16
 		    SrcBlock		    "H"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -17762,7 +17488,7 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    12
+		    ZOrder		    17
 		    SrcBlock		    "g"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -17770,7 +17496,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "analyticalSolution"
-		    ZOrder		    13
+		    ZOrder		    18
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -17778,14 +17504,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    14
+		    ZOrder		    19
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    15
+		    ZOrder		    20
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -17833,7 +17559,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "41"
+		    SIDHighWatermark	    "44"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "analyticalSolution"
@@ -17863,39 +17589,37 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4616::40"
+		    SID			    "4616::43"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    25
+		    ZOrder		    28
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4616::39"
+		    SID			    "4616::42"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 23"
 		    Ports		    [3, 2]
 		    Position		    [180, 100, 230, 180]
-		    ZOrder		    24
+		    ZOrder		    27
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[3 2]"
 		    SFunctionDeploymentMode off
-		    EnableBusSupport	    on
+		    EnableBusSupport	    off
 		    SFcnIsStateOwnerBlock   off
 		    Port {
 		    PortNumber		    2
 		    Name		    "f0"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4616::41"
+		    SID			    "4616::44"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    26
+		    ZOrder		    29
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -17906,21 +17630,21 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    13
+		    ZOrder		    19
 		    SrcBlock		    "analyticalSolution"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    14
+		    ZOrder		    20
 		    SrcBlock		    "primalSolution"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    15
+		    ZOrder		    21
 		    SrcBlock		    "QPStatus"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -17928,7 +17652,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "f0"
-		    ZOrder		    16
+		    ZOrder		    22
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -17936,14 +17660,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    17
+		    ZOrder		    23
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    18
+		    ZOrder		    24
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    Points		    [20, 0]
@@ -18124,8 +17848,6 @@ Model {
 		    Port {
 		    PortNumber		    1
 		    Name		    "exitFlagQP"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		    }
 		    }
 		    Block {
@@ -18621,7 +18343,7 @@ Model {
 	  Variant		  off
 	  System {
 	    Name		    "Compute joint torques (motor reflected inertia)"
-	    Location		    [65, 24, 2560, 1440]
+	    Location		    [65, -4, 2560, 1440]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -18678,50 +18400,48 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"58"
+		SIDHighWatermark	"62"
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "4551::56"
+		  SID			  "4551::60"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  47
+		  ZOrder		  51
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  Ground
 		  Name			  " Ground "
-		  SID			  "4551::58"
+		  SID			  "4551::62"
 		  Position		  [20, 121, 40, 139]
-		  ZOrder		  49
+		  ZOrder		  53
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "4551::55"
+		  SID			  "4551::59"
 		  Tag			  "Stateflow S-Function torqueBalancingYoga 9"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  46
+		  ZOrder		  50
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Config"
 		  PortCounts		  "[1 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "reflectedInertia"
-		    RTWStorageClass	    "Auto"
-		    DataLoggingNameMode	    "SignalName"
 		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "4551::57"
+		  SID			  "4551::61"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  48
+		  ZOrder		  52
 		}
 		Block {
 		  BlockType		  Outport
@@ -18733,7 +18453,7 @@ Model {
 		}
 		Line {
 		  Name			  "reflectedInertia"
-		  ZOrder		  37
+		  ZOrder		  41
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -18741,21 +18461,21 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  38
+		  ZOrder		  42
 		  SrcBlock		  " Ground "
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  39
+		  ZOrder		  43
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  40
+		  ZOrder		  44
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -18774,6 +18494,664 @@ Model {
 	      InputSameDT	      off
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Check the contribution of feedforward"
+	      SID		      "4639"
+	      Ports		      [2, 0, 1]
+	      Position		      [30, 66, 140, 119]
+	      ZOrder		      894
+	      RequestExecContextInheritance off
+	      Variant		      off
+	      System {
+		Name			"Check the contribution of feedforward"
+		Location		[65, -4, 2560, 1440]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"300"
+		Block {
+		  BlockType		  Inport
+		  Name			  "feedForward"
+		  SID			  "4642"
+		  Position		  [-5, 58, 25, 72]
+		  ZOrder		  896
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "u"
+		  SID			  "4640"
+		  Position		  [-10, -2, 20, 12]
+		  ZOrder		  894
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  EnablePort
+		  Name			  "Enable"
+		  SID			  "4648"
+		  Ports			  []
+		  Position		  [0, -105, 20, -85]
+		  ZOrder		  902
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  "Demux1"
+		  SID			  "4644"
+		  Ports			  [1, 5]
+		  Position		  [285, 96, 290, 194]
+		  ZOrder		  899
+		  ShowName		  off
+		  Outputs		  "Config.numOfJointsForEachControlboard"
+		  DisplayOption		  "bar"
+		  Port {
+		    PortNumber		    1
+		    Name		    "torso"
+		  }
+		  Port {
+		    PortNumber		    2
+		    Name		    "left_arm"
+		  }
+		  Port {
+		    PortNumber		    3
+		    Name		    "right_arm"
+		  }
+		  Port {
+		    PortNumber		    4
+		    Name		    "left_leg"
+		  }
+		  Port {
+		    PortNumber		    5
+		    Name		    "right_leg"
+		  }
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  "Demux10"
+		  SID			  "4633"
+		  Ports			  [1, 5]
+		  Position		  [285, -44, 290, 54]
+		  ZOrder		  893
+		  ShowName		  off
+		  Outputs		  "Config.numOfJointsForEachControlboard"
+		  DisplayOption		  "bar"
+		  Port {
+		    PortNumber		    1
+		    Name		    "torso"
+		  }
+		  Port {
+		    PortNumber		    2
+		    Name		    "left_arm"
+		  }
+		  Port {
+		    PortNumber		    3
+		    Name		    "right_arm"
+		  }
+		  Port {
+		    PortNumber		    4
+		    Name		    "left_leg"
+		  }
+		  Port {
+		    PortNumber		    5
+		    Name		    "right_leg"
+		  }
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  "Demux2"
+		  SID			  "4646"
+		  Ports			  [1, 5]
+		  Position		  [285, -184, 290, -86]
+		  ZOrder		  901
+		  ShowName		  off
+		  Outputs		  "Config.numOfJointsForEachControlboard"
+		  DisplayOption		  "bar"
+		  Port {
+		    PortNumber		    1
+		    Name		    "torso"
+		  }
+		  Port {
+		    PortNumber		    2
+		    Name		    "left_arm"
+		  }
+		  Port {
+		    PortNumber		    3
+		    Name		    "right_arm"
+		  }
+		  Port {
+		    PortNumber		    4
+		    Name		    "left_leg"
+		  }
+		  Port {
+		    PortNumber		    5
+		    Name		    "right_leg"
+		  }
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  SID			  "4636"
+		  Ports			  [2, 1]
+		  Position		  [150, -5, 170, 15]
+		  ZOrder		  886
+		  ShowName		  off
+		  IconShape		  "round"
+		  Inputs		  "|+-"
+		  InputSameDT		  off
+		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+		  SaturateOnIntegerOverflow off
+		  Port {
+		    PortNumber		    1
+		    Name		    "u_with_feedForward"
+		  }
+		}
+		Block {
+		  BlockType		  Scope
+		  Name			  "feedforward_only"
+		  SID			  "4645"
+		  Ports			  [5]
+		  Position		  [365, 88, 470, 202]
+		  ZOrder		  898
+		  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr"
+		  ".Configuration('Core','General UI',true,'FigureColor',[0.156862745098039 0.156862745098039 0.156862745098039]),ext"
+		  "mgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources','WiredSimulink',true,'DataLoggingVariabl"
+		  "eName','ScopeData3','DataLoggingSaveFormat','StructureWithTime','DataLoggingDecimation','1','DataLoggingDecimateDa"
+		  "ta',true),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-23.63249'"
+		  ",'MaxYLimReal','27.95301','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','27.95301','LegendVisibility','On','"
+		  "XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.68627450980"
+		  "3922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.4117647058"
+		  "82353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 "
+		  "1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{"
+		  "struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'Lin"
+		  "eStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5"
+		  ",'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible',"
+		  "'on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1"
+		  "],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'L"
+		  "ineNames',{{[]}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-6.49775','MaxYLimReal','5.80954','YLabel"
+		  "Real','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false"
+		  ",'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0"
+		  "666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.83"
+		  "1372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686"
+		  " 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineW"
+		  "idth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','"
+		  "Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Colo"
+		  "r',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-',"
+		  "'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','n"
+		  "one','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placemen"
+		  "t',2),struct('MinYLimReal','-8.17969','MaxYLimReal','7.65402','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','"
+		  "LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627"
+		  "4509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.62352941"
+		  "1764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.7176470588"
+		  "23529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>',"
+		  "'LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),str"
+		  "uct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineSt"
+		  "yle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'M"
+		  "arker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on"
+		  "'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNam"
+		  "es',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-66.44849','MaxYL"
+		  "imReal','41.64929','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid'"
+		  ",true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803"
+		  "922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372"
+		  "549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823529411764"
+		  "7 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1"
+		  " 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWi"
+		  "dth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','V"
+		  "isible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color"
+		  "',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','"
+		  "LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'S"
+		  "howContent',true,'Placement',4),struct('MinYLimReal','-66.44849','MaxYLimReal','41.64929','YLabelReal','','MinYLim"
+		  "Mag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0"
+		  " 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0"
+		  ".0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0"
+		  "745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.65098039215686"
+		  "3],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{["
+		  "]}},'ShowContent',true,'Placement',5)},'DisplayPropertyDefaults',struct('YLabelReal','','AxesColor',[0 0 0],'AxesT"
+		  "ickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.074509803"
+		  "9215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.07450980392"
+		  "15686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title'"
+		  ",'%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','"
+		  "Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Colo"
+		  "r',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-',"
+		  "'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','n"
+		  "one','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'Use"
+		  "rDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),'TimeRangeSamples','9"
+		  "0','TimeRangeFrames','90','DisplayLayoutDimensions',[5 1],'DisplayContentCache',{struct('Title','%<SignalLabel>','"
+		  "LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),stru"
+		  "ct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineSty"
+		  "le','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Ma"
+		  "rker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'"
+		  "),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelName"
+		  "s',{{}},'PlotMagPhase',false),struct('Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'Line"
+		  "Style','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,"
+		  "'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','"
+		  "on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0]"
+		  ",'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth"
+		  "',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false),struct('Title','%<Sig"
+		  "nalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible"
+		  "','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1"
+		  " 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWi"
+		  "dth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','V"
+		  "isible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefine"
+		  "dChannelNames',{{}},'PlotMagPhase',false),struct('Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',["
+		  "1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','Lin"
+		  "eWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none'"
+		  ",'Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Co"
+		  "lor',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-"
+		  "','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false),struct('T"
+		  "itle','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','no"
+		  "ne','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct("
+		  "'Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle'"
+		  ",'-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marke"
+		  "r','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}}"
+		  ",'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr.Configuration('Tools','Plot Navigation',true,'OnceA"
+		  "tStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Versi"
+		  "on','2017b','Location',[385 262 2230 1233])"
+		  NumInputPorts		  "5"
+		}
+		Block {
+		  BlockType		  Scope
+		  Name			  "u_only"
+		  SID			  "4647"
+		  Ports			  [5]
+		  Position		  [365, -192, 470, -78]
+		  ZOrder		  900
+		  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr"
+		  ".Configuration('Core','General UI',true,'FigureColor',[0.156862745098039 0.156862745098039 0.156862745098039]),ext"
+		  "mgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources','WiredSimulink',true,'DataLoggingVariabl"
+		  "eName','ScopeData2','DataLoggingSaveFormat','StructureWithTime','DataLoggingDecimation','1','DataLoggingDecimateDa"
+		  "ta',true),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-23.63249'"
+		  ",'MaxYLimReal','27.95301','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','27.95301','LegendVisibility','On','"
+		  "XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.68627450980"
+		  "3922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.4117647058"
+		  "82353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 "
+		  "1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{"
+		  "struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'Lin"
+		  "eStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5"
+		  ",'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible',"
+		  "'on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1"
+		  "],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'L"
+		  "ineNames',{{[]}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-6.49775','MaxYLimReal','5.80954','YLabel"
+		  "Real','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false"
+		  ",'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0"
+		  "666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.83"
+		  "1372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686"
+		  " 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineW"
+		  "idth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','"
+		  "Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Colo"
+		  "r',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-',"
+		  "'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','n"
+		  "one','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placemen"
+		  "t',2),struct('MinYLimReal','-8.17969','MaxYLimReal','7.65402','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','"
+		  "LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627"
+		  "4509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.62352941"
+		  "1764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.7176470588"
+		  "23529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>',"
+		  "'LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),str"
+		  "uct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineSt"
+		  "yle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'M"
+		  "arker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on"
+		  "'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNam"
+		  "es',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-66.44849','MaxYL"
+		  "imReal','41.64929','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid'"
+		  ",true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803"
+		  "922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372"
+		  "549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823529411764"
+		  "7 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1"
+		  " 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWi"
+		  "dth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','V"
+		  "isible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color"
+		  "',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','"
+		  "LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'S"
+		  "howContent',true,'Placement',4),struct('MinYLimReal','-66.44849','MaxYLimReal','41.64929','YLabelReal','','MinYLim"
+		  "Mag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0"
+		  " 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0"
+		  ".0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0"
+		  "745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.65098039215686"
+		  "3],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{["
+		  "]}},'ShowContent',true,'Placement',5)},'DisplayPropertyDefaults',struct('YLabelReal','','AxesColor',[0 0 0],'AxesT"
+		  "ickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.074509803"
+		  "9215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.07450980392"
+		  "15686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title'"
+		  ",'%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','"
+		  "Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Colo"
+		  "r',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-',"
+		  "'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','n"
+		  "one','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'Use"
+		  "rDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),'TimeRangeSamples','9"
+		  "0','TimeRangeFrames','90','DisplayLayoutDimensions',[5 1],'DisplayContentCache',{struct('Title','%<SignalLabel>','"
+		  "LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),stru"
+		  "ct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineSty"
+		  "le','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Ma"
+		  "rker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'"
+		  "),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelName"
+		  "s',{{}},'PlotMagPhase',false),struct('Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'Line"
+		  "Style','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,"
+		  "'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','"
+		  "on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0]"
+		  ",'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth"
+		  "',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false),struct('Title','%<Sig"
+		  "nalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible"
+		  "','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1"
+		  " 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWi"
+		  "dth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','V"
+		  "isible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefine"
+		  "dChannelNames',{{}},'PlotMagPhase',false),struct('Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',["
+		  "1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','Lin"
+		  "eWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none'"
+		  ",'Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Co"
+		  "lor',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-"
+		  "','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false),struct('T"
+		  "itle','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','no"
+		  "ne','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct("
+		  "'Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle'"
+		  ",'-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marke"
+		  "r','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}}"
+		  ",'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr.Configuration('Tools','Plot Navigation',true,'OnceA"
+		  "tStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Versi"
+		  "on','2017b','Location',[385 262 2230 1233])"
+		  NumInputPorts		  "5"
+		}
+		Block {
+		  BlockType		  Scope
+		  Name			  "u_with_feedforward"
+		  SID			  "4637"
+		  Ports			  [5]
+		  Position		  [365, -52, 470, 62]
+		  ZOrder		  887
+		  ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extmgr"
+		  ".Configuration('Core','General UI',true,'FigureColor',[0.156862745098039 0.156862745098039 0.156862745098039]),ext"
+		  "mgr.Configuration('Core','Source UI',true),extmgr.Configuration('Sources','WiredSimulink',true,'DataLoggingVariabl"
+		  "eName','ScopeData1','DataLoggingSaveFormat','StructureWithTime','DataLoggingDecimation','1','DataLoggingDecimateDa"
+		  "ta',true),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal','-23.63249'"
+		  ",'MaxYLimReal','27.95301','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','27.95301','LegendVisibility','On','"
+		  "XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.68627450980"
+		  "3922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.4117647058"
+		  "82353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 "
+		  "1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{"
+		  "struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'Lin"
+		  "eStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5"
+		  ",'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible',"
+		  "'on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1"
+		  "],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'L"
+		  "ineNames',{{[]}},'ShowContent',true,'Placement',1),struct('MinYLimReal','-6.49775','MaxYLimReal','5.80954','YLabel"
+		  "Real','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false"
+		  ",'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0"
+		  "666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.83"
+		  "1372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686"
+		  " 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineW"
+		  "idth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','"
+		  "Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Colo"
+		  "r',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-',"
+		  "'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','n"
+		  "one','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placemen"
+		  "t',2),struct('MinYLimReal','-8.17969','MaxYLimReal','7.65402','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','"
+		  "LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627"
+		  "4509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.62352941"
+		  "1764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.7176470588"
+		  "23529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>',"
+		  "'LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),str"
+		  "uct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineSt"
+		  "yle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'M"
+		  "arker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on"
+		  "'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNam"
+		  "es',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',3),struct('MinYLimReal','-66.44849','MaxYL"
+		  "imReal','41.64929','YLabelReal','','MinYLimMag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid'"
+		  ",true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803"
+		  "922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372"
+		  "549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.058823529411764"
+		  "7 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1"
+		  " 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWi"
+		  "dth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','V"
+		  "isible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color"
+		  "',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','"
+		  "LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'S"
+		  "howContent',true,'Placement',4),struct('MinYLimReal','-66.44849','MaxYLimReal','41.64929','YLabelReal','','MinYLim"
+		  "Mag','0','MaxYLimMag','10','LegendVisibility','on','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0"
+		  " 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0"
+		  ".0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0"
+		  "745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.65098039215686"
+		  "3],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{["
+		  "]}},'ShowContent',true,'Placement',5)},'DisplayPropertyDefaults',struct('YLabelReal','','AxesColor',[0 0 0],'AxesT"
+		  "ickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.074509803"
+		  "9215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.07450980392"
+		  "15686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title'"
+		  ",'%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','"
+		  "Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Colo"
+		  "r',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-',"
+		  "'LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','n"
+		  "one','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'Use"
+		  "rDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),'TimeRangeSamples','9"
+		  "0','TimeRangeFrames','90','DisplayLayoutDimensions',[5 1],'DisplayContentCache',{struct('Title','%<SignalLabel>','"
+		  "LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),stru"
+		  "ct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineSty"
+		  "le','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Ma"
+		  "rker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'"
+		  "),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelName"
+		  "s',{{}},'PlotMagPhase',false),struct('Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'Line"
+		  "Style','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,"
+		  "'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','"
+		  "on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0]"
+		  ",'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth"
+		  "',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false),struct('Title','%<Sig"
+		  "nalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible"
+		  "','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1"
+		  " 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWi"
+		  "dth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','V"
+		  "isible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefine"
+		  "dChannelNames',{{}},'PlotMagPhase',false),struct('Title','%<SignalLabel>','LinePropertiesCache',{{struct('Color',["
+		  "1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','Lin"
+		  "eWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none'"
+		  ",'Visible','on'),struct('Color',[1 0 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Co"
+		  "lor',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-"
+		  "','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false),struct('T"
+		  "itle','%<SignalLabel>','LinePropertiesCache',{{struct('Color',[1 1 0],'LineStyle','-','LineWidth',0.5,'Marker','no"
+		  "ne','Visible','on'),struct('Color',[1 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct("
+		  "'Color',[0 1 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[1 0 0],'LineStyle'"
+		  ",'-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 1 0],'LineStyle','-','LineWidth',0.5,'Marke"
+		  "r','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on')}}"
+		  ",'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr.Configuration('Tools','Plot Navigation',true,'OnceA"
+		  "tStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Versi"
+		  "on','2017b','Location',[385 262 2230 1233])"
+		  NumInputPorts		  "5"
+		}
+		Line {
+		  Name			  "right_leg"
+		  ZOrder		  68
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux10"
+		  SrcPort		  5
+		  DstBlock		  "u_with_feedforward"
+		  DstPort		  5
+		}
+		Line {
+		  Name			  "left_arm"
+		  ZOrder		  80
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux10"
+		  SrcPort		  2
+		  DstBlock		  "u_with_feedforward"
+		  DstPort		  2
+		}
+		Line {
+		  Name			  "right_arm"
+		  ZOrder		  83
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux10"
+		  SrcPort		  3
+		  DstBlock		  "u_with_feedforward"
+		  DstPort		  3
+		}
+		Line {
+		  Name			  "torso"
+		  ZOrder		  85
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux10"
+		  SrcPort		  1
+		  DstBlock		  "u_with_feedforward"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "left_leg"
+		  ZOrder		  67
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux10"
+		  SrcPort		  4
+		  DstBlock		  "u_with_feedforward"
+		  DstPort		  4
+		}
+		Line {
+		  Name			  "u_with_feedForward"
+		  ZOrder		  66
+		  Labels		  [1, 1]
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "Demux10"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  91
+		  SrcBlock		  "feedForward"
+		  SrcPort		  1
+		  Points		  [131, 0]
+		  Branch {
+		    ZOrder		    93
+		    Points		    [0, 80]
+		    DstBlock		    "Demux1"
+		    DstPort		    1
+		  }
+		  Branch {
+		    ZOrder		    92
+		    DstBlock		    "Sum"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  Name			  "left_leg"
+		  ZOrder		  95
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  4
+		  DstBlock		  "feedforward_only"
+		  DstPort		  4
+		}
+		Line {
+		  Name			  "right_leg"
+		  ZOrder		  96
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  5
+		  DstBlock		  "feedforward_only"
+		  DstPort		  5
+		}
+		Line {
+		  Name			  "left_arm"
+		  ZOrder		  97
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  2
+		  DstBlock		  "feedforward_only"
+		  DstPort		  2
+		}
+		Line {
+		  Name			  "torso"
+		  ZOrder		  98
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  1
+		  DstBlock		  "feedforward_only"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "right_arm"
+		  ZOrder		  99
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux1"
+		  SrcPort		  3
+		  DstBlock		  "feedforward_only"
+		  DstPort		  3
+		}
+		Line {
+		  Name			  "left_leg"
+		  ZOrder		  102
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux2"
+		  SrcPort		  4
+		  DstBlock		  "u_only"
+		  DstPort		  4
+		}
+		Line {
+		  Name			  "right_arm"
+		  ZOrder		  103
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux2"
+		  SrcPort		  3
+		  DstBlock		  "u_only"
+		  DstPort		  3
+		}
+		Line {
+		  Name			  "right_leg"
+		  ZOrder		  104
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux2"
+		  SrcPort		  5
+		  DstBlock		  "u_only"
+		  DstPort		  5
+		}
+		Line {
+		  Name			  "left_arm"
+		  ZOrder		  105
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux2"
+		  SrcPort		  2
+		  DstBlock		  "u_only"
+		  DstPort		  2
+		}
+		Line {
+		  ZOrder		  88
+		  SrcBlock		  "u"
+		  SrcPort		  1
+		  Points		  [95, 0]
+		  Branch {
+		    ZOrder		    109
+		    Points		    [0, -140]
+		    DstBlock		    "Demux2"
+		    DstPort		    1
+		  }
+		  Branch {
+		    ZOrder		    108
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  Name			  "torso"
+		  ZOrder		  107
+		  Labels		  [-1, 0]
+		  SrcBlock		  "Demux2"
+		  SrcPort		  1
+		  DstBlock		  "u_only"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant"
+	      SID		      "4649"
+	      Position		      [-75, 30, 45, 50]
+	      ZOrder		      895
+	      ShowName		      off
+	      Value		      "Config.SCOPES_INERTIA"
 	    }
 	    Block {
 	      BlockType		      Gain
@@ -18842,8 +19220,18 @@ Model {
 	      ZOrder		      6
 	      SrcBlock		      "Product"
 	      SrcPort		      1
-	      DstBlock		      "Gain"
-	      DstPort		      1
+	      Points		      [18, 0]
+	      Branch {
+		ZOrder			95
+		DstBlock		"Gain"
+		DstPort			1
+	      }
+	      Branch {
+		ZOrder			92
+		Points			[0, 240]
+		DstBlock		"Check the contribution of feedforward"
+		DstPort			1
+	      }
 	    }
 	    Line {
 	      ZOrder		      16
@@ -18886,8 +19274,17 @@ Model {
 	      Branch {
 		ZOrder			62
 		Points			[0, 75]
-		DstBlock		"Switch"
-		DstPort			3
+		Branch {
+		  ZOrder		  94
+		  Points		  [0, 95]
+		  DstBlock		  "Check the contribution of feedforward"
+		  DstPort		  2
+		}
+		Branch {
+		  ZOrder		  93
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
 	      }
 	    }
 	    Line {
@@ -18896,6 +19293,14 @@ Model {
 	      SrcPort		      1
 	      DstBlock		      "Product"
 	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      96
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      Points		      [35, 0]
+	      DstBlock		      "Check the contribution of feedforward"
+	      DstPort		      enable
 	    }
 	  }
 	}
@@ -19406,7 +19811,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "3749"
+	    SIDHighWatermark	    "3752"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "umin"
@@ -19445,38 +19850,36 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "2421::3748"
+	      SID		      "2421::3751"
 	      Ports		      [1, 1]
 	      Position		      [270, 230, 320, 270]
-	      ZOrder		      98
+	      ZOrder		      101
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "2421::3747"
+	      SID		      "2421::3750"
 	      Tag		      "Stateflow S-Function torqueBalancingYoga 18"
 	      Ports		      [4, 2]
 	      Position		      [180, 102, 230, 203]
-	      ZOrder		      97
+	      ZOrder		      100
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[4 2]"
 	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
+	      EnableBusSupport	      off
 	      SFcnIsStateOwnerBlock   off
 	      Port {
 		PortNumber		2
 		Name			"inRange"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "2421::3749"
+	      SID		      "2421::3752"
 	      Position		      [460, 241, 480, 259]
-	      ZOrder		      99
+	      ZOrder		      102
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -19487,28 +19890,28 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      ZOrder		      120
+	      ZOrder		      127
 	      SrcBlock		      "umin"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      121
+	      ZOrder		      128
 	      SrcBlock		      "umax"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
-	      ZOrder		      122
+	      ZOrder		      129
 	      SrcBlock		      "u"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
 	    }
 	    Line {
-	      ZOrder		      123
+	      ZOrder		      130
 	      SrcBlock		      "tol"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -19516,7 +19919,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "inRange"
-	      ZOrder		      124
+	      ZOrder		      131
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -19524,14 +19927,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      125
+	      ZOrder		      132
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      126
+	      ZOrder		      133
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -19873,7 +20276,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "41"
+	    SIDHighWatermark	    "44"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u"
@@ -19894,39 +20297,37 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "4556::40"
+	      SID		      "4556::43"
 	      Ports		      [1, 1]
 	      Position		      [270, 230, 320, 270]
-	      ZOrder		      30
+	      ZOrder		      33
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "4556::39"
+	      SID		      "4556::42"
 	      Tag		      "Stateflow S-Function torqueBalancingYoga 11"
 	      Ports		      [2, 2]
 	      Position		      [180, 100, 230, 160]
-	      ZOrder		      29
+	      ZOrder		      32
 	      FunctionName	      "sf_sfun"
 	      Parameters	      "Config"
 	      PortCounts	      "[2 2]"
 	      SFunctionDeploymentMode off
-	      EnableBusSupport	      on
+	      EnableBusSupport	      off
 	      SFcnIsStateOwnerBlock   off
 	      Port {
 		PortNumber		2
 		Name			"uSat"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
 	      }
 	    }
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "4556::41"
+	      SID		      "4556::44"
 	      Position		      [460, 241, 480, 259]
-	      ZOrder		      31
+	      ZOrder		      34
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -19937,7 +20338,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      ZOrder		      50
+	      ZOrder		      55
 	      SrcBlock		      "u"
 	      SrcPort		      1
 	      Points		      [120, 0]
@@ -19945,7 +20346,7 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      51
+	      ZOrder		      56
 	      SrcBlock		      "u_0"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -19953,7 +20354,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "uSat"
-	      ZOrder		      52
+	      ZOrder		      57
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -19961,14 +20362,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      53
+	      ZOrder		      58
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      54
+	      ZOrder		      59
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -20202,9 +20603,9 @@ Model {
       ZOrder		      121
       SrcBlock		      "Robot State and References"
       SrcPort		      3
-      Points		      [87, 0]
+      Points		      [94, 0]
       Branch {
-	ZOrder			171
+	ZOrder			240
 	DstBlock		"controller_QP"
 	DstPort			13
       }
@@ -20282,7 +20683,7 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000010
+#   Stateflow 80000012
 #
 #
 Stateflow {
