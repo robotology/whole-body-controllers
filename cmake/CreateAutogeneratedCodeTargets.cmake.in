@@ -10,8 +10,13 @@ add_generated_code_lib(MODELNAME ${MDL_NAME})
 # Set the target name for the custom driver
 set(CODER_MAIN "CoderMain_${MDL_NAME}")
 
+configure_file(
+    "${PROJECT_SOURCE_DIR}/src/driver.cpp.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/driver.cpp"
+    @ONLY)
+
 add_executable(${CODER_MAIN}
-    "${CMAKE_SOURCE_DIR}/src/driver.cpp"
+    "${CMAKE_CURRENT_BINARY_DIR}/driver.cpp"
 )
 
 target_link_libraries(${CODER_MAIN} PUBLIC ${MDL_NAME}_LIB)
