@@ -182,18 +182,18 @@ Sm.joints_leftSecondYogaRef  = zeros(1,ROBOT_DOF+1);
 Sm.joints_rightSecondYogaRef = zeros(1,ROBOT_DOF+1);
 
 % configuration parameters for state machine (YOGA DEMO ONLY) 
-Sm.tBalancing               = 1;
-Sm.tBalancingBeforeYoga     = 1;
-Sm.skipYoga                 = false;
-Sm.demoOnlyBalancing        = false;
-Sm.demoStartsOnRightSupport = false;
-Sm.yogaAlsoOnRightFoot      = false;
-Sm.yogaInLoop               = false;
-Sm.repeatYogaMoveset        = false;
-
-% smoothing time for the second time the Yoga moveset are performed (YOGA DEMO ONLY)
-Sm.smoothingTimeSecondYogaLeft  = 1;
-Sm.smoothingTimeSecondYogaRight = 1;
+Sm.tBalancing                        = 1;
+Sm.tBalancingBeforeYoga              = 1;
+Sm.skipYoga                          = false;
+Sm.demoOnlyBalancing                 = false;
+Sm.demoStartsOnRightSupport          = false;
+Sm.yogaAlsoOnRightFoot               = false;
+Sm.twoFeetYogaInLoop                 = false;
+Sm.oneFootYogaInLoop                 = false;
+Sm.yogaCounter                       = 5;
+Sm.repeatTwiceYogaWithDifferentSpeed = false;
+Sm.smoothingTimeSecondYogaLeft       = 1;
+Sm.smoothingTimeSecondYogaRight      = 1;
 
 %% Constraints for QP for balancing
 

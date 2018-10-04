@@ -146,16 +146,36 @@ Sm.tBalancingBeforeYoga     = 1;
 Sm.yogaExtended             = true;
 Sm.skipYoga                 = false;
 Sm.demoOnlyBalancing        = false;
-Sm.demoStartsOnRightSupport = false;
+Sm.demoStartsOnRightSupport = false; % If false, the Yoga demo is performed on the left foot first
 Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from right foot
-Sm.yogaInLoop               = false;
 
-% repeat the yoga movements faster. Uneffective if Sm.yogaExtended = false;
-Sm.repeatYogaMoveset        = false;
+%%%% List of possible "Yoga in loop" %%%%
+
+% the robot will repeat the FULL DEMO (two feet balancing, yoga on left
+% foot, back on two feet, yoga right foot, back on two feet). The demo is
+% repeated until the user stops the Simulink model. This option is ignored
+% if Sm.demoStartsOnRightSupport = true.
+Sm.twoFeetYogaInLoop        = false;
+
+% the robot will repeat the ONE FOOT yoga for the number of times the user
+% specifies in the Sm.yogaCounter option. The robot WILL NOT go back to two
+% feet balancing in between to consecutive yoga. WARNING: if the option 
+% Sm.yogaAlsoOnRightFoot is true, then the robot will repeat first the yoga
+% on left foot for the number of times the user specifies in the Sm.yogaCounter,
+% and then it will repeat the yoga on the right foot for the same number of times.
+% This option is ignored if Sm.repeatTwiceYogaWithDifferentSpeed = true.
+Sm.oneFootYogaInLoop        = false;
+Sm.yogaCounter              = 5;
+
+% the robot will repeat the yoga moveset twice. This option works as the 
+% option Sm.oneFootYogaInLoop, but the yoga is repeated only twice. However,
+% it is possible to set a different yoga speed for the two yoga. 
+% Uneffective if Sm.yogaExtended = false;
+Sm.repeatTwiceYogaWithDifferentSpeed = false;
 
 % smoothing time for the second time the Yoga moveset are performed
-Sm.smoothingTimeSecondYogaLeft  = 0.6;
-Sm.smoothingTimeSecondYogaRight = 0.6;
+Sm.smoothingTimeSecondYogaLeft       = 0.6;
+Sm.smoothingTimeSecondYogaRight      = 0.6;
 
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [  zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED 
@@ -371,16 +391,17 @@ Sm.joints_leftSecondYogaRef(1)  = Sm.smoothingTimeCoM_Joints(4);
 Sm.joints_rightSecondYogaRef(1) = Sm.smoothingTimeCoM_Joints(10);
 
 % if the demo is not "yogaExtended", stop at the 8th move
-% also, Sm.repeatYogaMoveset must be set to "false". The reason is that the
-% first and the last Yoga moveset for the "not extended" one are very
-% different, and the robot may "jump" when restarting the Yoga the second time
+% also, Sm.repeatTwiceYogaWithDifferentSpeed must be set to "false". The 
+% reason is that the first and the last Yoga moveset for the "not extended"
+% one are very different, and the robot may "jump" when restarting the Yoga 
+% the second time
 if ~Sm.yogaExtended
    
-    Sm.repeatYogaMoveset        = false;  
-    Sm.joints_leftYogaRef       = Sm.joints_leftYogaRef(1:8,:);
-    Sm.joints_rightYogaRef      = Sm.joints_rightYogaRef(1:8,:);
-    Sm.joints_leftYogaRef(8,1)  = 15*Sm.smoothingTimeCoM_Joints(4);
-    Sm.joints_rightYogaRef(8,1) = 15*Sm.smoothingTimeCoM_Joints(10);
+    Sm.repeatTwiceYogaWithDifferentSpeed = false;
+    Sm.joints_leftYogaRef                = Sm.joints_leftYogaRef(1:8,:);
+    Sm.joints_rightYogaRef               = Sm.joints_rightYogaRef(1:8,:);
+    Sm.joints_leftYogaRef(8,1)           = 15*Sm.smoothingTimeCoM_Joints(4);
+    Sm.joints_rightYogaRef(8,1)          = 15*Sm.smoothingTimeCoM_Joints(10);
 end
 
 % MIRROR YOGA LEFT MOVESET FOR RIGHT YOGA					 
