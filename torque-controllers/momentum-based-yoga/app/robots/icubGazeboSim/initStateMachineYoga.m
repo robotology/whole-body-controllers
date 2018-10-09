@@ -346,9 +346,9 @@ T_RShoulder = [ 1  0  0;
                 1  t  0;
                 0 -t  t];
 
-T_torso = [0   -0.5     0.5;
-           0    0.5     0.5;
-           r/R  r/(2*R) r/(2*R)];
+T_torso = [-0.5     0.5     0;
+            0.5     0.5     0;
+            r/(2*R) r/(2*R) r/R];
        
 if Config.INCLUDE_COUPLING
        
