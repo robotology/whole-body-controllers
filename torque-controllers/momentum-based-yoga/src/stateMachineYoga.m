@@ -5,12 +5,14 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
     persistent tSwitch;
     persistent w_H_fixedLink;
     persistent secondYoga;
-
-    if isempty(state) || isempty(tSwitch) || isempty(w_H_fixedLink) || isempty(secondYoga) 
-        state         = Sm.stateAt0;
-        tSwitch       = 0;
-        w_H_fixedLink = eye(4);
-        secondYoga    = false;
+    persistent yogaMovesetCounter;
+    
+    if isempty(state) || isempty(tSwitch) || isempty(w_H_fixedLink) || isempty(secondYoga) || isempty(yogaMovesetCounter)
+        state              = Sm.stateAt0;
+        tSwitch            = 0;
+        w_H_fixedLink      = eye(4);
+        secondYoga         = false;
+        yogaMovesetCounter = 1;
     end
     
     CoM_des      = CoM_0;
@@ -129,13 +131,25 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
             
             qj_des = Sm.joints_leftYogaRef(end,2:end)';
             
-            % if Sm.repeatYogaMoveset == true, repeat the Yoga
-            if t > (Sm.joints_leftYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatYogaMoveset == true
+            % if Sm.repeatTwiceYogaWithDifferentSpeed == true, repeat the Yoga
+            if t > (Sm.joints_leftYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatTwiceYogaWithDifferentSpeed == true
                 
                 tSwitch    = t;
                 secondYoga = true;
                 
-            elseif t > (Sm.joints_leftYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatYogaMoveset == false
+            elseif t > (Sm.joints_leftYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatTwiceYogaWithDifferentSpeed == false && Sm.oneFootYogaInLoop 
+                 
+                tSwitch            = t;
+                yogaMovesetCounter = yogaMovesetCounter +1;
+                
+                % if the robot repeated the Yoga moveset for the number of
+                % times required by the user, then exit the loop
+                if yogaMovesetCounter > Sm.yogaCounter
+                   
+                    state  = 5;
+                end
+                
+            elseif t > (Sm.joints_leftYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatTwiceYogaWithDifferentSpeed == false && Sm.oneFootYogaInLoop == false
                 
                 state      = 5;
                 tSwitch    = t;
@@ -312,13 +326,25 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
             
             qj_des = Sm.joints_rightYogaRef(end,2:end)';
             
-            % if Sm.repeatYogaMoveset == true, repeat the Yoga
-            if t > (Sm.joints_rightYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatYogaMoveset == true
+            % if Sm.repeatTwiceYogaWithDifferentSpeed == true, repeat the Yoga
+            if t > (Sm.joints_rightYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatTwiceYogaWithDifferentSpeed == true
                 
                 tSwitch    = t;
                 secondYoga = true;
+         
+            elseif t > (Sm.joints_rightYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatTwiceYogaWithDifferentSpeed == false && Sm.oneFootYogaInLoop 
+            
+                tSwitch            = t;
+                yogaMovesetCounter = yogaMovesetCounter +1;
                 
-            elseif t > (Sm.joints_rightYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatYogaMoveset == false
+                % if the robot repeated the Yoga moveset for the number of
+                % times required by the user, then exit the loop
+                if yogaMovesetCounter > Sm.yogaCounter
+                   
+                    state  = 11;
+                end
+                                
+            elseif t > (Sm.joints_rightYogaRef(end,1) + tSwitch + Sm.smoothingTimeCoM_Joints(state) + Sm.joints_pauseBetweenYogaMoves) && Sm.repeatTwiceYogaWithDifferentSpeed == false && Sm.oneFootYogaInLoop == false
             
                 state      = 11;
                 tSwitch    = t;
@@ -390,7 +416,7 @@ function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, curren
         
         if t - tSwitch > Sm.tBalancing 
             
-           if Sm.yogaInLoop
+           if Sm.twoFeetYogaInLoop
                
               state = 2; 
               w_H_fixedLink   = w_H_fixedLink*r_sole_H_b/l_sole_H_b;
