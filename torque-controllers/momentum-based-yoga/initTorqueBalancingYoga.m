@@ -27,7 +27,7 @@ clc
 % and set the environmental variable YARP_ROBOT_NAME in the .bashrc file.
 
 % Simulation time in seconds
-Config.SIMULATION_TIME = inf;   
+Config.SIMULATION_TIME = 600;
 
 %% PRELIMINARY CONFIGURATIONS 
 % Sm.SM_TYPE: defines the kind of state machines that can be chosen.
