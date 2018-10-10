@@ -22,7 +22,7 @@ function varargout = torqueBalancingGUI(varargin)
 
 % Edit the above text to modify the response to help torqueBalancingGUI
 
-% Last Modified by GUIDE v2.5 19-Sep-2018 16:37:46
+% Last Modified by GUIDE v2.5 26-Sep-2018 14:16:05
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -85,7 +85,6 @@ function pushbutton1_Callback(hObject, eventdata, handles) %#ok<*INUSL,*DEFNU>
 mystring = get(hObject,'String');
 status   = get_param(bdroot,'simulationstatus');
    
-   
 if strcmp(mystring,'Start Simulation')
     
     % Check the status of the simulation and start it if it's stopped
@@ -95,6 +94,7 @@ if strcmp(mystring,'Start Simulation')
     
     % Update the string on the pushbutton
     set(handles.pushbutton1,'String','Stop Simulation')
+    set(handles.pushbutton1,'Backgroundcolor','r');
     
 elseif strcmp(mystring,'Stop Simulation')
     
@@ -105,6 +105,7 @@ elseif strcmp(mystring,'Stop Simulation')
     
     % Update the string on the pushbutton
     set(handles.pushbutton1,'String','Start Simulation')
+    set(handles.pushbutton1,'Backgroundcolor','g');
     
 else
     warning('Unrecognized string for pushbutton1') %#ok<WNTAG>
@@ -124,3 +125,16 @@ function checkbox2_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of checkbox2
 assignin('base','sl_synch_handles',handles)
  
+
+% --- Executes on button press in pushbutton3.
+function pushbutton3_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+closeModel;
+
+% Assign handles and the startstop object to the base workspace
+assignin('base','sl_synch_handles',handles)
+assignin('base','hObject',handles.pushbutton1)
+

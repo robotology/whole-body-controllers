@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % /**
 %  * Copyright (C) 2016 CoDyCo
-%  * @author: Daniele Pucci
+%  * @author: Daniele Pucci, Gabriele Nava
 %  * Permission is granted to copy, distribute, and/or modify this program
 %  * under the terms of the GNU General Public License, version 2 or any
 %  * later version published by the Free Software Foundation.
@@ -18,20 +18,9 @@
 clear variables
 clc
 
-% add the path to the static gui, and open the model
+% add the path to the static gui and to some service functions
 addpath('../../library/matlab-gui');
+addpath('./src-gui');
 
 % open the model
 open_system('torqueBalancingYoga.mdl','loadonly');
-
-% waiting for the user to close the model
-closeModel = input('ENTER ANY NUMBER/STRING TO CLOSE THE MODEL ');
-
-% Save the model and close
-if exist('closeModel','var')
-    
-    save_system('torqueBalancingYoga.mdl');
-    close_system('torqueBalancingYoga.mdl');
-    rmpath('../../library/matlab-gui');
-end
-

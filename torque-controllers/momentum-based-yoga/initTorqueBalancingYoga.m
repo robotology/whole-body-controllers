@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % /**
 %  * Copyright (C) 2016 CoDyCo
-%  * @author: Daniele Pucci
+%  * @author: Daniele Pucci, Gabriele Nava
 %  * Permission is granted to copy, distribute, and/or modify this program
 %  * under the terms of the GNU General Public License, version 2 or any
 %  * later version published by the Free Software Foundation.
@@ -43,26 +43,26 @@ Config.SIMULATION_TIME = inf;
 %
 %                app/robots/YARP_ROBOT_NAME/initRefGen.m
 % 
-SM_TYPE                      = 'YOGA';
+SM_TYPE                       = 'YOGA';
 
 % Config.SCOPES: if set to true, all visualizers for debugging are active
-Config.SCOPES_ALL            = true;
+Config.SCOPES_ALL             = true;
 
 % You can also activate only some specific debugging scopes
-Config.SCOPES_EXT_WRENCHES   = false;
-Config.SCOPES_GAIN_SCHE_INFO = false;
-Config.SCOPES_MAIN           = false;
-Config.SCOPES_QP             = false;
+Config.SCOPES_EXT_WRENCHES    = false;
+Config.SCOPES_GAIN_SCHE_INFO  = false;
+Config.SCOPES_MAIN            = false;
+Config.SCOPES_QP              = false;
 
 % Config.CHECK_LIMITS: if set to true, the controller will stop as soon as 
 % any of the joint limit is touched. 
-Config.CHECK_LIMITS          = false;
+Config.CHECK_LIMITS           = false;
 
 % DATA PROCESSING
 %
 % If Config.SAVE_WORKSPACE = True, every time the simulink model is run the
 % workspace is saved after stopping the simulation
-Config.SAVE_WORKSPACE        = false;
+Config.SAVE_WORKSPACE         = false;
 
 % If CHECK_INTEGRATION_TIME = True, after stopping the simulation the
 % Simulink time is compared with the Yarp time to check if the desired
