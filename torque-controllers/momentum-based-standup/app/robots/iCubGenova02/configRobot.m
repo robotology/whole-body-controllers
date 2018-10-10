@@ -55,8 +55,11 @@ Config.STANDUP_WITH_HUMAN = true;
 % inertias are included in the system mass matrix. If
 % Config.INCLUDE_COUPLING is true, then the coupling effect (some joints
 % motion is the result of more than one motor motion) is taken into account.
-Config.USE_MOTOR_REFLECTED_INERTIA = true;
-Config.INCLUDE_COUPLING            = true;
+% Config.INCLUDE_HARMONIC_DRIVE_INERTIA is true, then the harmonic drive
+% reflected inertia is also considered
+Config.USE_MOTOR_REFLECTED_INERTIA    = true;
+Config.INCLUDE_COUPLING               = true;
+Config.INCLUDE_HARMONIC_DRIVE_INERTIA = true;
 
 % Config.USE_IMU4EST_BASE: if set to false, the base frame is estimated by 
 % assuming that either the left or the right foot stay stuck on the ground. 

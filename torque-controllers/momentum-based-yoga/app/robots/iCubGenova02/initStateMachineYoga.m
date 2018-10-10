@@ -74,11 +74,10 @@ Gain.impedances  = [10   30   20, 10   10    10    8, 10   10    10    8, 30   3
 
 Gain.impedances(10,18:23) = Gain.impedances(10,18:23)*1.5; 
 Gain.impedances(10,1:3)   = Gain.impedances(10,1:3)*2;
-
 Gain.impedances(4,12:17)  = Gain.impedances(4,12:17)*1.5; 
 Gain.impedances(4,1:3)    = Gain.impedances(4,1:3)*2;
-
-Gain.impedances(7,2:3)      = Gain.impedances(7,2:3)*1.5;
+Gain.impedances(4,4:11)   = Gain.impedances(4,4:11)*1.5;
+Gain.impedances(7,2:3)    = Gain.impedances(7,2:3)*1.5;
 
 Gain.dampings = 0*2*sqrt(Gain.impedances(1,:))/40;  
 
@@ -101,6 +100,12 @@ Sm.smoothingTimeCoM_Joints       = [1;    %% state ==  1  TWO FEET BALANCING
                                     2;    %% state == 11  PREPARING FOR SWITCHING
                                     5;    %% state == 12  LOOKING FOR CONTACT 
                                     10];  %% state == 13  TRANSITION INIT POSITION
+
+% scale factor smoothing time multiplies the smoothing factor during the
+% Yoga (state 4 and 10). The purpose is to reduce the time necessary for 
+% the reference to converge to the next position, but without changing also
+% the valuse stored in Sm.joints_leftYogaRef/Sm.joints_rightYogaRef (YOGA DEMO ONLY)
+Sm.scaleFactorSmoothingTime = 0.9;
 
 % time between two yoga positions (YOGA DEMO ONLY)
 Sm.joints_pauseBetweenYogaMoves  = 5;
@@ -125,7 +130,7 @@ Sm.CoM_delta       = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF
                       0.0,  0.005, 0.0;   %% state ==  3  LEFT FOOT BALANCING 
                       0.0,  0.005, 0.0;   %% state ==  4  YOGA LEFT FOOT
                       0.0,  0.00,  0.0;   %% state ==  5  PREPARING FOR SWITCHING
-                      0.02,-0.09,  0.0;   %% state ==  6  LOOKING FOR CONTACT 
+                      0.02,-0.08,  0.0;   %% state ==  6  LOOKING FOR CONTACT 
                       0.0,  0.00,  0.0;   %% NOT USED
                       % THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE RIGHT FOOT
                       0.0,  0.00,  0.0;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
@@ -141,9 +146,36 @@ Sm.tBalancingBeforeYoga     = 1;
 Sm.yogaExtended             = true;
 Sm.skipYoga                 = false;
 Sm.demoOnlyBalancing        = false;
-Sm.demoStartsOnRightSupport = false;
+Sm.demoStartsOnRightSupport = false; % If false, the Yoga demo is performed on the left foot first
 Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from right foot
-Sm.yogaInLoop               = false;
+
+%%%% List of possible "Yoga in loop" %%%%
+
+% the robot will repeat the FULL DEMO (two feet balancing, yoga on left
+% foot, back on two feet, yoga right foot, back on two feet). The demo is
+% repeated until the user stops the Simulink model. This option is ignored
+% if Sm.demoStartsOnRightSupport = true.
+Sm.twoFeetYogaInLoop        = false;
+
+% the robot will repeat the ONE FOOT yoga for the number of times the user
+% specifies in the Sm.yogaCounter option. The robot WILL NOT go back to two
+% feet balancing in between to consecutive yoga. WARNING: if the option 
+% Sm.yogaAlsoOnRightFoot is true, then the robot will repeat first the yoga
+% on left foot for the number of times the user specifies in the Sm.yogaCounter,
+% and then it will repeat the yoga on the right foot for the same number of times.
+% This option is ignored if Sm.repeatTwiceYogaWithDifferentSpeed = true.
+Sm.oneFootYogaInLoop        = false;
+Sm.yogaCounter              = 5;
+
+% the robot will repeat the yoga moveset twice. This option works as the 
+% option Sm.oneFootYogaInLoop, but the yoga is repeated only twice. However,
+% it is possible to set a different yoga speed for the two yoga. 
+% Uneffective if Sm.yogaExtended = false;
+Sm.repeatTwiceYogaWithDifferentSpeed = false;
+
+% smoothing time for the second time the Yoga moveset are performed
+Sm.smoothingTimeSecondYogaLeft       = 0.6;
+Sm.smoothingTimeSecondYogaRight      = 0.6;
 
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [  zeros(1,ROBOT_DOF);                                %% THIS REFERENCE IS IGNORED 
@@ -199,101 +231,101 @@ q1 =        [-0.0790,0.2279, 0.4519, ...
               0.2092,0.2060, 0.0006,-0.1741,-0.1044, 0.0700, ...
               0.3484,0.4008,-0.0004,-0.3672,-0.1060,-0.0875];
 
-q2 =        [-0.0790,0.2279, 0.4519, ...
+q2 =        [-0.0790,0.1279, 0.4519, ...
              -1.1621,0.6663, 0.4965, 0.9947, ...
              -1.0717,1.2904,-0.2493, 1.0948, ...
               0.2092,0.2060, 0.0006,-0.1741,-0.1044,0.0700, ... 
               0.3714,0.9599, 1.3253,-1.6594,-0.1060,-0.0614];
           
-q3 =        [-0.0852,-0.4273,0.0821,...
+q3 =        [-0.0852,-0.3273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092,0.2060, 0.0006,-0.1741,-0.1044,0.0700, ...
-              0.3714,0.9599, 1.3253,-1.6594, 0.6374,-0.0614];
+              0.3714,0.9599, 1.3253,-1.6594, 0.2443,-0.0614];
           
 q4 =        [-0.0852,-0.4273,0.0821,...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.3473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.3514, 1.3107,1.3253,-0.0189, 0.6374,-0.0614];
+              0.3514, 1.3107,1.3253,-0.0189, 0.2443,-0.0614];
           
 q5 =        [-0.0790,-0.2273, 0.4519, ...
              -1.1621,0.6663, 0.4965, 0.9947, ...
              -1.0717,1.2904,-0.2493, 1.0948, ...
               0.2092, 0.4473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.3514, 1.3107,1.3253,-0.0189, 0.6374,-0.0614];
+              0.3514, 1.3107,1.3253,-0.0189, 0.2443,-0.0614];
           
 q6 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.3514, 1.3107,1.3253,-0.0189, 0.6374,-0.0614];
+              0.3514, 1.3107,1.3253,-0.0189, 0.2443,-0.0614];
           
 q7 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.3514, 1.3107,1.3253, -1.6217, 0.6374,-0.0614];
+              0.3514, 1.3107,1.3253, -1.6217, 0.2443,-0.0614];
           
 q8 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.3514, 1.3107,1.3253,-0.0189, 0.6374,-0.0614];
+              0.3514, 1.3107,1.3253,-0.0189, 0.2443,-0.0614];
                    
 q9 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.3514, 0.0107,1.3253,-0.0189, 0.6374,-0.0614];
+              0.3514, 0.0107,1.3253,-0.0189, 0.2443,-0.0614];
                     
 q10 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.3514, 1.3107,1.3253,-0.0189, 0.6374,-0.0614];
+              0.3514, 1.3107,1.3253,-0.0189, 0.2443,-0.0614];
                    
 q11 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.8514, 1.3107,1.3253,-0.0189, 0.6374,-0.0614];
+              0.8514, 1.3107,1.3253,-0.0189, 0.2443,-0.0614];
 
 q12 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.8514, 0.3107,1.3253,-0.0189, 0.6374,-0.0614];
+              0.8514, 0.3107,1.3253,-0.0189, 0.2443,-0.0614];
           
 q13 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.8514, 1.3107,1.3253,-0.0189, 0.6374,-0.0614];
+              0.8514, 1.3107,1.3253,-0.0189, 0.2443,-0.0614];
           
 q14 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.8514, 0.0107,1.3253,-0.0189, 0.6374,-0.0614];
+              0.8514, 0.0107,1.3253,-0.0189, 0.2443,-0.0614];
           
 q15 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              1.5514, 0.3107,1.3253,-0.0189, 0.6374,-0.0614];
+              1.5514, 0.3107,1.3253,-0.0189, 0.2443,-0.0614];
           
 q16 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-              0.2514, 0.0107,1.3253,-0.0189, 0.6374,-0.0614];
+              0.2514, 0.0107,1.3253,-0.0189, 0.2443,-0.0614];
           
 q17 =        [-0.0852,-0.4273,0.0821, ...
               0.1391, 1.4585,0.2464, 0.3042, ...
              -0.4181, 1.6800,0.7373, 0.3031, ...
               0.2092, 0.6473,0.0006,-0.1741,-0.1044, 0.0700, ...
-             -0.3514, 0.3107,1.3253,-0.0189, 0.6374,-0.0614];
+             -0.3514, 0.3107,1.3253,-0.0189, 0.2443,-0.0614];
           
 Sm.joints_leftYogaRef  = [ 0,                              q1;
                            1*Sm.smoothingTimeCoM_Joints(4),q2;
@@ -350,13 +382,26 @@ Sm.joints_rightYogaRef(:,1) = [0,                              ;
                               24*Sm.smoothingTimeCoM_Joints(10);
                               25*Sm.smoothingTimeCoM_Joints(10)];
 
+% smoothing time vector for the second time the Yoga moveset are performed
+Sm.joints_leftSecondYogaRef  = Sm.smoothingTimeSecondYogaLeft.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
+Sm.joints_rightSecondYogaRef = Sm.smoothingTimeSecondYogaRight.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
+
+% keep a high smoothing time for switching from the first to the second yoga moveset
+Sm.joints_leftSecondYogaRef(1)  = Sm.smoothingTimeCoM_Joints(4);
+Sm.joints_rightSecondYogaRef(1) = Sm.smoothingTimeCoM_Joints(10);
+
 % if the demo is not "yogaExtended", stop at the 8th move
+% also, Sm.repeatTwiceYogaWithDifferentSpeed must be set to "false". The 
+% reason is that the first and the last Yoga moveset for the "not extended"
+% one are very different, and the robot may "jump" when restarting the Yoga 
+% the second time
 if ~Sm.yogaExtended
    
-    Sm.joints_leftYogaRef       = Sm.joints_leftYogaRef(1:8,:);
-    Sm.joints_rightYogaRef      = Sm.joints_rightYogaRef(1:8,:);
-    Sm.joints_leftYogaRef(8,1)  = 15*Sm.smoothingTimeCoM_Joints(4);
-    Sm.joints_rightYogaRef(8,1) = 15*Sm.smoothingTimeCoM_Joints(10);
+    Sm.repeatTwiceYogaWithDifferentSpeed = false;
+    Sm.joints_leftYogaRef                = Sm.joints_leftYogaRef(1:8,:);
+    Sm.joints_rightYogaRef               = Sm.joints_rightYogaRef(1:8,:);
+    Sm.joints_leftYogaRef(8,1)           = 15*Sm.smoothingTimeCoM_Joints(4);
+    Sm.joints_rightYogaRef(8,1)          = 15*Sm.smoothingTimeCoM_Joints(10);
 end
 
 % MIRROR YOGA LEFT MOVESET FOR RIGHT YOGA					 
@@ -384,18 +429,37 @@ Config.frequencyOfOscillation  = 0.0;
 % transmission ratio
 Config.Gamma = 0.01*eye(ROBOT_DOF);
 
+% modify the value of the transmission ratio for the hip pitch. 
+% TODO: avoid to hard-code the joint numbering
+Config.Gamma(end-5, end-5)  = 0.0067;
+Config.Gamma(end-11,end-11) = 0.0067;
+
 % motors inertia (Kg*m^2)
 legsMotors_I_m           = 0.0827*1e-4;
 torsoPitchRollMotors_I_m = 0.0827*1e-4;
 torsoYawMotors_I_m       = 0.0585*1e-4;
 armsMotors_I_m           = 0.0585*1e-4;
+
+% add harmonic drives reflected inertia
+if Config.INCLUDE_HARMONIC_DRIVE_INERTIA
+   
+    legsMotors_I_m           = legsMotors_I_m + 0.054*1e-4;
+    torsoPitchRollMotors_I_m = torsoPitchRollMotors_I_m + 0.054*1e-4;
+    torsoYawMotors_I_m       = torsoYawMotors_I_m + 0.054*1e-4;
+    armsMotors_I_m           = armsMotors_I_m + 0.054*1e-4; 
+end
+ 
 Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  torsoYawMotors_I_m;
                                  armsMotors_I_m*ones(8,1);
                                  legsMotors_I_m*ones(12,1)]);
 
-% parameters for coupling matrices                            
-t  = 0.625;
+% parameters for coupling matrices. Updated according to the wiki:
+%
+% http://wiki.icub.org/wiki/ICub_coupled_joints 
+%
+% and corrected according to https://github.com/robotology/robots-configuration/issues/39
+t  = 0.615;
 r  = 0.022;
 R  = 0.04;
 
@@ -408,9 +472,9 @@ T_RShoulder = [ 1  0  0;
                 1  t  0;
                 0 -t  t];
 
-T_torso = [0   -0.5     0.5;
-           0    0.5     0.5;
-           r/R  r/(2*R) r/(2*R)];
+T_torso = [ 0.5    -0.5     0;
+            0.5     0.5     0;
+            r/(2*R) r/(2*R) r/R];
        
 if Config.INCLUDE_COUPLING
        

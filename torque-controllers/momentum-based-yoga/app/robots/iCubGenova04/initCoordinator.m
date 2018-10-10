@@ -13,7 +13,7 @@ Config.LEFT_RIGHT_FOOT_IN_CONTACT = [1 1];
 Config.LEFT_FOOT_IN_CONTACT_AT_0 = true;
 
 % If true, the robot CoM will follow a desired reference trajectory (COORDINATOR DEMO ONLY)
-Config.DEMO_MOVEMENTS = false;
+Config.DEMO_MOVEMENTS = true;
 
 % If equal to true, the desired streamed values of the center of mass 
 % are smoothed internally 
@@ -82,18 +82,37 @@ Gain.SmoothingTimeGainScheduling = 2;
 % transmission ratio
 Config.Gamma = 0.01*eye(ROBOT_DOF);
 
+% modify the value of the transmission ratio for the hip pitch. 
+% TODO: avoid to hard-code the joint numbering
+Config.Gamma(end-5, end-5)  = 0.0067;
+Config.Gamma(end-11,end-11) = 0.0067;
+
 % motors inertia (Kg*m^2)
 legsMotors_I_m           = 0.0827*1e-4;
 torsoPitchRollMotors_I_m = 0.0827*1e-4;
 torsoYawMotors_I_m       = 0.0585*1e-4;
 armsMotors_I_m           = 0.0585*1e-4;
+
+% add harmonic drives reflected inertia
+if Config.INCLUDE_HARMONIC_DRIVE_INERTIA
+   
+    legsMotors_I_m           = legsMotors_I_m + 0.054*1e-4;
+    torsoPitchRollMotors_I_m = torsoPitchRollMotors_I_m + 0.054*1e-4;
+    torsoYawMotors_I_m       = torsoYawMotors_I_m + 0.054*1e-4;
+    armsMotors_I_m           = armsMotors_I_m + 0.054*1e-4; 
+end
+ 
 Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  torsoYawMotors_I_m;
                                  armsMotors_I_m*ones(8,1);
                                  legsMotors_I_m*ones(12,1)]);
 
-% parameters for coupling matrices                            
-t  = 0.625;
+% parameters for coupling matrices. Updated according to the wiki:
+%
+% http://wiki.icub.org/wiki/ICub_coupled_joints 
+%
+% and corrected according to https://github.com/robotology/robots-configuration/issues/39
+t  = 0.615;
 r  = 0.022;
 R  = 0.04;
 
@@ -106,9 +125,9 @@ T_RShoulder = [ 1  0  0;
                 1  t  0;
                 0 -t  t];
 
-T_torso = [0   -0.5     0.5;
-           0    0.5     0.5;
-           r/R  r/(2*R) r/(2*R)];
+T_torso = [ 0.5    -0.5     0;
+            0.5     0.5     0;
+            r/(2*R) r/(2*R) r/R];
        
 if Config.INCLUDE_COUPLING
        
@@ -144,6 +163,9 @@ end
 % smoothing time for joints and CoM
 Sm.smoothingTimeCoM_Joints = 3; 
 
+% scale factor smoothing time (YOGA DEMO ONLY)
+Sm.scaleFactorSmoothingTime = 0.9; 
+
 % time between two yoga positions (YOGA DEMO ONLY)
 Sm.joints_pauseBetweenYogaMoves = 0;
 
@@ -163,18 +185,25 @@ Sm.stateAt0 = 1;
 Sm.CoM_delta = [0; 0; 0];
 
 % joint references (YOGA DEMO ONLY)
-Sm.joints_references   = zeros(1,ROBOT_DOF);
-Sm.joints_leftYogaRef  = zeros(1,ROBOT_DOF+1);
-Sm.joints_rightYogaRef = zeros(1,ROBOT_DOF+1);
+Sm.joints_references         = zeros(1,ROBOT_DOF);
+Sm.joints_leftYogaRef        = zeros(1,ROBOT_DOF+1);
+Sm.joints_rightYogaRef       = zeros(1,ROBOT_DOF+1);
+Sm.joints_leftSecondYogaRef  = zeros(1,ROBOT_DOF+1);
+Sm.joints_rightSecondYogaRef = zeros(1,ROBOT_DOF+1);
 
 % configuration parameters for state machine (YOGA DEMO ONLY) 
-Sm.tBalancing               = 1;
-Sm.tBalancingBeforeYoga     = 1;
-Sm.skipYoga                 = false;
-Sm.demoOnlyBalancing        = false;
-Sm.demoStartsOnRightSupport = false;
-Sm.yogaAlsoOnRightFoot      = false;
-Sm.yogaInLoop               = false;
+Sm.tBalancing                        = 1;
+Sm.tBalancingBeforeYoga              = 1;
+Sm.skipYoga                          = false;
+Sm.demoOnlyBalancing                 = false;
+Sm.demoStartsOnRightSupport          = false;
+Sm.yogaAlsoOnRightFoot               = false;
+Sm.twoFeetYogaInLoop                 = false;
+Sm.oneFootYogaInLoop                 = false;
+Sm.yogaCounter                       = 5;
+Sm.repeatTwiceYogaWithDifferentSpeed = false;
+Sm.smoothingTimeSecondYogaLeft       = 1;
+Sm.smoothingTimeSecondYogaRight      = 1;
 
 %% Constraints for QP for balancing
 

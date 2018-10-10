@@ -94,6 +94,12 @@ Sm.smoothingTimeCoM_Joints       = [5;   %% state ==  1  TWO FEET BALANCING
                                     5;   %% state == 12  LOOKING FOR CONTACT 
                                     4];  %% state == 13  TRANSITION INIT POSITION
 
+% scale factor smoothing time multiplies the smoothing factor during the
+% Yoga (state 4 and 10). The purpose is to reduce the time necessary for 
+% the reference to converge to the next position, but without changing also
+% the valuse stored in Sm.joints_leftYogaRef/Sm.joints_rightYogaRef (YOGA DEMO ONLY)
+Sm.scaleFactorSmoothingTime = 0.9;
+
 % time between two yoga positions (YOGA DEMO ONLY)
 Sm.joints_pauseBetweenYogaMoves = 3;
 
@@ -132,9 +138,36 @@ Sm.tBalancing               = 1;
 Sm.tBalancingBeforeYoga     = 1;
 Sm.skipYoga                 = false;
 Sm.demoOnlyBalancing        = false;
-Sm.demoStartsOnRightSupport = false;
-Sm.yogaAlsoOnRightFoot      = false;
-Sm.yogaInLoop               = false;
+Sm.demoStartsOnRightSupport = false; % If false, the Yoga demo is performed on the left foot first
+Sm.yogaAlsoOnRightFoot      = false; % TO DO: yoga on both feet starting from right foot (not available for now)
+
+%%%% List of possible "Yoga in loop" %%%%
+
+% the robot will repeat the FULL DEMO (two feet balancing, yoga on left
+% foot, back on two feet, yoga right foot, back on two feet). The demo is
+% repeated until the user stops the Simulink model. This option is ignored
+% if Sm.demoStartsOnRightSupport = true.
+Sm.twoFeetYogaInLoop        = false;
+
+% the robot will repeat the ONE FOOT yoga for the number of times the user
+% specifies in the Sm.yogaCounter option. The robot WILL NOT go back to two
+% feet balancing in between to consecutive yoga. WARNING: if the option 
+% Sm.yogaAlsoOnRightFoot is true, then the robot will repeat first the yoga
+% on left foot for the number of times the user specifies in the Sm.yogaCounter,
+% and then it will repeat the yoga on the right foot for the same number of times.
+% This option is ignored if Sm.repeatTwiceYogaWithDifferentSpeed = true.
+Sm.oneFootYogaInLoop        = false;
+Sm.yogaCounter              = 5;
+
+% the robot will repeat the yoga moveset twice. This option works as the 
+% option Sm.oneFootYogaInLoop, but the yoga is repeated only twice. However,
+% it is possible to set a different yoga speed for the two yoga. 
+% (NOT AVAILABLE FOR ICUBGAZEBOSIM)
+Sm.repeatTwiceYogaWithDifferentSpeed = false;
+
+% smoothing time for the second time the Yoga moveset are performed
+Sm.smoothingTimeSecondYogaLeft       = 1.2;
+Sm.smoothingTimeSecondYogaRight      = 1.2;
 
 %% Joint references (YOGA DEMO ONLY)
 Sm.joints_references = [zeros(1,ROBOT_DOF);                                %% NOT USED
@@ -250,6 +283,10 @@ Sm.joints_rightYogaRef(:,1) = [0;
                                5*Sm.smoothingTimeCoM_Joints(10);
                                6*Sm.smoothingTimeCoM_Joints(10);
                                7*Sm.smoothingTimeCoM_Joints(10)]; 
+                           
+% smoothing time vector for the second time the Yoga moveset are performed (NOT USED)
+Sm.joints_leftSecondYogaRef  = Sm.smoothingTimeSecondYogaLeft.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
+Sm.joints_rightSecondYogaRef = Sm.smoothingTimeSecondYogaRight.*(0:(length(Sm.joints_rightYogaRef(:,1))-1));
 
 % MIRROR YOGA LEFT MOVESET FOR RIGHT YOGA					 
 for i = 1:size(Sm.joints_rightYogaRef,1)	
@@ -276,18 +313,37 @@ Config.frequencyOfOscillation  = 0.0;
 % transmission ratio
 Config.Gamma = 0.01*eye(ROBOT_DOF);
 
+% modify the value of the transmission ratio for the hip pitch. 
+% TODO: avoid to hard-code the joint numbering
+Config.Gamma(end-5, end-5)  = 0.0067;
+Config.Gamma(end-11,end-11) = 0.0067;
+
 % motors inertia (Kg*m^2)
 legsMotors_I_m           = 0.0827*1e-4;
 torsoPitchRollMotors_I_m = 0.0827*1e-4;
 torsoYawMotors_I_m       = 0.0585*1e-4;
 armsMotors_I_m           = 0.0585*1e-4;
+
+% add harmonic drives reflected inertia
+if Config.INCLUDE_HARMONIC_DRIVE_INERTIA
+   
+    legsMotors_I_m           = legsMotors_I_m + 0.054*1e-4;
+    torsoPitchRollMotors_I_m = torsoPitchRollMotors_I_m + 0.054*1e-4;
+    torsoYawMotors_I_m       = torsoYawMotors_I_m + 0.054*1e-4;
+    armsMotors_I_m           = armsMotors_I_m + 0.054*1e-4; 
+end
+ 
 Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  torsoYawMotors_I_m;
                                  armsMotors_I_m*ones(8,1);
                                  legsMotors_I_m*ones(12,1)]);
 
-% parameters for coupling matrices                            
-t  = 0.625;
+% parameters for coupling matrices. Updated according to the wiki:
+%
+% http://wiki.icub.org/wiki/ICub_coupled_joints 
+%
+% and corrected according to https://github.com/robotology/robots-configuration/issues/39
+t  = 0.615;
 r  = 0.022;
 R  = 0.04;
 
@@ -300,9 +356,9 @@ T_RShoulder = [ 1  0  0;
                 1  t  0;
                 0 -t  t];
 
-T_torso = [0   -0.5     0.5;
-           0    0.5     0.5;
-           r/R  r/(2*R) r/(2*R)];
+T_torso = [ 0.5    -0.5     0;
+            0.5     0.5     0;
+            r/(2*R) r/(2*R) r/R];
        
 if Config.INCLUDE_COUPLING
        

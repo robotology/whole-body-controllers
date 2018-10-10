@@ -27,7 +27,7 @@ clc
 % and set the environmental variable YARP_ROBOT_NAME in the .bashrc file.
 
 % Simulation time in seconds
-Config.SIMULATION_TIME = inf;   
+Config.SIMULATION_TIME = 600000; % high number (not inf) for automatic code generation
 
 %% PRELIMINARY CONFIGURATIONS 
 % Sm.SM_TYPE: defines the kind of state machines that can be chosen.
@@ -53,6 +53,7 @@ Config.SCOPES_EXT_WRENCHES    = false;
 Config.SCOPES_GAIN_SCHE_INFO  = false;
 Config.SCOPES_MAIN            = false;
 Config.SCOPES_QP              = false;
+Config.SCOPES_INERTIA         = true;
 
 % Config.CHECK_LIMITS: if set to true, the controller will stop as soon as 
 % any of the joint limit is touched. 
@@ -74,7 +75,7 @@ Config.CHECK_INTEGRATION_TIME = false;
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Controller period [s]
-Config.Ts                = 0.01; 
+Config.Ts              = 0.01; 
 
 addpath('./src/')
 addpath('../../library/matlab');

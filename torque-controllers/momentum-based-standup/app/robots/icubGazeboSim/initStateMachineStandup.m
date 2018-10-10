@@ -124,18 +124,37 @@ Config.frequencyOfOscillation  = 0.0;
 % transmission ratio
 Config.Gamma = 0.01*eye(ROBOT_DOF);
 
+% modify the value of the transmission ratio for the hip pitch. 
+% TODO: avoid to hard-code the joint numbering
+Config.Gamma(end-5, end-5)  = 0.0067;
+Config.Gamma(end-11,end-11) = 0.0067;
+
 % motors inertia (Kg*m^2)
 legsMotors_I_m           = 0.0827*1e-4;
 torsoPitchRollMotors_I_m = 0.0827*1e-4;
 torsoYawMotors_I_m       = 0.0585*1e-4;
 armsMotors_I_m           = 0.0585*1e-4;
+
+% add harmonic drives reflected inertia
+if Config.INCLUDE_HARMONIC_DRIVE_INERTIA
+   
+    legsMotors_I_m           = legsMotors_I_m + 0.054*1e-4;
+    torsoPitchRollMotors_I_m = torsoPitchRollMotors_I_m + 0.054*1e-4;
+    torsoYawMotors_I_m       = torsoYawMotors_I_m + 0.054*1e-4;
+    armsMotors_I_m           = armsMotors_I_m + 0.054*1e-4; 
+end
+ 
 Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  torsoYawMotors_I_m;
                                  armsMotors_I_m*ones(8,1);
                                  legsMotors_I_m*ones(12,1)]);
 
-% parameters for coupling matrices                            
-t  = 0.625;
+% parameters for coupling matrices. Updated according to the wiki:
+%
+% http://wiki.icub.org/wiki/ICub_coupled_joints 
+%
+% and corrected according to https://github.com/robotology/robots-configuration/issues/39
+t  = 0.615;
 r  = 0.022;
 R  = 0.04;
 
@@ -148,9 +167,9 @@ T_RShoulder = [ 1  0  0;
                 1  t  0;
                 0 -t  t];
 
-T_torso = [0   -0.5     0.5;
-           0    0.5     0.5;
-           r/R  r/(2*R) r/(2*R)];
+T_torso = [ 0.5    -0.5     0;
+            0.5     0.5     0;
+            r/(2*R) r/(2*R) r/R];
        
 if Config.INCLUDE_COUPLING
        
