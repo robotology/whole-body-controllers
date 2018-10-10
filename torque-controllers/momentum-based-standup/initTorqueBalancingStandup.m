@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % /**
 %  * Copyright (C) 2016 CoDyCo
-%  * @author: Daniele Pucci
+%  * @author: Daniele Pucci, Gabriele Nava
 %  * Permission is granted to copy, distribute, and/or modify this program
 %  * under the terms of the GNU General Public License, version 2 or any
 %  * later version published by the Free Software Foundation.
@@ -15,6 +15,9 @@
 %  * Public License for more details
 %  */
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% In the Simulink model, this script is run every time the user presses
+% the 'start' button.
 clear variables
 clc
 
@@ -53,6 +56,7 @@ Config.SCOPES_EXT_WRENCHES   = false;
 Config.SCOPES_GAIN_SCHE_INFO = false;
 Config.SCOPES_MAIN           = false;
 Config.SCOPES_QP             = false;
+Config.SCOPES_INERTIA        = true;
 
 % Config.CHECK_LIMITS: if set to true, the controller will stop as soon as 
 % any of the joint limit is touched. 
@@ -75,7 +79,7 @@ Config.CHECK_INTEGRATION_TIME = false;
 Config.Ts              = 0.01; 
 
 addpath('./src/')
-addpath(genpath('../../library'));
+addpath('../../library/matlab');
 
 % Run robot-specific configuration parameters
 run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m')); 

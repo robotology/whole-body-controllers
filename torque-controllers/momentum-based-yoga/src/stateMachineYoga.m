@@ -1,3 +1,7 @@
+% SATEMACHINEYOGA state machine for performing Yoga ++ movements.
+%
+
+%% --- Initialization ---
 function  [w_H_b, CoM_des, qj_des, constraints, impedances, KPCoM, KDCoM, currentState, jointsSmoothingTime] = ...
             stateMachineYoga(CoM_0, qj_0, l_sole_CoM, r_sole_CoM, qj, t, wrench_rightFoot, wrench_leftFoot, l_sole_H_b, r_sole_H_b, Sm, Gain)
     

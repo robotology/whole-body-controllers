@@ -1,3 +1,9 @@
+% CONFIGROBOT initializes parameters specific of a particular robot
+%             (e.g., icuGazeboSim)
+%
+
+%% --- Initialization ---
+
 % Gains and parameters for impedance controller
 Config.ON_GAZEBO = true;
 ROBOT_DOF        = 23;

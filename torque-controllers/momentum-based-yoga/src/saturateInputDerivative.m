@@ -1,7 +1,9 @@
-% SATURATE saturates the input u such that the absolute value of its numerical
-%          derivative uDelta = (uPrev-u)/Ts cannot be greater than a predefined
-%          value. uPrev = u at the previous integration step; Ts integration step.
+% SATURATEINPUTDERIVATIVE Saturates the input u such that the absolute value
+% of its numerical derivative uDelta = (uPrev-u)/Ts cannot be greater than
+% a predefined value. uPrev = u at the previous integration step; Ts integration step.
 %
+
+%% --- Initialization ---
 function uSat = saturateInputDerivative(u, u_0, Config)
 
 persistent  uPrev;

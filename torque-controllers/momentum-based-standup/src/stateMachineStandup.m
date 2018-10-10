@@ -1,3 +1,7 @@
+% SATEMACHINESTANDUP state machine for performing standup movements.
+%
+
+%% --- Initialization ---
 function  [w_H_b, constraints, CoM_des, qj_des, impedances, KPCoM, KDCoM, currentState, jointsAndCoMSmoothingTime] = ...
              stateMachineStandup(wrench_rightFoot, wrench_leftFoot, wrench_leftHand, wrench_rightHand, xCoM_0, qj_0, xCoM, l_sole_H_b, l_upper_leg_contact_H_b, t, STANDUP_WITH_HUMAN, Sm, Gain)
     

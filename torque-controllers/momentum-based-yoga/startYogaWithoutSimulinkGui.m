@@ -1,26 +1,28 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% /**
-%  * Copyright (C) 2016 CoDyCo
-%  * @author: Daniele Pucci, Gabriele Nava
-%  * Permission is granted to copy, distribute, and/or modify this program
-%  * under the terms of the GNU General Public License, version 2 or any
-%  * later version published by the Free Software Foundation.
-%  *
-%  * A copy of the license can be found at
-%  * http://www.robotcub.org/icub/license/gpl.txt
-%  *
-%  * This program is distributed in the hope that it will be useful, but
-%  * WITHOUT ANY WARRANTY; without even the implied warranty of
-%  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-%  * Public License for more details
-%  */
+
+% RUN THIS SCRIPT TO USE SIMULINK WITHOUT OPENING THE SIMULINK GUI
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear variables
 clc
 
-% add the path to the static gui and to some service functions
+% add the path to the static gui and to some utility functions
 addpath('../../library/matlab-gui');
 addpath('./src-gui');
 
+disp('[startModel]: loading the model...')
+
 % open the model
 open_system('torqueBalancingYoga.mdl','loadonly');
+
+% add message to tell the user that the model has been opened correctly
+disp('[startModel]: model loaded correctly')
+
+% add warning to warn the user NOT to close the GUI 
+warning('DO NOT CLOSE the GUI. The model won''t be closed! Use "Close Model" instead.')
+
+% check if the GUI is correctly opened
+if ~exist('sl_synch_handles', 'var')
+    
+    error('The GUI did not load correctly. Run "closeModel.m" or restart Matlab')
+end

@@ -1,12 +1,12 @@
 Model {
   Name			  "torqueBalancingYoga"
-  Version		  8.8
+  Version		  9.0
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3293"
+    ComputedModelVersion    "1.3315"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -15,12 +15,567 @@ Model {
     HasInitializeEvent	    0
     HasTerminateEvent	    0
     IsExportFunctionModel   0
+    NumParameterArguments   0
+    NumExternalFileReferences 85
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Configuration"
+      Path		      "torqueBalancingYoga/Configuration"
+      SID		      "4537"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+      Path		      "torqueBalancingYoga/Dump and visualize/Visualizer/Get Measurement"
+      SID		      "4542"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+      Path		      "torqueBalancingYoga/Dump and visualize/Visualizer/Get Measurement1"
+      SID		      "4543"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
+      Path		      "torqueBalancingYoga/Dynamics and Kinematics/Dynamics/Centroidal Momentum"
+      SID		      "2345"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Bias Forces"
+      Path		      "torqueBalancingYoga/Dynamics and Kinematics/Dynamics/Get Bias Forces"
+      SID		      "2348"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
+      Path		      "torqueBalancingYoga/Dynamics and Kinematics/Dynamics/Mass Matrix"
+      SID		      "2349"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
+      Path		      "torqueBalancingYoga/Dynamics and Kinematics/Kinematics/DotJ Nu l_sole "
+      SID		      "2375"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
+      Path		      "torqueBalancingYoga/Dynamics and Kinematics/Kinematics/DotJ Nu r_sole   "
+      SID		      "2376"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
+      Path		      "torqueBalancingYoga/Dynamics and Kinematics/Kinematics/Jacobian com"
+      SID		      "2378"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
+      Path		      "torqueBalancingYoga/Dynamics and Kinematics/Kinematics/Jacobian l_sole"
+      SID		      "2379"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
+      Path		      "torqueBalancingYoga/Dynamics and Kinematics/Kinematics/Jacobian r_sole"
+      SID		      "2380"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Dynamics and Kinematics/Kinematics/l_sole"
+      SID		      "2405"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Dynamics and Kinematics/Kinematics/r_sole"
+      SID		      "2406"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Dynamics and Kinematics/Kinematics/xCom/CoM"
+      SID		      "4363"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
+      Path		      "torqueBalancingYoga/Robot State and References/Compare To Zero"
+      SID		      "2916"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
+      Path		      "torqueBalancingYoga/Robot State and References/Compare To Zero1"
+      SID		      "2917"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+      Path		      "torqueBalancingYoga/Robot State and References/Coordinator"
+      SID		      "2908"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+      Path		      "torqueBalancingYoga/Robot State and References/Get Measurement"
+      SID		      "4538"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/Base to fixed_link/LFoot to bas"
+      "e link transform /Fixed base to imu transform"
+      SID		      "4052"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/Base to fixed_link/LFoot to bas"
+      "e link transform /Fixed base to root link transform"
+      SID		      "4053"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/Base to fixed_link/LFoot to bas"
+      "e link transform /Neck Position"
+      SID		      "4056"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/Base to fixed_link/LFoot to bas"
+      "e link transform /holder 1"
+      SID		      "4060"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/Base to fixed_link/LFoot to bas"
+      "e link transform /holder 2"
+      SID		      "4061"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/Base to fixed_link/LFoot to wor"
+      "ld transform (fixed base)"
+      SID		      "4071"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/Base to fixed_link/RFoot to wor"
+      "ld transform (fixed base)"
+      SID		      "4084"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/Compute State Velocity/Feet Jac"
+      "obians/Jacobian LFoot"
+      SID		      "4094"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/Compute State Velocity/Feet Jac"
+      "obians/Jacobian RFoot"
+      SID		      "4095"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/Compute State Velocity/Get Meas"
+      "urement"
+      SID		      "4540"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/IMU measurements"
+      SID		      "3222"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/holder "
+      SID		      "2109"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/holder 1"
+      SID		      "2110"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/Internal Coordinator/xCom/CoM"
+      SID		      "2141"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
+      Path		      "torqueBalancingYoga/Robot State and References/Select State and References/Minimum Jerk Trajectory "
+      "Generator1"
+      SID		      "2152"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
+      Path		      "torqueBalancingYoga/Robot State and References/Select State and References/Minimum Jerk Trajectory "
+      "Generator2"
+      SID		      "2153"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute State Velocity/Feet Jacob"
+      "ians/Jacobian LFoot"
+      SID		      "4219"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute State Velocity/Feet Jacob"
+      "ians/Jacobian RFoot"
+      SID		      "4220"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute State Velocity/Get Measur"
+      "ement"
+      SID		      "4541"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/LFoot to base link transform /Fixed base to imu transform"
+      SID		      "4250"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/LFoot to base link transform /Fixed base to root link transform"
+      SID		      "4251"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/LFoot to base link transform /Neck Position"
+      SID		      "4254"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/LFoot to base link transform /holder 1"
+      SID		      "4258"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/LFoot to base link transform /holder 2"
+      SID		      "4259"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/LFoot to world transform (fixed base)"
+      SID		      "4269"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/RFoot to base link transform/Fixed base to imu transform"
+      SID		      "4275"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/RFoot to base link transform/Fixed base to root link transform"
+      SID		      "4276"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/RFoot to base link transform/Neck Position"
+      SID		      "4279"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/RFoot to base link transform/holder 1"
+      SID		      "4283"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/RFoot to base link transform/holder 2"
+      SID		      "4284"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Compute base to fixed link transf"
+      "orm/RFoot to world transform (fixed base)"
+      SID		      "4306"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/Minimum Jerk Trajectory Generator"
+      SID		      "2176"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/holder 1"
+      SID		      "2187"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/holder 2"
+      SID		      "2188"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/inertial"
+      SID		      "2630"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/left_foot_wrench"
+      SID		      "2206"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/right_foot_wrench"
+      SID		      "2218"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/xCom/CoM"
+      SID		      "4229"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/Robot State and References/State Machine Yoga/xCom1/CoM"
+      SID		      "4303"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+      Path		      "torqueBalancingYoga/Robot State and References/Yoga"
+      SID		      "2909"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyActuators/Set References"
+      Path		      "torqueBalancingYoga/Set References"
+      SID		      "2354"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Centroidal Momentum"
+      SID		      "3718"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/LFoot to base link transform /Fixed base to imu transform"
+      SID		      "4431"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/LFoot to base link transform /Fixed base to root link transform"
+      SID		      "4432"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/LFoot to base link transform /Neck Position"
+      SID		      "4435"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/LFoot to base link transform /holder 1"
+      SID		      "4439"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/LFoot to base link transform /holder 2"
+      SID		      "4440"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/LFoot to world transform (fixed base)"
+      SID		      "4450"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/RFoot to base link transform/Fixed base to imu transform"
+      SID		      "4456"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/RFoot to base link transform/Fixed base to root link transform"
+      SID		      "4457"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/RFoot to base link transform/Neck Position"
+      SID		      "4460"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/RFoot to base link transform/holder 1"
+      SID		      "4464"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/RFoot to base link transform/holder 2"
+      SID		      "4465"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Compute base to fixed link tran"
+      "sform/RFoot to world transform (fixed base)"
+      SID		      "4475"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Jacobian"
+      SID		      "3719"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/Jacobian1"
+      SID		      "3720"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
+      Path		      "torqueBalancingYoga/controller_QP/Compute angular momentum integral/inertial"
+      SID		      "3724"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Match Signal Sizes"
+      Path		      "torqueBalancingYoga/controller_QP/Compute joint torques/QPSolver/One Foot/Match Signal Sizes1"
+      SID		      "4601"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/QP"
+      Path		      "torqueBalancingYoga/controller_QP/Compute joint torques/QPSolver/One Foot/QP Two Feet"
+      SID		      "4603"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Match Signal Sizes"
+      Path		      "torqueBalancingYoga/controller_QP/Compute joint torques/QPSolver/Two Feet/Match Signal Sizes"
+      SID		      "4615"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/QP"
+      Path		      "torqueBalancingYoga/controller_QP/Compute joint torques/QPSolver/Two Feet/QP Two Feet"
+      SID		      "4617"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+      Path		      "torqueBalancingYoga/controller_QP/Compute joint torques (motor reflected inertia)/Get Measurement"
+      SID		      "4539"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Limits"
+      Path		      "torqueBalancingYoga/emergency stop: joint limits/Get Limits"
+      SID		      "2432"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
+      Path		      "torqueBalancingYoga/synchronizer/GAZEBO_SYNCHRONIZER/Simulator Synchronizer"
+      SID		      "2426"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
+      Path		      "torqueBalancingYoga/synchronizer/REAL_TIME_SYNC/Real Time Synchronizer"
+      SID		      "2431"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Yarp Clock"
+      Path		      "torqueBalancingYoga/synchronizer/Yarp Clock"
+      SID		      "4629"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "torqueBalancingYoga/tauDot Saturation/holder "
+      SID		      "4559"
+      Type		      "LIBRARY_BLOCK"
+    }
+    OrderedModelArguments   1
   }
-  DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 1 0"
   LogicAnalyzerGraphicalSettings ""
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
+  DiagnosticSuppressor	  "on"
+  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 11 0"
+  CustomCodeFunctionData  ""
+  SLCCPlugin		  "on"
+  PostLoadFcn		  "%% Try to open the static GUI and try to adjust it \n \ntry\n\ntorqueBalGUI = torqueBalancingGui;\n\nend"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -30,8 +585,21 @@ Model {
   MinMaxOverflowArchiveMode "Overwrite"
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
-  InitFcn		  "cd(fileparts(which(bdroot)));\ninitTorqueBalancingYoga;"
-  StopFcn		  "cd(fileparts(which(bdroot)));\nstopTorqueBalancingYoga;"
+  CloseFcn		  "%% Try to close the GUI (the user might have already closed it)\n\ntry\n\n  close(torqueBalGui)\n\nend"
+  InitFcn		  "cd(fileparts(which(bdroot)));\ninitTorqueBalancingYoga;\n\n%% Try to modify the checkbox value after com"
+  "pilation is finished\ntry\n\nset(sl_synch_handles.checkbox1,'Value',1)\n\nend"
+  StartFcn		  "%% Try to edit the GUI (the user may have already closed it)\n\ntry\n\n%% Get the current status of the"
+  " push button\n\npushButtonString = sl_synch_handles.pushbutton1.String;\n\n%% If the string is 'Start Simulation', t"
+  "he start was not driven by the GUI.\n%% Therefore it is necessary to update the button message to 'Stop Simulation' "
+  "manually.\n\nif strcmp(pushButtonString, 'Start Simulation')\n\n  set(sl_synch_handles.pushbutton1,'String','Stop Si"
+  "mulation')\n  set(sl_synch_handles.pushbutton1,'Backgroundcolor','r');\n\nend \n\nend\n\n"
+  StopFcn		  "cd(fileparts(which(bdroot)));\nstopTorqueBalancingYoga;\n\n%% Try to edit the GUI (the user may have alr"
+  "eady closed it)\n\ntry\n\n%% Get the current status of the push button\n\npushButtonString = sl_synch_handles.pushbu"
+  "tton1.String;\n\n%% If the string is 'Stop Simulation', the stop was not driven by the GUI.\n%% Therefore it is nece"
+  "ssary to update the button message to 'Start Simulation' manually.\n\nif strcmp(pushButtonString, 'Stop Simulation')"
+  "\n\n   set(sl_synch_handles.pushbutton1,'String','Start Simulation')\n   set(sl_synch_handles.pushbutton1,'Backgroun"
+  "dcolor','g');\n\nend \n\nend\n\ntry\n\n%% Try to modify the checkbox value after stopping the model\nset(sl_synch_ha"
+  "ndles.checkbox1,'Value',0)\n\nend\n\n\n"
   LastSavedArchitecture	  "glnxa64"
   Object {
     $PropName		    "BdWindowsInfo"
@@ -42,7 +610,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [8.0, 35.0, 2495.0, 1444.0]
+      Location		      [213.0, 623.0, 1013.0, 734.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -66,9 +634,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[2441.0, 1214.0]
-	ZoomFactor		[1.8945686900958467]
-	Offset			[568.29005059021927, 209.61045531197306]
+	Extents			[975.0, 557.0]
+	ZoomFactor		[0.7767068273092369]
+	Offset			[571.97518097207842, 158.55997931747669]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -86,30 +654,32 @@ Model {
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAAB4AP///wAAAAEAAAAAAAAAAPwCA"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAMQD///8AAAmvAAAFBAAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAAP1AAACawAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
-      "////wEAAACG/////wAAAAAAAAAA/////wEAAADu/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAF0/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAOq/////wAAAAAAAAAA/"
-      "////wEAAAPf/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
+      "////wEAAACA/////wAAAAAAAAAA/////wEAAADo/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFo/////wAAAAAAAAAA/"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAANR/////wAAAAAAAAAA/"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
+  HideAutomaticNames	  on
   Created		  "Tue Feb 18 10:13:36 2014"
   Creator		  "daniele"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "dferigo"
+  LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Sep 28 09:51:57 2018"
-  RTWModifiedTimeStamp	  460029116
-  ModelVersionFormat	  "1.%<AutoIncrement:3293>"
+  LastModifiedDate	  "Wed Oct 10 16:24:12 2018"
+  RTWModifiedTimeStamp	  461089160
+  ModelVersionFormat	  "1.%<AutoIncrement:3315>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
   WideLines		  off
   ShowLineDimensions	  on
   ShowPortDataTypes	  off
+  PortDataTypeDisplayFormat "AliasTypeOnly"
   ShowEditTimeErrors	  on
   ShowEditTimeWarnings	  on
   ShowEditTimeAdvisorChecks off
@@ -130,12 +700,14 @@ Model {
   BlockNameDataTip	  off
   BlockParametersDataTip  off
   BlockDescriptionStringDataTip	off
+  BlockVariantConditionDataTip off
   ToolBar		  on
   StatusBar		  on
   BrowserShowLibraryLinks on
   FunctionConnectors	  off
   BrowserLookUnderMasks	  on
   SimulationMode	  "normal"
+  VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
   NumberOfSteps		  1
   SnapshotBufferSize	  10
@@ -191,12 +763,13 @@ Model {
   ExtModeAutoUpdateStatusClock on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
+  OrderedModelArguments	  on
   Array {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      8
-      Version		      "1.16.5"
+      Version		      "1.17.1"
       DisabledProps	      []
       Description	      ""
       Array {
@@ -204,7 +777,7 @@ Model {
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  9
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
@@ -223,7 +796,6 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  EnableMultiTasking	  on
-	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "FixedStepDiscrete"
 	  SolverName		  "FixedStepDiscrete"
@@ -240,10 +812,11 @@ Model {
 	  SampleTimeConstraint	  "Unconstrained"
 	  InsertRTBMode		  "Whenever possible"
 	  SampleTimeProperty	  []
+	  DecoupledContinuousIntegration off
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  10
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  Decimation		  "1"
@@ -278,12 +851,13 @@ Model {
 	  ReturnWorkspaceOutputsName "out"
 	  Refine		  "1"
 	  LoggingToFile		  off
+	  DatasetSignalFormat	  "timeseries"
 	  LoggingFileName	  "out.mat"
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  11
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -338,10 +912,14 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "off"
 	  AccelVerboseBuild	  off
+	  OptimizeBlockOrder	  "off"
+	  OptimizeDataStoreBuffers on
+	  BusAssignmentInplaceUpdate on
+	  DifferentSizesBufferReuse off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  12
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -380,6 +958,7 @@ Model {
 	  MultiTaskRateTransMsg	  "error"
 	  SingleTaskRateTransMsg  "none"
 	  TasksWithSamePriorityMsg "warning"
+	  ExportedTasksRateTransMsg "none"
 	  SigSpecEnsureSampleTimeMsg "warning"
 	  CheckMatrixSingularityMsg "none"
 	  IntegerOverflowMsg	  "warning"
@@ -421,6 +1000,7 @@ Model {
 	  StateNameClashWarn	  "warning"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  SimStateOlderReleaseMsg "error"
+	  ChecksumConsistencyForSSReuse	"none"
 	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
@@ -428,6 +1008,7 @@ Model {
 	  SymbolicDimMinMaxWarning "warning"
 	  LossOfSymbolicDimsSimulationWarning "warning"
 	  LossOfSymbolicDimsCodeGenerationWarning "error"
+	  SymbolicDimsDataTypeCodeGenerationDiagnostic "error"
 	  BlockIODiagnostic	  "none"
 	  SFUnusedDataAndEventsDiag "warning"
 	  SFUnexpectedBacktrackingDiag "warning"
@@ -446,10 +1027,14 @@ Model {
 	  AllowedUnitSystems	  "all"
 	  UnitsInconsistencyMsg	  "warning"
 	  AllowAutomaticUnitConversions	on
+	  RCSCRenamedMsg	  "warning"
+	  RCSCObservableMsg	  "warning"
+	  ForceCombineOutputUpdateInSim	off
+	  UnitDatabase		  ""
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  13
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  ProdBitPerChar	  8
@@ -497,7 +1082,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  14
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
@@ -516,7 +1101,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  15
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  SimCustomSourceCode	  ""
@@ -540,11 +1125,13 @@ Model {
 	  ModelFunctionsGlobalVisibility "on"
 	  CompileTimeRecursionLimit 50
 	  EnableRuntimeRecursion  on
+	  MATLABDynamicMemAlloc	  on
+	  MATLABDynamicMemAllocThreshold 65536
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  16
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    16
@@ -595,6 +1182,7 @@ Model {
 	  CustomLibrary		  ""
 	  CustomDefine		  ""
 	  CustomLAPACKCallback	  ""
+	  CustomFFTCallback	  ""
 	  CustomInitializer	  ""
 	  CustomTerminator	  ""
 	  Toolchain		  "Automatically locate an installed toolchain"
@@ -630,7 +1218,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      17
-	      Version		      "1.16.5"
+	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
 		Dimension		28
@@ -680,6 +1268,7 @@ Model {
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
 	      MangleLength	      1
+	      SharedChecksumLength    8
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
 	      CustomSymbolStrField    "$N$M"
@@ -690,6 +1279,8 @@ Model {
 	      CustomSymbolStrTmpVar   "$N$M"
 	      CustomSymbolStrMacro    "$R$N$M"
 	      CustomSymbolStrUtil     "$N$C"
+	      CustomSymbolStrEmxType  "emxArray_$M$N"
+	      CustomSymbolStrEmxFcn   "emx$M$N"
 	      CustomUserTokenString   ""
 	      CustomCommentsFcn	      ""
 	      DefineNamingRule	      "None"
@@ -701,6 +1292,7 @@ Model {
 	      InsertBlockDesc	      off
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
+	      StateflowObjectComments on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
 	      InternalIdentifierFile  ""
@@ -713,7 +1305,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      18
-	      Version		      "1.16.5"
+	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
 		Dimension		17
@@ -742,7 +1334,7 @@ Model {
 		Dimension		1
 		Simulink.CPPComponent {
 		  $ObjectID		  19
-		  Version		  "1.18.0"
+		  Version		  "1.17.1"
 		  Array {
 		    Type		    "Cell"
 		    Dimension		    10
@@ -777,7 +1369,7 @@ Model {
 	      TargetLangStandard      "C++03 (ISO)"
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
-	      ERTMultiwordTypeDef     "System defined"
+	      MultiwordTypeDef	      "System defined"
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
@@ -820,6 +1412,11 @@ Model {
 	      UseToolchainInfoCompliant	on
 	      GenerateSharedConstants on
 	      CoderGroups	      []
+	      AccessMethods	      []
+	      LookupTableObjectStructAxisOrder "1,2,3,4,..."
+	      LUTObjectStructOrderExplicitValues "Size,Breakpoints,Table"
+	      LUTObjectStructOrderEvenSpacing "Size,Breakpoints,Table"
+	      ArrayLayout	      "Column-major"
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -841,7 +1438,7 @@ Model {
 	}
 	SlCovCC.ConfigComp {
 	  $ObjectID		  20
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -877,6 +1474,7 @@ Model {
 	  CovUseTimeInterval	  off
 	  CovStartTime		  0
 	  CovStopTime		  0
+	  CovMcdcMode		  "Masking"
 	}
 	PropName		"Components"
       }
@@ -912,6 +1510,7 @@ Model {
     FontWeight		    "normal"
     FontAngle		    "normal"
     ShowName		    on
+    HideAutomaticName	    on
     BlockRotation	    0
     BlockMirror		    off
   }
@@ -925,7 +1524,12 @@ Model {
     FontSize		    10
     FontWeight		    "normal"
     FontAngle		    "normal"
+    MarkupType		    "model"
     UseDisplayTextAsClickCallback off
+    AnnotationType	    "note_annotation"
+    FixedHeight		    off
+    FixedWidth		    off
+    Interpreter		    "off"
   }
   LineDefaults {
     FontName		    "Helvetica"
@@ -937,7 +1541,7 @@ Model {
     SelfModifiable	    "off"
     IconFrame		    "on"
     IconOpaque		    "opaque"
-    RunInitForIconRedraw    "off"
+    RunInitForIconRedraw    "analyze"
     IconRotate		    "none"
     PortRotate		    "default"
     IconUnits		    "autoscale"
@@ -1101,6 +1705,8 @@ Model {
       InitialOutput	      "[]"
       MustResolveToSignalObject	off
       OutputWhenUnConnected   off
+      OutputWhenUnconnectedValue "0"
+      VectorParamsAs1DForOutWhenUnconnected off
     }
     Block {
       BlockType		      Product
@@ -1146,6 +1752,7 @@ Model {
     Block {
       BlockType		      Scope
       DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
+      Floating		      off
     }
     Block {
       BlockType		      Selector
@@ -1180,12 +1787,13 @@ Model {
       Opaque		      off
       MaskHideContents	      off
       SFBlockType	      "NONE"
-      Variant		      off
       GeneratePreprocessorConditionals off
+      AllowZeroVariantControls off
       PropagateVariantConditions off
       TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
       IsWebBlock	      off
+      IsObserver	      off
     }
     Block {
       BlockType		      Sum
@@ -1235,8 +1843,9 @@ Model {
   }
   System {
     Name		    "torqueBalancingYoga"
-    Location		    [8, 35, 2503, 1479]
+    Location		    [213, 623, 1226, 1357]
     Open		    off
+    PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1247,28 +1856,23 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "189"
+    ZoomFactor		    "78"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "4649"
+    SIDHighWatermark	    "4656"
     Block {
       BlockType		      Reference
       Name		      "Configuration"
       SID		      "4537"
       Ports		      []
-      Position		      [635, 455, 710, 485]
+      Position		      [635, 460, 710, 490]
       ZOrder		      553
       LibraryVersion	      "1.649"
       SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
       SourceType	      ""
+      SourceProductName	      "Whole Body Toolbox"
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
-      RobotName		      "'icubSim'"
-      UrdfFile		      "'model.urdf'"
-      ControlledJoints	      "{'l_elbow','l_shoulder_pitch','torso_roll'}"
-      ControlBoardsNames      "{'left_arm','right_arm','torso'}"
-      LocalName		      "'WBT'"
-      GravityVector	      "[0,0,-9.81]"
     }
     Block {
       BlockType		      SubSystem
@@ -1281,6 +1885,7 @@ Model {
       BackgroundColor	      "[0.333333, 1.000000, 1.000000]"
       ShowName		      off
       RequestExecContextInheritance off
+      Variant		      off
       Object {
 	$PropName		"MaskObject"
 	$ObjectID		22
@@ -1291,6 +1896,7 @@ Model {
 	Name			"Dump and visualize"
 	Location		[65, 24, 2560, 1440]
 	Open			off
+	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1421,10 +2027,12 @@ Model {
 	  Position		  [715, 151, 855, 509]
 	  ZOrder		  707
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "Visualizer"
 	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1599,7 +2207,6 @@ Model {
 	      "viousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Version','2018a','L"
 	      "ocation',[66 78 2561 1439])"
 	      NumInputPorts	      "4"
-	      Floating		      off
 	    }
 	    Block {
 	      BlockType		      Selector
@@ -1989,6 +2596,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	      SourceType	      "Get Measurement"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      measuredType	      "Joints Position"
 	      Port {
@@ -2007,6 +2615,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	      SourceType	      "Get Measurement"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      measuredType	      "Joints Torque"
 	    }
@@ -2159,7 +2768,6 @@ Model {
 	      "',[2 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','"
 	      "Measurements',true,'Version','2017b')),'Version','2018a','Location',[640 424 1920 1072])"
 	      NumInputPorts	      "2"
-	      Floating		      off
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2267,7 +2875,6 @@ Model {
 	      " Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true"
 	      ",'Version','2017b')),'Version','2018a','Location',[411 452 1701 1130])"
 	      NumInputPorts	      "7"
-	      Floating		      off
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2362,7 +2969,6 @@ Model {
 	      "t Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',tru"
 	      "e,'Version','2017b')),'Version','2018a','Location',[66 106 1377 795])"
 	      NumInputPorts	      "6"
-	      Floating		      off
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2459,7 +3065,6 @@ Model {
 	      "e,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017"
 	      "b')),'Version','2018a','Location',[76 179 1784 1070])"
 	      NumInputPorts	      "6"
-	      Floating		      off
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2552,7 +3157,6 @@ Model {
 	      "guration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tool"
 	      "s','Measurements',true,'Version','2017b')),'Version','2018a','Location',[76 146 1996 1074])"
 	      NumInputPorts	      "6"
-	      Floating		      off
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2645,7 +3249,6 @@ Model {
 	      "on('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Me"
 	      "asurements',true,'Version','2017b')),'Version','2018a','Location',[816 261 1744 1234])"
 	      NumInputPorts	      "6"
-	      Floating		      off
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2742,7 +3345,6 @@ Model {
 	      ".Configuration('Tools','Measurements',true,'Version','2017b')),'Version','2018a','Location',[706 340 2551 1268]"
 	      ")"
 	      NumInputPorts	      "6"
-	      Floating		      off
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2838,7 +3440,6 @@ Model {
 	      "xtmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configur"
 	      "ation('Tools','Measurements',true,'Version','2017b')),'Version','2018a','Location',[712 340 2557 1268])"
 	      NumInputPorts	      "6"
-	      Floating		      off
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -2934,7 +3535,6 @@ Model {
 	      "',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Version"
 	      "','2018a','Location',[66 78 1921 1079])"
 	      NumInputPorts	      "6"
-	      Floating		      off
 	    }
 	    Block {
 	      BlockType		      Scope
@@ -3030,7 +3630,6 @@ Model {
 	      "op',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Versi"
 	      "on','2018a','Location',[1271 533 2561 1263])"
 	      NumInputPorts	      "6"
-	      Floating		      off
 	    }
 	    Line {
 	      Name		      "CoM_Error"
@@ -3897,10 +4496,12 @@ Model {
       BackgroundColor	      "[0.000000, 1.000000, 0.498039]"
       NamePlacement	      "alternate"
       RequestExecContextInheritance off
+      Variant		      off
       System {
 	Name			"Dynamics and Kinematics"
 	Location		[65, -4, 2560, 1440]
 	Open			off
+	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3946,10 +4547,12 @@ Model {
 	  Position		  [-655, -196, -550, 16]
 	  ZOrder		  838
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "Dynamics"
 	    Location		    [65, -4, 2560, 1440]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3995,10 +4598,12 @@ Model {
 	      Position		      [580, 34, 705, 76]
 	      ZOrder		      -19
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Add motors reflected inertias"
 		Location		[65, -4, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -4030,10 +4635,12 @@ Model {
 		  TreatAsAtomicUnit	  on
 		  RequestExecContextInheritance	off
 		  SFBlockType		  "MATLAB Function"
+		  Variant		  off
 		  System {
 		    Name		    "Add motor reflected inertias"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -4045,7 +4652,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "55"
+		    SIDHighWatermark	    "58"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "M"
@@ -4057,20 +4664,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4518::54"
+		    SID			    "4518::57"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    44
+		    ZOrder		    47
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4518::53"
+		    SID			    "4518::56"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 6"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    43
+		    ZOrder		    46
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[1 2]"
@@ -4085,9 +4692,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4518::55"
+		    SID			    "4518::58"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    45
+		    ZOrder		    48
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -4098,7 +4705,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    58
+		    ZOrder		    62
 		    SrcBlock		    "M"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -4106,7 +4713,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "M_with_inertia"
-		    ZOrder		    59
+		    ZOrder		    63
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -4114,14 +4721,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    60
+		    ZOrder		    64
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    61
+		    ZOrder		    65
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -4163,6 +4770,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
 	      SourceType	      "Centroidal Momentum"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -4201,6 +4809,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Bias Forces"
 	      SourceType	      "Get Generalized Bias Forces"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -4213,6 +4822,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 	      SourceType	      "Mass Matrix"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -4382,10 +4992,12 @@ Model {
 	  Position		  [-400, 21, -200, 359]
 	  ZOrder		  837
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "Kinematics"
 	    Location		    [65, -4, 2560, 1440]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -4460,6 +5072,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 	      SourceType	      "DotJ Nu"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      frameName		      "Frames.LEFT_FOOT"
 	    }
@@ -4473,6 +5086,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Jacobians/DotJ Nu"
 	      SourceType	      "DotJ Nu"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      frameName		      "Frames.RIGHT_FOOT"
 	    }
@@ -4487,6 +5101,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	      SourceType	      "Jacobian"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      frameName		      "Frames.COM"
 	    }
@@ -4501,6 +5116,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	      SourceType	      "Jacobian"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      frameName		      "Frames.LEFT_FOOT"
 	    }
@@ -4515,6 +5131,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	      SourceType	      "Jacobian"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      frameName		      "Frames.RIGHT_FOOT"
 	    }
@@ -4529,6 +5146,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	      SourceType	      "Forward Kinematics"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      frameName		      "Frames.LEFT_FOOT"
 	    }
@@ -4543,6 +5161,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 	      SourceType	      "Forward Kinematics"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      frameName		      "Frames.RIGHT_FOOT"
 	    }
@@ -4555,10 +5174,12 @@ Model {
 	      ZOrder		      872
 	      ShowName		      off
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"xCom"
 		Location		[65, -4, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -4598,6 +5219,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.COM"
 		}
@@ -5231,10 +5853,12 @@ Model {
       BackgroundColor	      "orange"
       Priority		      "-10"
       RequestExecContextInheritance off
+      Variant		      off
       System {
 	Name			"Robot State and References"
-	Location		[326, 394, 953, 1032]
+	Location		[65, 24, 2560, 1440]
 	Open			off
+	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -5245,7 +5869,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"39"
+	ZoomFactor		"170"
 	Block {
 	  BlockType		  Reference
 	  Name			  "Compare\nTo Zero"
@@ -5254,9 +5878,11 @@ Model {
 	  Position		  [-280, 2850, -250, 2880]
 	  ZOrder		  613
 	  ShowName		  off
-	  LibraryVersion	  "1.441"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
 	  SourceType		  "Compare To Zero"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
 	  ContentPreviewEnabled	  off
 	  relop			  "~="
 	  OutDataTypeStr	  "boolean"
@@ -5270,9 +5896,11 @@ Model {
 	  Position		  [-280, 2580, -250, 2610]
 	  ZOrder		  614
 	  ShowName		  off
-	  LibraryVersion	  "1.441"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Zero"
 	  SourceType		  "Compare To Zero"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
 	  ContentPreviewEnabled	  off
 	  relop			  "~="
 	  OutDataTypeStr	  "boolean"
@@ -5308,10 +5936,11 @@ Model {
 	  Position		  [-440, 2581, -380, 2609]
 	  ZOrder		  605
 	  ShowName		  off
-	  LibraryVersion	  "1.441"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
 	  SourceType		  "Bitwise Operator"
-	  MultiThreadCoSim	  "auto"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
 	  logicop		  "AND"
 	  UseBitMask		  on
 	  NumInputPorts		  "1"
@@ -5329,6 +5958,7 @@ Model {
 	  LibraryVersion	  "1.649"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	  SourceType		  "Get Measurement"
+	  SourceProductName	  "Whole Body Toolbox"
 	  ContentPreviewEnabled	  off
 	  measuredType		  "Joints Position"
 	}
@@ -5376,10 +6006,12 @@ Model {
 	  Position		  [-210, 2617, -30, 2823]
 	  ZOrder		  505
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "Internal Coordinator"
 	    Location		    [65, -4, 2560, 1440]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -5415,10 +6047,12 @@ Model {
 	      Position		      [-480, 281, -350, 319]
 	      ZOrder		      886
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Base to fixed_link"
 		Location		[65, -4, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -5473,10 +6107,12 @@ Model {
 		  Position		  [1000, -287, 1195, 117]
 		  ZOrder		  718
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "LFoot to base link transform "
 		    Location		    [65, -4, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -5533,6 +6169,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.IMU"
 		    }
@@ -5546,6 +6183,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.BASE"
 		    }
@@ -5596,7 +6234,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
-		    MultiThreadCoSim	    "auto"
+		    SourceProductName	    "Whole Body Toolbox"
 		    portName		    "Ports.NECK_POS"
 		    signalSize		    "Ports.NECK_POS_PORT_SIZE"
 		    timeout		    "0.5"
@@ -5639,10 +6277,12 @@ Model {
 		    TreatAsAtomicUnit	    on
 		    RequestExecContextInheritance off
 		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
 		    System {
 		    Name		    "fromImuToHomogeousTransformFCN"
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -5654,7 +6294,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3770"
+		    SIDHighWatermark	    "3773"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -5712,20 +6352,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4059::3769"
+		    SID			    "4059::3772"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    169
+		    ZOrder		    172
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4059::3768"
+		    SID			    "4059::3771"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 2"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    168
+		    ZOrder		    171
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
@@ -5740,9 +6380,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4059::3770"
+		    SID			    "4059::3773"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    170
+		    ZOrder		    173
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -5753,42 +6393,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    136
+		    ZOrder		    145
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    137
+		    ZOrder		    146
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    138
+		    ZOrder		    147
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    139
+		    ZOrder		    148
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    140
+		    ZOrder		    149
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    141
+		    ZOrder		    150
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -5796,7 +6436,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    142
+		    ZOrder		    151
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -5804,14 +6444,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    143
+		    ZOrder		    152
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    144
+		    ZOrder		    153
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -5831,6 +6471,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -5845,6 +6486,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -5855,10 +6497,12 @@ Model {
 		    Position		    [1135, 305, 1260, 335]
 		    ZOrder		    743
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "neck transform"
 		    Location		    [65, -4, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -6183,6 +6827,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.LEFT_FOOT"
 		}
@@ -6196,6 +6841,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.RIGHT_FOOT"
 		}
@@ -6326,10 +6972,12 @@ Model {
 	      Position		      [165, 239, 315, 311]
 	      ZOrder		      887
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Compute State Velocity"
 		Location		[65, 24, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -6381,10 +7029,12 @@ Model {
 		  TreatAsAtomicUnit	  on
 		  RequestExecContextInheritance	off
 		  SFBlockType		  "MATLAB Function"
+		  Variant		  off
 		  System {
 		    Name		    "Compute Base Velocity"
 		    Location		    [19, 45, 910, 1950]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -6396,7 +7046,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3779"
+		    SIDHighWatermark	    "3782"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "J_LeftFoot"
@@ -6435,20 +7085,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4090::3778"
+		    SID			    "4090::3781"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    147
+		    ZOrder		    150
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4090::3777"
+		    SID			    "4090::3780"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 5"
 		    Ports		    [4, 2]
 		    Position		    [180, 102, 230, 203]
-		    ZOrder		    146
+		    ZOrder		    149
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Reg"
 		    PortCounts		    "[4 2]"
@@ -6463,9 +7113,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4090::3779"
+		    SID			    "4090::3782"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    148
+		    ZOrder		    151
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -6476,28 +7126,28 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    106
+		    ZOrder		    113
 		    SrcBlock		    "J_LeftFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    107
+		    ZOrder		    114
 		    SrcBlock		    "J_RightFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    108
+		    ZOrder		    115
 		    SrcBlock		    "feetInContact"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    109
+		    ZOrder		    116
 		    SrcBlock		    "qjDot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -6505,7 +7155,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "nu_b"
-		    ZOrder		    110
+		    ZOrder		    117
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -6513,14 +7163,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    111
+		    ZOrder		    118
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    112
+		    ZOrder		    119
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -6536,10 +7186,12 @@ Model {
 		  Position		  [55, -191, 205, -149]
 		  ZOrder		  -21
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "Feet Jacobians"
 		    Location		    [65, 24, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -6578,6 +7230,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.LEFT_FOOT"
 		    }
@@ -6591,6 +7244,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.RIGHT_FOOT"
 		    }
@@ -6672,6 +7326,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 		  SourceType		  "Get Measurement"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  measuredType		  "Joints Velocity"
 		}
@@ -6835,7 +7490,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
-	      MultiThreadCoSim	      "auto"
+	      SourceProductName	      "Whole Body Toolbox"
 	      portName		      "Ports.IMU"
 	      signalSize	      "12"
 	      timeout		      "0.5"
@@ -6869,10 +7524,12 @@ Model {
 	      TreatAsAtomicUnit	      on
 	      RequestExecContextInheritance off
 	      SFBlockType	      "MATLAB Function"
+	      Variant		      off
 	      System {
 		Name			"Reference Generator CoM"
 		Location		[53, 45, 896, 1715]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -6884,7 +7541,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3755"
+		SIDHighWatermark	"3758"
 		Block {
 		  BlockType		  Inport
 		  Name			  "pos_CoM_0"
@@ -6905,20 +7562,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "2134::3754"
+		  SID			  "2134::3757"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  157
+		  ZOrder		  160
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "2134::3753"
+		  SID			  "2134::3756"
 		  Tag			  "Stateflow S-Function torqueBalancingYoga 10"
 		  Ports			  [2, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  156
+		  ZOrder		  159
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Config"
 		  PortCounts		  "[2 2]"
@@ -6933,9 +7590,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "2134::3755"
+		  SID			  "2134::3758"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  158
+		  ZOrder		  161
 		}
 		Block {
 		  BlockType		  Outport
@@ -6946,7 +7603,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  76
+		  ZOrder		  81
 		  SrcBlock		  "pos_CoM_0"
 		  SrcPort		  1
 		  Points		  [120, 0]
@@ -6954,7 +7611,7 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  77
+		  ZOrder		  82
 		  SrcBlock		  "t"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -6962,7 +7619,7 @@ Model {
 		}
 		Line {
 		  Name			  "references_CoM"
-		  ZOrder		  78
+		  ZOrder		  83
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -6970,14 +7627,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  79
+		  ZOrder		  84
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  80
+		  ZOrder		  85
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -7018,6 +7675,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -7032,6 +7690,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -7052,10 +7711,12 @@ Model {
 	      ZOrder		      -30
 	      ShowName		      off
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"xCom"
 		Location		[65, 24, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -7095,6 +7756,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.COM"
 		}
@@ -7503,10 +8165,12 @@ Model {
 	  Position		  [320, 2689, 515, 2971]
 	  ZOrder		  702
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "Select State and References"
-	    Location		    [65, -4, 2560, 1440]
+	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -7562,6 +8226,15 @@ Model {
 	      }
 	    }
 	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto \"Compute joint torques\""
+	      SID		      "4653"
+	      Position		      [800, 160, 885, 170]
+	      ZOrder		      900
+	      GotoTag		      "qjDDot_des"
+	      TagVisibility	      "global"
+	    }
+	    Block {
 	      BlockType		      Logic
 	      Name		      "Logical\nOperator1"
 	      SID		      "4101"
@@ -7577,20 +8250,20 @@ Model {
 	      BlockType		      Reference
 	      Name		      "Minimum Jerk Trajectory Generator1"
 	      SID		      "2152"
-	      Ports		      [2, 1]
-	      Position		      [605, 115, 745, 155]
+	      Ports		      [2, 3]
+	      Position		      [595, 130, 750, 170]
 	      ZOrder		      598
 	      ShowName		      off
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
-	      MultiThreadCoSim	      "auto"
+	      SourceProductName	      "Whole Body Toolbox"
 	      externalSettlingTime    on
 	      settlingTime	      "0.01"
 	      sampleTime	      "Config.Ts"
 	      resetOnSettlingTime     off
-	      firstDerivatives	      off
-	      secondDerivatives	      off
+	      firstDerivatives	      on
+	      secondDerivatives	      on
 	      explicitInitialValue    off
 	    }
 	    Block {
@@ -7604,7 +8277,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
-	      MultiThreadCoSim	      "auto"
+	      SourceProductName	      "Whole Body Toolbox"
 	      externalSettlingTime    on
 	      settlingTime	      "0.01"
 	      sampleTime	      "Config.Ts"
@@ -7677,7 +8350,7 @@ Model {
 	      BlockType		      Constant
 	      Name		      "SMOOTH_DES_COM2"
 	      SID		      "2161"
-	      Position		      [825, 145, 965, 165]
+	      Position		      [920, 155, 1060, 175]
 	      ZOrder		      492
 	      ShowName		      off
 	      Value		      "Config.SMOOTH_JOINT_DES"
@@ -7710,12 +8383,21 @@ Model {
 	      BlockType		      Switch
 	      Name		      "Switch5"
 	      SID		      "2248"
-	      Position		      [1000, 126, 1050, 184]
+	      Position		      [1100, 122, 1155, 208]
 	      ZOrder		      491
 	      ShowName		      off
 	      Criteria		      "u2 > Threshold"
 	      InputSameDT	      off
 	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      "Terminator"
+	      SID		      "4656"
+	      Position		      [765, 144, 780, 156]
+	      ZOrder		      901
+	      ShowName		      off
+	      HideAutomaticName	      off
 	    }
 	    Block {
 	      BlockType		      SubSystem
@@ -7725,10 +8407,12 @@ Model {
 	      Position		      [380, -87, 690, -3]
 	      ZOrder		      720
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Visualize Gain Tuning  "
 		Location		[65, -4, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -8000,7 +8684,6 @@ Model {
 		  "rue,'OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Version','2018a','Lo"
 		  "cation',[76 116 1387 805])"
 		  NumInputPorts		  "6"
-		  Floating		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -8038,7 +8721,6 @@ Model {
 		  "'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tool"
 		  "s','Measurements',true,'Version','2017b')),'Version','2018a','Location',[1000 538 1560 958])"
 		  NumInputPorts		  "1"
-		  Floating		  off
 		}
 		Block {
 		  BlockType		  Selector
@@ -8113,7 +8795,6 @@ Model {
 		  ",extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measurement"
 		  "s',true,'Version','2017b')),'Version','2018a','Location',[179 459 1300 1439])"
 		  NumInputPorts		  "2"
-		  Floating		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -8173,7 +8854,6 @@ Model {
 		  "','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),"
 		  "'Version','2018a','Location',[76 459 1996 1439])"
 		  NumInputPorts		  "3"
-		  Floating		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -8265,7 +8945,6 @@ Model {
 		  "tion',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Version','201"
 		  "8a','Location',[384 319 2304 1299])"
 		  NumInputPorts		  "6"
-		  Floating		  off
 		}
 		Line {
 		  Name			  "state"
@@ -8559,7 +9238,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "qjDes"
 	      SID		      "4042"
-	      Position		      [1240, 148, 1270, 162]
+	      Position		      [1240, 158, 1270, 172]
 	      ZOrder		      713
 	      Port		      "9"
 	      IconDisplay	      "Port number"
@@ -8673,16 +9352,16 @@ Model {
 	      Points		      [86, 0]
 	      Branch {
 		ZOrder			458
-		Points			[363, 0; 0, -250]
+		Points			[363, 0; 0, -235]
 		Branch {
-		  ZOrder		  497
-		  DstBlock		  "Minimum Jerk Trajectory Generator1"
+		  ZOrder		  558
+		  Points		  [0, -95]
+		  DstBlock		  "Minimum Jerk Trajectory Generator2"
 		  DstPort		  2
 		}
 		Branch {
-		  ZOrder		  496
-		  Points		  [0, -80]
-		  DstBlock		  "Minimum Jerk Trajectory Generator2"
+		  ZOrder		  497
+		  DstBlock		  "Minimum Jerk Trajectory Generator1"
 		  DstPort		  2
 		}
 	      }
@@ -8713,10 +9392,10 @@ Model {
 	      Labels		      [0, 0]
 	      SrcBlock		      "Demux"
 	      SrcPort		      2
-	      Points		      [324, 0; 0, 30]
+	      Points		      [324, 0; 0, 45]
 	      Branch {
-		ZOrder			413
-		Points			[0, 50]
+		ZOrder			559
+		Points			[0, 55]
 		DstBlock		"Switch5"
 		DstPort			3
 	      }
@@ -8855,6 +9534,20 @@ Model {
 	      DstBlock		      "Visualize Gain Tuning  "
 	      DstPort		      enable
 	    }
+	    Line {
+	      ZOrder		      561
+	      SrcBlock		      "Minimum Jerk Trajectory Generator1"
+	      SrcPort		      3
+	      DstBlock		      "Goto \"Compute joint torques\""
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      562
+	      SrcBlock		      "Minimum Jerk Trajectory Generator1"
+	      SrcPort		      2
+	      DstBlock		      "Terminator"
+	      DstPort		      1
+	    }
 	  }
 	}
 	Block {
@@ -8879,10 +9572,12 @@ Model {
 	  ZOrder		  506
 	  Priority		  "-100"
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "State Machine Yoga"
 	    Location		    [65, -4, 1920, 1080]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -8927,10 +9622,12 @@ Model {
 	      Position		      [590, -76, 740, -4]
 	      ZOrder		      889
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Compute State Velocity"
 		Location		[65, 24, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -8982,10 +9679,12 @@ Model {
 		  TreatAsAtomicUnit	  on
 		  RequestExecContextInheritance	off
 		  SFBlockType		  "MATLAB Function"
+		  Variant		  off
 		  System {
 		    Name		    "Compute Base Velocity"
 		    Location		    [19, 45, 910, 1950]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -8997,7 +9696,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3779"
+		    SIDHighWatermark	    "3782"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "J_LeftFoot"
@@ -9036,20 +9735,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4215::3778"
+		    SID			    "4215::3781"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    147
+		    ZOrder		    150
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4215::3777"
+		    SID			    "4215::3780"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 7"
 		    Ports		    [4, 2]
 		    Position		    [180, 102, 230, 203]
-		    ZOrder		    146
+		    ZOrder		    149
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Reg"
 		    PortCounts		    "[4 2]"
@@ -9064,9 +9763,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4215::3779"
+		    SID			    "4215::3782"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    148
+		    ZOrder		    151
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -9077,28 +9776,28 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    106
+		    ZOrder		    113
 		    SrcBlock		    "J_LeftFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    107
+		    ZOrder		    114
 		    SrcBlock		    "J_RightFoot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    108
+		    ZOrder		    115
 		    SrcBlock		    "feetInContact"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    109
+		    ZOrder		    116
 		    SrcBlock		    "qjDot"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -9106,7 +9805,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "nu_b"
-		    ZOrder		    110
+		    ZOrder		    117
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -9114,14 +9813,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    111
+		    ZOrder		    118
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    112
+		    ZOrder		    119
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -9137,10 +9836,12 @@ Model {
 		  Position		  [55, -191, 205, -149]
 		  ZOrder		  -21
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "Feet Jacobians"
 		    Location		    [65, 24, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -9179,6 +9880,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.LEFT_FOOT"
 		    }
@@ -9192,6 +9894,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 		    SourceType		    "Jacobian"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.RIGHT_FOOT"
 		    }
@@ -9273,6 +9976,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 		  SourceType		  "Get Measurement"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  measuredType		  "Joints Velocity"
 		}
@@ -9371,10 +10075,12 @@ Model {
 	      Position		      [-375, 387, -265, 458]
 	      ZOrder		      900
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Compute base to fixed link transform"
 		Location		[65, -4, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -9420,10 +10126,12 @@ Model {
 		  Position		  [435, 15, 580, 55]
 		  ZOrder		  893
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "LFoot to base link transform "
 		    Location		    [65, -4, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -9480,6 +10188,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.IMU"
 		    }
@@ -9493,6 +10202,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.BASE"
 		    }
@@ -9543,7 +10253,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
-		    MultiThreadCoSim	    "auto"
+		    SourceProductName	    "Whole Body Toolbox"
 		    portName		    "Ports.NECK_POS"
 		    signalSize		    "Ports.NECK_POS_PORT_SIZE"
 		    timeout		    "0.5"
@@ -9586,10 +10296,12 @@ Model {
 		    TreatAsAtomicUnit	    on
 		    RequestExecContextInheritance off
 		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
 		    System {
 		    Name		    "fromImuToHomogeousTransformFCN"
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -9601,7 +10313,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3770"
+		    SIDHighWatermark	    "3773"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -9659,20 +10371,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4257::3769"
+		    SID			    "4257::3772"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    169
+		    ZOrder		    172
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4257::3768"
+		    SID			    "4257::3771"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 8"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    168
+		    ZOrder		    171
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
@@ -9687,9 +10399,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4257::3770"
+		    SID			    "4257::3773"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    170
+		    ZOrder		    173
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -9700,42 +10412,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    136
+		    ZOrder		    145
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    137
+		    ZOrder		    146
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    138
+		    ZOrder		    147
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    139
+		    ZOrder		    148
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    140
+		    ZOrder		    149
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    141
+		    ZOrder		    150
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -9743,7 +10455,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    142
+		    ZOrder		    151
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -9751,14 +10463,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    143
+		    ZOrder		    152
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    144
+		    ZOrder		    153
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -9778,6 +10490,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -9792,6 +10505,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -9802,10 +10516,12 @@ Model {
 		    Position		    [1135, 305, 1260, 335]
 		    ZOrder		    743
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "neck transform"
 		    Location		    [65, -4, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -10129,6 +10845,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.LEFT_FOOT"
 		}
@@ -10140,10 +10857,12 @@ Model {
 		  Position		  [435, 100, 580, 140]
 		  ZOrder		  896
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "RFoot to base link transform"
 		    Location		    [65, -4, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -10200,6 +10919,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.IMU"
 		    }
@@ -10213,6 +10933,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.BASE"
 		    }
@@ -10263,7 +10984,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
-		    MultiThreadCoSim	    "auto"
+		    SourceProductName	    "Whole Body Toolbox"
 		    portName		    "Ports.NECK_POS"
 		    signalSize		    "Ports.NECK_POS_PORT_SIZE"
 		    timeout		    "0.5"
@@ -10306,10 +11027,12 @@ Model {
 		    TreatAsAtomicUnit	    on
 		    RequestExecContextInheritance off
 		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
 		    System {
 		    Name		    "fromImuToHomogeousTransformFCN"
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -10321,7 +11044,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3770"
+		    SIDHighWatermark	    "3773"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -10379,20 +11102,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4282::3769"
+		    SID			    "4282::3772"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    169
+		    ZOrder		    172
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4282::3768"
+		    SID			    "4282::3771"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 3"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    168
+		    ZOrder		    171
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
@@ -10407,9 +11130,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4282::3770"
+		    SID			    "4282::3773"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    170
+		    ZOrder		    173
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -10420,42 +11143,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    136
+		    ZOrder		    145
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    137
+		    ZOrder		    146
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    138
+		    ZOrder		    147
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    139
+		    ZOrder		    148
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    140
+		    ZOrder		    149
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    141
+		    ZOrder		    150
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -10463,7 +11186,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    142
+		    ZOrder		    151
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -10471,14 +11194,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    143
+		    ZOrder		    152
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    144
+		    ZOrder		    153
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -10498,6 +11221,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -10512,6 +11236,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -10522,10 +11247,12 @@ Model {
 		    Position		    [1135, 305, 1260, 335]
 		    ZOrder		    743
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "neck transform"
 		    Location		    [65, -4, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -10849,6 +11576,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.RIGHT_FOOT"
 		}
@@ -11026,7 +11754,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Minimum Jerk Trajectory Generator"
 	      SourceType	      "Minimum Jerk Trajectory Generator"
-	      MultiThreadCoSim	      "auto"
+	      SourceProductName	      "Whole Body Toolbox"
 	      externalSettlingTime    off
 	      settlingTime	      "Gain.SmoothingTimeGainScheduling"
 	      sampleTime	      "Config.Ts"
@@ -11093,10 +11821,12 @@ Model {
 	      Position		      [-240, 11, -40, 84]
 	      ZOrder		      681
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Visualise extrnal wrenches  "
 		Location		[65, 24, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -11226,7 +11956,6 @@ Model {
 		  "1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Config"
 		  "uration('Tools','Measurements',true,'Version','2017b')),'Version','2018a','Location',[248 273 1228 835])"
 		  NumInputPorts		  "3"
-		  Floating		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -11286,7 +12015,6 @@ Model {
 		  "uration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','"
 		  "Measurements',true,'Version','2017b')),'Version','2018a','Location',[76 151 1355 851])"
 		  NumInputPorts		  "3"
-		  Floating		  off
 		}
 		Line {
 		  Name			  "thresholdContactOn"
@@ -11358,6 +12086,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -11372,6 +12101,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -11385,7 +12115,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
-	      MultiThreadCoSim	      "auto"
+	      SourceProductName	      "Whole Body Toolbox"
 	      portName		      "Ports.IMU"
 	      signalSize	      "12"
 	      timeout		      "0.5"
@@ -11406,7 +12136,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
-	      MultiThreadCoSim	      "auto"
+	      SourceProductName	      "Whole Body Toolbox"
 	      portName		      "Ports.WRENCH_LEFT_FOOT"
 	      signalSize	      "6"
 	      timeout		      "0.5"
@@ -11431,7 +12161,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
-	      MultiThreadCoSim	      "auto"
+	      SourceProductName	      "Whole Body Toolbox"
 	      portName		      "Ports.WRENCH_RIGHT_FOOT"
 	      signalSize	      "6"
 	      timeout		      "0.5"
@@ -11458,6 +12188,7 @@ Model {
 	      TreatAsAtomicUnit	      on
 	      RequestExecContextInheritance off
 	      SFBlockType	      "MATLAB Function"
+	      Variant		      off
 	      Port {
 		PortNumber		4
 		Name			"constraintsSmooth"
@@ -11467,6 +12198,7 @@ Model {
 		Name			"stateMachineYogaFCN"
 		Location		[219, 337, 814, 775]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -11478,7 +12210,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3756"
+		SIDHighWatermark	"3759"
 		SIDPrevWatermark	"9"
 		Block {
 		  BlockType		  Inport
@@ -11572,20 +12304,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "2220::3755"
+		  SID			  "2220::3758"
 		  Ports			  [1, 1]
 		  Position		  [270, 460, 320, 500]
-		  ZOrder		  153
+		  ZOrder		  156
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "2220::3754"
+		  SID			  "2220::3757"
 		  Tag			  "Stateflow S-Function torqueBalancingYoga 13"
 		  Ports			  [10, 10]
 		  Position		  [180, 100, 230, 320]
-		  ZOrder		  152
+		  ZOrder		  155
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Gain,Sm"
 		  PortCounts		  "[10 10]"
@@ -11632,9 +12364,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "2220::3756"
+		  SID			  "2220::3759"
 		  Position		  [460, 471, 480, 489]
-		  ZOrder		  154
+		  ZOrder		  157
 		}
 		Block {
 		  BlockType		  Outport
@@ -11717,70 +12449,70 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  464
+		  ZOrder		  485
 		  SrcBlock		  "wrench_rightFoot"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  465
+		  ZOrder		  486
 		  SrcBlock		  "wrench_leftFoot"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  466
+		  ZOrder		  487
 		  SrcBlock		  "CoM_0"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  467
+		  ZOrder		  488
 		  SrcBlock		  "q0"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  4
 		}
 		Line {
-		  ZOrder		  468
+		  ZOrder		  489
 		  SrcBlock		  "l_sole_CoM"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  5
 		}
 		Line {
-		  ZOrder		  469
+		  ZOrder		  490
 		  SrcBlock		  "r_sole_CoM"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  6
 		}
 		Line {
-		  ZOrder		  470
+		  ZOrder		  491
 		  SrcBlock		  "qj"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  7
 		}
 		Line {
-		  ZOrder		  471
+		  ZOrder		  492
 		  SrcBlock		  "t"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  8
 		}
 		Line {
-		  ZOrder		  472
+		  ZOrder		  493
 		  SrcBlock		  "l_sole_H_b"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  9
 		}
 		Line {
-		  ZOrder		  473
+		  ZOrder		  494
 		  SrcBlock		  "r_sole_H_b"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -11788,7 +12520,7 @@ Model {
 		}
 		Line {
 		  Name			  "w_H_b"
-		  ZOrder		  474
+		  ZOrder		  495
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -11797,7 +12529,7 @@ Model {
 		}
 		Line {
 		  Name			  "CoM_des"
-		  ZOrder		  475
+		  ZOrder		  496
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  3
@@ -11806,7 +12538,7 @@ Model {
 		}
 		Line {
 		  Name			  "qj_des"
-		  ZOrder		  476
+		  ZOrder		  497
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  4
@@ -11815,7 +12547,7 @@ Model {
 		}
 		Line {
 		  Name			  "constraints"
-		  ZOrder		  477
+		  ZOrder		  498
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  5
@@ -11824,7 +12556,7 @@ Model {
 		}
 		Line {
 		  Name			  "impedances"
-		  ZOrder		  478
+		  ZOrder		  499
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  6
@@ -11833,7 +12565,7 @@ Model {
 		}
 		Line {
 		  Name			  "KPCoM"
-		  ZOrder		  479
+		  ZOrder		  500
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  7
@@ -11842,7 +12574,7 @@ Model {
 		}
 		Line {
 		  Name			  "KDCoM"
-		  ZOrder		  480
+		  ZOrder		  501
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  8
@@ -11851,7 +12583,7 @@ Model {
 		}
 		Line {
 		  Name			  "currentState"
-		  ZOrder		  481
+		  ZOrder		  502
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  9
@@ -11860,7 +12592,7 @@ Model {
 		}
 		Line {
 		  Name			  "jointsSmoothingTime"
-		  ZOrder		  482
+		  ZOrder		  503
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  10
@@ -11868,14 +12600,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  483
+		  ZOrder		  504
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  484
+		  ZOrder		  505
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  Points		  [20, 0]
@@ -11893,10 +12625,12 @@ Model {
 	      ZOrder		      890
 	      ShowName		      off
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"xCom"
 		Location		[65, 24, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -11936,6 +12670,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.COM"
 		}
@@ -12000,10 +12735,12 @@ Model {
 	      ZOrder		      898
 	      ShowName		      off
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"xCom1"
 		Location		[65, 24, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -12043,6 +12780,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.COM"
 		}
@@ -12559,10 +13297,11 @@ Model {
 	  Position		  [-445, 2851, -385, 2879]
 	  ZOrder		  606
 	  ShowName		  off
-	  LibraryVersion	  "1.441"
+	  LibraryVersion	  "1.401"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
 	  SourceType		  "Bitwise Operator"
-	  MultiThreadCoSim	  "auto"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
 	  logicop		  "AND"
 	  UseBitMask		  on
 	  NumInputPorts		  "1"
@@ -13049,6 +13788,7 @@ Model {
       LibraryVersion	      "1.649"
       SourceBlock	      "WBToolboxLibrary/wholeBodyActuators/Set References"
       SourceType	      "Set References"
+      SourceProductName	      "Whole Body Toolbox"
       ContentPreviewEnabled   off
       controlType	      "Torque"
       refSpeed		      "50"
@@ -13063,10 +13803,12 @@ Model {
       ZOrder		      542
       BackgroundColor	      "lightBlue"
       RequestExecContextInheritance off
+      Variant		      off
       System {
 	Name			"controller_QP"
-	Location		[8, 35, 2503, 1479]
+	Location		[635, 727, 1594, 1310]
 	Open			off
+	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -13077,7 +13819,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"108"
+	ZoomFactor		"38"
 	Block {
 	  BlockType		  Inport
 	  Name			  "M"
@@ -13279,6 +14021,7 @@ Model {
 	  TreatAsAtomicUnit	  on
 	  RequestExecContextInheritance	off
 	  SFBlockType		  "MATLAB Function"
+	  Variant		  off
 	  Port {
 	    PortNumber		    13
 	    Name		    "CoM_Error"
@@ -13293,6 +14036,7 @@ Model {
 	    Name		    "Balancing Controller\n"
 	    Location		    [219, 337, 814, 775]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -13304,7 +14048,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "3755"
+	    SIDHighWatermark	    "3758"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "constraints"
@@ -13514,20 +14258,20 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "2407::3754"
+	      SID		      "2407::3757"
 	      Ports		      [1, 1]
 	      Position		      [270, 640, 320, 680]
-	      ZOrder		      157
+	      ZOrder		      160
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "2407::3753"
+	      SID		      "2407::3756"
 	      Tag		      "Stateflow S-Function torqueBalancingYoga 17"
 	      Ports		      [23, 15]
 	      Position		      [180, 65, 230, 545]
-	      ZOrder		      156
+	      ZOrder		      159
 	      FunctionName	      "sf_sfun"
 	      Parameters	      "Gain,Reg"
 	      PortCounts	      "[23 15]"
@@ -13594,9 +14338,9 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "2407::3755"
+	      SID		      "2407::3758"
 	      Position		      [460, 651, 480, 669]
-	      ZOrder		      158
+	      ZOrder		      161
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -13724,161 +14468,161 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      ZOrder		      918
+	      ZOrder		      957
 	      SrcBlock		      "constraints"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      919
+	      ZOrder		      958
 	      SrcBlock		      "ROBOT_DOF_FOR_SIMULINK"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
-	      ZOrder		      920
+	      ZOrder		      959
 	      SrcBlock		      "ConstraintsMatrix"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
 	    }
 	    Line {
-	      ZOrder		      921
+	      ZOrder		      960
 	      SrcBlock		      "bVectorConstraints"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      4
 	    }
 	    Line {
-	      ZOrder		      922
+	      ZOrder		      961
 	      SrcBlock		      "qj"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      5
 	    }
 	    Line {
-	      ZOrder		      923
+	      ZOrder		      962
 	      SrcBlock		      "qjDes"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      6
 	    }
 	    Line {
-	      ZOrder		      924
+	      ZOrder		      963
 	      SrcBlock		      "nu"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      7
 	    }
 	    Line {
-	      ZOrder		      925
+	      ZOrder		      964
 	      SrcBlock		      "M"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      8
 	    }
 	    Line {
-	      ZOrder		      926
+	      ZOrder		      965
 	      SrcBlock		      "h"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      9
 	    }
 	    Line {
-	      ZOrder		      927
+	      ZOrder		      966
 	      SrcBlock		      "L"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      10
 	    }
 	    Line {
-	      ZOrder		      928
+	      ZOrder		      967
 	      SrcBlock		      "intLw"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      11
 	    }
 	    Line {
-	      ZOrder		      929
+	      ZOrder		      968
 	      SrcBlock		      "w_H_l_sole"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      12
 	    }
 	    Line {
-	      ZOrder		      930
+	      ZOrder		      969
 	      SrcBlock		      "w_H_r_sole"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      13
 	    }
 	    Line {
-	      ZOrder		      931
+	      ZOrder		      970
 	      SrcBlock		      "JL"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      14
 	    }
 	    Line {
-	      ZOrder		      932
+	      ZOrder		      971
 	      SrcBlock		      "JR"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      15
 	    }
 	    Line {
-	      ZOrder		      933
+	      ZOrder		      972
 	      SrcBlock		      "dJLv"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      16
 	    }
 	    Line {
-	      ZOrder		      934
+	      ZOrder		      973
 	      SrcBlock		      "dJRv"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      17
 	    }
 	    Line {
-	      ZOrder		      935
+	      ZOrder		      974
 	      SrcBlock		      "xCoM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      18
 	    }
 	    Line {
-	      ZOrder		      936
+	      ZOrder		      975
 	      SrcBlock		      "J_CoM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      19
 	    }
 	    Line {
-	      ZOrder		      937
+	      ZOrder		      976
 	      SrcBlock		      "desired_x_dx_ddx_CoM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      20
 	    }
 	    Line {
-	      ZOrder		      938
+	      ZOrder		      977
 	      SrcBlock		      "gainsPCOM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      21
 	    }
 	    Line {
-	      ZOrder		      939
+	      ZOrder		      978
 	      SrcBlock		      "gainsDCOM"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      22
 	    }
 	    Line {
-	      ZOrder		      940
+	      ZOrder		      979
 	      SrcBlock		      "impedances"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -13886,7 +14630,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "tauModel"
-	      ZOrder		      941
+	      ZOrder		      980
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -13895,7 +14639,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "Sigma"
-	      ZOrder		      942
+	      ZOrder		      981
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      3
@@ -13904,7 +14648,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "NA"
-	      ZOrder		      943
+	      ZOrder		      982
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      4
@@ -13913,7 +14657,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "fLdotDesC1C2"
-	      ZOrder		      944
+	      ZOrder		      983
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      5
@@ -13922,7 +14666,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "HessianMatrixQP1Foot"
-	      ZOrder		      945
+	      ZOrder		      984
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      6
@@ -13931,7 +14675,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "gradientQP1Foot"
-	      ZOrder		      946
+	      ZOrder		      985
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      7
@@ -13940,7 +14684,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "ConstraintsMatrixQP1Foot"
-	      ZOrder		      947
+	      ZOrder		      986
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      8
@@ -13949,7 +14693,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "bVectorConstraintsQp1Foot"
-	      ZOrder		      948
+	      ZOrder		      987
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      9
@@ -13958,7 +14702,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "HessianMatrixQP2Feet"
-	      ZOrder		      949
+	      ZOrder		      988
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      10
@@ -13967,7 +14711,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "gradientQP2Feet"
-	      ZOrder		      950
+	      ZOrder		      989
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      11
@@ -13976,7 +14720,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "ConstraintsMatrixQP2Feet"
-	      ZOrder		      951
+	      ZOrder		      990
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      12
@@ -13985,7 +14729,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "bVectorConstraintsQp2Feet"
-	      ZOrder		      952
+	      ZOrder		      991
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      13
@@ -13994,7 +14738,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "errorCoM"
-	      ZOrder		      953
+	      ZOrder		      992
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      14
@@ -14003,7 +14747,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "f_noQP"
-	      ZOrder		      954
+	      ZOrder		      993
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      15
@@ -14011,14 +14755,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      955
+	      ZOrder		      994
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      956
+	      ZOrder		      995
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -14034,10 +14778,12 @@ Model {
 	  Position		  [1195, 552, 1305, 588]
 	  ZOrder		  835
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "Compute angular momentum integral"
 	    Location		    [65, -4, 2560, 1440]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -14094,6 +14840,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Centroidal Momentum"
 	      SourceType	      "Centroidal Momentum"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -14105,10 +14852,12 @@ Model {
 	      ZOrder		      901
 	      NamePlacement	      "alternate"
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Compute base to fixed link transform"
 		Location		[65, -4, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -14154,10 +14903,12 @@ Model {
 		  Position		  [435, 15, 580, 55]
 		  ZOrder		  893
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "LFoot to base link transform "
 		    Location		    [65, -4, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -14214,6 +14965,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.IMU"
 		    }
@@ -14227,6 +14979,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.BASE"
 		    }
@@ -14277,7 +15030,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
-		    MultiThreadCoSim	    "auto"
+		    SourceProductName	    "Whole Body Toolbox"
 		    portName		    "Ports.NECK_POS"
 		    signalSize		    "Ports.NECK_POS_PORT_SIZE"
 		    timeout		    "0.5"
@@ -14320,10 +15073,12 @@ Model {
 		    TreatAsAtomicUnit	    on
 		    RequestExecContextInheritance off
 		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
 		    System {
 		    Name		    "fromImuToHomogeousTransformFCN"
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -14335,7 +15090,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3770"
+		    SIDHighWatermark	    "3773"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -14393,20 +15148,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4438::3769"
+		    SID			    "4438::3772"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    169
+		    ZOrder		    172
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4438::3768"
+		    SID			    "4438::3771"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 1"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    168
+		    ZOrder		    171
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
@@ -14421,9 +15176,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4438::3770"
+		    SID			    "4438::3773"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    170
+		    ZOrder		    173
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -14434,42 +15189,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    136
+		    ZOrder		    145
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    137
+		    ZOrder		    146
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    138
+		    ZOrder		    147
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    139
+		    ZOrder		    148
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    140
+		    ZOrder		    149
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    141
+		    ZOrder		    150
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -14477,7 +15232,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    142
+		    ZOrder		    151
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -14485,14 +15240,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    143
+		    ZOrder		    152
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    144
+		    ZOrder		    153
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -14512,6 +15267,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -14526,6 +15282,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -14536,10 +15293,12 @@ Model {
 		    Position		    [1135, 305, 1260, 335]
 		    ZOrder		    743
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "neck transform"
 		    Location		    [65, -4, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -14863,6 +15622,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.LEFT_FOOT"
 		}
@@ -14874,10 +15634,12 @@ Model {
 		  Position		  [435, 100, 580, 140]
 		  ZOrder		  896
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "RFoot to base link transform"
 		    Location		    [65, -4, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -14934,6 +15696,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.IMU"
 		    }
@@ -14947,6 +15710,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		    SourceType		    "Forward Kinematics"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    frameName		    "Frames.BASE"
 		    }
@@ -14997,7 +15761,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Yarp Read"
 		    SourceType		    "YARP Read"
-		    MultiThreadCoSim	    "auto"
+		    SourceProductName	    "Whole Body Toolbox"
 		    portName		    "Ports.NECK_POS"
 		    signalSize		    "Ports.NECK_POS_PORT_SIZE"
 		    timeout		    "0.5"
@@ -15040,10 +15804,12 @@ Model {
 		    TreatAsAtomicUnit	    on
 		    RequestExecContextInheritance off
 		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
 		    System {
 		    Name		    "fromImuToHomogeousTransformFCN"
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15055,7 +15821,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "3770"
+		    SIDHighWatermark	    "3773"
 		    SIDPrevWatermark	    "9"
 		    Block {
 		    BlockType		    Inport
@@ -15113,20 +15879,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4463::3769"
+		    SID			    "4463::3772"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    169
+		    ZOrder		    172
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4463::3768"
+		    SID			    "4463::3771"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 4"
 		    Ports		    [6, 2]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    168
+		    ZOrder		    171
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[6 2]"
@@ -15141,9 +15907,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4463::3770"
+		    SID			    "4463::3773"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    170
+		    ZOrder		    173
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -15154,42 +15920,42 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    136
+		    ZOrder		    145
 		    SrcBlock		    "imu_H_link"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    137
+		    ZOrder		    146
 		    SrcBlock		    "imu_H_link_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    138
+		    ZOrder		    147
 		    SrcBlock		    "link_H_base"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    3
 		    }
 		    Line {
-		    ZOrder		    139
+		    ZOrder		    148
 		    SrcBlock		    "inertial_0"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    4
 		    }
 		    Line {
-		    ZOrder		    140
+		    ZOrder		    149
 		    SrcBlock		    "inertial"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    5
 		    }
 		    Line {
-		    ZOrder		    141
+		    ZOrder		    150
 		    SrcBlock		    "neck_pos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -15197,7 +15963,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "w_H_b"
-		    ZOrder		    142
+		    ZOrder		    151
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -15205,14 +15971,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    143
+		    ZOrder		    152
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    144
+		    ZOrder		    153
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -15232,6 +15998,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -15246,6 +16013,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/holder\n"
 		    SourceType		    "Holder"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -15256,10 +16024,12 @@ Model {
 		    Position		    [1135, 305, 1260, 335]
 		    ZOrder		    743
 		    RequestExecContextInheritance off
+		    Variant		    off
 		    System {
 		    Name		    "neck transform"
 		    Location		    [65, -4, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15583,6 +16353,7 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
 		  SourceType		  "Forward Kinematics"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  frameName		  "Frames.RIGHT_FOOT"
 		}
@@ -15727,6 +16498,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	      SourceType	      "Jacobian"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      frameName		      "Frames.LEFT_FOOT"
 	    }
@@ -15740,6 +16512,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Jacobians/Jacobian"
 	      SourceType	      "Jacobian"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      frameName		      "Frames.RIGHT_FOOT"
 	    }
@@ -15756,10 +16529,12 @@ Model {
 	      TreatAsAtomicUnit	      on
 	      RequestExecContextInheritance off
 	      SFBlockType	      "MATLAB Function"
+	      Variant		      off
 	      System {
 		Name			"References for L"
 		Location		[223, 338, 826, 833]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -15771,7 +16546,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3756"
+		SIDHighWatermark	"3759"
 		Block {
 		  BlockType		  Inport
 		  Name			  "qjErr"
@@ -15810,20 +16585,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "3721::3755"
+		  SID			  "3721::3758"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  80
+		  ZOrder		  83
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "3721::3754"
+		  SID			  "3721::3757"
 		  Tag			  "Stateflow S-Function torqueBalancingYoga 20"
 		  Ports			  [4, 2]
 		  Position		  [180, 102, 230, 203]
-		  ZOrder		  79
+		  ZOrder		  82
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Reg"
 		  PortCounts		  "[4 2]"
@@ -15838,9 +16613,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "3721::3756"
+		  SID			  "3721::3759"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  81
+		  ZOrder		  84
 		}
 		Block {
 		  BlockType		  Outport
@@ -15851,28 +16626,28 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  106
+		  ZOrder		  113
 		  SrcBlock		  "qjErr"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  107
+		  ZOrder		  114
 		  SrcBlock		  "JL"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  108
+		  ZOrder		  115
 		  SrcBlock		  "JR"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  109
+		  ZOrder		  116
 		  SrcBlock		  "activeFeetConstraints"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -15880,7 +16655,7 @@ Model {
 		}
 		Line {
 		  Name			  "nu_b_equivalent"
-		  ZOrder		  110
+		  ZOrder		  117
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -15888,14 +16663,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  111
+		  ZOrder		  118
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  112
+		  ZOrder		  119
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -15954,10 +16729,12 @@ Model {
 	      TreatAsAtomicUnit	      on
 	      RequestExecContextInheritance off
 	      SFBlockType	      "MATLAB Function"
+	      Variant		      off
 	      System {
 		Name			"choose base to world transform"
 		Location		[223, 338, 826, 833]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -15969,7 +16746,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"69"
+		SIDHighWatermark	"72"
 		Block {
 		  BlockType		  Inport
 		  Name			  "state"
@@ -15981,20 +16758,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "4027::68"
+		  SID			  "4027::71"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  59
+		  ZOrder		  62
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "4027::67"
+		  SID			  "4027::70"
 		  Tag			  "Stateflow S-Function torqueBalancingYoga 19"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  58
+		  ZOrder		  61
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[1 2]"
 		  SFunctionDeploymentMode off
@@ -16008,9 +16785,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "4027::69"
+		  SID			  "4027::72"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  60
+		  ZOrder		  63
 		}
 		Block {
 		  BlockType		  Outport
@@ -16021,7 +16798,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  61
+		  ZOrder		  65
 		  SrcBlock		  "state"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -16029,7 +16806,7 @@ Model {
 		}
 		Line {
 		  Name			  "booleanState"
-		  ZOrder		  62
+		  ZOrder		  66
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -16037,14 +16814,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  63
+		  ZOrder		  67
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  64
+		  ZOrder		  68
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -16063,7 +16840,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
 	      SourceType	      "YARP Read"
-	      MultiThreadCoSim	      "auto"
+	      SourceProductName	      "Whole Body Toolbox"
 	      portName		      "Ports.IMU"
 	      signalSize	      "12"
 	      timeout		      "0.5"
@@ -16265,10 +17042,12 @@ Model {
 	  Position		  [1840, 29, 2050, 1056]
 	  ZOrder		  846
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "Compute joint torques"
 	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -16465,10 +17244,12 @@ Model {
 	      Position		      [580, 478, 815, 847]
 	      ZOrder		      652
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"QPSolver"
 		Location		[65, 24, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -16581,10 +17362,12 @@ Model {
 		  TreatAsAtomicUnit	  on
 		  RequestExecContextInheritance	off
 		  SFBlockType		  "MATLAB Function"
+		  Variant		  off
 		  System {
 		    Name		    "ContactsTransition"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -16596,7 +17379,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "39"
+		    SIDHighWatermark	    "42"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "LR_FootInContact"
@@ -16608,20 +17391,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4590::38"
+		    SID			    "4590::41"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    29
+		    ZOrder		    32
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4590::37"
+		    SID			    "4590::40"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 15"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    28
+		    ZOrder		    31
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 2]"
 		    SFunctionDeploymentMode off
@@ -16635,9 +17418,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4590::39"
+		    SID			    "4590::42"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    30
+		    ZOrder		    33
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -16648,7 +17431,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    17
+		    ZOrder		    21
 		    SrcBlock		    "LR_FootInContact"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -16656,7 +17439,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "onOneFoot"
-		    ZOrder		    18
+		    ZOrder		    22
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -16664,14 +17447,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    19
+		    ZOrder		    23
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    20
+		    ZOrder		    24
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -16718,10 +17501,12 @@ Model {
 		  ZOrder		  722
 		  TreatAsAtomicUnit	  on
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "One Foot"
 		    Location		    [65, 24, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -16788,10 +17573,12 @@ Model {
 		    TreatAsAtomicUnit	    on
 		    RequestExecContextInheritance off
 		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
 		    System {
 		    Name		    "Analytical Solution One Foot (unconstrained)"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -16803,7 +17590,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "40"
+		    SIDHighWatermark	    "43"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "H"
@@ -16824,20 +17611,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4600::39"
+		    SID			    "4600::42"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    30
+		    ZOrder		    33
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4600::38"
+		    SID			    "4600::41"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 22"
 		    Ports		    [2, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    29
+		    ZOrder		    32
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[2 2]"
 		    SFunctionDeploymentMode off
@@ -16851,9 +17638,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4600::40"
+		    SID			    "4600::43"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    31
+		    ZOrder		    34
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -16864,7 +17651,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    21
+		    ZOrder		    26
 		    SrcBlock		    "H"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -16872,7 +17659,7 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    22
+		    ZOrder		    27
 		    SrcBlock		    "g"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -16880,7 +17667,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "analyticalSolution"
-		    ZOrder		    23
+		    ZOrder		    28
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -16888,14 +17675,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    24
+		    ZOrder		    29
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    25
+		    ZOrder		    30
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -16913,6 +17700,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Match Signal Sizes"
 		    SourceType		    "Match Signal Sizes"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -16927,10 +17715,12 @@ Model {
 		    TreatAsAtomicUnit	    on
 		    RequestExecContextInheritance off
 		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
 		    System {
 		    Name		    "Process QP output"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -16942,7 +17732,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "47"
+		    SIDHighWatermark	    "50"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "analyticalSolution"
@@ -16972,20 +17762,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4602::46"
+		    SID			    "4602::49"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    31
+		    ZOrder		    34
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4602::45"
+		    SID			    "4602::48"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 12"
 		    Ports		    [3, 2]
 		    Position		    [180, 100, 230, 180]
-		    ZOrder		    30
+		    ZOrder		    33
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[3 2]"
@@ -17000,9 +17790,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4602::47"
+		    SID			    "4602::50"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    32
+		    ZOrder		    35
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -17013,21 +17803,21 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    25
+		    ZOrder		    31
 		    SrcBlock		    "analyticalSolution"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    26
+		    ZOrder		    32
 		    SrcBlock		    "primalSolution"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    27
+		    ZOrder		    33
 		    SrcBlock		    "QPStatus"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -17035,7 +17825,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "f0"
-		    ZOrder		    28
+		    ZOrder		    34
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -17043,14 +17833,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    29
+		    ZOrder		    35
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    30
+		    ZOrder		    36
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    Points		    [20, 0]
@@ -17069,7 +17859,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/QP"
 		    SourceType		    "QP"
-		    MultiThreadCoSim	    "auto"
+		    SourceProductName	    "Whole Body Toolbox"
 		    lbA			    off
 		    ubA			    on
 		    lb			    off
@@ -17210,10 +18000,12 @@ Model {
 		  TreatAsAtomicUnit	  on
 		  RequestExecContextInheritance	off
 		  SFBlockType		  "MATLAB Function"
+		  Variant		  off
 		  System {
 		    Name		    "Process One Foot Output"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -17225,7 +18017,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "40"
+		    SIDHighWatermark	    "43"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "primalSolution"
@@ -17246,20 +18038,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4606::39"
+		    SID			    "4606::42"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    30
+		    ZOrder		    33
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4606::38"
+		    SID			    "4606::41"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 16"
 		    Ports		    [2, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    29
+		    ZOrder		    32
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[2 2]"
 		    SFunctionDeploymentMode off
@@ -17273,9 +18065,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4606::40"
+		    SID			    "4606::43"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    31
+		    ZOrder		    34
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -17286,7 +18078,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    21
+		    ZOrder		    26
 		    SrcBlock		    "primalSolution"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -17294,7 +18086,7 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    22
+		    ZOrder		    27
 		    SrcBlock		    "LR_FootInContact"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -17302,7 +18094,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "f0_oneFoot"
-		    ZOrder		    23
+		    ZOrder		    28
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -17310,14 +18102,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    24
+		    ZOrder		    29
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    25
+		    ZOrder		    30
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -17345,10 +18137,12 @@ Model {
 		  NamePlacement		  "alternate"
 		  TreatAsAtomicUnit	  on
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "Two Feet"
 		    Location		    [65, 24, 1920, 1080]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -17415,10 +18209,12 @@ Model {
 		    TreatAsAtomicUnit	    on
 		    RequestExecContextInheritance off
 		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
 		    System {
 		    Name		    "Analytical Solution Two Feet (unconstrained)"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -17430,7 +18226,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "40"
+		    SIDHighWatermark	    "43"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "H"
@@ -17451,20 +18247,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4614::39"
+		    SID			    "4614::42"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    30
+		    ZOrder		    33
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4614::38"
+		    SID			    "4614::41"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 21"
 		    Ports		    [2, 2]
 		    Position		    [180, 100, 230, 160]
-		    ZOrder		    29
+		    ZOrder		    32
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[2 2]"
 		    SFunctionDeploymentMode off
@@ -17478,9 +18274,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4614::40"
+		    SID			    "4614::43"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    31
+		    ZOrder		    34
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -17491,7 +18287,7 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    21
+		    ZOrder		    26
 		    SrcBlock		    "H"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -17499,7 +18295,7 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    22
+		    ZOrder		    27
 		    SrcBlock		    "g"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -17507,7 +18303,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "analyticalSolution"
-		    ZOrder		    23
+		    ZOrder		    28
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -17515,14 +18311,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    24
+		    ZOrder		    29
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    25
+		    ZOrder		    30
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -17540,6 +18336,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/Match Signal Sizes"
 		    SourceType		    "Match Signal Sizes"
+		    SourceProductName	    "Whole Body Toolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -17554,10 +18351,12 @@ Model {
 		    TreatAsAtomicUnit	    on
 		    RequestExecContextInheritance off
 		    SFBlockType		    "MATLAB Function"
+		    Variant		    off
 		    System {
 		    Name		    "Process QP output"
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -17569,7 +18368,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "47"
+		    SIDHighWatermark	    "50"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "analyticalSolution"
@@ -17599,20 +18398,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "4616::46"
+		    SID			    "4616::49"
 		    Ports		    [1, 1]
 		    Position		    [270, 230, 320, 270]
-		    ZOrder		    31
+		    ZOrder		    34
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "4616::45"
+		    SID			    "4616::48"
 		    Tag			    "Stateflow S-Function torqueBalancingYoga 23"
 		    Ports		    [3, 2]
 		    Position		    [180, 100, 230, 180]
-		    ZOrder		    30
+		    ZOrder		    33
 		    FunctionName	    "sf_sfun"
 		    Parameters		    "Config"
 		    PortCounts		    "[3 2]"
@@ -17627,9 +18426,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "4616::47"
+		    SID			    "4616::50"
 		    Position		    [460, 241, 480, 259]
-		    ZOrder		    32
+		    ZOrder		    35
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -17640,21 +18439,21 @@ Model {
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
-		    ZOrder		    25
+		    ZOrder		    31
 		    SrcBlock		    "analyticalSolution"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    26
+		    ZOrder		    32
 		    SrcBlock		    "primalSolution"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    27
+		    ZOrder		    33
 		    SrcBlock		    "QPStatus"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -17662,7 +18461,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "f0"
-		    ZOrder		    28
+		    ZOrder		    34
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -17670,14 +18469,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    29
+		    ZOrder		    35
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    30
+		    ZOrder		    36
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    Points		    [20, 0]
@@ -17696,7 +18495,7 @@ Model {
 		    LibraryVersion	    "1.649"
 		    SourceBlock		    "WBToolboxLibrary/Utilities/QP"
 		    SourceType		    "QP"
-		    MultiThreadCoSim	    "auto"
+		    SourceProductName	    "Whole Body Toolbox"
 		    lbA			    off
 		    ubA			    on
 		    lb			    off
@@ -17833,10 +18632,12 @@ Model {
 		  Position		  [500, -21, 650, 66]
 		  ZOrder		  -17
 		  RequestExecContextInheritance	off
+		  Variant		  off
 		  System {
 		    Name		    "Visualize eventual QP failures"
 		    Location		    [65, 24, 2560, 1440]
 		    Open		    off
+		    PortBlocksUseCompactNotation off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -17924,7 +18725,6 @@ Model {
 		    "[2 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.C"
 		    "onfiguration('Tools','Measurements',true,'Version','2017b')),'Version','2018a','Location',[318 489 1511 1216])"
 		    NumInputPorts	    "2"
-		    Floating		    off
 		    }
 		    Line {
 		    Name		    "exitFlagQP"
@@ -18351,10 +19151,12 @@ Model {
 	  Position		  [2100, 256, 2255, 314]
 	  ZOrder		  862
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "Compute joint torques (motor reflected inertia)"
-	    Location		    [8, 35, 2503, 1479]
+	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -18365,12 +19167,12 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "256"
+	    ZoomFactor		    "223"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u"
 	      SID		      "4520"
-	      Position		      [-330, -72, -300, -58]
+	      Position		      [-330, 3, -300, 17]
 	      ZOrder		      591
 	      IconDisplay	      "Port number"
 	    }
@@ -18383,21 +19185,34 @@ Model {
 	      Value		      "Config.USE_MOTOR_REFLECTED_INERTIA"
 	    }
 	    Block {
+	      BlockType		      Constant
+	      Name		      " 1"
+	      SID		      "4651"
+	      Position		      [-550, -134, -285, -116]
+	      ZOrder		      897
+	      ShowName		      off
+	      HideAutomaticName	      off
+	      Value		      "Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA"
+	    }
+	    Block {
 	      BlockType		      SubSystem
 	      Name		      "(transpose(T*Gamma))^{-1}*I_m*(T*Gamma)^{-1}"
 	      SID		      "4551"
 	      Ports		      [0, 1]
-	      Position		      [-395, -231, -235, -169]
+	      Position		      [-500, -219, -340, -181]
 	      ZOrder		      871
+	      NamePlacement	      "alternate"
 	      ErrorFcn		      "Stateflow.Translate.translate"
 	      PermitHierarchicalResolution "ExplicitOnly"
 	      TreatAsAtomicUnit	      on
 	      RequestExecContextInheritance off
 	      SFBlockType	      "MATLAB Function"
+	      Variant		      off
 	      System {
 		Name			"(transpose(T*Gamma))^{-1}*I_m*(T*Gamma)^{-1}"
 		Location		[223, 338, 826, 833]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -18409,31 +19224,31 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"66"
+		SIDHighWatermark	"70"
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "4551::64"
+		  SID			  "4551::68"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  55
+		  ZOrder		  59
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  Ground
 		  Name			  " Ground "
-		  SID			  "4551::66"
+		  SID			  "4551::70"
 		  Position		  [20, 121, 40, 139]
-		  ZOrder		  57
+		  ZOrder		  61
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "4551::63"
+		  SID			  "4551::67"
 		  Tag			  "Stateflow S-Function torqueBalancingYoga 9"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  54
+		  ZOrder		  58
 		  FunctionName		  "sf_sfun"
 		  Parameters		  "Config"
 		  PortCounts		  "[1 2]"
@@ -18448,9 +19263,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "4551::65"
+		  SID			  "4551::69"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  56
+		  ZOrder		  60
 		}
 		Block {
 		  BlockType		  Outport
@@ -18462,7 +19277,7 @@ Model {
 		}
 		Line {
 		  Name			  "reflectedInertia"
-		  ZOrder		  45
+		  ZOrder		  49
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -18470,21 +19285,21 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  46
+		  ZOrder		  50
 		  SrcBlock		  " Ground "
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  47
+		  ZOrder		  51
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  48
+		  ZOrder		  52
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -18512,10 +19327,12 @@ Model {
 	      Position		      [30, 66, 140, 119]
 	      ZOrder		      894
 	      RequestExecContextInheritance off
+	      Variant		      off
 	      System {
 		Name			"Check the contribution of feedforward"
-		Location		[65, -4, 2560, 1440]
+		Location		[65, 24, 2560, 1440]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -18765,7 +19582,6 @@ Model {
 		  "tStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Versi"
 		  "on','2018a','Location',[385 262 2230 1233])"
 		  NumInputPorts		  "5"
-		  Floating		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -18869,7 +19685,6 @@ Model {
 		  "tStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Versi"
 		  "on','2018a','Location',[385 262 2230 1233])"
 		  NumInputPorts		  "5"
-		  Floating		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -18973,7 +19788,6 @@ Model {
 		  "tStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Versi"
 		  "on','2018a','Location',[385 262 2230 1233])"
 		  NumInputPorts		  "5"
-		  Floating		  off
 		}
 		Line {
 		  Name			  "right_leg"
@@ -19165,6 +19979,17 @@ Model {
 	      Value		      "Config.SCOPES_INERTIA"
 	    }
 	    Block {
+	      BlockType		      From
+	      Name		      "From"
+	      SID		      "4654"
+	      Position		      [-465, -155, -380, -145]
+	      ZOrder		      902
+	      ShowName		      off
+	      HideAutomaticName	      off
+	      GotoTag		      "qjDDot_des"
+	      TagVisibility	      "global"
+	    }
+	    Block {
 	      BlockType		      Gain
 	      Name		      "Gain"
 	      SID		      "4525"
@@ -19180,12 +20005,15 @@ Model {
 	      Name		      "Get Measurement"
 	      SID		      "4539"
 	      Ports		      [0, 1]
-	      Position		      [-360, -139, -270, -111]
+	      Position		      [-465, -109, -375, -91]
 	      ZOrder		      869
 	      BackgroundColor	      "[0.925500, 0.870600, 0.133300]"
+	      ShowName		      off
+	      HideAutomaticName	      off
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	      SourceType	      "Get Measurement"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	      measuredType	      "Joints Acceleration"
 	    }
@@ -19194,7 +20022,7 @@ Model {
 	      Name		      "Product"
 	      SID		      "4526"
 	      Ports		      [2, 1]
-	      Position		      [-165, -236, -125, -89]
+	      Position		      [-160, -239, -125, -86]
 	      ZOrder		      597
 	      Multiplication	      "Matrix(*)"
 	      InputSameDT	      off
@@ -19213,19 +20041,24 @@ Model {
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
+	      BlockType		      Switch
+	      Name		      "Switch1"
+	      SID		      "4650"
+	      Position		      [-260, -166, -195, -84]
+	      ZOrder		      896
+	      ShowName		      off
+	      HideAutomaticName	      off
+	      Criteria		      "u2 > Threshold"
+	      InputSameDT	      off
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
 	      BlockType		      Outport
 	      Name		      "tau_joints"
 	      SID		      "4522"
 	      Position		      [485, -57, 515, -43]
 	      ZOrder		      592
 	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      ZOrder		      48
-	      SrcBlock		      "Get Measurement"
-	      SrcPort		      1
-	      DstBlock		      "Product"
-	      DstPort		      2
 	    }
 	    Line {
 	      ZOrder		      6
@@ -19278,24 +20111,21 @@ Model {
 	      SrcPort		      1
 	      Points		      [145, 0]
 	      Branch {
-		ZOrder			63
+		ZOrder			62
+		Points			[0, -75]
 		DstBlock		"Add"
 		DstPort			2
 	      }
 	      Branch {
-		ZOrder			62
-		Points			[0, 75]
-		Branch {
-		  ZOrder		  94
-		  Points		  [0, 95]
-		  DstBlock		  "Check the contribution of feedforward"
-		  DstPort		  2
-		}
-		Branch {
-		  ZOrder		  93
-		  DstBlock		  "Switch"
-		  DstPort		  3
-		}
+		ZOrder			94
+		Points			[0, 95]
+		DstBlock		"Check the contribution of feedforward"
+		DstPort			2
+	      }
+	      Branch {
+		ZOrder			93
+		DstBlock		"Switch"
+		DstPort			3
 	      }
 	    }
 	    Line {
@@ -19312,6 +20142,34 @@ Model {
 	      Points		      [35, 0]
 	      DstBlock		      "Check the contribution of feedforward"
 	      DstPort		      enable
+	    }
+	    Line {
+	      ZOrder		      108
+	      SrcBlock		      " 1"
+	      SrcPort		      1
+	      DstBlock		      "Switch1"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      109
+	      SrcBlock		      "Switch1"
+	      SrcPort		      1
+	      DstBlock		      "Product"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      110
+	      SrcBlock		      "Get Measurement"
+	      SrcPort		      1
+	      DstBlock		      "Switch1"
+	      DstPort		      3
+	    }
+	    Line {
+	      ZOrder		      114
+	      SrcBlock		      "From"
+	      SrcPort		      1
+	      DstBlock		      "Switch1"
+	      DstPort		      1
 	    }
 	  }
 	}
@@ -19737,10 +20595,12 @@ Model {
       BackgroundColor	      "red"
       ShowName		      off
       RequestExecContextInheritance off
+      Variant		      off
       System {
 	Name			"emergency stop: joint limits"
 	Location		[65, -4, 2560, 1440]
 	Open			off
+	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -19787,6 +20647,7 @@ Model {
 	  LibraryVersion	  "1.649"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Limits"
 	  SourceType		  "Get Limits"
+	  SourceProductName	  "Whole Body Toolbox"
 	  ContentPreviewEnabled	  off
 	  limitsSource		  "ControlBoard"
 	  limitsType		  "Position"
@@ -19805,10 +20666,12 @@ Model {
 	  TreatAsAtomicUnit	  on
 	  RequestExecContextInheritance	off
 	  SFBlockType		  "MATLAB Function"
+	  Variant		  off
 	  System {
 	    Name		    "MATLAB Function"
 	    Location		    [121, 45, 868, 1245]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -19820,7 +20683,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "3755"
+	    SIDHighWatermark	    "3758"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "umin"
@@ -19859,20 +20722,20 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "2421::3754"
+	      SID		      "2421::3757"
 	      Ports		      [1, 1]
 	      Position		      [270, 230, 320, 270]
-	      ZOrder		      104
+	      ZOrder		      107
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "2421::3753"
+	      SID		      "2421::3756"
 	      Tag		      "Stateflow S-Function torqueBalancingYoga 18"
 	      Ports		      [4, 2]
 	      Position		      [180, 102, 230, 203]
-	      ZOrder		      103
+	      ZOrder		      106
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[4 2]"
 	      SFunctionDeploymentMode off
@@ -19886,9 +20749,9 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "2421::3755"
+	      SID		      "2421::3758"
 	      Position		      [460, 241, 480, 259]
-	      ZOrder		      105
+	      ZOrder		      108
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -19899,28 +20762,28 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      ZOrder		      134
+	      ZOrder		      141
 	      SrcBlock		      "umin"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      135
+	      ZOrder		      142
 	      SrcBlock		      "umax"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
-	      ZOrder		      136
+	      ZOrder		      143
 	      SrcBlock		      "u"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
 	    }
 	    Line {
-	      ZOrder		      137
+	      ZOrder		      144
 	      SrcBlock		      "tol"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -19928,7 +20791,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "inRange"
-	      ZOrder		      138
+	      ZOrder		      145
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -19936,14 +20799,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      139
+	      ZOrder		      146
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      140
+	      ZOrder		      147
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -20009,6 +20872,7 @@ Model {
       BackgroundColor	      "green"
       ShowName		      off
       RequestExecContextInheritance off
+      Variant		      off
       Object {
 	$PropName		"MaskObject"
 	$ObjectID		23
@@ -20019,6 +20883,7 @@ Model {
 	Name			"synchronizer"
 	Location		[65, 24, 2560, 1440]
 	Open			off
+	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -20038,10 +20903,12 @@ Model {
 	  Position		  [5, 15, 130, 75]
 	  ZOrder		  -7
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "GAZEBO_SYNCHRONIZER"
 	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -20073,7 +20940,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
-	      MultiThreadCoSim	      "auto"
+	      SourceProductName	      "Whole Body Toolbox"
 	      period		      "Config.Ts"
 	      serverPortName	      "'/clock/rpc'"
 	      clientPortName	      "'/WBT_synchronizer/rpc:o'"
@@ -20113,10 +20980,12 @@ Model {
 	  Position		  [-170, 12, -45, 72]
 	  ZOrder		  -9
 	  RequestExecContextInheritance	off
+	  Variant		  off
 	  System {
 	    Name		    "REAL_TIME_SYNC"
 	    Location		    [65, 24, 2560, 1440]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -20149,7 +21018,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
-	      MultiThreadCoSim	      "auto"
+	      SourceProductName	      "Whole Body Toolbox"
 	      period		      "Config.Ts"
 	    }
 	  }
@@ -20179,7 +21048,7 @@ Model {
 	  LibraryVersion	  "1.649"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Clock"
 	  SourceType		  "YARP Clock"
-	  MultiThreadCoSim	  "auto"
+	  SourceProductName	  "Whole Body Toolbox"
 	}
 	Line {
 	  ZOrder		  1
@@ -20223,10 +21092,12 @@ Model {
       ZOrder		      555
       BackgroundColor	      "orange"
       RequestExecContextInheritance off
+      Variant		      off
       System {
 	Name			"tauDot Saturation"
 	Location		[65, 24, 2560, 1440]
 	Open			off
+	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -20268,10 +21139,12 @@ Model {
 	  TreatAsAtomicUnit	  on
 	  RequestExecContextInheritance	off
 	  SFBlockType		  "MATLAB Function"
+	  Variant		  off
 	  System {
 	    Name		    "Saturate the Torque Derivative"
 	    Location		    [223, 338, 826, 833]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -20283,7 +21156,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "47"
+	    SIDHighWatermark	    "50"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u"
@@ -20304,20 +21177,20 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "4556::46"
+	      SID		      "4556::49"
 	      Ports		      [1, 1]
 	      Position		      [270, 230, 320, 270]
-	      ZOrder		      36
+	      ZOrder		      39
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "4556::45"
+	      SID		      "4556::48"
 	      Tag		      "Stateflow S-Function torqueBalancingYoga 11"
 	      Ports		      [2, 2]
 	      Position		      [180, 100, 230, 160]
-	      ZOrder		      35
+	      ZOrder		      38
 	      FunctionName	      "sf_sfun"
 	      Parameters	      "Config"
 	      PortCounts	      "[2 2]"
@@ -20332,9 +21205,9 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "4556::47"
+	      SID		      "4556::50"
 	      Position		      [460, 241, 480, 259]
-	      ZOrder		      37
+	      ZOrder		      40
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -20345,7 +21218,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      ZOrder		      60
+	      ZOrder		      65
 	      SrcBlock		      "u"
 	      SrcPort		      1
 	      Points		      [120, 0]
@@ -20353,7 +21226,7 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      61
+	      ZOrder		      66
 	      SrcBlock		      "u_0"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -20361,7 +21234,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "uSat"
-	      ZOrder		      62
+	      ZOrder		      67
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -20369,14 +21242,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      63
+	      ZOrder		      68
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      64
+	      ZOrder		      69
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -20405,6 +21278,7 @@ Model {
 	  LibraryVersion	  "1.649"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 	  SourceType		  "Holder"
+	  SourceProductName	  "Whole Body Toolbox"
 	  ContentPreviewEnabled	  off
 	}
 	Block {
@@ -20690,7 +21564,7 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000014
+#   Stateflow 80000012
 #
 #
 Stateflow {
@@ -20699,7 +21573,7 @@ Stateflow {
     name		    "torqueBalancingYoga"
     created		    "18-Feb-2014 10:14:40"
     isLibrary		    0
-    sfVersion		    80000010
+    sfVersion		    80000012
     firstTarget		    271
   }
   chart {

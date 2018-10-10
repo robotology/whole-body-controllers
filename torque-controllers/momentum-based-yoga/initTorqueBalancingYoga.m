@@ -15,7 +15,10 @@
 %  * Public License for more details
 %  */
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-clearvars -except sl_synch_handles
+
+% In the Simulink model, this script is run every time the user presses
+% the 'start' button.
+clearvars -except sl_synch_handles torqueBalGUI
 clc
 
 %% GENERAL SIMULATION INFO
@@ -100,4 +103,5 @@ elseif strcmpi(SM_TYPE, 'YOGA')
     run(demoSpecificParameters);
 end
 
+% Compute contact constraints (friction cone, unilateral constraints)
 [ConstraintsMatrix,bVectorConstraints] = constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,feet_size,fZmin);

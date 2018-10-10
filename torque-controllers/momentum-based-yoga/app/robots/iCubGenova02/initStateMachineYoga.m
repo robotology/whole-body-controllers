@@ -487,6 +487,11 @@ end
 % value between 0 and 1
 Config.K_ff  = 0;
 
+% Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA if true, the desired joints
+% accelerations are used for computing the feedforward term in joint
+% torques calculations. Not effective if Config.K_ff = 0.
+Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA = false;
+
 %% Constraints for QP for balancing
 
 % The friction cone is approximated by using linear interpolation of the circle. 
