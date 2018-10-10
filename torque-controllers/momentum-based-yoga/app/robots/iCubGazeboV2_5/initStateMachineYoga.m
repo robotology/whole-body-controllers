@@ -437,6 +437,16 @@ legsMotors_I_m           = 0.0827*1e-4;
 torsoPitchRollMotors_I_m = 0.0827*1e-4;
 torsoYawMotors_I_m       = 0.0585*1e-4;
 armsMotors_I_m           = 0.0585*1e-4;
+
+% add harmonic drives reflected inertia
+if Config.INCLUDE_HARMONIC_DRIVE_INERTIA
+   
+    legsMotors_I_m           = legsMotors_I_m + 0.054*1e-4;
+    torsoPitchRollMotors_I_m = torsoPitchRollMotors_I_m + 0.054*1e-4;
+    torsoYawMotors_I_m       = torsoYawMotors_I_m + 0.054*1e-4;
+    armsMotors_I_m           = armsMotors_I_m + 0.054*1e-4; 
+end
+ 
 Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  torsoYawMotors_I_m;
                                  armsMotors_I_m*ones(8,1);
