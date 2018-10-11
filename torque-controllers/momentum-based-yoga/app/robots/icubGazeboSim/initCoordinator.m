@@ -98,8 +98,8 @@ if Config.INCLUDE_HARMONIC_DRIVE_INERTIA
    
     legsMotors_I_m           = legsMotors_I_m + 0.054*1e-4;
     torsoPitchRollMotors_I_m = torsoPitchRollMotors_I_m + 0.054*1e-4;
-    torsoYawMotors_I_m       = torsoYawMotors_I_m + 0.054*1e-4;
-    armsMotors_I_m           = armsMotors_I_m + 0.054*1e-4; 
+    torsoYawMotors_I_m       = torsoYawMotors_I_m + 0.021*1e-4;
+    armsMotors_I_m           = armsMotors_I_m + 0.021*1e-4; 
 end
  
 Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
