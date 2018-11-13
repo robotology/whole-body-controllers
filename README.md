@@ -26,7 +26,7 @@ This repository depends upon the following Software/repositories:
   | iCubGazeboV2_5 |[model.urdf](https://github.com/robotology/icub-models/blob/master/iCub/robots/iCubGazeboV2_5/model.urdf)|
   | icubGazeboSim |[model.urdf](https://github.com/robotology/yarp-wholebodyinterface/blob/master/app/robots/icubGazeboSim/model.urdf) |
 
-- if all the required dependencies are correctly installed and configured, just clone this repository on your pc. No further actions are required. An alternative is to install this repository through the `robotology-superbuild`. It is required to enable the option `ROBOTOLOGY_ENABLE_DYNAMICS`. **Important:** it is necessary to set the 
+- if all the required dependencies are correctly installed and configured, just clone this repository on your pc. No further actions are required. An alternative is to install this repository through the `robotology-superbuild`. It is required to enable the option `ROBOTOLOGY_ENABLE_DYNAMICS`.
 
 ## Structure of the repo
 
@@ -67,7 +67,7 @@ There is the possibility to generate c++ code from the Simulink models using [Si
 
 ##### Legacy
 
-Official legacy repositories are: [mex-wholebodymodel](https://github.com/robotology/mex-wholebodymodel) and [](). **Note**: these legacy repos contain undocumented/outdated code, and duplicated or not tested matlab functions. However, they also contain original code that has been tested on the robot in the past and then never used, or code that will be ported in the main repository in a future release.
+Official legacy repositories are: [mex-wholebodymodel](https://github.com/robotology/mex-wholebodymodel) and [WBI-Toolbox-controllers](https://github.com/robotology-playground/WBI-Toolbox-controllers). **Note**: these legacy repos contain undocumented/outdated code, and duplicated or not tested matlab functions. However, they also contain original code that has been tested on the robot in the past and then never used, or code that will be ported in the main repository in a future release.
 
 - [seesaw controller and integration-based-ikin](https://github.com/gabrielenava/whole-body-controllers/tree/legacy)
 - [automatic gain tuning](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingGainTuning)
