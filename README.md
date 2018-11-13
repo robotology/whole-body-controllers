@@ -63,21 +63,21 @@ There is the possibility to generate c++ code from the Simulink models using [Si
 
 - [force-parametrization](https://github.com/ahmadgazar/whole-body-controllers)
 - [PhRI-standup](https://github.com/Yeshasvitvs/wholeBodyControllers)
-- [exploit friction and walking controller](https://github.com/gabrielenava/whole-body-controllers)
 
 ##### Legacy
 
-Official legacy repositories are: [mex-wholebodymodel](https://github.com/robotology/mex-wholebodymodel) and [WBI-Toolbox-controllers](https://github.com/robotology-playground/WBI-Toolbox-controllers). **Note**: these legacy repos contain undocumented/outdated code, and duplicated or not tested matlab functions. However, they also contain original code that has been tested on the robot in the past and then never used, or code that will be ported in the main repository in a future release.
+Official legacy repositories are: [mex-wholebodymodel](https://github.com/robotology/mex-wholebodymodel) and [WBI-Toolbox-controllers](https://github.com/robotology-playground/WBI-Toolbox-controllers). **Note**: these legacy repos contain undocumented/outdated code, and duplicated or not tested matlab functions. They also contain original code that has been tested on the robot in the past and then never used again, or code that will be ported in the main repository in the future.
 
-- [seesaw controller and integration-based-ikin](https://github.com/gabrielenava/whole-body-controllers/tree/legacy)
+- [exploit friction and walking controller](https://github.com/robotology-playground/WBI-Toolbox-controllers/tree/whole-body-controllers-legacy/controllers/legacy)
+- [seesaw controller and integration-based-ikin](https://github.com/robotology-playground/WBI-Toolbox-controllers/tree/whole-body-controllers-legacy/controllers/legacy)
 - [automatic gain tuning](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingGainTuning)
 - [elastic joints control](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancing_JE)
-- Walkman control: https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingWalkman and https://github.com/gabrielenava/WBI-Toolbox-controllers/tree/walkman
+- Walkman control: https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingWalkman and https://github.com/robotology-playground/WBI-Toolbox-controllers/tree/whole-body-controllers-legacy/controllers/legacy/torqueBalancing-walkman
 - [joint-space control and centroidal transformation](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingJointControl)
 
 #### Associated repositories
 
-- [idyntree-high-level-wrappers](https://github.com/gabrielenava/idyntree-high-level-wrappers)
+- [matlab-multi-body-sim](https://github.com/gabrielenava/matlab-multi-body-sim)
 
 ### Mantainers
 
