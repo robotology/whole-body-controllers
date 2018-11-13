@@ -36,7 +36,7 @@ This repository depends upon the following Software/repositories:
 
 - **doc**: guidelines on how to create/use Simulink models for control. [[README]](doc/README.md)
 
-- **legacy**: legacy version of all Simulink models in the repo, written in the lowest supported matlab version (R2014a). [[README]](legacy/README.md)
+- **legacy**: legacy version of all the models in this repo, in the lowest supported matlab version (R2014a). [[README]](legacy/README.md)
 
 - **library**: a library of functions/scripts used by the controllers. [[README]](library/README.md)
 
@@ -67,11 +67,13 @@ There is the possibility to generate c++ code from the Simulink models using [Si
 
 ##### Legacy
 
+Official legacy repositories are: [mex-wholebodymodel](https://github.com/robotology/mex-wholebodymodel) and [](). **Note**: these legacy repos contain undocumented/outdated code, and duplicated or not tested matlab functions. However, they also contain original code that has been tested on the robot in the past and then never used, or code that will be ported in the main repository in a future release.
+
 - [seesaw controller and integration-based-ikin](https://github.com/gabrielenava/whole-body-controllers/tree/legacy)
-- [automatic gain tuning](https://github.com/gabrielenava/mex-wholebodymodel/tree/master/controllers/torqueBalancingGainTuning)
-- [elastic joints control](https://github.com/gabrielenava/mex-wholebodymodel/tree/master/controllers/torqueBalancing_JE)
-- Walkman control: https://github.com/gabrielenava/mex-wholebodymodel/tree/master/controllers/torqueBalancingWalkman and https://github.com/gabrielenava/WBI-Toolbox-controllers/tree/walkman
-- [joint-space control and centroidal transformation](https://github.com/gabrielenava/mex-wholebodymodel/tree/master/controllers/torqueBalancingJointControl)
+- [automatic gain tuning](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingGainTuning)
+- [elastic joints control](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancing_JE)
+- Walkman control: https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingWalkman and https://github.com/gabrielenava/WBI-Toolbox-controllers/tree/walkman
+- [joint-space control and centroidal transformation](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingJointControl)
 
 #### Associated repositories
 
