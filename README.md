@@ -72,7 +72,7 @@ Official legacy repositories are: [mex-wholebodymodel](https://github.com/roboto
 - [seesaw controller and integration-based-ikin](https://github.com/robotology-playground/WBI-Toolbox-controllers/tree/whole-body-controllers-legacy/controllers/legacy)
 - [automatic gain tuning](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingGainTuning)
 - [elastic joints control](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancing_JE)
-- Walkman control: https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingWalkman and https://github.com/robotology-playground/WBI-Toolbox-controllers/tree/whole-body-controllers-legacy/controllers/legacy/torqueBalancing-walkman
+- [walkman control](https://github.com/robotology-playground/WBI-Toolbox-controllers/tree/whole-body-controllers-legacy/controllers/legacy/torqueBalancing-walkman) and [walkman control-matlab](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingWalkman)
 - [joint-space control and centroidal transformation](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingJointControl)
 
 #### Associated repositories
