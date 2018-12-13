@@ -17,12 +17,13 @@ open_system('torqueBalancingYoga.mdl','loadonly');
 
 % add message to tell the user that the model has been opened correctly
 disp('[startModel]: model loaded correctly')
+disp('[startModel]: the "Start Model" button is enabled only after compiling the model.')
 
 % add warning to warn the user NOT to close the GUI 
-warning('DO NOT CLOSE the GUI. The model won''t be closed! Use "Close Model" instead.')
+warning('DO NOT CLOSE the GUI. The model won''t be closed! Use "Close Model" button instead.')
 
 % check if the GUI is correctly opened
 if ~exist('sl_synch_handles', 'var')
     
-    error('The GUI did not load correctly. Run "closeModel.m" or restart Matlab')
+    error('The GUI did not load correctly, or it is already opened. Close the GUI, run "closeModel.m" or restart Matlab')
 end

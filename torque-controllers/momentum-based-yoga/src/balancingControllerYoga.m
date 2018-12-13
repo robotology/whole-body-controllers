@@ -1,7 +1,3 @@
-% BALANCINGCONTROLLERYOGA momentum-based balancing controller.
-%
-
-%% --- Initialization ---
 function [tauModel, Sigma, NA, f_LDot, ...
           HessianMatrixQP1Foot, gradientQP1Foot, ConstraintsMatrixQP1Foot, bVectorConstraintsQp1Foot, ...
           HessianMatrixQP2Feet, gradientQP2Feet, ConstraintsMatrixQP2Feet, bVectorConstraintsQp2Feet, ...
@@ -9,7 +5,11 @@ function [tauModel, Sigma, NA, f_LDot, ...
               balancingControllerYoga(constraints, ROBOT_DOF_FOR_SIMULINK, ConstraintsMatrix, bVectorConstraints, ...
                                       qj, qjDes, nu, M, h, L, intLw, w_H_l_sole, w_H_r_sole, JL, JR, dJL_nu, dJR_nu, xCoM, J_CoM, desired_x_dx_ddx_CoM, ...
                                       gainsPCOM, gainsDCOM, impedances, Reg, Gain)
-    %BALANCING CONTROLLER
+    
+    % BALANCINGCONTROLLERYOGA momentum-based balancing controller.
+    %
+
+    %% --- Initialization ---
 
     %% DEFINITION OF CONTROL AND DYNAMIC VARIABLES
     pos_leftFoot   = w_H_l_sole(1:3,4);

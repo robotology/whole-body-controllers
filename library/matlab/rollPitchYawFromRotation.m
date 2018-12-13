@@ -1,22 +1,23 @@
-% ROLLPITCHYAWFROMROTATION converts a rotation matrix into Euler angles
-%                          (roll-pitch-yaw convention).
-%
-% FORMAT: rollPitchYaw = rollPitchYawFromRotation(R)     
-%
-% INPUT:  - R = [3 * 3] rotation matrix
-%
-% OUTPUT: - rollPitchYaw = [3 * 1] vector of Euler angles [rad]
-%
-% Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
-%          
-%          all authors are with the Italian Istitute of Technology (IIT)
-%          email: name.surname@iit.it
-%
-% Genoa, Dec 2017
-%
-
-%% --- Initialization ---
 function rollPitchYaw = rollPitchYawFromRotation(R)
+
+    % ROLLPITCHYAWFROMROTATION converts a rotation matrix into Euler angles
+    %                          (roll-pitch-yaw convention).
+    %
+    % FORMAT: rollPitchYaw = rollPitchYawFromRotation(R)     
+    %
+    % INPUT:  - R = [3 * 3] rotation matrix
+    %
+    % OUTPUT: - rollPitchYaw = [3 * 1] vector of Euler angles [rad]
+    %
+    % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
+    %          
+    %          all authors are with the Italian Istitute of Technology (IIT)
+    %          email: name.surname@iit.it
+    %
+    % Genoa, Dec 2017
+    %
+
+    %% --- Initialization ---
 
     % For documentation, see also:
     %
@@ -35,7 +36,7 @@ function rollPitchYaw = rollPitchYawFromRotation(R)
             rollPitchYaw(1) = 0;
         end
     else
-        rollPitchYaw(3)  = atan2(-R(2,3),R(2,2));
-        rollPitchYaw(1)  = 0;
+        rollPitchYaw(3) = atan2(-R(2,3),R(2,2));
+        rollPitchYaw(1) = 0;
     end
 end

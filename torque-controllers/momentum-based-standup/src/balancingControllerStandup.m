@@ -1,7 +1,3 @@
-% BALANCINGCONTROLLERSTANDUP momentum-based balancing controller.
-%
-
-%% --- Initialization ---
 function [tauModel, Sigma, NA, f_LDot, ...
           HessianMatrixQP1Foot, gradientQP1Foot, ConstraintsMatrixQP1Foot, bVectorConstraintsQp1Foot, ...
           HessianMatrixQP2FeetOrLegs, gradientQP2FeetOrLegs, ConstraintsMatrixQP2FeetOrLegs, bVectorConstraintsQp2FeetOrLegs, ...
@@ -10,7 +6,10 @@ function [tauModel, Sigma, NA, f_LDot, ...
                                          qj, qjDes, nu, M, h, L, intLw, w_H_l_contact, w_H_r_contact, JL, JR, dJL_nu, dJR_nu, xCoM, J_CoM, desired_x_dx_ddx_CoM, ...
                                          gainsPCOM, gainsDCOM, impedances, Reg, Gain, w_H_lArm, w_H_rArm, LArmWrench, RArmWrench, STANDUP_WITH_HUMAN, state)
        
-    % BALANCING CONTROLLER
+    % BALANCINGCONTROLLERSTANDUP momentum-based balancing controller.
+    %
+
+    %% --- Initialization ---
 
     %% DEFINITION OF CONTROL AND DYNAMIC VARIABLES
     pos_leftContact    = w_H_l_contact(1:3,4);

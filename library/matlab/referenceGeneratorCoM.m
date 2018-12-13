@@ -1,28 +1,29 @@
-% REFERENCEGENERATORCOM computes a CoM reference trajectory. Default trajectory is
-%                       a sine function.
-%
-% USAGE: please note that this function has been designed for being inserted 
-%        in a Simulink model.
-%
-% FORMAT: references_CoM = referenceGeneratorCoM(pos_CoM_0, t, Config)
-%
-% INPUT:  - pos_CoM_0 = [3 * 1] initial CoM position
-%         - t = simulation time
-%         - Config = user defined configuration
-%
-%
-% OUTPUT: - references_CoM = [9 * 1] desired CoM position, velocity and acceleration
-%
-% Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
-%          
-%          all authors are with the Italian Istitute of Technology (IIT)
-%          email: name.surname@iit.it
-%
-% Genoa, Dec 2017
-%
-
-%% --- Initialization ---
 function references_CoM = referenceGeneratorCoM(pos_CoM_0, t, Config)
+
+    % REFERENCEGENERATORCOM computes a CoM reference trajectory. Default trajectory is
+    %                       a sine function.
+    %
+    % USAGE: please note that this function has been designed for being inserted 
+    %        in a Simulink model.
+    %
+    % FORMAT: references_CoM = referenceGeneratorCoM(pos_CoM_0, t, Config)
+    %
+    % INPUT:  - pos_CoM_0 = [3 * 1] initial CoM position
+    %         - t = simulation time
+    %         - Config = user defined configuration
+    %
+    %
+    % OUTPUT: - references_CoM = [9 * 1] desired CoM position, velocity and acceleration
+    %
+    % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
+    %          
+    %          all authors are with the Italian Istitute of Technology (IIT)
+    %          email: name.surname@iit.it
+    %
+    % Genoa, Dec 2017
+    %
+
+    %% --- Initialization ---
     
     pos_CoM_des = pos_CoM_0;
     vel_CoM_des = zeros(3,1);

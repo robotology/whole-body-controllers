@@ -71,14 +71,15 @@ Config.SAVE_WORKSPACE         = false;
 % If CHECK_INTEGRATION_TIME = True, after stopping the simulation the
 % Simulink time is compared with the Yarp time to check if the desired
 % integration time step is respected
-Config.CHECK_INTEGRATION_TIME = false;
+Config.CHECK_INTEGRATION_TIME = true;
+Config.PLOT_INTEGRATION_TIME  = false;
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONFIGURATIONS COMPLETED: loading gains and parameters for the specific robot
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Controller period [s]
-Config.Ts              = 0.01; 
+Config.Ts = 0.01; 
 
 addpath('./src/')
 addpath('../../library/matlab');

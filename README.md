@@ -6,9 +6,9 @@ A collection of Matlab/Simulink whole body controllers for humanoid robots.
 
 This repository depends upon the following Software/repositories:
 
-- [Matlab/Simulink](https://it.mathworks.com/products/matlab.html), at least version **R2014a** (default: **R2017b**)
+- [Matlab/Simulink](https://it.mathworks.com/products/matlab.html), default version **R2017b**
 - [WB-Toolbox](https://github.com/robotology/WB-Toolbox)
-- [Gazebo Simulator](http://gazebosim.org/), at least version **7.8**
+- [Gazebo Simulator](http://gazebosim.org/), default version **9.0**
 - [gazebo-yarp-plugins](https://github.com/robotology/gazebo-yarp-plugins)
 - [icub-gazebo](https://github.com/robotology/icub-gazebo) and [icub-gazebo-wholebody](https://github.com/robotology-playground/icub-gazebo-wholebody) to access iCub models.
 - [codyco-modules](https://github.com/robotology/codyco-modules) (Optional, for using [home positions](https://github.com/robotology/codyco-modules/tree/master/src/modules/torqueBalancing/app/robots) and [wholeBodyDynamics](https://github.com/robotology/codyco-modules/tree/master/src/devices/wholeBodyDynamics) device).
@@ -35,8 +35,6 @@ This repository depends upon the following Software/repositories:
 - **torque-controllers**: Simulink torque controllers for balancing and walking of humanoid robots. [[README]](torque-controllers/README.md)
 
 - **doc**: guidelines on how to create/use Simulink models for control. [[README]](doc/README.md)
-
-- **legacy**: legacy version of all the models in this repo, in the lowest supported matlab version (R2014a). [[README]](legacy/README.md)
 
 - **library**: a library of functions/scripts used by the controllers. [[README]](library/README.md)
 

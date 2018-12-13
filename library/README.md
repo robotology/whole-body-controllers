@@ -1,5 +1,11 @@
 # Library
 
-- A collection of functions/scripts used by the controllers. Only Matlab Functions are available for the moment.
+## Matlab
+
+- A collection of utlity functions/scripts used by the controllers.
+
+## Matlab-gui
+
+- A static GUI for starting/closing the Simulink models without the need of opening them.
 
 

@@ -1,28 +1,29 @@
-% WORLDTOBASETRANSFORMWITHIMU calculates the world-to-base transformation
-%                             matrix using IMU orientation.
-%
-% FORMAT: w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base,inertial_0,inertial,neck_pos,Config)    
-%
-% INPUT:  - imu_H_link = [4 * 4] imu to fixed link transform
-%         - imu_H_link_0 = [4 * 4] imu to fixed link transform at 0
-%         - link_H_base = [4 * 4] fixed link to base transform
-%         - inertial_0 = IMU orientation, velocity, acceleration at 0
-%         - inertial = IMU orientation, velocity, acceleration
-%         - neck_pos = [3 * 1] neck position
-%         - Config = user defined parameters
-%
-% OUTPUT: - w_H_b = [4 * 4] world to base transform
-%
-% Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
-%          
-%          all authors are with the Italian Istitute of Technology (IIT)
-%          email: name.surname@iit.it
-%
-% Genoa, Dec 2017
-%
-
-%% --- Initialization ---
 function w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base,inertial_0,inertial,neck_pos,Config)
+
+    % WORLDTOBASETRANSFORMWITHIMU calculates the world-to-base transformation
+    %                             matrix using IMU orientation.
+    %
+    % FORMAT: w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base,inertial_0,inertial,neck_pos,Config)    
+    %
+    % INPUT:  - imu_H_link = [4 * 4] imu to fixed link transform
+    %         - imu_H_link_0 = [4 * 4] imu to fixed link transform at 0
+    %         - link_H_base = [4 * 4] fixed link to base transform
+    %         - inertial_0 = IMU orientation, velocity, acceleration at 0
+    %         - inertial = IMU orientation, velocity, acceleration
+    %         - neck_pos = [3 * 1] neck position
+    %         - Config = user defined parameters
+    %
+    % OUTPUT: - w_H_b = [4 * 4] world to base transform
+    %
+    % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
+    %          
+    %          all authors are with the Italian Istitute of Technology (IIT)
+    %          email: name.surname@iit.it
+    %
+    % Genoa, Dec 2017
+    %
+
+    %% --- Initialization ---
 
     % Converting the inertial values from grad into rad
     inertial        = (inertial   * pi)/180;

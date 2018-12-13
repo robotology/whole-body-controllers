@@ -46,37 +46,38 @@ Config.SIMULATION_TIME = inf;
 %
 %                app/robots/YARP_ROBOT_NAME/initCoordinator.m
 % 
-SM_TYPE                      = 'STANDUP';
+SM_TYPE                       = 'STANDUP';
 
 % Config.SCOPES: if set to true, all visualizers for debugging are active
-Config.SCOPES_ALL            = true;
+Config.SCOPES_ALL             = true;
 
 % You can also activate only some specific debugging scopes
-Config.SCOPES_EXT_WRENCHES   = false;
-Config.SCOPES_GAIN_SCHE_INFO = false;
-Config.SCOPES_MAIN           = false;
-Config.SCOPES_QP             = false;
-Config.SCOPES_INERTIA        = true;
+Config.SCOPES_EXT_WRENCHES    = false;
+Config.SCOPES_GAIN_SCHE_INFO  = false;
+Config.SCOPES_MAIN            = false;
+Config.SCOPES_QP              = false;
+Config.SCOPES_INERTIA         = true;
 
 % Config.CHECK_LIMITS: if set to true, the controller will stop as soon as 
 % any of the joint limit is touched. 
-Config.CHECK_LIMITS          = false;
+Config.CHECK_LIMITS           = false;
 
 % If Config.SAVE_WORKSPACE = True, every time the simulink model is run the
 % workspace is saved after stopping the simulation
-Config.SAVE_WORKSPACE        = false;
+Config.SAVE_WORKSPACE         = false;
 
 % If CHECK_INTEGRATION_TIME = True, after stopping the simulation the
 % Simulink time is compared with the Yarp time to check if the desired
 % integration time step is respected
-Config.CHECK_INTEGRATION_TIME = false;
+Config.CHECK_INTEGRATION_TIME = true;
+Config.PLOT_INTEGRATION_TIME  = false;
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONFIGURATIONS COMPLETED: loading gains and parameters for the specific robot
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Controller period [s]
-Config.Ts              = 0.01; 
+Config.Ts = 0.01; 
 
 addpath('./src/')
 addpath('../../library/matlab');
@@ -110,4 +111,3 @@ end
 [ConstraintsMatrixFeet,bVectorConstraintsFeet] = constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,feet_size,fZmin);
 % legs constraints
 [ConstraintsMatrixLegs,bVectorConstraintsLegs] = constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,leg_size,fZmin);
-

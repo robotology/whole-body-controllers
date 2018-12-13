@@ -1,29 +1,30 @@
-% CONSTRAINTS computes the constraint matrix and bias vector for applying
-%             friction cones and unilateral constraints at contact locations.
-%                                        
-% FORMAT: [ConstraintsMatrix, bVectorConstraints] = constraints ...
-%             (staticFrictionCoefficient, numberOfPoints, torsionalFrictionCoefficient, footSize, fZmin)
-%
-% INPUT:   - staticFrictionCoefficient = static linear coefficient of friction
-%          - numberOfPoints = number of points in each quadrants for
-%                             linearizing friction cone
-%          - torsionalFrictionCoefficient =  torsional coefficient of friction
-%          - footSize = physical size of the foot
-%          - fZmin = minimal positive vertical force at contact
-%
-% OUTPUT:  - ConstraintsMatrix = constraint matrix
-%          - bVectorConstraints = bias vector constraints
-%
-% Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
-%          
-%          all authors are with the Italian Istitute of Technology (IIT)
-%          email: name.surname@iit.it
-%
-% Genoa, Dec 2017
-%
-
-%% --- Initialization ---
 function [ConstraintsMatrix, bVectorConstraints] = constraints(staticFrictionCoefficient, numberOfPoints, torsionalFrictionCoefficient, footSize, fZmin)
+
+    % CONSTRAINTS computes the constraint matrix and bias vector for applying
+    %             friction cones and unilateral constraints at contact locations.
+    %                                        
+    % FORMAT: [ConstraintsMatrix, bVectorConstraints] = constraints ...
+    %             (staticFrictionCoefficient, numberOfPoints, torsionalFrictionCoefficient, footSize, fZmin)
+    %
+    % INPUT:   - staticFrictionCoefficient = static linear coefficient of friction
+    %          - numberOfPoints = number of points in each quadrants for
+    %                             linearizing friction cone
+    %          - torsionalFrictionCoefficient =  torsional coefficient of friction
+    %          - footSize = physical size of the foot
+    %          - fZmin = minimal positive vertical force at contact
+    %
+    % OUTPUT:  - ConstraintsMatrix = constraint matrix
+    %          - bVectorConstraints = bias vector constraints
+    %
+    % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
+    %          
+    %          all authors are with the Italian Istitute of Technology (IIT)
+    %          email: name.surname@iit.it
+    %
+    % Genoa, Dec 2017
+    %
+
+    %% --- Initialization ---
     
     % Compute friction cones contraints approximation with straight lines
 
