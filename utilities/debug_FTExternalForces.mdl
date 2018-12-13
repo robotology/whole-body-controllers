@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.40"
+    ComputedModelVersion    "1.41"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -148,9 +148,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Dec 13 11:44:44 2018"
-  RTWModifiedTimeStamp	  466602284
-  ModelVersionFormat	  "1.%<AutoIncrement:40>"
+  LastModifiedDate	  "Thu Dec 13 19:46:51 2018"
+  RTWModifiedTimeStamp	  466631211
+  ModelVersionFormat	  "1.%<AutoIncrement:41>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -1264,7 +1264,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"39"
+	SIDHighWatermark	"42"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1276,20 +1276,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "43::38"
+	  SID			  "43::41"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  29
+	  ZOrder		  32
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "43::37"
+	  SID			  "43::40"
 	  Tag			  "Stateflow S-Function debug_FTExternalForces 2"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  28
+	  ZOrder		  31
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1303,14 +1303,125 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "43::39"
+	  SID			  "43::42"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  30
+	  ZOrder		  33
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "y"
 	  SID			  "43::5"
+	  Position		  [460, 101, 480, 119]
+	  ZOrder		  -5
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  ZOrder		  33
+	  SrcBlock		  "u"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "y"
+	  ZOrder		  34
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "y"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  35
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  36
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "MATLAB Function1"
+      SID		      "44"
+      Ports		      [1, 1]
+      Position		      [-905, 432, -835, 478]
+      ZOrder		      546
+      ErrorFcn		      "Stateflow.Translate.translate"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      RequestExecContextInheritance off
+      SFBlockType	      "MATLAB Function"
+      System {
+	Name			"MATLAB Function1"
+	Location		[223, 338, 826, 833]
+	Open			off
+	PortBlocksUseCompactNotation off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"42"
+	Block {
+	  BlockType		  Inport
+	  Name			  "u"
+	  SID			  "44::1"
+	  Position		  [20, 101, 40, 119]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "44::41"
+	  Ports			  [1, 1]
+	  Position		  [270, 230, 320, 270]
+	  ZOrder		  32
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  " SFunction "
+	  SID			  "44::40"
+	  Tag			  "Stateflow S-Function debug_FTExternalForces 1"
+	  Ports			  [1, 2]
+	  Position		  [180, 100, 230, 160]
+	  ZOrder		  31
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[1 2]"
+	  SFunctionDeploymentMode off
+	  EnableBusSupport	  off
+	  SFcnIsStateOwnerBlock	  off
+	  Port {
+	    PortNumber		    2
+	    Name		    "y"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "44::42"
+	  Position		  [460, 241, 480, 259]
+	  ZOrder		  33
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "y"
+	  SID			  "44::5"
 	  Position		  [460, 101, 480, 119]
 	  ZOrder		  -5
 	  IconDisplay		  "Port number"
@@ -1349,117 +1460,6 @@ Model {
     }
     Block {
       BlockType		      SubSystem
-      Name		      "MATLAB Function1"
-      SID		      "44"
-      Ports		      [1, 1]
-      Position		      [-905, 432, -835, 478]
-      ZOrder		      546
-      ErrorFcn		      "Stateflow.Translate.translate"
-      PermitHierarchicalResolution "ExplicitOnly"
-      TreatAsAtomicUnit	      on
-      RequestExecContextInheritance off
-      SFBlockType	      "MATLAB Function"
-      System {
-	Name			"MATLAB Function1"
-	Location		[223, 338, 826, 833]
-	Open			off
-	PortBlocksUseCompactNotation off
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SIDHighWatermark	"39"
-	Block {
-	  BlockType		  Inport
-	  Name			  "u"
-	  SID			  "44::1"
-	  Position		  [20, 101, 40, 119]
-	  ZOrder		  -1
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Demux
-	  Name			  " Demux "
-	  SID			  "44::38"
-	  Ports			  [1, 1]
-	  Position		  [270, 230, 320, 270]
-	  ZOrder		  29
-	  Outputs		  "1"
-	}
-	Block {
-	  BlockType		  S-Function
-	  Name			  " SFunction "
-	  SID			  "44::37"
-	  Tag			  "Stateflow S-Function debug_FTExternalForces 1"
-	  Ports			  [1, 2]
-	  Position		  [180, 100, 230, 160]
-	  ZOrder		  28
-	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[1 2]"
-	  SFunctionDeploymentMode off
-	  EnableBusSupport	  off
-	  SFcnIsStateOwnerBlock	  off
-	  Port {
-	    PortNumber		    2
-	    Name		    "y"
-	  }
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  " Terminator "
-	  SID			  "44::39"
-	  Position		  [460, 241, 480, 259]
-	  ZOrder		  30
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "y"
-	  SID			  "44::5"
-	  Position		  [460, 101, 480, 119]
-	  ZOrder		  -5
-	  IconDisplay		  "Port number"
-	}
-	Line {
-	  ZOrder		  25
-	  SrcBlock		  "u"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "y"
-	  ZOrder		  26
-	  Labels		  [0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  2
-	  DstBlock		  "y"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  27
-	  SrcBlock		  " Demux "
-	  SrcPort		  1
-	  DstBlock		  " Terminator "
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  28
-	  SrcBlock		  " SFunction "
-	  SrcPort		  1
-	  DstBlock		  " Demux "
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
       Name		      "MATLAB Function2"
       SID		      "45"
       Ports		      [1, 1]
@@ -1486,7 +1486,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"39"
+	SIDHighWatermark	"42"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1498,20 +1498,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "45::38"
+	  SID			  "45::41"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  29
+	  ZOrder		  32
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "45::37"
+	  SID			  "45::40"
 	  Tag			  "Stateflow S-Function debug_FTExternalForces 3"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  28
+	  ZOrder		  31
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1525,9 +1525,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "45::39"
+	  SID			  "45::42"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  30
+	  ZOrder		  33
 	}
 	Block {
 	  BlockType		  Outport
@@ -1538,7 +1538,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  25
+	  ZOrder		  29
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1546,7 +1546,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  26
+	  ZOrder		  30
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1554,14 +1554,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  27
+	  ZOrder		  31
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  28
+	  ZOrder		  32
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1597,7 +1597,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"39"
+	SIDHighWatermark	"42"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1609,20 +1609,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "46::38"
+	  SID			  "46::41"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  29
+	  ZOrder		  32
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "46::37"
+	  SID			  "46::40"
 	  Tag			  "Stateflow S-Function debug_FTExternalForces 4"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  28
+	  ZOrder		  31
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1636,9 +1636,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "46::39"
+	  SID			  "46::42"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  30
+	  ZOrder		  33
 	}
 	Block {
 	  BlockType		  Outport
@@ -1649,7 +1649,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  25
+	  ZOrder		  29
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1657,7 +1657,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  26
+	  ZOrder		  30
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1665,14 +1665,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  27
+	  ZOrder		  31
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  28
+	  ZOrder		  32
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1708,7 +1708,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"39"
+	SIDHighWatermark	"42"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1720,20 +1720,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "47::38"
+	  SID			  "47::41"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  29
+	  ZOrder		  32
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "47::37"
+	  SID			  "47::40"
 	  Tag			  "Stateflow S-Function debug_FTExternalForces 5"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  28
+	  ZOrder		  31
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1747,9 +1747,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "47::39"
+	  SID			  "47::42"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  30
+	  ZOrder		  33
 	}
 	Block {
 	  BlockType		  Outport
@@ -1760,7 +1760,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  25
+	  ZOrder		  29
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1768,7 +1768,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  26
+	  ZOrder		  30
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1776,14 +1776,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  27
+	  ZOrder		  31
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  28
+	  ZOrder		  32
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1819,7 +1819,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"39"
+	SIDHighWatermark	"42"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1831,20 +1831,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "48::38"
+	  SID			  "48::41"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  29
+	  ZOrder		  32
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "48::37"
+	  SID			  "48::40"
 	  Tag			  "Stateflow S-Function debug_FTExternalForces 6"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  28
+	  ZOrder		  31
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1858,9 +1858,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "48::39"
+	  SID			  "48::42"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  30
+	  ZOrder		  33
 	}
 	Block {
 	  BlockType		  Outport
@@ -1871,7 +1871,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  25
+	  ZOrder		  29
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1879,7 +1879,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  26
+	  ZOrder		  30
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1887,14 +1887,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  27
+	  ZOrder		  31
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  28
+	  ZOrder		  32
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "

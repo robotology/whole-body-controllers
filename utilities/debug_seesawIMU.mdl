@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.40"
+    ComputedModelVersion    "1.41"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -117,9 +117,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Dec 13 11:44:45 2018"
-  RTWModifiedTimeStamp	  466602285
-  ModelVersionFormat	  "1.%<AutoIncrement:40>"
+  LastModifiedDate	  "Thu Dec 13 19:46:52 2018"
+  RTWModifiedTimeStamp	  466631212
+  ModelVersionFormat	  "1.%<AutoIncrement:41>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -1151,7 +1151,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"51"
+	SIDHighWatermark	"54"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1163,20 +1163,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "5::50"
+	  SID			  "5::53"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  41
+	  ZOrder		  44
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "5::49"
+	  SID			  "5::52"
 	  Tag			  "Stateflow S-Function debug_seesawIMU 2"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  40
+	  ZOrder		  43
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1190,14 +1190,125 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "5::51"
+	  SID			  "5::54"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  42
+	  ZOrder		  45
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "y"
 	  SID			  "5::5"
+	  Position		  [460, 101, 480, 119]
+	  ZOrder		  -5
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  ZOrder		  49
+	  SrcBlock		  "u"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "y"
+	  ZOrder		  50
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "y"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  51
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  52
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "MATLAB Function1"
+      SID		      "9"
+      Ports		      [1, 1]
+      Position		      [430, 412, 500, 458]
+      ZOrder		      520
+      ErrorFcn		      "Stateflow.Translate.translate"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      RequestExecContextInheritance off
+      SFBlockType	      "MATLAB Function"
+      System {
+	Name			"MATLAB Function1"
+	Location		[223, 338, 826, 833]
+	Open			off
+	PortBlocksUseCompactNotation off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"54"
+	Block {
+	  BlockType		  Inport
+	  Name			  "u"
+	  SID			  "9::1"
+	  Position		  [20, 101, 40, 119]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "9::53"
+	  Ports			  [1, 1]
+	  Position		  [270, 230, 320, 270]
+	  ZOrder		  44
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  " SFunction "
+	  SID			  "9::52"
+	  Tag			  "Stateflow S-Function debug_seesawIMU 1"
+	  Ports			  [1, 2]
+	  Position		  [180, 100, 230, 160]
+	  ZOrder		  43
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[1 2]"
+	  SFunctionDeploymentMode off
+	  EnableBusSupport	  off
+	  SFcnIsStateOwnerBlock	  off
+	  Port {
+	    PortNumber		    2
+	    Name		    "y"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "9::54"
+	  Position		  [460, 241, 480, 259]
+	  ZOrder		  45
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "y"
+	  SID			  "9::5"
 	  Position		  [460, 101, 480, 119]
 	  ZOrder		  -5
 	  IconDisplay		  "Port number"
@@ -1236,117 +1347,6 @@ Model {
     }
     Block {
       BlockType		      SubSystem
-      Name		      "MATLAB Function1"
-      SID		      "9"
-      Ports		      [1, 1]
-      Position		      [430, 412, 500, 458]
-      ZOrder		      520
-      ErrorFcn		      "Stateflow.Translate.translate"
-      PermitHierarchicalResolution "ExplicitOnly"
-      TreatAsAtomicUnit	      on
-      RequestExecContextInheritance off
-      SFBlockType	      "MATLAB Function"
-      System {
-	Name			"MATLAB Function1"
-	Location		[223, 338, 826, 833]
-	Open			off
-	PortBlocksUseCompactNotation off
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SIDHighWatermark	"51"
-	Block {
-	  BlockType		  Inport
-	  Name			  "u"
-	  SID			  "9::1"
-	  Position		  [20, 101, 40, 119]
-	  ZOrder		  -1
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Demux
-	  Name			  " Demux "
-	  SID			  "9::50"
-	  Ports			  [1, 1]
-	  Position		  [270, 230, 320, 270]
-	  ZOrder		  41
-	  Outputs		  "1"
-	}
-	Block {
-	  BlockType		  S-Function
-	  Name			  " SFunction "
-	  SID			  "9::49"
-	  Tag			  "Stateflow S-Function debug_seesawIMU 1"
-	  Ports			  [1, 2]
-	  Position		  [180, 100, 230, 160]
-	  ZOrder		  40
-	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[1 2]"
-	  SFunctionDeploymentMode off
-	  EnableBusSupport	  off
-	  SFcnIsStateOwnerBlock	  off
-	  Port {
-	    PortNumber		    2
-	    Name		    "y"
-	  }
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  " Terminator "
-	  SID			  "9::51"
-	  Position		  [460, 241, 480, 259]
-	  ZOrder		  42
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "y"
-	  SID			  "9::5"
-	  Position		  [460, 101, 480, 119]
-	  ZOrder		  -5
-	  IconDisplay		  "Port number"
-	}
-	Line {
-	  ZOrder		  41
-	  SrcBlock		  "u"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "y"
-	  ZOrder		  42
-	  Labels		  [0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  2
-	  DstBlock		  "y"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  43
-	  SrcBlock		  " Demux "
-	  SrcPort		  1
-	  DstBlock		  " Terminator "
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  44
-	  SrcBlock		  " SFunction "
-	  SrcPort		  1
-	  DstBlock		  " Demux "
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
       Name		      "MATLAB Function2"
       SID		      "10"
       Ports		      [1, 1]
@@ -1373,7 +1373,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"51"
+	SIDHighWatermark	"54"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1385,20 +1385,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "10::50"
+	  SID			  "10::53"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  41
+	  ZOrder		  44
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "10::49"
+	  SID			  "10::52"
 	  Tag			  "Stateflow S-Function debug_seesawIMU 3"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  40
+	  ZOrder		  43
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1412,9 +1412,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "10::51"
+	  SID			  "10::54"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  42
+	  ZOrder		  45
 	}
 	Block {
 	  BlockType		  Outport
@@ -1425,7 +1425,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  41
+	  ZOrder		  45
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1433,7 +1433,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  42
+	  ZOrder		  46
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1441,14 +1441,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  43
+	  ZOrder		  47
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  44
+	  ZOrder		  48
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1484,7 +1484,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"51"
+	SIDHighWatermark	"54"
 	Block {
 	  BlockType		  Inport
 	  Name			  "acc"
@@ -1496,20 +1496,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "12::50"
+	  SID			  "12::53"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  41
+	  ZOrder		  44
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "12::49"
+	  SID			  "12::52"
 	  Tag			  "Stateflow S-Function debug_seesawIMU 4"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  40
+	  ZOrder		  43
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1523,9 +1523,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "12::51"
+	  SID			  "12::54"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  42
+	  ZOrder		  45
 	}
 	Block {
 	  BlockType		  Outport
@@ -1536,7 +1536,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  41
+	  ZOrder		  45
 	  SrcBlock		  "acc"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1544,7 +1544,7 @@ Model {
 	}
 	Line {
 	  Name			  "theta"
-	  ZOrder		  42
+	  ZOrder		  46
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1552,14 +1552,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  43
+	  ZOrder		  47
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  44
+	  ZOrder		  48
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
