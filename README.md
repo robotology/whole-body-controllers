@@ -31,6 +31,8 @@ This repository depends upon the following Software/repositories:
 - to use the Simulink controllers, it is required to add the [matlab-wbc](library/matlab-wbc) folder to the Matlab path. There are two different possible ways to add the folder to the path: 
    - directly add the folder to the Matlab path;
    - run **only once** the [startup.m](config/startup.m) script. In this case, it is required to **always** start matlab from the folder where the `pathdef.m` file is (usually `~/Documents/MATLAB`). For further information see also the [WBToolbox documentation](https://robotology.github.io/wb-toolbox/mkdocs/install/#matlab).
+   
+   **Note**: to use any function inside the package [matlab-wbc/+wbc](library/matlab-wbc/+wbc), add the `wbc` prefix to the function name when the function is invoked, i.e. `[outputs] = wbc.myFunction(inputs)`. More information can be found in the [Matlab documentation](https://it.mathworks.com/help/matlab/matlab_oop/scoping-classes-with-packages.html).
 
 ## Troubleshooting
 
