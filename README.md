@@ -52,23 +52,23 @@ There is the possibility to generate c++ code from the Simulink models using [Si
 
 ## Where do I find new features and legacy repos?
 
-##### Available controllers 
+#### Available controllers 
 
 - [impedance-control](https://github.com/robotology/whole-body-controllers/tree/master/torque-controllers/impedance-control)
 - [momentum-based-standup](https://github.com/robotology/whole-body-controllers/tree/master/torque-controllers/momentum-based-standup)
 - [momentum-based-yoga](https://github.com/robotology/whole-body-controllers/tree/master/torque-controllers/momentum-based-yoga)
 - [utilities](https://github.com/robotology/whole-body-controllers/tree/master/utilities)
 
-##### Matlab functions library
+#### Matlab functions library
 
 - [matlab library](https://github.com/robotology/whole-body-controllers/tree/master/library/matlab)
 
-##### Active Forks (new features)
+#### Active Forks (new features)
 
 - [force-parametrization](https://github.com/ahmadgazar/whole-body-controllers)
 - [PhRI-standup](https://github.com/Yeshasvitvs/wholeBodyControllers)
 
-##### Legacy
+#### Legacy
 
 Official legacy repositories are: [mex-wholebodymodel](https://github.com/robotology/mex-wholebodymodel) and [WBI-Toolbox-controllers](https://github.com/robotology-playground/WBI-Toolbox-controllers). **Note**: these legacy repos contain undocumented/outdated code, and duplicated or not tested matlab functions. They also contain original code that has been tested on the robot in the past and then never used again, or code that will be ported in the main repository in the future.
 
