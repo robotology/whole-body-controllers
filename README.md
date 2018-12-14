@@ -26,7 +26,7 @@ This repository depends upon the following Software/repositories:
   | iCubGazeboV2_5 |[model.urdf](https://github.com/robotology/icub-models/blob/master/iCub/robots/iCubGazeboV2_5/model.urdf)|
   | icubGazeboSim |[model.urdf](https://github.com/robotology/yarp-wholebodyinterface/blob/master/app/robots/icubGazeboSim/model.urdf) |
 
-- to use the Simulink controllers, it is required to add the path to the [wbc](library/+wbc) library to the Matlab path. There are two alternatives:
+- to use the Simulink controllers, it is required to add the path to the [wbc](library/+wbc) library to the Matlab path. There are two alternative ways to add the path:
    - directly add the path to the Matlab path, or
    - run **only once** the [startup.m](config/startup.m) script. In this case, it is required to **always** start matlab from the folder where the `pathdef.m` file is (usually `~/Documents/MATLAB`). For further information see also the [WBToolbox documentation](https://robotology.github.io/wb-toolbox/mkdocs/install/#matlab).
 
