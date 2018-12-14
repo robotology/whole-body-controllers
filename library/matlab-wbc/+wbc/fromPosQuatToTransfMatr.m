@@ -25,7 +25,7 @@ function  H = fromPosQuatToTransfMatr(q)
     x      = q(1:3);
     
     % compute the rotation matrix
-    R      = rotationFromQuaternion(q(4:7));
+    R      = wbc.rotationFromQuaternion(q(4:7));
 
     % compose the transformation matrix
     H      = [R,  x; 

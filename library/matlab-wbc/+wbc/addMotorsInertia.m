@@ -58,7 +58,7 @@ function M_with_inertia = addMotorsInertia(M,Config)
     % add motors reflected inertias
     if Config.USE_MOTOR_REFLECTED_INERTIA
          
-        reflectedInertia    = computeMotorsInertia(Config);
+        reflectedInertia    = wbc.computeMotorsInertia(Config);
         M_reflected_inertia = [zeros(6,6+nDof);
                                 zeros(nDof,6) reflectedInertia];
     else

@@ -21,6 +21,10 @@
 clearvars -except sl_synch_handles torqueBalGUI
 clc
 
+% Import +wbc scope and add path to "src" folder
+import wbc.*
+addpath('./src/')
+
 %% GENERAL SIMULATION INFO
 % If you are simulating the robot with Gazebo, 
 % remember that you have to launch Gazebo as follow:
@@ -80,9 +84,6 @@ Config.PLOT_INTEGRATION_TIME  = false;
 
 % Controller period [s]
 Config.Ts = 0.01; 
-
-addpath('./src/')
-addpath('../../library/matlab');
 
 % Run robot-specific configuration parameters
 run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m')); 

@@ -1,3 +1,4 @@
+
 function [tauModel, Sigma, NA, f_LDot, ...
           HessianMatrixQP1Foot, gradientQP1Foot, ConstraintsMatrixQP1Foot, bVectorConstraintsQp1Foot, ...
           HessianMatrixQP2Feet, gradientQP2Feet, ConstraintsMatrixQP2Feet, bVectorConstraintsQp2Feet, ...
@@ -71,9 +72,9 @@ function [tauModel, Sigma, NA, f_LDot, ...
     % right foot, respectively, and f = [f_L;f_R].
     %
     AL              = [ eye(3),zeros(3);
-                        skew(Pl), eye(3)];
+                        wbc.skew(Pl), eye(3)];
     AR              = [ eye(3), zeros(3);
-                        skew(Pr), eye(3)];
+                        wbc.skew(Pr), eye(3)];
 
     % dot(L) = mg + A*f
     A               = [AL, AR]; 
@@ -100,7 +101,7 @@ function [tauModel, Sigma, NA, f_LDot, ...
     % multiplier of f in tau
     JBar            = transpose(Jc(:,7:end)) -Mbj'/Mb*transpose(Jc(:,1:6)); 
 
-    Pinv_JcMinvSt   = pinvDamped(JcMinvSt,Reg.pinvDamp); 
+    Pinv_JcMinvSt   = wbc.pinvDamped(JcMinvSt,Reg.pinvDamp); 
    
     % nullJcMinvSt --> null space of Pinv_JcMinvSt
     nullJcMinvSt    = eye(ROBOT_DOF) - Pinv_JcMinvSt*JcMinvSt;
@@ -216,7 +217,7 @@ function [tauModel, Sigma, NA, f_LDot, ...
     %% DEBUG DIAGNOSTICS
     
     % Unconstrained solution for the problem 1)
-    f0                        = -pinvDamped(SigmaNA, Reg.pinvDamp*1e-5)*(tauModel + Sigma*f_LDot);
+    f0                        = -wbc.pinvDamped(SigmaNA, Reg.pinvDamp*1e-5)*(tauModel + Sigma*f_LDot);
     
     % Unconstrained contact wrenches
     f_noQP                    =  pinvA*(LDotDes - gravityWrench) + NA*f0*constraints(1)*constraints(2); 

@@ -22,5 +22,5 @@ function R = rotationFromQuaternion(q)
     %% --- Initialization ---
 
     % rotation matrix
-    R = eye(3) +2*q(1)*skew(q(2:4)) +2*skew(q(2:4))^2;
+    R = eye(3) +2*q(1)*wbc.skew(q(2:4)) +2*wbc.skew(q(2:4))^2;
 end

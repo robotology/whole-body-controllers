@@ -50,8 +50,8 @@ function w_omegaDot_star = rotationalPID_acceleration(w_R_b,w_omega,w_R_b_des,w_
     c2  = Kp;
     
     % ROTATIONAL PID (see also: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.62.8655&rep=rep1&type=pdf, section 5.11.6, p.173) 
-    skv             = skewVee(w_R_b*transpose(w_R_b_des));
-    skvDot          = skewVee(skew(w_omega)*w_R_b*transpose(w_R_b_des)-w_R_b*transpose(w_R_b_des)*skew(w_omega_des));
+    skv             = wbc.skewVee(w_R_b*transpose(w_R_b_des));
+    skvDot          = wbc.skewVee(skew(w_omega)*w_R_b*transpose(w_R_b_des)-w_R_b*transpose(w_R_b_des)*wbc.skew(w_omega_des));
     omegaE_Dot      = w_omegaDot_des -c0*skvDot;
     
     w_omegaDot_star = omegaE_Dot -c1*(w_omega-w_omega_des) -c2*skv;

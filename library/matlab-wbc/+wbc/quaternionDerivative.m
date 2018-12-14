@@ -21,5 +21,5 @@ function qtDot = quaternionDerivative(qt, omega, k)
     %% --- Initialization ---
 
     qtDot = 0.5 *[0      -transpose(omega); ...
-                  omega  -skew(omega)]*qt +k*(1 -transpose(qt)*qt)*qt;  
+                  omega  -wbc.skew(omega)]*qt +k*(1 -transpose(qt)*qt)*qt;  
 end

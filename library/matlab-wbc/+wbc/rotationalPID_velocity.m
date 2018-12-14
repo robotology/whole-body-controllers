@@ -24,6 +24,6 @@ function w_omega = rotationalPID_velocity(w_R_b,w_R_b_des,w_omega_des,Kp)
 
     %% --- Initialization ---
 
-    skv      = skewVee(w_R_b*transpose(w_R_b_des));
+    skv      = wbc.skewVee(w_R_b*transpose(w_R_b_des));
     w_omega  = w_omega_des -Kp*skv;
 end

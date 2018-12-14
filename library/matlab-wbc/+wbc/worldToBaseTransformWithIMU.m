@@ -31,8 +31,8 @@ function w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base
 
     % Composing the rotation matrix:
     % See http://wiki.icub.org/images/8/82/XsensMtx.pdf page 12
-    wImu_R_imu      = rotz(inertial(3))*roty(inertial(2))*rotx(inertial(1));
-    wImu_R_imu_0    = rotz(inertial_0(3))*roty(inertial_0(2))*rotx(inertial_0(1));
+    wImu_R_imu      = wbc.rotz(inertial(3))*wbc.roty(inertial(2))*wbc.rotx(inertial(1));
+    wImu_R_imu_0    = wbc.rotz(inertial_0(3))*wbc.roty(inertial_0(2))*wbc.rotx(inertial_0(1));
 
     % Rotation between the IMU and the fixed link
     imu_R_link      = imu_H_link(1:3,1:3);
@@ -43,8 +43,8 @@ function w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base
     wImu_R_link_0   = wImu_R_imu_0 * imu_R_link_0;
 
     % Convert into roll-pitch-yaw
-    rollPitchYaw_link_0 = rollPitchYawFromRotation(wImu_R_link_0);
-    rollPitchYaw_link   = rollPitchYawFromRotation(wImu_R_link);
+    rollPitchYaw_link_0 = wbc.rollPitchYawFromRotation(wImu_R_link_0);
+    rollPitchYaw_link   = wbc.rollPitchYawFromRotation(wImu_R_link);
 
     rollPitchYawFiltered_link = rollPitchYaw_link;
 
@@ -55,7 +55,7 @@ function w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base
         rollPitchYawFiltered_link(2) = rollPitchYaw_link_0(2);
     end
 
-    wImu_R_link   = rotz(rollPitchYawFiltered_link(3))*roty(rollPitchYawFiltered_link(2))*rotx(rollPitchYawFiltered_link(1));
+    wImu_R_link   = wbc.rotz(rollPitchYawFiltered_link(3))*wbc.roty(rollPitchYawFiltered_link(2))*wbc.rotx(rollPitchYawFiltered_link(1));
 
     % IMU inertial frame to fixed link transform
     wImu_H_link   = [wImu_R_link,   zeros(3,1)
@@ -68,7 +68,7 @@ function w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base
     wImu_H_base   = wImu_H_link * link_H_base;
 
     %% Correct IMU with neck position
-    wImu_H_wImuAssumingNeckToZero = correctImuWithNeckPos(neck_pos);
+    wImu_H_wImuAssumingNeckToZero = wbc.correctImuWithNeckPos(neck_pos);
 
     wImu_H_base  = wImu_H_wImuAssumingNeckToZero * wImu_H_base;
     w_H_b        = wImu_H_link_0\wImu_H_base;

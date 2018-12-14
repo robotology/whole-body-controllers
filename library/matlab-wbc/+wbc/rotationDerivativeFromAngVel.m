@@ -33,5 +33,5 @@ function RDot = rotationDerivativeFromAngVel(omega,R)
     % inside the space of rotation matrices). Omega is assumed to be w.r.t.
     % the inertial frame, i.e. w_omega.
     kCorr   = 1;
-    RDot    = skew(omega)*R +kCorr*(eye(3)-R*transpose(R))*R;
+    RDot    = wbc.skew(omega)*R +kCorr*(eye(3)-R*transpose(R))*R;
 end

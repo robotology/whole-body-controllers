@@ -24,7 +24,7 @@ function H = fromPosRpyToTransfMatrix(pos_rpy)
     % following the compostion rule for rotation matrix as explained here:
     % http://wiki.icub.org/codyco/dox/html/idyntree/html/classiDynTree_1_1Rotation.html#a600352007d9250f7f227f21db85611f2
     rpy = pos_rpy(4:6);
-    R   = rotz(rpy(3))*roty(rpy(2))*rotx(rpy(1));
+    R   = wbc.rotz(rpy(3))*wbc.roty(rpy(2))*wbc.rotx(rpy(1));
 
     pos = pos_rpy(1:3);
 
