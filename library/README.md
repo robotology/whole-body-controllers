@@ -10,7 +10,7 @@ Add the `matlab-wbc` folder to the Matlab path, or run the `startup.m` script in
 
 ### How to use the +wbc library
 
-To use any function inside the package [matlab-wbc/+wbc](library/matlab-wbc/+wbc), add the `wbc` prefix to the function name when the function is invoked, i.e. `[outputs] = wbc.myFunction(inputs)`. More information can be found in the [Matlab documentation](https://it.mathworks.com/help/matlab/matlab_oop/scoping-classes-with-packages.html).
+To use any function inside the package [matlab-wbc/+wbc](matlab-wbc/+wbc), add the `wbc` prefix to the function name when the function is invoked, i.e. `[outputs] = wbc.myFunction(inputs)`. More information can be found in the [Matlab documentation](https://it.mathworks.com/help/matlab/matlab_oop/scoping-classes-with-packages.html).
 
 ## matlab-gui
 
