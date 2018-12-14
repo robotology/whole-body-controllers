@@ -17,6 +17,8 @@ This repository depends upon the following Software/repositories:
 
 ## Installation and usage
 
+- clone the repository on your pc by running on a terminal `git clone https://github.com/robotology/whole-body-controllers`, or dowload the repository.
+
 - set the environmental variable `YARP_ROBOT_NAME` in the `.bashrc` file to be the name of the robot you want to control. List of supported robot names:
 
   | Robot Names | Associated URDF Model |
@@ -26,8 +28,8 @@ This repository depends upon the following Software/repositories:
   | iCubGazeboV2_5 |[model.urdf](https://github.com/robotology/icub-models/blob/master/iCub/robots/iCubGazeboV2_5/model.urdf)|
   | icubGazeboSim |[model.urdf](https://github.com/robotology/yarp-wholebodyinterface/blob/master/app/robots/icubGazeboSim/model.urdf) |
 
-- to use the Simulink controllers, it is required to add the path to the [wbc](library/+wbc) library to the Matlab path. There are two alternative ways to add the path:
-   - directly add the path to the Matlab path, or
+- to use the Simulink controllers, it is required to add the [matlab-wbc](library/matlab-wbc) folder to the Matlab path. There are two different possible ways to add the folder to the path: 
+   - directly add the folder to the Matlab path;
    - run **only once** the [startup.m](config/startup.m) script. In this case, it is required to **always** start matlab from the folder where the `pathdef.m` file is (usually `~/Documents/MATLAB`). For further information see also the [WBToolbox documentation](https://robotology.github.io/wb-toolbox/mkdocs/install/#matlab).
 
 ## Troubleshooting
