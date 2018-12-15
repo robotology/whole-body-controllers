@@ -18,5 +18,5 @@ function R = rotationFromRollPitchYaw(rpy)
     %
     % http://wiki.icub.org/codyco/dox/html/idyntree/html/classiDynTree_1_1Rotation.html#a600352007d9250f7f227f21db85611f2
     %
-    R   = rotz(rpy(3))*roty(rpy(2))*rotx(rpy(1));
+    R   = wbc.rotz(rpy(3))*wbc.roty(rpy(2))*wbc.rotx(rpy(1));
 end
