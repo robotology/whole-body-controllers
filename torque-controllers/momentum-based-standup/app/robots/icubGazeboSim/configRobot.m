@@ -61,6 +61,12 @@ Config.USE_MOTOR_REFLECTED_INERTIA    = false;
 Config.INCLUDE_COUPLING               = false;
 Config.INCLUDE_HARMONIC_DRIVE_INERTIA = false;
 
+% if TRUE, the controller will STOP if the joints hit the joints limits
+% and/or if the (unsigned) difference between two consecutive joints
+% encoders measurements is greater than a given threshold.
+Config.EMERGENCY_STOP_WITH_JOINTS_LIMITS  = false;
+Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES = true;
+
 % Config.USE_IMU4EST_BASE: if set to false, the base frame is estimated by 
 % assuming that either the left or the right foot stay stuck on the ground. 
 % Which foot the controller uses depends on the contact forces acting on it. 

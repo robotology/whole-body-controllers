@@ -18,7 +18,7 @@
 
 % In the Simulink model, this script is run every time the user presses
 % the 'start' button.
-clear variables
+clearvars -except sl_synch_handles torqueBalGUI
 clc
 
 % Import +wbc scope and add path to "src" folder
@@ -34,7 +34,7 @@ addpath('./src/')
 % and set the environmental variable YARP_ROBOT_NAME in the .bashrc file.
 
 % Simulation time in seconds
-Config.SIMULATION_TIME = inf;   
+Config.SIMULATION_TIME = 600000; % high number (not inf)  
 
 %% PRELIMINARY CONFIGURATIONS 
 % Sm.SM_TYPE: defines the kind of state machines that can be chosen.
@@ -61,10 +61,6 @@ Config.SCOPES_GAIN_SCHE_INFO  = false;
 Config.SCOPES_MAIN            = false;
 Config.SCOPES_QP              = false;
 Config.SCOPES_INERTIA         = true;
-
-% Config.CHECK_LIMITS: if set to true, the controller will stop as soon as 
-% any of the joint limit is touched. 
-Config.CHECK_LIMITS           = false;
 
 % If Config.SAVE_WORKSPACE = True, every time the simulink model is run the
 % workspace is saved after stopping the simulation

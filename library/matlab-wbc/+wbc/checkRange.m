@@ -9,7 +9,7 @@ function inRange = checkRange(umin, umax, u, tol)
     %         - u = [n * 1] values
     %         - tol = tolerance
     %
-    % OUTPUT: - inRange = boolean for checkinf if u is inside the limits
+    % OUTPUT: - inRange = boolean for checking if u is inside the limits
     %
     % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
     %          

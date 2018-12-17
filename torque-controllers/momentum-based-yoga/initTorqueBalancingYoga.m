@@ -62,10 +62,6 @@ Config.SCOPES_MAIN            = false;
 Config.SCOPES_QP              = false;
 Config.SCOPES_INERTIA         = true;
 
-% Config.CHECK_LIMITS: if set to true, the controller will stop as soon as 
-% any of the joint limit is touched. 
-Config.CHECK_LIMITS           = false;
-
 % DATA PROCESSING
 %
 % If Config.SAVE_WORKSPACE = True, every time the simulink model is run the

@@ -44,6 +44,12 @@ Frames.COM               = 'com';
 % oscillations and discontinuities in the control input.
 Config.SATURATE_TORQUE_DERIVATIVE  = false;
 
+% if TRUE, the controller will STOP if the joints hit the joints limits
+% and/or if the (unsigned) difference between two consecutive joints
+% encoders measurements is greater than a given threshold.
+Config.EMERGENCY_STOP_WITH_JOINTS_LIMITS  = false;
+Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES = true;
+
 % Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
 % inertias are included in the system mass matrix. If
 % Config.INCLUDE_COUPLING is true, then the coupling effect (some joints

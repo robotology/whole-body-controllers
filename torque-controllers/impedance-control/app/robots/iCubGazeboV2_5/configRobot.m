@@ -8,6 +8,10 @@
 Config.ON_GAZEBO = true;
 ROBOT_DOF        = 23;
 
+% max unsigned difference between two consecutive (measured) joint positions, 
+% i.e. delta_qj = abs(qj(k) - qj(k-1))
+Sat.maxJointsPositionDelta = 15*pi/180; % [rad] 
+
 % Robot configuration for WBToolbox
 WBTConfigRobot           = WBToolbox.Configuration;
 WBTConfigRobot.RobotName = 'icubSim';

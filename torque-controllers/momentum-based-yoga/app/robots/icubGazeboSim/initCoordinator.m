@@ -29,6 +29,10 @@ Sat.torque = 34;
 % torque derivative max absolute value
 Config.tauDot_maxAbs = 300;
 
+% max unsigned difference between two consecutive (measured) joint positions, 
+% i.e. delta_qj = abs(qj(k) - qj(k-1))
+Sat.maxJointsPositionDelta = 15*pi/180; % [rad] 
+
 %% Control gains
 
 % PARAMETERS FOR TWO FEET BALANCING

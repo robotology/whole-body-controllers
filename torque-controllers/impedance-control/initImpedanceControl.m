@@ -42,6 +42,12 @@ MOVING                = false;
 % workspace is saved after stopping the simulation
 Config.SAVE_WORKSPACE = false;
 
+% if TRUE, the controller will STOP if the joints hit the joints limits
+% and/or if the (unsigned) difference between two consecutive joints
+% encoders measurements is greater than a given threshold.
+Config.EMERGENCY_STOP_WITH_JOINTS_LIMITS  = false;
+Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES = true;
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONFIGURATIONS COMPLETED: loading gains and parameters for the specific robot
 run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m')); 

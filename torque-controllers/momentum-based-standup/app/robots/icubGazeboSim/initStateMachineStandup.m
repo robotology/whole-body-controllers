@@ -22,6 +22,10 @@ Config.SMOOTH_JOINT_DES = true;
 % torque saturation
 Sat.torque = 60;
 
+% max unsigned difference between two consecutive (measured) joint positions, 
+% i.e. delta_qj = abs(qj(k) - qj(k-1))
+Sat.maxJointsPositionDelta = 15*pi/180; % [rad] 
+
 %% Regularization parameters
 Reg.pinvDamp_nu_b  = 1e-3;
 Reg.pinvDamp       = 1; 
@@ -201,6 +205,5 @@ fZmin                        = 10;
 feet_size                    = [-0.05  0.10;     % xMin, xMax
                                 -0.025 0.025];   % yMin, yMax 
                             
-leg_size                     = [-0.025  0.05 ;  % xMin, xMax
+leg_size                     = [-0.025  0.05 ;    % xMin, xMax
                                 -0.025  0.025]*2; % yMin, yMax 
-                            
