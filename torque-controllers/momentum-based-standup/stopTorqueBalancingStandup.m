@@ -45,16 +45,16 @@ if Config.CHECK_INTEGRATION_TIME && exist('yarp_time','var')
         title('Yarp time vs. Simulink time')
     end
     
-    % number of times the Simulink time step was bigger than twice the
+    % number of times the real time step was bigger than twice the
     % desired time step value
-    numOfTimeStepViolations = sum(diff(sim_time) > 2*Config.Ts);
+    numOfTimeStepViolations = sum(diff(yarp_time0) > 2*Config.Ts);
     
-    if numOfTimeStepViolations > 1
+    if numOfTimeStepViolations > 1 && numOfTimeStepViolations <= 50
         
         warning(['The time step tolerance of ', num2str(Config.Ts), '[s] has been violated at least once.'])
         
-    elseif numOfTimeStepViolations > 1000
+    elseif numOfTimeStepViolations > 50
         
-        warning(['The time step tolerance of ', num2str(Config.Ts), '[s] has been violated  more than 1000 times.'])
+        warning(['The time step tolerance of ', num2str(Config.Ts), '[s] has been violated  more than 50 times.'])
     end
 end
