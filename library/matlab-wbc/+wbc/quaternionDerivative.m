@@ -20,6 +20,7 @@ function qtDot = quaternionDerivative(qt, omega, k)
 
     %% --- Initialization ---
 
+    % TO BE VERIFIED: the expected angular velocity is in BODY frame, i.e. b_omega_b
     qtDot = 0.5 *[0      -transpose(omega); ...
                   omega  -wbc.skew(omega)]*qt +k*(1 -transpose(qt)*qt)*qt;  
 end
