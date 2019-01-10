@@ -1,20 +1,3 @@
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% /**
-%  * Copyright (C) 2016 CoDyCo
-%  * @author: Daniele Pucci
-%  * Permission is granted to copy, distribute, and/or modify this program
-%  * under the terms of the GNU General Public License, version 2 or any
-%  * later version published by the Free Software Foundation.
-%  *
-%  * A copy of the license can be found at
-%  * http://www.robotcub.org/icub/license/gpl.txt
-%  *
-%  * This program is distributed in the hope that it will be useful, but
-%  * WITHOUT ANY WARRANTY; without even the implied warranty of
-%  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-%  * Public License for more details
-%  */
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [tauModel, Sigma, NA, f_LDot, ...
           HessianMatrixQP1Foot, gradientQP1Foot, ConstraintsMatrixQP1Foot, bVectorConstraintsQp1Foot, ...
           HessianMatrixQP2FeetOrLegs, gradientQP2FeetOrLegs, ConstraintsMatrixQP2FeetOrLegs, bVectorConstraintsQp2FeetOrLegs, ...
@@ -23,7 +6,10 @@ function [tauModel, Sigma, NA, f_LDot, ...
                                          qj, qjDes, nu, M, h, L, intLw, w_H_l_contact, w_H_r_contact, JL, JR, dJL_nu, dJR_nu, xCoM, J_CoM, desired_x_dx_ddx_CoM, ...
                                          gainsPCOM, gainsDCOM, impedances, Reg, Gain, w_H_lArm, w_H_rArm, LArmWrench, RArmWrench, STANDUP_WITH_HUMAN, state)
        
-    % BALANCING CONTROLLER
+    % BALANCINGCONTROLLERSTANDUP momentum-based balancing controller.
+    %
+
+    %% --- Initialization ---
 
     %% DEFINITION OF CONTROL AND DYNAMIC VARIABLES
     pos_leftContact    = w_H_l_contact(1:3,4);
@@ -93,18 +79,18 @@ function [tauModel, Sigma, NA, f_LDot, ...
     % right foot, respectively, and f = [f_L;f_R].
     %
     AL              = [ eye(3),zeros(3);
-                        skew(Pl), eye(3)];
+                        wbc.skew(Pl), eye(3)];
     AR              = [ eye(3), zeros(3);
-                        skew(Pr), eye(3)];
+                        wbc.skew(Pr), eye(3)];
 
     % dot(L) = mg + A*f
     A               = [AL, AR]; 
     
     % matrix multipliyng the forces at arms
     A_lArm          = [ eye(3),     zeros(3);
-                        skew(PlArm),  eye(3)];    
+                        wbc.skew(PlArm),  eye(3)];    
     A_rArm          = [ eye(3),     zeros(3);
-                        skew(PrArm),  eye(3)];  
+                        wbc.skew(PrArm),  eye(3)];  
                     
     A_arms          = [A_lArm, A_rArm]; 
     
@@ -138,7 +124,7 @@ function [tauModel, Sigma, NA, f_LDot, ...
     % multiplier of f in tau
     JBar            = transpose(Jc(:,7:end)) -Mbj'/Mb*transpose(Jc(:,1:6)); 
 
-    Pinv_JcMinvSt   = pinvDamped(JcMinvSt,Reg.pinvDamp); 
+    Pinv_JcMinvSt   = wbc.pinvDamped(JcMinvSt,Reg.pinvDamp); 
    
     % nullJcMinvSt --> null space of Pinv_JcMinvSt
     nullJcMinvSt    = eye(ROBOT_DOF) - Pinv_JcMinvSt*JcMinvSt;
@@ -279,7 +265,7 @@ function [tauModel, Sigma, NA, f_LDot, ...
     %% DEBUG DIAGNOSTICS
     
     % Unconstrained solution for the problem 1)
-    f0                        = -pinvDamped(SigmaNA, Reg.pinvDamp*1e-5)*(tauModel + Sigma*f_LDot);
+    f0                        = -wbc.pinvDamped(SigmaNA, Reg.pinvDamp*1e-5)*(tauModel + Sigma*f_LDot);
     
     % Unconstrained contact wrenches
     f_noQP                    =  pinvA*(LDotDes - gravityWrench) + NA*f0*constraints(1)*constraints(2); 

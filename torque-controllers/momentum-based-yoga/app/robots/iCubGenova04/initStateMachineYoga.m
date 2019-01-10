@@ -29,6 +29,10 @@ Sat.torque = 60;
 % torque derivative max absolute value
 Config.tauDot_maxAbs = 300;
 
+% max unsigned difference between two consecutive (measured) joint positions, 
+% i.e. delta_qj = abs(qj(k) - qj(k-1))
+Sat.maxJointsPositionDelta = 15*pi/180; % [rad] 
+
 %% Regularization parameters
 Reg.pinvDamp_nu_b = 1e-7;
 Reg.pinvDamp      = 0.07; 
@@ -127,15 +131,15 @@ Sm.CoM_delta       = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF
                       0.0,  0.00,  0.0;   %% state ==  2  COM TRANSITION TO LEFT FOOT
                       0.0,  0.005, 0.0;   %% state ==  3  LEFT FOOT BALANCING 
                       0.0,  0.005, 0.0;   %% state ==  4  YOGA LEFT FOOT
-                      0.0,  0.00,  0.0;   %% state ==  5  PREPARING FOR SWITCHING
+                      0.0,  0.005, 0.0;   %% state ==  5  PREPARING FOR SWITCHING
                       0.02,-0.09,  0.0;   %% state ==  6  LOOKING FOR CONTACT 
                       0.0,  0.00,  0.0;   %% NOT USED
                       % THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE RIGHT FOOT
-                      0.0,  0.012,  0.0;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
-                      0.0, -0.015,  0.0;   %% state ==  9  RIGHT FOOT BALANCING 
-                      0.0, -0.017,  0.0;   %% state == 10  YOGA RIGHT FOOT
-                      0.0,  0.00,   0.0;   %% state == 11  PREPARING FOR SWITCHING
-                      0.02, 0.025,  0.0;   %% state == 12  LOOKING FOR CONTACT 
+                      0.0,  0.00,   0.0;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
+                      0.0, -0.005,  0.0;   %% state ==  9  RIGHT FOOT BALANCING 
+                      0.0, -0.005,  0.0;   %% state == 10  YOGA RIGHT FOOT
+                      0.0, -0.015,  0.0;   %% state == 11  PREPARING FOR SWITCHING
+                      0.02, 0.02,   0.0;   %% state == 12  LOOKING FOR CONTACT 
                       0.0,  0.00,   0.0];  %% NOT USED
 
 % configuration parameters for state machine (YOGA DEMO ONLY) 
@@ -162,7 +166,7 @@ Sm.twoFeetYogaInLoop        = false;
 % on left foot for the number of times the user specifies in the Sm.yogaCounter,
 % and then it will repeat the yoga on the right foot for the same number of times.
 % This option is ignored if Sm.repeatTwiceYogaWithDifferentSpeed = true.
-Sm.oneFootYogaInLoop        = true;
+Sm.oneFootYogaInLoop        = false;
 Sm.yogaCounter              = 10;
 
 % the robot will repeat the yoga moveset twice. This option works as the 
@@ -442,11 +446,21 @@ legsMotors_I_m           = 0.0827*1e-4;
 torsoPitchRollMotors_I_m = 0.0827*1e-4;
 torsoYawMotors_I_m       = 0.0585*1e-4;
 armsMotors_I_m           = 0.0585*1e-4;
+
+% add harmonic drives reflected inertia
+if Config.INCLUDE_HARMONIC_DRIVE_INERTIA
+   
+    legsMotors_I_m           = legsMotors_I_m + 0.054*1e-4;
+    torsoPitchRollMotors_I_m = torsoPitchRollMotors_I_m + 0.054*1e-4;
+    torsoYawMotors_I_m       = torsoYawMotors_I_m + 0.021*1e-4;
+    armsMotors_I_m           = armsMotors_I_m + 0.021*1e-4; 
+end
+ 
 Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  torsoYawMotors_I_m;
                                  armsMotors_I_m*ones(8,1);
                                  legsMotors_I_m*ones(12,1)]);
-
+                             
 % parameters for coupling matrices. Updated according to the wiki:
 %
 % http://wiki.icub.org/wiki/ICub_coupled_joints 
@@ -478,7 +492,12 @@ end
 
 % gain for feedforward term in joint torques calculation. Valid range: a
 % value between 0 and 1
-Config.K_ff  = 0;
+Config.K_ff  = 1;
+
+% Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA if true, the desired joints
+% accelerations are used for computing the feedforward term in joint
+% torques calculations. Not effective if Config.K_ff = 0.
+Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA = true;
 
 %% Constraints for QP for balancing
 

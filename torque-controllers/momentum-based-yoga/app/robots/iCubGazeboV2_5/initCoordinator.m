@@ -29,6 +29,10 @@ Sat.torque = 34;
 % torque derivative max absolute value
 Config.tauDot_maxAbs = 300;
 
+% max unsigned difference between two consecutive (measured) joint positions, 
+% i.e. delta_qj = abs(qj(k) - qj(k-1))
+Sat.maxJointsPositionDelta = 15*pi/180; % [rad] 
+
 %% Control gains
 
 % PARAMETERS FOR TWO FEET BALANCING
@@ -92,11 +96,21 @@ legsMotors_I_m           = 0.0827*1e-4;
 torsoPitchRollMotors_I_m = 0.0827*1e-4;
 torsoYawMotors_I_m       = 0.0585*1e-4;
 armsMotors_I_m           = 0.0585*1e-4;
+
+% add harmonic drives reflected inertia
+if Config.INCLUDE_HARMONIC_DRIVE_INERTIA
+   
+    legsMotors_I_m           = legsMotors_I_m + 0.054*1e-4;
+    torsoPitchRollMotors_I_m = torsoPitchRollMotors_I_m + 0.054*1e-4;
+    torsoYawMotors_I_m       = torsoYawMotors_I_m + 0.021*1e-4;
+    armsMotors_I_m           = armsMotors_I_m + 0.021*1e-4; 
+end
+ 
 Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  torsoYawMotors_I_m;
                                  armsMotors_I_m*ones(8,1);
                                  legsMotors_I_m*ones(12,1)]);
-
+                             
 % parameters for coupling matrices. Updated according to the wiki:
 %
 % http://wiki.icub.org/wiki/ICub_coupled_joints 
@@ -129,6 +143,11 @@ end
 % gain for feedforward term in joint torques calculation. Valid range: a
 % value between 0 and 1
 Config.K_ff  = 0;
+
+% Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA if true, the desired joints
+% accelerations are used for computing the feedforward term in joint
+% torques calculations. Not effective if Config.K_ff = 0.
+Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA = false;
 
 %% References for CoM trajectory (COORDINATOR DEMO ONLY)
 

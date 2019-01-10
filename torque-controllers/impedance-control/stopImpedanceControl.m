@@ -1,7 +1,9 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% RUN THIS SCRIPT TO REMOVE LOCAL PATHS ADDED WHEN RUNNING THE
+% CONTROLLER.
+%
 % In the Simulink model, this script is run every time the user presses
-% the terminate button.
+% the 'terminate' button.
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -14,10 +16,7 @@ if Config.SAVE_WORKSPACE
     end
     
    matFileList = dir(['./experiments',date,'/*.mat']);  
-   c            = clock; 
+   c           = clock; 
    
    save(['./experiments',date,'/exp_',num2str(c(4)),'-',num2str(c(5)),'.mat'])
 end
-
-
-    

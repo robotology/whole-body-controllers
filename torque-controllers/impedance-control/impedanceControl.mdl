@@ -1,12 +1,12 @@
 Model {
   Name			  "impedanceControl"
-  Version		  8.8
+  Version		  9.0
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.307"
+    ComputedModelVersion    "1.315"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -15,12 +15,89 @@ Model {
     HasInitializeEvent	    0
     HasTerminateEvent	    0
     IsExportFunctionModel   0
+    NumParameterArguments   0
+    NumExternalFileReferences 12
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Configuration"
+      Path		      "impedanceControl/Configuration"
+      SID		      "432"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+      Path		      "impedanceControl/Get Measurement"
+      SID		      "431"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Gravity Forces"
+      Path		      "impedanceControl/Gravity compensation/Get Gravity Forces"
+      SID		      "430"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+      Path		      "impedanceControl/PID feedback controller/Get Measurement"
+      SID		      "433"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
+      Path		      "impedanceControl/PID feedback controller/references/Mass Matrix1"
+      SID		      "391"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+      Path		      "impedanceControl/PID feedback controller/references/Visualization/Get Measurement"
+      SID		      "450"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/holder\n"
+      Path		      "impedanceControl/PID feedback controller/references/holder"
+      SID		      "398"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyActuators/Set References"
+      Path		      "impedanceControl/Set References"
+      SID		      "137"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
+      Path		      "impedanceControl/Visualization/Get Measurement"
+      SID		      "434"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Limits"
+      Path		      "impedanceControl/emergency stop: joint limits/STOP IF JOINTS HIT THE LIMITS/Get Limits"
+      SID		      "478"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
+      Path		      "impedanceControl/synchronizer/GAZEBO_SYNCHRONIZER/Simulator Synchronizer"
+      SID		      "304"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
+      Path		      "impedanceControl/synchronizer/REAL_TIME_SYNC/Real Time Synchronizer"
+      SID		      "309"
+      Type		      "LIBRARY_BLOCK"
+    }
+    OrderedModelArguments   1
   }
+  DiagnosticSuppressor	  "on"
+  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 1 0"
   LogicAnalyzerGraphicalSettings ""
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
-  DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 11 0"
+  CustomCodeFunctionData  ""
+  SLCCPlugin		  "on"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -42,7 +119,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [65.0, -4.0, 2495.0, 1444.0]
+      Location		      [663.0, 393.0, 2495.0, 1444.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -64,11 +141,11 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
-	Extents			[2457.0, 1267.0]
-	ZoomFactor		[2.9265060240963856]
-	Offset			[240.21613832853029, 145.53025936599425]
+	ViewObjType		"SimulinkSubsys"
+	LoadSaveID		"481"
+	Extents			[2457.0, 1144.0]
+	ZoomFactor		[4.0]
+	Offset			[-127.25, -72.25]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -86,30 +163,32 @@ Model {
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAAAAAAAAPwCA"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAAC6AP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAAm/AAAFMQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAAOgD///8AAAm/AAAE1AAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
-      "////wEAAACA/////wAAAAAAAAAA/////wEAAADo/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFo/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAANR/////wAAAAAAAAAA/"
+      "////wEAAACe/////wAAAAAAAAAA/////wEAAAEM/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAGq/////wAAAAAAAAAA/"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAASj/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
+  HideAutomaticNames	  on
   Created		  "Wed Nov 19 19:38:03 2014"
   Creator		  "daniele"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Sep 24 16:05:37 2018"
-  RTWModifiedTimeStamp	  459705937
-  ModelVersionFormat	  "1.%<AutoIncrement:307>"
+  LastModifiedDate	  "Mon Dec 17 19:11:17 2018"
+  RTWModifiedTimeStamp	  466974677
+  ModelVersionFormat	  "1.%<AutoIncrement:315>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
   WideLines		  off
   ShowLineDimensions	  off
   ShowPortDataTypes	  off
+  PortDataTypeDisplayFormat "AliasTypeOnly"
   ShowEditTimeErrors	  on
   ShowEditTimeWarnings	  on
   ShowEditTimeAdvisorChecks off
@@ -130,12 +209,14 @@ Model {
   BlockNameDataTip	  off
   BlockParametersDataTip  off
   BlockDescriptionStringDataTip	off
+  BlockVariantConditionDataTip off
   ToolBar		  on
   StatusBar		  on
   BrowserShowLibraryLinks off
   FunctionConnectors	  off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
+  VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
   NumberOfSteps		  1
   SnapshotBufferSize	  10
@@ -190,12 +271,13 @@ Model {
   ExtModeAutoUpdateStatusClock on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
+  OrderedModelArguments	  on
   Array {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      8
-      Version		      "1.16.5"
+      Version		      "1.17.1"
       DisabledProps	      []
       Description	      ""
       Array {
@@ -203,7 +285,7 @@ Model {
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  9
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
@@ -222,7 +304,6 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  EnableMultiTasking	  on
-	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
 	  Solver		  "FixedStepDiscrete"
 	  SolverName		  "FixedStepDiscrete"
@@ -239,10 +320,11 @@ Model {
 	  SampleTimeConstraint	  "Unconstrained"
 	  InsertRTBMode		  "Whenever possible"
 	  SampleTimeProperty	  []
+	  DecoupledContinuousIntegration off
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  10
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  Decimation		  "1"
@@ -277,12 +359,13 @@ Model {
 	  ReturnWorkspaceOutputsName "out"
 	  Refine		  "1"
 	  LoggingToFile		  off
+	  DatasetSignalFormat	  "timeseries"
 	  LoggingFileName	  "out.mat"
 	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  11
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -337,10 +420,14 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "off"
 	  AccelVerboseBuild	  off
+	  OptimizeBlockOrder	  "off"
+	  OptimizeDataStoreBuffers on
+	  BusAssignmentInplaceUpdate on
+	  DifferentSizesBufferReuse off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  12
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -379,6 +466,7 @@ Model {
 	  MultiTaskRateTransMsg	  "error"
 	  SingleTaskRateTransMsg  "none"
 	  TasksWithSamePriorityMsg "warning"
+	  ExportedTasksRateTransMsg "none"
 	  SigSpecEnsureSampleTimeMsg "warning"
 	  CheckMatrixSingularityMsg "none"
 	  IntegerOverflowMsg	  "warning"
@@ -420,6 +508,7 @@ Model {
 	  StateNameClashWarn	  "none"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  SimStateOlderReleaseMsg "error"
+	  ChecksumConsistencyForSSReuse	"none"
 	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorOnBusTreatedAsVector"
 	  BusNameAdapt		  "WarnAndRepair"
@@ -427,6 +516,7 @@ Model {
 	  SymbolicDimMinMaxWarning "warning"
 	  LossOfSymbolicDimsSimulationWarning "warning"
 	  LossOfSymbolicDimsCodeGenerationWarning "error"
+	  SymbolicDimsDataTypeCodeGenerationDiagnostic "error"
 	  BlockIODiagnostic	  "none"
 	  SFUnusedDataAndEventsDiag "warning"
 	  SFUnexpectedBacktrackingDiag "warning"
@@ -445,10 +535,14 @@ Model {
 	  AllowedUnitSystems	  "all"
 	  UnitsInconsistencyMsg	  "warning"
 	  AllowAutomaticUnitConversions	on
+	  RCSCRenamedMsg	  "warning"
+	  RCSCObservableMsg	  "warning"
+	  ForceCombineOutputUpdateInSim	off
+	  UnitDatabase		  ""
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  13
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  ProdBitPerChar	  8
@@ -496,7 +590,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  14
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
@@ -515,7 +609,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  15
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  SimCustomSourceCode	  ""
@@ -539,11 +633,13 @@ Model {
 	  ModelFunctionsGlobalVisibility "on"
 	  CompileTimeRecursionLimit 50
 	  EnableRuntimeRecursion  on
+	  MATLABDynamicMemAlloc	  on
+	  MATLABDynamicMemAllocThreshold 65536
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  16
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    16
@@ -594,6 +690,7 @@ Model {
 	  CustomLibrary		  ""
 	  CustomDefine		  ""
 	  CustomLAPACKCallback	  ""
+	  CustomFFTCallback	  ""
 	  CustomInitializer	  ""
 	  CustomTerminator	  ""
 	  Toolchain		  "Automatically locate an installed toolchain"
@@ -629,10 +726,10 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      17
-	      Version		      "1.16.5"
+	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
-		Dimension		27
+		Dimension		28
 		Cell			"IgnoreCustomStorageClasses"
 		Cell			"IgnoreTestpoints"
 		Cell			"InsertBlockDesc"
@@ -660,6 +757,7 @@ Model {
 		Cell			"CustomUserTokenString"
 		Cell			"CustomSymbolStrEmxType"
 		Cell			"CustomSymbolStrEmxFcn"
+		Cell			"BlockCommentType"
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
@@ -678,6 +776,7 @@ Model {
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
 	      MangleLength	      1
+	      SharedChecksumLength    8
 	      CustomSymbolStrGlobalVar "$R$N$M"
 	      CustomSymbolStrType     "$N$R$M_T"
 	      CustomSymbolStrField    "$N$M"
@@ -688,6 +787,8 @@ Model {
 	      CustomSymbolStrTmpVar   "$N$M"
 	      CustomSymbolStrMacro    "$R$N$M"
 	      CustomSymbolStrUtil     "$N$C"
+	      CustomSymbolStrEmxType  "emxArray_$M$N"
+	      CustomSymbolStrEmxFcn   "emx$M$N"
 	      CustomUserTokenString   ""
 	      CustomCommentsFcn	      ""
 	      DefineNamingRule	      "None"
@@ -699,6 +800,7 @@ Model {
 	      InsertBlockDesc	      off
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
+	      StateflowObjectComments on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
 	      InternalIdentifierFile  ""
@@ -711,7 +813,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      18
-	      Version		      "1.16.5"
+	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
 		Dimension		16
@@ -741,7 +843,7 @@ Model {
 	      TargetLangStandard      "C89/C90 (ANSI)"
 	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
-	      ERTMultiwordTypeDef     "System defined"
+	      MultiwordTypeDef	      "System defined"
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
@@ -784,6 +886,10 @@ Model {
 	      UseToolchainInfoCompliant	on
 	      GenerateSharedConstants on
 	      CoderGroups	      []
+	      AccessMethods	      []
+	      LookupTableObjectStructAxisOrder "1,2,3,4,..."
+	      LUTObjectStructOrderExplicitValues "Size,Breakpoints,Table"
+	      LUTObjectStructOrderEvenSpacing "Size,Breakpoints,Table"
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -805,7 +911,7 @@ Model {
 	}
 	SlCovCC.ConfigComp {
 	  $ObjectID		  19
-	  Version		  "1.16.5"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -841,6 +947,7 @@ Model {
 	  CovUseTimeInterval	  off
 	  CovStartTime		  0
 	  CovStopTime		  0
+	  CovMcdcMode		  "Masking"
 	}
 	PropName		"Components"
       }
@@ -876,6 +983,7 @@ Model {
     FontWeight		    "normal"
     FontAngle		    "normal"
     ShowName		    on
+    HideAutomaticName	    on
     BlockRotation	    0
     BlockMirror		    off
   }
@@ -889,7 +997,12 @@ Model {
     FontSize		    10
     FontWeight		    "normal"
     FontAngle		    "normal"
+    MarkupType		    "model"
     UseDisplayTextAsClickCallback off
+    AnnotationType	    "note_annotation"
+    FixedHeight		    off
+    FixedWidth		    off
+    Interpreter		    "off"
   }
   LineDefaults {
     FontName		    "Helvetica"
@@ -901,7 +1014,7 @@ Model {
     SelfModifiable	    "off"
     IconFrame		    "on"
     IconOpaque		    "opaque"
-    RunInitForIconRedraw    "off"
+    RunInitForIconRedraw    "analyze"
     IconRotate		    "none"
     PortRotate		    "default"
     IconUnits		    "autoscale"
@@ -917,6 +1030,12 @@ Model {
     ToolTip		    "on"
   }
   BlockParameterDefaults {
+    Block {
+      BlockType		      Assertion
+      Enabled		      on
+      StopWhenAssertionFail   on
+      SampleTime	      "-1"
+    }
     Block {
       BlockType		      Constant
       Value		      "1"
@@ -1013,6 +1132,8 @@ Model {
       InitialOutput	      "[]"
       MustResolveToSignalObject	off
       OutputWhenUnConnected   off
+      OutputWhenUnconnectedValue "0"
+      VectorParamsAs1DForOutWhenUnconnected off
     }
     Block {
       BlockType		      Product
@@ -1030,9 +1151,14 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      S-Function
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+    }
+    Block {
       BlockType		      Scope
       DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
-      Floating		      off
     }
     Block {
       BlockType		      Selector
@@ -1080,11 +1206,14 @@ Model {
       Opaque		      off
       MaskHideContents	      off
       SFBlockType	      "NONE"
+      Variant		      off
       GeneratePreprocessorConditionals off
+      AllowZeroVariantControls off
       PropagateVariantConditions off
       TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
       IsWebBlock	      off
+      IsObserver	      off
     }
     Block {
       BlockType		      Sum
@@ -1102,11 +1231,15 @@ Model {
       SaturateOnIntegerOverflow	on
       SampleTime	      "-1"
     }
+    Block {
+      BlockType		      Terminator
+    }
   }
   System {
     Name		    "impedanceControl"
-    Location		    [65, -4, 2560, 1440]
+    Location		    [663, 393, 3158, 1837]
     Open		    off
+    PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1119,7 +1252,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "293"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "469"
+    SIDHighWatermark	    "486"
     Block {
       BlockType		      Reference
       Name		      "Configuration"
@@ -1130,6 +1263,7 @@ Model {
       LibraryVersion	      "1.649"
       SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
       SourceType	      ""
+      SourceProductName	      "Whole Body Toolbox"
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
@@ -1151,6 +1285,7 @@ Model {
       LibraryVersion	      "1.649"
       SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
       SourceType	      "Get Measurement"
+      SourceProductName	      "Whole Body Toolbox"
       ContentPreviewEnabled   off
       measuredType	      "Joints Position"
     }
@@ -1162,7 +1297,6 @@ Model {
       Position		      [415, 380, 570, 440]
       ZOrder		      -36
       RequestExecContextInheritance off
-      Variant		      off
       Port {
 	PortNumber		1
 	Name			"gravityTorques"
@@ -1171,6 +1305,7 @@ Model {
 	Name			"Gravity compensation"
 	Location		[65, 24, 2560, 1440]
 	Open			off
+	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1209,6 +1344,7 @@ Model {
 	  LibraryVersion	  "1.649"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Gravity Forces"
 	  SourceType		  "Gravity bias"
+	  SourceProductName	  "Whole Body Toolbox"
 	  ContentPreviewEnabled	  off
 	  Port {
 	    PortNumber		    1
@@ -1276,7 +1412,6 @@ Model {
       Position		      [410, 286, 570, 344]
       ZOrder		      -41
       RequestExecContextInheritance off
-      Variant		      off
       Port {
 	PortNumber		1
 	Name			"PD control"
@@ -1284,8 +1419,9 @@ Model {
       }
       System {
 	Name			"PID feedback controller"
-	Location		[65, 24, 2560, 1440]
+	Location		[663, 393, 3158, 1837]
 	Open			off
+	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1346,6 +1482,7 @@ Model {
 	  LibraryVersion	  "1.649"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	  SourceType		  "Get Measurement"
+	  SourceProductName	  "Whole Body Toolbox"
 	  ContentPreviewEnabled	  off
 	  measuredType		  "Joints Velocity"
 	}
@@ -1401,15 +1538,15 @@ Model {
 	  ZOrder		  173
 	  ShowName		  off
 	  RequestExecContextInheritance	off
-	  Variant		  off
 	  Port {
 	    PortNumber		    1
 	    Name		    "Mj*qjDD_des"
 	  }
 	  System {
 	    Name		    "references"
-	    Location		    [65, 24, 2560, 1440]
+	    Location		    [663, 393, 3158, 1837]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1420,7 +1557,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "333"
+	    ZoomFactor		    "200"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "qj"
@@ -1484,6 +1621,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
 	      SourceType	      "Mass Matrix"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -1535,11 +1673,11 @@ Model {
 	      Position		      [450, -503, 505, -467]
 	      ZOrder		      678
 	      RequestExecContextInheritance off
-	      Variant		      off
 	      System {
 		Name			"Visualization"
-		Location		[65, 24, 2560, 1440]
+		Location		[663, 393, 3158, 1837]
 		Open			off
+		PortBlocksUseCompactNotation off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -1560,7 +1698,7 @@ Model {
 		  IconDisplay		  "Port number"
 		  Port {
 		    PortNumber		    1
-		    Name		    "torqueDesired"
+		    Name		    "qjDesired"
 		  }
 		}
 		Block {
@@ -1700,11 +1838,12 @@ Model {
 		  LibraryVersion	  "1.649"
 		  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 		  SourceType		  "Get Measurement"
+		  SourceProductName	  "Whole Body Toolbox"
 		  ContentPreviewEnabled	  off
 		  measuredType		  "Joints Position"
 		  Port {
 		    PortNumber		    1
-		    Name		    "torqueMeasured"
+		    Name		    "qjMeasured"
 		  }
 		}
 		Block {
@@ -1722,7 +1861,7 @@ Model {
 		  SaturateOnIntegerOverflow off
 		  Port {
 		    PortNumber		    1
-		    Name		    "torqueError"
+		    Name		    "qjError"
 		  }
 		}
 		Block {
@@ -1812,8 +1951,9 @@ Model {
 		  "r','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Pla"
 		  "cement',1),'TimeRangeSamples','14','TimeRangeFrames','14','DisplayLayoutDimensions',[6 1]),extmgr.Configuration('T"
 		  "ools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measuremen"
-		  "ts',true,'Version','2017b')),'Version','2017b','Location',[353 355 1643 1076])"
+		  "ts',true,'Version','2017b')),'Version','2018a','Location',[353 355 1643 1076])"
 		  NumInputPorts		  "5"
+		  Floating		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -1902,8 +2042,9 @@ Model {
 		  "ible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),'Ti"
 		  "meRangeSamples','14','TimeRangeFrames','14','DisplayLayoutDimensions',[6 1]),extmgr.Configuration('Tools','Plot Na"
 		  "vigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Vers"
-		  "ion','2017b')),'Version','2017b','Location',[373 384 1613 955])"
+		  "ion','2017b')),'Version','2018a','Location',[373 384 1613 955])"
 		  NumInputPorts		  "5"
+		  Floating		  off
 		}
 		Block {
 		  BlockType		  Scope
@@ -1992,11 +2133,12 @@ Model {
 		  "e','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1),'TimeR"
 		  "angeSamples','14','TimeRangeFrames','14','DisplayLayoutDimensions',[6 1]),extmgr.Configuration('Tools','Plot Navig"
 		  "ation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version"
-		  "','2017b')),'Version','2017b','Location',[76 213 1356 904])"
+		  "','2017b')),'Version','2018a','Location',[76 213 1356 904])"
 		  NumInputPorts		  "5"
+		  Floating		  off
 		}
 		Line {
-		  Name			  "torqueMeasured"
+		  Name			  "qjMeasured"
 		  ZOrder		  2
 		  SrcBlock		  "Get Measurement"
 		  SrcPort		  1
@@ -2104,7 +2246,7 @@ Model {
 		  DstPort		  5
 		}
 		Line {
-		  Name			  "torqueError"
+		  Name			  "qjError"
 		  ZOrder		  15
 		  Labels		  [1, 1]
 		  SrcBlock		  "Sum2"
@@ -2149,7 +2291,7 @@ Model {
 		  DstPort		  3
 		}
 		Line {
-		  Name			  "torqueDesired"
+		  Name			  "qjDesired"
 		  ZOrder		  20
 		  SrcBlock		  "qjDesired"
 		  SrcPort		  1
@@ -2231,8 +2373,9 @@ Model {
 	      " 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215"
 	      "686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigat"
 	      "ion',true,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Measurements',true,'Version','2016b')),'Versi"
-	      "on','2017b','Position',[675 241 570 450])"
+	      "on','2018a','Position',[675 241 570 450])"
 	      NumInputPorts	      "3"
+	      Floating		      off
 	    }
 	    Block {
 	      BlockType		      Reference
@@ -2245,6 +2388,7 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
 	      SourceType	      "Holder"
+	      SourceProductName	      "Whole Body Toolbox"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -2561,6 +2705,7 @@ Model {
       LibraryVersion	      "1.649"
       SourceBlock	      "WBToolboxLibrary/wholeBodyActuators/Set References"
       SourceType	      "Set References"
+      SourceProductName	      "Whole Body Toolbox"
       ContentPreviewEnabled   off
       controlType	      "Torque"
       refSpeed		      "50"
@@ -2590,11 +2735,11 @@ Model {
       Position		      [970, 443, 1075, 492]
       ZOrder		      -43
       RequestExecContextInheritance off
-      Variant		      off
       System {
 	Name			"Visualization"
 	Location		[65, 24, 2560, 1440]
 	Open			off
+	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2763,6 +2908,7 @@ Model {
 	  LibraryVersion	  "1.649"
 	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
 	  SourceType		  "Get Measurement"
+	  SourceProductName	  "Whole Body Toolbox"
 	  ContentPreviewEnabled	  off
 	  measuredType		  "Joints Torque"
 	  Port {
@@ -2874,8 +3020,9 @@ Model {
 	  ".5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',t"
 	  "rue,'Placement',1),'TimeRangeSamples','14','TimeRangeFrames','14','DisplayLayoutDimensions',[6 1]),extmgr.Configura"
 	  "tion('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','Meas"
-	  "urements',true,'Version','2017b')),'Version','2017b','Location',[76 210 1356 901])"
+	  "urements',true,'Version','2017b')),'Version','2018a','Location',[76 210 1356 901])"
 	  NumInputPorts		  "5"
+	  Floating		  off
 	}
 	Block {
 	  BlockType		  Scope
@@ -2963,8 +3110,9 @@ Model {
 	  "tyle','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames'"
 	  ",{{[]}},'ShowContent',true,'Placement',1),'TimeRangeSamples','14','TimeRangeFrames','14','DisplayLayoutDimensions',"
 	  "[6 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Conf"
-	  "iguration('Tools','Measurements',true,'Version','2017b')),'Version','2017b','Location',[76 185 1366 906])"
+	  "iguration('Tools','Measurements',true,'Version','2017b')),'Version','2018a','Location',[76 185 1366 906])"
 	  NumInputPorts		  "5"
+	  Floating		  off
 	}
 	Block {
 	  BlockType		  Scope
@@ -3052,8 +3200,9 @@ Model {
 	  "le','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{"
 	  "{[]}},'ShowContent',true,'Placement',1),'TimeRangeSamples','14','TimeRangeFrames','14','DisplayLayoutDimensions',[6"
 	  " 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Config"
-	  "uration('Tools','Measurements',true,'Version','2017b')),'Version','2017b','Location',[387 264 1667 955])"
+	  "uration('Tools','Measurements',true,'Version','2017b')),'Version','2018a','Location',[387 264 1667 955])"
 	  NumInputPorts		  "5"
+	  Floating		  off
 	}
 	Block {
 	  BlockType		  Scope
@@ -3141,8 +3290,9 @@ Model {
 	  "Style','-','LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames"
 	  "',{{[]}},'ShowContent',true,'Placement',1),'TimeRangeSamples','14','TimeRangeFrames','14','DisplayLayoutDimensions'"
 	  ",[6 1]),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Con"
-	  "figuration('Tools','Measurements',true,'Version','2017b')),'Version','2017b','Location',[71 188 1371 939])"
+	  "figuration('Tools','Measurements',true,'Version','2017b')),'Version','2018a','Location',[71 188 1371 939])"
 	  NumInputPorts		  "5"
+	  Floating		  off
 	}
 	Line {
 	  ZOrder		  575
@@ -3380,6 +3530,585 @@ Model {
     }
     Block {
       BlockType		      SubSystem
+      Name		      "emergency stop: joint limits"
+      SID		      "470"
+      Ports		      [1]
+      Position		      [430, 481, 555, 509]
+      ZOrder		      636
+      BackgroundColor	      "red"
+      ShowName		      off
+      RequestExecContextInheritance off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		21
+	$ClassName		"Simulink.Mask"
+	Display			"disp('EMERGENCY STOP')"
+	RunInitForIconRedraw	"off"
+      }
+      System {
+	Name			"emergency stop: joint limits"
+	Location		[663, 393, 3158, 1837]
+	Open			off
+	PortBlocksUseCompactNotation off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"400"
+	Block {
+	  BlockType		  Inport
+	  Name			  "qj"
+	  SID			  "471"
+	  Position		  [150, 238, 180, 252]
+	  ZOrder		  -1
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "ON_GAZEBO\n1"
+	  SID			  "472"
+	  Position		  [232, 190, 488, 210]
+	  ZOrder		  553
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Value			  "Config.EMERGENCY_STOP_WITH_JOINTS_LIMITS"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "ON_GAZEBO\n2"
+	  SID			  "473"
+	  Position		  [224, 295, 496, 315]
+	  ZOrder		  555
+	  BlockRotation		  270
+	  BlockMirror		  on
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Value			  "Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "STOP IF JOINTS HIT THE LIMITS"
+	  SID			  "474"
+	  Ports			  [1, 0, 1]
+	  Position		  [285, 229, 440, 261]
+	  ZOrder		  554
+	  RequestExecContextInheritance	off
+	  System {
+	    Name		    "STOP IF JOINTS HIT THE LIMITS"
+	    Location		    [663, 393, 3158, 1837]
+	    Open		    off
+	    PortBlocksUseCompactNotation off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "300"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "qj"
+	      SID		      "475"
+	      Position		      [60, 103, 90, 117]
+	      ZOrder		      552
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      EnablePort
+	      Name		      "Enable"
+	      SID		      "476"
+	      Ports		      []
+	      Position		      [227, -45, 247, -25]
+	      ZOrder		      553
+	    }
+	    Block {
+	      BlockType		      Assertion
+	      Name		      "Assertion"
+	      SID		      "477"
+	      Position		      [340, 72, 400, 118]
+	      ZOrder		      207
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Get Limits"
+	      SID		      "478"
+	      Ports		      [0, 2]
+	      Position		      [20, 23, 140, 92]
+	      ZOrder		      551
+	      BackgroundColor	      "[0.513700, 0.851000, 0.670600]"
+	      ShowName		      off
+	      LibraryVersion	      "1.649"
+	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Limits"
+	      SourceType	      "Get Limits"
+	      SourceProductName	      "Whole Body Toolbox"
+	      ContentPreviewEnabled   off
+	      limitsSource	      "ControlBoard"
+	      limitsType	      "Position"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "MATLAB Function"
+	      SID		      "479"
+	      Ports		      [4, 1]
+	      Position		      [180, 22, 300, 163]
+	      ZOrder		      205
+	      ShowName		      off
+	      LibraryVersion	      "1.32"
+	      ErrorFcn		      "Stateflow.Translate.translate"
+	      PermitHierarchicalResolution "ExplicitOnly"
+	      TreatAsAtomicUnit	      on
+	      RequestExecContextInheritance off
+	      SFBlockType	      "MATLAB Function"
+	      System {
+		Name			"MATLAB Function"
+		Location		[121, 45, 868, 1245]
+		Open			off
+		PortBlocksUseCompactNotation off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		SIDHighWatermark	"3770"
+		Block {
+		  BlockType		  Inport
+		  Name			  "umin"
+		  SID			  "479::18"
+		  Position		  [20, 101, 40, 119]
+		  ZOrder		  -1
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "umax"
+		  SID			  "479::19"
+		  Position		  [20, 136, 40, 154]
+		  ZOrder		  -2
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "u"
+		  SID			  "479::1"
+		  Position		  [20, 171, 40, 189]
+		  ZOrder		  -3
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "tol"
+		  SID			  "479::20"
+		  Position		  [20, 206, 40, 224]
+		  ZOrder		  -4
+		  Port			  "4"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  " Demux "
+		  SID			  "479::3769"
+		  Ports			  [1, 1]
+		  Position		  [270, 230, 320, 270]
+		  ZOrder		  119
+		  Outputs		  "1"
+		}
+		Block {
+		  BlockType		  S-Function
+		  Name			  " SFunction "
+		  SID			  "479::3768"
+		  Tag			  "Stateflow S-Function impedanceControl 18"
+		  Ports			  [4, 2]
+		  Position		  [180, 102, 230, 203]
+		  ZOrder		  118
+		  FunctionName		  "sf_sfun"
+		  PortCounts		  "[4 2]"
+		  SFunctionDeploymentMode off
+		  EnableBusSupport	  on
+		  SFcnIsStateOwnerBlock	  off
+		  Port {
+		    PortNumber		    2
+		    Name		    "inRange"
+		  }
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  " Terminator "
+		  SID			  "479::3770"
+		  Position		  [460, 241, 480, 259]
+		  ZOrder		  120
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "inRange"
+		  SID			  "479::5"
+		  Position		  [460, 101, 480, 119]
+		  ZOrder		  -8
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  ZOrder		  1
+		  SrcBlock		  "umin"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  2
+		  SrcBlock		  "umax"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  2
+		}
+		Line {
+		  ZOrder		  3
+		  SrcBlock		  "u"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  3
+		}
+		Line {
+		  ZOrder		  4
+		  SrcBlock		  "tol"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  4
+		}
+		Line {
+		  Name			  "inRange"
+		  ZOrder		  5
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  2
+		  DstBlock		  "inRange"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  6
+		  SrcBlock		  " Demux "
+		  SrcPort		  1
+		  DstBlock		  " Terminator "
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  7
+		  SrcBlock		  " SFunction "
+		  SrcPort		  1
+		  DstBlock		  " Demux "
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "index1"
+	      SID		      "480"
+	      Position		      [70, 140, 95, 150]
+	      ZOrder		      204
+	      ShowName		      off
+	      Value		      "0.01"
+	      VectorParams1D	      off
+	    }
+	    Line {
+	      ZOrder		      1
+	      SrcBlock		      "qj"
+	      SrcPort		      1
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      3
+	    }
+	    Line {
+	      ZOrder		      2
+	      SrcBlock		      "MATLAB Function"
+	      SrcPort		      1
+	      DstBlock		      "Assertion"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3
+	      SrcBlock		      "Get Limits"
+	      SrcPort		      1
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      4
+	      SrcBlock		      "Get Limits"
+	      SrcPort		      2
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      5
+	      SrcBlock		      "index1"
+	      SrcPort		      1
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      4
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "STOP IF THERE ARE SPIKES IN THE ENCODERS"
+	  SID			  "481"
+	  Ports			  [1, 0, 1]
+	  Position		  [285, 339, 440, 371]
+	  ZOrder		  556
+	  RequestExecContextInheritance	off
+	  System {
+	    Name		    "STOP IF THERE ARE SPIKES IN THE ENCODERS"
+	    Location		    [663, 393, 3158, 1837]
+	    Open		    off
+	    PortBlocksUseCompactNotation off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "400"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "qj"
+	      SID		      "482"
+	      Position		      [15, 53, 45, 67]
+	      ZOrder		      552
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      EnablePort
+	      Name		      "Enable"
+	      SID		      "483"
+	      Ports		      []
+	      Position		      [217, -25, 237, -5]
+	      ZOrder		      553
+	    }
+	    Block {
+	      BlockType		      Assertion
+	      Name		      "Assertion"
+	      SID		      "484"
+	      Position		      [340, 72, 400, 118]
+	      ZOrder		      207
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "MATLAB Function"
+	      SID		      "485"
+	      Ports		      [2, 1]
+	      Position		      [165, 24, 285, 166]
+	      ZOrder		      205
+	      ShowName		      off
+	      LibraryVersion	      "1.32"
+	      ErrorFcn		      "Stateflow.Translate.translate"
+	      PermitHierarchicalResolution "ExplicitOnly"
+	      TreatAsAtomicUnit	      on
+	      RequestExecContextInheritance off
+	      SFBlockType	      "MATLAB Function"
+	      System {
+		Name			"MATLAB Function"
+		Location		[121, 45, 868, 1245]
+		Open			off
+		PortBlocksUseCompactNotation off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		SIDHighWatermark	"3770"
+		Block {
+		  BlockType		  Inport
+		  Name			  "u"
+		  SID			  "485::1"
+		  Position		  [20, 101, 40, 119]
+		  ZOrder		  -3
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "delta_u_max"
+		  SID			  "485::18"
+		  Position		  [20, 136, 40, 154]
+		  ZOrder		  -1
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  " Demux "
+		  SID			  "485::3769"
+		  Ports			  [1, 1]
+		  Position		  [270, 230, 320, 270]
+		  ZOrder		  119
+		  Outputs		  "1"
+		}
+		Block {
+		  BlockType		  S-Function
+		  Name			  " SFunction "
+		  SID			  "485::3768"
+		  Tag			  "Stateflow S-Function impedanceControl 14"
+		  Ports			  [2, 2]
+		  Position		  [180, 105, 230, 165]
+		  ZOrder		  118
+		  FunctionName		  "sf_sfun"
+		  PortCounts		  "[2 2]"
+		  SFunctionDeploymentMode off
+		  EnableBusSupport	  on
+		  SFcnIsStateOwnerBlock	  off
+		  Port {
+		    PortNumber		    2
+		    Name		    "noSpikes"
+		  }
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  " Terminator "
+		  SID			  "485::3770"
+		  Position		  [460, 241, 480, 259]
+		  ZOrder		  120
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "noSpikes"
+		  SID			  "485::5"
+		  Position		  [460, 101, 480, 119]
+		  ZOrder		  -8
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  ZOrder		  1
+		  SrcBlock		  "u"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  2
+		  SrcBlock		  "delta_u_max"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  2
+		}
+		Line {
+		  Name			  "noSpikes"
+		  ZOrder		  3
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  2
+		  DstBlock		  "noSpikes"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  4
+		  SrcBlock		  " Demux "
+		  SrcPort		  1
+		  DstBlock		  " Terminator "
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  5
+		  SrcBlock		  " SFunction "
+		  SrcPort		  1
+		  DstBlock		  " Demux "
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "index1"
+	      SID		      "486"
+	      Position		      [-40, 124, 100, 136]
+	      ZOrder		      554
+	      ShowName		      off
+	      Value		      "Sat.maxJointsPositionDelta"
+	      VectorParams1D	      off
+	    }
+	    Line {
+	      ZOrder		      1
+	      SrcBlock		      "qj"
+	      SrcPort		      1
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      2
+	      SrcBlock		      "MATLAB Function"
+	      SrcPort		      1
+	      DstBlock		      "Assertion"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      3
+	      SrcBlock		      "index1"
+	      SrcPort		      1
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      2
+	    }
+	  }
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "ON_GAZEBO\n1"
+	  SrcPort		  1
+	  DstBlock		  "STOP IF JOINTS HIT THE LIMITS"
+	  DstPort		  enable
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "qj"
+	  SrcPort		  1
+	  Points		  [20, 0]
+	  Branch {
+	    ZOrder		    3
+	    Points		    [0, 110]
+	    DstBlock		    "STOP IF THERE ARE SPIKES IN THE ENCODERS"
+	    DstPort		    1
+	  }
+	  Branch {
+	    ZOrder		    4
+	    DstBlock		    "STOP IF JOINTS HIT THE LIMITS"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "ON_GAZEBO\n2"
+	  SrcPort		  1
+	  DstBlock		  "STOP IF THERE ARE SPIKES IN THE ENCODERS"
+	  DstPort		  enable
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
       Name		      "synchronizer"
       SID		      "301"
       Ports		      []
@@ -3389,10 +4118,9 @@ Model {
       BackgroundColor	      "green"
       ShowName		      off
       RequestExecContextInheritance off
-      Variant		      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		21
+	$ObjectID		22
 	$ClassName		"Simulink.Mask"
 	Display			"disp('SYNCHRONIZER')"
       }
@@ -3400,6 +4128,7 @@ Model {
 	Name			"synchronizer"
 	Location		[65, 24, 1366, 768]
 	Open			off
+	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3419,11 +4148,11 @@ Model {
 	  Position		  [15, 15, 140, 75]
 	  ZOrder		  -7
 	  RequestExecContextInheritance	off
-	  Variant		  off
 	  System {
 	    Name		    "GAZEBO_SYNCHRONIZER"
 	    Location		    [65, 24, 1366, 768]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3455,6 +4184,8 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
+	      SourceProductName	      "Whole Body Toolbox"
+	      MultiThreadCoSim	      "auto"
 	      period		      "Config.Ts"
 	      serverPortName	      "'/clock/rpc'"
 	      clientPortName	      "'/WBT_synchronizer/rpc:o'"
@@ -3494,11 +4225,11 @@ Model {
 	  Position		  [-170, 12, -45, 72]
 	  ZOrder		  -9
 	  RequestExecContextInheritance	off
-	  Variant		  off
 	  System {
 	    Name		    "REAL_TIME_SYNC"
 	    Location		    [65, 24, 1366, 768]
 	    Open		    off
+	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3531,6 +4262,8 @@ Model {
 	      LibraryVersion	      "1.649"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
+	      SourceProductName	      "Whole Body Toolbox"
+	      MultiThreadCoSim	      "auto"
 	      period		      "Config.Ts"
 	    }
 	  }
@@ -3559,23 +4292,6 @@ Model {
 	    DstPort		    1
 	  }
 	}
-      }
-    }
-    Line {
-      ZOrder		      347
-      SrcBlock		      "Get Measurement"
-      SrcPort		      1
-      Points		      [22, 0]
-      Branch {
-	ZOrder			338
-	Points			[0, 95]
-	DstBlock		"Gravity compensation"
-	DstPort			1
-      }
-      Branch {
-	ZOrder			307
-	DstBlock		"PID feedback controller"
-	DstPort			1
       }
     }
     Line {
@@ -3625,11 +4341,37 @@ Model {
       DstBlock		      "Sum1"
       DstPort		      1
     }
+    Line {
+      ZOrder		      347
+      SrcBlock		      "Get Measurement"
+      SrcPort		      1
+      Points		      [22, 0]
+      Branch {
+	ZOrder			338
+	Points			[0, 95]
+	Branch {
+	  ZOrder		  374
+	  Points		  [0, 85]
+	  DstBlock		  "emergency stop: joint limits"
+	  DstPort		  1
+	}
+	Branch {
+	  ZOrder		  373
+	  DstBlock		  "Gravity compensation"
+	  DstPort		  1
+	}
+      }
+      Branch {
+	ZOrder			307
+	DstBlock		"PID feedback controller"
+	DstPort			1
+      }
+    }
   }
 }
 #Finite State Machines
 #
-#   Stateflow 80000012
+#   Stateflow 80000014
 #
 #
 Stateflow {
@@ -3638,11 +4380,369 @@ Stateflow {
     name		    "impedanceControl"
     created		    "12-Mar-2015 18:23:09"
     isLibrary		    0
-    sfVersion		    80000010
-    firstTarget		    2
+    sfVersion		    80000012
+    firstTarget		    20
+  }
+  chart {
+    id			    2
+    machine		    1
+    name		    "emergency stop: joint limits/STOP IF THERE ARE SPIKES IN THE ENCODERS/MATLAB Function"
+    windowPosition	    [369.958 -65.92 200 534.4]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1366 768 1.25]
+    treeNode		    [0 3 0 0]
+    viewObj		    2
+    ssIdHighWaterMark	    8
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    chartFileNumber	    14
+    disableImplicitCasting  1
+    eml {
+      name		      "checkSpikes"
+    }
+    supportVariableSizing   0
+    firstData		    4
+    firstTransition	    8
+    firstJunction	    7
+  }
+  state {
+    id			    3
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 0 0]
+    superState		    SUBCHART
+    subviewer		    2
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function noSpikes = checkSpikes(u, delta_u_max)\n\n     noSpikes = wbc.checkSpikes(u, delta_u_max"
+      ");\nend"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      fimathForFiConstructors FimathMatlabFactoryDefault
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  data {
+    id			    4
+    ssIdNumber		    6
+    name		    "u"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [2 0 5]
+  }
+  data {
+    id			    5
+    ssIdNumber		    4
+    name		    "delta_u_max"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [2 4 6]
+  }
+  data {
+    id			    6
+    ssIdNumber		    7
+    name		    "noSpikes"
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [2 5 0]
+  }
+  junction {
+    id			    7
+    position		    [23.5747 49.5747 7]
+    chart		    2
+    subviewer		    2
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+    linkNode		    [2 0 0]
+  }
+  transition {
+    id			    8
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [40.125 31.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      7
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    2
+    dataLimits		    [21.175 25.975 14.625 42.575]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
+    linkNode		    [2 0 0]
+  }
+  instance {
+    id			    9
+    machine		    1
+    name		    "emergency stop: joint limits/STOP IF THERE ARE SPIKES IN THE ENCODERS/MATLAB Function"
+    chart		    2
+  }
+  chart {
+    id			    10
+    machine		    1
+    name		    "emergency stop: joint limits/STOP IF JOINTS HIT THE LIMITS/MATLAB Function"
+    windowPosition	    [369.958 -65.92 200 534.4]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1366 768 1.25]
+    treeNode		    [0 11 0 0]
+    viewObj		    10
+    ssIdHighWaterMark	    8
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    chartFileNumber	    18
+    disableImplicitCasting  1
+    eml {
+      name		      "checkRangeFCN"
+    }
+    supportVariableSizing   0
+    firstData		    12
+    firstTransition	    18
+    firstJunction	    17
+  }
+  state {
+    id			    11
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    10
+    treeNode		    [10 0 0 0]
+    superState		    SUBCHART
+    subviewer		    10
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function inRange = checkRangeFCN(umin, umax, u, tol)\n\n     inRange = wbc.checkRange(umin, umax,"
+      " u, tol);\nend"
+      editorLayout	      "100 M4x1[10 5 700 500]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      fimathForFiConstructors FimathMatlabFactoryDefault
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  data {
+    id			    12
+    ssIdNumber		    4
+    name		    "umin"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [10 0 13]
+  }
+  data {
+    id			    13
+    ssIdNumber		    5
+    name		    "umax"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [10 12 14]
+  }
+  data {
+    id			    14
+    ssIdNumber		    6
+    name		    "u"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [10 13 15]
+  }
+  data {
+    id			    15
+    ssIdNumber		    7
+    name		    "inRange"
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [10 14 16]
+  }
+  data {
+    id			    16
+    ssIdNumber		    8
+    name		    "tol"
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [10 15 0]
+  }
+  junction {
+    id			    17
+    position		    [23.5747 49.5747 7]
+    chart		    10
+    subviewer		    10
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+    linkNode		    [10 0 0]
+  }
+  transition {
+    id			    18
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [40.125 31.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      17
+      intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    10
+    dataLimits		    [21.175 25.975 14.625 42.575]
+    subviewer		    10
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    2
+    linkNode		    [10 0 0]
+  }
+  instance {
+    id			    19
+    machine		    1
+    name		    "emergency stop: joint limits/STOP IF JOINTS HIT THE LIMITS/MATLAB Function"
+    chart		    10
   }
   target {
-    id			    2
+    id			    20
     machine		    1
     name		    "sfun"
     description		    "Default Simulink S-Function Target."

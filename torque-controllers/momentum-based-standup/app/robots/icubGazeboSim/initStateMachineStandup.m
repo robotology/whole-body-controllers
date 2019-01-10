@@ -22,6 +22,10 @@ Config.SMOOTH_JOINT_DES = true;
 % torque saturation
 Sat.torque = 60;
 
+% max unsigned difference between two consecutive (measured) joint positions, 
+% i.e. delta_qj = abs(qj(k) - qj(k-1))
+Sat.maxJointsPositionDelta = 15*pi/180; % [rad] 
+
 %% Regularization parameters
 Reg.pinvDamp_nu_b  = 1e-3;
 Reg.pinvDamp       = 1; 
@@ -134,6 +138,16 @@ legsMotors_I_m           = 0.0827*1e-4;
 torsoPitchRollMotors_I_m = 0.0827*1e-4;
 torsoYawMotors_I_m       = 0.0585*1e-4;
 armsMotors_I_m           = 0.0585*1e-4;
+
+% add harmonic drives reflected inertia
+if Config.INCLUDE_HARMONIC_DRIVE_INERTIA
+   
+    legsMotors_I_m           = legsMotors_I_m + 0.054*1e-4;
+    torsoPitchRollMotors_I_m = torsoPitchRollMotors_I_m + 0.054*1e-4;
+    torsoYawMotors_I_m       = torsoYawMotors_I_m + 0.021*1e-4;
+    armsMotors_I_m           = armsMotors_I_m + 0.021*1e-4; 
+end
+ 
 Config.I_m               = diag([torsoPitchRollMotors_I_m*ones(2,1);
                                  torsoYawMotors_I_m;
                                  armsMotors_I_m*ones(8,1);
@@ -172,6 +186,11 @@ end
 % value between 0 and 1
 Config.K_ff  = 0;
 
+% Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA if true, the desired joints
+% accelerations are used for computing the feedforward term in joint
+% torques calculations. Not effective if Config.K_ff = 0.
+Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA = false;
+
 %% Constraints for QP for balancing
 
 % The friction cone is approximated by using linear interpolation of the circle. 
@@ -186,6 +205,5 @@ fZmin                        = 10;
 feet_size                    = [-0.05  0.10;     % xMin, xMax
                                 -0.025 0.025];   % yMin, yMax 
                             
-leg_size                     = [-0.025  0.05 ;  % xMin, xMax
+leg_size                     = [-0.025  0.05 ;    % xMin, xMax
                                 -0.025  0.025]*2; % yMin, yMax 
-                            

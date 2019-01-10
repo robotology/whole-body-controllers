@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % /**
 %  * Copyright (C) 2016 CoDyCo
-%  * @author: Daniele Pucci
+%  * @author: Daniele Pucci, Gabriele Nava
 %  * Permission is granted to copy, distribute, and/or modify this program
 %  * under the terms of the GNU General Public License, version 2 or any
 %  * later version published by the Free Software Foundation.
@@ -15,8 +15,15 @@
 %  * Public License for more details
 %  */
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-clear variables
+
+% In the Simulink model, this script is run every time the user presses
+% the 'start' button.
+clearvars -except sl_synch_handles torqueBalGUI
 clc
+
+% Import +wbc scope and add path to "src" folder
+import wbc.*
+addpath('./src/')
 
 %% GENERAL SIMULATION INFO
 % If you are simulating the robot with Gazebo, 
@@ -55,10 +62,6 @@ Config.SCOPES_MAIN            = false;
 Config.SCOPES_QP              = false;
 Config.SCOPES_INERTIA         = true;
 
-% Config.CHECK_LIMITS: if set to true, the controller will stop as soon as 
-% any of the joint limit is touched. 
-Config.CHECK_LIMITS           = false;
-
 % DATA PROCESSING
 %
 % If Config.SAVE_WORKSPACE = True, every time the simulink model is run the
@@ -68,17 +71,15 @@ Config.SAVE_WORKSPACE         = false;
 % If CHECK_INTEGRATION_TIME = True, after stopping the simulation the
 % Simulink time is compared with the Yarp time to check if the desired
 % integration time step is respected
-Config.CHECK_INTEGRATION_TIME = false;
+Config.CHECK_INTEGRATION_TIME = true;
+Config.PLOT_INTEGRATION_TIME  = false;
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONFIGURATIONS COMPLETED: loading gains and parameters for the specific robot
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Controller period [s]
-Config.Ts              = 0.01; 
-
-addpath('./src/')
-addpath(genpath('../../library'));
+Config.Ts = 0.01; 
 
 % Run robot-specific configuration parameters
 run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m')); 
@@ -100,4 +101,5 @@ elseif strcmpi(SM_TYPE, 'YOGA')
     run(demoSpecificParameters);
 end
 
+% Compute contact constraints (friction cone, unilateral constraints)
 [ConstraintsMatrix,bVectorConstraints] = constraints(forceFrictionCoefficient,numberOfPoints,torsionalFrictionCoefficient,feet_size,fZmin);

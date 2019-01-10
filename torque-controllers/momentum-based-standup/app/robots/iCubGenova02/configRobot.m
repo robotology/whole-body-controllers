@@ -55,8 +55,17 @@ Config.STANDUP_WITH_HUMAN = true;
 % inertias are included in the system mass matrix. If
 % Config.INCLUDE_COUPLING is true, then the coupling effect (some joints
 % motion is the result of more than one motor motion) is taken into account.
-Config.USE_MOTOR_REFLECTED_INERTIA = true;
-Config.INCLUDE_COUPLING            = true;
+% Config.INCLUDE_HARMONIC_DRIVE_INERTIA is true, then the harmonic drive
+% reflected inertia is also considered
+Config.USE_MOTOR_REFLECTED_INERTIA    = true;
+Config.INCLUDE_COUPLING               = true;
+Config.INCLUDE_HARMONIC_DRIVE_INERTIA = true;
+
+% if TRUE, the controller will STOP if the joints hit the joints limits
+% and/or if the (unsigned) difference between two consecutive joints
+% encoders measurements is greater than a given threshold.
+Config.EMERGENCY_STOP_WITH_JOINTS_LIMITS  = false;
+Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES = true;
 
 % Config.USE_IMU4EST_BASE: if set to false, the base frame is estimated by 
 % assuming that either the left or the right foot stay stuck on the ground. 
@@ -93,4 +102,3 @@ Ports.WRENCH_LEFT_ARM   = '/wholeBodyDynamics/left_arm/endEffectorWrench:o';
 Ports.WRENCH_RIGHT_ARM  = '/wholeBodyDynamics/right_arm/endEffectorWrench:o';
 Ports.IMU               = ['/' WBTConfigRobot.RobotName '/inertial'];
 Ports.NECK_POS          = ['/' WBTConfigRobot.RobotName '/head/state:o'];
-
