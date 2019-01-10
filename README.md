@@ -71,7 +71,7 @@ When used for controlling real platforms, heavy Simulink models may violate the 
 
 #### Matlab functions library
 
-- [matlab library](https://github.com/robotology/whole-body-controllers/tree/master/library/matlab)
+- [matlab library](library/matlab-wbc)
 
 #### Active Forks (new features)
 
