@@ -48,7 +48,7 @@ Config.SIMULATION_TIME = 600000; % high number (not inf) for automatic code gene
 %                center-of-mass trajectory. The associated configuration 
 %                parameters can be found under the folder:
 %
-%                app/robots/YARP_ROBOT_NAME/initRefGen.m
+%                app/robots/YARP_ROBOT_NAME/initCoordinator.m
 % 
 SM_TYPE                       = 'YOGA';
 
