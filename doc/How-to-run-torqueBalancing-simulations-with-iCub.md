@@ -11,7 +11,7 @@ The procedure to run the torque balancing module is still quite elaborate. Users
  
 - Bring the robot in a suitable home position (e.g. `$ yarpmotorgui --from homePoseBalancing.ini` and then select a custom position by clicking on `Global Joints Commands/Custom postions`.
 
-- Launch `wholeBodyDynamics` as follows: `YARP_ROBOT_NAME=icubGazeboSim yarprobotinterface --config launch-wholebodydynamics.xml`. For further details see [here](https://github.com/robotology/codyco-modules/blob/master/doc/force_control_on_icub.md#run-wholebodydynamics-on-an-external-pc).
+- For `icubGazeboSim`, launch `wholeBodyDynamics` as follows: `YARP_ROBOT_NAME=icubGazeboSim yarprobotinterface --config launch-wholebodydynamics.xml`. Same holds for `iCubGazeboV2_5` (just change the robot name). For further details see [here](https://github.com/robotology/codyco-modules/blob/master/doc/force_control_on_icub.md#run-wholebodydynamics-on-an-external-pc).
 
 - (OPTIONAL) type on a terminal `yarp rpc /wholeBodyDynamics/rpc` and execute the command `resetOffset all 300`. It will reset offsets of fake FT measurements, that might be affected by the results of a previous simulation. Fake FT measurements are used e.g. for defining the threshold for switching from single to double support balancing.
  
