@@ -2,7 +2,7 @@
 
 ## matlab-wbc
 
-A collection of utlity functions/scripts used by the controllers.
+A collection of utlity functions/scripts used by all the controllers.
 
 ### How to install the folder
 
@@ -16,4 +16,6 @@ To use any function inside the package [matlab-wbc/+wbc](matlab-wbc/+wbc), add t
 
 A static GUI for starting/closing the Simulink models without the need of opening them.
 
+## simulink-library
 
+A library of Simulink models used by all the controllers.

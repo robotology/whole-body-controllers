@@ -1,11 +1,11 @@
 % CONFIGROBOT initializes parameters specific of a particular robot
-%             (e.g., icuGazeboSim)
-%
+%             (e.g., icubGazeboSim)
 
 %% --- Initialization ---
+
 Config.ON_GAZEBO         = true;
 ROBOT_DOF                = 23;
-ROBOT_DOF_FOR_SIMULINK   = eye(ROBOT_DOF);
+Config.GRAV_ACC          = 9.81;
 
 % Robot configuration for WBToolbox
 WBTConfigRobot           = WBToolbox.Configuration;
@@ -33,23 +33,22 @@ for n = 1:length(WBTConfigRobot.ControlBoardsNames)
 end
 
 % Frames list
-Frames.BASE              = 'root_link'; 
-Frames.IMU               = 'imu_frame';
-Frames.LEFT_FOOT         = 'l_sole';
-Frames.RIGHT_FOOT        = 'r_sole';
-Frames.COM               = 'com';
-Frames.LEFT_LEG          = 'l_upper_leg_contact';
-Frames.RIGHT_LEG         = 'r_upper_leg_contact';
-Frames.LEFT_HAND         = 'l_hand_dh_frame';
-Frames.RIGHT_HAND        = 'r_hand_dh_frame';
+Frames.BASE       = 'root_link'; 
+Frames.IMU        = 'imu_frame';
+Frames.LEFT_FOOT  = 'l_sole';
+Frames.RIGHT_FOOT = 'r_sole';
+Frames.COM        = 'com';
 
-%% iCub STANDUP demo parameters
-% when Config.STANDUP_WITH_HUMAN is setted to TRUE, the robot will be aware 
-% of the external forces at the arms provided by the human and it will use
-% also them for lifting up.
-Config.STANDUP_WITH_HUMAN = false;
+% Config.SATURATE_TORQUE_DERIVATIVE: if true, the derivative of the control
+% input is saturated. In this way, it is possible to reduce high frequency
+% oscillations and discontinuities in the control input.
+Config.SATURATE_TORQUE_DERIVATIVE         = false;
 
-%% Other parameters
+% if TRUE, the controller will STOP if the joints hit the joints limits
+% and/or if the (unsigned) difference between two consecutive joints
+% encoders measurements is greater than a given threshold.
+Config.EMERGENCY_STOP_WITH_JOINTS_LIMITS  = false;
+Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES = true;
 
 % Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
 % inertias are included in the system mass matrix. If
@@ -57,15 +56,9 @@ Config.STANDUP_WITH_HUMAN = false;
 % motion is the result of more than one motor motion) is taken into account.
 % Config.INCLUDE_HARMONIC_DRIVE_INERTIA is true, then the harmonic drive
 % reflected inertia is also considered
-Config.USE_MOTOR_REFLECTED_INERTIA    = false;
-Config.INCLUDE_COUPLING               = false;
-Config.INCLUDE_HARMONIC_DRIVE_INERTIA = false;
-
-% if TRUE, the controller will STOP if the joints hit the joints limits
-% and/or if the (unsigned) difference between two consecutive joints
-% encoders measurements is greater than a given threshold.
-Config.EMERGENCY_STOP_WITH_JOINTS_LIMITS  = false;
-Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES = true;
+Config.USE_MOTOR_REFLECTED_INERTIA        = false;
+Config.INCLUDE_COUPLING                   = false;
+Config.INCLUDE_HARMONIC_DRIVE_INERTIA     = false;
 
 % Config.USE_IMU4EST_BASE: if set to false, the base frame is estimated by 
 % assuming that either the left or the right foot stay stuck on the ground. 
@@ -83,22 +76,25 @@ Config.USE_IMU4EST_BASE  = false;
 % when either of the flags Config.YAW_IMU_FILTER or Config.PITCH_IMU_FILTER
 % is set to true, then the yaw and/or pitch angles of the contact foot are
 % ignored and kept equal to the initial values.
-Config.FILTER_IMU_YAW    = true;
-Config.FILTER_IMU_PITCH  = true;
+Config.FILTER_IMU_YAW   = true;
+Config.FILTER_IMU_PITCH = true;
 
 % Config.CORRECT_NECK_IMU: when set equal to true, the kineamtics from the
 % IMU and the contact foot is corrected by using the neck angles. If it set
 % equal to false, recall that the neck is assumed to be in (0,0,0).
-Config.CORRECT_NECK_IMU  = true;
+Config.CORRECT_NECK_IMU = true;
 
 % Config.USE_QP_SOLVER: if set to true, a QP solver is used to account for 
 % inequality constraints of contact wrenches.
-Config.USE_QP_SOLVER     = true; 
+Config.USE_QP_SOLVER    = true; 
 
 % Ports name list
-Ports.WRENCH_LEFT_FOOT   = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';
-Ports.WRENCH_RIGHT_FOOT  = '/wholeBodyDynamics/right_leg/cartesianEndEffectorWrench:o';
-Ports.WRENCH_LEFT_ARM    = '/wholeBodyDynamics/left_arm/endEffectorWrench:o';
-Ports.WRENCH_RIGHT_ARM   = '/wholeBodyDynamics/right_arm/endEffectorWrench:o';
-Ports.IMU                = ['/' WBTConfigRobot.RobotName '/inertial'];
-Ports.NECK_POS           = ['/' WBTConfigRobot.RobotName '/head/state:o'];
+Ports.WRENCH_LEFT_FOOT  = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';
+Ports.WRENCH_RIGHT_FOOT = '/wholeBodyDynamics/right_leg/cartesianEndEffectorWrench:o';
+Ports.IMU               = ['/' WBTConfigRobot.RobotName '/inertial'];
+Ports.NECK_POS          = ['/' WBTConfigRobot.RobotName '/head/state:o'];
+
+% Ports dimensions
+Ports.NECK_POS_PORT_SIZE = 3;
+Ports.IMU_PORT_SIZE      = 12;
+Ports.WRENCH_PORT_SIZE   = 6;

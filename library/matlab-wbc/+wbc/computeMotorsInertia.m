@@ -4,9 +4,9 @@ function reflectedInertia = computeMotorsInertia(Config)
     %
     % FORMAT: reflectedInertia = computeMotorsInertia(Config)
     %
-    % INPUT:  -Config = user defined configuration parameters
+    % INPUT:  - Config = user defined configuration parameters;
     %
-    % OUTPUT: -reflectedInertia = [n x n] matrix of motors reflected inertia
+    % OUTPUT: - reflectedInertia = [n x n] matrix of motors reflected inertia
     %
     % Authors: Gabriele Nava
     %          

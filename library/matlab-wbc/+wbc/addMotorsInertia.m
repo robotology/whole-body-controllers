@@ -6,15 +6,15 @@ function M_with_inertia = addMotorsInertia(M,Config)
     % PROCEDURE: the assume the floating base + joint + motors dynamics can be
     % described by the following system of equations:
     %
-    %     M_b*nuDot_b + M_bj*qjDDot + h_b = J_b^T*f (1)
+    %     M_b*nuDot_b + M_bs*sDDot + h_b = J_b^T*f (1)
     %
-    %     M_j*qjDDot + M_jb*nuDot_b + h_j = J_j^T*f + tau_j (2)
+    %     M_s*sDDot + M_sb*nuDot_b + h_s = J_s^T*f + tau_s (2)
     %
-    %     I_m*thetaDDot = tau_m - transpose(T*Gamma)*tau_j (3)
+    %     I_m*thetaDDot = tau_m - transpose(T*Gamma)*tau_s (3)
     %
-    % Assuming that the joint is rigidly attached to the motor, one has that:
+    % Assuming that the joints are rigidly attached to the motors, one has that:
     %
-    %     thetaDDot = (T*Gamma)^-1*qjDDot (4)
+    %     thetaDDot = (T*Gamma)^-1*sDDot (4)
     %
     % where Gamma is a diagonal matrix containing the transmission ratio for
     % all joints, while T is a block diagonal matrix taking into account the 
@@ -23,14 +23,14 @@ function M_with_inertia = addMotorsInertia(M,Config)
     % By substituting (4) into (3), multiplying (3) by transpose(T*Gamma)^-1 and
     % finally summing up (3) and (2), one has:
     %
-    %     M_b*nuDot_b + M_bj*qjDDot + h_b = J_b^T*f (1)
+    %     M_b*nuDot_b + M_bs*sDDot + h_b = J_b^T*f (1)
     %
-    %    (M_j+transpose(T*Gamma)^-1*I_m*(T*Gamma)^-1)*qjDDot + M_jb*nuDot_b + h_j = J_j^T*f + u (2b)
+    %    (M_s+transpose(T*Gamma)^-1*I_m*(T*Gamma)^-1)*sDDot + M_sb*nuDot_b + h_s = J_s^T*f + u (2b)
     %
-    % where u = transpose(T*Gamma)^-1*tau_m. The input joint toruqes can be calculated from
-    % (3) as follows:
+    % where u = transpose(T*Gamma)^-1*tau_m. The input joint torques can be 
+    % calculated from (3) as follows:
     %
-    %    tau_j = u - K_ff*transpose(T*Gamma)^-1*I_m*(T*Gamma)^-1*qjDDot 
+    %    tau_s = u - K_ff*transpose(T*Gamma)^-1*I_m*(T*Gamma)^-1*sDDot 
     %
     % with K_ff belonging to [0,1].
     %
@@ -53,18 +53,17 @@ function M_with_inertia = addMotorsInertia(M,Config)
     %% --- Initialization ---
     
     % parameters
-    nDof                    = size(M,1)-6;
+    NDOF = size(M,1)-6;
       
-    % add motors reflected inertias
+    % add motors reflected inertia to the mass matrix
     if Config.USE_MOTOR_REFLECTED_INERTIA
          
         reflectedInertia    = wbc.computeMotorsInertia(Config);
-        M_reflected_inertia = [zeros(6,6+nDof);
-                                zeros(nDof,6) reflectedInertia];
-    else
-         
+        M_reflected_inertia = [zeros(6,6+NDOF);
+                               zeros(NDOF,6) reflectedInertia];
+    else     
         M_reflected_inertia = zeros(size(M));
     end
          
-    M_with_inertia = M +M_reflected_inertia;
+    M_with_inertia = M + M_reflected_inertia;
 end

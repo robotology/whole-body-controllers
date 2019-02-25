@@ -1,9 +1,11 @@
-function [ConstraintsMatrix, bVectorConstraints] = constraints(staticFrictionCoefficient, numberOfPoints, torsionalFrictionCoefficient, footSize, fZmin)
+function [ConstraintsMatrix, bVectorConstraints] = computeRigidContactConstraints(staticFrictionCoefficient, numberOfPoints, torsionalFrictionCoefficient, footSize, fZmin)
 
-    % CONSTRAINTS computes the constraint matrix and bias vector for applying
-    %             friction cones and unilateral constraints at contact locations.
+    % COMPUTERIGIDCONTACTCONSTRAINTS computes the constraint matrix and bias vector
+    %                                for applying friction cones, unilateral 
+    %                                constraints and local CoP constraints at 
+    %                                contact locations (assuming rigid contacts).
     %                                        
-    % FORMAT: [ConstraintsMatrix, bVectorConstraints] = constraints ...
+    % FORMAT: [ConstraintsMatrix, bVectorConstraints] = computeRigidContactConstraints ...
     %             (staticFrictionCoefficient, numberOfPoints, torsionalFrictionCoefficient, footSize, fZmin)
     %
     % INPUT:   - staticFrictionCoefficient = static linear coefficient of friction

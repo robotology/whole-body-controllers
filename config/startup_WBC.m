@@ -1,9 +1,9 @@
-%% startup.m
+%% startup_WBC.m
 %
-%  Run this script only once to permanently add the matlab-wbc folder to your MATLAB path. 
+%  Run this script once to permanently add the matlab-wbc library to your MATLAB path. 
 
 fprintf('\n## whole-body-controllers ##\n');
-fprintf('\nAdding "matlab-wbc" to pathdef.m...\n\n');
+fprintf('\nAdding "matlab-wbc" library to pathdef.m...\n\n');
 
 % path to whole-body-controllers
 pathToWBC = pwd;

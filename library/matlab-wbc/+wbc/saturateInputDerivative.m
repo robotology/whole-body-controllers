@@ -1,8 +1,24 @@
-function uSat = saturateInputDerivative(u, u_0, Config)
+function uSat = saturateInputDerivative(u, u_0, Config, Sat)
 
-    % SATURATEINPUTDERIVATIVE Saturates the input u such that the absolute value
-    % of its numerical derivative uDelta = (uPrev-u)/Ts cannot be greater than
-    % a predefined value. uPrev = u at the previous integration step; Ts integration step.
+    % SATURATEINPUTDERIVATIVE saturates the input u such that the absolute 
+    %                         value of its numerical derivative uDelta = (uPrev-u)/Ts
+    %                         cannot be greater than a predefined value. 
+    %
+    % FORMAT: uSat = saturateInputDerivative(u, u_0, Config, Sat)
+    %
+    % INPUTS: u = input signal;
+    %         u_0 = input at t = 0;
+    %         Config = structure with user-defined configuration parameters;
+    %         Sat = structure with saturation values.
+    %
+    % OUTPUTS: uSat = saturated input signal.
+    % 
+    % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
+    %          
+    %          all authors are with the Italian Istitute of Technology (IIT)
+    %          email: name.surname@iit.it
+    %
+    % Genoa, Dec 2017
     %
 
     %% --- Initialization ---
@@ -15,18 +31,17 @@ function uSat = saturateInputDerivative(u, u_0, Config)
     end
 
     % max allowed input derivative
-    uDelta_maxAbs = Config.tauDot_maxAbs;
+    uDelta_maxAbs = Sat.tauDot_maxAbs;
 
     % evaluate the max and min allowed input
-    delta_u_max =  uDelta_maxAbs*Config.Ts; 
-    delta_u_min = -uDelta_maxAbs*Config.Ts;
+    delta_u_max =  uDelta_maxAbs*Config.tStep; 
+    delta_u_min = -uDelta_maxAbs*Config.tStep;
 
     delta_u_Sat = saturateInput(u-uPrev, delta_u_min, delta_u_max);
 
     % update uPrev
     uSat  = uPrev + delta_u_Sat;
     uPrev = uSat;
-
 end
 
 % utility function: saturates the input value
