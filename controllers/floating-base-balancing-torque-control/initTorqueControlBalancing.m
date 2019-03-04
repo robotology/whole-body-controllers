@@ -53,10 +53,10 @@ Config.tStep           = 0.01;
 DEMO_TYPE                     = 'YOGA';
 
 % Config.SCOPES: debugging scopes activation
-Config.SCOPES_WRENCHES        = false;
-Config.SCOPES_GAIN_SCHE_INFO  = false;
-Config.SCOPES_MAIN            = false;
-Config.SCOPES_QP              = false;
+Config.SCOPES_WRENCHES        = true;
+Config.SCOPES_GAIN_SCHE_INFO  = true;
+Config.SCOPES_MAIN            = true;
+Config.SCOPES_QP              = true;
 
 % DATA PROCESSING
 %

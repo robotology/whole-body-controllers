@@ -20,7 +20,7 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     %
     % where A is the matrix mapping the forces and moments into the
     % momentum equations, f_grav is the gravity force, f is a vector stacking
-    % all the external forces and moments acting on the robot as folows:
+    % all the external forces and moments acting on the robot as follows:
     %
     %    f = [f_left; f_right]
     %
@@ -44,9 +44,9 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     
     % Partition matrix A into the part that multiplies the left foot
     % wrenches and the right foot wrenches, i.e. A = [A_left, A_right]
-    A_left        = [eye(3),          zeros(3);
+    A_left        = [eye(3),           zeros(3);
                      wbc.skew(r_left), eye(3)];
-    A_right       = [eye(3),           zeros(3);
+    A_right       = [eye(3),            zeros(3);
                      wbc.skew(r_right), eye(3)];
 
     A             = [A_left, A_right]; 
@@ -230,7 +230,7 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     f_LDot      = pinvA*(LDot_star -f_grav);
                 
     % Null space of the matrix A            
-    Na          = (eye(12,12) - pinvA*A);
+    Na          = (eye(12,12) - pinvA*A).*feetContactStatus(1).*feetContactStatus(2);
     
     %% Compute Sigma and tauModel
     %

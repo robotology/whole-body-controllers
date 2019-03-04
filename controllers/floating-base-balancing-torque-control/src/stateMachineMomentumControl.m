@@ -158,7 +158,7 @@ function  [w_H_b, pos_CoM_des, jointPos_des, feetContactStatus, KP_postural_diag
                 
                 % if the robot repeated the Yoga moveset for the number of
                 % times required by the user, then exit the loop
-                if yogaMovesetCounter > StateMachine.yogaCounter
+                if yogaMovesetCounter > StateMachine.yogaCounter || ~StateMachine.oneFootYogaInLoop
                    
                     currentState  = 5;
                 end
