@@ -13,7 +13,7 @@ addpath('./src-static-gui');
 disp('[startModel]: loading the model...')
 
 % open the model
-open_system('positionControlBalancing.mdl','loadonly');
+open_system('torqueControlBalancing.mdl','loadonly');
 
 % add message to tell the user that the model has been opened correctly
 disp('[startModel]: model loaded correctly')

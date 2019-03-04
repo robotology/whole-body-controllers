@@ -68,21 +68,20 @@ Config.INCLUDE_HARMONIC_DRIVE_INERTIA     = false;
 % left foot do not move. 
 Config.USE_IMU4EST_BASE  = false;
 
-% Config.YAW_IMU_FILTER and Config.PITCH_IMU_FILTER: when the flag
-% Config.USE_IMU4EST_BASE = true, then the orientation of the floating base is
-% estimated as explained above. However, the foot is usually perpendicular
-% to gravity when the robot stands on flat surfaces, and rotation about the
-% gravity axis may be de to the IMU drift in estimating this angle. Hence,
-% when either of the flags Config.YAW_IMU_FILTER or Config.PITCH_IMU_FILTER
-% is set to true, then the yaw and/or pitch angles of the contact foot are
-% ignored and kept equal to the initial values.
+% Config.YAW_IMU_FILTER when the flag Config.USE_IMU4EST_BASE = true, then 
+% the orientation of the floating base is estimated as explained above. However,
+% the foot is usually perpendicular to gravity when the robot stands on flat 
+% surfaces, and rotation about the gravity axis may be affected by the IMU drift 
+% in estimating this angle. Hence, when either of the flags Config.YAW_IMU_FILTER
+% is set to true, then the yaw angle of the contact foot is ignored and kept 
+% equal to the initial value.
 Config.FILTER_IMU_YAW   = true;
-Config.FILTER_IMU_PITCH = true;
 
-% Config.CORRECT_NECK_IMU: when set equal to true, the kineamtics from the
+% Config.CORRECT_NECK_IMU: when set equal to true, the kinematics from the
 % IMU and the contact foot is corrected by using the neck angles. If it set
-% equal to false, recall that the neck is assumed to be in (0,0,0).
-Config.CORRECT_NECK_IMU = true;
+% equal to false, recall that the neck is assumed to be in (0,0,0). Valid
+% ONLY while using the ICUB HEAD IMU!
+Config.CORRECT_NECK_IMU = false;
 
 % Config.USE_QP_SOLVER: if set to true, a QP solver is used to account for 
 % inequality constraints of contact wrenches.
@@ -95,6 +94,7 @@ Ports.IMU               = ['/' WBTConfigRobot.RobotName '/inertial'];
 Ports.NECK_POS          = ['/' WBTConfigRobot.RobotName '/head/state:o'];
 
 % Ports dimensions
-Ports.NECK_POS_PORT_SIZE = 3;
-Ports.IMU_PORT_SIZE      = 12;
-Ports.WRENCH_PORT_SIZE   = 6;
+Ports.NECK_POS_PORT_SIZE         = 3;
+Ports.IMU_PORT_SIZE              = 12;
+Ports.IMU_PORT_ORIENTATION_INDEX = [1,2,3];
+Ports.WRENCH_PORT_SIZE           = 6;

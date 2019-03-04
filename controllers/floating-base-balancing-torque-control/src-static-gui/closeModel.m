@@ -7,8 +7,8 @@
 disp('[closeModel]: closing the Simulink model...')
 
 % save and close the Simulink model
-save_system('positionControlBalancing.mdl');
-close_system('positionControlBalancing.mdl');
+save_system('torqueControlBalancing.mdl');
+close_system('torqueControlBalancing.mdl');
 
 % close all figures
 close all

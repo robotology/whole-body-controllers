@@ -60,7 +60,7 @@ function  [w_H_b, pos_CoM_des, jointPos_des, feetContactStatus, KP_postural_diag
                 end
         
                 frequency   = Config.frequencyOfOscillation;
-                pos_CoM_des = pos_CoM_0 + Amplitude*sin(2*pi*frequency*t)*Config.directionOfOscillation;        
+                pos_CoM_des = pos_CoM_0 + Amplitude*sin(2*pi*frequency*time)*Config.directionOfOscillation;        
             end        
         else          
             % after tBalancing time start moving the weight to the left

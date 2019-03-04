@@ -8,8 +8,8 @@ disp('Compiling the Simulink model...')
 pause(1.5)
 
 try
-    positionControlBalancing([], [], [], 'compile')
-    positionControlBalancing([], [], [], 'term')
+    torqueControlBalancing([], [], [], 'compile')
+    torqueControlBalancing([], [], [], 'term')
 
 catch ME
     

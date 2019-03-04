@@ -244,7 +244,7 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     % required in order to match the dimension of Sigma (NDOF x 12).
     
     % Contact jacobians
-    NDOF        = size(J_l_sole(1,7:end));
+    NDOF        = size(J_l_sole(:,7:end),2);
     Jc          = [J_l_sole*feetContactStatus(1);      
                    J_r_sole*feetContactStatus(2)];
                    
@@ -283,7 +283,7 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     % Adaptation of the control gains for back compatibility with the older
     % versions of the controller
     KP_postural     = KP_postural*pinv(NullLambda_Mbar, Reg.pinvTol) + Reg.KP_postural*eye(NDOF);
-    KD_postural     = Gain.KD_postural*pinv(NullLambda_Mbar,Reg.pinvTol) + Reg.KD_postural*eye(NDOF);
+    KD_postural     = diag(Gain.KD_postural)*pinv(NullLambda_Mbar,Reg.pinvTol) + Reg.KD_postural*eye(NDOF);
     
     % Joints velocity and joints position error
     jointVel        = nu(7:end);

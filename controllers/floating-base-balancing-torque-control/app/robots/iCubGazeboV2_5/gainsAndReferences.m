@@ -18,7 +18,7 @@ Gain.KP_CoM = [50  50  10   % state ==  1  TWO FEET BALANCING
                50  50  10   % state == 12  LOOKING FOR CONTACT
                50  50  10]; % state == 13  TRANSITION TO INITIAL POSITION
 
-Gain.KD_CoM = 2*sqrt(Gain.KP_CoM)/20;
+Gain.KD_CoM = 2*sqrt(Gain.KP_CoM);
 
 % Angular momentum gains
 Gain.KI_AngularMomentum = 0.25 ;
@@ -40,7 +40,7 @@ Gain.KP_postural = [10   30   20,  10   10    10    8,  10   10    10    8,  30 
                     30   30   30,  10   10    20   10,  10   10    20   10,  100  350  20   200  10  100,  220  350  120  200  65   100   % state == 12  LOOKING FOR CONTACT
                     10   30   20,  10   10    10    8,  10   10    10    8,  30   30   20   20   100 100,   30  50   30   60   100  100]; % state == 13  TRANSITION TO INITIAL POSITION
 
-Gain.KD_postural = 0*sqrt(Gain.KP_postural(1,:));  
+Gain.KD_postural = 2*sqrt(Gain.KP_postural(1,:));  
 
 % symmetric gains
 Gain.KP_postural(8:12,:)     = Gain.KP_postural(2:6,:);

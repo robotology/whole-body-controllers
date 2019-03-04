@@ -1,10 +1,10 @@
-function [w_H_b, wImu_H_base] = worldToBaseTransformWithIMU(imu_H_fixedLink, imu_H_fixedLink_0, fixedLink_H_base, rpyFromIMU_0, rpyFormIMU, FILTER_IMU_YAW)
+function [w_H_b, wImu_H_base, wImu_H_fixedLink_0] = worldToBaseTransformWithIMU(imu_H_fixedLink, imu_H_fixedLink_0, fixedLink_H_base, rpyFromIMU_0, rpyFromIMU, FILTER_IMU_YAW)
 
     % WORLDTOBASETRANSFORMWITHIMU calculates the world-to-base frame transformation
     %                             matrix. The orientation is updated by 
     %                             using informations from IMU.
     %
-    % FORMAT: w_H_b = worldToBaseTransformWithIMU(imu_H_fixedLink, imu_H_fixedLink_0, fixedLink_H_base, rpyFromIMU_0, rpyFormIMU, FILTER_IMU_YAW)
+    % FORMAT: [w_H_b, wImu_H_base, wImu_H_fixedLink_0] = worldToBaseTransformWithIMU(imu_H_fixedLink, imu_H_fixedLink_0, fixedLink_H_base, rpyFromIMU_0, rpyFormIMU, FILTER_IMU_YAW)
     %
     % INPUT:  - imu_H_fixedLink   = [4 * 4] imu to fixed link transform
     %         - imu_H_fixedLink_0 = [4 * 4] imu to fixed link transform at t = 0
@@ -15,7 +15,9 @@ function [w_H_b, wImu_H_base] = worldToBaseTransformWithIMU(imu_H_fixedLink, imu
     %
     % OUTPUT: - w_H_b = [4 * 4] world to base frame transformation matrix
     %         - wImu_H_base = [4 * 4] IMU inertial frame to base frame
-    %                         transformation matrix.
+    %                         transformation matrix
+    %         - wImu_H_fixedLink_0 = [4 * 4] IMU inertial frame to fixed frame
+    %                                        transformation matrix at t = 0.
     %
     % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
     %          
@@ -28,12 +30,12 @@ function [w_H_b, wImu_H_base] = worldToBaseTransformWithIMU(imu_H_fixedLink, imu
     %% --- Initialization ---
 
     % WARNING!!! Converting the inertial values from grad into rad
-    rpyFormIMU         = (rpyFormIMU   * pi)/180;
+    rpyFromIMU         = (rpyFromIMU   * pi)/180;
     rpyFromIMU_0       = (rpyFromIMU_0 * pi)/180;
 
     % Composing the rotation matrix:
     % See http://wiki.icub.org/images/8/82/XsensMtx.pdf page 12
-    wImu_R_imu         = wbc.rotz(rpyFormIMU(3))*wbc.roty(rpyFormIMU(2))*wbc.rotx(rpyFormIMU(1));
+    wImu_R_imu         = wbc.rotz(rpyFromIMU(3))*wbc.roty(rpyFromIMU(2))*wbc.rotx(rpyFromIMU(1));
     wImu_R_imu_0       = wbc.rotz(rpyFromIMU_0(3))*wbc.roty(rpyFromIMU_0(2))*wbc.rotx(rpyFromIMU_0(1));
 
     % Rotation between the IMU and the fixed link

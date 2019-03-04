@@ -1,11 +1,11 @@
-function f_star = processOutputQP(analyticalSolution,primalSolution,QPStatus,feetContactStatus,Config)
+function f_star = processOutputQP_oneFoot(analyticalSolution,primalSolution,QPStatus,feetContactStatus,Config)
 
-    % PROCESSOUTPUTQP evaluates the output of the WBToolbox QP block. In case
-    %                 the QP block exited with an error, a "default", user 
-    %                 defined solution to the QP problem is provided instead of 
-    %                 the one coming from the QP block. 
+    % PROCESSOUTPUTQP_ONEFOOT evaluates the output of the WBToolbox QP block.
+    %                         In case the QP block exited with an error, a 
+    %                        "default", user defined solution to the QP problem 
+    %                         is provided instead of the one coming from the QP block. 
     %
-    % FORMAT: f_star = processOutputQP(analyticalSolution,primalSolution,QPStatus,feetContactStatus,Config)  
+    % FORMAT: f_star = processOutputQP_oneFoot(analyticalSolution,primalSolution,QPStatus,feetContactStatus,Config)  
     %
     % INPUT:  - analyticalSolution = the alternative user defined solution to the QP 
     %                                problem to be used when the QP block fails;
@@ -42,15 +42,11 @@ function f_star = processOutputQP(analyticalSolution,primalSolution,QPStatus,fee
         updated_primalSolution     = [primalSolution; zeros(6,1)];
         updated_analyticalSolution = [analyticalSolution; zeros(6,1)];
    
-    elseif feetContactStatus(2) > (1 - CONTACT_THRESHOLD)
+    else
         
         % right foot balancing
         updated_primalSolution     = [zeros(6,1); primalSolution];
-        updated_analyticalSolution = [zeros(6,1); analyticalSolution];
-    else   
-        % two feet balancing
-        updated_primalSolution     = primalSolution;
-        updated_analyticalSolution = analyticalSolution;
+        updated_analyticalSolution = [zeros(6,1); analyticalSolution]; 
     end
     
     if Config.USE_QP_SOLVER && abs(QPStatus)< QP_STATUS_THRESHOLD  

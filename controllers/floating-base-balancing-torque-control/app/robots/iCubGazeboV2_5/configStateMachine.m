@@ -16,18 +16,18 @@ Config.SMOOTH_JOINT_DES     = true;
 Sat.torque                  = 60;
 
 % Joint torques rate of change saturation
-Sat.tauDot_maxAbs           = 300;
+Sat.uDotMax                 = 300;
 
 % max unsigned difference between two consecutive (measured) joint positions, 
 % i.e. delta_qj = abs(qj(k) - qj(k-1))
 Sat.maxJointsPositionDelta  = 15*pi/180; % [rad] 
 
 %% Regularization parameters
-Reg.pinvDamp_nu_b           = 1e-7;
+Reg.pinvDamp_baseVel        = 1e-7;
 Reg.pinvDamp                = 1; 
 Reg.pinvTol                 = 1e-5;
 Reg.KP_postural             = 0.1;
-Reg.KP_postural             = 0.1;
+Reg.KD_postural             = 0.1;
 Reg.HessianQP               = 1e-7;    
 
 %% State Machine configuration
