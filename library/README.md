@@ -2,11 +2,11 @@
 
 ## matlab-wbc
 
-A collection of utlity functions/scripts used by all the controllers.
+A package of utility Matlab functions used by all the controllers.
 
 ### How to install the folder
 
-Add the `matlab-wbc` folder to the Matlab path, or run the `startup.m` script in the `config` folder. If you chose to run the `startup.m` script, remember to start matlab from the folder where the `pathdef.m` file is (usually `~/Documents/MATLAB`).
+Add the `matlab-wbc` folder to the Matlab path, or run the `startup_WBC.m` script in the `config` folder. If you chose to run the `startup_WBC.m` script, remember to **always** start matlab from the folder where the `pathdef.m` file is (usually `~/Documents/MATLAB`).
 
 ### How to use the +wbc library
 
@@ -14,7 +14,7 @@ To use any function inside the package [matlab-wbc/+wbc](matlab-wbc/+wbc), add t
 
 ## matlab-gui
 
-A static GUI for starting/closing the Simulink models without the need of opening them.
+A static GUI for starting/closing the Simulink models without the need of opening the Simulink default GUI.
 
 ## simulink-library
 

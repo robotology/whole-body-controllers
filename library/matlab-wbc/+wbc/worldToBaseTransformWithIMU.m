@@ -1,19 +1,21 @@
-function w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base,inertial_0,inertial,neck_pos,Config)
+function [w_H_b, wImu_H_base] = worldToBaseTransformWithIMU(imu_H_fixedLink, imu_H_fixedLink_0, fixedLink_H_base, rpyFromIMU_0, rpyFormIMU, FILTER_IMU_YAW)
 
-    % WORLDTOBASETRANSFORMWITHIMU calculates the world-to-base transformation
-    %                             matrix using IMU orientation.
+    % WORLDTOBASETRANSFORMWITHIMU calculates the world-to-base frame transformation
+    %                             matrix. The orientation is updated by 
+    %                             using informations from IMU.
     %
-    % FORMAT: w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base,inertial_0,inertial,neck_pos,Config)    
+    % FORMAT: w_H_b = worldToBaseTransformWithIMU(imu_H_fixedLink, imu_H_fixedLink_0, fixedLink_H_base, rpyFromIMU_0, rpyFormIMU, FILTER_IMU_YAW)
     %
-    % INPUT:  - imu_H_link = [4 * 4] imu to fixed link transform
-    %         - imu_H_link_0 = [4 * 4] imu to fixed link transform at 0
-    %         - link_H_base = [4 * 4] fixed link to base transform
-    %         - inertial_0 = IMU orientation, velocity, acceleration at 0
-    %         - inertial = IMU orientation, velocity, acceleration
-    %         - neck_pos = [3 * 1] neck position
-    %         - Config = user defined parameters
+    % INPUT:  - imu_H_fixedLink   = [4 * 4] imu to fixed link transform
+    %         - imu_H_fixedLink_0 = [4 * 4] imu to fixed link transform at t = 0
+    %         - fixedLink_H_base  = [4 * 4] fixed link to base transform
+    %         - rpyFromIMU_0      = IMU orientation at t = 0
+    %         - rpyFromIMU        = IMU orientation
+    %         - FILTER_IMU_YAW    = boolean
     %
-    % OUTPUT: - w_H_b = [4 * 4] world to base transform
+    % OUTPUT: - w_H_b = [4 * 4] world to base frame transformation matrix
+    %         - wImu_H_base = [4 * 4] IMU inertial frame to base frame
+    %                         transformation matrix.
     %
     % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
     %          
@@ -25,52 +27,47 @@ function w_H_b = worldToBaseTransformWithIMU(imu_H_link,imu_H_link_0,link_H_base
 
     %% --- Initialization ---
 
-    % Converting the inertial values from grad into rad
-    inertial        = (inertial   * pi)/180;
-    inertial_0      = (inertial_0 * pi)/180;
+    % WARNING!!! Converting the inertial values from grad into rad
+    rpyFormIMU         = (rpyFormIMU   * pi)/180;
+    rpyFromIMU_0       = (rpyFromIMU_0 * pi)/180;
 
     % Composing the rotation matrix:
     % See http://wiki.icub.org/images/8/82/XsensMtx.pdf page 12
-    wImu_R_imu      = wbc.rotz(inertial(3))*wbc.roty(inertial(2))*wbc.rotx(inertial(1));
-    wImu_R_imu_0    = wbc.rotz(inertial_0(3))*wbc.roty(inertial_0(2))*wbc.rotx(inertial_0(1));
+    wImu_R_imu         = wbc.rotz(rpyFormIMU(3))*wbc.roty(rpyFormIMU(2))*wbc.rotx(rpyFormIMU(1));
+    wImu_R_imu_0       = wbc.rotz(rpyFromIMU_0(3))*wbc.roty(rpyFromIMU_0(2))*wbc.rotx(rpyFromIMU_0(1));
 
     % Rotation between the IMU and the fixed link
-    imu_R_link      = imu_H_link(1:3,1:3);
-    imu_R_link_0    = imu_H_link_0(1:3,1:3);
+    imu_R_fixedLink    = imu_H_fixedLink(1:3,1:3);
+    imu_R_fixedLink_0  = imu_H_fixedLink_0(1:3,1:3);
 
     % Rotation between the IMU inertial frame and the fixed link
-    wImu_R_link     = wImu_R_imu * imu_R_link;
-    wImu_R_link_0   = wImu_R_imu_0 * imu_R_link_0;
+    wImu_R_fixedLink   = wImu_R_imu * imu_R_fixedLink;
+    wImu_R_fixedLink_0 = wImu_R_imu_0 * imu_R_fixedLink_0;
 
     % Convert into roll-pitch-yaw
-    rollPitchYaw_link_0 = wbc.rollPitchYawFromRotation(wImu_R_link_0);
-    rollPitchYaw_link   = wbc.rollPitchYawFromRotation(wImu_R_link);
+    rollPitchYaw_fixedLink_0 = wbc.rollPitchYawFromRotation(wImu_R_fixedLink_0);
+    rollPitchYaw_fixedLink   = wbc.rollPitchYawFromRotation(wImu_R_fixedLink);
 
-    rollPitchYawFiltered_link = rollPitchYaw_link;
+    % Filter the Yaw angle (may be measured wrong by the IMU)
+    rollPitchYaw_filtered    = rollPitchYaw_fixedLink;
 
-    if Config.FILTER_IMU_YAW
-        rollPitchYawFiltered_link(3) = rollPitchYaw_link_0(3);
+    if FILTER_IMU_YAW
+        
+        rollPitchYaw_filtered(3) = rollPitchYaw_fixedLink_0(3);
     end
-    if Config.FILTER_IMU_PITCH
-        rollPitchYawFiltered_link(2) = rollPitchYaw_link_0(2);
-    end
 
-    wImu_R_link   = wbc.rotz(rollPitchYawFiltered_link(3))*wbc.roty(rollPitchYawFiltered_link(2))*wbc.rotx(rollPitchYawFiltered_link(1));
+    wImu_R_fixedLink   = wbc.rotz(rollPitchYaw_filtered(3))*wbc.roty(rollPitchYaw_filtered(2))*wbc.rotx(rollPitchYaw_filtered(1));
 
     % IMU inertial frame to fixed link transform
-    wImu_H_link   = [wImu_R_link,   zeros(3,1)
-                     zeros(1,3),       1     ];
+    wImu_H_fixedLink   = [wImu_R_fixedLink, zeros(3,1)
+                          zeros(1,3),       1     ];
           
-    wImu_H_link_0 = [wImu_R_link_0, zeros(3,1)
-                     zeros(1,3),       1     ];
+    wImu_H_fixedLink_0 = [wImu_R_fixedLink_0, zeros(3,1)
+                          zeros(1,3),         1     ];
 
     % IMU inertial frame to base link transform             
-    wImu_H_base   = wImu_H_link * link_H_base;
+    wImu_H_base        = wImu_H_fixedLink * fixedLink_H_base;
 
-    %% Correct IMU with neck position
-    wImu_H_wImuAssumingNeckToZero = wbc.correctImuWithNeckPos(neck_pos);
-
-    wImu_H_base  = wImu_H_wImuAssumingNeckToZero * wImu_H_base;
-    w_H_b        = wImu_H_link_0\wImu_H_base;
-    
+    %% World to base frame transformation matrix
+    w_H_b              = wImu_H_fixedLink_0\wImu_H_base;   
 end

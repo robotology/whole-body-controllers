@@ -1,15 +1,18 @@
-function uSat = saturateInputDerivative(u, u_0, Config, Sat)
+function uSat = saturateInputDerivative(u, u_0, tStep, uDeltaMax)
 
     % SATURATEINPUTDERIVATIVE saturates the input u such that the absolute 
-    %                         value of its numerical derivative uDelta = (uPrev-u)/Ts
+    %                         value of its numerical derivative:
+    %                        
+    %                             uDelta = (uPrev-u)/tStep
+    %                         
     %                         cannot be greater than a predefined value. 
     %
     % FORMAT: uSat = saturateInputDerivative(u, u_0, Config, Sat)
     %
     % INPUTS: u = input signal;
     %         u_0 = input at t = 0;
-    %         Config = structure with user-defined configuration parameters;
-    %         Sat = structure with saturation values.
+    %         tStep = time step for finite difference formula;
+    %         uDeltaMax = max input derivative (absolute value).
     %
     % OUTPUTS: uSat = saturated input signal.
     % 
@@ -27,21 +30,17 @@ function uSat = saturateInputDerivative(u, u_0, Config, Sat)
     % initialize the input value at the previous step
     if isempty(uPrev)
     
-        uPrev = u_0;
+        uPrev   = u_0;
     end
 
-    % max allowed input derivative
-    uDelta_maxAbs = Sat.tauDot_maxAbs;
-
     % evaluate the max and min allowed input
-    delta_u_max =  uDelta_maxAbs*Config.tStep; 
-    delta_u_min = -uDelta_maxAbs*Config.tStep;
-
+    delta_u_max =  uDeltaMax * tStep; 
+    delta_u_min = -uDeltaMax * tStep;
     delta_u_Sat = saturateInput(u-uPrev, delta_u_min, delta_u_max);
 
-    % update uPrev
-    uSat  = uPrev + delta_u_Sat;
-    uPrev = uSat;
+    % update u at previous time
+    uSat        = uPrev + delta_u_Sat;
+    uPrev       = uSat;
 end
 
 % utility function: saturates the input value
@@ -64,6 +63,7 @@ function y = saturateInput(u, min, max)
             if y(i) > max(i)
                 
                 y(i) = max(i);
+                
             elseif y(i) < min(i)
             
                 y(i) = min(i);

@@ -35,6 +35,7 @@ function noSpikes = checkSpikes(u, delta_u_max)
     res  = sum(res);
     
     if abs(res) < 0.1
+        
         noSpikes = 1;
     else
         noSpikes = 0;

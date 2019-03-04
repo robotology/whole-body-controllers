@@ -1,1 +1,1 @@
-add_subdirectory(momentum-based-yoga)
+add_subdirectory(floating-base-balancing-torque-control)

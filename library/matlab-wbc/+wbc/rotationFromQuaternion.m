@@ -3,7 +3,7 @@ function R = rotationFromQuaternion(q)
     % ROTATIONFROMQUATERNION computes the rotation matrix from a quaternion by
     %                        applying Rodrigues's formula:
     %
-    %                            R = I_3 + 2*s*skew(r) + 2*skew(r)^2
+    %                          R = I_3 + 2 * s * skew(r) + 2 * skew(r)^2
     %
     % FORMAT: R = rotationFromQuaternion(q)  
     %

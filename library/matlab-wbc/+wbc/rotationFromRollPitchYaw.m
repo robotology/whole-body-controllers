@@ -5,9 +5,9 @@ function R = rotationFromRollPitchYaw(rpy)
     %
     % FORMAT:  R = rotationFromRollPitchYaw(rpy)
     %
-    % INPUTS:  - rpy = [3 x 1] roll-pitch-yaw vector;
+    % INPUTS:  - rpy = [3 * 1] roll-pitch-yaw vector;
     %
-    % OUTPUTS: - R = [3 x 3] rotation matrix.
+    % OUTPUTS: - R = [3 * 3] rotation matrix.
     %
     % Author : Gabriele Nava (gabriele.nava@iit.it)
     % Genova, Dec 2018

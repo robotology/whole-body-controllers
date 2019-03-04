@@ -5,8 +5,9 @@ function onOneFoot = robotIsOnSingleSupportQP(feetContactStatus)
     %                                        
     % FORMAT: onOneFoot = robotIsOnSingleSupportQP(feetContactStatus)
     %
-    % INPUT:   - feetContactStatus = [2 x 1] a vector describing the feet contact 
-    %                                status. Format: [leftFoot; rightFoot];
+    % INPUT:   - feetContactStatus = [2 x 1] a vector of booleans describing 
+    %                                the feet contact status. 
+    %                                Format: [leftFoot; rightFoot];
     %
     % OUTPUT:  - onOneFoot = true if the robot is balancing on one foot, false
     %                        otherwise.

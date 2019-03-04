@@ -1,4 +1,4 @@
-function H = posRotToTransfMatrix(pos,R) 
+function H = posRotToTransfMatrix(pos,R)
 
     % POSROTTOTRANSFMATR computes the transformation matrix given as input a
     %                    position vector and a rotation matrix
@@ -9,9 +9,9 @@ function H = posRotToTransfMatrix(pos,R)
     % FORMAT: H = posRotToTransfMatrix(pos, R)
     %
     % INPUT:  - pos = [3 * 1] position vector
-    %         - R = [3 * 3] rotation matrix
+    %         - R   = [3 * 3] rotation matrix
     %
-    % OUTPUT: - H = [4 * 4] transformation matrix
+    % OUTPUT: - H   = [4 * 4] transformation matrix
     %
     % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
     %          

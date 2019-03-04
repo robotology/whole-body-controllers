@@ -4,9 +4,9 @@ function D = diagonalMatrixFromVector(d)
     %
     % FORMAT: D = diagonalMatrixFromVector(d)
     %
-    % INPUT:  - d = [n x 1] vector;
+    % INPUT:  - d = [n * 1] vector;
     %
-    % OUTPUT: - D = [n x n] diagonal matrix.
+    % OUTPUT: - D = [n * n] diagonal matrix.
     %
     % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
     %          
