@@ -42,8 +42,7 @@ function f_star = processOutputQP_oneFoot(analyticalSolution,primalSolution,QPSt
         updated_primalSolution     = [primalSolution; zeros(6,1)];
         updated_analyticalSolution = [analyticalSolution; zeros(6,1)];
   
-    else
-        
+    else       
         % right foot balancing
         updated_primalSolution     = [zeros(6,1); primalSolution];
         updated_analyticalSolution = [zeros(6,1); analyticalSolution]; 

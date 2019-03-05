@@ -1,1 +1,1 @@
-register_mdl(MODELNAME "torqueBalancingYoga")
+register_mdl(MODELNAME "torqueControlBalancing")

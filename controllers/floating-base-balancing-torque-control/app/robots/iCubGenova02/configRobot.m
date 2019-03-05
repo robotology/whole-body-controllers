@@ -1,11 +1,10 @@
 % CONFIGROBOT initializes parameters specific of a particular robot
 %             (e.g., icuGazeboSim)
-%
 
 %% --- Initialization ---
 Config.ON_GAZEBO         = false;
 ROBOT_DOF                = 23;
-ROBOT_DOF_FOR_SIMULINK   = eye(ROBOT_DOF);
+Config.GRAV_ACC          = 9.81;
 
 % Robot configuration for WBToolbox
 WBTConfigRobot                    = WBToolbox.Configuration;
@@ -33,11 +32,11 @@ for n = 1:length(WBTConfigRobot.ControlBoardsNames)
 end
 
 % Frames list
-Frames.BASE              = 'root_link'; 
-Frames.IMU               = 'imu_frame';
-Frames.LEFT_FOOT         = 'l_sole';
-Frames.RIGHT_FOOT        = 'r_sole';
-Frames.COM               = 'com';
+Frames.BASE       = 'root_link'; 
+Frames.IMU        = 'imu_frame';
+Frames.LEFT_FOOT  = 'l_sole';
+Frames.RIGHT_FOOT = 'r_sole';
+Frames.COM        = 'com';
 
 % Config.SATURATE_TORQUE_DERIVATIVE: if true, the derivative of the control
 % input is saturated. In this way, it is possible to reduce high frequency
@@ -66,34 +65,35 @@ Config.INCLUDE_HARMONIC_DRIVE_INERTIA = true;
 % If set to true, the base orientation is estimated by using the IMU, while
 % the base position by assuming that the origin of either the right or the
 % left foot do not move. 
-Config.USE_IMU4EST_BASE  = false;
+Config.USE_IMU4EST_BASE = false;
 
-% Config.YAW_IMU_FILTER and Config.PITCH_IMU_FILTER: when the flag
-% Config.USE_IMU4EST_BASE = true, then the orientation of the floating base is
-% estimated as explained above. However, the foot is usually perpendicular
-% to gravity when the robot stands on flat surfaces, and rotation about the
-% gravity axis may be de to the IMU drift in estimating this angle. Hence,
-% when either of the flags Config.YAW_IMU_FILTER or Config.PITCH_IMU_FILTER
-% is set to true, then the yaw and/or pitch angles of the contact foot are
-% ignored and kept equal to the initial values.
-Config.FILTER_IMU_YAW    = true;
-Config.FILTER_IMU_PITCH  = true;
+% Config.YAW_IMU_FILTER when the flag Config.USE_IMU4EST_BASE = true, then 
+% the orientation of the floating base is estimated as explained above. However,
+% the foot is usually perpendicular to gravity when the robot stands on flat 
+% surfaces, and rotation about the gravity axis may be affected by the IMU drift 
+% in estimating this angle. Hence, when either of the flags Config.YAW_IMU_FILTER
+% is set to true, then the yaw angle of the contact foot is ignored and kept 
+% equal to the initial value.
+Config.FILTER_IMU_YAW   = true;
 
-% Config.CORRECT_NECK_IMU: when set equal to true, the kineamtics from the
+% Config.CORRECT_NECK_IMU: when set equal to true, the kinematics from the
 % IMU and the contact foot is corrected by using the neck angles. If it set
-% equal to false, recall that the neck is assumed to be in (0,0,0).
-Config.CORRECT_NECK_IMU  = true;
+% equal to false, recall that the neck is assumed to be in (0,0,0). Valid
+% ONLY while using the ICUB HEAD IMU!
+Config.CORRECT_NECK_IMU = false;
 
 % Config.USE_QP_SOLVER: if set to true, a QP solver is used to account for 
 % inequality constraints of contact wrenches.
-Config.USE_QP_SOLVER     = true; 
+Config.USE_QP_SOLVER    = true; 
 
 % Ports name list
-Ports.WRENCH_LEFT_FOOT   = '/wholeBodyDynamics/left_foot/cartesianEndEffectorWrench:o';
-Ports.WRENCH_RIGHT_FOOT  = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';
-Ports.IMU                = ['/' WBTConfigRobot.RobotName '/inertial'];
-Ports.NECK_POS           = ['/' WBTConfigRobot.RobotName '/head/state:o'];
+Ports.WRENCH_LEFT_FOOT  = '/wholeBodyDynamics/left_foot/cartesianEndEffectorWrench:o';
+Ports.WRENCH_RIGHT_FOOT = '/wholeBodyDynamics/right_foot/cartesianEndEffectorWrench:o';
+Ports.IMU               = ['/' WBTConfigRobot.RobotName '/inertial'];
+Ports.NECK_POS          = ['/' WBTConfigRobot.RobotName '/head/state:o'];
 
-% Ports dimensions. It is necessary to set this variable in case the same
-% port has different dimensions for different robots
-Ports.NECK_POS_PORT_SIZE = 6;
+% Ports dimensions
+Ports.NECK_POS_PORT_SIZE         = 6;
+Ports.IMU_PORT_SIZE              = 12;
+Ports.IMU_PORT_ORIENTATION_INDEX = [1,2,3];
+Ports.WRENCH_PORT_SIZE           = 6;

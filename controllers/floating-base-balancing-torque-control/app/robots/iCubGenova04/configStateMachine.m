@@ -24,7 +24,7 @@ Sat.maxJointsPositionDelta  = 15*pi/180; % [rad]
 
 %% Regularization parameters
 Reg.pinvDamp_baseVel        = 1e-7;
-Reg.pinvDamp                = 1; 
+Reg.pinvDamp                = 0.07; 
 Reg.pinvTol                 = 1e-5;
 Reg.KP_postural             = 0.1;
 Reg.KD_postural             = 0;
@@ -40,8 +40,8 @@ StateMachine.wrench_thresholdContactOn    = 50;
 StateMachine.wrench_thresholdContactOff   = 100;
 
 % threshold on CoM and joints error
-StateMachine.CoM_threshold                = 0.01; 
-StateMachine.joints_thresholdNotInContact = 5;
+StateMachine.CoM_threshold                = 0.02; 
+StateMachine.joints_thresholdNotInContact = 15;
 StateMachine.joints_thresholdInContact    = 50;
 
 % initial state for state machine
@@ -134,12 +134,12 @@ end
 
 % gain for feedforward term in joint torques calculation. Valid range: a
 % value between 0 and 1
-Config.K_ff  = 0;
+Config.K_ff  = 1;
 
 % Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA if true, the desired joints
 % accelerations are used for computing the feedforward term in joint
 % torques calculations. Not effective if Config.K_ff = 0.
-Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA = false;
+Config.USE_DES_JOINT_ACC_FOR_MOTORS_INERTIA = true;
 
 %% Constraints for QP for balancing
 

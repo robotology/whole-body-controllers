@@ -107,7 +107,7 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     %
     %    f^T*Hessian*f + f^T*gradient = 0
     %
-    % where Hessian = A^T*A and gradient = - A^T*(LDot_star + f_grav). Now
+    % where Hessian = A^T*A and gradient = - A^T*(LDot_star - f_grav). Now
     % it is possible to solve the folowing QP problem:
     %
     % f_star = argmin_f |f^T*Hessian*f + f^T*gradient|^2
@@ -142,7 +142,7 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     %
     % and this in the end results in updating the constraint matrix as follows:
     %
-    %     ConstraintMatrixLeftFoot = ConstraintMatrixLeftFoot * blkdiag(l_sole_R_w, l_sole_R_w) 
+    %    ConstraintMatrixLeftFoot = ConstraintMatrixLeftFoot * blkdiag(l_sole_R_w, l_sole_R_w) 
     %
     % The same holds for the right foot.
     %
@@ -176,7 +176,7 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     %    M = [Mb, Mbs;    h = [hb;    Jc = [Jb, Js]
     %         Msb, Ms];        hs];
     %    
-    % obtained by partitiioning the dynamics in order to split the first
+    % obtained by partitioning the dynamics in order to split the first
     % six rows and the remaining NDOF rows.
     %
     % u_0 instead are the feedback terms associated with the postural task,
@@ -227,7 +227,7 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     
     % Compute f_LDot 
     pinvA       = pinv(A, Reg.pinvTol); 
-    f_LDot      = pinvA*(LDot_star -f_grav);
+    f_LDot      = pinvA*(LDot_star - f_grav);
                 
     % Null space of the matrix A            
     Na          = (eye(12,12) - pinvA*A).*feetContactStatus(1).*feetContactStatus(2);
@@ -235,8 +235,8 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     %% Compute Sigma and tauModel
     %
     % NOTE that the formula Eq (7) will be used for computing the torques 
-    % also in case  the robot is balancing on ONE foot. In fact, in that case, 
-    % f will be a vector of the form (left foot balancing):
+    % also in case  the robot is balancing on ONE foot. In fact, in that
+    % case, f will be a vector of the form (left foot balancing):
     %
     %    f = [f_left (from QP); zeros(6,1)];
     %
@@ -245,12 +245,12 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     
     % Contact jacobians
     NDOF        = size(J_l_sole(:,7:end),2);
-    Jc          = [J_l_sole*feetContactStatus(1);      
-                   J_r_sole*feetContactStatus(2)];
+    Jc          = [J_l_sole.*feetContactStatus(1);      
+                   J_r_sole.*feetContactStatus(2)];
                    
     % Jacobian derivative dot(Jc)*nu
-    JcDot_nu    = [JDot_l_sole_nu*feetContactStatus(1);      
-                   JDot_r_sole_nu*feetContactStatus(2)];
+    JcDot_nu    = [JDot_l_sole_nu.*feetContactStatus(1);      
+                   JDot_r_sole_nu.*feetContactStatus(2)];
 
     % Selector of actuated DoFs
     B           = [zeros(6,NDOF);

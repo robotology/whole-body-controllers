@@ -24,7 +24,7 @@ Sat.maxJointsPositionDelta  = 15*pi/180; % [rad]
 
 %% Regularization parameters
 Reg.pinvDamp_baseVel        = 1e-7;
-Reg.pinvDamp                = 1; 
+Reg.pinvDamp                = 0.07; 
 Reg.pinvTol                 = 1e-5;
 Reg.KP_postural             = 0.1;
 Reg.KD_postural             = 0;

@@ -33,11 +33,11 @@ Reg.HessianQP               = 1e-7;
 %% State Machine configuration
 
 % time between two yoga positions
-StateMachine.joints_pauseBetweenYogaMoves = 5;
+StateMachine.joints_pauseBetweenYogaMoves = 3;
 
 % contact forces threshold
-StateMachine.wrench_thresholdContactOn    = 50;
-StateMachine.wrench_thresholdContactOff   = 100;
+StateMachine.wrench_thresholdContactOn    = 25;
+StateMachine.wrench_thresholdContactOff   = 85;
 
 % threshold on CoM and joints error
 StateMachine.CoM_threshold                = 0.01; 
@@ -50,7 +50,6 @@ StateMachine.initialState                 = 1;
 % other configuration parameters for state machine
 StateMachine.tBalancing                   = 1;
 StateMachine.tBalancingBeforeYoga         = 1;
-StateMachine.yogaExtended                 = true;
 StateMachine.skipYoga                     = false;
 StateMachine.demoOnlyBalancing            = false;
 StateMachine.demoStartsOnRightSupport     = false; % If false, the Yoga demo is performed on the left foot first
@@ -152,9 +151,9 @@ torsionalFrictionCoefficient = 1/75;
 fZmin                        = 10;
 
 % physical size of the foot                             
-feet_size                    = [-0.07  0.12 ;    % xMin, xMax
-                                -0.045 0.05 ];   % yMin, yMax  
-                                                    
+feet_size                    = [-0.05  0.10;     % xMin, xMax
+                                -0.025 0.025];   % yMin, yMax 
+                                                                 
 % Compute contact constraints (friction cone, unilateral constraints)
 [ConstraintsMatrix, bVectorConstraints] = wbc.computeRigidContactConstraints ...
     (forceFrictionCoefficient, numberOfPoints, torsionalFrictionCoefficient, feet_size, fZmin);

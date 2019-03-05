@@ -56,9 +56,9 @@ Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES = true;
 % motion is the result of more than one motor motion) is taken into account.
 % Config.INCLUDE_HARMONIC_DRIVE_INERTIA is true, then the harmonic drive
 % reflected inertia is also considered
-Config.USE_MOTOR_REFLECTED_INERTIA        = false;
-Config.INCLUDE_COUPLING                   = false;
-Config.INCLUDE_HARMONIC_DRIVE_INERTIA     = false;
+Config.USE_MOTOR_REFLECTED_INERTIA    = false;
+Config.INCLUDE_COUPLING               = false;
+Config.INCLUDE_HARMONIC_DRIVE_INERTIA = false;
 
 % Config.USE_IMU4EST_BASE: if set to false, the base frame is estimated by 
 % assuming that either the left or the right foot stay stuck on the ground. 
@@ -66,7 +66,7 @@ Config.INCLUDE_HARMONIC_DRIVE_INERTIA     = false;
 % If set to true, the base orientation is estimated by using the IMU, while
 % the base position by assuming that the origin of either the right or the
 % left foot do not move. 
-Config.USE_IMU4EST_BASE  = false;
+Config.USE_IMU4EST_BASE = false;
 
 % Config.YAW_IMU_FILTER when the flag Config.USE_IMU4EST_BASE = true, then 
 % the orientation of the floating base is estimated as explained above. However,
