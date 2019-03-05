@@ -1,12 +1,12 @@
 Model {
   Name			  "CMM_iCub_23_25_DoFs"
-  Version		  9.1
+  Version		  9.0
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.15"
+    ComputedModelVersion    "1.16"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -232,8 +232,6 @@ Model {
   }
   DiagnosticSuppressor	  "on"
   SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 1 0"
-  Notes			  ""
-  NotesPlugin		  "on"
   LogicAnalyzerGraphicalSettings ""
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
@@ -318,9 +316,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Feb 28 17:42:37 2019"
-  RTWModifiedTimeStamp	  473276555
-  ModelVersionFormat	  "1.%<AutoIncrement:15>"
+  LastModifiedDate	  "Tue Mar 05 17:57:12 2019"
+  RTWModifiedTimeStamp	  473709432
+  ModelVersionFormat	  "1.%<AutoIncrement:16>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -341,7 +339,6 @@ Model {
   ShowViewerIcons	  on
   SortedOrder		  off
   VariantCondition	  off
-  ShowSubsystemDomainSpec off
   ExecutionContextIcon	  off
   ShowLinearizationAnnotations on
   ShowVisualizeInsertedRTB on
@@ -355,7 +352,6 @@ Model {
   BrowserShowLibraryLinks off
   FunctionConnectors	  off
   BrowserLookUnderMasks	  off
-  MultiThreadCoSim	  on
   SimulationMode	  "normal"
   VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
@@ -363,8 +359,6 @@ Model {
   SnapshotBufferSize	  10
   SnapshotInterval	  10
   NumberOfLastSnapshots	  0
-  EnablePacing		  off
-  PacingRate		  1
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "MATLABWorkspace"
@@ -420,7 +414,7 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      8
-      Version		      "1.18.0"
+      Version		      "1.17.1"
       DisabledProps	      []
       Description	      ""
       Array {
@@ -428,13 +422,12 @@ Model {
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  9
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
 	  StopTime		  "10.0"
 	  AbsTol		  "auto"
-	  AutoScaleAbsTol	  "on"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
 	  MaxOrder		  5
@@ -465,11 +458,10 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	  SampleTimeProperty	  []
 	  DecoupledContinuousIntegration off
-	  MinimalZcImpactIntegration off
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  10
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  Decimation		  "1"
@@ -510,7 +502,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  11
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -569,15 +561,10 @@ Model {
 	  OptimizeDataStoreBuffers on
 	  BusAssignmentInplaceUpdate on
 	  DifferentSizesBufferReuse off
-	  OptimizationLevel	  "level2"
-	  OptimizationPriority	  "Balanced"
-	  OptimizationCustomize	  on
-	  UseRowMajorAlgorithm	  off
-	  LabelGuidedReuse	  off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  12
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -589,7 +576,6 @@ Model {
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
 	  SignalInfNanChecking	  "none"
-	  StringTruncationChecking "error"
 	  SignalRangeChecking	  "none"
 	  ReadBeforeWriteMsg	  "UseLocalSettings"
 	  WriteAfterWriteMsg	  "UseLocalSettings"
@@ -660,7 +646,6 @@ Model {
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  SimStateOlderReleaseMsg "error"
 	  ChecksumConsistencyForSSReuse	"none"
-	  LibraryContextMissingDiagnostic "none"
 	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
@@ -694,7 +679,7 @@ Model {
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  13
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  ProdBitPerChar	  8
@@ -742,7 +727,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  14
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
@@ -761,7 +746,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  15
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  SimCustomSourceCode	  ""
@@ -791,7 +776,7 @@ Model {
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  16
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    16
@@ -878,7 +863,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      17
-	      Version		      "1.18.0"
+	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
 		Dimension		28
@@ -952,7 +937,6 @@ Model {
 	      InsertBlockDesc	      off
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
-	      BlockCommentType	      "BlockPathComment"
 	      StateflowObjectComments off
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
@@ -966,7 +950,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      18
-	      Version		      "1.18.0"
+	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
 		Dimension		15
@@ -997,7 +981,6 @@ Model {
 	      UtilityFuncGeneration   "Auto"
 	      MultiwordTypeDef	      "System defined"
 	      MultiwordLength	      2048
-	      DynamicStringBufferSize 256
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
 	      ExistingSharedCode      ""
@@ -1043,10 +1026,6 @@ Model {
 	      LookupTableObjectStructAxisOrder "1,2,3,4,..."
 	      LUTObjectStructOrderExplicitValues "Size,Breakpoints,Table"
 	      LUTObjectStructOrderEvenSpacing "Size,Breakpoints,Table"
-	      ArrayLayout	      "Column-major"
-	      ERTHeaderFileRootName   "$R$E"
-	      ERTSourceFileRootName   "$R$E"
-	      ERTDataFileRootName     "$R_data"
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -1068,7 +1047,7 @@ Model {
 	}
 	SlCovCC.ConfigComp {
 	  $ObjectID		  19
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -1259,7 +1238,6 @@ Model {
       FunctionName	      "system"
       SFunctionModules	      "''"
       PortCounts	      "[]"
-      MultiThreadCoSim	      "auto"
     }
     Block {
       BlockType		      SubSystem
@@ -1318,10 +1296,8 @@ Model {
   System {
     Name		    "CMM_iCub_23_25_DoFs"
     Location		    [134, 55, 3840, 2160]
-    Open		    on
+    Open		    off
     PortBlocksUseCompactNotation off
-    SetDomainSpec	    off
-    DomainSpecType	    "Deduce"
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1348,8 +1324,6 @@ Model {
 	Location		[134, 55, 3840, 2160]
 	Open			off
 	PortBlocksUseCompactNotation off
-	SetDomainSpec		off
-	DomainSpecType		"Deduce"
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1406,8 +1380,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1862,8 +1834,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1923,8 +1893,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -2069,8 +2037,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -2548,8 +2514,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -2695,8 +2659,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -3174,8 +3136,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -3321,8 +3281,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -3800,8 +3758,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -3947,8 +3903,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -4426,8 +4380,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -4573,8 +4525,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -5350,8 +5300,6 @@ Model {
 	    Location		    [223, 338, 826, 833]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -5475,8 +5423,6 @@ Model {
 	    Location		    [223, 338, 826, 833]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -5689,7 +5635,7 @@ Stateflow {
     name		    "CMM_iCub_23_25_DoFs"
     created		    "28-Feb-2019 16:30:20"
     isLibrary		    0
-    sfVersion		    80000014
+    sfVersion		    80000012
     firstTarget		    81
   }
   chart {
@@ -5701,9 +5647,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 3 0 0]
     viewObj		    2
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -5951,9 +5894,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 17 0 0]
     viewObj		    16
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6230,8 +6170,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 30 0 0]
     viewObj		    29
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6508,8 +6446,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 43 0 0]
     viewObj		    42
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6786,8 +6722,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 56 0 0]
     viewObj		    55
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -7064,8 +6998,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 69 0 0]
     viewObj		    68
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART

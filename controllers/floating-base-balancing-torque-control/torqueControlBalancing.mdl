@@ -1,12 +1,12 @@
 Model {
   Name			  "torqueControlBalancing"
-  Version		  9.1
+  Version		  9.0
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.3479"
+    ComputedModelVersion    "1.3480"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -388,8 +388,6 @@ Model {
   }
   DiagnosticSuppressor	  "on"
   SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 1 0"
-  Notes			  ""
-  NotesPlugin		  "on"
   LogicAnalyzerGraphicalSettings ""
   LogicAnalyzerPlugin	  "on"
   LogicAnalyzerSignalOrdering ""
@@ -481,9 +479,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Mar 05 17:23:01 2019"
-  RTWModifiedTimeStamp	  473704594
-  ModelVersionFormat	  "1.%<AutoIncrement:3479>"
+  LastModifiedDate	  "Tue Mar 05 17:57:11 2019"
+  RTWModifiedTimeStamp	  473709431
+  ModelVersionFormat	  "1.%<AutoIncrement:3480>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -504,7 +502,6 @@ Model {
   ShowViewerIcons	  on
   SortedOrder		  on
   VariantCondition	  off
-  ShowSubsystemDomainSpec off
   ExecutionContextIcon	  off
   ShowLinearizationAnnotations on
   ShowVisualizeInsertedRTB on
@@ -518,7 +515,6 @@ Model {
   BrowserShowLibraryLinks on
   FunctionConnectors	  off
   BrowserLookUnderMasks	  on
-  MultiThreadCoSim	  on
   SimulationMode	  "normal"
   VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
@@ -526,8 +522,6 @@ Model {
   SnapshotBufferSize	  10
   SnapshotInterval	  10
   NumberOfLastSnapshots	  0
-  EnablePacing		  off
-  PacingRate		  1
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "MATLABWorkspace"
@@ -584,7 +578,7 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      8
-      Version		      "1.18.0"
+      Version		      "1.17.1"
       DisabledProps	      []
       Description	      ""
       Array {
@@ -592,13 +586,12 @@ Model {
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  9
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
 	  StopTime		  "Config.SIMULATION_TIME "
 	  AbsTol		  "auto"
-	  AutoScaleAbsTol	  "on"
 	  FixedStep		  "Config.tStep"
 	  InitialStep		  "auto"
 	  MaxOrder		  5
@@ -629,11 +622,10 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	  SampleTimeProperty	  []
 	  DecoupledContinuousIntegration off
-	  MinimalZcImpactIntegration off
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  10
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  Decimation		  "1"
@@ -674,7 +666,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  11
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    8
@@ -733,15 +725,10 @@ Model {
 	  OptimizeDataStoreBuffers on
 	  BusAssignmentInplaceUpdate on
 	  DifferentSizesBufferReuse off
-	  OptimizationLevel	  "level2"
-	  OptimizationPriority	  "Balanced"
-	  OptimizationCustomize	  on
-	  UseRowMajorAlgorithm	  off
-	  LabelGuidedReuse	  off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  12
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -753,7 +740,6 @@ Model {
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
 	  SignalInfNanChecking	  "none"
-	  StringTruncationChecking "error"
 	  SignalRangeChecking	  "none"
 	  ReadBeforeWriteMsg	  "UseLocalSettings"
 	  WriteAfterWriteMsg	  "UseLocalSettings"
@@ -824,7 +810,6 @@ Model {
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  SimStateOlderReleaseMsg "error"
 	  ChecksumConsistencyForSSReuse	"none"
-	  LibraryContextMissingDiagnostic "none"
 	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
@@ -858,7 +843,7 @@ Model {
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  13
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  ProdBitPerChar	  8
@@ -906,7 +891,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  14
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
@@ -925,7 +910,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  15
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
 	  SimCustomSourceCode	  ""
@@ -955,7 +940,7 @@ Model {
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  16
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    16
@@ -1042,7 +1027,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      17
-	      Version		      "1.18.0"
+	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
 		Dimension		28
@@ -1116,7 +1101,6 @@ Model {
 	      InsertBlockDesc	      off
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
-	      BlockCommentType	      "BlockPathComment"
 	      StateflowObjectComments on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
@@ -1130,7 +1114,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      18
-	      Version		      "1.18.0"
+	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
 		Dimension		17
@@ -1196,7 +1180,6 @@ Model {
 	      UtilityFuncGeneration   "Auto"
 	      MultiwordTypeDef	      "System defined"
 	      MultiwordLength	      2048
-	      DynamicStringBufferSize 256
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
 	      ExistingSharedCode      ""
@@ -1242,10 +1225,6 @@ Model {
 	      LookupTableObjectStructAxisOrder "1,2,3,4,..."
 	      LUTObjectStructOrderExplicitValues "Size,Breakpoints,Table"
 	      LUTObjectStructOrderEvenSpacing "Size,Breakpoints,Table"
-	      ArrayLayout	      "Column-major"
-	      ERTHeaderFileRootName   "$R$E"
-	      ERTSourceFileRootName   "$R$E"
-	      ERTDataFileRootName     "$R_data"
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -1267,7 +1246,7 @@ Model {
 	}
 	SlCovCC.ConfigComp {
 	  $ObjectID		  20
-	  Version		  "1.18.0"
+	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Name			  "Simulink Coverage"
@@ -1544,7 +1523,6 @@ Model {
       FunctionName	      "system"
       SFunctionModules	      "''"
       PortCounts	      "[]"
-      MultiThreadCoSim	      "auto"
     }
     Block {
       BlockType		      Saturate
@@ -1658,8 +1636,6 @@ Model {
     Location		    [134, 55, 3840, 2160]
     Open		    off
     PortBlocksUseCompactNotation off
-    SetDomainSpec	    off
-    DomainSpecType	    "Deduce"
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1688,6 +1664,12 @@ Model {
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
+      RobotName		      "'icubSim'"
+      UrdfFile		      "'model.urdf'"
+      ControlledJoints	      "{'l_elbow','l_shoulder_pitch','torso_roll'}"
+      ControlBoardsNames      "{'left_arm','right_arm','torso'}"
+      LocalName		      "'WBT'"
+      GravityVector	      "[0,0,-9.81]"
     }
     Block {
       BlockType		      SubSystem
@@ -1711,8 +1693,6 @@ Model {
 	Location		[134, 55, 3840, 2160]
 	Open			off
 	PortBlocksUseCompactNotation off
-	SetDomainSpec		off
-	DomainSpecType		"Deduce"
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1737,8 +1717,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1870,8 +1848,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -2858,8 +2834,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3362,8 +3336,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3480,8 +3452,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -5975,8 +5945,6 @@ Model {
 	Location		[134, 55, 3840, 2160]
 	Open			off
 	PortBlocksUseCompactNotation off
-	SetDomainSpec		off
-	DomainSpecType		"Deduce"
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -6046,8 +6014,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -6251,8 +6217,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -6445,8 +6409,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -6581,8 +6543,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -6692,8 +6652,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -6776,8 +6734,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -6921,8 +6877,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -7228,8 +7182,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -7303,8 +7255,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -7448,8 +7398,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -8106,8 +8054,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -8195,8 +8141,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -8384,8 +8328,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -8578,8 +8520,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -8905,8 +8845,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -8962,8 +8900,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -9283,8 +9219,6 @@ Model {
 		Location		[219, 337, 814, 775]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -10299,8 +10233,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -10351,8 +10283,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -10403,8 +10333,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -10441,8 +10369,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -10846,8 +10772,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -11635,8 +11559,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -11714,8 +11636,6 @@ Model {
 		Location		[223, 338, 826, 833]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -12009,8 +11929,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -12079,8 +11997,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -12146,8 +12062,6 @@ Model {
 		    Location		    [19, 45, 910, 1950]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -12304,8 +12218,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -12529,8 +12441,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -12591,8 +12501,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -12686,8 +12594,6 @@ Model {
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -13014,8 +12920,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -13356,8 +13260,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -13451,8 +13353,6 @@ Model {
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -13779,8 +13679,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -14313,8 +14211,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -14491,8 +14387,6 @@ Model {
 		    Location		    [219, 337, 814, 775]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -14975,8 +14869,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15086,8 +14978,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15570,8 +15460,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -15680,8 +15568,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15739,8 +15625,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15855,8 +15739,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -15971,8 +15853,6 @@ Model {
 		    Location		    [223, 338, 826, 833]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -16165,8 +16045,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -16388,8 +16266,6 @@ Model {
 		    Location		    [134, 55, 3840, 2160]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -17028,8 +16904,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -17086,8 +16960,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -17161,8 +17033,6 @@ Model {
 		    Location		    [121, 45, 868, 1245]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -17365,8 +17235,6 @@ Model {
 		Location		[134, 55, 3840, 2160]
 		Open			off
 		PortBlocksUseCompactNotation off
-		SetDomainSpec		off
-		DomainSpecType		"Deduce"
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -17423,8 +17291,6 @@ Model {
 		    Location		    [121, 45, 868, 1245]
 		    Open		    off
 		    PortBlocksUseCompactNotation off
-		    SetDomainSpec	    off
-		    DomainSpecType	    "Deduce"
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -17878,8 +17744,6 @@ Model {
 	Location		[134, 55, 3840, 2160]
 	Open			off
 	PortBlocksUseCompactNotation off
-	SetDomainSpec		off
-	DomainSpecType		"Deduce"
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -17904,8 +17768,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -17983,8 +17845,6 @@ Model {
 	    Location		    [134, 55, 3840, 2160]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
-	    SetDomainSpec	    off
-	    DomainSpecType	    "Deduce"
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -18194,7 +18054,7 @@ Stateflow {
     name		    "torqueControlBalancing"
     created		    "18-Feb-2014 10:14:40"
     isLibrary		    0
-    sfVersion		    80000014
+    sfVersion		    80000012
     firstTarget		    235
   }
   chart {
