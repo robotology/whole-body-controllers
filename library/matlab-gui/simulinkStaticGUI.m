@@ -127,7 +127,7 @@ function startButton_Callback(hObject, eventdata, handles) %#ok<INUSL>
 end
 
 % --- Executes on button press in stopModelButton.
-function stopModelButton_Callback(hObject, eventdata, handles) %#ok<INUSL>
+function stopButton_Callback(hObject, eventdata, handles) %#ok<INUSL>
 
     % STOP MODEL BUTTON
     %
