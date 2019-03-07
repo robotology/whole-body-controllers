@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.46"
+    ComputedModelVersion    "1.47"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -24,38 +24,38 @@ Model {
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_FTExternalForces/Yarp Read"
+      Reference		      "WBToolboxLibrary/Utilities/YarpRead"
+      Path		      "debug_FTExternalForces/YarpRead"
       SID		      "17"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_FTExternalForces/Yarp Read1"
+      Reference		      "WBToolboxLibrary/Utilities/YarpRead"
+      Path		      "debug_FTExternalForces/YarpRead1"
       SID		      "20"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_FTExternalForces/Yarp Read2"
+      Reference		      "WBToolboxLibrary/Utilities/YarpRead"
+      Path		      "debug_FTExternalForces/YarpRead2"
       SID		      "30"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_FTExternalForces/Yarp Read3"
+      Reference		      "WBToolboxLibrary/Utilities/YarpRead"
+      Path		      "debug_FTExternalForces/YarpRead3"
       SID		      "31"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_FTExternalForces/Yarp Read4"
+      Reference		      "WBToolboxLibrary/Utilities/YarpRead"
+      Path		      "debug_FTExternalForces/YarpRead4"
       SID		      "39"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_FTExternalForces/Yarp Read5"
+      Reference		      "WBToolboxLibrary/Utilities/YarpRead"
+      Path		      "debug_FTExternalForces/YarpRead5"
       SID		      "40"
       Type		      "LIBRARY_BLOCK"
     }
@@ -148,9 +148,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Mar 05 17:57:13 2019"
-  RTWModifiedTimeStamp	  473709433
-  ModelVersionFormat	  "1.%<AutoIncrement:46>"
+  LastModifiedDate	  "Thu Mar 07 10:59:47 2019"
+  RTWModifiedTimeStamp	  473857187
+  ModelVersionFormat	  "1.%<AutoIncrement:47>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -1264,7 +1264,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"48"
+	SIDHighWatermark	"51"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1276,20 +1276,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "43::47"
+	  SID			  "43::50"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  38
+	  ZOrder		  41
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "43::46"
+	  SID			  "43::49"
 	  Tag			  "Stateflow S-Function debug_FTExternalForces 2"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  37
+	  ZOrder		  40
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1303,9 +1303,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "43::48"
+	  SID			  "43::51"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  39
+	  ZOrder		  42
 	}
 	Block {
 	  BlockType		  Outport
@@ -1316,7 +1316,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  41
+	  ZOrder		  45
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1324,7 +1324,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  42
+	  ZOrder		  46
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1332,14 +1332,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  43
+	  ZOrder		  47
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  44
+	  ZOrder		  48
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1375,7 +1375,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"48"
+	SIDHighWatermark	"51"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1387,20 +1387,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "59::47"
+	  SID			  "59::50"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  38
+	  ZOrder		  41
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "59::46"
+	  SID			  "59::49"
 	  Tag			  "Stateflow S-Function debug_FTExternalForces 1"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  37
+	  ZOrder		  40
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1414,9 +1414,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "59::48"
+	  SID			  "59::51"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  39
+	  ZOrder		  42
 	}
 	Block {
 	  BlockType		  Outport
@@ -1427,7 +1427,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  1
+	  ZOrder		  5
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1435,7 +1435,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  2
+	  ZOrder		  6
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1443,14 +1443,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  3
+	  ZOrder		  7
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  4
+	  ZOrder		  8
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1486,7 +1486,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"48"
+	SIDHighWatermark	"51"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1498,20 +1498,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "60::47"
+	  SID			  "60::50"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  38
+	  ZOrder		  41
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "60::46"
+	  SID			  "60::49"
 	  Tag			  "Stateflow S-Function debug_FTExternalForces 3"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  37
+	  ZOrder		  40
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1525,9 +1525,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "60::48"
+	  SID			  "60::51"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  39
+	  ZOrder		  42
 	}
 	Block {
 	  BlockType		  Outport
@@ -1538,7 +1538,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  1
+	  ZOrder		  5
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1546,7 +1546,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  2
+	  ZOrder		  6
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1554,14 +1554,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  3
+	  ZOrder		  7
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  4
+	  ZOrder		  8
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1597,7 +1597,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"48"
+	SIDHighWatermark	"51"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1609,20 +1609,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "61::47"
+	  SID			  "61::50"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  38
+	  ZOrder		  41
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "61::46"
+	  SID			  "61::49"
 	  Tag			  "Stateflow S-Function debug_FTExternalForces 4"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  37
+	  ZOrder		  40
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1636,9 +1636,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "61::48"
+	  SID			  "61::51"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  39
+	  ZOrder		  42
 	}
 	Block {
 	  BlockType		  Outport
@@ -1649,7 +1649,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  1
+	  ZOrder		  5
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1657,7 +1657,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  2
+	  ZOrder		  6
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1665,14 +1665,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  3
+	  ZOrder		  7
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  4
+	  ZOrder		  8
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1708,7 +1708,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"48"
+	SIDHighWatermark	"51"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1720,20 +1720,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "62::47"
+	  SID			  "62::50"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  38
+	  ZOrder		  41
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "62::46"
+	  SID			  "62::49"
 	  Tag			  "Stateflow S-Function debug_FTExternalForces 5"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  37
+	  ZOrder		  40
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1747,9 +1747,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "62::48"
+	  SID			  "62::51"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  39
+	  ZOrder		  42
 	}
 	Block {
 	  BlockType		  Outport
@@ -1760,7 +1760,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  1
+	  ZOrder		  5
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1768,7 +1768,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  2
+	  ZOrder		  6
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1776,14 +1776,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  3
+	  ZOrder		  7
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  4
+	  ZOrder		  8
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1819,7 +1819,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"48"
+	SIDHighWatermark	"51"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1831,20 +1831,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "63::47"
+	  SID			  "63::50"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  38
+	  ZOrder		  41
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "63::46"
+	  SID			  "63::49"
 	  Tag			  "Stateflow S-Function debug_FTExternalForces 6"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  37
+	  ZOrder		  40
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1858,9 +1858,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "63::48"
+	  SID			  "63::51"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  39
+	  ZOrder		  42
 	}
 	Block {
 	  BlockType		  Outport
@@ -1871,7 +1871,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  ZOrder		  1
+	  ZOrder		  5
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1879,7 +1879,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  2
+	  ZOrder		  6
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1887,14 +1887,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  3
+	  ZOrder		  7
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  4
+	  ZOrder		  8
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -2092,26 +2092,26 @@ Model {
       ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
       BackgroundColor	      "gray"
       ShowName		      off
-      LibraryVersion	      "1.649"
+      LibraryVersion	      "1.675"
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       period		      "0.01"
     }
     Block {
       BlockType		      Reference
-      Name		      "Yarp Read"
+      Name		      "YarpRead"
       SID		      "17"
       Ports		      [0, 1]
       Position		      [-1290, -33, -1235, -7]
       ZOrder		      519
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       portName		      "'/icub/right_foot/analog:o'"
       signalSize	      "6"
@@ -2127,17 +2127,17 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Yarp Read1"
+      Name		      "YarpRead1"
       SID		      "20"
       Ports		      [0, 1]
       Position		      [-1290, -63, -1235, -37]
       ZOrder		      521
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       portName		      "'/icub/left_foot/analog:o'"
       signalSize	      "6"
@@ -2153,17 +2153,17 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Yarp Read2"
+      Name		      "YarpRead2"
       SID		      "30"
       Ports		      [0, 1]
       Position		      [-1285, 185, -1225, 215]
       ZOrder		      528
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       portName		      "'/icub/right_leg/analog:o'"
       signalSize	      "6"
@@ -2179,17 +2179,17 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Yarp Read3"
+      Name		      "YarpRead3"
       SID		      "31"
       Ports		      [0, 1]
       Position		      [-1285, 145, -1225, 175]
       ZOrder		      530
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       portName		      "'/icub/left_leg/analog:o'"
       signalSize	      "6"
@@ -2205,17 +2205,17 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Yarp Read4"
+      Name		      "YarpRead4"
       SID		      "39"
       Ports		      [0, 1]
       Position		      [-1285, 76, -1225, 104]
       ZOrder		      537
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       portName		      "'/icub/right_arm/analog:o'"
       signalSize	      "6"
@@ -2231,17 +2231,17 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Yarp Read5"
+      Name		      "YarpRead5"
       SID		      "40"
       Ports		      [0, 1]
       Position		      [-1285, 37, -1225, 63]
       ZOrder		      539
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       portName		      "'/icub/left_arm/analog:o'"
       signalSize	      "6"
@@ -2312,7 +2312,7 @@ Model {
     Line {
       Name		      "analog right foot"
       ZOrder		      47
-      SrcBlock		      "Yarp Read"
+      SrcBlock		      "YarpRead"
       SrcPort		      1
       Points		      [139, 0]
       Branch {
@@ -2349,7 +2349,7 @@ Model {
     Line {
       Name		      "analog left foot"
       ZOrder		      40
-      SrcBlock		      "Yarp Read1"
+      SrcBlock		      "YarpRead1"
       SrcPort		      1
       Points		      [162, 0]
       Branch {
@@ -2386,7 +2386,7 @@ Model {
     Line {
       Name		      "analog right leg"
       ZOrder		      53
-      SrcBlock		      "Yarp Read2"
+      SrcBlock		      "YarpRead2"
       SrcPort		      1
       Points		      [80, 0]
       Branch {
@@ -2423,7 +2423,7 @@ Model {
     Line {
       Name		      "analog left leg"
       ZOrder		      58
-      SrcBlock		      "Yarp Read3"
+      SrcBlock		      "YarpRead3"
       SrcPort		      1
       Points		      [104, 0]
       Branch {
@@ -2460,7 +2460,7 @@ Model {
     Line {
       Name		      "analog right arm"
       ZOrder		      78
-      SrcBlock		      "Yarp Read4"
+      SrcBlock		      "YarpRead4"
       SrcPort		      1
       Points		      [38, 0]
       Branch {
@@ -2497,7 +2497,7 @@ Model {
     Line {
       Name		      "analog left arm"
       ZOrder		      83
-      SrcBlock		      "Yarp Read5"
+      SrcBlock		      "YarpRead5"
       SrcPort		      1
       Points		      [59, 0]
       Branch {

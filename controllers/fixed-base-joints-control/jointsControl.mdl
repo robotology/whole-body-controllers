@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.353"
+    ComputedModelVersion    "1.355"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -24,33 +24,33 @@ Model {
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-      Path		      "jointsControl/Get Measurement"
+      Reference		      "WBToolboxLibrary/States/GetMeasurement"
+      Path		      "jointsControl/GetMeasurement"
       SID		      "431"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-      Path		      "jointsControl/Get Measurement1"
+      Reference		      "WBToolboxLibrary/States/GetMeasurement"
+      Path		      "jointsControl/GetMeasurement1"
       SID		      "434"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-      Path		      "jointsControl/Get Measurement2"
+      Reference		      "WBToolboxLibrary/States/GetMeasurement"
+      Path		      "jointsControl/GetMeasurement2"
       SID		      "433"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Gravity Forces"
-      Path		      "jointsControl/PD + GRAVITY CONTROL/Gravity Compensation/Get Gravity Forces"
+      Reference		      "WBToolboxLibrary/Model/Dynamics/GetGravityForces"
+      Path		      "jointsControl/PD + GRAVITY CONTROL/Gravity Compensation/GetGravityForces"
       SID		      "430"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
+      Reference		      "WBToolboxLibrary/Model/Dynamics/MassMatrix"
       Path		      "jointsControl/PD + GRAVITY CONTROL/PD Feedback Controller/Reference Generator/Get Ms*jointAcc_des/M"
-      "ass Matrix1"
+      "assMatrix1"
       SID		      "391"
       Type		      "LIBRARY_BLOCK"
     }
@@ -61,14 +61,14 @@ Model {
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyActuators/Set References"
-      Path		      "jointsControl/Set References"
+      Reference		      "WBToolboxLibrary/Actuators/SetReferences"
+      Path		      "jointsControl/SetReferences"
       SID		      "137"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Limits"
-      Path		      "jointsControl/emergency stop: joint limits/STOP IF JOINTS HIT THE LIMITS/Get Limits"
+      Reference		      "WBToolboxLibrary/States/GetLimits"
+      Path		      "jointsControl/emergency stop: joint limits/STOP IF JOINTS HIT THE LIMITS/GetLimits"
       SID		      "478"
       Type		      "LIBRARY_BLOCK"
     }
@@ -185,9 +185,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Mar 05 17:57:07 2019"
-  RTWModifiedTimeStamp	  473709427
-  ModelVersionFormat	  "1.%<AutoIncrement:353>"
+  LastModifiedDate	  "Thu Mar 07 10:59:41 2019"
+  RTWModifiedTimeStamp	  473857181
+  ModelVersionFormat	  "1.%<AutoIncrement:355>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -1290,10 +1290,10 @@ Model {
       Position		      [175, 160, 245, 185]
       ZOrder		      635
       HideAutomaticName	      off
-      LibraryVersion	      "1.649"
+      LibraryVersion	      "1.675"
       SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
       SourceType	      ""
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
@@ -1709,7 +1709,7 @@ Model {
 	      "[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-',"
 	      "'LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr"
 	      ".Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration"
-	      "('Tools','Measurements',true,'Version','2018a')),'Version','2018a','Location',[135 200 3841 2148])"
+	      "('Tools','Measurements',true,'Version','2018a')),'Version','2018a','Location',[135 184 3841 2132])"
 	      NumInputPorts	      "5"
 	      Floating		      off
 	    }
@@ -1931,7 +1931,7 @@ Model {
 	      ",'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWi"
 	      "dth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr.Config"
 	      "uration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools"
-	      "','Measurements',true,'Version','2018a')),'Version','2018a','Location',[1175 751 2465 1396])"
+	      "','Measurements',true,'Version','2018a')),'Version','2018a','Location',[1175 719 2455 1410])"
 	      NumInputPorts	      "5"
 	      Floating		      off
 	    }
@@ -2894,7 +2894,7 @@ Model {
 	      "'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWid"
 	      "th',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr.Configu"
 	      "ration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools'"
-	      ",'Measurements',true,'Version','2018a')),'Version','2018a','Location',[135 191 1445 896])"
+	      ",'Measurements',true,'Version','2018a')),'Version','2018a','Location',[135 175 1445 880])"
 	      NumInputPorts	      "5"
 	      Floating		      off
 	    }
@@ -3192,46 +3192,46 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Get Measurement"
+      Name		      "GetMeasurement"
       SID		      "431"
       Ports		      [0, 1]
       Position		      [175, 280, 245, 300]
       ZOrder		      634
       BackgroundColor	      "[0.513700, 0.851000, 0.670600]"
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-      SourceType	      "Get Measurement"
-      SourceProductName	      "Whole Body Toolbox"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/States/GetMeasurement"
+      SourceType	      "GetMeasurement"
+      SourceProductName	      "WholeBodyToolbox"
       ContentPreviewEnabled   off
       measuredType	      "Joints Position"
     }
     Block {
       BlockType		      Reference
-      Name		      "Get Measurement1"
+      Name		      "GetMeasurement1"
       SID		      "434"
       Ports		      [0, 1]
       Position		      [175, 335, 245, 355]
       ZOrder		      660
       BackgroundColor	      "[0.827500, 0.576500, 0.603900]"
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-      SourceType	      "Get Measurement"
-      SourceProductName	      "Whole Body Toolbox"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/States/GetMeasurement"
+      SourceType	      "GetMeasurement"
+      SourceProductName	      "WholeBodyToolbox"
       ContentPreviewEnabled   off
       measuredType	      "Joints Torque"
     }
     Block {
       BlockType		      Reference
-      Name		      "Get Measurement2"
+      Name		      "GetMeasurement2"
       SID		      "433"
       Ports		      [0, 1]
       Position		      [175, 225, 245, 245]
       ZOrder		      661
       BackgroundColor	      "[0.513700, 0.674500, 1.000000]"
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-      SourceType	      "Get Measurement"
-      SourceProductName	      "Whole Body Toolbox"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/States/GetMeasurement"
+      SourceType	      "GetMeasurement"
+      SourceProductName	      "WholeBodyToolbox"
       ContentPreviewEnabled   off
       measuredType	      "Joints Velocity"
     }
@@ -3359,15 +3359,15 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Reference
-	      Name		      "Get Gravity Forces"
+	      Name		      "GetGravityForces"
 	      SID		      "430"
 	      Ports		      [2, 1]
 	      Position		      [210, 105, 350, 205]
 	      ZOrder		      641
-	      LibraryVersion	      "1.649"
-	      SourceBlock	      "WBToolboxLibrary/wholeBodyModel/Dynamics/Get Gravity Forces"
+	      LibraryVersion	      "1.675"
+	      SourceBlock	      "WBToolboxLibrary/Model/Dynamics/GetGravityForces"
 	      SourceType	      "Gravity bias"
-	      SourceProductName	      "Whole Body Toolbox"
+	      SourceProductName	      "WholeBodyToolbox"
 	      ContentPreviewEnabled   off
 	      Port {
 		PortNumber		1
@@ -3406,21 +3406,21 @@ Model {
 	      ZOrder		      84
 	      SrcBlock		      "Constant4"
 	      SrcPort		      1
-	      DstBlock		      "Get Gravity Forces"
+	      DstBlock		      "GetGravityForces"
 	      DstPort		      1
 	    }
 	    Line {
 	      ZOrder		      85
 	      SrcBlock		      "jointPos"
 	      SrcPort		      1
-	      DstBlock		      "Get Gravity Forces"
+	      DstBlock		      "GetGravityForces"
 	      DstPort		      2
 	    }
 	    Line {
 	      Name		      "gravityTorques floating base"
 	      ZOrder		      83
 	      Labels		      [1, 1]
-	      SrcBlock		      "Get Gravity Forces"
+	      SrcBlock		      "GetGravityForces"
 	      SrcPort		      1
 	      DstBlock		      "Selector2"
 	      DstPort		      1
@@ -3824,15 +3824,15 @@ Model {
 		    }
 		    Block {
 		    BlockType		    Reference
-		    Name		    "Mass Matrix1"
+		    Name		    "MassMatrix1"
 		    SID			    "391"
 		    Ports		    [2, 1]
 		    Position		    [210, 19, 350, 86]
 		    ZOrder		    673
-		    LibraryVersion	    "1.649"
-		    SourceBlock		    "WBToolboxLibrary/wholeBodyModel/Dynamics/Mass Matrix"
-		    SourceType		    "Mass Matrix"
-		    SourceProductName	    "Whole Body Toolbox"
+		    LibraryVersion	    "1.675"
+		    SourceBlock		    "WBToolboxLibrary/Model/Dynamics/MassMatrix"
+		    SourceType		    "MassMatrix"
+		    SourceProductName	    "WholeBodyToolbox"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -3872,7 +3872,7 @@ Model {
 		    }
 		    Line {
 		    ZOrder		    1
-		    SrcBlock		    "Mass Matrix1"
+		    SrcBlock		    "MassMatrix1"
 		    SrcPort		    1
 		    DstBlock		    "Selector"
 		    DstPort		    1
@@ -3895,14 +3895,14 @@ Model {
 		    ZOrder		    4
 		    SrcBlock		    "Constant1"
 		    SrcPort		    1
-		    DstBlock		    "Mass Matrix1"
+		    DstBlock		    "MassMatrix1"
 		    DstPort		    1
 		    }
 		    Line {
 		    ZOrder		    5
 		    SrcBlock		    "jointPos"
 		    SrcPort		    1
-		    DstBlock		    "Mass Matrix1"
+		    DstBlock		    "MassMatrix1"
 		    DstPort		    2
 		    }
 		    Line {
@@ -3963,10 +3963,10 @@ Model {
 		  Position		  [-125, -556, -85, -534]
 		  ZOrder		  672
 		  BackgroundColor	  "[0.537255, 0.721569, 1.000000]"
-		  LibraryVersion	  "1.649"
+		  LibraryVersion	  "1.675"
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
-		  SourceProductName	  "Whole Body Toolbox"
+		  SourceProductName	  "WholeBodyToolbox"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -4297,17 +4297,17 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Set References"
+      Name		      "SetReferences"
       SID		      "137"
       Ports		      [1]
       Position		      [565, 250, 620, 280]
       ZOrder		      383
       BackgroundColor	      "[0.827500, 0.576500, 0.603900]"
       ShowName		      off
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/wholeBodyActuators/Set References"
-      SourceType	      "Set References"
-      SourceProductName	      "Whole Body Toolbox"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/Actuators/SetReferences"
+      SourceType	      "SetReferences"
+      SourceProductName	      "WholeBodyToolbox"
       ContentPreviewEnabled   off
       controlType	      "Torque"
       refSpeed		      "50"
@@ -4427,17 +4427,17 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Reference
-	      Name		      "Get Limits"
+	      Name		      "GetLimits"
 	      SID		      "478"
 	      Ports		      [0, 2]
 	      Position		      [20, 23, 140, 92]
 	      ZOrder		      551
 	      BackgroundColor	      "[0.513700, 0.851000, 0.670600]"
 	      ShowName		      off
-	      LibraryVersion	      "1.649"
-	      SourceBlock	      "WBToolboxLibrary/wholeBodyStates/Get Limits"
-	      SourceType	      "Get Limits"
-	      SourceProductName	      "Whole Body Toolbox"
+	      LibraryVersion	      "1.675"
+	      SourceBlock	      "WBToolboxLibrary/States/GetLimits"
+	      SourceType	      "GetLimits"
+	      SourceProductName	      "WholeBodyToolbox"
 	      ContentPreviewEnabled   off
 	      limitsSource	      "ControlBoard"
 	      limitsType	      "Position"
@@ -4472,7 +4472,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3773"
+		SIDHighWatermark	"3776"
 		Block {
 		  BlockType		  Inport
 		  Name			  "umin"
@@ -4511,24 +4511,24 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "479::3772"
+		  SID			  "479::3775"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  122
+		  ZOrder		  125
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "479::3771"
+		  SID			  "479::3774"
 		  Tag			  "Stateflow S-Function jointsControl 18"
 		  Ports			  [4, 2]
 		  Position		  [180, 102, 230, 203]
-		  ZOrder		  121
+		  ZOrder		  124
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[4 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
@@ -4538,9 +4538,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "479::3773"
+		  SID			  "479::3776"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  123
+		  ZOrder		  126
 		}
 		Block {
 		  BlockType		  Outport
@@ -4551,28 +4551,28 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  8
+		  ZOrder		  15
 		  SrcBlock		  "umin"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  9
+		  ZOrder		  16
 		  SrcBlock		  "umax"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  10
+		  ZOrder		  17
 		  SrcBlock		  "u"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  11
+		  ZOrder		  18
 		  SrcBlock		  "tol"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -4580,7 +4580,7 @@ Model {
 		}
 		Line {
 		  Name			  "inRange"
-		  ZOrder		  12
+		  ZOrder		  19
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4588,14 +4588,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  13
+		  ZOrder		  20
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  14
+		  ZOrder		  21
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -4629,14 +4629,14 @@ Model {
 	    }
 	    Line {
 	      ZOrder		      3
-	      SrcBlock		      "Get Limits"
+	      SrcBlock		      "GetLimits"
 	      SrcPort		      1
 	      DstBlock		      "MATLAB Function"
 	      DstPort		      1
 	    }
 	    Line {
 	      ZOrder		      4
-	      SrcBlock		      "Get Limits"
+	      SrcBlock		      "GetLimits"
 	      SrcPort		      2
 	      DstBlock		      "MATLAB Function"
 	      DstPort		      2
@@ -4727,7 +4727,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3773"
+		SIDHighWatermark	"3776"
 		Block {
 		  BlockType		  Inport
 		  Name			  "u"
@@ -4748,24 +4748,24 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "485::3772"
+		  SID			  "485::3775"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  122
+		  ZOrder		  125
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "485::3771"
+		  SID			  "485::3774"
 		  Tag			  "Stateflow S-Function jointsControl 14"
 		  Ports			  [2, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  121
+		  ZOrder		  124
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[2 2]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
@@ -4775,9 +4775,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "485::3773"
+		  SID			  "485::3776"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  123
+		  ZOrder		  126
 		}
 		Block {
 		  BlockType		  Outport
@@ -4788,7 +4788,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  6
+		  ZOrder		  11
 		  SrcBlock		  "u"
 		  SrcPort		  1
 		  Points		  [120, 0]
@@ -4796,7 +4796,7 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  7
+		  ZOrder		  12
 		  SrcBlock		  "delta_u_max"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -4804,7 +4804,7 @@ Model {
 		}
 		Line {
 		  Name			  "noSpikes"
-		  ZOrder		  8
+		  ZOrder		  13
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4812,14 +4812,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  9
+		  ZOrder		  14
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  10
+		  ZOrder		  15
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -4967,10 +4967,10 @@ Model {
 	      ZOrder		      539
 	      ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
 	      ShowName		      off
-	      LibraryVersion	      "1.649"
+	      LibraryVersion	      "1.675"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
-	      SourceProductName	      "Whole Body Toolbox"
+	      SourceProductName	      "WholeBodyToolbox"
 	      MultiThreadCoSim	      "auto"
 	      period		      "Config.tStep"
 	      serverPortName	      "'/clock/rpc'"
@@ -5045,10 +5045,10 @@ Model {
 	      ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
 	      BackgroundColor	      "gray"
 	      ShowName		      off
-	      LibraryVersion	      "1.649"
+	      LibraryVersion	      "1.675"
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
-	      SourceProductName	      "Whole Body Toolbox"
+	      SourceProductName	      "WholeBodyToolbox"
 	      MultiThreadCoSim	      "auto"
 	      period		      "Config.tStep"
 	    }
@@ -5080,10 +5080,10 @@ Model {
 	  ForegroundColor	  "[0.490196, 0.000000, 0.000000]"
 	  ShowName		  off
 	  HideAutomaticName	  off
-	  LibraryVersion	  "1.649"
+	  LibraryVersion	  "1.675"
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Clock"
 	  SourceType		  "YARP Clock"
-	  SourceProductName	  "Whole Body Toolbox"
+	  SourceProductName	  "WholeBodyToolbox"
 	  MultiThreadCoSim	  "auto"
 	}
 	Line {
@@ -5121,7 +5121,7 @@ Model {
     }
     Line {
       ZOrder		      347
-      SrcBlock		      "Get Measurement"
+      SrcBlock		      "GetMeasurement"
       SrcPort		      1
       Points		      [24, 0]
       Branch {
@@ -5146,19 +5146,19 @@ Model {
       ZOrder		      396
       SrcBlock		      "PD + GRAVITY CONTROL"
       SrcPort		      1
-      DstBlock		      "Set References"
+      DstBlock		      "SetReferences"
       DstPort		      1
     }
     Line {
       ZOrder		      407
-      SrcBlock		      "Get Measurement2"
+      SrcBlock		      "GetMeasurement2"
       SrcPort		      1
       DstBlock		      "PD + GRAVITY CONTROL"
       DstPort		      1
     }
     Line {
       ZOrder		      414
-      SrcBlock		      "Get Measurement1"
+      SrcBlock		      "GetMeasurement1"
       SrcPort		      1
       DstBlock		      "Goto1"
       DstPort		      1

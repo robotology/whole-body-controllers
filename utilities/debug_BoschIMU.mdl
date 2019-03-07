@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.36"
+    ComputedModelVersion    "1.37"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -24,8 +24,8 @@ Model {
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_BoschIMU/Yarp Read"
+      Reference		      "WBToolboxLibrary/Utilities/YarpRead"
+      Path		      "debug_BoschIMU/YarpRead"
       SID		      "17"
       Type		      "LIBRARY_BLOCK"
     }
@@ -118,9 +118,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Mar 05 17:57:13 2019"
-  RTWModifiedTimeStamp	  473709433
-  ModelVersionFormat	  "1.%<AutoIncrement:36>"
+  LastModifiedDate	  "Thu Mar 07 10:59:46 2019"
+  RTWModifiedTimeStamp	  473857186
+  ModelVersionFormat	  "1.%<AutoIncrement:37>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -1058,10 +1058,10 @@ Model {
       ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
       BackgroundColor	      "gray"
       ShowName		      off
-      LibraryVersion	      "1.649"
+      LibraryVersion	      "1.675"
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       period		      "0.01"
     }
@@ -1080,17 +1080,17 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Yarp Read"
+      Name		      "YarpRead"
       SID		      "17"
       Ports		      [0, 1]
       Position		      [140, 73, 180, 97]
       ZOrder		      515
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       portName		      "'/icub/inertial'"
       signalSize	      "12"
@@ -1108,7 +1108,7 @@ Model {
       Name		      "Bosch IMU"
       ZOrder		      13
       Labels		      [1, 1]
-      SrcBlock		      "Yarp Read"
+      SrcBlock		      "YarpRead"
       SrcPort		      1
       DstBlock		      "Selector"
       DstPort		      1

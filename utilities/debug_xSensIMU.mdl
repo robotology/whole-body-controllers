@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.45"
+    ComputedModelVersion    "1.46"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -30,32 +30,32 @@ Model {
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-      Path		      "debug_xSensIMU/Transform inertials into world frame/Get Measurement"
+      Reference		      "WBToolboxLibrary/States/GetMeasurement"
+      Path		      "debug_xSensIMU/Transform inertials into world frame/GetMeasurement"
       SID		      "79"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Reference		      "WBToolboxLibrary/Model/Kinematics/ForwardKinematics"
       Path		      "debug_xSensIMU/Transform inertials into world frame/Head IMU"
       SID		      "28"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
+      Reference		      "WBToolboxLibrary/Model/Kinematics/ForwardKinematics"
       Path		      "debug_xSensIMU/Transform inertials into world frame/xsens IMU"
       SID		      "35"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_xSensIMU/Yarp Read"
+      Reference		      "WBToolboxLibrary/Utilities/YarpRead"
+      Path		      "debug_xSensIMU/YarpRead"
       SID		      "17"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
-      Reference		      "WBToolboxLibrary/Utilities/Yarp Read"
-      Path		      "debug_xSensIMU/Yarp Read1"
+      Reference		      "WBToolboxLibrary/Utilities/YarpRead"
+      Path		      "debug_xSensIMU/YarpRead1"
       SID		      "27"
       Type		      "LIBRARY_BLOCK"
     }
@@ -148,9 +148,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Mar 05 17:57:15 2019"
-  RTWModifiedTimeStamp	  473709435
-  ModelVersionFormat	  "1.%<AutoIncrement:45>"
+  LastModifiedDate	  "Thu Mar 07 10:59:49 2019"
+  RTWModifiedTimeStamp	  473857189
+  ModelVersionFormat	  "1.%<AutoIncrement:46>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -1171,10 +1171,10 @@ Model {
       Ports		      []
       Position		      [-15, 155, 60, 185]
       ZOrder		      615
-      LibraryVersion	      "1.649"
+      LibraryVersion	      "1.675"
       SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
       SourceType	      ""
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
@@ -1369,10 +1369,10 @@ Model {
       ForegroundColor	      "[0.916667, 0.916667, 0.916667]"
       BackgroundColor	      "gray"
       ShowName		      off
-      LibraryVersion	      "1.649"
+      LibraryVersion	      "1.675"
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       period		      "0.01"
     }
@@ -1567,16 +1567,16 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Get Measurement"
+	  Name			  "GetMeasurement"
 	  SID			  "79"
 	  Ports			  [0, 1]
 	  Position		  [210, -84, 285, -56]
 	  ZOrder		  634
 	  BackgroundColor	  "[0.513700, 0.851000, 0.670600]"
-	  LibraryVersion	  "1.649"
-	  SourceBlock		  "WBToolboxLibrary/wholeBodyStates/Get Measurement"
-	  SourceType		  "Get Measurement"
-	  SourceProductName	  "Whole Body Toolbox"
+	  LibraryVersion	  "1.675"
+	  SourceBlock		  "WBToolboxLibrary/States/GetMeasurement"
+	  SourceType		  "GetMeasurement"
+	  SourceProductName	  "WholeBodyToolbox"
 	  ContentPreviewEnabled	  off
 	  measuredType		  "Joints Position"
 	}
@@ -1587,10 +1587,10 @@ Model {
 	  Ports			  [2, 1]
 	  Position		  [380, 160, 530, 240]
 	  ZOrder		  525
-	  LibraryVersion	  "1.649"
-	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-	  SourceType		  "Forward Kinematics"
-	  SourceProductName	  "Whole Body Toolbox"
+	  LibraryVersion	  "1.675"
+	  SourceBlock		  "WBToolboxLibrary/Model/Kinematics/ForwardKinematics"
+	  SourceType		  "ForwardKinematics"
+	  SourceProductName	  "WholeBodyToolbox"
 	  ContentPreviewEnabled	  off
 	  frameName		  "'imu_frame'"
 	}
@@ -1753,10 +1753,10 @@ Model {
 	  Ports			  [2, 1]
 	  Position		  [380, -130, 530, -50]
 	  ZOrder		  531
-	  LibraryVersion	  "1.649"
-	  SourceBlock		  "WBToolboxLibrary/wholeBodyModel/Kinematics/Forward Kinematics"
-	  SourceType		  "Forward Kinematics"
-	  SourceProductName	  "Whole Body Toolbox"
+	  LibraryVersion	  "1.675"
+	  SourceBlock		  "WBToolboxLibrary/Model/Kinematics/ForwardKinematics"
+	  SourceType		  "ForwardKinematics"
+	  SourceProductName	  "WholeBodyToolbox"
 	  ContentPreviewEnabled	  off
 	  frameName		  "'root_link_imu_frame'"
 	}
@@ -1779,7 +1779,7 @@ Model {
 	}
 	Line {
 	  ZOrder		  158
-	  SrcBlock		  "Get Measurement"
+	  SrcBlock		  "GetMeasurement"
 	  SrcPort		  1
 	  Points		  [19, 0]
 	  Branch {
@@ -2039,17 +2039,17 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Yarp Read"
+      Name		      "YarpRead"
       SID		      "17"
       Ports		      [0, 1]
       Position		      [-270, -12, -185, 2]
       ZOrder		      515
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       portName		      "'/icub/xsens_inertial'"
       signalSize	      "12"
@@ -2065,17 +2065,17 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Yarp Read1"
+      Name		      "YarpRead1"
       SID		      "27"
       Ports		      [0, 1]
       Position		      [-270, -62, -185, -48]
       ZOrder		      524
       ForegroundColor	      "[0.490196, 0.000000, 0.000000]"
       ShowName		      off
-      LibraryVersion	      "1.649"
-      SourceBlock	      "WBToolboxLibrary/Utilities/Yarp Read"
+      LibraryVersion	      "1.675"
+      SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
-      SourceProductName	      "Whole Body Toolbox"
+      SourceProductName	      "WholeBodyToolbox"
       MultiThreadCoSim	      "auto"
       portName		      "'/icub/inertial'"
       signalSize	      "12"
@@ -2121,7 +2121,7 @@ Model {
       Name		      "inertial_imu_head"
       ZOrder		      38
       Labels		      [1, 1]
-      SrcBlock		      "Yarp Read1"
+      SrcBlock		      "YarpRead1"
       SrcPort		      1
       DstBlock		      "Transform inertials into world frame"
       DstPort		      1
@@ -2130,7 +2130,7 @@ Model {
       Name		      "inertial_imu_xsens"
       ZOrder		      87
       Labels		      [0, 0]
-      SrcBlock		      "Yarp Read"
+      SrcBlock		      "YarpRead"
       SrcPort		      1
       DstBlock		      "Transform inertials into world frame"
       DstPort		      2
