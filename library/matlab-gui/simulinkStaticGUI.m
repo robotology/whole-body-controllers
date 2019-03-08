@@ -118,6 +118,15 @@ function startButton_Callback(hObject, eventdata, handles) %#ok<INUSL>
     if strcmp(status,'stopped')
         
         set_param(bdroot,'simulationcommand','start')
+        
+        % Deactivate all buttons, including the start button itself
+        set(handles.startButton,'Backgroundcolor',[0.8,0.8,0.8]);
+        set(handles.startButton,'Enable','off')
+        set(handles.compileButton,'Backgroundcolor',[0.8,0.8,0.8]);
+        set(handles.compileButton,'Enable','off')
+        set(handles.exitButton,'Backgroundcolor',[0.8,0.8,0.8]);
+        set(handles.exitButton,'Enable','off')
+        
     else
         error('Model is already running')
     end
@@ -144,6 +153,12 @@ function stopButton_Callback(hObject, eventdata, handles) %#ok<INUSL>
         set(handles.startButton,'Backgroundcolor',[0.8,0.8,0.8]);
         set(handles.startButton,'Enable','off')
         
+        % Enable compile and exit buttons
+        set(handles.compileButton,'Backgroundcolor',[1.0,0.6,0.0]);
+        set(handles.compileButton,'Enable','on')
+        set(handles.exitButton,'Backgroundcolor',[0.0,1.0,1.0]);
+        set(handles.exitButton,'Enable','on')
+         
         set_param(bdroot, 'SimulationCommand', 'Stop')
     else
         error('Model is not running')

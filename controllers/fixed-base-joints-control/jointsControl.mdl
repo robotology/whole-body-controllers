@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.355"
+    ComputedModelVersion    "1.358"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -99,7 +99,7 @@ Model {
   LogicAnalyzerSignalOrdering ""
   CustomCodeFunctionData  ""
   SLCCPlugin		  "on"
-  PreLoadFcn		  "%% Try to open the static GUI\ntry\n\n    staticGUI = simulinkStaticGUI;\n\nend"
+  PostLoadFcn		  "%% Try to open the static GUI\ntry\n\n    staticGUI = simulinkStaticGUI;\n\nend"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -110,11 +110,19 @@ Model {
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
   CloseFcn		  "%% Try to close the GUI (the user might have already closed it)\ntry\n\n    close(simulinkStaticGUI)\n\nend"
-  InitFcn		  "%% initialize the simulation\ncd(fileparts(which(bdroot)));\ninitJointsControl;"
+  InitFcn		  "%% initialize the simulation\ncd(fileparts(which(bdroot)));\ninitJointsControl;\n\n%% Try to edit the GU"
+  "I (the user may have already closed it)\ntry\n\n    %% Update Start Button\n    set(sl_synch_handles.startButton,'Ba"
+  "ckgroundcolor',[0.0,1.0,0.0]);\n    set(sl_synch_handles.startButton,'Enable','on');\n\nend"
   StartFcn		  "%% Try to edit the GUI (the user may have already closed it)\ntry\n\n    %% Update Start Button\n    se"
   "t(sl_synch_handles.startButton,'Backgroundcolor',[0.8,0.8,0.8]);\n    set(sl_synch_handles.startButton,'Enable','off"
-  "');\n\nend"
-  StopFcn		  "%% stop the simulation\ncd(fileparts(which(bdroot)));\nstopJointsControl;"
+  "');\n\n    %% Update Compile Button\n    set(sl_synch_handles.compileButton,'Backgroundcolor',[0.8,0.8,0.8]);\n    s"
+  "et(sl_synch_handles.compileButton,'Enable','off');\n\n    %% Update Exit Button\n    set(sl_synch_handles.exitButton"
+  ",'Backgroundcolor',[0.8,0.8,0.8]);\n    set(sl_synch_handles.exitButton,'Enable','off');\n\nend"
+  StopFcn		  "%% stop the simulation\ncd(fileparts(which(bdroot)));\nstopJointsControl;\n\n%% Try to edit the GUI (the"
+  " user may have already closed it)\ntry\n\n    %% Update Compile Button\n    set(sl_synch_handles.compileButton,'Back"
+  "groundcolor',[1.0,0.6,0.0]);\n    set(sl_synch_handles.compileButton,'Enable','on');\n\n    %% Update Exit Button\n "
+  "   set(sl_synch_handles.exitButton,'Backgroundcolor',[0.0,1.0,1.0]);\n    set(sl_synch_handles.exitButton,'Enable','"
+  "on');\n\nend"
   LastSavedArchitecture	  "glnxa64"
   Object {
     $PropName		    "BdWindowsInfo"
@@ -125,7 +133,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [134.0, 55.0, 3706.0, 2105.0]
+      Location		      [67.0, 27.0, 1853.0, 1053.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -149,9 +157,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[3668.0, 1809.0]
-	ZoomFactor		[8.0]
-	Offset			[173.25, 144.4375]
+	Extents			[1815.0, 876.0]
+	ZoomFactor		[3.9274725274725273]
+	Offset			[171.435366536094, 145.97789591494126]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -169,12 +177,12 @@ Model {
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
-      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAAC6AP///wAAAAEAAAAAAAAAAPwCA"
+      "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAOgD///8AAA56AAAHbQAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAAc9AAADqgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
-      "////wEAAACe/////wAAAAAAAAAA/////wEAAAEM/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAGq/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAASj/////wAAAAAAAAAA/"
+      "////wEAAACA/////wAAAAAAAAAA/////wEAAADo/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFo/////wAAAAAAAAAA/"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAANR/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
@@ -185,9 +193,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Mar 07 10:59:41 2019"
-  RTWModifiedTimeStamp	  473857181
-  ModelVersionFormat	  "1.%<AutoIncrement:355>"
+  LastModifiedDate	  "Fri Mar 08 16:25:37 2019"
+  RTWModifiedTimeStamp	  473963137
+  ModelVersionFormat	  "1.%<AutoIncrement:358>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -1266,7 +1274,7 @@ Model {
   }
   System {
     Name		    "jointsControl"
-    Location		    [134, 55, 3840, 2160]
+    Location		    [67, 27, 1920, 1080]
     Open		    off
     PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
@@ -1279,7 +1287,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "800"
+    ZoomFactor		    "393"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "648"
     Block {
@@ -4472,7 +4480,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3776"
+		SIDHighWatermark	"3782"
 		Block {
 		  BlockType		  Inport
 		  Name			  "umin"
@@ -4511,20 +4519,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "479::3775"
+		  SID			  "479::3781"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  125
+		  ZOrder		  131
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "479::3774"
+		  SID			  "479::3780"
 		  Tag			  "Stateflow S-Function jointsControl 18"
 		  Ports			  [4, 2]
 		  Position		  [180, 102, 230, 203]
-		  ZOrder		  124
+		  ZOrder		  130
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[4 2]"
 		  SFunctionDeploymentMode off
@@ -4538,9 +4546,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "479::3776"
+		  SID			  "479::3782"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  126
+		  ZOrder		  132
 		}
 		Block {
 		  BlockType		  Outport
@@ -4551,28 +4559,28 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  15
+		  ZOrder		  29
 		  SrcBlock		  "umin"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  16
+		  ZOrder		  30
 		  SrcBlock		  "umax"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  17
+		  ZOrder		  31
 		  SrcBlock		  "u"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  18
+		  ZOrder		  32
 		  SrcBlock		  "tol"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -4580,7 +4588,7 @@ Model {
 		}
 		Line {
 		  Name			  "inRange"
-		  ZOrder		  19
+		  ZOrder		  33
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4588,14 +4596,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  20
+		  ZOrder		  34
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  21
+		  ZOrder		  35
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -4727,7 +4735,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3776"
+		SIDHighWatermark	"3782"
 		Block {
 		  BlockType		  Inport
 		  Name			  "u"
@@ -4748,20 +4756,20 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "485::3775"
+		  SID			  "485::3781"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  125
+		  ZOrder		  131
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "485::3774"
+		  SID			  "485::3780"
 		  Tag			  "Stateflow S-Function jointsControl 14"
 		  Ports			  [2, 2]
 		  Position		  [180, 100, 230, 160]
-		  ZOrder		  124
+		  ZOrder		  130
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[2 2]"
 		  SFunctionDeploymentMode off
@@ -4775,9 +4783,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "485::3776"
+		  SID			  "485::3782"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  126
+		  ZOrder		  132
 		}
 		Block {
 		  BlockType		  Outport
@@ -4788,7 +4796,7 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  11
+		  ZOrder		  21
 		  SrcBlock		  "u"
 		  SrcPort		  1
 		  Points		  [120, 0]
@@ -4796,7 +4804,7 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  12
+		  ZOrder		  22
 		  SrcBlock		  "delta_u_max"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -4804,7 +4812,7 @@ Model {
 		}
 		Line {
 		  Name			  "noSpikes"
-		  ZOrder		  13
+		  ZOrder		  23
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4812,14 +4820,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  14
+		  ZOrder		  24
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  15
+		  ZOrder		  25
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
