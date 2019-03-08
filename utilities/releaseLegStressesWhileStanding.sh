@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Release the internal stresses when the robot is balancing on two feet,
+# due to the closed kinematic chain of the legs. The legs are put in
+# `idle` mode for 0.25 seconds.
 list="4 5"
 
 for a in $list; do

@@ -44,7 +44,7 @@ function w_omegaDot_star = rotationalPID_acceleration(w_R_b,w_omega,w_R_b_des,w_
 
     %% --- Initialization ---
     
-    % Modified gains to use the control with the real robot
+    % WARNING: modified gains to use the control on the real robot
     c0  = 0.001;
     c1  = Kd;
     c2  = Kp;

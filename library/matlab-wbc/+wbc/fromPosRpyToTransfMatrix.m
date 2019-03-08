@@ -7,9 +7,9 @@ function H = fromPosRpyToTransfMatrix(pos_rpy)
     %
     % FORMAT: H = fromPosRpyToTransfMatrix(pos_rpy)
     %
-    % INPUT:   - pos_rpy = [6 * 1] pose (position + roll-pitch-yaw)
+    % INPUT:  - pos_rpy = [6 * 1] pose (position + roll-pitch-yaw)
     %
-    % OUTPUT:  - H = [4 * 4] pose (transformation matrix)
+    % OUTPUT: - H = [4 * 4] pose (transformation matrix)
     %
     % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
     %          

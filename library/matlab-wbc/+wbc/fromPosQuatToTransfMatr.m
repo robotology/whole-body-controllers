@@ -1,8 +1,8 @@
-function  H = fromPosQuatToTransfMatr(q) 
+function H = fromPosQuatToTransfMatr(q) 
 
     % FROMPOSQUATTOTRANSFMATRIX takes as input a pose (position + orientation) 
     %                           with orientation expressed in quaternions, and 
-    %                           outputs the same pose in terms of trnsformation 
+    %                           outputs the same pose in terms of transformation 
     %                           matrix.                       
     %
     % FORMAT: H = fromPosQuatToTransfMatr(q) 

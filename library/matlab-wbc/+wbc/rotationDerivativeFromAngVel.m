@@ -3,10 +3,10 @@ function RDot = rotationDerivativeFromAngVel(omega,R)
     % ROTATIONDERIVATIVEFROMANGVEL computes the derivative of a rotation matrix 
     %                              given the angular velocity. It makes use of
     %                              the following convention: if the rotation of
-    %                              a body b is expressed in the world frame w
+    %                              a body b is expressed in the WORLD FRAME w
     %                              (i.e., R = w_R_b), then this function is
     %                              expecting the angular velocity of the body
-    %                              to be expressed in the world frame, i.e.
+    %                              to be expressed in the WORLD FRAME, i.e.
     %                              omega = w_omega.
     %
     % USAGE: please note that this function has been designed for being inserted 

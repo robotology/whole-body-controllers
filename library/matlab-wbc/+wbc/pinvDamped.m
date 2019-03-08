@@ -4,7 +4,7 @@ function pinvDampA = pinvDamped(A,regDamp)
     %
     % FORMAT: pinvDampA = pinvDamped(A,regDamp)   
     %
-    % INPUT:  - A = [n * m] rotation matrix
+    % INPUT:  - A       = [n * m] rotation matrix
     %         - regDamp = regularization parameter
     %
     % OUTPUT: - pinvDampA = [m * n] matrix pseudoinverse of A

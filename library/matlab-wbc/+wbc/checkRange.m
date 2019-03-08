@@ -1,13 +1,13 @@
 function inRange = checkRange(umin, umax, u, tol)
 
-    % CHECKRANGE checks if the current joint position is inside the limits.
+    % CHECKRANGE checks if the current input value is inside the limits.
     %
     % FORMAT: inRange = checkRange(umin, umax, u, tol)  
     %
     % INPUT:  - umin = [n * 1] min values
     %         - umax = [n * 1] max values
-    %         - u = [n * 1] values
-    %         - tol = tolerance
+    %         - u    = [n * 1] current values
+    %         - tol  = tolerance
     %
     % OUTPUT: - inRange = boolean for checking if u is inside the limits
     %
