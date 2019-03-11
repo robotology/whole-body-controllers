@@ -1,6 +1,11 @@
 # whole-body-controllers
 
-Simulink-based whole-body controllers for humanoid robots. 
+The repository contains Simulink-based whole-body controllers for humanoid robots, and configuration and utility Matlab functions to perform balancing simulations with Gazebo simulator and on the Yarp-based robot [iCub](http://www.icub.org/). 
+
+**Warning! This repository is under active development. In future releases, both `master` and `devel` branches may break compatibility with older versions of WBC. If you are interested in retrieving a `stable` version of this repo, `fork the repository` or refer to the following releases:**
+
+- [WBC v2.0](https://github.com/robotology/whole-body-controllers/releases/tag/v2.0)
+- [WBC v1.0](https://github.com/robotology/whole-body-controllers/releases/tag/v1.0)
 
 ## Dependencies
 
