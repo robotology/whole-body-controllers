@@ -12,6 +12,10 @@ Currently, supported robots are: `iCubGazeboV2_5`.
 
 ## Module details
 
+### How to run the demo
+
+For information on how to use the controllers both in **simulation** and with the **real robot**, please refer to the **wiki** of the repo.
+
 ### Configuration file
 
 At start, the module calls the initialization file `initPositionControlBalancing.m`. Once opened, this file contains some configuration variables. Please follow the instruction inside the script to properly configure your simulation.

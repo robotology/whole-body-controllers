@@ -14,6 +14,10 @@ Currently, supported robots are: `iCubGenova04`, `iCubGenova02`, `icubGazeboSim`
 
 ## Module details
 
+### How to run the demo
+
+For information on how to use the controllers both in **simulation** and with the **real robot**, please refer to the **wiki** of the repo.
+
 ### Configuration file
 
 At start, the module calls the initialization file initTorqueControlBalancing.m. Once opened, this file contains some configuration variables. Please follow the instruction inside the script to properly configure your simulation.

@@ -1,6 +1,6 @@
-## HOW TO RUN A SIMULATION WITH TORQUE CONTROL ON ICUB
+## HOW TO RUN SIMULINK CONTROLLERS IN SIMULATION WITH GAZEBO
 
-The procedure to run the torque balancing module is still quite elaborate. Users willing to use the module should follow this list.
+The procedure to run the simulink controllers in simulation is still quite elaborate. Users willing to use the module should follow this list.
 
 - Set the environmental variable YARP_ROBOT_NAME in the `.bashrc` according to the robot one wants to use (e.g. `iCubGazeboV2_5` or `icubGazeboSim` for simulations).
 
