@@ -4,7 +4,7 @@
 
 - Set the environmental variable `YARP_ROBOT_NAME` in the `.bashrc` according to the robot one wants to use (e.g. `iCubGenova04`, etc. for experiments).
  
-- Start the robot. Please refer to [How to setup the iCub robot for whole-body control experiments](How-to-setup-the-robot-for-wbc-experiments.md) for more information on the startup procedure.
+- Start the robot. Please refer to [How to setup iCub for whole-body control experiments](How-to-setup-iCub-for-wbc-experiments.md) for more information on the startup procedure.
 
 #### Before putting the robot feet on the ground:
 
