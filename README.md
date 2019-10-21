@@ -96,11 +96,12 @@ When used for controlling real platforms, heavy Simulink models may violate the 
 
 Official legacy repositories are: [mex-wholebodymodel](https://github.com/robotology/mex-wholebodymodel) and [WBI-Toolbox-controllers](https://github.com/robotology-legacy/WBI-Toolbox-controllers). **Note**: these legacy repos contain undocumented/outdated code, and duplicated or not tested matlab functions. They also contain original code that has been tested on the robot in the past and then never used again, or code that will be ported in the main repository in the future.
 
-- [exploit friction and walking controller](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/whole-body-controllers-legacy/controllers/legacy)
-- [seesaw controller](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/whole-body-controllers-legacy/controllers/legacy)
-- [automatic gain tuning](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingGainTuning)
+- [exploit friction controller](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/master/controllers/momentum-based-yoga-friction)
+- [walking controller](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/master/controllers/task-based-walking)
+- [seesaw controller](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/master/controllers/torqueBalancingOnSeesaw)
+- [automatic gain tuning](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/master/controllers/torqueBalancingTuning) and [automatic gain tuning-matlab](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingGainTuning)
 - [elastic joints control](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancing_JE)
-- [walkman control](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/whole-body-controllers-legacy/controllers/legacy/torqueBalancing-walkman) and [walkman control-matlab](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingWalkman)
+- [walkman control](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/master/controllers/torqueBalancing-walkman) and [walkman control-matlab](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingWalkman)
 - [joint-space control and centroidal transformation](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingJointControl)
 
 ## Citing this work
