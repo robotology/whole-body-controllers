@@ -103,6 +103,7 @@ Official legacy repositories are: [mex-wholebodymodel](https://github.com/roboto
 - [elastic joints control](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancing_JE)
 - [walkman control](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/master/controllers/torqueBalancing-walkman) and [walkman control-matlab](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingWalkman)
 - [joint-space control and centroidal transformation](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingJointControl)
+- [stand-up control 4 contacts](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/master/controllers/torqueBalancingStandup_4Contacts)
 
 ## Citing this work
 
