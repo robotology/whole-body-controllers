@@ -25,7 +25,7 @@ This repository depends upon the following Software:
 - [Gazebo Simulator](http://gazebosim.org/), default version **9.0**.
 - [gazebo-yarp-plugins](https://github.com/robotology/gazebo-yarp-plugins).
 - [icub-gazebo](https://github.com/robotology/icub-gazebo), [icub-gazebo-wholebody](https://github.com/robotology-playground/icub-gazebo-wholebody) and [icub-models](https://github.com/robotology/icub-models) to access iCub models.
-- [codyco-modules](https://github.com/robotology/codyco-modules) (**Optional**, for using [home positions](https://github.com/robotology/codyco-modules/tree/master/src/modules/torqueBalancing/app/robots) and [wholeBodyDynamics](https://github.com/robotology/codyco-modules/tree/master/src/devices/wholeBodyDynamics) device).
+- [codyco-modules](https://github.com/robotology/codyco-modules) (**Optional**, for using [wholeBodyDynamics](https://github.com/robotology/codyco-modules/tree/master/src/devices/wholeBodyDynamics) device).
 - [YARP](https://github.com/robotology/yarp) and [icub-main](https://github.com/robotology/icub-main).
 
 ## Installation and usage
@@ -77,6 +77,7 @@ Please refer to the [WBToolbox troubleshooting documentation](https://robotology
 - [fixed-base-joints-torque-control](controllers/fixed-base-joints-torque-control/README.md)
 - [floating-base-balancing-position-control](controllers/floating-base-balancing-position-control/README.md)
 - [floating-base-balancing-torque-control](controllers/floating-base-balancing-torque-control/README.md)
+- [simulink-balancing-simulator](controllers/simulink-balancing-simulator/README.md)
 
 ### Matlab functions library
 
@@ -91,6 +92,10 @@ There is the possibility to generate c++ code from the Simulink models using [Si
 ### Static GUI for Simulink
 
 When used for controlling real platforms, heavy Simulink models may violate the user-defined simulation time step, see also [this issue](https://github.com/robotology/wb-toolbox/issues/160). It seems a source of delay is the run-time update of the Simulink interface. For this reason, a [static GUI for running the models](library/matlab-gui) has been developed. If you want to run Simulink with the static GUI, run the [startModelWithStaticGui](controllers/floating-base-balancing-torque-control/startModelWithStaticGui.m) script.
+
+### Home positions for yarpmotorgui
+
+The repo contains a set of predefined [home positions](utilities/homePositions) to be used with the [yarpmotorgui](https://www.yarp.it/yarpmotorgui.html). By default, if the repo is installed through `robotology-superbuild`, the home positions are installed in the `robotology-superbuild/build/install` directory. Otherwise add the path to the [homePositions](utilities/homePositions) folder to the `YARP_DATA_DIRS` environmental variable in your `.bashrc` file . The command to use the home positions with the yarpmotorgui is `yarpmotorgui --from myHomePosFileName.ini`. 
 
 ## Where do I find legacy materials?
 
