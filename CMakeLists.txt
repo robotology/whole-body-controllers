@@ -14,6 +14,9 @@ option(WBC_INSTALL_ALL_HOME_POS "Installation of all available home positions" O
 find_package(YARP REQUIRED)
 set(CMAKE_MODULE_PATH ${YARP_MODULE_PATH} ${CMAKE_MODULE_PATH})
 
+include(YarpInstallationHelpers)
+yarp_configure_external_installation(wbc)
+
 add_subdirectory(utilities)
 
 # ======================
