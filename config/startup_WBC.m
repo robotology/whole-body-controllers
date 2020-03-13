@@ -2,6 +2,7 @@
 %
 %  Run this script once to permanently add the matlab-wbc library to your MATLAB path. 
 
+clc
 fprintf('\n## whole-body-controllers ##\n');
 fprintf('\nAdding "matlab-wbc" library to your pathdef.m...\n\n');
 
@@ -77,3 +78,30 @@ if (~savepath([pathToUserpath, filesep, 'pathdef.m']))
 else
     disp('There was an error generating the pathdef.m. Please manually add the matlab-wbc folder to your matlabpath');
 end
+
+% save a script named "goToWholeBodyControllers" inside the pathdef folder,
+% to facilitate the user to reach the WBC working folder
+
+% get the WBC path
+[~, currentFolderName, ~] = fileparts(pwd);
+currentPath               = pwd;
+wbcPath                   = currentPath(1:end-length(currentFolderName));
+
+% note: exist returns 2 if a .m file with the specified name is found
+if exist([pathToUserpath, filesep, 'goToWholeBodyControllers.m'],'file') == 2
+    
+    fprintf('\n')
+    warning(['A goToWholeBodyControllers.m file exists already in your ',pathToUserpath, ' folder,' ...
+             ' and therefore it won''t be created.'])
+else
+    % create the script and write inside the cd command
+    fid = fopen([pathToUserpath, filesep, 'goToWholeBodyControllers.m'],'w');
+    fprintf(fid, ['cd ', wbcPath, ';']);
+    fclose(fid);
+
+    fprintf('\n')
+    fprintf(['A file called goToWholeBodyControllers.m has also been created in your %s folder.\n', ...
+             'This will help to quickly reach the WBC-project folder after ', ...
+             'Matlab is launched.\n'], pathToUserpath);
+end
+
