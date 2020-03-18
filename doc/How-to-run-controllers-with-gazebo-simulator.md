@@ -6,9 +6,9 @@ The procedure to run the simulink controllers in simulation is still quite elabo
 
 - Verify that Gazebo and the robot model for simulations are available and installed. You can check if the controller is targeting the correct robot model by typing on a terminal:
 
-```
-yarp resource --find model.urdf
-```
+  ```
+  yarp resource --find model.urdf
+  ```
 
   then, check that the path and the model name are correct.
 
