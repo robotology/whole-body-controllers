@@ -8,7 +8,6 @@ The procedure to run the simulink controllers in simulation is still quite elabo
 
 ```
 yarp resource --find model.urdf
-
 ```
 
   then, check that the path and the model name are correct.
