@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.51"
+    ComputedModelVersion    "1.52"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -61,13 +61,9 @@ Model {
     }
     OrderedModelArguments   1
   }
-  DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 1 0"
-  LogicAnalyzerGraphicalSettings ""
-  LogicAnalyzerPlugin	  "on"
-  LogicAnalyzerSignalOrdering ""
-  CustomCodeFunctionData  ""
   SLCCPlugin		  "on"
+  LogicAnalyzerPlugin	  "on"
+  DiagnosticSuppressor	  "on"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -148,9 +144,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Feb 19 15:30:39 2020"
-  RTWModifiedTimeStamp	  504027039
-  ModelVersionFormat	  "1.%<AutoIncrement:51>"
+  LastModifiedDate	  "Wed Mar 18 18:04:50 2020"
+  RTWModifiedTimeStamp	  506455490
+  ModelVersionFormat	  "1.%<AutoIncrement:52>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -185,7 +181,6 @@ Model {
   FunctionConnectors	  off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
-  VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
   NumberOfSteps		  1
   SnapshotBufferSize	  10
@@ -257,6 +252,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
 	  AbsTol		  "auto"
@@ -296,6 +292,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -337,7 +334,7 @@ Model {
 	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
-	    Dimension		    8
+	    Dimension		    9
 	    Cell		    "BooleansAsBitfields"
 	    Cell		    "PassReuseOutputArgsAs"
 	    Cell		    "PassReuseOutputArgsThreshold"
@@ -346,9 +343,11 @@ Model {
 	    Cell		    "OptimizeModelRefInitCode"
 	    Cell		    "NoFixptDivByZeroProtection"
 	    Cell		    "UseSpecifiedMinMax"
+	    Cell		    "EfficientTunableParamExpr"
 	    PropName		    "DisabledProps"
 	  }
 	  Description		  ""
+	  Components		  []
 	  BlockReduction	  on
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
@@ -404,6 +403,7 @@ Model {
 	    PropName		    "DisabledProps"
 	  }
 	  Description		  ""
+	  Components		  []
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -514,6 +514,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -562,6 +563,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  EnableRefExpFcnMdlSchedulingChecks on
 	  CheckModelReferenceTargetMessage "error"
@@ -581,6 +583,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  SimCustomSourceCode	  ""
 	  SimCustomHeaderCode	  ""
 	  SimCustomInitializer	  ""
@@ -630,6 +633,7 @@ Model {
 	    Cell		    "CodeProfilingInstrumentation"
 	    PropName		    "DisabledProps"
 	  }
+	  Description		  ""
 	  SystemTargetFile	  "grt.tlc"
 	  HardwareBoard		  "None"
 	  TLCOptions		  ""
@@ -640,9 +644,7 @@ Model {
 	  PackageName		  ""
 	  TemplateMakefile	  "grt_default_tmf"
 	  PostCodeGenCommand	  ""
-	  Description		  ""
 	  GenerateReport	  off
-	  SaveLog		  off
 	  RTWVerbose		  on
 	  RetainRTWFile		  off
 	  RTWBuildHooks		  []
@@ -731,6 +733,7 @@ Model {
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
+	      Components	      []
 	      Comment		      ""
 	      ForceParamTrailComments off
 	      GenerateComments	      on
@@ -786,7 +789,7 @@ Model {
 	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
-		Dimension		15
+		Dimension		16
 		Cell			"IncludeMdlTerminateFcn"
 		Cell			"SuppressErrorStatus"
 		Cell			"ERTCustomFileBanners"
@@ -802,9 +805,11 @@ Model {
 		Cell			"ExistingSharedCode"
 		Cell			"RemoveDisableFunc"
 		Cell			"RemoveResetFunc"
+		Cell			"PreserveStateflowLocalDataDimensions"
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
+	      Components	      []
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
@@ -883,6 +888,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
+	  Components		  []
 	  Name			  "Simulink Coverage"
 	  CovEnable		  off
 	  CovScope		  "EntireSystem"
@@ -921,9 +927,9 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      ExtraOptions	      ""
       CurrentDlgPage	      "Solver"
       ConfigPrmDlgPosition    [ 100, 58, 1180, 720 ]
+      ExtraOptions	      ""
     }
     PropName		    "ConfigurationSets"
   }
@@ -939,7 +945,6 @@ Model {
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
     DefaultTransitionBetweenContTasks "Ensure deterministic transfer (minimum delay)"
     DefaultExtrapolationMethodBetweenContTasks "None"
-    AutoInsertRateTranBlk   [0]
   }
   ExplicitPartitioning	  off
   BlockDefaults {
@@ -1066,7 +1071,7 @@ Model {
       MustResolveToSignalObject	off
       OutputWhenUnConnected   off
       OutputWhenUnconnectedValue "0"
-      VectorParamsAs1DForOutWhenUnconnected off
+      VectorParamsAs1DForOutWhenUnconnected on
     }
     Block {
       BlockType		      Product
@@ -1127,7 +1132,6 @@ Model {
       TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
       IsWebBlock	      off
-      IsObserver	      off
     }
     Block {
       BlockType		      Sum
@@ -1175,6 +1179,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
       SourceType	      ""
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
@@ -1231,7 +1240,7 @@ Model {
       ".717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1"
       " 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[2 1],'DisplayContentCache',[]),extmgr.Con"
       "figuration('Tools','Plot Navigation',true,'PreviousAutoscale','XY','OnceAtStop',false),extmgr.Configuration('Too"
-      "ls','Measurements',true,'Version','2018a')),'Version','2018a','Position',[135 17 1920 947])"
+      "ls','Measurements',true,'Version','2018a')),'Version','2019b','Position',[135 17 1920 947])"
       NumInputPorts	      "2"
       Floating		      off
     }
@@ -1263,7 +1272,7 @@ Model {
       ".717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1"
       " 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[2 1],'DisplayContentCache',[]),extmgr.Con"
       "figuration('Tools','Plot Navigation',true,'PreviousAutoscale','XY','OnceAtStop',false),extmgr.Configuration('Too"
-      "ls','Measurements',true,'Version','2018a')),'Version','2018a','Position',[135 1 1920 947])"
+      "ls','Measurements',true,'Version','2018a')),'Version','2019b','Position',[135 1 1920 947])"
       NumInputPorts	      "2"
       Floating		      off
     }
@@ -1301,7 +1310,7 @@ Model {
       ".0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0"
       ".0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[3 1],'DisplayContentCa"
       "che',[]),extmgr.Configuration('Tools','Plot Navigation',true,'PreviousAutoscale','XY','OnceAtStop',false),extmgr"
-      ".Configuration('Tools','Measurements',true,'Version','2018a')),'Version','2018a','Position',[135 17 1920 947])"
+      ".Configuration('Tools','Measurements',true,'Version','2018a')),'Version','2019b','Position',[135 17 1920 947])"
       NumInputPorts	      "3"
       Floating		      off
     }
@@ -1333,7 +1342,7 @@ Model {
       ".717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1"
       " 1;1 0.0745098039215686 0.650980392156863]),'DisplayLayoutDimensions',[2 1],'DisplayContentCache',[]),extmgr.Con"
       "figuration('Tools','Plot Navigation',true,'PreviousAutoscale','XY','OnceAtStop',false),extmgr.Configuration('Too"
-      "ls','Measurements',true,'Version','2018a')),'Version','2018a','Position',[650 168 1920 954])"
+      "ls','Measurements',true,'Version','2018a')),'Version','2019b','Position',[650 168 1920 954])"
       NumInputPorts	      "2"
       Floating		      off
     }
@@ -1373,7 +1382,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       period		      "0.01"
     }
     Block {
@@ -1577,6 +1585,11 @@ Model {
 	  SourceBlock		  "WBToolboxLibrary/States/GetMeasurement"
 	  SourceType		  "GetMeasurement"
 	  SourceProductName	  "WholeBodyToolbox"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
 	  ContentPreviewEnabled	  off
 	  measuredType		  "Joints Position"
 	}
@@ -1591,6 +1604,11 @@ Model {
 	  SourceBlock		  "WBToolboxLibrary/Model/Kinematics/ForwardKinematics"
 	  SourceType		  "ForwardKinematics"
 	  SourceProductName	  "WholeBodyToolbox"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
 	  ContentPreviewEnabled	  off
 	  frameName		  "'imu_frame'"
 	}
@@ -1757,6 +1775,11 @@ Model {
 	  SourceBlock		  "WBToolboxLibrary/Model/Kinematics/ForwardKinematics"
 	  SourceType		  "ForwardKinematics"
 	  SourceProductName	  "WholeBodyToolbox"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
 	  ContentPreviewEnabled	  off
 	  frameName		  "'root_link_imu_frame'"
 	}
@@ -1767,6 +1790,7 @@ Model {
 	  Position		  [1100, 278, 1130, 292]
 	  ZOrder		  613
 	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Block {
 	  BlockType		  Outport
@@ -1776,6 +1800,7 @@ Model {
 	  ZOrder		  628
 	  Port			  "2"
 	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
 	  ZOrder		  158
@@ -2050,7 +2075,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       portName		      "'/icub/xsens_inertial'"
       signalSize	      "12"
       timeout		      "0.5"
@@ -2076,7 +2100,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       portName		      "'/icub/inertial'"
       signalSize	      "12"
       timeout		      "0.5"
@@ -2291,14 +2314,14 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000014
+#   Stateflow 80000019
 #
 #
 Stateflow {
   machine {
     id			    1
     name		    "debug_xSensIMU"
-    created		    "29-Dec-2017 10:37:13"
+    created		    "04-Nov-2015 16:59:24"
     isLibrary		    0
     sfVersion		    80000012
     firstTarget		    2

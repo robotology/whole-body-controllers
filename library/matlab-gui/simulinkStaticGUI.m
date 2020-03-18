@@ -149,9 +149,13 @@ function stopButton_Callback(hObject, eventdata, handles) %#ok<INUSL>
     % Check the status of the simulation and stop it if it's running
     if strcmp(status,'running')
         
-        % Disable the start button
-        set(handles.startButton,'Backgroundcolor',[0.8,0.8,0.8]);
-        set(handles.startButton,'Enable','off')
+        % Disable the start button unless the user checked the proper
+        % checkbox for avoiding to disable it
+        if get(handles.checkbox_recompile, 'Value')
+           
+            set(handles.startButton,'Backgroundcolor',[0.8,0.8,0.8]);
+            set(handles.startButton,'Enable','off')
+        end
         
         % Enable compile and exit buttons
         set(handles.compileButton,'Backgroundcolor',[1.0,0.6,0.0]);
@@ -181,4 +185,14 @@ function exitButton_Callback(hObject, eventdata, handles) %#ok<INUSL>
 
     % Assign handles and the startstop object to the base workspace
     assignin('base','sl_synch_handles',handles)
+end
+
+% --- Executes on button press in checkbox_recompile.
+function checkbox_recompile_Callback(hObject, eventdata, handles) %#ok<INUSD>
+
+    % hObject    handle to checkbox_recompile (see GCBO)
+    % eventdata  reserved - to be defined in a future version of MATLAB
+    % handles    structure with handles and user data (see GUIDATA)
+
+    % Hint: get(hObject,'Value') returns toggle state of checkbox_recompile
 end

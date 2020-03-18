@@ -21,6 +21,9 @@ function noSpikes = checkSpikes(u, delta_u_max)
 
     %% --- Initialization ---
 
+    % deprecation warning
+    disp('WARNING: checkSpikes is deprecated and it will be removed in a future release. Use checkInputSpikes instead.')
+    
     persistent u_previous
     
     if isempty(u_previous)

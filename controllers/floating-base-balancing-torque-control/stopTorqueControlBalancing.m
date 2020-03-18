@@ -58,3 +58,36 @@ if Config.CHECK_INTEGRATION_TIME && exist('yarp_time','var')
         warning(['The time step tolerance of ', num2str(Config.tStep), '[s] has been violated  more than 50 times.'])
     end
 end
+
+% If a joint hits the limits or an encoder spike is detected, print a
+% warning message displaying the name of the joint
+if Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES && exist('res_check_spikes','var')
+    
+    if ~isempty(res_check_spikes.signals.values)
+        
+        checkEachJoint = res_check_spikes.signals.values(end,:);
+    
+        for k = 1:length(checkEachJoint)
+        
+            if checkEachJoint(k)
+            
+                warning(['A spike occurred on joint ', WBTConfigRobot.ControlledJoints{k}])
+            end
+        end
+    end
+end
+if Config.EMERGENCY_STOP_WITH_JOINTS_LIMITS && exist('res_check_range','var')
+    
+    if ~isempty(res_check_range.signals.values)
+        
+        checkEachJoint = res_check_range.signals.values(end,:);
+    
+        for k = 1:length(checkEachJoint)
+        
+            if checkEachJoint(k)
+            
+                warning(['Joint ', WBTConfigRobot.ControlledJoints{k}, ' exited the range'])
+            end
+        end
+    end
+end

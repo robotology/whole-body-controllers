@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.24"
+    ComputedModelVersion    "1.25"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -230,13 +230,9 @@ Model {
     }
     OrderedModelArguments   1
   }
-  DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 1 0"
-  LogicAnalyzerGraphicalSettings ""
-  LogicAnalyzerPlugin	  "on"
-  LogicAnalyzerSignalOrdering ""
-  CustomCodeFunctionData  ""
   SLCCPlugin		  "on"
+  LogicAnalyzerPlugin	  "on"
+  DiagnosticSuppressor	  "on"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -316,9 +312,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Feb 19 15:30:34 2020"
-  RTWModifiedTimeStamp	  504027034
-  ModelVersionFormat	  "1.%<AutoIncrement:24>"
+  LastModifiedDate	  "Wed Mar 18 18:04:37 2020"
+  RTWModifiedTimeStamp	  506455477
+  ModelVersionFormat	  "1.%<AutoIncrement:25>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -353,7 +349,6 @@ Model {
   FunctionConnectors	  off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
-  VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
   NumberOfSteps		  1
   SnapshotBufferSize	  10
@@ -425,6 +420,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  StartTime		  "0.0"
 	  StopTime		  "10.0"
 	  AbsTol		  "auto"
@@ -464,6 +460,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -505,7 +502,7 @@ Model {
 	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
-	    Dimension		    8
+	    Dimension		    9
 	    Cell		    "BooleansAsBitfields"
 	    Cell		    "PassReuseOutputArgsAs"
 	    Cell		    "PassReuseOutputArgsThreshold"
@@ -514,9 +511,11 @@ Model {
 	    Cell		    "OptimizeModelRefInitCode"
 	    Cell		    "NoFixptDivByZeroProtection"
 	    Cell		    "UseSpecifiedMinMax"
+	    Cell		    "EfficientTunableParamExpr"
 	    PropName		    "DisabledProps"
 	  }
 	  Description		  ""
+	  Components		  []
 	  BlockReduction	  on
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
@@ -572,6 +571,7 @@ Model {
 	    PropName		    "DisabledProps"
 	  }
 	  Description		  ""
+	  Components		  []
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -682,6 +682,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -730,6 +731,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  EnableRefExpFcnMdlSchedulingChecks on
 	  CheckModelReferenceTargetMessage "error"
@@ -749,6 +751,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  SimCustomSourceCode	  ""
 	  SimCustomHeaderCode	  ""
 	  SimCustomInitializer	  ""
@@ -798,6 +801,7 @@ Model {
 	    Cell		    "CodeProfilingInstrumentation"
 	    PropName		    "DisabledProps"
 	  }
+	  Description		  ""
 	  SystemTargetFile	  "grt.tlc"
 	  HardwareBoard		  "None"
 	  TLCOptions		  ""
@@ -808,9 +812,7 @@ Model {
 	  PackageName		  ""
 	  TemplateMakefile	  "grt_default_tmf"
 	  PostCodeGenCommand	  ""
-	  Description		  ""
 	  GenerateReport	  off
-	  SaveLog		  off
 	  RTWVerbose		  on
 	  RetainRTWFile		  off
 	  RTWBuildHooks		  []
@@ -898,6 +900,7 @@ Model {
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
+	      Components	      []
 	      Comment		      ""
 	      ForceParamTrailComments off
 	      GenerateComments	      on
@@ -953,7 +956,7 @@ Model {
 	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
-		Dimension		15
+		Dimension		16
 		Cell			"IncludeMdlTerminateFcn"
 		Cell			"SuppressErrorStatus"
 		Cell			"ERTCustomFileBanners"
@@ -969,9 +972,11 @@ Model {
 		Cell			"SupportNonInlinedSFcns"
 		Cell			"RemoveDisableFunc"
 		Cell			"RemoveResetFunc"
+		Cell			"PreserveStateflowLocalDataDimensions"
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
+	      Components	      []
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
@@ -1050,6 +1055,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
+	  Components		  []
 	  Name			  "Simulink Coverage"
 	  CovEnable		  off
 	  CovScope		  "EntireSystem"
@@ -1088,9 +1094,9 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      ExtraOptions	      ""
       CurrentDlgPage	      "Solver"
       ConfigPrmDlgPosition    [ 145, 177, 1135, 847 ]
+      ExtraOptions	      ""
     }
     PropName		    "ConfigurationSets"
   }
@@ -1106,7 +1112,6 @@ Model {
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
     DefaultTransitionBetweenContTasks "Ensure deterministic transfer (minimum delay)"
     DefaultExtrapolationMethodBetweenContTasks "None"
-    AutoInsertRateTranBlk   [0]
   }
   ExplicitPartitioning	  off
   BlockDefaults {
@@ -1231,7 +1236,7 @@ Model {
       MustResolveToSignalObject	off
       OutputWhenUnConnected   off
       OutputWhenUnconnectedValue "0"
-      VectorParamsAs1DForOutWhenUnconnected off
+      VectorParamsAs1DForOutWhenUnconnected on
     }
     Block {
       BlockType		      S-Function
@@ -1272,7 +1277,6 @@ Model {
       TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
       IsWebBlock	      off
-      IsObserver	      off
     }
     Block {
       BlockType		      Terminator
@@ -1389,6 +1393,11 @@ Model {
 	      SourceBlock	      "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 	      SourceType	      "CentroidalMomentum"
 	      SourceProductName	      "WholeBodyToolbox"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -1402,6 +1411,11 @@ Model {
 	      SourceBlock	      "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 	      SourceType	      "CentroidalMomentum"
 	      SourceProductName	      "WholeBodyToolbox"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -1415,6 +1429,11 @@ Model {
 	      SourceBlock	      "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 	      SourceType	      "CentroidalMomentum"
 	      SourceProductName	      "WholeBodyToolbox"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -1428,6 +1447,11 @@ Model {
 	      SourceBlock	      "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 	      SourceType	      "CentroidalMomentum"
 	      SourceProductName	      "WholeBodyToolbox"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -1441,6 +1465,11 @@ Model {
 	      SourceBlock	      "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 	      SourceType	      "CentroidalMomentum"
 	      SourceProductName	      "WholeBodyToolbox"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -1454,6 +1483,11 @@ Model {
 	      SourceBlock	      "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 	      SourceType	      "CentroidalMomentum"
 	      SourceProductName	      "WholeBodyToolbox"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
 	      ContentPreviewEnabled   off
 	    }
 	    Block {
@@ -1539,6 +1573,7 @@ Model {
 	      Position		      [955, 518, 985, 532]
 	      ZOrder		      695
 	      IconDisplay	      "Port number"
+	      VectorParamsAs1DForOutWhenUnconnected off
 	    }
 	    Line {
 	      ZOrder		      1
@@ -1903,6 +1938,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -1916,6 +1956,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -1929,6 +1974,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -1942,6 +1992,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -1955,6 +2010,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -2001,7 +2061,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "49"
+		    SIDHighWatermark	    "52"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "SelMatrix"
@@ -2031,20 +2091,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "526::48"
+		    SID			    "526::51"
 		    Ports		    [1, 1]
 		    Position		    [270, 315, 320, 355]
-		    ZOrder		    39
+		    ZOrder		    42
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "526::47"
+		    SID			    "526::50"
 		    Tag			    "Stateflow S-Function CMM_iCub_23_25_DoFs 9"
 		    Ports		    [3, 6]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    38
+		    ZOrder		    41
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[3 6]"
 		    SFunctionDeploymentMode off
@@ -2074,9 +2134,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "526::49"
+		    SID			    "526::52"
 		    Position		    [460, 326, 480, 344]
-		    ZOrder		    40
+		    ZOrder		    43
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -2085,6 +2145,7 @@ Model {
 		    Position		    [460, 101, 480, 119]
 		    ZOrder		    -5
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -2094,6 +2155,7 @@ Model {
 		    ZOrder		    14
 		    Port		    "2"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -2103,6 +2165,7 @@ Model {
 		    ZOrder		    15
 		    Port		    "3"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -2112,6 +2175,7 @@ Model {
 		    ZOrder		    16
 		    Port		    "4"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -2121,9 +2185,10 @@ Model {
 		    ZOrder		    17
 		    Port		    "5"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Line {
-		    ZOrder		    31
+		    ZOrder		    41
 		    SrcBlock		    "SelMatrix"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -2131,14 +2196,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    32
+		    ZOrder		    42
 		    SrcBlock		    "groupNumber"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    33
+		    ZOrder		    43
 		    SrcBlock		    "jointPos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -2146,7 +2211,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v1"
-		    ZOrder		    34
+		    ZOrder		    44
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -2155,7 +2220,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v2"
-		    ZOrder		    35
+		    ZOrder		    45
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    3
@@ -2164,7 +2229,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v3"
-		    ZOrder		    36
+		    ZOrder		    46
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    4
@@ -2173,7 +2238,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v4"
-		    ZOrder		    37
+		    ZOrder		    47
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    5
@@ -2182,7 +2247,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v5"
-		    ZOrder		    38
+		    ZOrder		    48
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    6
@@ -2190,14 +2255,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    39
+		    ZOrder		    49
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    40
+		    ZOrder		    50
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -2224,6 +2289,7 @@ Model {
 		  Position		  [440, 203, 470, 217]
 		  ZOrder		  778
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
 		}
 		Line {
 		  ZOrder		  1
@@ -2514,6 +2580,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -2527,6 +2598,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -2540,6 +2616,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -2553,6 +2634,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -2566,6 +2652,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -2613,7 +2704,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "49"
+		    SIDHighWatermark	    "52"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "SelMatrix"
@@ -2643,20 +2734,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "540::48"
+		    SID			    "540::51"
 		    Ports		    [1, 1]
 		    Position		    [270, 315, 320, 355]
-		    ZOrder		    39
+		    ZOrder		    42
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "540::47"
+		    SID			    "540::50"
 		    Tag			    "Stateflow S-Function CMM_iCub_23_25_DoFs 22"
 		    Ports		    [3, 6]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    38
+		    ZOrder		    41
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[3 6]"
 		    SFunctionDeploymentMode off
@@ -2686,9 +2777,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "540::49"
+		    SID			    "540::52"
 		    Position		    [460, 326, 480, 344]
-		    ZOrder		    40
+		    ZOrder		    43
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -2697,6 +2788,7 @@ Model {
 		    Position		    [460, 101, 480, 119]
 		    ZOrder		    -5
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -2706,6 +2798,7 @@ Model {
 		    ZOrder		    14
 		    Port		    "2"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -2715,6 +2808,7 @@ Model {
 		    ZOrder		    15
 		    Port		    "3"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -2724,6 +2818,7 @@ Model {
 		    ZOrder		    16
 		    Port		    "4"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -2733,9 +2828,10 @@ Model {
 		    ZOrder		    17
 		    Port		    "5"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Line {
-		    ZOrder		    31
+		    ZOrder		    41
 		    SrcBlock		    "SelMatrix"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -2743,14 +2839,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    32
+		    ZOrder		    42
 		    SrcBlock		    "groupNumber"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    33
+		    ZOrder		    43
 		    SrcBlock		    "jointPos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -2758,7 +2854,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v1"
-		    ZOrder		    34
+		    ZOrder		    44
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -2767,7 +2863,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v2"
-		    ZOrder		    35
+		    ZOrder		    45
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    3
@@ -2776,7 +2872,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v3"
-		    ZOrder		    36
+		    ZOrder		    46
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    4
@@ -2785,7 +2881,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v4"
-		    ZOrder		    37
+		    ZOrder		    47
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    5
@@ -2794,7 +2890,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v5"
-		    ZOrder		    38
+		    ZOrder		    48
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    6
@@ -2802,14 +2898,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    39
+		    ZOrder		    49
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    40
+		    ZOrder		    50
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -2836,6 +2932,7 @@ Model {
 		  Position		  [440, 203, 470, 217]
 		  ZOrder		  778
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
 		}
 		Line {
 		  ZOrder		  1
@@ -3126,6 +3223,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -3139,6 +3241,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -3152,6 +3259,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -3165,6 +3277,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -3178,6 +3295,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -3225,7 +3347,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "49"
+		    SIDHighWatermark	    "52"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "SelMatrix"
@@ -3255,20 +3377,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "554::48"
+		    SID			    "554::51"
 		    Ports		    [1, 1]
 		    Position		    [270, 315, 320, 355]
-		    ZOrder		    39
+		    ZOrder		    42
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "554::47"
+		    SID			    "554::50"
 		    Tag			    "Stateflow S-Function CMM_iCub_23_25_DoFs 27"
 		    Ports		    [3, 6]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    38
+		    ZOrder		    41
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[3 6]"
 		    SFunctionDeploymentMode off
@@ -3298,9 +3420,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "554::49"
+		    SID			    "554::52"
 		    Position		    [460, 326, 480, 344]
-		    ZOrder		    40
+		    ZOrder		    43
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -3309,6 +3431,7 @@ Model {
 		    Position		    [460, 101, 480, 119]
 		    ZOrder		    -5
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -3318,6 +3441,7 @@ Model {
 		    ZOrder		    14
 		    Port		    "2"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -3327,6 +3451,7 @@ Model {
 		    ZOrder		    15
 		    Port		    "3"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -3336,6 +3461,7 @@ Model {
 		    ZOrder		    16
 		    Port		    "4"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -3345,9 +3471,10 @@ Model {
 		    ZOrder		    17
 		    Port		    "5"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Line {
-		    ZOrder		    31
+		    ZOrder		    41
 		    SrcBlock		    "SelMatrix"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -3355,14 +3482,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    32
+		    ZOrder		    42
 		    SrcBlock		    "groupNumber"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    33
+		    ZOrder		    43
 		    SrcBlock		    "jointPos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -3370,7 +3497,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v1"
-		    ZOrder		    34
+		    ZOrder		    44
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -3379,7 +3506,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v2"
-		    ZOrder		    35
+		    ZOrder		    45
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    3
@@ -3388,7 +3515,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v3"
-		    ZOrder		    36
+		    ZOrder		    46
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    4
@@ -3397,7 +3524,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v4"
-		    ZOrder		    37
+		    ZOrder		    47
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    5
@@ -3406,7 +3533,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v5"
-		    ZOrder		    38
+		    ZOrder		    48
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    6
@@ -3414,14 +3541,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    39
+		    ZOrder		    49
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    40
+		    ZOrder		    50
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -3448,6 +3575,7 @@ Model {
 		  Position		  [440, 203, 470, 217]
 		  ZOrder		  778
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
 		}
 		Line {
 		  ZOrder		  1
@@ -3738,6 +3866,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -3751,6 +3884,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -3764,6 +3902,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -3777,6 +3920,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -3790,6 +3938,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -3837,7 +3990,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "49"
+		    SIDHighWatermark	    "52"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "SelMatrix"
@@ -3867,20 +4020,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "568::48"
+		    SID			    "568::51"
 		    Ports		    [1, 1]
 		    Position		    [270, 315, 320, 355]
-		    ZOrder		    39
+		    ZOrder		    42
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "568::47"
+		    SID			    "568::50"
 		    Tag			    "Stateflow S-Function CMM_iCub_23_25_DoFs 28"
 		    Ports		    [3, 6]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    38
+		    ZOrder		    41
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[3 6]"
 		    SFunctionDeploymentMode off
@@ -3910,9 +4063,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "568::49"
+		    SID			    "568::52"
 		    Position		    [460, 326, 480, 344]
-		    ZOrder		    40
+		    ZOrder		    43
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -3921,6 +4074,7 @@ Model {
 		    Position		    [460, 101, 480, 119]
 		    ZOrder		    -5
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -3930,6 +4084,7 @@ Model {
 		    ZOrder		    14
 		    Port		    "2"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -3939,6 +4094,7 @@ Model {
 		    ZOrder		    15
 		    Port		    "3"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -3948,6 +4104,7 @@ Model {
 		    ZOrder		    16
 		    Port		    "4"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -3957,9 +4114,10 @@ Model {
 		    ZOrder		    17
 		    Port		    "5"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Line {
-		    ZOrder		    31
+		    ZOrder		    41
 		    SrcBlock		    "SelMatrix"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -3967,14 +4125,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    32
+		    ZOrder		    42
 		    SrcBlock		    "groupNumber"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    33
+		    ZOrder		    43
 		    SrcBlock		    "jointPos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -3982,7 +4140,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v1"
-		    ZOrder		    34
+		    ZOrder		    44
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -3991,7 +4149,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v2"
-		    ZOrder		    35
+		    ZOrder		    45
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    3
@@ -4000,7 +4158,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v3"
-		    ZOrder		    36
+		    ZOrder		    46
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    4
@@ -4009,7 +4167,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v4"
-		    ZOrder		    37
+		    ZOrder		    47
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    5
@@ -4018,7 +4176,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v5"
-		    ZOrder		    38
+		    ZOrder		    48
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    6
@@ -4026,14 +4184,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    39
+		    ZOrder		    49
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    40
+		    ZOrder		    50
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -4060,6 +4218,7 @@ Model {
 		  Position		  [440, 203, 470, 217]
 		  ZOrder		  778
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
 		}
 		Line {
 		  ZOrder		  1
@@ -4350,6 +4509,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -4363,6 +4527,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -4376,6 +4545,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -4389,6 +4563,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -4402,6 +4581,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Model/Dynamics/CentroidalMomentum"
 		  SourceType		  "CentroidalMomentum"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -4449,7 +4633,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "49"
+		    SIDHighWatermark	    "52"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "SelMatrix"
@@ -4479,20 +4663,20 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "582::48"
+		    SID			    "582::51"
 		    Ports		    [1, 1]
 		    Position		    [270, 315, 320, 355]
-		    ZOrder		    39
+		    ZOrder		    42
 		    Outputs		    "1"
 		    }
 		    Block {
 		    BlockType		    S-Function
 		    Name		    " SFunction "
-		    SID			    "582::47"
+		    SID			    "582::50"
 		    Tag			    "Stateflow S-Function CMM_iCub_23_25_DoFs 29"
 		    Ports		    [3, 6]
 		    Position		    [180, 102, 230, 243]
-		    ZOrder		    38
+		    ZOrder		    41
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[3 6]"
 		    SFunctionDeploymentMode off
@@ -4522,9 +4706,9 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "582::49"
+		    SID			    "582::52"
 		    Position		    [460, 326, 480, 344]
-		    ZOrder		    40
+		    ZOrder		    43
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -4533,6 +4717,7 @@ Model {
 		    Position		    [460, 101, 480, 119]
 		    ZOrder		    -5
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -4542,6 +4727,7 @@ Model {
 		    ZOrder		    14
 		    Port		    "2"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -4551,6 +4737,7 @@ Model {
 		    ZOrder		    15
 		    Port		    "3"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -4560,6 +4747,7 @@ Model {
 		    ZOrder		    16
 		    Port		    "4"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -4569,9 +4757,10 @@ Model {
 		    ZOrder		    17
 		    Port		    "5"
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Line {
-		    ZOrder		    31
+		    ZOrder		    41
 		    SrcBlock		    "SelMatrix"
 		    SrcPort		    1
 		    Points		    [120, 0]
@@ -4579,14 +4768,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    32
+		    ZOrder		    42
 		    SrcBlock		    "groupNumber"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
 		    DstPort		    2
 		    }
 		    Line {
-		    ZOrder		    33
+		    ZOrder		    43
 		    SrcBlock		    "jointPos"
 		    SrcPort		    1
 		    DstBlock		    " SFunction "
@@ -4594,7 +4783,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v1"
-		    ZOrder		    34
+		    ZOrder		    44
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    2
@@ -4603,7 +4792,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v2"
-		    ZOrder		    35
+		    ZOrder		    45
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    3
@@ -4612,7 +4801,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v3"
-		    ZOrder		    36
+		    ZOrder		    46
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    4
@@ -4621,7 +4810,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v4"
-		    ZOrder		    37
+		    ZOrder		    47
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    5
@@ -4630,7 +4819,7 @@ Model {
 		    }
 		    Line {
 		    Name		    "v5"
-		    ZOrder		    38
+		    ZOrder		    48
 		    Labels		    [0, 0]
 		    SrcBlock		    " SFunction "
 		    SrcPort		    6
@@ -4638,14 +4827,14 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    39
+		    ZOrder		    49
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		    Line {
-		    ZOrder		    40
+		    ZOrder		    50
 		    SrcBlock		    " SFunction "
 		    SrcPort		    1
 		    DstBlock		    " Demux "
@@ -4694,6 +4883,7 @@ Model {
 		  Position		  [660, 223, 690, 237]
 		  ZOrder		  778
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
 		}
 		Block {
 		  BlockType		  Outport
@@ -4703,6 +4893,7 @@ Model {
 		  ZOrder		  800
 		  Port			  "2"
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
 		}
 		Line {
 		  ZOrder		  1
@@ -4975,6 +5166,7 @@ Model {
 	      Position		      [1635, 58, 1665, 72]
 	      ZOrder		      771
 	      IconDisplay	      "Port number"
+	      VectorParamsAs1DForOutWhenUnconnected off
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -4984,6 +5176,7 @@ Model {
 	      ZOrder		      798
 	      Port		      "2"
 	      IconDisplay	      "Port number"
+	      VectorParamsAs1DForOutWhenUnconnected off
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -4993,6 +5186,7 @@ Model {
 	      ZOrder		      799
 	      Port		      "3"
 	      IconDisplay	      "Port number"
+	      VectorParamsAs1DForOutWhenUnconnected off
 	    }
 	    Line {
 	      ZOrder		      1
@@ -5270,6 +5464,7 @@ Model {
 	      Position		      [195, 113, 225, 127]
 	      ZOrder		      735
 	      IconDisplay	      "Port number"
+	      VectorParamsAs1DForOutWhenUnconnected off
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -5279,6 +5474,7 @@ Model {
 	      ZOrder		      736
 	      Port		      "2"
 	      IconDisplay	      "Port number"
+	      VectorParamsAs1DForOutWhenUnconnected off
 	    }
 	    Line {
 	      ZOrder		      1
@@ -5390,7 +5586,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "43"
+	    SIDHighWatermark	    "46"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "ROBOT_DOF"
@@ -5411,20 +5607,20 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "604::42"
+	      SID		      "604::45"
 	      Ports		      [1, 1]
 	      Position		      [270, 230, 320, 270]
-	      ZOrder		      33
+	      ZOrder		      36
 	      Outputs		      "1"
 	    }
 	    Block {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      "604::41"
+	      SID		      "604::44"
 	      Tag		      "Stateflow S-Function CMM_iCub_23_25_DoFs 30"
 	      Ports		      [2, 2]
 	      Position		      [180, 100, 230, 160]
-	      ZOrder		      32
+	      ZOrder		      35
 	      FunctionName	      "sf_sfun"
 	      PortCounts	      "[2 2]"
 	      SFunctionDeploymentMode off
@@ -5438,9 +5634,9 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "604::43"
+	      SID		      "604::46"
 	      Position		      [460, 241, 480, 259]
-	      ZOrder		      34
+	      ZOrder		      37
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -5449,9 +5645,10 @@ Model {
 	      Position		      [460, 101, 480, 119]
 	      ZOrder		      -5
 	      IconDisplay	      "Port number"
+	      VectorParamsAs1DForOutWhenUnconnected off
 	    }
 	    Line {
-	      ZOrder		      16
+	      ZOrder		      21
 	      SrcBlock		      "ROBOT_DOF"
 	      SrcPort		      1
 	      Points		      [120, 0]
@@ -5459,7 +5656,7 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      17
+	      ZOrder		      22
 	      SrcBlock		      "SelMatrix_0"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
@@ -5467,7 +5664,7 @@ Model {
 	    }
 	    Line {
 	      Name		      "SelMatrix"
-	      ZOrder		      18
+	      ZOrder		      23
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
@@ -5475,14 +5672,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      19
+	      ZOrder		      24
 	      SrcBlock		      " Demux "
 	      SrcPort		      1
 	      DstBlock		      " Terminator "
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      20
+	      ZOrder		      25
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
 	      DstBlock		      " Demux "
@@ -5497,6 +5694,7 @@ Model {
 	  Position		  [1160, 158, 1190, 172]
 	  ZOrder		  737
 	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Block {
 	  BlockType		  Outport
@@ -5506,6 +5704,7 @@ Model {
 	  ZOrder		  738
 	  Port			  "2"
 	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
 	  ZOrder		  1
@@ -5631,14 +5830,14 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000014
+#   Stateflow 80000019
 #
 #
 Stateflow {
   machine {
     id			    1
     name		    "CMM_iCub_23_25_DoFs"
-    created		    "28-Feb-2019 16:30:20"
+    created		    "28-Feb-2019 16:10:03"
     isLibrary		    0
     sfVersion		    80000012
     firstTarget		    75

@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.361"
+    ComputedModelVersion    "1.367"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -69,7 +69,7 @@ Model {
     ExternalFileReference {
       Reference		      "WBToolboxLibrary/States/GetLimits"
       Path		      "jointsControl/emergency stop: joint limits/STOP IF JOINTS HIT THE LIMITS/GetLimits"
-      SID		      "478"
+      SID		      "695"
       Type		      "LIBRARY_BLOCK"
     }
     ExternalFileReference {
@@ -92,13 +92,9 @@ Model {
     }
     OrderedModelArguments   1
   }
-  DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 1 0"
-  LogicAnalyzerGraphicalSettings ""
-  LogicAnalyzerPlugin	  "on"
-  LogicAnalyzerSignalOrdering ""
-  CustomCodeFunctionData  ""
   SLCCPlugin		  "on"
+  LogicAnalyzerPlugin	  "on"
+  DiagnosticSuppressor	  "on"
   PostLoadFcn		  "%% Try to open the static GUI\ntry\n\n    staticGUI = simulinkStaticGUI;\n\nend"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
@@ -119,10 +115,12 @@ Model {
   "et(sl_synch_handles.compileButton,'Enable','off');\n\n    %% Update Exit Button\n    set(sl_synch_handles.exitButton"
   ",'Backgroundcolor',[0.8,0.8,0.8]);\n    set(sl_synch_handles.exitButton,'Enable','off');\n\nend"
   StopFcn		  "%% stop the simulation\ncd(fileparts(which(bdroot)));\nstopJointsControl;\n\n%% Try to edit the GUI (the"
-  " user may have already closed it)\ntry\n\n    %% Update Compile Button\n    set(sl_synch_handles.compileButton,'Back"
-  "groundcolor',[1.0,0.6,0.0]);\n    set(sl_synch_handles.compileButton,'Enable','on');\n\n    %% Update Exit Button\n "
-  "   set(sl_synch_handles.exitButton,'Backgroundcolor',[0.0,1.0,1.0]);\n    set(sl_synch_handles.exitButton,'Enable','"
-  "on');\n\nend"
+  " user may have already closed it)\ntry\n\n    %% Update Start Button\n    if get(sl_synch_handles.checkbox_recompile"
+  ", 'Value')  \n        set(sl_synch_handles.startButton,'Backgroundcolor',[0.0,1.0,0.0]);\n        set(sl_synch_handl"
+  "es.startButton,'Enable','on');\n    end\n\n    %% Update Compile Button\n    set(sl_synch_handles.compileButton,'Bac"
+  "kgroundcolor',[1.0,0.6,0.0]);\n    set(sl_synch_handles.compileButton,'Enable','on');\n\n    %% Update Exit Button\n"
+  "    set(sl_synch_handles.exitButton,'Backgroundcolor',[0.0,1.0,1.0]);\n    set(sl_synch_handles.exitButton,'Enable',"
+  "'on');\n\nend"
   LastSavedArchitecture	  "glnxa64"
   Object {
     $PropName		    "BdWindowsInfo"
@@ -157,9 +155,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1815.0, 876.0]
+	Extents			[1815.0, 821.0]
 	ZoomFactor		[3.9274725274725273]
-	Offset			[171.435366536094, 145.97789591494126]
+	Offset			[171.435366536094, 149.41522104085058]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -179,11 +177,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAAc9AAADqgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
-      "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
-      "////wEAAACA/////wAAAAAAAAAA/////wEAAADo/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFo/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAANR/////wAAAAAAAAAA/"
-      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
+      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAAc9AAADcgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAA"
     }
   }
   HideAutomaticNames	  on
@@ -193,9 +187,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Feb 19 15:30:22 2020"
-  RTWModifiedTimeStamp	  504027021
-  ModelVersionFormat	  "1.%<AutoIncrement:361>"
+  LastModifiedDate	  "Wed Mar 18 18:04:10 2020"
+  RTWModifiedTimeStamp	  506455449
+  ModelVersionFormat	  "1.%<AutoIncrement:367>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -230,7 +224,6 @@ Model {
   FunctionConnectors	  off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
-  VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
   NumberOfSteps		  1
   SnapshotBufferSize	  10
@@ -302,6 +295,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  StartTime		  "0.0"
 	  StopTime		  "Config.SIMULATION_TIME"
 	  AbsTol		  "auto"
@@ -341,6 +335,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -382,7 +377,7 @@ Model {
 	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
-	    Dimension		    8
+	    Dimension		    9
 	    Cell		    "BooleansAsBitfields"
 	    Cell		    "PassReuseOutputArgsAs"
 	    Cell		    "PassReuseOutputArgsThreshold"
@@ -391,9 +386,11 @@ Model {
 	    Cell		    "OptimizeModelRefInitCode"
 	    Cell		    "NoFixptDivByZeroProtection"
 	    Cell		    "UseSpecifiedMinMax"
+	    Cell		    "EfficientTunableParamExpr"
 	    PropName		    "DisabledProps"
 	  }
 	  Description		  ""
+	  Components		  []
 	  BlockReduction	  on
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
@@ -449,6 +446,7 @@ Model {
 	    PropName		    "DisabledProps"
 	  }
 	  Description		  ""
+	  Components		  []
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -559,6 +557,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -607,6 +606,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  EnableRefExpFcnMdlSchedulingChecks on
 	  CheckModelReferenceTargetMessage "error"
@@ -626,6 +626,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  SimCustomSourceCode	  ""
 	  SimCustomHeaderCode	  ""
 	  SimCustomInitializer	  ""
@@ -675,6 +676,7 @@ Model {
 	    Cell		    "GenerateMissedCodeReplacementReport"
 	    PropName		    "DisabledProps"
 	  }
+	  Description		  ""
 	  SystemTargetFile	  "grt.tlc"
 	  HardwareBoard		  "None"
 	  TLCOptions		  ""
@@ -685,9 +687,7 @@ Model {
 	  PackageName		  ""
 	  TemplateMakefile	  "grt_default_tmf"
 	  PostCodeGenCommand	  ""
-	  Description		  ""
 	  GenerateReport	  off
-	  SaveLog		  off
 	  RTWVerbose		  on
 	  RetainRTWFile		  off
 	  RTWBuildHooks		  []
@@ -775,6 +775,7 @@ Model {
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
+	      Components	      []
 	      Comment		      ""
 	      ForceParamTrailComments off
 	      GenerateComments	      on
@@ -830,7 +831,7 @@ Model {
 	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
-		Dimension		16
+		Dimension		17
 		Cell			"GeneratePreprocessorConditionals"
 		Cell			"IncludeMdlTerminateFcn"
 		Cell			"SupportNonInlinedSFcns"
@@ -847,9 +848,11 @@ Model {
 		Cell			"ExistingSharedCode"
 		Cell			"RemoveDisableFunc"
 		Cell			"RemoveResetFunc"
+		Cell			"PreserveStateflowLocalDataDimensions"
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
+	      Components	      []
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
@@ -928,6 +931,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
+	  Components		  []
 	  Name			  "Simulink Coverage"
 	  CovEnable		  off
 	  CovScope		  "EntireSystem"
@@ -966,9 +970,9 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      ExtraOptions	      ""
       CurrentDlgPage	      "Solver"
       ConfigPrmDlgPosition    [ 396, 138, 1456, 890 ]
+      ExtraOptions	      ""
     }
     PropName		    "ConfigurationSets"
   }
@@ -984,7 +988,6 @@ Model {
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
     DefaultTransitionBetweenContTasks "Ensure deterministic transfer (minimum delay)"
     DefaultExtrapolationMethodBetweenContTasks "None"
-    AutoInsertRateTranBlk   [0]
   }
   ExplicitPartitioning	  off
   BlockDefaults {
@@ -1159,7 +1162,7 @@ Model {
       MustResolveToSignalObject	off
       OutputWhenUnConnected   off
       OutputWhenUnconnectedValue "0"
-      VectorParamsAs1DForOutWhenUnconnected off
+      VectorParamsAs1DForOutWhenUnconnected on
     }
     Block {
       BlockType		      Product
@@ -1239,7 +1242,6 @@ Model {
       TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
       IsWebBlock	      off
-      IsObserver	      off
     }
     Block {
       BlockType		      Sum
@@ -1266,10 +1268,19 @@ Model {
       MaxDataPoints	      "1000"
       Decimation	      "1"
       SaveFormat	      "Array"
-      Save2DSignal	      "Inherit from input (this choice will be removed - see release notes)"
+      Save2DSignal	      "3-D array (concatenate along third dimension)"
       FixptAsFi		      off
       NumInputs		      "1"
       SampleTime	      "0"
+    }
+    Block {
+      BlockType		      UnitDelay
+      InitialCondition	      "0"
+      InputProcessing	      "Elements as channels (sample based)"
+      SampleTime	      "1"
+      StateMustResolveToSignalObject off
+      CodeGenStateStorageClass "Auto"
+      HasFrameUpgradeWarning  off
     }
   }
   System {
@@ -1289,7 +1300,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "393"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "648"
+    SIDHighWatermark	    "707"
     Block {
       BlockType		      Reference
       Name		      "Configuration"
@@ -1302,6 +1313,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/Configuration"
       SourceType	      ""
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
       ConfigSource	      "Workspace"
       ConfigObject	      "'WBTConfigRobot'"
@@ -1717,7 +1733,7 @@ Model {
 	      "[0 1 0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-',"
 	      "'LineWidth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr"
 	      ".Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration"
-	      "('Tools','Measurements',true,'Version','2018a')),'Version','2018a','Location',[135 184 3841 2132])"
+	      "('Tools','Measurements',true,'Version','2018a')),'Version','2019b','Location',[135 184 3841 2132])"
 	      NumInputPorts	      "5"
 	      Floating		      off
 	    }
@@ -1828,7 +1844,7 @@ Model {
 	      "0],'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','Line"
 	      "Width',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr.Conf"
 	      "iguration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Too"
-	      "ls','Measurements',true,'Version','2018a')),'Version','2018a','Location',[358 457 1618 936])"
+	      "ls','Measurements',true,'Version','2018a')),'Version','2019b','Location',[358 457 1618 936])"
 	      NumInputPorts	      "5"
 	      Floating		      off
 	    }
@@ -1939,7 +1955,7 @@ Model {
 	      ",'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWi"
 	      "dth',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr.Config"
 	      "uration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools"
-	      "','Measurements',true,'Version','2018a')),'Version','2018a','Location',[1175 719 2455 1410])"
+	      "','Measurements',true,'Version','2018a')),'Version','2019b','Location',[1175 719 2455 1410])"
 	      NumInputPorts	      "5"
 	      Floating		      off
 	    }
@@ -2234,7 +2250,7 @@ Model {
 	      ",[0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.71764705"
 	      "8823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0"
 	      "745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Navigation',true,'PreviousAutoscale','X"
-	      "Y'),extmgr.Configuration('Tools','Measurements',true,'Version','2018a')),'Version','2018a','Position',[135 1 37"
+	      "Y'),extmgr.Configuration('Tools','Measurements',true,'Version','2018a')),'Version','2019b','Position',[135 1 37"
 	      "06 1990])"
 	      NumInputPorts	      "3"
 	      Floating		      off
@@ -2569,7 +2585,7 @@ Model {
 	      "LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidt"
 	      "h',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr.Configur"
 	      "ation('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools',"
-	      "'Measurements',true,'Version','2018a')),'Version','2018a','Location',[135 169 1415 860])"
+	      "'Measurements',true,'Version','2018a')),'Version','2019b','Location',[135 169 1415 860])"
 	      NumInputPorts	      "5"
 	      Floating		      off
 	    }
@@ -2680,7 +2696,7 @@ Model {
 	      "LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidt"
 	      "h',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr.Configur"
 	      "ation('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools',"
-	      "'Measurements',true,'Version','2018a')),'Version','2018a','Location',[135 169 1425 890])"
+	      "'Measurements',true,'Version','2018a')),'Version','2019b','Location',[135 169 1425 890])"
 	      NumInputPorts	      "5"
 	      Floating		      off
 	    }
@@ -2791,7 +2807,7 @@ Model {
 	      "neStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWidth'"
 	      ",0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr.Configurat"
 	      "ion('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools','M"
-	      "easurements',true,'Version','2018a')),'Version','2018a','Location',[387 216 1667 907])"
+	      "easurements',true,'Version','2018a')),'Version','2019b','Location',[387 216 1667 907])"
 	      NumInputPorts	      "5"
 	      Floating		      off
 	    }
@@ -2902,7 +2918,7 @@ Model {
 	      "'LineStyle','-','LineWidth',0.5,'Marker','none','Visible','on'),struct('Color',[0 0 1],'LineStyle','-','LineWid"
 	      "th',0.5,'Marker','none','Visible','on')}},'UserDefinedChannelNames',{{}},'PlotMagPhase',false)}),extmgr.Configu"
 	      "ration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Tools'"
-	      ",'Measurements',true,'Version','2018a')),'Version','2018a','Location',[135 175 1445 880])"
+	      ",'Measurements',true,'Version','2018a')),'Version','2019b','Location',[135 175 1445 880])"
 	      NumInputPorts	      "5"
 	      Floating		      off
 	    }
@@ -3210,6 +3226,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/States/GetMeasurement"
       SourceType	      "GetMeasurement"
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
       measuredType	      "Joints Position"
     }
@@ -3225,6 +3246,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/States/GetMeasurement"
       SourceType	      "GetMeasurement"
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
       measuredType	      "Joints Torque"
     }
@@ -3240,6 +3266,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/States/GetMeasurement"
       SourceType	      "GetMeasurement"
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
       measuredType	      "Joints Velocity"
     }
@@ -3376,6 +3407,11 @@ Model {
 	      SourceBlock	      "WBToolboxLibrary/Model/Dynamics/GetGravityForces"
 	      SourceType	      "Gravity bias"
 	      SourceProductName	      "WholeBodyToolbox"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
 	      ContentPreviewEnabled   off
 	      Port {
 		PortNumber		1
@@ -3402,6 +3438,7 @@ Model {
 	      Position		      [590, 148, 620, 162]
 	      ZOrder		      640
 	      IconDisplay	      "Port number"
+	      VectorParamsAs1DForOutWhenUnconnected off
 	    }
 	    Line {
 	      ZOrder		      77
@@ -3632,6 +3669,7 @@ Model {
 		  Position		  [855, 123, 885, 137]
 		  ZOrder		  639
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
 		}
 		Line {
 		  Name			  "Kd*(jointVel_des - jointVel)"
@@ -3841,6 +3879,11 @@ Model {
 		    SourceBlock		    "WBToolboxLibrary/Model/Dynamics/MassMatrix"
 		    SourceType		    "MassMatrix"
 		    SourceProductName	    "WholeBodyToolbox"
+		    RTWMemSecFuncInitTerm   "Inherit from model"
+		    RTWMemSecFuncExecute    "Inherit from model"
+		    RTWMemSecDataConstants  "Inherit from model"
+		    RTWMemSecDataInternal   "Inherit from model"
+		    RTWMemSecDataParameters "Inherit from model"
 		    ContentPreviewEnabled   off
 		    }
 		    Block {
@@ -3877,6 +3920,7 @@ Model {
 		    Position		    [590, 93, 620, 107]
 		    ZOrder		    680
 		    IconDisplay		    "Port number"
+		    VectorParamsAs1DForOutWhenUnconnected off
 		    }
 		    Line {
 		    ZOrder		    1
@@ -3975,6 +4019,11 @@ Model {
 		  SourceBlock		  "WBToolboxLibrary/Utilities/holder\n"
 		  SourceType		  "Holder"
 		  SourceProductName	  "WholeBodyToolbox"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
 		  ContentPreviewEnabled	  off
 		}
 		Block {
@@ -4018,6 +4067,7 @@ Model {
 		  Position		  [280, -337, 310, -323]
 		  ZOrder		  663
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
 		}
 		Block {
 		  BlockType		  Outport
@@ -4027,6 +4077,7 @@ Model {
 		  ZOrder		  657
 		  Port			  "2"
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
 		}
 		Block {
 		  BlockType		  Outport
@@ -4036,6 +4087,7 @@ Model {
 		  ZOrder		  992
 		  Port			  "3"
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
 		}
 		Line {
 		  ZOrder		  1
@@ -4157,6 +4209,7 @@ Model {
 	      Position		      [610, 38, 640, 52]
 	      ZOrder		      388
 	      IconDisplay	      "Port number"
+	      VectorParamsAs1DForOutWhenUnconnected off
 	    }
 	    Line {
 	      ZOrder		      422
@@ -4231,6 +4284,7 @@ Model {
 	  Position		  [700, 113, 730, 127]
 	  ZOrder		  638
 	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
 	  ZOrder		  396
@@ -4316,6 +4370,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Actuators/SetReferences"
       SourceType	      "SetReferences"
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
       controlType	      "Torque"
       refSpeed		      "50"
@@ -4324,10 +4383,10 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "emergency stop: joint limits"
-      SID		      "470"
+      SID		      "687"
       Ports		      [1]
-      Position		      [300, 250, 405, 270]
-      ZOrder		      636
+      Position		      [300, 256, 400, 274]
+      ZOrder		      969
       BackgroundColor	      "red"
       ShowName		      off
       RequestExecContextInheritance off
@@ -4340,7 +4399,7 @@ Model {
       }
       System {
 	Name			"emergency stop: joint limits"
-	Location		[134, 55, 3840, 2160]
+	Location		[67, 27, 1920, 1080]
 	Open			off
 	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
@@ -4353,11 +4412,11 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"904"
+	ZoomFactor		"401"
 	Block {
 	  BlockType		  Inport
 	  Name			  "jointPos"
-	  SID			  "471"
+	  SID			  "688"
 	  Position		  [150, 238, 180, 252]
 	  ZOrder		  -1
 	  IconDisplay		  "Port number"
@@ -4365,7 +4424,7 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "ON_GAZEBO\n1"
-	  SID			  "472"
+	  SID			  "689"
 	  Position		  [232, 190, 488, 210]
 	  ZOrder		  553
 	  BlockRotation		  270
@@ -4377,7 +4436,7 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "ON_GAZEBO\n2"
-	  SID			  "473"
+	  SID			  "690"
 	  Position		  [224, 295, 496, 315]
 	  ZOrder		  555
 	  BlockRotation		  270
@@ -4389,14 +4448,14 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "STOP IF JOINTS HIT THE LIMITS"
-	  SID			  "474"
+	  SID			  "691"
 	  Ports			  [1, 0, 1]
 	  Position		  [285, 229, 440, 261]
 	  ZOrder		  554
 	  RequestExecContextInheritance	off
 	  System {
 	    Name		    "STOP IF JOINTS HIT THE LIMITS"
-	    Location		    [134, 55, 3840, 2160]
+	    Location		    [67, 27, 1920, 1080]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
@@ -4409,11 +4468,11 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "922"
+	    ZoomFactor		    "433"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "jointPos"
-	      SID		      "475"
+	      SID		      "692"
 	      Position		      [60, 103, 90, 117]
 	      ZOrder		      552
 	      IconDisplay	      "Port number"
@@ -4421,31 +4480,39 @@ Model {
 	    Block {
 	      BlockType		      EnablePort
 	      Name		      "Enable"
-	      SID		      "476"
+	      SID		      "693"
 	      Ports		      []
-	      Position		      [227, -30, 247, -10]
+	      Position		      [227, -20, 247, 0]
 	      ZOrder		      553
+	      ShowName		      off
+	      HideAutomaticName	      off
 	    }
 	    Block {
 	      BlockType		      Assertion
 	      Name		      "Assertion"
-	      SID		      "477"
-	      Position		      [340, 72, 400, 118]
+	      SID		      "694"
+	      Position		      [360, 37, 420, 83]
 	      ZOrder		      207
+	      HideAutomaticName	      off
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "GetLimits"
-	      SID		      "478"
+	      SID		      "695"
 	      Ports		      [0, 2]
-	      Position		      [20, 23, 140, 92]
-	      ZOrder		      551
+	      Position		      [15, 23, 135, 92]
+	      ZOrder		      560
 	      BackgroundColor	      "[0.513700, 0.851000, 0.670600]"
 	      ShowName		      off
 	      LibraryVersion	      "1.675"
 	      SourceBlock	      "WBToolboxLibrary/States/GetLimits"
 	      SourceType	      "GetLimits"
 	      SourceProductName	      "WholeBodyToolbox"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
 	      ContentPreviewEnabled   off
 	      limitsSource	      "ControlBoard"
 	      limitsType	      "Position"
@@ -4453,8 +4520,8 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "MATLAB Function"
-	      SID		      "479"
-	      Ports		      [4, 1]
+	      SID		      "696"
+	      Ports		      [4, 2]
 	      Position		      [180, 22, 300, 163]
 	      ZOrder		      205
 	      ShowName		      off
@@ -4480,11 +4547,11 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3791"
+		SIDHighWatermark	"3789"
 		Block {
 		  BlockType		  Inport
 		  Name			  "umin"
-		  SID			  "479::18"
+		  SID			  "696::18"
 		  Position		  [20, 101, 40, 119]
 		  ZOrder		  -1
 		  IconDisplay		  "Port number"
@@ -4492,7 +4559,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "umax"
-		  SID			  "479::19"
+		  SID			  "696::19"
 		  Position		  [20, 136, 40, 154]
 		  ZOrder		  -2
 		  Port			  "2"
@@ -4501,7 +4568,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "u"
-		  SID			  "479::1"
+		  SID			  "696::1"
 		  Position		  [20, 171, 40, 189]
 		  ZOrder		  -3
 		  Port			  "3"
@@ -4510,7 +4577,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "tol"
-		  SID			  "479::20"
+		  SID			  "696::20"
 		  Position		  [20, 206, 40, 224]
 		  ZOrder		  -4
 		  Port			  "4"
@@ -4519,68 +4586,82 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "479::3790"
+		  SID			  "696::3787"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  140
+		  ZOrder		  137
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "479::3789"
+		  SID			  "696::3786"
 		  Tag			  "Stateflow S-Function jointsControl 18"
-		  Ports			  [4, 2]
+		  Ports			  [4, 3]
 		  Position		  [180, 102, 230, 203]
-		  ZOrder		  139
+		  ZOrder		  136
 		  FunctionName		  "sf_sfun"
-		  PortCounts		  "[4 2]"
+		  PortCounts		  "[4 3]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "inRange"
 		  }
+		  Port {
+		    PortNumber		    3
+		    Name		    "res_check_range"
+		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "479::3791"
+		  SID			  "696::3788"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  141
+		  ZOrder		  138
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "inRange"
-		  SID			  "479::5"
+		  SID			  "696::5"
 		  Position		  [460, 101, 480, 119]
 		  ZOrder		  -8
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "res_check_range"
+		  SID			  "696::3789"
+		  Position		  [460, 136, 480, 154]
+		  ZOrder		  139
+		  Port			  "2"
+		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  50
+		  ZOrder		  1
 		  SrcBlock		  "umin"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  51
+		  ZOrder		  2
 		  SrcBlock		  "umax"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  52
+		  ZOrder		  3
 		  SrcBlock		  "u"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  53
+		  ZOrder		  4
 		  SrcBlock		  "tol"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -4588,7 +4669,7 @@ Model {
 		}
 		Line {
 		  Name			  "inRange"
-		  ZOrder		  54
+		  ZOrder		  5
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4596,14 +4677,23 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  55
+		  Name			  "res_check_range"
+		  ZOrder		  6
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  3
+		  DstBlock		  "res_check_range"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  7
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  56
+		  ZOrder		  8
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -4612,10 +4702,37 @@ Model {
 	      }
 	    }
 	    Block {
+	      BlockType		      ToWorkspace
+	      Name		      "To Workspace"
+	      SID		      "697"
+	      Ports		      [1]
+	      Position		      [350, 117, 425, 143]
+	      ZOrder		      556
+	      ShowName		      off
+	      HideAutomaticName	      off
+	      VariableName	      "res_check_range"
+	      MaxDataPoints	      "inf"
+	      SaveFormat	      "Structure With Time"
+	      FixptAsFi		      on
+	      SampleTime	      "Config.tStep"
+	    }
+	    Block {
+	      BlockType		      UnitDelay
+	      Name		      "Unit Delay"
+	      SID		      "698"
+	      Position		      [320, 48, 340, 72]
+	      ZOrder		      559
+	      ShowName		      off
+	      HideAutomaticName	      off
+	      InitialCondition	      "1"
+	      SampleTime	      "Config.tStep"
+	      HasFrameUpgradeWarning  on
+	    }
+	    Block {
 	      BlockType		      Constant
 	      Name		      "index1"
-	      SID		      "480"
-	      Position		      [70, 140, 95, 150]
+	      SID		      "699"
+	      Position		      [55, 137, 95, 153]
 	      ZOrder		      204
 	      ShowName		      off
 	      Value		      "0.01"
@@ -4632,43 +4749,57 @@ Model {
 	      ZOrder		      2
 	      SrcBlock		      "MATLAB Function"
 	      SrcPort		      1
-	      DstBlock		      "Assertion"
+	      DstBlock		      "Unit Delay"
 	      DstPort		      1
 	    }
 	    Line {
 	      ZOrder		      3
+	      SrcBlock		      "index1"
+	      SrcPort		      1
+	      DstBlock		      "MATLAB Function"
+	      DstPort		      4
+	    }
+	    Line {
+	      ZOrder		      4
+	      SrcBlock		      "MATLAB Function"
+	      SrcPort		      2
+	      DstBlock		      "To Workspace"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      5
+	      SrcBlock		      "Unit Delay"
+	      SrcPort		      1
+	      DstBlock		      "Assertion"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      6
 	      SrcBlock		      "GetLimits"
 	      SrcPort		      1
 	      DstBlock		      "MATLAB Function"
 	      DstPort		      1
 	    }
 	    Line {
-	      ZOrder		      4
+	      ZOrder		      7
 	      SrcBlock		      "GetLimits"
 	      SrcPort		      2
 	      DstBlock		      "MATLAB Function"
 	      DstPort		      2
-	    }
-	    Line {
-	      ZOrder		      5
-	      SrcBlock		      "index1"
-	      SrcPort		      1
-	      DstBlock		      "MATLAB Function"
-	      DstPort		      4
 	    }
 	  }
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "STOP IF THERE ARE SPIKES IN THE ENCODERS"
-	  SID			  "481"
+	  SID			  "700"
 	  Ports			  [1, 0, 1]
 	  Position		  [285, 339, 440, 371]
 	  ZOrder		  556
 	  RequestExecContextInheritance	off
 	  System {
 	    Name		    "STOP IF THERE ARE SPIKES IN THE ENCODERS"
-	    Location		    [134, 55, 3840, 2160]
+	    Location		    [67, 27, 1920, 1080]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
 	    ModelBrowserVisibility  off
@@ -4681,36 +4812,39 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "827"
+	    ZoomFactor		    "380"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "jointPos"
-	      SID		      "482"
-	      Position		      [15, 53, 45, 67]
+	      SID		      "701"
+	      Position		      [-10, 53, 20, 67]
 	      ZOrder		      552
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      EnablePort
 	      Name		      "Enable"
-	      SID		      "483"
+	      SID		      "702"
 	      Ports		      []
-	      Position		      [217, -25, 237, -5]
+	      Position		      [172, -15, 192, 5]
 	      ZOrder		      553
+	      ShowName		      off
+	      HideAutomaticName	      off
 	    }
 	    Block {
 	      BlockType		      Assertion
 	      Name		      "Assertion"
-	      SID		      "484"
-	      Position		      [340, 72, 400, 118]
-	      ZOrder		      207
+	      SID		      "703"
+	      Position		      [335, 37, 400, 83]
+	      ZOrder		      556
+	      HideAutomaticName	      off
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "MATLAB Function"
-	      SID		      "485"
-	      Ports		      [2, 1]
-	      Position		      [165, 24, 285, 166]
+	      SID		      "704"
+	      Ports		      [2, 2]
+	      Position		      [105, 26, 260, 164]
 	      ZOrder		      205
 	      ShowName		      off
 	      LibraryVersion	      "1.32"
@@ -4735,11 +4869,11 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3791"
+		SIDHighWatermark	"3789"
 		Block {
 		  BlockType		  Inport
 		  Name			  "u"
-		  SID			  "485::1"
+		  SID			  "704::1"
 		  Position		  [20, 101, 40, 119]
 		  ZOrder		  -3
 		  IconDisplay		  "Port number"
@@ -4747,7 +4881,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "delta_u_max"
-		  SID			  "485::18"
+		  SID			  "704::18"
 		  Position		  [20, 136, 40, 154]
 		  ZOrder		  -1
 		  Port			  "2"
@@ -4756,63 +4890,77 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "485::3790"
+		  SID			  "704::3787"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  140
+		  ZOrder		  137
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "485::3789"
+		  SID			  "704::3786"
 		  Tag			  "Stateflow S-Function jointsControl 14"
-		  Ports			  [2, 2]
-		  Position		  [180, 100, 230, 160]
-		  ZOrder		  139
+		  Ports			  [2, 3]
+		  Position		  [180, 100, 230, 180]
+		  ZOrder		  136
 		  FunctionName		  "sf_sfun"
-		  PortCounts		  "[2 2]"
+		  PortCounts		  "[2 3]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  off
+		  EnableBusSupport	  on
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
 		    Name		    "noSpikes"
 		  }
+		  Port {
+		    PortNumber		    3
+		    Name		    "res_check_spikes"
+		  }
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "485::3791"
+		  SID			  "704::3788"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  141
+		  ZOrder		  138
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "noSpikes"
-		  SID			  "485::5"
+		  SID			  "704::5"
 		  Position		  [460, 101, 480, 119]
 		  ZOrder		  -8
 		  IconDisplay		  "Port number"
+		  VectorParamsAs1DForOutWhenUnconnected	off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "res_check_spikes"
+		  SID			  "704::3789"
+		  Position		  [460, 136, 480, 154]
+		  ZOrder		  139
+		  Port			  "2"
+		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  36
+		  ZOrder		  1
 		  SrcBlock		  "u"
 		  SrcPort		  1
-		  Points		  [120, 0]
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  37
+		  ZOrder		  2
 		  SrcBlock		  "delta_u_max"
 		  SrcPort		  1
+		  Points		  [120, 0]
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
 		  Name			  "noSpikes"
-		  ZOrder		  38
+		  ZOrder		  3
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4820,14 +4968,23 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  39
+		  Name			  "res_check_spikes"
+		  ZOrder		  4
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  3
+		  DstBlock		  "res_check_spikes"
+		  DstPort		  1
+		}
+		Line {
+		  ZOrder		  5
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  40
+		  ZOrder		  6
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
@@ -4836,10 +4993,37 @@ Model {
 	      }
 	    }
 	    Block {
+	      BlockType		      ToWorkspace
+	      Name		      "To Workspace"
+	      SID		      "705"
+	      Ports		      [1]
+	      Position		      [330, 117, 405, 143]
+	      ZOrder		      555
+	      ShowName		      off
+	      HideAutomaticName	      off
+	      VariableName	      "res_check_spikes"
+	      MaxDataPoints	      "inf"
+	      SaveFormat	      "Structure With Time"
+	      FixptAsFi		      on
+	      SampleTime	      "Config.tStep"
+	    }
+	    Block {
+	      BlockType		      UnitDelay
+	      Name		      "Unit Delay"
+	      SID		      "706"
+	      Position		      [290, 48, 310, 72]
+	      ZOrder		      558
+	      ShowName		      off
+	      HideAutomaticName	      off
+	      InitialCondition	      "1"
+	      SampleTime	      "Config.tStep"
+	      HasFrameUpgradeWarning  on
+	    }
+	    Block {
 	      BlockType		      Constant
 	      Name		      "index1"
-	      SID		      "486"
-	      Position		      [-40, 124, 100, 136]
+	      SID		      "707"
+	      Position		      [-65, 121, 75, 139]
 	      ZOrder		      554
 	      ShowName		      off
 	      Value		      "Sat.maxJointsPositionDelta"
@@ -4856,7 +5040,7 @@ Model {
 	      ZOrder		      2
 	      SrcBlock		      "MATLAB Function"
 	      SrcPort		      1
-	      DstBlock		      "Assertion"
+	      DstBlock		      "Unit Delay"
 	      DstPort		      1
 	    }
 	    Line {
@@ -4865,6 +5049,20 @@ Model {
 	      SrcPort		      1
 	      DstBlock		      "MATLAB Function"
 	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      4
+	      SrcBlock		      "MATLAB Function"
+	      SrcPort		      2
+	      DstBlock		      "To Workspace"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      5
+	      SrcBlock		      "Unit Delay"
+	      SrcPort		      1
+	      DstBlock		      "Assertion"
+	      DstPort		      1
 	    }
 	  }
 	}
@@ -4979,7 +5177,6 @@ Model {
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Simulator Synchronizer"
 	      SourceType	      "Simulator Synchronizer"
 	      SourceProductName	      "WholeBodyToolbox"
-	      MultiThreadCoSim	      "auto"
 	      period		      "Config.tStep"
 	      serverPortName	      "'/clock/rpc'"
 	      clientPortName	      "'/WBT_synchronizer/rpc:o'"
@@ -5057,7 +5254,6 @@ Model {
 	      SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
 	      SourceType	      "Real Time Synchronizer"
 	      SourceProductName	      "WholeBodyToolbox"
-	      MultiThreadCoSim	      "auto"
 	      period		      "Config.tStep"
 	    }
 	  }
@@ -5074,7 +5270,6 @@ Model {
 	  VariableName		  "yarp_time"
 	  MaxDataPoints		  "inf"
 	  SaveFormat		  "Structure With Time"
-	  Save2DSignal		  "3-D array (concatenate along third dimension)"
 	  FixptAsFi		  on
 	  SampleTime		  "-1"
 	}
@@ -5092,7 +5287,6 @@ Model {
 	  SourceBlock		  "WBToolboxLibrary/Utilities/Yarp Clock"
 	  SourceType		  "YARP Clock"
 	  SourceProductName	  "WholeBodyToolbox"
-	  MultiThreadCoSim	  "auto"
 	}
 	Line {
 	  ZOrder		  1
@@ -5133,15 +5327,15 @@ Model {
       SrcPort		      1
       Points		      [24, 0]
       Branch {
-	ZOrder			413
-	Points			[0, 20]
-	DstBlock		"Goto"
+	ZOrder			431
+	Points			[0, -25]
+	DstBlock		"emergency stop: joint limits"
 	DstPort			1
       }
       Branch {
-	ZOrder			412
-	Points			[0, -30]
-	DstBlock		"emergency stop: joint limits"
+	ZOrder			413
+	Points			[0, 20]
+	DstBlock		"Goto"
 	DstPort			1
       }
       Branch {
@@ -5175,17 +5369,17 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000014
+#   Stateflow 80000019
 #
 #
 Stateflow {
   machine {
     id			    1
     name		    "jointsControl"
-    created		    "12-Mar-2015 18:23:09"
+    created		    "19-Nov-2014 19:38:03"
     isLibrary		    0
     sfVersion		    80000012
-    firstTarget		    20
+    firstTarget		    22
   }
   chart {
     id			    2
@@ -5196,18 +5390,18 @@ Stateflow {
     screen		    [1 1 1366 768 1.25]
     treeNode		    [0 3 0 0]
     viewObj		    2
-    ssIdHighWaterMark	    8
+    ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     chartFileNumber	    14
     disableImplicitCasting  1
     eml {
-      name		      "checkSpikes"
+      name		      "checkInputSpikesFCN"
     }
     supportVariableSizing   0
     firstData		    4
-    firstTransition	    8
-    firstJunction	    7
+    firstTransition	    9
+    firstJunction	    8
   }
   state {
     id			    3
@@ -5223,8 +5417,8 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function noSpikes = checkSpikes(u, delta_u_max)\n\n     noSpikes = wbc.checkSpikes(u, delta_u_max"
-      ");\nend"
+      script		      "function [noSpikes, res_check_spikes] = checkInputSpikesFCN(u, delta_u_max)\n\n     [noSpikes, re"
+      "s_check_spikes] = wbc.checkInputSpikes(u, delta_u_max);\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
@@ -5300,10 +5494,35 @@ Stateflow {
       }
     }
     dataType		    "Inherit: Same as Simulink"
-    linkNode		    [2 5 0]
+    linkNode		    [2 5 7]
+  }
+  data {
+    id			    7
+    ssIdNumber		    9
+    name		    "res_check_spikes"
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [2 6 0]
   }
   junction {
-    id			    7
+    id			    8
     position		    [23.5747 49.5747 7]
     chart		    2
     subviewer		    2
@@ -5312,7 +5531,7 @@ Stateflow {
     linkNode		    [2 0 0]
   }
   transition {
-    id			    8
+    id			    9
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [40.125 31.875 102.544 14.964]
     fontSize		    12
@@ -5320,7 +5539,7 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      7
+      id		      8
       intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
@@ -5336,49 +5555,49 @@ Stateflow {
     linkNode		    [2 0 0]
   }
   instance {
-    id			    9
+    id			    10
     machine		    1
     name		    "emergency stop: joint limits/STOP IF THERE ARE SPIKES IN THE ENCODERS/MATLAB Function"
     chart		    2
   }
   chart {
-    id			    10
+    id			    11
     machine		    1
     name		    "emergency stop: joint limits/STOP IF JOINTS HIT THE LIMITS/MATLAB Function"
     windowPosition	    [369.958 -65.92 200 534.4]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1366 768 1.25]
-    treeNode		    [0 11 0 0]
-    viewObj		    10
-    ssIdHighWaterMark	    8
+    treeNode		    [0 12 0 0]
+    viewObj		    11
+    ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     chartFileNumber	    18
     disableImplicitCasting  1
     eml {
-      name		      "checkRangeFCN"
+      name		      "checkInputRangeFCN"
     }
     supportVariableSizing   0
-    firstData		    12
-    firstTransition	    18
-    firstJunction	    17
+    firstData		    13
+    firstTransition	    20
+    firstJunction	    19
   }
   state {
-    id			    11
+    id			    12
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    10
-    treeNode		    [10 0 0 0]
+    chart		    11
+    treeNode		    [11 0 0 0]
     superState		    SUBCHART
-    subviewer		    10
+    subviewer		    11
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function inRange = checkRangeFCN(umin, umax, u, tol)\n\n     inRange = wbc.checkRange(umin, umax,"
-      " u, tol);\nend"
+      script		      "function [inRange, res_check_range] = checkInputRangeFCN(umin, umax, u, tol)\n\n     [inRange, re"
+      "s_check_range] = wbc.checkInputRange(umin, umax, u, tol);\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
@@ -5387,7 +5606,7 @@ Stateflow {
     }
   }
   data {
-    id			    12
+    id			    13
     ssIdNumber		    4
     name		    "umin"
     scope		    INPUT_DATA
@@ -5409,10 +5628,10 @@ Stateflow {
       }
     }
     dataType		    "Inherit: Same as Simulink"
-    linkNode		    [10 0 13]
+    linkNode		    [11 0 14]
   }
   data {
-    id			    13
+    id			    14
     ssIdNumber		    5
     name		    "umax"
     scope		    INPUT_DATA
@@ -5434,10 +5653,10 @@ Stateflow {
       }
     }
     dataType		    "Inherit: Same as Simulink"
-    linkNode		    [10 12 14]
+    linkNode		    [11 13 15]
   }
   data {
-    id			    14
+    id			    15
     ssIdNumber		    6
     name		    "u"
     scope		    INPUT_DATA
@@ -5456,10 +5675,10 @@ Stateflow {
       }
     }
     dataType		    "Inherit: Same as Simulink"
-    linkNode		    [10 13 15]
+    linkNode		    [11 14 16]
   }
   data {
-    id			    15
+    id			    16
     ssIdNumber		    7
     name		    "inRange"
     scope		    OUTPUT_DATA
@@ -5479,10 +5698,10 @@ Stateflow {
       }
     }
     dataType		    "Inherit: Same as Simulink"
-    linkNode		    [10 14 16]
+    linkNode		    [11 15 17]
   }
   data {
-    id			    16
+    id			    17
     ssIdNumber		    8
     name		    "tol"
     scope		    INPUT_DATA
@@ -5504,19 +5723,44 @@ Stateflow {
       }
     }
     dataType		    "Inherit: Same as Simulink"
-    linkNode		    [10 15 0]
+    linkNode		    [11 16 18]
+  }
+  data {
+    id			    18
+    ssIdNumber		    9
+    name		    "res_check_range"
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+      unit {
+	name			"inherit"
+      }
+    }
+    dataType		    "Inherit: Same as Simulink"
+    linkNode		    [11 17 0]
   }
   junction {
-    id			    17
+    id			    19
     position		    [23.5747 49.5747 7]
-    chart		    10
-    subviewer		    10
+    chart		    11
+    subviewer		    11
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
-    linkNode		    [10 0 0]
+    linkNode		    [11 0 0]
   }
   transition {
-    id			    18
+    id			    20
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [40.125 31.875 102.544 14.964]
     fontSize		    12
@@ -5524,29 +5768,29 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      17
+      id		      19
       intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    10
+    chart		    11
     dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    10
+    subviewer		    11
     drawStyle		    SMART
     slide {
       sticky		      BOTH_STICK
     }
     executionOrder	    1
     ssIdNumber		    2
-    linkNode		    [10 0 0]
+    linkNode		    [11 0 0]
   }
   instance {
-    id			    19
+    id			    21
     machine		    1
     name		    "emergency stop: joint limits/STOP IF JOINTS HIT THE LIMITS/MATLAB Function"
-    chart		    10
+    chart		    11
   }
   target {
-    id			    20
+    id			    22
     machine		    1
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
