@@ -2,6 +2,8 @@
 
 This module implements a torque control balancing strategy. It computes the interaction forces at the feet in order to stabilise a desired `centroidal momentum` dynamics, which implies the tracking of a desired center-of-mass trajectory. A cost function penalizing high joint torques - that generate the feet forces - is added to the control framework.
 
+<img src="/doc/pics/torqueControl.png" width="1800"> 
+
 For details see also: [iCub whole-body control through force regulation on rigid non-coplanar contacts](http://journal.frontiersin.org/article/10.3389/frobt.2015.00006/abstract) and [Stability Analysis and Design of Momentum-Based Controllers for Humanoid Robots](https://ieeexplore.ieee.org/document/7759126).
 
 ### Compatibility
