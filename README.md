@@ -48,13 +48,17 @@ The repository is usually tested and developed on **Ubuntu** and **macOS** opera
 - **IMPORTANT!** to use the WBC Simulink controllers, it is **required** to add the [matlab-wbc](library/matlab-wbc) folder to the Matlab path. There are two possible ways to add the folder to the path:
  
    - `manually` and `permanently` add the folder to the Matlab path;
-   - run **only once** the [startup_WBC.m](config/startup_WBC.m) script. In this case, path is **not** permanently added to Matlab, and it is required to **always** start Matlab from the folder where your `pathdef.m` file is (usually `~/Documents/MATLAB`). To facilitate the reaching of the WBC working folder from the folder containing the `pathdef.m`, a `goToWholeBodyController.m` script will be automatically created in that folder. Run it to jump to the WBC folder. For further information see also the [WBToolbox documentation](https://robotology.github.io/wb-toolbox/mkdocs/install/#matlab). **WARNING**: if the repository is installed through the `robotology-superbuild`, **DO NOT** run the `startup_WBC.m` file but instead run the [startup_robotology_superbuild.m](https://github.com/robotology/robotology-superbuild/blob/master/cmake/template/startup_robotology_superbuild.m.in) file that comes along with robotology-superbuild installation. The result will be the same.
+   - run **only once** the [startup_WBC.m](config/startup_WBC.m) script. In this case, path is **not** permanently added to Matlab, and it is required to **always** start Matlab from the folder where your `pathdef.m` file is (usually `~/Documents/MATLAB`). To facilitate the reaching of the WBC working folder from the folder containing the `pathdef.m`, a `goToWholeBodyController.m` script will be automatically created in that folder. Run it to jump to the WBC folder. For further information see also the [WBToolbox documentation](https://robotology.github.io/wb-toolbox/mkdocs/install/#matlab). **WARNING**: if the repository is installed through the `robotology-superbuild`, **DO NOT** run the `startup_WBC.m` file but instead run the [startup_robotology_superbuild.m](https://github.com/robotology/robotology-superbuild/blob/master/cmake/template/startup_robotology_superbuild.m.in) file that comes along with robotology-superbuild installation. The result will be the same.  
+   - **Note**: to use any function inside the package [matlab-wbc/+wbc](library/matlab-wbc/+wbc), add the `wbc` prefix to the function name when the function is invoked, i.e. `[outputs] = wbc.myFunction(inputs)`. More information on packages can be found in the [Matlab documentation](https://it.mathworks.com/help/matlab/matlab_oop/scoping-classes-with-packages.html).
    
-   **Note**: to use any function inside the package [matlab-wbc/+wbc](library/matlab-wbc/+wbc), add the `wbc` prefix to the function name when the function is invoked, i.e. 
+- There are some functionalities of the repo such as the [automatic generation of c++ code from Simulink]() that require to compile and install the repository using `cmake`. To do so (on Ubuntu), open a terminal from the folder where you installed whole-body-controllers and run:
    
-   `[outputs] = wbc.myFunction(inputs)`. 
-   
-   More information on packages can be found in the [Matlab documentation](https://it.mathworks.com/help/matlab/matlab_oop/scoping-classes-with-packages.html).
+   ```
+   mkdir build
+   cd build
+   ccmake ..
+   ``` 
+   then in the GUI that it will open, set the `CMAKE_PREFIX_PATH` as your desired installation folder. Then, run `make install`.
 
 ## Troubleshooting
 
