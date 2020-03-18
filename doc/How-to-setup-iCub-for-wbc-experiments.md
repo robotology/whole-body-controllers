@@ -59,10 +59,9 @@ On iCub it is sometimes required to re-calibrate the “zero position” associa
 
 - This value will be added in the specific file associated to the joint. On the `on-board PC`, go to the folder containing the "\.xml" calibration files for your robot and open the corresponding file (example: `.../robots/$ROBOT_NAME/calibrators/left\_leg\_calib.xml`). Add the encoder value that you have previously noted to the current `calibrationDelta` of the joint (each number of the parameter `calibrationDelta` corresponds to a joint). For example, we add some values to the line: 
 
-```
-<param name="calibrationDelta"> -5.0  8.7  -11.4  -0.6  0.0 </param> 
-
-```
+  ```
+  <param name="calibrationDelta"> -5.0  8.7  -11.4  -0.6  0.0 </param> 
+  ```
 Restart the robot to apply the modifications. Check that the joints were successfully calibrated.
 
 #### IMU calibration
