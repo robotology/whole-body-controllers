@@ -16,7 +16,7 @@ The procedure to run the simulink controllers in simulation is still quite elabo
 
 - Launch gazebo. It is in general required to use the synchronization between the controller and the simulator to avoid real-time factor related problems. Therefore launch gazebo as follows: `gazebo -slibgazebo_yarp_clock.so`.
  
-- Bring the robot in a suitable home position (e.g. use the `$ yarpmotorgui --from homePoseBalancing.ini` and then select a custom position by clicking on `Global Joints Commands/Custom postions`).
+- Bring the robot in a suitable home position (e.g. use the command `yarpmotorgui --from homePoseBalancing.ini` and then select a custom position by clicking on `Global Joints Commands/Custom postions`).
 
 - For `icubGazeboSim` robot, launch `wholeBodyDynamics` as follows: `YARP_ROBOT_NAME=icubGazeboSim yarprobotinterface --config launch-wholebodydynamics.xml`. Same holds for `iCubGazeboV2_5` (just change the robot name). For further details see [here](https://github.com/robotology/codyco-modules/blob/master/doc/force_control_on_icub.md#run-wholebodydynamics-on-an-external-pc).
 
