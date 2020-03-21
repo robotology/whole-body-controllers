@@ -4,7 +4,9 @@ function(initialize_mdl_set)
     # PARSE ARGUMENTS
     # ===============
 
+    set(_options)
     set(_oneValueArgs NAME)
+    set(_multiValueArgs)
 
     cmake_parse_arguments(PREFIX
         "${_options}"
@@ -31,7 +33,9 @@ function(register_mdl)
     # PARSE ARGUMENTS
     # ===============
 
+    set(_options)
     set(_oneValueArgs MODELNAME)
+    set(_multiValueArgs)
 
     cmake_parse_arguments(PREFIX
         "${_options}"
