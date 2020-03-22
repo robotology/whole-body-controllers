@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.367"
+    ComputedModelVersion    "1.368"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -187,9 +187,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Mar 18 18:04:10 2020"
-  RTWModifiedTimeStamp	  506455449
-  ModelVersionFormat	  "1.%<AutoIncrement:367>"
+  LastModifiedDate	  "Mon Mar 23 00:04:21 2020"
+  RTWModifiedTimeStamp	  506822659
+  ModelVersionFormat	  "1.%<AutoIncrement:368>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -4547,7 +4547,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3789"
+		SIDHighWatermark	"3792"
 		Block {
 		  BlockType		  Inport
 		  Name			  "umin"
@@ -4586,24 +4586,24 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "696::3787"
+		  SID			  "696::3791"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  137
+		  ZOrder		  141
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "696::3786"
+		  SID			  "696::3790"
 		  Tag			  "Stateflow S-Function jointsControl 18"
 		  Ports			  [4, 3]
 		  Position		  [180, 102, 230, 203]
-		  ZOrder		  136
+		  ZOrder		  140
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[4 3]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
@@ -4617,9 +4617,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "696::3788"
+		  SID			  "696::3792"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  138
+		  ZOrder		  142
 		}
 		Block {
 		  BlockType		  Outport
@@ -4640,28 +4640,28 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  1
+		  ZOrder		  9
 		  SrcBlock		  "umin"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  2
+		  ZOrder		  10
 		  SrcBlock		  "umax"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
-		  ZOrder		  3
+		  ZOrder		  11
 		  SrcBlock		  "u"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
 		  DstPort		  3
 		}
 		Line {
-		  ZOrder		  4
+		  ZOrder		  12
 		  SrcBlock		  "tol"
 		  SrcPort		  1
 		  DstBlock		  " SFunction "
@@ -4669,7 +4669,7 @@ Model {
 		}
 		Line {
 		  Name			  "inRange"
-		  ZOrder		  5
+		  ZOrder		  13
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4678,7 +4678,7 @@ Model {
 		}
 		Line {
 		  Name			  "res_check_range"
-		  ZOrder		  6
+		  ZOrder		  14
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  3
@@ -4686,16 +4686,17 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  7
+		  ZOrder		  15
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  8
+		  ZOrder		  16
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
+		  Points		  [20, 0]
 		  DstBlock		  " Demux "
 		  DstPort		  1
 		}
@@ -4869,7 +4870,7 @@ Model {
 		TiledPageScale		1
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
-		SIDHighWatermark	"3789"
+		SIDHighWatermark	"3792"
 		Block {
 		  BlockType		  Inport
 		  Name			  "u"
@@ -4890,24 +4891,24 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "704::3787"
+		  SID			  "704::3791"
 		  Ports			  [1, 1]
 		  Position		  [270, 230, 320, 270]
-		  ZOrder		  137
+		  ZOrder		  141
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
-		  SID			  "704::3786"
+		  SID			  "704::3790"
 		  Tag			  "Stateflow S-Function jointsControl 14"
 		  Ports			  [2, 3]
 		  Position		  [180, 100, 230, 180]
-		  ZOrder		  136
+		  ZOrder		  140
 		  FunctionName		  "sf_sfun"
 		  PortCounts		  "[2 3]"
 		  SFunctionDeploymentMode off
-		  EnableBusSupport	  on
+		  EnableBusSupport	  off
 		  SFcnIsStateOwnerBlock	  off
 		  Port {
 		    PortNumber		    2
@@ -4921,9 +4922,9 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "704::3788"
+		  SID			  "704::3792"
 		  Position		  [460, 241, 480, 259]
-		  ZOrder		  138
+		  ZOrder		  142
 		}
 		Block {
 		  BlockType		  Outport
@@ -4944,23 +4945,23 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  ZOrder		  1
+		  ZOrder		  7
 		  SrcBlock		  "u"
 		  SrcPort		  1
+		  Points		  [120, 0]
 		  DstBlock		  " SFunction "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  2
+		  ZOrder		  8
 		  SrcBlock		  "delta_u_max"
 		  SrcPort		  1
-		  Points		  [120, 0]
 		  DstBlock		  " SFunction "
 		  DstPort		  2
 		}
 		Line {
 		  Name			  "noSpikes"
-		  ZOrder		  3
+		  ZOrder		  9
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  2
@@ -4969,7 +4970,7 @@ Model {
 		}
 		Line {
 		  Name			  "res_check_spikes"
-		  ZOrder		  4
+		  ZOrder		  10
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
 		  SrcPort		  3
@@ -4977,14 +4978,14 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  5
+		  ZOrder		  11
 		  SrcBlock		  " Demux "
 		  SrcPort		  1
 		  DstBlock		  " Terminator "
 		  DstPort		  1
 		}
 		Line {
-		  ZOrder		  6
+		  ZOrder		  12
 		  SrcBlock		  " SFunction "
 		  SrcPort		  1
 		  DstBlock		  " Demux "
