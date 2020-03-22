@@ -6,7 +6,7 @@ A package of utility Matlab functions used by all the controllers.
 
 ### How to install the folder
 
-Add the `matlab-wbc` folder to the Matlab path, or run the `startup_WBC.m` script in the `config` folder. If you chose to run the `startup_WBC.m` script, remember to **always** start matlab from the folder where the `pathdef.m` file is (usually `~/Documents/MATLAB`).
+The `+wbc` folder is installed in your `${INSTALL/mex}` directory. The **installed** folder must be added to the Matlab path. This can be done by setting the path manually or by running the `startup_WBC.m` script which is also installed in your `${BUILD}` folder. If you chose to run the `startup_WBC.m` script, remember to **always** start matlab from the folder where the `pathdef.m` file is (usually `~/Documents/MATLAB`).
 
 ### How to use the +wbc library
 

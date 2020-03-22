@@ -20,6 +20,7 @@ The repository contains `Simulink-based whole-body controllers` developed to con
 
 This repository depends upon the following Software:
 
+- [CMake](https://cmake.org/), at least version **3.5**.
 - [Matlab/Simulink](https://it.mathworks.com/products/matlab.html), default version **R2017b**.
 - [WB-Toolbox](https://github.com/robotology/WB-Toolbox) and [blockfactory](https://github.com/robotology/blockfactory).
 - [Gazebo Simulator](http://gazebosim.org/), default version **9.0**.
@@ -32,9 +33,16 @@ This repository depends upon the following Software:
 
 The repository is usually tested and developed on **Ubuntu** and **macOS** operating systems. Some functionalities may not work properly on **Windows**.
 
-**NOTE:** it is suggested to install `whole-body-controllers` and most of its dependencies (namely, `YARP`, `icub-main`, `codyco-modules`,`icub-gazebo`,`icub-gazebo-wholebody`, `icub-models`, `gazebo-yarp-plugins`, `blockfactory` and `WB-Toolbox` and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_USES_GAZEBO`, `ROBOTOLOGY_ENABLE_DYNAMICS`, `ROBOTOLOGY_USES_MATLAB` options).
+- **NOTE:** it is suggested to install `whole-body-controllers` and most of its dependencies (namely, `YARP`, `icub-main`, `codyco-modules`,`icub-gazebo`,`icub-gazebo-wholebody`, `icub-models`, `gazebo-yarp-plugins`, `blockfactory` and `WB-Toolbox` and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_USES_GAZEBO`, `ROBOTOLOGY_ENABLE_DYNAMICS`, `ROBOTOLOGY_USES_MATLAB` options).
 
-- Otherwise, after intalling all the dependencies, **clone the repository** on your pc by running on a terminal `git clone https://github.com/robotology/whole-body-controllers`, or download the repository.
+- Otherwise, after intalling all the dependencies, **clone the repository** on your pc by running on a terminal `git clone https://github.com/robotology/whole-body-controllers`, or download the repository. Then (on Ubuntu), open a terminal from the folder where you downloaded whole-body-controllers and run:
+   
+   ```
+   mkdir build
+   cd build
+   ccmake ..
+   ``` 
+   in the GUI that it will open, set the `CMAKE_PREFIX_PATH` as your desired installation folder. Then, run `make install`.
 
 - Set the environmental variable `YARP_ROBOT_NAME` in your `.bashrc` file (or equivalent) to be the name of the robot you want to control. List of supported robot names:
 
@@ -45,26 +53,20 @@ The repository is usually tested and developed on **Ubuntu** and **macOS** opera
   | iCubGazeboV2_5|[model.urdf](https://github.com/robotology/icub-models/blob/master/iCub/robots/iCubGazeboV2_5/model.urdf)|
   | icubGazeboSim |[model.urdf](https://github.com/robotology/yarp-wholebodyinterface/blob/master/app/robots/icubGazeboSim/model.urdf) |
 
-- **IMPORTANT!** to use the WBC Simulink controllers, it is **required** to add the [matlab-wbc](library/matlab-wbc) folder to the Matlab path. There are two possible ways to add the folder to the path:
+- **IMPORTANT!** to use the WBC Simulink controllers, it is **required** to add the **installed** [+wbc](library/+wbc) folder to the Matlab path. There are two possible ways to add the folder to the Matlab path:
  
    - `manually` and `permanently` add the folder to the Matlab path;
-   - run **only once** the [startup_WBC.m](config/startup_WBC.m) script. In this case, path is **not** permanently added to Matlab, and it is required to **always** start Matlab from the folder where your `pathdef.m` file is (usually `~/Documents/MATLAB`). To facilitate the reaching of the WBC working folder from the folder containing the `pathdef.m`, a `goToWholeBodyController.m` script will be automatically created in that folder. Run it to jump to the WBC folder. For further information see also the [WBToolbox documentation](https://robotology.github.io/wb-toolbox/mkdocs/install/#matlab). **WARNING**: if the repository is installed through the `robotology-superbuild`, **DO NOT** run the `startup_WBC.m` file but instead run the [startup_robotology_superbuild.m](https://github.com/robotology/robotology-superbuild/blob/master/cmake/template/startup_robotology_superbuild.m.in) file that comes along with robotology-superbuild installation. The result will be the same.  
+   - run **only once** the [startup_WBC.m](config/startup_WBC.m.in) script, which is installed in your `${BUILD}` folder. In this case, path is **not** permanently added to Matlab, and it is required to **always** start Matlab from the folder where your `pathdef.m` file is (usually `~/Documents/MATLAB`). To facilitate the reaching of the WBC working folder from the folder containing the `pathdef.m`, a `goToWholeBodyController.m` script can be [automatically created](config/goToWBC.m) in that folder. Run it to jump to the WBC folder. For further information on the installation procedure see also the [WBToolbox documentation](https://robotology.github.io/wb-toolbox/mkdocs/install/#matlab).
+    **WARNING**: if the repository is installed through the `robotology-superbuild`, **DO NOT** run the `startup_WBC.m` file but instead run the [startup_robotology_superbuild](https://github.com/robotology/robotology-superbuild/blob/master/cmake/template/startup_robotology_superbuild.m.in) file that comes along with robotology-superbuild installation.
    - **Note**: to use any function inside the package [matlab-wbc/+wbc](library/matlab-wbc/+wbc), add the `wbc` prefix to the function name when the function is invoked, i.e. `[outputs] = wbc.myFunction(inputs)`. More information on packages can be found in the [Matlab documentation](https://it.mathworks.com/help/matlab/matlab_oop/scoping-classes-with-packages.html).
    
-- There are some functionalities of the repo such as the [automatic generation of c++ code from Simulink](https://github.com/robotology/whole-body-controllers#automatic-generation-of-c-code-from-simulink) that require to compile and install the repository using `cmake`. To do so (on Ubuntu), open a terminal from the folder where you installed whole-body-controllers and run:
-   
-   ```
-   mkdir build
-   cd build
-   ccmake ..
-   ``` 
-   then in the GUI that it will open, set the `CMAKE_PREFIX_PATH` as your desired installation folder. Then, run `make install`.
+- There are some functionalities of the repo such as the [automatic generation of c++ code from Simulink](https://github.com/robotology/whole-body-controllers#automatic-generation-of-c-code-from-simulink) that require to enable not-default cmake options. Check the available options by running `ccmake .` in your `build` directory.
 
 ## Troubleshooting
 
 Please refer to the [WBToolbox troubleshooting documentation](https://robotology.github.io/wb-toolbox/mkdocs/troubleshooting/).
 
-## Structure of the repo
+## Relevant folders of the repo
 
 - **config**: a collection of scripts to correctly configure this repo. [[README]](config/README.md)
 
