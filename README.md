@@ -53,7 +53,7 @@ The repository is usually tested and developed on **Ubuntu** and **macOS** opera
   | iCubGazeboV2_5|[model.urdf](https://github.com/robotology/icub-models/blob/master/iCub/robots/iCubGazeboV2_5/model.urdf)|
   | icubGazeboSim |[model.urdf](https://github.com/robotology/yarp-wholebodyinterface/blob/master/app/robots/icubGazeboSim/model.urdf) |
 
-- **IMPORTANT!** to use the WBC Simulink controllers, it is **required** to add the **installed** [+wbc](library/+wbc) folder to the Matlab path. There are two possible ways to add the folder to the Matlab path:
+- **IMPORTANT!** to use the WBC Simulink controllers, it is **required** to add the **installed** [+wbc](library/matlab-wbc/+wbc) folder to the Matlab path. There are two possible ways to add the folder to the Matlab path:
  
    - `manually` and `permanently` add the folder to the Matlab path;
    - run **only once** the [startup_WBC.m](config/startup_WBC.m.in) script, which is installed in your `${BUILD}` folder. In this case, path is **not** permanently added to Matlab, and it is required to **always** start Matlab from the folder where your `pathdef.m` file is (usually `~/Documents/MATLAB`). To facilitate the reaching of the WBC working folder from the folder containing the `pathdef.m`, a `goToWholeBodyController.m` script can be [automatically created](config/goToWBC.m) in that folder. Run it to jump to the WBC folder. For further information on the installation procedure see also the [WBToolbox documentation](https://robotology.github.io/wb-toolbox/mkdocs/install/#matlab).
