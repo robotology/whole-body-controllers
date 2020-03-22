@@ -14,7 +14,7 @@ To use any function inside the package [matlab-wbc/+wbc](matlab-wbc/+wbc), add t
 
 ## matlab-gui
 
-Utilties for designing a `static GUI` for starting/closing the Simulink models without the need of opening the Simulink default GUI.
+Utilties for designing a `static GUI` for starting/closing the Simulink models without the need of opening the Simulink interface.
 
 ## simulink-library
 
