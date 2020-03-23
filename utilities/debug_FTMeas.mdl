@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.43"
+    ComputedModelVersion    "1.48"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -97,13 +97,9 @@ Model {
     }
     OrderedModelArguments   1
   }
-  DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 1 0"
-  LogicAnalyzerGraphicalSettings ""
-  LogicAnalyzerPlugin	  "on"
-  LogicAnalyzerSignalOrdering ""
-  CustomCodeFunctionData  ""
   SLCCPlugin		  "on"
+  LogicAnalyzerPlugin	  "on"
+  DiagnosticSuppressor	  "on"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -184,9 +180,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Mar 08 16:25:44 2019"
-  RTWModifiedTimeStamp	  473963144
-  ModelVersionFormat	  "1.%<AutoIncrement:43>"
+  LastModifiedDate	  "Mon Mar 23 00:04:37 2020"
+  RTWModifiedTimeStamp	  506822677
+  ModelVersionFormat	  "1.%<AutoIncrement:48>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -221,7 +217,6 @@ Model {
   FunctionConnectors	  off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
-  VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
   NumberOfSteps		  1
   SnapshotBufferSize	  10
@@ -293,6 +288,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
 	  AbsTol		  "auto"
@@ -332,6 +328,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -373,7 +370,7 @@ Model {
 	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
-	    Dimension		    8
+	    Dimension		    9
 	    Cell		    "BooleansAsBitfields"
 	    Cell		    "PassReuseOutputArgsAs"
 	    Cell		    "PassReuseOutputArgsThreshold"
@@ -382,9 +379,11 @@ Model {
 	    Cell		    "OptimizeModelRefInitCode"
 	    Cell		    "NoFixptDivByZeroProtection"
 	    Cell		    "UseSpecifiedMinMax"
+	    Cell		    "EfficientTunableParamExpr"
 	    PropName		    "DisabledProps"
 	  }
 	  Description		  ""
+	  Components		  []
 	  BlockReduction	  on
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
@@ -440,6 +439,7 @@ Model {
 	    PropName		    "DisabledProps"
 	  }
 	  Description		  ""
+	  Components		  []
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -550,6 +550,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -598,6 +599,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  EnableRefExpFcnMdlSchedulingChecks on
 	  CheckModelReferenceTargetMessage "error"
@@ -617,6 +619,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  SimCustomSourceCode	  ""
 	  SimCustomHeaderCode	  ""
 	  SimCustomInitializer	  ""
@@ -666,6 +669,7 @@ Model {
 	    Cell		    "CodeProfilingInstrumentation"
 	    PropName		    "DisabledProps"
 	  }
+	  Description		  ""
 	  SystemTargetFile	  "grt.tlc"
 	  HardwareBoard		  "None"
 	  TLCOptions		  ""
@@ -676,9 +680,7 @@ Model {
 	  PackageName		  ""
 	  TemplateMakefile	  "grt_default_tmf"
 	  PostCodeGenCommand	  ""
-	  Description		  ""
 	  GenerateReport	  off
-	  SaveLog		  off
 	  RTWVerbose		  on
 	  RetainRTWFile		  off
 	  RTWBuildHooks		  []
@@ -767,6 +769,7 @@ Model {
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
+	      Components	      []
 	      Comment		      ""
 	      ForceParamTrailComments off
 	      GenerateComments	      on
@@ -822,7 +825,7 @@ Model {
 	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
-		Dimension		15
+		Dimension		16
 		Cell			"IncludeMdlTerminateFcn"
 		Cell			"SuppressErrorStatus"
 		Cell			"ERTCustomFileBanners"
@@ -838,9 +841,11 @@ Model {
 		Cell			"ExistingSharedCode"
 		Cell			"RemoveDisableFunc"
 		Cell			"RemoveResetFunc"
+		Cell			"PreserveStateflowLocalDataDimensions"
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
+	      Components	      []
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
@@ -919,6 +924,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
+	  Components		  []
 	  Name			  "Simulink Coverage"
 	  CovEnable		  off
 	  CovScope		  "EntireSystem"
@@ -957,9 +963,9 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      ExtraOptions	      ""
       CurrentDlgPage	      "Solver"
       ConfigPrmDlgPosition    [ 100, 58, 1180, 720 ]
+      ExtraOptions	      ""
     }
     PropName		    "ConfigurationSets"
   }
@@ -975,7 +981,6 @@ Model {
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
     DefaultTransitionBetweenContTasks "Ensure deterministic transfer (minimum delay)"
     DefaultExtrapolationMethodBetweenContTasks "None"
-    AutoInsertRateTranBlk   [0]
   }
   ExplicitPartitioning	  off
   BlockDefaults {
@@ -1236,7 +1241,7 @@ Model {
       " 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862"
       "745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'Dis"
       "playLayoutDimensions',[2 2],'TimeRangeSamples','60','TimeRangeFrames','60'),extmgr.Configuration('Tools','Plot N"
-      "avigation',true),extmgr.Configuration('Tools','Measurements',true,'Version','2015b')),'Version','2018a','Positio"
+      "avigation',true),extmgr.Configuration('Tools','Measurements',true,'Version','2015b')),'Version','2019b','Positio"
       "n',[409 227 1301 663])"
       NumInputPorts	      "4"
       Floating		      off
@@ -1284,7 +1289,7 @@ Model {
       "1;0.392156862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392"
       "156863]),'DisplayLayoutDimensions',[2 2],'DisplayContentCache',[],'TimeRangeSamples','60','TimeRangeFrames','60'"
       "),extmgr.Configuration('Tools','Plot Navigation',true,'PreviousAutoscale','XY','OnceAtStop',false),extmgr.Config"
-      "uration('Tools','Measurements',true,'Version','2015b')),'Version','2018a','Position',[1 5 1862 980])"
+      "uration('Tools','Measurements',true,'Version','2015b')),'Version','2019b','Position',[1 5 1862 980])"
       NumInputPorts	      "4"
       Floating		      off
     }
@@ -1329,7 +1334,7 @@ Model {
       "5098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]),'Displ"
       "ayLayoutDimensions',[2 2],'DisplayContentCache',[],'TimeRangeSamples','60','TimeRangeFrames','60'),extmgr.Config"
       "uration('Tools','Plot Navigation',true,'PreviousAutoscale','XY','OnceAtStop',false),extmgr.Configuration('Tools'"
-      ",'Measurements',true,'Version','2016b')),'Version','2018a','Position',[66 5 1855 968])"
+      ",'Measurements',true,'Version','2016b')),'Version','2019b','Position',[66 5 1855 968])"
       NumInputPorts	      "4"
       Floating		      off
     }
@@ -1347,7 +1352,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       period		      "0.01"
     }
     Block {
@@ -1447,7 +1451,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       portName		      "'/icub/right_foot/analog:o'"
       signalSize	      "6"
       timeout		      "0.5"
@@ -1473,7 +1476,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       portName		      "'/icub/left_foot/analog:o'"
       signalSize	      "6"
       timeout		      "0.5"
@@ -1499,7 +1501,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       portName		      "'/icub/right_leg/analog:o'"
       signalSize	      "6"
       timeout		      "0.5"
@@ -1525,7 +1526,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       portName		      "'/icub/left_leg/analog:o'"
       signalSize	      "6"
       timeout		      "0.5"
@@ -1551,7 +1551,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       portName		      "'/icub/right_arm/analog:o'"
       signalSize	      "6"
       timeout		      "0.5"
@@ -1577,7 +1576,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       portName		      "'/icub/left_arm/analog:o'"
       signalSize	      "6"
       timeout		      "0.5"
@@ -1603,6 +1601,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
     }
     Block {
@@ -1618,6 +1621,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
     }
     Block {
@@ -1633,6 +1641,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
     }
     Block {
@@ -1648,6 +1661,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
     }
     Block {
@@ -1663,6 +1681,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
     }
     Block {
@@ -1678,6 +1701,11 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/holder\n"
       SourceType	      "Holder"
       SourceProductName	      "WholeBodyToolbox"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
       ContentPreviewEnabled   off
     }
     Line {
@@ -1999,14 +2027,14 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000014
+#   Stateflow 80000019
 #
 #
 Stateflow {
   machine {
     id			    1
     name		    "debug_FTMeas"
-    created		    "05-May-2016 17:01:28"
+    created		    "04-Nov-2015 16:59:24"
     isLibrary		    0
     sfVersion		    80000012
     firstTarget		    2

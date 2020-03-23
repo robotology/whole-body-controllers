@@ -4,28 +4,28 @@
 %  the default version is MATLAB 2017b. IF YOU OWE A MATLAB VERSION GREATER 
 %  THAN 2017B, REMEMBER TO EXPORT ALL MODELS TO THE DEFAULT SUPPORTED 
 %  VERSION BEFORE PUBLISHING ANY MODIFICATIONS, OTHERWISE OTHER USERS MAY 
-%  NOT BE ABLE TO USE THE TOOLBOX!
+%  NOT BE ABLE TO USE THE MODELS!
 %
 clc
 clear 
 close all
 
-fprintf('\nWholeBodyControl Toolbox\n');
+fprintf('\nwhole-body-controllers\n');
 fprintf('\nExport project to a previous Matlab version\n');
 fprintf('\nOldest supported version: R2014a\n');
 
 fprintf('\n######################################################\n');
 fprintf('\nWarning: this function exports only Simulink models.\n');
-fprintf('\nIf a .m file requires a dependency (toolbox, new matlab version)\n');
-fprintf('\nthat is not compatible with your installation, the WBC toolbox\n');
-fprintf('\nmay not work properly. Consider running also tests after the export.\n');
+fprintf('\nIf a .m file requires a dependency that is not\n');
+fprintf('\ncompatible with your installation, the WBC controllers\n');
+fprintf('\nmay still not work properly.\n');
 fprintf('\n######################################################\n\n');
 
 % list of all simulink models (in this repo only .mdl are allowed) in the project
-mdlList     = dir('../**/*.mdl');
+mdlList   = dir('../**/*.mdl');
 
 % matlab version to which export all models
-matlabVer   = input('Specify the Matlab version to export models (format: R20XXx) ','s');
+matlabVer = input('Specify the Matlab version to export models (format: R20XXx) ','s');
 
 %% Verify matlab version
 
@@ -45,7 +45,7 @@ for k = 1:length(matlabVer_list)
     
     if strcmp(matlabVer_list{k},matlabVer)
         
-        fprintf(['\nExporting files into Matlab ',matlabVer,'\n\n']);
+        fprintf(['\nExporting files into Matlab ',matlabVer, '...','\n\n']);
         matlabVer_found = k;
     end
 end

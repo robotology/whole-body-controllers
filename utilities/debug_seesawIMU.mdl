@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.51"
+    ComputedModelVersion    "1.56"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -31,13 +31,9 @@ Model {
     }
     OrderedModelArguments   1
   }
-  DiagnosticSuppressor	  "on"
-  SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 1 0"
-  LogicAnalyzerGraphicalSettings ""
-  LogicAnalyzerPlugin	  "on"
-  LogicAnalyzerSignalOrdering ""
-  CustomCodeFunctionData  ""
   SLCCPlugin		  "on"
+  LogicAnalyzerPlugin	  "on"
+  DiagnosticSuppressor	  "on"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -117,9 +113,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Mar 08 16:25:45 2019"
-  RTWModifiedTimeStamp	  473963145
-  ModelVersionFormat	  "1.%<AutoIncrement:51>"
+  LastModifiedDate	  "Mon Mar 23 00:04:39 2020"
+  RTWModifiedTimeStamp	  506822679
+  ModelVersionFormat	  "1.%<AutoIncrement:56>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
@@ -154,7 +150,6 @@ Model {
   FunctionConnectors	  off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
-  VisualizeLoggedSignalsWhenLoggingToFile off
   PauseTimes		  "5"
   NumberOfSteps		  1
   SnapshotBufferSize	  10
@@ -226,6 +221,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
 	  AbsTol		  "auto"
@@ -265,6 +261,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -306,7 +303,7 @@ Model {
 	  Version		  "1.17.1"
 	  Array {
 	    Type		    "Cell"
-	    Dimension		    8
+	    Dimension		    9
 	    Cell		    "BooleansAsBitfields"
 	    Cell		    "PassReuseOutputArgsAs"
 	    Cell		    "PassReuseOutputArgsThreshold"
@@ -315,9 +312,11 @@ Model {
 	    Cell		    "OptimizeModelRefInitCode"
 	    Cell		    "NoFixptDivByZeroProtection"
 	    Cell		    "UseSpecifiedMinMax"
+	    Cell		    "EfficientTunableParamExpr"
 	    PropName		    "DisabledProps"
 	  }
 	  Description		  ""
+	  Components		  []
 	  BlockReduction	  on
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
@@ -373,6 +372,7 @@ Model {
 	    PropName		    "DisabledProps"
 	  }
 	  Description		  ""
+	  Components		  []
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -483,6 +483,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
@@ -531,6 +532,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  EnableRefExpFcnMdlSchedulingChecks on
 	  CheckModelReferenceTargetMessage "error"
@@ -550,6 +552,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  ""
+	  Components		  []
 	  SimCustomSourceCode	  ""
 	  SimCustomHeaderCode	  ""
 	  SimCustomInitializer	  ""
@@ -599,6 +602,7 @@ Model {
 	    Cell		    "CodeProfilingInstrumentation"
 	    PropName		    "DisabledProps"
 	  }
+	  Description		  ""
 	  SystemTargetFile	  "grt.tlc"
 	  HardwareBoard		  "None"
 	  TLCOptions		  ""
@@ -609,9 +613,7 @@ Model {
 	  PackageName		  ""
 	  TemplateMakefile	  "grt_default_tmf"
 	  PostCodeGenCommand	  ""
-	  Description		  ""
 	  GenerateReport	  off
-	  SaveLog		  off
 	  RTWVerbose		  on
 	  RetainRTWFile		  off
 	  RTWBuildHooks		  []
@@ -699,6 +701,7 @@ Model {
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
+	      Components	      []
 	      Comment		      ""
 	      ForceParamTrailComments off
 	      GenerateComments	      on
@@ -754,7 +757,7 @@ Model {
 	      Version		      "1.17.1"
 	      Array {
 		Type			"Cell"
-		Dimension		15
+		Dimension		16
 		Cell			"IncludeMdlTerminateFcn"
 		Cell			"SuppressErrorStatus"
 		Cell			"ERTCustomFileBanners"
@@ -770,9 +773,11 @@ Model {
 		Cell			"ExistingSharedCode"
 		Cell			"RemoveDisableFunc"
 		Cell			"RemoveResetFunc"
+		Cell			"PreserveStateflowLocalDataDimensions"
 		PropName		"DisabledProps"
 	      }
 	      Description	      ""
+	      Components	      []
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
@@ -851,6 +856,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
+	  Components		  []
 	  Name			  "Simulink Coverage"
 	  CovEnable		  off
 	  CovScope		  "EntireSystem"
@@ -891,6 +897,7 @@ Model {
 	  Version		  "1.17.1"
 	  DisabledProps		  []
 	  Description		  "HDL Coder custom configuration component"
+	  Components		  []
 	  Name			  "HDL Coder"
 	  Array {
 	    Type		    "Cell"
@@ -903,9 +910,9 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      ExtraOptions	      ""
       CurrentDlgPage	      "Solver"
       ConfigPrmDlgPosition    [ 420, 280, 1500, 920 ]
+      ExtraOptions	      ""
     }
     PropName		    "ConfigurationSets"
   }
@@ -921,7 +928,6 @@ Model {
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
     DefaultTransitionBetweenContTasks "Ensure deterministic transfer (minimum delay)"
     DefaultExtrapolationMethodBetweenContTasks "None"
-    AutoInsertRateTranBlk   [0]
   }
   ExplicitPartitioning	  off
   BlockDefaults {
@@ -1035,7 +1041,7 @@ Model {
       MustResolveToSignalObject	off
       OutputWhenUnConnected   off
       OutputWhenUnconnectedValue "0"
-      VectorParamsAs1DForOutWhenUnconnected off
+      VectorParamsAs1DForOutWhenUnconnected on
     }
     Block {
       BlockType		      S-Function
@@ -1087,7 +1093,6 @@ Model {
       TreatAsGroupedWhenPropagatingVariantConditions on
       ContentPreviewEnabled   off
       IsWebBlock	      off
-      IsObserver	      off
     }
     Block {
       BlockType		      Terminator
@@ -1151,7 +1156,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"69"
+	SIDHighWatermark	"84"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1163,20 +1168,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "26::68"
+	  SID			  "26::83"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  59
+	  ZOrder		  74
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "26::67"
+	  SID			  "26::82"
 	  Tag			  "Stateflow S-Function debug_seesawIMU 1"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  58
+	  ZOrder		  73
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1190,9 +1195,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "26::69"
+	  SID			  "26::84"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  60
+	  ZOrder		  75
 	}
 	Block {
 	  BlockType		  Outport
@@ -1201,9 +1206,10 @@ Model {
 	  Position		  [460, 101, 480, 119]
 	  ZOrder		  -5
 	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
-	  ZOrder		  13
+	  ZOrder		  33
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1211,7 +1217,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  14
+	  ZOrder		  34
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1219,14 +1225,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  15
+	  ZOrder		  35
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  16
+	  ZOrder		  36
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1262,7 +1268,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"69"
+	SIDHighWatermark	"84"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1274,20 +1280,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "10::68"
+	  SID			  "10::83"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  59
+	  ZOrder		  74
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "10::67"
+	  SID			  "10::82"
 	  Tag			  "Stateflow S-Function debug_seesawIMU 3"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  58
+	  ZOrder		  73
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1301,9 +1307,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "10::69"
+	  SID			  "10::84"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  60
+	  ZOrder		  75
 	}
 	Block {
 	  BlockType		  Outport
@@ -1312,9 +1318,10 @@ Model {
 	  Position		  [460, 101, 480, 119]
 	  ZOrder		  -5
 	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
-	  ZOrder		  65
+	  ZOrder		  85
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1322,7 +1329,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  66
+	  ZOrder		  86
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1330,14 +1337,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  67
+	  ZOrder		  87
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  68
+	  ZOrder		  88
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1373,7 +1380,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"69"
+	SIDHighWatermark	"84"
 	Block {
 	  BlockType		  Inport
 	  Name			  "acc"
@@ -1385,20 +1392,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "12::68"
+	  SID			  "12::83"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  59
+	  ZOrder		  74
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "12::67"
+	  SID			  "12::82"
 	  Tag			  "Stateflow S-Function debug_seesawIMU 4"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  58
+	  ZOrder		  73
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1412,9 +1419,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "12::69"
+	  SID			  "12::84"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  60
+	  ZOrder		  75
 	}
 	Block {
 	  BlockType		  Outport
@@ -1423,9 +1430,10 @@ Model {
 	  Position		  [460, 101, 480, 119]
 	  ZOrder		  -5
 	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
-	  ZOrder		  65
+	  ZOrder		  85
 	  SrcBlock		  "acc"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1433,7 +1441,7 @@ Model {
 	}
 	Line {
 	  Name			  "theta"
-	  ZOrder		  66
+	  ZOrder		  86
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1441,14 +1449,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  67
+	  ZOrder		  87
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  68
+	  ZOrder		  88
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1484,7 +1492,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"69"
+	SIDHighWatermark	"84"
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
@@ -1496,20 +1504,20 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "27::68"
+	  SID			  "27::83"
 	  Ports			  [1, 1]
 	  Position		  [270, 230, 320, 270]
-	  ZOrder		  59
+	  ZOrder		  74
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  S-Function
 	  Name			  " SFunction "
-	  SID			  "27::67"
+	  SID			  "27::82"
 	  Tag			  "Stateflow S-Function debug_seesawIMU 2"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
-	  ZOrder		  58
+	  ZOrder		  73
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[1 2]"
 	  SFunctionDeploymentMode off
@@ -1523,9 +1531,9 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "27::69"
+	  SID			  "27::84"
 	  Position		  [460, 241, 480, 259]
-	  ZOrder		  60
+	  ZOrder		  75
 	}
 	Block {
 	  BlockType		  Outport
@@ -1534,9 +1542,10 @@ Model {
 	  Position		  [460, 101, 480, 119]
 	  ZOrder		  -5
 	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
 	}
 	Line {
-	  ZOrder		  13
+	  ZOrder		  33
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
@@ -1544,7 +1553,7 @@ Model {
 	}
 	Line {
 	  Name			  "y"
-	  ZOrder		  14
+	  ZOrder		  34
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
@@ -1552,14 +1561,14 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  15
+	  ZOrder		  35
 	  SrcBlock		  " Demux "
 	  SrcPort		  1
 	  DstBlock		  " Terminator "
 	  DstPort		  1
 	}
 	Line {
-	  ZOrder		  16
+	  ZOrder		  36
 	  SrcBlock		  " SFunction "
 	  SrcPort		  1
 	  DstBlock		  " Demux "
@@ -1592,7 +1601,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       period		      "0.01"
     }
     Block {
@@ -1643,7 +1651,6 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
       SourceProductName	      "WholeBodyToolbox"
-      MultiThreadCoSim	      "auto"
       portName		      "'/seesaw'"
       signalSize	      "9"
       timeout		      "0.5"
@@ -1670,7 +1677,7 @@ Model {
       "23529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>"
       "','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'"
       "Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',"
-      "true,'Version','2018a')),'Version','2018a','Location',[183 400 517 593])"
+      "true,'Version','2018a')),'Version','2019b','Location',[183 400 517 593])"
       NumInputPorts	      "1"
       Floating		      off
     }
@@ -1692,7 +1699,7 @@ Model {
       "23529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>"
       "','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'"
       "Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',"
-      "true)),'Version','2018a','Location',[188 365 512 604])"
+      "true)),'Version','2019b','Location',[188 365 512 604])"
       NumInputPorts	      "1"
       Floating		      off
     }
@@ -1714,7 +1721,7 @@ Model {
       "23529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>"
       "','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'"
       "Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',"
-      "true)),'Version','2018a','Location',[188 365 512 604])"
+      "true)),'Version','2019b','Location',[188 365 512 604])"
       NumInputPorts	      "1"
       Floating		      off
     }
@@ -1736,7 +1743,7 @@ Model {
       "23529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>"
       "','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'"
       "Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',"
-      "true,'Version','2018a')),'Version','2018a','Location',[188 349 512 588])"
+      "true,'Version','2018a')),'Version','2019b','Location',[188 349 512 588])"
       NumInputPorts	      "1"
       Floating		      off
     }
@@ -1764,7 +1771,7 @@ Model {
       "9 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','L"
       "inePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Plac"
       "ement',1)),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',true"
-      ",'Version','2018a')),'Version','2018a','Location',[188 349 512 588])"
+      ",'Version','2018a')),'Version','2019b','Location',[188 349 512 588])"
       NumInputPorts	      "1"
       Floating		      off
     }
@@ -1889,14 +1896,14 @@ Model {
 }
 #Finite State Machines
 #
-#   Stateflow 80000014
+#   Stateflow 80000019
 #
 #
 Stateflow {
   machine {
     id			    1
     name		    "debug_seesawIMU"
-    created		    "28-Nov-2016 15:57:28"
+    created		    "24-Sep-2015 17:50:06"
     isLibrary		    0
     sfVersion		    80000012
     firstTarget		    30

@@ -1,6 +1,8 @@
 # Utilities
 
-Simulink models for debugging. 
+Simulink models for sensors debugging and other utilities. 
+
+- [homePositions](homePositions/README.md): home positions of the iCub robots to be used with the `yarpmotorgui`.
 
 - `debug_FTExternalForces.mdl`:  this model is used for checking the measurements coming from iCub legs, arms and feet FT sensors. **USAGE:** this model is supposed to be used only with `iCubGenova02` and `iCubGenova04` robots. 
 

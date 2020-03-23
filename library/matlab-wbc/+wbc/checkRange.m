@@ -21,6 +21,9 @@ function inRange = checkRange(umin, umax, u, tol)
 
     %% --- Initialization ---
 
+    % deprecation warning
+    disp('WARNING: checkRange is deprecated and it will be removed in a future release. Use checkInputRange instead.')
+    
     res  = u < umin + tol | u > umax - tol;
     res  = sum(res);
     
