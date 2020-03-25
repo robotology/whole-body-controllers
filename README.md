@@ -34,7 +34,7 @@ This repository depends upon the following Software:
 
 The repository is usually tested and developed on **Ubuntu** and **macOS** operating systems. Some functionalities may not work properly on **Windows**.
 
-- **NOTE:** it is suggested to install `whole-body-controllers` and most of its dependencies (namely, `YARP`, `icub-main`, `whole-body-estimators`,`icub-gazebo`,`icub-gazebo-wholebody`, `icub-models`, `gazebo-yarp-plugins`, `blockfactory` and `WB-Toolbox` and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_USES_GAZEBO`, `ROBOTOLOGY_ENABLE_DYNAMICS`, `ROBOTOLOGY_USES_MATLAB` options).
+- **NOTE:** it is suggested to install `whole-body-controllers` and most of its dependencies (namely, `YARP`, `icub-main`, `whole-body-estimators`,`icub-gazebo`,`icub-gazebo-wholebody`, `icub-models`, `gazebo-yarp-plugins`, `blockfactory` and `WB-Toolbox` and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_USES_GAZEBO`, `ROBOTOLOGY_ENABLE_DYNAMICS`, options). **Warning**: the superbuild can download and compile the repository also without having Matlab installed in the PC, but the functionalities of the repo will be considerably reduced!
 
 - Otherwise, after installing all the dependencies, **clone the repository** on your pc by running on a terminal `git clone https://github.com/robotology/whole-body-controllers`, or download the repository. Then (on Ubuntu), open a terminal from the folder where you downloaded whole-body-controllers and run:
    
