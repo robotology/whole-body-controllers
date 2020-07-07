@@ -169,7 +169,7 @@ function [HessianMatrixOneFoot, gradientOneFoot, ConstraintsMatrixOneFoot, bVect
     %
     % where tau_0 is given by the following equation:
     %
-    %    tau_0 = hs - Msb*invMb*hb + (Js^T - Msb*invMb*Jb^T)*f + u_0
+    %    tau_0 = hs - Msb*invMb*hb - (Js^T - Msb*invMb*Jb^T)*f + u_0
     %
     % where we have:
     %
