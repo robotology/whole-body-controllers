@@ -22,7 +22,7 @@ The repository contains `Simulink-based whole-body controllers` developed to con
 This repository depends upon the following Software:
 
 - [CMake](https://cmake.org/), at least version **3.5**.
-- [Matlab/Simulink](https://it.mathworks.com/products/matlab.html), default version **R2017b**.
+- [Matlab/Simulink](https://it.mathworks.com/products/matlab.html), default version **R2019b**.
 - [WB-Toolbox](https://github.com/robotology/WB-Toolbox) and [blockfactory](https://github.com/robotology/blockfactory).
 - [Gazebo Simulator](http://gazebosim.org/), default version **9.0**.
 - [gazebo-yarp-plugins](https://github.com/robotology/gazebo-yarp-plugins).

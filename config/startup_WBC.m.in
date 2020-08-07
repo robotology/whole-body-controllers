@@ -11,12 +11,19 @@ pathToInstallDir = '@CMAKE_INSTALL_PREFIX@';
 
 % path to the matlab-wbc library
 pathToLibrary = [pathToInstallDir, filesep, 'mex'];
+pathToSimLib  = [pathToInstallDir, filesep, 'mex/+wbc/simulink'];
 
 if exist(pathToLibrary, 'dir')
     
     addpath(pathToLibrary);
 else
     error('Path to the "+wbc" library not found or not correct.')
+end
+if exist(pathToSimLib, 'dir')
+    
+    addpath(pathToSimLib);
+else
+    error('Path to the "+wbc/simulink" library not found or not correct.')
 end
 
 % Path to the Matlab userpath

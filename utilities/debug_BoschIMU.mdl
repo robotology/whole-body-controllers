@@ -1,12 +1,12 @@
 Model {
   Name			  "debug_BoschIMU"
-  Version		  9.0
+  Version		  10.0
   SavedCharacterEncoding  "UTF-8"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.44"
+    ComputedModelVersion    "1.49"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -14,7 +14,10 @@ Model {
     NumResetEvents	    0
     HasInitializeEvent	    0
     HasTerminateEvent	    0
+    PreCompExecutionDomainType "Unset"
     IsExportFunctionModel   0
+    IsArchitectureModel	    0
+    IsAUTOSARArchitectureModel 0
     NumParameterArguments   0
     NumExternalFileReferences 2
     ExternalFileReference {
@@ -31,9 +34,13 @@ Model {
     }
     OrderedModelArguments   1
   }
-  SLCCPlugin		  "on"
+  AnimationPlugin	  "on"
   LogicAnalyzerPlugin	  "on"
+  WebScopes_FoundationPlugin "on"
+  SLCCPlugin		  "on"
   DiagnosticSuppressor	  "on"
+  NotesPlugin		  "on"
+  EnableAccessToBaseWorkspace on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -64,6 +71,7 @@ Model {
 	Width			[50]
 	Height			[50]
 	Filter			[9]
+	Minimized		"Unset"
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -76,11 +84,13 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
+	IsTabbed		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
 	Extents			[3668.0, 1809.0]
 	ZoomFactor		[9.829878422111431]
 	Offset			[93.5757707879165, 25.984619833607681]
+	SceneRectInView		[0.0, 0.0, 0.0, 0.0]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -95,6 +105,7 @@ Model {
 	DockPosition		"Right"
 	Width			[640]
 	Height			[480]
+	Minimized		"Unset"
       }
       WindowState	      "AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAA"
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
@@ -105,7 +116,14 @@ Model {
       "////wEAAACe/////wAAAAAAAAAA/////wEAAAEM/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAGq/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAASj/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
+      Array {
+	Type			"Cell"
+	Dimension		0
+	PropName		"PersistedApps"
+      }
+      WindowUuid	      ""
     }
+    BDUuid		    "817769c2-4b30-4723-8200-af5359672336"
   }
   HideAutomaticNames	  on
   Created		  "Wed Nov 04 16:59:24 2015"
@@ -114,15 +132,16 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "gnava"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Mar 23 00:04:35 2020"
-  RTWModifiedTimeStamp	  506822675
-  ModelVersionFormat	  "1.%<AutoIncrement:44>"
+  LastModifiedDate	  "Fri Aug 07 14:43:06 2020"
+  RTWModifiedTimeStamp	  518712186
+  ModelVersionFormat	  "1.%<AutoIncrement:49>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "disabled"
   WideLines		  off
   ShowLineDimensions	  off
   ShowPortDataTypes	  off
+  ShowAllPropagatedSignalLabels	off
   PortDataTypeDisplayFormat "AliasTypeOnly"
   ShowEditTimeErrors	  on
   ShowEditTimeWarnings	  on
@@ -137,7 +156,6 @@ Model {
   ShowViewerIcons	  on
   SortedOrder		  off
   VariantCondition	  off
-  ExecutionContextIcon	  off
   ShowLinearizationAnnotations on
   ShowVisualizeInsertedRTB on
   ShowMarkup		  on
@@ -150,12 +168,21 @@ Model {
   BrowserShowLibraryLinks off
   FunctionConnectors	  off
   BrowserLookUnderMasks	  off
+  MultiThreadCoSim	  "on"
   SimulationMode	  "normal"
+  SILPILModeSetting	  "automated"
+  SILPILSystemUnderTest	  "topmodel"
+  SILPILSimulationModeTopModel "normal"
+  SILPILSimulationModeModelRef "normal"
+  SimTabSimulationMode	  "normal"
+  CodeVerificationMode	  "software-in-the-loop (sil)"
   PauseTimes		  "5"
   NumberOfSteps		  1
   SnapshotBufferSize	  10
   SnapshotInterval	  10
   NumberOfLastSnapshots	  0
+  EnablePacing		  off
+  PacingRate		  1
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "MATLABWorkspace"
@@ -211,7 +238,7 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      8
-      Version		      "1.17.1"
+      Version		      "19.1.0"
       DisabledProps	      []
       Description	      ""
       Array {
@@ -219,13 +246,14 @@ Model {
 	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  9
-	  Version		  "1.17.1"
+	  Version		  "19.1.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
 	  AbsTol		  "auto"
+	  AutoScaleAbsTol	  on
 	  FixedStep		  "0.01"
 	  InitialStep		  "auto"
 	  MaxOrder		  5
@@ -256,10 +284,12 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	  SampleTimeProperty	  []
 	  DecoupledContinuousIntegration off
+	  MinimalZcImpactIntegration off
+	  SolverOrder		  3
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  10
-	  Version		  "1.17.1"
+	  Version		  "19.1.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -272,7 +302,7 @@ Model {
 	  LoadExternalInput	  off
 	  LoadInitialState	  off
 	  SaveFinalState	  off
-	  SaveCompleteFinalSimState off
+	  SaveOperatingPoint	  off
 	  SaveFormat		  "Dataset"
 	  SignalLoggingSaveFormat "Dataset"
 	  SaveOutput		  on
@@ -301,7 +331,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  11
-	  Version		  "1.17.1"
+	  Version		  "19.1.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    9
@@ -323,6 +353,7 @@ Model {
 	  ConditionallyExecuteInputs on
 	  DefaultParameterBehavior "Tunable"
 	  UseDivisionForNetSlopeComputation "off"
+	  GainParamInheritBuiltInType off
 	  UseFloatMulNetSlope	  off
 	  DefaultUnderspecifiedDataType	"double"
 	  UseSpecifiedMinMax	  off
@@ -362,10 +393,18 @@ Model {
 	  OptimizeDataStoreBuffers on
 	  BusAssignmentInplaceUpdate on
 	  DifferentSizesBufferReuse off
+	  UseRowMajorAlgorithm	  off
+	  OptimizationLevel	  "level2"
+	  OptimizationPriority	  "Balanced"
+	  OptimizationCustomize	  on
+	  LabelGuidedReuse	  off
+	  MultiThreadedLoops	  off
+	  DenormalBehavior	  "GradualUnderflow"
+	  EfficientTunableParamExpr off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  12
-	  Version		  "1.17.1"
+	  Version		  "19.1.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    1
@@ -378,6 +417,7 @@ Model {
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
 	  SignalInfNanChecking	  "none"
+	  StringTruncationChecking "error"
 	  SignalRangeChecking	  "none"
 	  ReadBeforeWriteMsg	  "UseLocalSettings"
 	  WriteAfterWriteMsg	  "UseLocalSettings"
@@ -421,7 +461,6 @@ Model {
 	  UnderSpecifiedDataTypeMsg "none"
 	  UnnecessaryDatatypeConvMsg "none"
 	  VectorMatrixConversionMsg "none"
-	  InvalidFcnCallConnMsg	  "error"
 	  FcnCallInpInsideContextMsg "error"
 	  SignalLabelMismatchMsg  "none"
 	  UnconnectedInputMsg	  "warning"
@@ -445,9 +484,11 @@ Model {
 	  ModelReferenceSymbolNameMessage "warning"
 	  ModelReferenceExtraNoncontSigs "error"
 	  StateNameClashWarn	  "none"
-	  SimStateInterfaceChecksumMismatchMsg "warning"
-	  SimStateOlderReleaseMsg "error"
+	  OperatingPointInterfaceChecksumMismatchMsg "warning"
+	  NonCurrentReleaseOperatingPointMsg "error"
 	  ChecksumConsistencyForSSReuse	"none"
+	  PregeneratedLibrarySubsystemCodeDiagnostic "warning"
+	  MatchCodeGenerationContextForUpdateDiagram "none"
 	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
@@ -478,10 +519,13 @@ Model {
 	  RCSCObservableMsg	  "warning"
 	  ForceCombineOutputUpdateInSim	off
 	  UnitDatabase		  ""
+	  UnderSpecifiedDimensionMsg "none"
+	  DebugExecutionForFMUViaOutOfProcess off
+	  ArithmeticOperatorsInVariantConditions "warning"
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  13
-	  Version		  "1.17.1"
+	  Version		  "19.1.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -527,10 +571,11 @@ Model {
 	  ProdEqTarget		  on
 	  UseEmbeddedCoderFeatures on
 	  UseSimulinkCoderFeatures on
+	  HardwareBoardFeatureSet "EmbeddedCoderHSP"
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  14
-	  Version		  "1.17.1"
+	  Version		  "19.1.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -550,7 +595,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  15
-	  Version		  "1.17.1"
+	  Version		  "19.1.0"
 	  DisabledProps		  []
 	  Description		  ""
 	  Components		  []
@@ -570,6 +615,7 @@ Model {
 	  SimIntegrity		  on
 	  SimUseLocalCustomCode	  off
 	  SimParseCustomCode	  on
+	  SimAnalyzeCustomCode	  off
 	  SimBuildMode		  "sf_incremental_build"
 	  SimGenImportedTypeDefs  off
 	  ModelFunctionsGlobalVisibility "on"
@@ -577,11 +623,14 @@ Model {
 	  EnableRuntimeRecursion  on
 	  MATLABDynamicMemAlloc	  on
 	  MATLABDynamicMemAllocThreshold 65536
+	  CustomCodeFunctionArrayLayout	[]
+	  DefaultCustomCodeFunctionArrayLayout "NotSpecified"
+	  CustomCodeUndefinedFunction "UseInterfaceOnly"
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  16
-	  Version		  "1.17.1"
+	  Version		  "19.1.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    16
@@ -606,6 +655,8 @@ Model {
 	  Description		  ""
 	  SystemTargetFile	  "grt.tlc"
 	  HardwareBoard		  "None"
+	  ShowCustomHardwareApp	  off
+	  ShowEmbeddedHardwareApp off
 	  TLCOptions		  ""
 	  GenCodeOnly		  off
 	  MakeCommand		  "make_rtw"
@@ -630,6 +681,7 @@ Model {
 	  CustomSource		  ""
 	  CustomLibrary		  ""
 	  CustomDefine		  ""
+	  CustomBLASCallback	  ""
 	  CustomLAPACKCallback	  ""
 	  CustomFFTCallback	  ""
 	  CustomInitializer	  ""
@@ -644,7 +696,7 @@ Model {
 	  CodeExecutionProfiling  off
 	  CodeExecutionProfileVariable "executionProfile"
 	  CodeProfilingSaveOptions "SummaryOnly"
-	  CodeProfilingInstrumentation off
+	  CodeProfilingInstrumentation "off"
 	  SILDebugging		  off
 	  TargetLang		  "C"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
@@ -667,7 +719,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      17
-	      Version		      "1.17.1"
+	      Version		      "19.1.0"
 	      Array {
 		Type			"Cell"
 		Dimension		29
@@ -743,6 +795,7 @@ Model {
 	      InsertBlockDesc	      off
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
+	      BlockCommentType	      "BlockPathComment"
 	      StateflowObjectComments on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
@@ -752,11 +805,12 @@ Model {
 	      ReqsInCode	      off
 	      UseSimReservedNames     off
 	      ReservedNameArray	      []
+	      EnumMemberNameClash     "error"
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      18
-	      Version		      "1.17.1"
+	      Version		      "19.1.0"
 	      Array {
 		Type			"Cell"
 		Dimension		16
@@ -789,6 +843,7 @@ Model {
 	      UtilityFuncGeneration   "Auto"
 	      MultiwordTypeDef	      "System defined"
 	      MultiwordLength	      2048
+	      DynamicStringBufferSize 256
 	      GenerateFullHeader      on
 	      InferredTypesCompatibility off
 	      ExistingSharedCode      ""
@@ -799,9 +854,9 @@ Model {
 	      CompOptLevelCompliant   on
 	      ConcurrentExecutionCompliant on
 	      IncludeMdlTerminateFcn  on
-	      GeneratePreprocessorConditionals "Use local settings"
 	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
+	      GroupInternalDataByFunction off
 	      SuppressErrorStatus     off
 	      IncludeFileDelimiter    "Auto"
 	      ERTCustomFileBanners    off
@@ -810,9 +865,9 @@ Model {
 	      MatFileLogging	      on
 	      MultiInstanceERTCode    off
 	      CodeInterfacePackaging  "Nonreusable function"
+	      PurelyIntegerCode	      off
 	      SupportNonFinite	      on
 	      SupportComplex	      on
-	      PurelyIntegerCode	      off
 	      SupportContinuousTime   on
 	      SupportNonInlinedSFcns  on
 	      RemoveDisableFunc	      off
@@ -834,6 +889,11 @@ Model {
 	      LookupTableObjectStructAxisOrder "1,2,3,4,..."
 	      LUTObjectStructOrderExplicitValues "Size,Breakpoints,Table"
 	      LUTObjectStructOrderEvenSpacing "Size,Breakpoints,Table"
+	      ArrayLayout	      "Column-major"
+	      UnsupportedSFcnMsg      "error"
+	      ERTHeaderFileRootName   "$R$E"
+	      ERTSourceFileRootName   "$R$E"
+	      ERTDataFileRootName     "$R_data"
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -855,7 +915,7 @@ Model {
 	}
 	SlCovCC.ConfigComp {
 	  $ObjectID		  19
-	  Version		  "1.17.1"
+	  Version		  "19.1.0"
 	  DisabledProps		  []
 	  Description		  "Simulink Coverage Configuration Component"
 	  Components		  []
@@ -1004,6 +1064,8 @@ Model {
     Location		    [134, 55, 3840, 2160]
     Open		    off
     PortBlocksUseCompactNotation off
+    SetExecutionDomain	    off
+    ExecutionDomainType	    "Deduce"
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1017,6 +1079,7 @@ Model {
     ZoomFactor		    "983"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "17"
+    SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      Constant
       Name		      "Constant"
@@ -1049,7 +1112,7 @@ Model {
       "72549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156862745098 0.831372549019608 0.0745098"
       "039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863])),extmgr.Configuration('Tools','Plot Na"
       "vigation',true,'PreviousAutoscale','XY','OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Ve"
-      "rsion','2016b')),'Version','2019b','Position',[71 7 1270 670])"
+      "rsion','2016b')),'Version','2020a','Position',[71 7 1270 670])"
       NumInputPorts	      "2"
       Floating		      off
     }
@@ -1067,6 +1130,7 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/Real Time Synchronizer"
       SourceType	      "Real Time Synchronizer"
       SourceProductName	      "WholeBodyToolbox"
+      MultiThreadCoSim	      "auto"
       period		      "0.01"
     }
     Block {
@@ -1095,6 +1159,7 @@ Model {
       SourceBlock	      "WBToolboxLibrary/Utilities/YarpRead"
       SourceType	      "YARP Read"
       SourceProductName	      "WholeBodyToolbox"
+      MultiThreadCoSim	      "auto"
       portName		      "'/icub/inertial'"
       signalSize	      "12"
       timeout		      "0.5"
