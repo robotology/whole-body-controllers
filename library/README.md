@@ -18,4 +18,4 @@ Utilties for designing a `static GUI` for starting/closing the Simulink models w
 
 ## simulink-library
 
-A library of Simulink models for computing specific quantities required by the controllers. **Usage**: copy-paste the content of the models in your Simulink model, and eventually modify them accordingly to the specific case.
+A library of Simulink models for computing specific quantities required by the controllers. **Usage**: all models are exposed in the Simulink library browser. Look for the block you need and drag and drop it in your Simulink model.
