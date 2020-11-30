@@ -10,6 +10,8 @@ Simulink models for sensors debugging and other utilities.
 
 - `debug_FTMeas_shoes.mdl`: this model is used for checking the raw measurements coming from the sensorized shoes FT sensors. **USAGE:** this model is supposed to be used only with the `sensorized shoes`. 
 
+- `debug_positionControl.mdl`: this model is used for checking the joint errors when in position control. It needs a series of ``controlBoardDumper``s running (check the comment inside the ``mdl`` itself).
+
 - `debug_BoschIMU.mdl`: this model is used for checking if the iCub Bosch IMU (located in the iCub head) is correclty aligned with the gravity. **USAGE:** this model is supposed to be used only with `iCubGenova02` and `iCubGenova04` robots, and only with the robot on the pole.
 
 - `debug_xSensIMU.mdl`: this model is used for checking if the iCub xSens IMU (located in the iCub root link) is correclty aligned with the gravity. **USAGE:** this model is supposed to be used only with `iCubGenova04` robot on the pole.
