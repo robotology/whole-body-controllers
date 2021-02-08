@@ -35,12 +35,19 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
         solver_fails_counter;
         s;
         CoM_measured;
+        K_friction;
+        t_step;
+        epsilon_CoM;
+        CoM_max;
+        CoM_min;
+        CoM_vel_max;
+        CoM_vel_min;
         
     end
     
     methods (Access = protected)
         function num = getNumInputsImpl(~)
-            num = 28;
+            num = 31;
         end
         function num = getNumOutputsImpl(~)
             num = 4;
@@ -54,7 +61,7 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
         end
         
         function [dt1,dt2,dt3,dt4,dt5,dt6,dt7,dt8,dt9,dt10,dt11,dt12,dt13,dt14,dt15,dt16,dt17,dt18,dt19,dt20,dt21,dt22,dt23,dt24, ...
-                dt25,dt26,dt27,dt28] = getInputDataTypeImpl(~)
+                dt25,dt26,dt27,dt28,dt29,dt30,dt31] = getInputDataTypeImpl(~)
             dt1 = 'double';
             dt2 = 'double';
             dt3 = 'double';
@@ -83,15 +90,19 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             dt26 = 'double';
             dt27 = 'double';
             dt28 = 'double';
+            dt29 = 'double';
+            dt30 = 'double';
+            dt31 = 'double';
         end
-        function [sz1,sz2,sz3,sz4] = getOutputSizeImpl(~)
+        function [sz1,sz2,sz3,sz4] = getOutputSizeImpl(obj)
+            size_temp = propagatedInputSize(obj,1);%[6,1];
             sz1 = [6,1];
-            sz2 = [26,1];
-            sz3 = [26,1];
+            sz2 = [size_temp(1)-6,1];
+            sz3 = [size_temp(1)-6,1];
             sz4 = [12,1];
         end
         function [sz1,sz2,sz3,sz4,sz5,sz6,sz7,sz8,sz9,sz10,sz11,sz12,sz13,sz14,sz15,sz16, sz17,sz18,sz19,sz20,sz21,sz22, ...
-                sz23,sz24,sz25,sz26,sz27,sz28] = getInputSizeImpl(~)
+                sz23,sz24,sz25,sz26,sz27,sz28,sz29,sz30,sz31] = getInputSizeImpl(~)
             sz1 = [1,1];
             sz2 = [1,1];
             sz3 = [1,1];
@@ -120,9 +131,13 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             sz26 = [1,1];
             sz27 = [1,1];
             sz28 = [1,1];
+            sz29 = [1,1];
+            sz30 = [1,1];
+            sz31 = [1,1];
+            
         end
         function [cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13, cp14, cp15,cp16, cp17,cp18,cp19,cp20,cp21,...
-                cp22,cp23,cp24,cp25,cp26,cp27,cp28] = isInputComplexImpl(~)
+                cp22,cp23,cp24,cp25,cp26,cp27,cp28,cp29,cp30,cp31] = isInputComplexImpl(~)
             cp1 = false;
             cp2 = false;
             cp3 = false;
@@ -151,6 +166,9 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             cp26 = false;
             cp27 = false;
             cp28 = false;
+            cp29 = false;
+            cp30 = false;
+            cp31 = false;
         end
         function [cp1,cp2,cp3,cp4] = isOutputComplexImpl(~)
             cp1 = false;
@@ -159,7 +177,7 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             cp4 = false;
         end
         function [fz1,fz2,fz3,fz4,fz5,fz6,fz7,fz8,fz9,fz10, fz11,fz12,fz13,fz14,fz15,fz16, fz17,fz18,fz19,fz20,fz21, ...
-                fz22,fz23,fz24,fz25,fz26,fz27,fz28] = isInputFixedSizeImpl(~)
+                fz22,fz23,fz24,fz25,fz26,fz27,fz28,fz29,fz30,fz31] = isInputFixedSizeImpl(~)
             fz1 = true;
             fz2 = true;
             fz3 = true;
@@ -188,6 +206,9 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             fz26 = true;
             fz27 = true;
             fz28 = true;
+            fz29 = true;
+            fz30 = true;
+            fz31 = true;
         end
         function [fz1,fz2,fz3,fz4] = isOutputFixedSizeImpl(~)
             fz1 = true;
@@ -195,89 +216,13 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             fz3 = true;
             fz4 = true;
         end
-        function setupImpl(obj,~,~,~,~,~,~,~,~,~,~,~,~,~,~,~,~,~,ADD_FRICTION, K_viscous_friction, T, Gamma, baseVelocitySat, jointsVelocitySat, torqueSat, wrenchesSat, tStep_old, NDOF_old)
+        function setupImpl(obj,M,h,Jc,Jcmm,nu_k,Jc_dot_nu,C_friction,b_friction,H_star,s_dot_star,tau_meas, contact_status, f_meas, x_com, J_com, w_H_b,...
+                s,CoM_measured,ADD_FRICTION, K_viscous_friction, T, Gamma, baseVelocitySat, jointsVelocitySat, torqueSat, wrenchesSat, tStep, NDOF, epsilon_CoM, CoM_limits,CoM_vel_limits)
             
-            NDOF = 26; 
-            tStep = 0.01; 
-            epsilon_CoM = 1.2; 
-            CoM_max = [0.008,0.01]; 
-            CoM_min = [-0.008,-0.01];
-            CoM_vel_max= [0.045,0.045];
-            CoM_vel_min = - CoM_vel_max;
+            NDOF = size(K_viscous_friction,1);
             import casadi.*
             obj.casadi_optimizer = casadi.Opti();
-            
             obj.solver_fails_counter = 0;
-            
-            %K friction
-            K_friction = zeros(NDOF+6);
-            
-            if(ADD_FRICTION)
-                invTGamma                = eye(size(Gamma))/(T*Gamma);
-                invTGamma_t              = eye(size(Gamma))/(transpose(T*Gamma));
-                K_friction(7:end, 7:end) = invTGamma_t*K_viscous_friction*invTGamma;
-            end
-            
-            %% Saturation Min PureQP
-%             Sat.BaseLinearVelocity_min = baseVelocitySat(1:3,1);
-%             Sat.BaseAngVelocity_min    = baseVelocitySat(4:6,1);
-%             Sat.JointsVelocity_min     = jointsVelocitySat(:,1);
-%             Sat.torques_min            = torqueSat(:,1);
-%             Sat.wrenches_min           = wrenchesSat(:,1); 
-%                 %% Saturation Max PureQP
-%             Sat.BaseLinearVelocity_max = baseVelocitySat(1:3,2);
-%             Sat.BaseAngVelocity_max    = baseVelocitySat(4:6,2);
-%             Sat.JointsVelocity_max     = jointsVelocitySat(:,2);
-%             Sat.torques_max            = torqueSat(:,2);
-%             Sat.wrenches_max           = wrenchesSat(:,1); 
-   %% Saturation Min PureQP 
-Sat.BaseLinearVelocity_min = -3000*ones(3,1); 
-Sat.BaseAngVelocity_min    = -3000*pi/180*ones(3,1);
-Sat.JointsVelocity_min     = -3000*pi/180*ones(NDOF,1);
-Sat.torques_min            = -3000*ones(NDOF,1); 
-Sat.wrenches_min           = [-1e6; ... f_x_l
-                              -1e6; ... f_y_l
-                              -1e6; ...  f_z_l
-                              -1e6; ... tau_x_l
-                              -1e6; ... tau_y_l
-                              -1e6; ... tau_z_l
-                              -1e6; ... f_x_r
-                              -1e6; ... f_y_r
-                              -1e6; ... f_z_r
-                              -1e6; ... tau_x_r
-                              -1e6; ... tau_y_r
-                              -1e6];... tau_z_r
-
-%% Saturation Max PureQP 
-Sat.BaseLinearVelocity_max = 3000*ones(3,1);
-Sat.BaseAngVelocity_max    = 3000*pi/180*ones(3,1);
-Sat.JointsVelocity_max     = 3000*pi/180*ones(NDOF,1);
-Sat.torques_max            = 3000*ones(NDOF,1); 
-Sat.wrenches_max           =[1e6; ... f_x_l
-                             1e6; ... f_y_l
-                             1e6 ; ... f_z_l
-                             1e6;.... tau_x_l
-                             1e6; ... tau_y_l
-                             1e6; ... tau_z_l
-                             1e6; ... tau_x_r
-                             1e6; ... f_y_r
-                             1e6 ; ... f_z_r
-                             1e6; ... tau_x_l
-                             1e6; ... tau_y_l
-                             1e6];... tau_z_l
-                             
-            %Weigth
-            Weigth.PosturalTask    = 10;
-            Weigth.MomentumLinear  = 2.0;
-            Weigth.MomentumAngular = 30.00;
-            Weigth.RegTorques      = 0.001;
-            Weigth.RegVelocities   = (0.01)/10;
-            Weigth.Wrenches        = 0.0*5.;
-            
-            % Selector Matrix
-            
-            B           = [ zeros(6,NDOF);  ...
-                            eye(NDOF,NDOF)];
             
             % Setting the solver for the optimization problem
             options = struct;
@@ -313,48 +258,69 @@ Sat.wrenches_max           =[1e6; ... f_x_l
             obj.tau_meas = obj.casadi_optimizer.parameter(NDOF);
             obj.f_meas = obj.casadi_optimizer.parameter(12);
             obj.s = obj.casadi_optimizer.parameter(NDOF);
-            obj.CoM_measured = obj.casadi_optimizer.parameter(3); 
+            obj.CoM_measured = obj.casadi_optimizer.parameter(3);
+            obj.K_friction = obj.casadi_optimizer.parameter(NDOF+6,NDOF+6);
+            obj.t_step = obj.casadi_optimizer.parameter(1);
+            obj.CoM_max = obj.casadi_optimizer.parameter(2);
+            obj.CoM_min = obj.casadi_optimizer.parameter(2);
+            obj.CoM_vel_max = obj.casadi_optimizer.parameter(2);
+            obj.CoM_vel_min = obj.casadi_optimizer.parameter(2);
+            obj.epsilon_CoM = obj.casadi_optimizer.parameter(2);
             
+            
+            %Weigth
+            Weigth.PosturalTask    = 10;
+            Weigth.MomentumLinear  = 2.0;
+            Weigth.MomentumAngular = 30.00;
+            Weigth.RegTorques      = 0.001;
+            Weigth.RegVelocities   = (0.01)/10;
+            Weigth.Wrenches        = 0.0*5.;
+            
+            % Selector Matrix
+            
+            B           = [ zeros(6,NDOF);  ...
+                eye(NDOF,NDOF)];
             
             % Setting the objective function
-            obj.casadi_optimizer.minimize(Weigth.RegTorques*sumsqr(obj.tau_k - obj.tau_meas)+... % Torque Regularization
-                Weigth.RegVelocities*sumsqr(nu_k_1(1:6))+... % Velocity Regularization
-                Weigth.PosturalTask*sumsqr(obj.s_dot_k_1-obj.s_dot_star)+...Postural Task
-               Weigth.MomentumAngular*sumsqr(obj.H_star(4:6)-obj.Jcmm(4:6,:)*nu_k_1));...... % Angular Momentum
-              %  Weigth.MomentumLinear*sumsqr(obj.H_star(1:3)-obj.Jcmm(1:3,:)*nu_k_1));... % Linear Momentum
-%                 
- 
+            obj.casadi_optimizer.minimize(Weigth.RegTorques*sumsqr(obj.tau_k - obj.tau_meas)+                     ... % Torque Regularization
+                Weigth.RegVelocities*sumsqr(nu_k_1(1:6))+                               ... % Velocity Regularization
+                Weigth.PosturalTask*sumsqr(obj.s_dot_k_1-obj.s_dot_star)+               ...Postural Task
+                Weigth.MomentumAngular*sumsqr(obj.H_star(4:6)-obj.Jcmm(4:6,:)*nu_k_1)); ... % Angular Momentum
+                %Weigth.MomentumLinear*sumsqr(obj.H_star(1:3)-obj.Jcmm(1:3,:)*nu_k_1));  ... % Linear Momentum
+            
+            
             % Setting Constraint
             % Dynamics
-           obj.casadi_optimizer.subject_to((obj.M/tStep + K_friction)*(nu_k_1)-(obj.M*obj.nu_k)/tStep+obj.h== B*obj.tau_k +obj.Jc'*obj.f_k);
-           % Holonomic Constraint
-%             obj.casadi_optimizer.subject_to(obj.Jc*(nu_k_1-obj.nu_k)/tStep==-obj.Jc_dot_nu);
-           obj.casadi_optimizer.subject_to(obj.Jc*(nu_k_1)==zeros(12,1));
+            obj.casadi_optimizer.subject_to((obj.M/obj.t_step + obj.K_friction)*(nu_k_1)-(obj.M*obj.nu_k)/obj.t_step+obj.h== B*obj.tau_k +obj.Jc'*obj.f_k);
+            % Holonomic Constraint
+            % acceleration-wise
+            % obj.casadi_optimizer.subject_to(obj.Jc*(nu_k_1-obj.nu_k)/tStep==-obj.Jc_dot_nu);
+            % velocity-wise
+            obj.casadi_optimizer.subject_to(obj.Jc*(nu_k_1)==zeros(12,1));
             % Friction Cones
-           obj.casadi_optimizer.subject_to(obj.C_friction*obj.f_k<obj.b_friction);
+            obj.casadi_optimizer.subject_to(obj.C_friction*obj.f_k<obj.b_friction);
             % Angular Momentum
             %obj.casadi_optimizer.subject_to(obj.H_star(4:6,:)==obj.Jcmm(4:6,:)*nu_k_1);
-            % obj.casadi_optimizer.subject_to(-0.001<obj.H_star(1:3,:)-obj.Jcmm(1:3,:)*nu_k_1<0.001);
-
-            % Constraint on the CoM Velocity 
-            obj.casadi_optimizer.subject_to(obj.Jcmm(1,:)*nu_k_1<(tanh(epsilon_CoM*(CoM_max(1)-obj.CoM_measured(1)))*CoM_vel_max(1)));
-            obj.casadi_optimizer.subject_to(obj.Jcmm(1,:)*nu_k_1>(tanh(epsilon_CoM*(obj.CoM_measured(1)-CoM_min(1)))*CoM_vel_min(1)));
-            obj.casadi_optimizer.subject_to(obj.Jcmm(2,:)*nu_k_1<(tanh(epsilon_CoM*(CoM_max(2)-obj.CoM_measured(2)))*CoM_vel_max(2)));
-            obj.casadi_optimizer.subject_to(obj.Jcmm(2,:)*nu_k_1>(tanh(epsilon_CoM*(obj.CoM_measured(2)-CoM_min(2)))*CoM_vel_min(2)));
-             
             
-% 
+            % Constraint on the CoM Velocity
+            obj.casadi_optimizer.subject_to(obj.Jcmm(1,:)*nu_k_1<(tanh(obj.epsilon_CoM*(obj.CoM_max(1)-obj.CoM_measured(1)))*obj.CoM_vel_max(1)));
+            obj.casadi_optimizer.subject_to(obj.Jcmm(1,:)*nu_k_1>(tanh(obj.epsilon_CoM*(obj.CoM_measured(1)-obj.CoM_min(1)))*obj.CoM_vel_min(1)));
+            obj.casadi_optimizer.subject_to(obj.Jcmm(2,:)*nu_k_1<(tanh(obj.epsilon_CoM*(obj.CoM_max(2)-obj.CoM_measured(2)))*obj.CoM_vel_max(2)));
+            obj.casadi_optimizer.subject_to(obj.Jcmm(2,:)*nu_k_1>(tanh(obj.epsilon_CoM*(obj.CoM_measured(2)-obj.CoM_min(2)))*obj.CoM_vel_min(2)));
+            
+            %THE BOUND FOR NOW ARE DE-ACTIVATED
             % Setting upper and lower bound
             % Lower and Upper Bound NOTE by using a casadi optimizer object, we loose the capability of interpreting the lower and
             % uppe bound in a smart way.
-%             obj.casadi_optimizer.subject_to(Sat.BaseLinearVelocity_min<= obj.v_b_k_1(1:3)<=Sat.BaseLinearVelocity_max);
-%             obj.casadi_optimizer.subject_to(Sat.BaseAngVelocity_min<= obj.v_b_k_1(4:end)<=Sat.BaseAngVelocity_max);       
-%            obj.casadi_optimizer.subject_to(Sat.JointsVelocity_min<= obj.s_dot_k_1<= Sat.JointsVelocity_max);
-%           obj.casadi_optimizeru.sbject_to(Sat.torques_min(1:3)<= obj.tau_k(1:3)<= Sat.torques_max(1:3));
+            % obj.casadi_optimizer.subject_to(Sat.BaseLinearVelocity_min<= obj.v_b_k_1(1:3)<=Sat.BaseLinearVelocity_max);
+            % obj.casadi_optimizer.subject_to(Sat.BaseAngVelocity_min<= obj.v_b_k_1(4:end)<=Sat.BaseAngVelocity_max);
+            % obj.casadi_optimizer.subject_to(Sat.JointsVelocity_min<= obj.s_dot_k_1<= Sat.JointsVelocity_max);
+            % obj.casadi_optimizeru.sbject_to(Sat.torques_min(1:3)<= obj.tau_k(1:3)<= Sat.torques_max(1:3));
+            
         end
         
         function [v_b_star,s_dot_k_1_star,tau_star,f_star] = stepImpl(obj,M,h,Jc,Jcmm,nu_k,Jc_dot_nu,C_friction,b_friction,H_star,s_dot_star,tau_meas, contact_status, f_meas, x_com, J_com, w_H_b,...
-                s,CoM_measured,ADD_FRICTION, K_viscous_friction, T, Gamma, baseVelocitySat, jointsVelocitySat, torqueSat, wrenchesSat, tStep, NDOF)     
+                s,CoM_measured,ADD_FRICTION, K_viscous_friction, T, Gamma, baseVelocitySat, jointsVelocitySat, torqueSat, wrenchesSat, tStep, NDOF,epsilon_CoM, CoM_limits,CoM_vel_limits)
             solver_succeded = true;
             
             % Compute Centroidayl Dynamics
@@ -374,6 +340,15 @@ Sat.wrenches_max           =[1e6; ... f_x_l
             STATE.x_b = w_H_b(1:3,4);
             centroidalDyn = centroidalConversion(DYNAMICS,FORKINEMATICS,STATE);
             
+            %K friction
+            K_friction_new = zeros(NDOF+6);
+            
+            if(ADD_FRICTION)
+                invTGamma                = eye(size(Gamma))/(T*Gamma);
+                invTGamma_t              = eye(size(Gamma))/(transpose(T*Gamma));
+                K_friction_new(7:end, 7:end) = invTGamma_t*K_viscous_friction*invTGamma;
+            end
+            
             % Update casadi optimizer parameters
             obj.casadi_optimizer.set_value(obj.M, centroidalDyn.M);
             obj.casadi_optimizer.set_value(obj.h,( centroidalDyn.C_nu+centroidalDyn.g));
@@ -389,10 +364,17 @@ Sat.wrenches_max           =[1e6; ... f_x_l
             obj.casadi_optimizer.set_value(obj.f_meas, f_meas);
             obj.casadi_optimizer.set_value(obj.s,s);
             obj.casadi_optimizer.set_value(obj.CoM_measured,CoM_measured)
+            obj.casadi_optimizer.set_value(obj.K_friction,K_friction_new);
+            obj.casadi_optimizer.set_value(obj.t_step,tStep);
+            obj.casadi_optimizer.set_value(obj.CoM_max,CoM_limits(:,2));
+            obj.casadi_optimizer.set_value(obj.CoM_min,CoM_limits(:,1));
+            obj.casadi_optimizer.set_value(obj.CoM_vel_max, CoM_vel_limits(:,2));
+            obj.casadi_optimizer.set_value(obj.CoM_vel_min, CoM_vel_limits(:,1));
+            obj.casadi_optimizer.set_value(obj.epsilon_CoM, epsilon_CoM);
             
             % Computing the solution
             try
-                obj.sol = obj.casadi_optimizer.solve; % raises error
+                obj.sol = obj.casadi_optimizer.solve; % could raise an error
                 v_b_star = full(obj.sol.value(obj.v_b_k_1));
                 s_dot_k_1_star = full(obj.sol.value(obj.s_dot_k_1));
                 tau_star = full(obj.sol.value(obj.tau_k));
