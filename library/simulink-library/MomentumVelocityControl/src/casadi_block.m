@@ -366,8 +366,8 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             obj.casadi_optimizer.set_value(obj.CoM_measured,CoM_measured)
             obj.casadi_optimizer.set_value(obj.K_friction,K_friction_new);
             obj.casadi_optimizer.set_value(obj.t_step,tStep);
-            obj.casadi_optimizer.set_value(obj.CoM_max,CoM_limits(:,2));
-            obj.casadi_optimizer.set_value(obj.CoM_min,CoM_limits(:,1));
+            obj.casadi_optimizer.set_value(obj.CoM_max, CoM_limits(:,2));
+            obj.casadi_optimizer.set_value(obj.CoM_min, CoM_limits(:,1));
             obj.casadi_optimizer.set_value(obj.CoM_vel_max, CoM_vel_limits(:,2));
             obj.casadi_optimizer.set_value(obj.CoM_vel_min, CoM_vel_limits(:,1));
             obj.casadi_optimizer.set_value(obj.epsilon_CoM, epsilon_CoM);
