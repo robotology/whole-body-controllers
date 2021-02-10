@@ -1,3 +1,6 @@
+% This function output the support polygon depending on the current contact
+% status
+
 function CoM_limits = SupportPolygonWRTContactStatusFCN(contactStatus,Config)
 CoM_limits = Config.CoM_limit_double;
 

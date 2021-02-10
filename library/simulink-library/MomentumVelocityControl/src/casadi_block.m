@@ -1,8 +1,5 @@
 classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
-    % untitled Add summary here
-    %
-    % This template includes the minimum set of functions required
-    % to define a System object with discrete state.
+    % Casadi Implementation of the Momentum Based Velocity COntrol. 
     
     properties
         % Public, tunable properties.
@@ -13,23 +10,22 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
     end
     
     properties (Access = private)
-        % Pre-computed constants.
-        casadi_optimizer
-        M
-        h
-        Jc
-        Jcmm
-        nu_k
-        C_friction
-        b_friction
-        s_dot_star
-        H_star
-        tau_k
-        s_dot_k_1
-        v_b_k_1
-        f_k
-        Jc_dot_nu
-        sol
+       casadi_optimizer;
+        M;
+        h;
+        Jc;
+        Jcmm;
+        nu_k;
+        C_friction;
+        b_friction;
+        s_dot_star;
+        H_star;
+        tau_k;
+        s_dot_k_1;
+        v_b_k_1;
+        f_k;
+        Jc_dot_nu;
+        sol;
         tau_meas;
         f_meas;
         solver_fails_counter;
@@ -95,7 +91,8 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             dt31 = 'double';
         end
         function [sz1,sz2,sz3,sz4] = getOutputSizeImpl(obj)
-            size_temp = propagatedInputSize(obj,1);%[6,1];
+            % Hack for avoiding hard coding the DoF of the Robot 
+            size_temp = propagatedInputSize(obj,1);
             sz1 = [6,1];
             sz2 = [size_temp(1)-6,1];
             sz3 = [size_temp(1)-6,1];
