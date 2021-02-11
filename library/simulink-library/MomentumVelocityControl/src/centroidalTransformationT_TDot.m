@@ -24,11 +24,11 @@ T       = [X,Js;
 dr      = dxCoM - dx_b;
 mdr     = M(1,1)*dr;
 
-dX      = [zeros(3),skewm(dr)';
+dX      = [zeros(3),wbc.skew(dr)';
            zeros(3),zeros(3)];
 
-dMb     = [zeros(3),skewm(mdr)';
-           skewm(mdr),zeros(3)];
+dMb     = [zeros(3),wbc.skew(mdr)';
+           wbc.skew(mdr),zeros(3)];
 
 inv_dMb = -Mb\dMb/Mb;
 

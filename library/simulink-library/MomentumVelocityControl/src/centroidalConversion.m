@@ -41,4 +41,3 @@ centroidalDyn.nu                          = nu_c;
 centroidalDyn.Jc                          = Jc_c;
 
 end
-
