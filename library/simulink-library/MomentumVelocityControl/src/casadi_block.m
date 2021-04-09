@@ -38,12 +38,14 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
         CoM_min;
         CoM_vel_max;
         CoM_vel_min;
-        
+        ActivateComHeightConstraint; 
+        CoM_Z_reference_velocity; 
+        feet_correction; 
     end
     
     methods (Access = protected)
         function num = getNumInputsImpl(~)
-            num = 31;
+            num = 34;
         end
         function num = getNumOutputsImpl(~)
             num = 4;
@@ -57,7 +59,7 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
         end
         
         function [dt1,dt2,dt3,dt4,dt5,dt6,dt7,dt8,dt9,dt10,dt11,dt12,dt13,dt14,dt15,dt16,dt17,dt18,dt19,dt20,dt21,dt22,dt23,dt24, ...
-                dt25,dt26,dt27,dt28,dt29,dt30,dt31] = getInputDataTypeImpl(~)
+                dt25,dt26,dt27,dt28,dt29,dt30,dt31,dt32,dt33,dt34] = getInputDataTypeImpl(~)
             dt1 = 'double';
             dt2 = 'double';
             dt3 = 'double';
@@ -89,6 +91,9 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             dt29 = 'double';
             dt30 = 'double';
             dt31 = 'double';
+            dt32 = 'double';
+            dt33 = 'double';
+            dt34 = 'double';
         end
         function [sz1,sz2,sz3,sz4] = getOutputSizeImpl(obj)
             % Hack for avoiding hard coding the DoF of the Robot 
@@ -99,7 +104,7 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             sz4 = [12,1];
         end
         function [sz1,sz2,sz3,sz4,sz5,sz6,sz7,sz8,sz9,sz10,sz11,sz12,sz13,sz14,sz15,sz16, sz17,sz18,sz19,sz20,sz21,sz22, ...
-                sz23,sz24,sz25,sz26,sz27,sz28,sz29,sz30,sz31] = getInputSizeImpl(~)
+                sz23,sz24,sz25,sz26,sz27,sz28,sz29,sz30,sz31,sz32,sz33,sz34] = getInputSizeImpl(~)
             sz1 = [1,1];
             sz2 = [1,1];
             sz3 = [1,1];
@@ -131,10 +136,13 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             sz29 = [1,1];
             sz30 = [1,1];
             sz31 = [1,1];
+            sz32 = [1,1];
+            sz33 = [1,1];
+            sz34 = [1,1];
             
         end
         function [cp1,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,cp10,cp11,cp12,cp13, cp14, cp15,cp16, cp17,cp18,cp19,cp20,cp21,...
-                cp22,cp23,cp24,cp25,cp26,cp27,cp28,cp29,cp30,cp31] = isInputComplexImpl(~)
+                cp22,cp23,cp24,cp25,cp26,cp27,cp28,cp29,cp30,cp31,cp32,cp33,cp34] = isInputComplexImpl(~)
             cp1 = false;
             cp2 = false;
             cp3 = false;
@@ -166,6 +174,9 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             cp29 = false;
             cp30 = false;
             cp31 = false;
+            cp32 = false;
+            cp33 = false;
+            cp34 = false;
         end
         function [cp1,cp2,cp3,cp4] = isOutputComplexImpl(~)
             cp1 = false;
@@ -174,7 +185,7 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             cp4 = false;
         end
         function [fz1,fz2,fz3,fz4,fz5,fz6,fz7,fz8,fz9,fz10, fz11,fz12,fz13,fz14,fz15,fz16, fz17,fz18,fz19,fz20,fz21, ...
-                fz22,fz23,fz24,fz25,fz26,fz27,fz28,fz29,fz30,fz31] = isInputFixedSizeImpl(~)
+                fz22,fz23,fz24,fz25,fz26,fz27,fz28,fz29,fz30,fz31,fz32,fz33,fz34] = isInputFixedSizeImpl(~)
             fz1 = true;
             fz2 = true;
             fz3 = true;
@@ -206,6 +217,9 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             fz29 = true;
             fz30 = true;
             fz31 = true;
+            fz32 = true;
+            fz33 = true;
+            fz34 = true;
         end
         function [fz1,fz2,fz3,fz4] = isOutputFixedSizeImpl(~)
             fz1 = true;
@@ -214,25 +228,19 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             fz4 = true;
         end
         function setupImpl(obj,M,h,Jc,Jcmm,nu_k,Jc_dot_nu,C_friction,b_friction,H_star,s_dot_star,tau_meas, contact_status, f_meas, x_com, J_com, w_H_b,...
-                s,CoM_measured,ADD_FRICTION, K_viscous_friction, T, Gamma, baseVelocitySat, jointsVelocitySat, torqueSat, wrenchesSat, tStep, NDOF, epsilon_CoM, CoM_limits,CoM_vel_limits)
+                s,CoM_measured,ADD_FRICTION, K_viscous_friction, T, Gamma, baseVelocitySat, jointsVelocitySat, torqueSat, wrenchesSat, tStep, NDOF, epsilon_CoM, CoM_limits,CoM_vel_limits, activateCoMHeightTask, CoMZReferenceVelocity, correctionFeet)
             
             NDOF = size(K_viscous_friction,1);
-            import casadi.*
-            obj.casadi_optimizer = casadi.Opti();
             obj.solver_fails_counter = 0;
-            
-            % Setting the solver for the optimization problem
-            options = struct;
-            options.qpsol = 'qpoases';
-            options.print_header = false;
-            options.qpsol_options.print_problem = false;
-            options.qpsol_options.print_problem = false;
-            options.qpsol_options.print_time = false;
-            options.qpsol_options.sparse = true;
-            options.print_status = false;
-            options.qpsol_options.error_on_fail= false;
-            obj.casadi_optimizer.solver('sqpmethod', options);
-            
+            import casadi.*
+            obj.solver_fails_counter = 0;
+            optimization_type = 'conic';
+            solver = 'osqp';
+            p_opts = struct('expand',true);
+            s_opts = struct();
+
+            obj.casadi_optimizer = casadi.Opti(optimization_type);
+            obj.casadi_optimizer.solver(solver, p_opts, s_opts);      
             
             %Definition of the decision variables
             obj.tau_k = obj.casadi_optimizer.variable(NDOF);
@@ -263,7 +271,9 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             obj.CoM_vel_max = obj.casadi_optimizer.parameter(2);
             obj.CoM_vel_min = obj.casadi_optimizer.parameter(2);
             obj.epsilon_CoM = obj.casadi_optimizer.parameter(2);
-            
+            obj.ActivateComHeightConstraint = obj.casadi_optimizer.parameter(1); 
+            obj.CoM_Z_reference_velocity = obj.casadi_optimizer.parameter(1); 
+            obj.feet_correction = obj.casadi_optimizer.parameter(12); 
             
             %Weigth
             Weigth.PosturalTask    = 10;
@@ -281,29 +291,40 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             % Setting the objective function
             obj.casadi_optimizer.minimize(Weigth.RegTorques*sumsqr(obj.tau_k - obj.tau_meas)+                     ... % Torque Regularization
                 Weigth.RegVelocities*sumsqr(nu_k_1(1:6))+                               ... % Velocity Regularization
-                Weigth.PosturalTask*sumsqr(obj.s_dot_k_1-obj.s_dot_star)+               ...Postural Task
-                Weigth.MomentumAngular*sumsqr(obj.H_star(4:6)-obj.Jcmm(4:6,:)*nu_k_1)); ... % Angular Momentum
+                Weigth.PosturalTask*sumsqr(obj.s_dot_k_1-obj.s_dot_star));            ...Postural Task
+               %Weigth.MomentumAngular*sumsqr(obj.H_star(4:6)-obj.Jcmm(4:6,:)*nu_k_1)); ... % Angular Momentum
                 %Weigth.MomentumLinear*sumsqr(obj.H_star(1:3)-obj.Jcmm(1:3,:)*nu_k_1));  ... % Linear Momentum
-            
+%             
+%              obj.casadi_optimizer.minimize(Weigth.RegVelocities*sumsqr(nu_k_1(1:6))+ ... % Velocity Regularization
+%                 Weigth.PosturalTask*sumsqr(obj.s_dot_k_1-obj.s_dot_star));            ...Postural Task
+%                %Weigth.MomentumAngular*sumsqr(obj.H_star(4:6)-obj.Jcmm(4:6,:)*nu_k_1)); ... % Angular Momentum
+%                 %Weigth.MomentumLinear*sumsqr(obj.H_star(1:3)-obj.Jcmm(1:3,:)*nu_k_1));  ... % Linear Momentum
             
             % Setting Constraint
             % Dynamics
             obj.casadi_optimizer.subject_to((obj.M/obj.t_step + obj.K_friction)*(nu_k_1)-(obj.M*obj.nu_k)/obj.t_step+obj.h== B*obj.tau_k +obj.Jc'*obj.f_k);
             % Holonomic Constraint
             % acceleration-wise
-            % obj.casadi_optimizer.subject_to(obj.Jc*(nu_k_1-obj.nu_k)/tStep==-obj.Jc_dot_nu);
+            %obj.casadi_optimizer.subject_to(obj.Jc*(nu_k_1-obj.nu_k)/tStep==-obj.Jc_dot_nu);
             % velocity-wise
-            obj.casadi_optimizer.subject_to(obj.Jc*(nu_k_1)==zeros(12,1));
+            obj.casadi_optimizer.subject_to(obj.Jc*(nu_k_1)==obj.feet_correction);
             % Friction Cones
             obj.casadi_optimizer.subject_to(obj.C_friction*obj.f_k<obj.b_friction);
             % Angular Momentum
-            %obj.casadi_optimizer.subject_to(obj.H_star(4:6,:)==obj.Jcmm(4:6,:)*nu_k_1);
+            obj.casadi_optimizer.subject_to(obj.H_star(4:6,:)==obj.Jcmm(4:6,:)*nu_k_1);
             
             % Constraint on the CoM Velocity
-            obj.casadi_optimizer.subject_to(obj.Jcmm(1,:)*nu_k_1<(tanh(obj.epsilon_CoM*(obj.CoM_max(1)-obj.CoM_measured(1)))*obj.CoM_vel_max(1)));
-            obj.casadi_optimizer.subject_to(obj.Jcmm(1,:)*nu_k_1>(tanh(obj.epsilon_CoM*(obj.CoM_measured(1)-obj.CoM_min(1)))*obj.CoM_vel_min(1)));
-            obj.casadi_optimizer.subject_to(obj.Jcmm(2,:)*nu_k_1<(tanh(obj.epsilon_CoM*(obj.CoM_max(2)-obj.CoM_measured(2)))*obj.CoM_vel_max(2)));
-            obj.casadi_optimizer.subject_to(obj.Jcmm(2,:)*nu_k_1>(tanh(obj.epsilon_CoM*(obj.CoM_measured(2)-obj.CoM_min(2)))*obj.CoM_vel_min(2)));
+%             obj.casadi_optimizer.subject_to(obj.Jcmm(1,:)*nu_k_1<(tanh(obj.epsilon_CoM*(obj.CoM_max(1)-obj.CoM_measured(1)))*obj.CoM_vel_max(1)));
+%             obj.casadi_optimizer.subject_to(obj.Jcmm(1,:)*nu_k_1>(tanh(obj.epsilon_CoM*(obj.CoM_measured(1)-obj.CoM_min(1)))*obj.CoM_vel_min(1)));
+%             obj.casadi_optimizer.subject_to(obj.Jcmm(2,:)*nu_k_1<(tanh(obj.epsilon_CoM*(obj.CoM_max(2)-obj.CoM_measured(2)))*obj.CoM_vel_max(2)));
+%             obj.casadi_optimizer.subject_to(obj.Jcmm(2,:)*nu_k_1>(tanh(obj.epsilon_CoM*(obj.CoM_measured(2)-obj.CoM_min(2)))*obj.CoM_vel_min(2)));
+%             
+%             
+            % Constraint the COM velocity on the z axis 
+            %obj.casadi_optimizer.subject_to(obj.ActivateComHeightConstraint*obj.Jcmm(3,:)*nu_k_1 == obj.ActivateComHeightConstraint*obj.M(1,1)*obj.CoM_Z_reference_velocity); 
+            % Constraint on angular momentum for having 0 angular momentum
+            % during flying phase 
+            % obj.casadi_optimizer.subject_to(obj.H_star(4:6)==obj.Jcmm(4:6,:)*nu_k_1);
             
             %THE BOUND FOR NOW ARE DE-ACTIVATED
             % Setting upper and lower bound
@@ -317,7 +338,7 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
         end
         
         function [v_b_star,s_dot_k_1_star,tau_star,f_star] = stepImpl(obj,M,h,Jc,Jcmm,nu_k,Jc_dot_nu,C_friction,b_friction,H_star,s_dot_star,tau_meas, contact_status, f_meas, x_com, J_com, w_H_b,...
-                s,CoM_measured,ADD_FRICTION, K_viscous_friction, T, Gamma, baseVelocitySat, jointsVelocitySat, torqueSat, wrenchesSat, tStep, NDOF,epsilon_CoM, CoM_limits,CoM_vel_limits)
+                s,CoM_measured,ADD_FRICTION, K_viscous_friction, T, Gamma, baseVelocitySat, jointsVelocitySat, torqueSat, wrenchesSat, tStep, NDOF,epsilon_CoM, CoM_limits,CoM_vel_limits, activateCoMHeightTask, CoMZReferenceVelocity, correctionFeet)
             solver_succeded = true;
             
             % Compute Centroidayl Dynamics
@@ -368,6 +389,9 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             obj.casadi_optimizer.set_value(obj.CoM_vel_max, CoM_vel_limits(:,2));
             obj.casadi_optimizer.set_value(obj.CoM_vel_min, CoM_vel_limits(:,1));
             obj.casadi_optimizer.set_value(obj.epsilon_CoM, epsilon_CoM);
+            obj.casadi_optimizer.set_value(obj.ActivateComHeightConstraint,activateCoMHeightTask); 
+            obj.casadi_optimizer.set_value(obj.CoM_Z_reference_velocity, CoMZReferenceVelocity); 
+            obj.casadi_optimizer.set_value(obj.feet_correction, correctionFeet); 
             
             % Computing the solution
             try
