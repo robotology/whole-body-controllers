@@ -291,11 +291,11 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             obj.SaturationMinJoints = obj.casadi_optimizer.parameter(NDOF);
             
             %Weigth
-            Weigth.PosturalTask    = 10;
+            Weigth.PosturalTask    = 100;
             Weigth.MomentumLinear  = 2.0;
             Weigth.MomentumAngular = 30.00;
             Weigth.RegTorques      = 0.001;
-            Weigth.RegVelocities   = (0.01)/10;
+            Weigth.RegVelocities   = 10;
             Weigth.Wrenches        = 0.01;
             Weigth.HolonomicConstraint = 0.0001;
             % Selector Matrix
@@ -417,8 +417,7 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
                 v_b_star = full(obj.sol.value(obj.v_b_k_1));
                 s_dot_k_1_star = full(obj.sol.value(obj.s_dot_k_1));
                 tau_star = full(obj.sol.value(obj.tau_k));
-                %                 f_star = full(obj.sol.value(obj.f_k));
-                f_star = zeros(12,1);
+                f_star = full(obj.sol.value(obj.f_k));
                 obj.casadi_optimizer.set_initial(obj.casadi_optimizer.x, obj.sol.value(obj.casadi_optimizer.x));
             catch exception
                 try
