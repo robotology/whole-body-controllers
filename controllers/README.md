@@ -7,6 +7,7 @@ Simulink controllers for humanoid robots.
 - **fixed-base-joints-torque-control** [[README]](fixed-base-joints-torque-control/README.md)
 - **floating-base-balancing-position-control** [[README]](floating-base-balancing-position-control/README.md)
 - **floating-base-balancing-torque-control** [[README]](floating-base-balancing-torque-control/README.md)
+- **floating-base-jerk-control** [[README]](floating-base-jerk-control/README.md)
 - **simulink-balancing-simulator** [[README]](simulink-balancing-simulator/README.md)
 
 ## Plotting Utilities

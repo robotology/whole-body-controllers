@@ -85,6 +85,7 @@ Please refer to the [WBToolbox troubleshooting documentation](https://robotology
 - [fixed-base-joints-torque-control](controllers/fixed-base-joints-torque-control/README.md)
 - [floating-base-balancing-position-control](controllers/floating-base-balancing-position-control/README.md)
 - [floating-base-balancing-torque-control](controllers/floating-base-balancing-torque-control/README.md)
+- [floating-base-jerk-control](controllers/floating-base-jerk-control/README.md)
 - [simulink-balancing-simulator](controllers/simulink-balancing-simulator/README.md)
 
 ### Matlab functions library
