@@ -1,0 +1,1 @@
+register_mdl(MODELNAME "torqueControlBalancing")
