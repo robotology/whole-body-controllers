@@ -38,7 +38,8 @@ addpath('./src/')
 Config.SIMULATION_TIME = 600000;
 
 % Controller period [s]
-Config.tStep           = 0.01;
+Config.tStep           = 0.01;  % 10 ms
+Config.tStepSim        = 0.001; %  1 ms
 
 %% PRELIMINARY CONFIGURATION
 %
@@ -68,9 +69,11 @@ Config.CHECK_INTEGRATION_TIME = true;
 Config.PLOT_INTEGRATION_TIME  = false;
 
 % Run robot-specific configuration parameters
-run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m')); 
-run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configStateMachine.m')); 
-run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/gainsAndReferences.m')); 
+run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m'));
+run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configStateMachine.m'));
+run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/gainsAndReferences.m'));
+run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobotSim.m'));
+run('initVisualizer');
 
 % Deactivate/activate the internal coordinator
 if strcmpi(DEMO_TYPE, 'COORDINATOR')
