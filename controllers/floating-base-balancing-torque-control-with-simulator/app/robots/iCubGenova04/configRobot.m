@@ -31,6 +31,9 @@ for n = 1:length(WBTConfigRobot.ControlBoardsNames)
     Config.numOfJointsForEachControlboard = [Config.numOfJointsForEachControlboard; length(ControlBoards.(WBTConfigRobot.ControlBoardsNames{n}))];
 end
 
+% Total degrees of freedom
+Config.N_DOF = numel(WBTConfigRobot.ControlledJoints);
+
 % Frames list
 Frames.BASE       = 'root_link'; 
 Frames.IMU        = 'imu_frame';
