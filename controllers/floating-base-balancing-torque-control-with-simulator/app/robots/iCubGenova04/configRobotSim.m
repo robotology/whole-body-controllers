@@ -16,7 +16,7 @@ WBTConfigRobotSim.LocalName = 'WBT';
 WBTConfigRobotSim.GravityVector = physics_config.GRAVITY_ACC;
 
 % Controlboards and joints list. Each joint is associated to the corresponding controlboard
-WBTConfigRobotSim.ControlBoardsNames = {'torso','left_arm','right_arm','left_leg','right_leg','head'};
+WBTConfigRobotSim.ControlBoardsNames = {'torso','left_arm','right_arm','left_leg','right_leg'}; %,'head'};
 WBTConfigRobotSim.ControlledJoints = [];
 numOfJointsForEachControlboard = [];
 
@@ -26,7 +26,7 @@ ControlBoards.(WBTConfigRobotSim.ControlBoardsNames{2}) = {'l_shoulder_pitch','l
 ControlBoards.(WBTConfigRobotSim.ControlBoardsNames{3}) = {'r_shoulder_pitch','r_shoulder_roll','r_shoulder_yaw','r_elbow'};
 ControlBoards.(WBTConfigRobotSim.ControlBoardsNames{4}) = {'l_hip_pitch','l_hip_roll','l_hip_yaw','l_knee','l_ankle_pitch','l_ankle_roll'};
 ControlBoards.(WBTConfigRobotSim.ControlBoardsNames{5}) = {'r_hip_pitch','r_hip_roll','r_hip_yaw','r_knee','r_ankle_pitch','r_ankle_roll'};
-ControlBoards.(WBTConfigRobotSim.ControlBoardsNames{6}) = {'neck_pitch','neck_roll','neck_yaw'};
+% ControlBoards.(WBTConfigRobotSim.ControlBoardsNames{6}) = {'neck_pitch','neck_roll','neck_yaw'};
 
 for n = 1:length(WBTConfigRobotSim.ControlBoardsNames)
     WBTConfigRobotSim.ControlledJoints = [WBTConfigRobotSim.ControlledJoints, ControlBoards.(WBTConfigRobotSim.ControlBoardsNames{n})];
