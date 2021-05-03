@@ -148,10 +148,13 @@ T_torso      = [ 0.5    -0.5     0;
 if INCLUDE_COUPLING
     T = blkdiag(T_torso,T_LShoulder,1,T_RShoulder,1,eye(12));
 else          
-    T = eye(ROBOT_DOF);
+    T = eye(robot_config.N_DOF);
 end
 
 motorsReflectedInertia = wbc.computeMotorsReflectedInertia(Gamma,T,I_m);
+
+KvmechMat = diag(0.5*ones(1,robot_config.N_DOF));
+jointFrictionMat = wbc.computeMotorsReflectedInertia(eye(robot_config.N_DOF),T,KvmechMat);
 
 %% size of the square you see around the robot
 visualizerAroundRobot = 1; % mt
