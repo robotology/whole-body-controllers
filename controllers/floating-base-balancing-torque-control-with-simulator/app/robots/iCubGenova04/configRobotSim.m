@@ -69,6 +69,7 @@ robot_config.initialConditions = initialConditions;
 
 % Reflected inertia
 robot_config.SIMULATE_MOTOR_REFLECTED_INERTIA = true;
+INCLUDE_COUPLING = true;
 
 % Robot frames list
 FramesSim.BASE = 'root_link';
@@ -95,7 +96,64 @@ contact_config.total_num_vertices = size(vertex,2)*2;
 % friction coefficient for the feet
 contact_config.friction_coefficient = 0.1;
 
-% size of the square you see around the robot
+%% Motors reflected inertia
+
+% transmission ratio (1/N)
+Gamma                 = 0.01*eye(ROBOT_DOF);
+
+% modify the value of the transmission ratio for the hip pitch. 
+% TODO: avoid to hard-code the joint numbering
+Gamma(end-5, end-5)   = 0.0067;
+Gamma(end-11,end-11)  = 0.0067;
+
+% motors inertia (Kg*m^2)
+legsMotors_I_m               = 0.0827*1e-4;
+torsoPitchRollMotors_I_m     = 0.0827*1e-4;
+torsoYawMotors_I_m           = 0.0585*1e-4;
+armsMotors_I_m               = 0.0585*1e-4;
+
+% add harmonic drives reflected inertia
+legsMotors_I_m           = legsMotors_I_m + 0.054*1e-4;
+torsoPitchRollMotors_I_m = torsoPitchRollMotors_I_m + 0.054*1e-4;
+torsoYawMotors_I_m       = torsoYawMotors_I_m + 0.021*1e-4;
+armsMotors_I_m           = armsMotors_I_m + 0.021*1e-4;
+ 
+I_m                   = diag([torsoPitchRollMotors_I_m*ones(2,1);
+                                     torsoYawMotors_I_m;
+                                     armsMotors_I_m*ones(8,1);
+                                     legsMotors_I_m*ones(12,1)]);
+
+% parameters for coupling matrices. Updated according to the wiki:
+%
+% http://wiki.icub.org/wiki/ICub_coupled_joints 
+%
+% and corrected according to https://github.com/robotology/robots-configuration/issues/39
+t            = 0.615;
+r            = 0.022;
+R            = 0.04;
+
+% coupling matrices
+T_LShoulder  = [-1  0  0;
+                -1 -t  0;
+                 0  t -t];
+
+T_RShoulder  = [ 1  0  0;
+                 1  t  0;
+                 0 -t  t];
+
+T_torso      = [ 0.5    -0.5     0;
+                 0.5     0.5     0;
+                 r/(2*R) r/(2*R) r/R];
+       
+if INCLUDE_COUPLING
+    T = blkdiag(T_torso,T_LShoulder,1,T_RShoulder,1,eye(12));
+else          
+    T = eye(ROBOT_DOF);
+end
+
+motorsReflectedInertia = wbc.computeMotorsReflectedInertia(Gamma,T,I_m);
+
+%% size of the square you see around the robot
 visualizerAroundRobot = 1; % mt
 
 clear ControlBoards numOfJointsForEachControlboard FramesSim initialConditions vertex
