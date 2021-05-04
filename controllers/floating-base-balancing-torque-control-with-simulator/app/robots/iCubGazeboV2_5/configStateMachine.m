@@ -48,7 +48,7 @@ StateMachine.joints_thresholdInContact    = 50;
 StateMachine.initialState                 = 1;
 
 % other configuration parameters for state machine
-StateMachine.tBalancing                   = 1;
+StateMachine.tBalancing                   = 1000;
 StateMachine.tBalancingBeforeYoga         = 1;
 StateMachine.yogaExtended                 = true;
 StateMachine.skipYoga                     = false;

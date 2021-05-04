@@ -9,7 +9,7 @@ confVisualizer.visualizeRobot = true;
 confVisualizer.aroundRobot = 1; % [m]
 
 % refresh rate of the picure
-confVisualizer.tStep = 0.040; % here equal to the time step used in the simulink model
+confVisualizer.tStep = 0.010; % here equal to the time step used in the simulink model
 
 
 %% Parameters copied from robot_config
