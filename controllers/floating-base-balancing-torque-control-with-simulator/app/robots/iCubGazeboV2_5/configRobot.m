@@ -45,7 +45,7 @@ Frames.COM        = 'com';
 % Config.SATURATE_TORQUE_DERIVATIVE: if true, the derivative of the control
 % input is saturated. In this way, it is possible to reduce high frequency
 % oscillations and discontinuities in the control input.
-Config.SATURATE_TORQUE_DERIVATIVE         = false;
+Config.SATURATE_TORQUE_DERIVATIVE         = true;
 
 % if TRUE, the controller will STOP if the joints hit the joints limits
 % and/or if the (unsigned) difference between two consecutive joints
