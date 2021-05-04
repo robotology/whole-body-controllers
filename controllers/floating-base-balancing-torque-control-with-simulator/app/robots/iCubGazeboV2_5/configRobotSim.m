@@ -166,8 +166,8 @@ jointDefaultOrder = {...
 KvmechMappingTorso = 0.2*ones(3,1);
 KvmechMappingLeftArm = 0.2*ones(4,1);
 KvmechMappingRightArm = 0.2*ones(4,1);
-KvmechMappingLeftLeg = [0.2 0.2 0.2 0.2 0.2 0.2];
-KvmechMappingRightLeg = [0.2 0.2 0.2 0.2 0.2 0.2];
+KvmechMappingLeftLeg = [0.2 0.2 0.2 0.2 0.6 0.6]';
+KvmechMappingRightLeg = [0.2 0.2 0.2 0.2 0.6 0.6]';
 
 KvmechMapping = containers.Map(...
     jointDefaultOrder, ...
