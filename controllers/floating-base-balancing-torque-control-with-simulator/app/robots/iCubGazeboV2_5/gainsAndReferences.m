@@ -18,6 +18,8 @@ Gain.KP_CoM = [50  50  10   % state ==  1  TWO FEET BALANCING
                50  50  10   % state == 12  LOOKING FOR CONTACT
                50  50  10]; % state == 13  TRANSITION TO INITIAL POSITION
 
+% The KD gain is usually lowered w.r.t. the critical damping value for compensating the velocity
+% measurement noise on the real robot and on gazebo.
 Gain.KD_CoM = 2*sqrt(Gain.KP_CoM)/20;
 
 % Angular momentum gains
@@ -93,18 +95,18 @@ StateMachine.scaleFactorSmoothingTime = 0.9;
 % To be summed to the reference CoM position
 StateMachine.CoM_delta  = [% THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE LEFT FOOT
                            0.0,  0.00,  0.0;   %% NOT USED
-                           0.0,  0.00,  0.0;   %% state ==  2  COM TRANSITION TO LEFT FOOT
-                           0.0,  0.00,  0.0;   %% state ==  3  LEFT FOOT BALANCING 
-                           0.0,  0.005, 0.0;   %% state ==  4  YOGA LEFT FOOT
-                           0.0,  0.00,  0.0;   %% state ==  5  PREPARING FOR SWITCHING
-                           0.0, -0.09,  0.0;   %% state ==  6  LOOKING FOR CONTACT 
-                           0.0,  0.00,  0.0;   %% state ==  7  TWO FEET BALANCING
+                           0.0,  0.00, -0.10;  %% state ==  2  COM TRANSITION TO LEFT FOOT
+                           0.0,  0.00, -0.10;  %% state ==  3  LEFT FOOT BALANCING 
+                           0.0,  0.005,-0.10;  %% state ==  4  YOGA LEFT FOOT
+                           0.0,  0.00, -0.10;  %% state ==  5  PREPARING FOR SWITCHING
+                           0.0, -0.09, -0.10;  %% state ==  6  LOOKING FOR CONTACT 
+                           0.0,  0.00, -0.10;  %% state ==  7  TWO FEET BALANCING
                            % THIS REFERENCE IS USED AS A DELTA W.R.T. THE POSITION OF THE RIGHT FOOT
-                           0.0,  0.00,  0.0;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
-                           0.0,  0.00,  0.0;   %% state ==  9  RIGHT FOOT BALANCING 
-                           0.0, -0.005, 0.0;   %% state == 10  YOGA RIGHT FOOT
-                           0.0,  0.00,  0.0;   %% state == 11  PREPARING FOR SWITCHING
-                           0.0,  0.09,  0.0;   %% state == 12  LOOKING FOR CONTACT 
+                           0.0,  0.00, -0.10;  %% state ==  8  COM TRANSITION TO RIGHT FOOT
+                           0.0,  0.00, -0.10;  %% state ==  9  RIGHT FOOT BALANCING 
+                           0.0, -0.005,-0.10;  %% state == 10  YOGA RIGHT FOOT
+                           0.0,  0.00, -0.10;  %% state == 11  PREPARING FOR SWITCHING
+                           0.0,  0.09, -0.10;  %% state == 12  LOOKING FOR CONTACT 
                            0.0,  0.00,  0.0];  %% NOT USED
 
 %% Joint references

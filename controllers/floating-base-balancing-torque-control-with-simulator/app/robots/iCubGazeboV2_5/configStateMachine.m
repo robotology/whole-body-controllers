@@ -23,11 +23,11 @@ Sat.uDotMax                 = 300;
 Sat.maxJointsPositionDelta  = 15*pi/180; % [rad] 
 
 %% Regularization parameters
-Reg.pinvDamp_baseVel        = 1e-7;
-Reg.pinvDamp                = 1; 
-Reg.pinvTol                 = 1e-5;
-Reg.KP_postural             = 0.1;
-Reg.KD_postural             = 0;
+Reg.pinvDamp_baseVel        = 1e-7; % For the base velocity estmation.
+Reg.pinvDamp                = 1; % Used in the null space calculation. The higher the value and the more coupled the postural task is with the momentum control.
+Reg.pinvTol                 = 1e-5; % Related to the pseudo-inverse computation for the momentum control before the QP.
+Reg.KP_postural             = 0.1;  % Not the actual postural gains.
+Reg.KD_postural             = 0;    % Not the actual postural gains.
 Reg.HessianQP               = 1e-7;    
 
 %% State Machine configuration
