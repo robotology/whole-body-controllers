@@ -69,6 +69,12 @@ Config.CHECK_INTEGRATION_TIME = true;
 Config.PLOT_INTEGRATION_TIME  = false;
 
 % Run robot-specific configuration parameters
+supportedMmodels = {'iCubGazeboV2_5'};
+switch(getenv('YARP_ROBOT_NAME'))
+    case 'iCubGazeboV2_5'
+    otherwise
+        error(['Unsupported robot model. Supported models are listed below:',repmat('\n- %s',[1 numel(supportedMmodels)])],supportedMmodels{:});
+end
 run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m'));
 run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configStateMachine.m'));
 run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/gainsAndReferences.m'));
