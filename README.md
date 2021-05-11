@@ -11,7 +11,7 @@
 
 The repository contains `Simulink-based whole-body controllers` developed to control the [iCub](http://www.icub.org/) humanoid robot. It can be imagined as a **starting point** and a **support** repository for a user that intends to develop a new Simulink controller (not necessarily for the iCub robot) in within the framework of the [robotology](https://github.com/robotology) organization. It is worth noting that:
 
-- The controllers stored in this repository are an **overview** of the possibile control frameworks that can be implemented using the `robotology` software infrastructure. Also, the repository contains a [library](library/README.md) of configuration and utility Matlab functions to design simulations with [Gazebo](http://gazebosim.org/) simulator and on the real robot iCub. 
+- The controllers stored in this repository are an **overview** of the possibile control frameworks that can be implemented using the `robotology` software infrastructure. Also, the repository contains a [library](library/README.md) of configuration and utility Matlab functions to design simulations with [Gazebo](http://gazebosim.org/) simulator and on the real robot iCub. With the dependency [matlab-whole-body-simulator](https://github.com/dic-iit/matlab-whole-body-simulator) installed, you can also design simulations with a full MATLAB/Simulink simulator and robot visualizer, accessible through the Simulink Library Browser entry `Matlab Whole-body Simulator` (refer to this [README](controllers/floating-base-balancing-torque-control-with-simulator/README.md)).
 
 - The robot dynamics and kinematics is computed run-time by means of [WBToolbox](https://github.com/robotology/wb-toolbox), a Simulink library that wraps [iDyntree](https://github.com/robotology/idyntree). For more information on iDyntree library, see also this [README](https://github.com/robotology/idyntree/blob/master/README.md). 
 
@@ -24,6 +24,7 @@ This repository depends upon the following Software:
 - [CMake](https://cmake.org/), at least version **3.5**.
 - [Matlab/Simulink](https://it.mathworks.com/products/matlab.html), default version **R2019b**.
 - [WB-Toolbox](https://github.com/robotology/WB-Toolbox) and [blockfactory](https://github.com/robotology/blockfactory).
+- [matlab-whole-body-simulator](https://github.com/dic-iit/matlab-whole-body-simulator), at least version **2.0.0**.
 - [Gazebo Simulator](http://gazebosim.org/), default version **9.0**.
 - [gazebo-yarp-plugins](https://github.com/robotology/gazebo-yarp-plugins).
 - [icub-gazebo](https://github.com/robotology/icub-gazebo), [icub-gazebo-wholebody](https://github.com/robotology-playground/icub-gazebo-wholebody) and [icub-models](https://github.com/robotology/icub-models) to access iCub models.
@@ -34,7 +35,7 @@ This repository depends upon the following Software:
 
 The repository is usually tested and developed on **Ubuntu** and **macOS** operating systems. Some functionalities may not work properly on **Windows**.
 
-- It is suggested to install `whole-body-controllers` and most of its dependencies (namely, `YARP`, `icub-main`, `whole-body-estimators`,`icub-gazebo`,`icub-gazebo-wholebody`, `icub-models`, `gazebo-yarp-plugins`, `blockfactory` and `WB-Toolbox` and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_ENABLE_DYNAMICS` option). **Warning**: the superbuild can download and compile the repository also without having Matlab, Simulink and Gazebo installed in the PC, but the functionalities of the repo will be considerably reduced! To access all the features of the repo, install all the [dependencies](https://github.com/robotology/whole-body-controllers/blob/master/README.md#dependencies). Also, in the superbuild you have to enable the `ROBOTOLOGY_USES_GAZEBO` and `ROBOTOLOGY_USES_MATLAB` options.
+- It is suggested to install `whole-body-controllers` and most of its dependencies (namely, `YARP`, `icub-main`, `whole-body-estimators`,`icub-gazebo`,`icub-gazebo-wholebody`, `icub-models`, `gazebo-yarp-plugins`, `matlab-whole-body-simulator`, `blockfactory` and `WB-Toolbox` and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_ENABLE_DYNAMICS` option). **Warning**: the superbuild can download and compile the repository also without having Matlab, Simulink and Gazebo installed in the PC, but the functionalities of the repo will be considerably reduced! To access all the features of the repo, install all the [dependencies](https://github.com/robotology/whole-body-controllers/blob/master/README.md#dependencies). Also, in the superbuild you have to enable the `ROBOTOLOGY_USES_GAZEBO` and `ROBOTOLOGY_USES_MATLAB` options.
 
 - Otherwise, after installing all the dependencies, **clone the repository** on your pc by running on a terminal `git clone https://github.com/robotology/whole-body-controllers`, or download the repository. Then (on Ubuntu), open a terminal from the folder where you downloaded whole-body-controllers and run:
    
@@ -54,14 +55,16 @@ The repository is usually tested and developed on **Ubuntu** and **macOS** opera
   | iCubGazeboV2_5|[model.urdf](https://github.com/robotology/icub-models/blob/master/iCub/robots/iCubGazeboV2_5/model.urdf)|
   | icubGazeboSim |[model.urdf](https://github.com/robotology/yarp-wholebodyinterface/blob/master/app/robots/icubGazeboSim/model.urdf) |
 
-- **IMPORTANT!** to use the WBC Simulink controllers, it is **required** to add the **installed** [+wbc](library/matlab-wbc/+wbc) folder to the Matlab path. There are two possible ways to add the folder to the Matlab path:
+- **IMPORTANT!** to use the WBC Simulink controllers, it is **required** to add the **installed** `+wbc` and `+wbc/simulink` folders (copied from [+wbc](library/matlab-wbc/+wbc)) to the Matlab path. There are two possible ways to add the folder to the Matlab path:
  
-   **1a.** `manually` and `permanently` add the folder to the Matlab path;
+   **1a.** `manually` and `permanently` add the parent folder of the installed `+wbc` (`${CMAKE_INSTALL_PREFIX}/mex`), and its sub-folder `+wbc/simulink` to the Matlab path;
    
    **1b.** run **only once** the [startup_WBC.m](config/startup_WBC.m.in) script, which is installed in your `${BUILD}` folder. In this case, path is **not** permanently added to Matlab, and it is required to **always** start Matlab from the folder where your `pathdef.m` file is (usually `~/Documents/MATLAB`). To facilitate the reaching of the WBC working folder from the folder containing the `pathdef.m`, a `goToWholeBodyController.m` script can be [automatically created](config/createGoToWBC.m) in that folder. Run it to jump to the WBC folder. For further information on the installation procedure see also the [WBToolbox documentation](https://robotology.github.io/wb-toolbox/mkdocs/install/#matlab).
     **WARNING**: if the repository is installed through the `robotology-superbuild`, **DO NOT** run the `startup_WBC.m` file but instead run the [startup_robotology_superbuild](https://github.com/robotology/robotology-superbuild/blob/master/cmake/template/startup_robotology_superbuild.m.in) file that comes along with robotology-superbuild installation.
    - **Note**: to use any function inside the package [matlab-wbc/+wbc](library/matlab-wbc/+wbc), add the `wbc` prefix to the function name when the function is invoked, i.e. `[outputs] = wbc.myFunction(inputs)`. More information on packages can be found in the [Matlab documentation](https://it.mathworks.com/help/matlab/matlab_oop/scoping-classes-with-packages.html).
-   
+
+- The folder `${CMAKE_INSTALL_PREFIX}/mex` having been already added to the Matlab path, there are no other requirements for using the simulation library from `matla-whole-body-simulator`.
+
 - There are some functionalities of the repo such as the [automatic generation of c++ code from Simulink](https://github.com/robotology/whole-body-controllers#automatic-generation-of-c-code-from-simulink) that require to enable not-default cmake options. Check the available options by running `ccmake .` in your `build` directory.
 
 ## Troubleshooting
@@ -85,8 +88,8 @@ Please refer to the [WBToolbox troubleshooting documentation](https://robotology
 - [fixed-base-joints-torque-control](controllers/fixed-base-joints-torque-control/README.md)
 - [floating-base-balancing-position-control](controllers/floating-base-balancing-position-control/README.md)
 - [floating-base-balancing-torque-control](controllers/floating-base-balancing-torque-control/README.md)
+- [floating-base-balancing-torque-control-with-simulator](controllers/floating-base-balancing-torque-control-with-simulator/README.md)
 - [floating-base-jerk-control](controllers/floating-base-jerk-control/README.md)
-- [simulink-balancing-simulator](controllers/simulink-balancing-simulator/README.md)
 
 ### Matlab functions library
 
@@ -118,6 +121,9 @@ Official legacy repositories are: [mex-wholebodymodel](https://github.com/roboto
 - [walkman control](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/master/controllers/torqueBalancing-walkman) and [walkman control-matlab](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingWalkman)
 - [joint-space control and centroidal transformation](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingJointControl)
 - [stand-up control 4 contacts](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/master/controllers/torqueBalancingStandup_4Contacts)
+
+You can also find other legacy controllers/simultors in this repository **whole-body-controllers** in specific commits:
+- [simulink-balancing-simulator@c217f051](https://github.com/robotology/whole-body-controllers/tree/c217f051b16da32c8acc607182524239b3a7d8fb/controllers/simulink-balancing-simulator).
 
 ## Citing this work
 
