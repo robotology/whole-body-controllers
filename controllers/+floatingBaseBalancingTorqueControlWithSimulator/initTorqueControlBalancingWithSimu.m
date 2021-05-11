@@ -76,7 +76,9 @@ supportedMmodels = {'iCubGazeboV2_5'};
 switch(getenv('YARP_ROBOT_NAME'))
     case 'iCubGazeboV2_5'
     otherwise
-        error(['Unsupported robot model. Supported models are listed below:',repmat('\n- %s',[1 numel(supportedMmodels)])],supportedMmodels{:});
+        warning(['Unsupported robot model. Supported models are listed below:',repmat('\n- %s',[1 numel(supportedMmodels)])],supportedMmodels{:});
+        setenv('YARP_ROBOT_NAME','iCubGazeboV2_5');
+        warning('Setting the default model iCubGazeboV2_5.');
 end
 run(strcat(MODEL_PATH,'/app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m'));
 run(strcat(MODEL_PATH,'/app/robots/',getenv('YARP_ROBOT_NAME'),'/configStateMachine.m'));
