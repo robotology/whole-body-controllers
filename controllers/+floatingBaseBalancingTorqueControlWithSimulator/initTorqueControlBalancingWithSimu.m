@@ -21,8 +21,11 @@
 clearvars -except sl_synch_handles simulinkStaticGUI
 clc
 
+% Get the parent folder of the running *.mdl model
+MODEL_PATH = fileparts(which(bdroot));
+
 % Add path to local source code
-addpath('./src/')
+addpath(strcat(MODEL_PATH,'/src/'));
 
 %% GENERAL SIMULATION INFO
 %
@@ -75,10 +78,10 @@ switch(getenv('YARP_ROBOT_NAME'))
     otherwise
         error(['Unsupported robot model. Supported models are listed below:',repmat('\n- %s',[1 numel(supportedMmodels)])],supportedMmodels{:});
 end
-run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m'));
-run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configStateMachine.m'));
-run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/gainsAndReferences.m'));
-run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobotSim.m'));
+run(strcat(MODEL_PATH,'/app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m'));
+run(strcat(MODEL_PATH,'/app/robots/',getenv('YARP_ROBOT_NAME'),'/configStateMachine.m'));
+run(strcat(MODEL_PATH,'/app/robots/',getenv('YARP_ROBOT_NAME'),'/gainsAndReferences.m'));
+run(strcat(MODEL_PATH,'/app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobotSim.m'));
 run('initVisualizer');
 
 % Deactivate/activate the internal coordinator
