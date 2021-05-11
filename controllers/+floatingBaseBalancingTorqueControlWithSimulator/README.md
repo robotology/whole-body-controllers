@@ -41,15 +41,17 @@ Currently, the only supported robot model is `iCubGazeboV2_5` which has the prop
 
 ### How to run the demo
 
-You don't need any module external module running outside of Matlab. For running the simulation from the source module (for developpers wishing to perform any modification), follow the few steps below:
+You don't need any module external module running outside of Matlab.
+
+For running the simulation from the source module (for developpers wishing to perform any modification), follow the few steps below:
 1. Set the `YARP_ROBOT_NAME` environment variable to the desired model. The default and only currently supported model is `iCubGazeboV2_5`. There is no direct link with Gazebo. This model is suitable for the `matlab-whole-body-simulator` because of the modified inertia of the intermediate small and light links within the 3-DoF joints (shoulder pitch-roll-yaw, hip pitch-roll-yaw, etc), tuned for stabilising the dynamics of the simulation.
     ```
     > setenv(`YARP_ROBOT_NAME`,`iCubGazeboV2_5`)
     ```
 
-2. Verify that the target robot model is available. You can check if the controller is targeting the correct robot model by typing on a terminal:
+2. Verify that the target robot model is available. You can check if the controller is targeting the correct robot model by typing on the Matlab command line:
     ```
-    yarp resource --find model.urdf
+    system('yarp resource --find model.urdf')
     ```
 
     then, check that the path and the model name are correct.
@@ -57,6 +59,12 @@ You don't need any module external module running outside of Matlab. For running
 3. Change the working directory to the [parent folder of the controller model](./).
 4. Open the Simulink model `torqueControlBalancingWithSimu.mdl`.
 5. Run the model.
+
+For running the simulation from the installed module (e.g. in case of a user, without any experience in simulation nor control, just trying the simulator for the first time), skip steps 3. and 4. and execute instead:
+- still in Matlab, and from any location except from [whole-body-controllers/controllers](../) (for avoiding file naming collision with [this folder](./)), open the model directly from the Matlab command line:
+```
+>> floatingBaseBalancingTorqueControlWithSimulator.torqueControlBalancingWithSimu
+```
 
 ### Configuration file
 
