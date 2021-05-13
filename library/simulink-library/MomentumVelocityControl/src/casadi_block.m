@@ -45,6 +45,8 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
         JTorso;
         SaturationMinJoints;
         SaturationMaxJoints;
+        J_com; 
+        
     end
     
     methods (Access = protected)
@@ -289,15 +291,16 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             obj.JTorso= obj.casadi_optimizer.parameter(6,NDOF+6);
             obj.SaturationMaxJoints = obj.casadi_optimizer.parameter(NDOF);
             obj.SaturationMinJoints = obj.casadi_optimizer.parameter(NDOF);
+            obj.J_com = obj.casadi_optimizer.parameter(6,NDOF+6); 
             
             %Weigth
             Weigth.PosturalTask    = 100;
             Weigth.MomentumLinear  = 2.0;
             Weigth.MomentumAngular = 30.00;
             Weigth.RegTorques      = 0.001;
-            Weigth.RegVelocities   = 10;
+            Weigth.RegVelocities   = 128;
             Weigth.Wrenches        = 0.01;
-            Weigth.HolonomicConstraint = 0.0001;
+            Weigth.HolonomicConstraint = 10;
             % Selector Matrix
             
             B           = [ zeros(6,NDOF);  ...
@@ -307,8 +310,8 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             obj.casadi_optimizer.minimize(Weigth.RegTorques*sumsqr(obj.tau_k - obj.tau_meas)+             ... % Torque Regularization
                 Weigth.RegVelocities*sumsqr(nu_k_1(1:6))+                                                 ... % Base Velocity Regularization
                 Weigth.PosturalTask*sumsqr(obj.s_dot_k_1-obj.s_dot_star));                                ... % Postural Task
+                %Weigth.HolonomicConstraint*(1-obj.holonomicConstraintActivation)*sumsqr(obj.Jc*(nu_k_1)));                                     ... %HolonomicCOnstraint
                 %Weigth.Wrenches*sumsqr(obj.f_k) +                                                        ... %Wrenches
-                %Weigth.HolonomicConstraint*sumsqr(obj.Jc*(nu_k_1)));                                     ... %HolonomicCOnstraint
                 %Weigth.MomentumAngular*sumsqr(obj.H_star(4:6)-obj.Jcmm(4:6,:)*nu_k_1));                  ... % Angular Momentum
                 %Weigth.MomentumLinear*sumsqr(obj.H_star(1:3)-obj.Jcmm(1:3,:)*nu_k_1));                   ... % Linear Momentum
             
@@ -325,20 +328,20 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             obj.casadi_optimizer.subject_to(obj.C_friction*obj.f_k<obj.b_friction);
 
             %% Constraint on the CoM Velocity
-            obj.casadi_optimizer.subject_to(obj.Jcmm(1,:)*nu_k_1<(tanh(obj.epsilon_CoM*(obj.CoM_max(1)-obj.CoM_measured(1)))*obj.CoM_vel_max(1)));
-            obj.casadi_optimizer.subject_to(obj.Jcmm(1,:)*nu_k_1>(tanh(obj.epsilon_CoM*(obj.CoM_measured(1)-obj.CoM_min(1)))*obj.CoM_vel_min(1)));
-            obj.casadi_optimizer.subject_to(obj.Jcmm(2,:)*nu_k_1<(tanh(obj.epsilon_CoM*(obj.CoM_max(2)-obj.CoM_measured(2)))*obj.CoM_vel_max(2)));
-            obj.casadi_optimizer.subject_to(obj.Jcmm(2,:)*nu_k_1>(tanh(obj.epsilon_CoM*(obj.CoM_measured(2)-obj.CoM_min(2)))*obj.CoM_vel_min(2)));
+            obj.casadi_optimizer.subject_to(obj.J_com(1,:)*nu_k_1<=(tanh(obj.epsilon_CoM*(obj.CoM_max(1)-obj.CoM_measured(1)))*obj.CoM_vel_max(1)));
+            obj.casadi_optimizer.subject_to(obj.J_com(1,:)*nu_k_1>=(tanh(obj.epsilon_CoM*(obj.CoM_measured(1)-obj.CoM_min(1)))*obj.CoM_vel_min(1)));
+            obj.casadi_optimizer.subject_to(obj.J_com(2,:)*nu_k_1<=(tanh(obj.epsilon_CoM*(obj.CoM_max(2)-obj.CoM_measured(2)))*obj.CoM_vel_max(2)));
+            obj.casadi_optimizer.subject_to(obj.J_com(2,:)*nu_k_1>=(tanh(obj.epsilon_CoM*(obj.CoM_measured(2)-obj.CoM_min(2)))*obj.CoM_vel_min(2)));
             
             % Constraint the Torso velocity on the z axis
-            %obj.casadi_optimizer.subject_to(obj.ActivateComHeightConstraint*obj.Jcmm(3,:)*nu_k_1 >= obj.ActivateComHeightConstraint*obj.M(1,1)*obj.CoM_Z_reference_velocity);
+            %obj.casadi_optimizer.subject_to(obj.ActivateComHeightConstraint*obj.Jcmm(3,7:end)*nu_k_1(7:end) >= obj.ActivateComHeightConstraint*obj.M(1,1)*obj.CoM_Z_reference_velocity);
             obj.casadi_optimizer.subject_to(obj.ActivateComHeightConstraint*obj.JTorso(3,:)*nu_k_1 >= obj.ActivateComHeightConstraint*obj.CoM_Z_reference_velocity);
-            
+%             
             % Angular Momentum
             % With Control Law
             % obj.casadi_optimizer.subject_to(obj.H_star(4:6,:)==obj.Jcmm(4:6,:)*nu_k_1);
             % Setting to Zero
-            obj.casadi_optimizer.subject_to(obj.Jcmm(4:6,:)*nu_k_1 == zeros(3,1));
+            %obj.casadi_optimizer.subject_to(obj.Jcmm(4:6,:)*nu_k_1 == zeros(3,1));
             %THE BOUND FOR NOW ARE DE-ACTIVATED
             % Setting upper and lower bound
             % Lower and Upper Bound NOTE by using a casadi optimizer object, we loose the capability of interpreting the lower and
@@ -408,6 +411,7 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             obj.casadi_optimizer.set_value(obj.feet_correction, correctionFeet);
             obj.casadi_optimizer.set_value(obj.holonomicConstraintActivation, activateHolonomicConstraint);
             obj.casadi_optimizer.set_value(obj.JTorso,JTorso);
+            obj.casadi_optimizer.set_value(obj.J_com,J_com); 
 %             obj.casadi_optimizer.set_value(obj.SaturationMaxJoints,jointsVelocitySat(:,2));
 %             obj.casadi_optimizer.set_value(obj.SaturationMinJoints, jointsVelocitySat(:,1));
             

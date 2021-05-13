@@ -68,12 +68,15 @@ end
 if(~Cs_old(1) && Cs(1)) 
 w_H_l_0(1,4) = w_H_l(1,4);
 w_H_l_0(2,4) = w_H_l(2,4); 
+w_H_l_0(3,4) = z_0; 
 end
 
 % Updating only the position, we want to keep the original orientation
 if(~Cs_old(2) && Cs(2))
 w_H_r_0(1,4) = w_H_r(1,4);
-w_H_r_0(2,4) = w_H_r(2,4); 
+w_H_r_0(2,4) = w_H_r(2,4);
+w_H_r_0(1:3,1:3)
+w_H_r_0(3,4) = z_0; 
 end
 
 vel_feet_correction = zeros(12,1); 
