@@ -50,8 +50,8 @@ Config.SATURATE_TORQUE_DERIVATIVE         = true;
 % if TRUE, the controller will STOP if the joints hit the joints limits
 % and/or if the (unsigned) difference between two consecutive joints
 % encoders measurements is greater than a given threshold.
-Config.EMERGENCY_STOP_WITH_JOINTS_LIMITS  = false;
-Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES = false;
+Config.EVENT_WITH_JOINTS_LIMITS  = EventWithJointLimits.None;
+Config.EVENT_WITH_ENCODER_SPIKES = EventWithEncoderSpikes.Warning;
 
 % Config.USE_MOTOR_REFLECTED_INERTIA: if set to true, motors reflected
 % inertias are included in the system mass matrix. If
