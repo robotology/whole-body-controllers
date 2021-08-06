@@ -61,7 +61,7 @@ end
 
 % If a joint hits the limits or an encoder spike is detected, print a
 % warning message displaying the name of the joint
-if Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES && exist('res_check_spikes','var')
+if exist('res_check_spikes','var')
     
     if ~isempty(res_check_spikes.signals.values)
         
@@ -76,7 +76,7 @@ if Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES && exist('res_check_spikes','var')
         end
     end
 end
-if Config.EMERGENCY_STOP_WITH_JOINTS_LIMITS && exist('res_check_range','var')
+if exist('res_check_range','var')
     
     if ~isempty(res_check_range.signals.values)
         
