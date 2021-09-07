@@ -442,7 +442,7 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
                 s_dot_k_1_star = zeros(26,1);
                 tau_star = zeros(26,1);
                 f_star = zeros(12,1);
-                if(obj.solver_fails_counter>4)
+                if(obj.solver_fails_counter>6)
                     error('solver failed more that 4 times');
                 end
             else
