@@ -18,11 +18,8 @@ function R = roty(alpha)
 
     %% --- Initialization ---
 
-   R      =  zeros(3,3);
-   R(2,2) =  1;
-   R(1,1) =  cos(alpha);
-   R(1,3) =  sin(alpha);
-   R(3,1) = -sin(alpha);
-   R(3,3) =  cos(alpha); 
-   
+   R = [cos(alpha), 0, sin(alpha);
+        0, 1, 0;
+        -sin(alpha), 0, cos(alpha)];
+
 end
