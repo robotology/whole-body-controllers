@@ -526,4 +526,4 @@ Config.fZmin                        = 10;
 
 % physical size of the foot                             
 Config.feet_size                    = [-0.07  0.12  ;    % xMin, xMax
-                                       -0.045 0.045 ];   % yMin, yMax  
+                                       -0.045 0.045 ];   % yMin, yMax
