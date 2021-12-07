@@ -525,5 +525,5 @@ Config.torsionalFrictionCoefficient = 1/75;
 Config.fZmin                        = 10;
 
 % physical size of the foot                             
-Config.feet_size                    = [-0.07  0.12 ;    % xMin, xMax
-                                       -0.045 0.05 ];   % yMin, yMax  
+Config.feet_size                    = [-0.07  0.12  ;    % xMin, xMax
+                                       -0.045 0.045 ];   % yMin, yMax  
