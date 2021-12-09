@@ -152,8 +152,8 @@ torsionalFrictionCoefficient = 1/75;
 fZmin                        = 10;
 
 % physical size of the foot                             
-feet_size                    = [-0.07  0.12 ;    % xMin, xMax
-                                -0.045 0.05 ];   % yMin, yMax  
+feet_size                    = [-0.07  0.12  ;    % xMin, xMax
+                                -0.045 0.045 ];   % yMin, yMax  
                                                     
 % Compute contact constraints (friction cone, unilateral constraints)
 [ConstraintsMatrix, bVectorConstraints] = wbc.computeRigidContactConstraints ...
