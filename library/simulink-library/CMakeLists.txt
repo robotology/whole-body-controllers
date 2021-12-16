@@ -24,12 +24,14 @@ macro(INSTALL_SUBLIBMFILES curdir)
     if(IS_DIRECTORY ${curdir}/${child})
     # This applies to the folders inside this directory <sublib_dir>/src are assumed to contain matlab files
       file(GLOB m_files ${curdir}/${child}/*.m)
-      install(FILES ${m_files} DESTINATION ${CMAKE_INSTALL_PREFIX}/mex/+wbc)
+      get_filename_component(curdir_no_path ${curdir} NAME)
+      install(FILES ${m_files} DESTINATION ${CMAKE_INSTALL_PREFIX}/mex/+wbc/simulink/${curdir_no_path})
     endif()
   endforeach()
   # The following applies to the matlab files inside this directory <sublib_dir>/src
   file(GLOB m_files_out ${curdir}/src/*.m)
-  install(FILES ${m_files_out} DESTINATION ${CMAKE_INSTALL_PREFIX}/mex/+wbc)
+  get_filename_component(curdir_no_path ${curdir} NAME)
+  install(FILES ${m_files_out} DESTINATION ${CMAKE_INSTALL_PREFIX}/mex/+wbc/simulink/${curdir_no_path})
 endmacro()
 
 macro(INSTALL_SUBLIBS curdir)
