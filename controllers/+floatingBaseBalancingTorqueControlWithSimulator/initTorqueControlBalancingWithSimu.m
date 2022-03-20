@@ -38,7 +38,7 @@ addpath(strcat(MODEL_PATH,'/src/'));
 
 % Simulation time in seconds. For long simulations, put an high number 
 % (not inf) for allowing automatic code generation
-Config.SIMULATION_TIME = 600000;
+Config.SIMULATION_TIME = 100;
 
 % Controller period [s]
 Config.tStep           = 0.01;  % 10 ms
