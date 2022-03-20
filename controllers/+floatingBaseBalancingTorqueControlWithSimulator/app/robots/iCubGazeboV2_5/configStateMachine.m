@@ -50,11 +50,11 @@ StateMachine.initialState                 = 1;
 % other configuration parameters for state machine
 StateMachine.tBalancing                   = 1;
 StateMachine.tBalancingBeforeYoga         = 1;
-StateMachine.yogaExtended                 = true;
+StateMachine.yogaExtended                 = false;
 StateMachine.skipYoga                     = false;
 StateMachine.demoOnlyBalancing            = false;
 StateMachine.demoStartsOnRightSupport     = false; % If false, the Yoga demo is performed on the left foot first
-StateMachine.yogaAlsoOnRightFoot          = false; % TO DO: yoga on both feet starting from right foot (not available for now)
+StateMachine.yogaAlsoOnRightFoot          = true; % TO DO: yoga on both feet starting from right foot
 
 %%%% List of possible "Yoga in loop" %%%%
 
