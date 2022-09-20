@@ -153,4 +153,6 @@ If you are using this code for your research activity and you're willing to cite
 
 ## Mantainers
 
-Gabriele Nava ([@gabrielenava](https://github.com/gabrielenava))
+Main: Gabriele Nava ([@gabrielenava](https://github.com/gabrielenava))
+
+Auxiliary: Giuseppe L'Erario ([@giulero](https://github.com/Giulero))
