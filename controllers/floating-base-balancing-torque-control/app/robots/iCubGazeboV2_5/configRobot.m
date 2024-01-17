@@ -34,7 +34,7 @@ end
 
 % Frames list
 Frames.BASE       = 'root_link'; 
-Frames.IMU        = 'imu_frame';
+Frames.IMU        = 'head_imu_0';
 Frames.LEFT_FOOT  = 'l_sole';
 Frames.RIGHT_FOOT = 'r_sole';
 Frames.COM        = 'com';
