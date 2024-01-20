@@ -2,7 +2,10 @@
 %                    related quantities for each state of the state machine.
 
 %% --- Initialization ---
-  
+
+Gain.torque.ktau = [1,1, -1, 0.250, 0.200, 0.50, -0.300, -0.250, -0.200, -0.50, 0.300, -63, 93, -149, -63, -63, -176, 63, -93, 149, 63, 63, 176];
+Gain.torque.kp   = [3,    3,   -1, 0.150, 0.100, 0.50, -0.200, -0.150, -0.100, -0.50, 0.200, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, 1, 1];
+
 % CoM gains
 Gain.KP_CoM = [50  50  10   % state ==  1  TWO FEET BALANCING
                50  50  10   % state ==  2  COM TRANSITION TO LEFT 

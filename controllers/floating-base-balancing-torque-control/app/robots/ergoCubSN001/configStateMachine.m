@@ -48,9 +48,9 @@ StateMachine.joints_thresholdInContact    = 50;
 StateMachine.initialState                 = 1;
 
 % other configuration parameters for state machine
-StateMachine.tBalancing                   = 1;
+StateMachine.tBalancing                   = 60;
 StateMachine.tBalancingBeforeYoga         = 1;
-StateMachine.yogaExtended                 = true;
+StateMachine.yogaExtended                 = false;
 StateMachine.skipYoga                     = false;
 StateMachine.demoOnlyBalancing            = false;
 StateMachine.demoStartsOnRightSupport     = false; % If false, the Yoga demo is performed on the left foot first
