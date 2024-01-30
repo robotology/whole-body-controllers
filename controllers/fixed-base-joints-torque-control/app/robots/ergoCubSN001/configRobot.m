@@ -6,7 +6,7 @@
 
 % Gains and parameters for impedance controller
 Config.ON_GAZEBO = false;
-ROBOT_DOF        = 9;
+ROBOT_DOF        = 17;
 
 % Robot configuration for WBToolbox
 WBTConfigRobot             = WBToolbox.Configuration;
@@ -15,7 +15,7 @@ WBTConfigRobot.UrdfFile    = 'model.urdf';
 WBTConfigRobot.LocalName   = 'WBT';
 
 % Controlboards and joints list. Each joint is associated to the corresponding controlboard 
-WBTConfigRobot.ControlBoardsNames     = {'torso','left_arm','right_arm'}; %,'left_arm','right_arm','left_leg','right_leg'};
+WBTConfigRobot.ControlBoardsNames     = {'torso','left_arm','right_arm','left_leg','right_leg'}; %,'left_arm','right_arm','left_leg','right_leg'};
 WBTConfigRobot.ControlledJoints       = [];
 Config.numOfJointsForEachControlboard = [];
 
@@ -23,8 +23,8 @@ ControlBoards                                        = struct();
 ControlBoards.(WBTConfigRobot.ControlBoardsNames{1}) = {'torso_pitch','torso_roll','torso_yaw'};
 ControlBoards.(WBTConfigRobot.ControlBoardsNames{2}) = {'l_shoulder_pitch','l_shoulder_roll','l_shoulder_yaw'};
 ControlBoards.(WBTConfigRobot.ControlBoardsNames{3}) = {'r_shoulder_pitch','r_shoulder_roll','r_shoulder_yaw'};
-%ControlBoards.(WBTConfigRobot.ControlBoardsNames{4}) = {'l_hip_pitch','l_hip_roll','l_hip_yaw','l_knee','l_ankle_pitch','l_ankle_roll'};
-%ControlBoards.(WBTConfigRobot.ControlBoardsNames{5}) = {'r_hip_pitch','r_hip_roll','r_hip_yaw','r_knee','r_ankle_pitch','r_ankle_roll'};
+ControlBoards.(WBTConfigRobot.ControlBoardsNames{4}) = {'l_hip_pitch','l_hip_roll','l_hip_yaw','l_knee'};%,'l_ankle_pitch','l_ankle_roll'};
+ControlBoards.(WBTConfigRobot.ControlBoardsNames{5}) = {'r_hip_pitch','r_hip_roll','r_hip_yaw','r_knee'};%,'r_ankle_pitch','r_ankle_roll'};
 
 for n = 1:length(WBTConfigRobot.ControlBoardsNames)
 
@@ -34,5 +34,5 @@ for n = 1:length(WBTConfigRobot.ControlBoardsNames)
 end
 
 
-Gain.torque.ktau = [-250 250 -200 0.65 0.6 0.1 -0.65 -0.7 -1];
+Gain.torque.ktau = [-250 250 -200 0.65 0.6 0.1 -0.65 -0.7 -1 -75 100 -149 -63 80 -93 149 63];
 Gain.torque.kp   = [zeros(1,ROBOT_DOF)];
