@@ -3,9 +3,6 @@
 
 %% --- Initialization ---
 
-Gain.torque.ktau = [1,1, -1, 0.250, 0.200, 0.50, -0.300, -0.250, -0.200, -0.50, 0.300, -63, 93, -149, -63, -63, -176, 63, -93, 149, 63, 63, 176];
-Gain.torque.kp   = [3,    3,   -1, 0.150, 0.100, 0.50, -0.200, -0.150, -0.100, -0.50, 0.200, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, 1, 1];
-
 % CoM gains
 Gain.KP_CoM = [50  50  10   % state ==  1  TWO FEET BALANCING
                50  50  10   % state ==  2  COM TRANSITION TO LEFT 
@@ -24,8 +21,8 @@ Gain.KP_CoM = [50  50  10   % state ==  1  TWO FEET BALANCING
 Gain.KD_CoM = 2*sqrt(Gain.KP_CoM)/20;
 
 % Angular momentum gains
-Gain.KI_AngularMomentum = 0.25 ;
-Gain.KP_AngularMomentum = 2*sqrt(Gain.KI_AngularMomentum);
+Gain.KI_AngularMomentum = 1 ;
+Gain.KP_AngularMomentum = 2*sqrt(Gain.KI_AngularMomentum)/5;
 
 % Postural task gains
 %                   %  TORSO  %%        LEFT ARM   %%       RIGHT ARM   %%         LEFT LEG           %%         RIGHT LEG           %% 
@@ -43,12 +40,13 @@ Gain.KP_postural = [10   30   20,  10   10    10    8,  10   10    10    8,  30 
                     30   30   30,  10   10    20   10,  10   10    20   10,  100  350  20   200  10  100,  220  350  120  200  65   100   % state == 12  LOOKING FOR CONTACT
                     10   30   20,  10   10    10    8,  10   10    10    8,  30   30   20   20   100 100,   30  50   30   60   100  100]; % state == 13  TRANSITION TO INITIAL POSITION
 
-Gain.KD_postural = 2*sqrt(Gain.KP_postural(1,:))/20;  
+Gain.KD_postural = 0*sqrt(Gain.KP_postural(1,:))/20;  
 
 % symmetric gains
-Gain.KP_postural(8:12,:)     = Gain.KP_postural(2:6,:);
-Gain.KP_postural(8:12,12:17) = Gain.KP_postural(2:6,18:23);
-Gain.KP_postural(8:12,18:23) = Gain.KP_postural(2:6,12:17);
+Gain.KP_postural(4,1:3)   = Gain.KP_postural(4,1:3)*3;
+Gain.KP_postural(6,18:23) = Gain.KP_postural(6,18:23)*2; 
+Gain.KP_postural(10,1:3)  = Gain.KP_postural(10,1:3)*3;
+Gain.KP_postural(13,1:3)  = Gain.KP_postural(13,1:3)*3;
 
 %% Smoothing times
 
@@ -56,34 +54,35 @@ Gain.KP_postural(8:12,18:23) = Gain.KP_postural(2:6,12:17);
 Config.SmoothingTimeGainScheduling = 2;
 
 % Smoothing time CoM references
-StateMachine.CoMSmoothingTime      = [1;   %% state ==  1  TWO FEET BALANCING
-                                      1;   %% state ==  2  COM TRANSITION TO LEFT FOOT
-                                      1;   %% state ==  3  LEFT FOOT BALANCING 
-                                      2;   %% state ==  4  YOGA LEFT FOOT
-                                      2;   %% state ==  5  PREPARING FOR SWITCHING
-                                      2;   %% state ==  6  LOOKING FOR CONTACT 
-                                      1;   %% state ==  7  TRANSITION INIT POSITION
-                                      1;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
-                                      1;   %% state ==  9  RIGHT FOOT BALANCING 
-                                      2;   %% state == 10  YOGA RIGHT FOOT
-                                      2;   %% state == 11  PREPARING FOR SWITCHING
-                                      2;   %% state == 12  LOOKING FOR CONTACT 
-                                      10]; %% state == 13  TRANSITION INIT POSITION
+StateMachine.CoMSmoothingTime      = [1;    %% state ==  1  TWO FEET BALANCING
+                                      1;    %% state ==  2  COM TRANSITION TO LEFT FOOT
+                                      1;    %% state ==  3  LEFT FOOT BALANCING 
+                                      0.9;  %% state ==  4  YOGA LEFT FOOT
+                                      2;    %% state ==  5  PREPARING FOR SWITCHING
+                                      2;    %% state ==  6  LOOKING FOR CONTACT 
+                                      1;    %% state ==  7  TRANSITION INIT POSITION
+                                      1;    %% state ==  8  COM TRANSITION TO RIGHT FOOT
+                                      1;    %% state ==  9  RIGHT FOOT BALANCING 
+                                      0.9;  %% state == 10  YOGA RIGHT FOOT
+                                      2;    %% state == 11  PREPARING FOR SWITCHING
+                                      2;    %% state == 12  LOOKING FOR CONTACT 
+                                      5];   %% state == 13  TRANSITION INIT POSITION
+
 
 % Smoothing time for joints references 
-StateMachine.jointsSmoothingTime   = [1;   %% state ==  1  TWO FEET BALANCING
-                                      1;   %% state ==  2  COM TRANSITION TO LEFT FOOT
-                                      1;   %% state ==  3  LEFT FOOT BALANCING 
-                                      2;   %% state ==  4  YOGA LEFT FOOT
-                                      2;   %% state ==  5  PREPARING FOR SWITCHING
-                                      2;   %% state ==  6  LOOKING FOR CONTACT 
-                                      1;   %% state ==  7  TRANSITION INIT POSITION
-                                      1;   %% state ==  8  COM TRANSITION TO RIGHT FOOT
-                                      1;   %% state ==  9  RIGHT FOOT BALANCING 
-                                      2;   %% state == 10  YOGA RIGHT FOOT
-                                      2;   %% state == 11  PREPARING FOR SWITCHING
-                                      2;   %% state == 12  LOOKING FOR CONTACT 
-                                      10]; %% state == 13  TRANSITION INIT POSITION
+StateMachine.jointsSmoothingTime   = [1;    %% state ==  1  TWO FEET BALANCING
+                                      1;    %% state ==  2  COM TRANSITION TO LEFT FOOT
+                                      1;    %% state ==  3  LEFT FOOT BALANCING 
+                                      0.9;  %% state ==  4  YOGA LEFT FOOT
+                                      2;    %% state ==  5  PREPARING FOR SWITCHING
+                                      2;    %% state ==  6  LOOKING FOR CONTACT 
+                                      1;    %% state ==  7  TRANSITION INIT POSITION
+                                      1;    %% state ==  8  COM TRANSITION TO RIGHT FOOT
+                                      1;    %% state ==  9  RIGHT FOOT BALANCING 
+                                      0.9;  %% state == 10  YOGA RIGHT FOOT
+                                      2;    %% state == 11  PREPARING FOR SWITCHING
+                                      2;    %% state == 12  LOOKING FOR CONTACT 
+                                      5];   %% state == 13  TRANSITION INIT POSITION
 
 % scale factor smoothing time multiplies the smoothing factor during the
 % Yoga (state 4 and 10). The purpose is to reduce the time necessary for 

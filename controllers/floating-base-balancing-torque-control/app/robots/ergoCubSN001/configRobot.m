@@ -10,6 +10,12 @@ Config.GRAV_ACC          = 9.81;
 % Robot configuration for WBToolbox
 WBTConfigRobot           = WBToolbox.Configuration;
 WBTConfigRobot.RobotName = 'ergocub';
+
+
+
+Gain.torque.ktau = [176, 176, -176, 250, 200, 50, -300, -250, -200, -50, 300,  -63,  93, -149,  -63,  -63, -176,  63,  -93, 149,  63,  63, 176];
+Gain.torque.kp   = [300, 300, -300, 150, 100, 50, -200, -150, -100, -50, 200, -100, 100, -100, -100, -100, -100, 100, -100, 100, 100, 100, 100];
+
 WBTConfigRobot.UrdfFile  = 'model.urdf';
 WBTConfigRobot.LocalName = 'WBT';
 
