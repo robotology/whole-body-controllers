@@ -35,5 +35,5 @@ for n = 1:length(WBTConfigRobot.ControlBoardsNames)
 end
 
 
-Gain.torque.ktau = [-250 250 -200 150 150 150 -150 -150 -150 -75 100 -149 -63 80 -93 149 63];
+Gain.torque.ktau = [-250 250 -200     150 150 150 -150     -150 -150 -75 100    -75 100 -149 -63 80 -93 149 63];
 Gain.torque.kp   = [zeros(1,ROBOT_DOF)];
