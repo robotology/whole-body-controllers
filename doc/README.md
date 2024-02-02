@@ -1,4 +1,4 @@
-## Documentation
+# Documentation
 
 Guidelines on how to create/use Simulink models for control.
 
