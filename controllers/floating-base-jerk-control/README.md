@@ -27,3 +27,18 @@ At start, the module calls the initialization file initJerkControl.m. Once opene
 ### Robot and demo specific configurations
 
 The gains and references for a specific robot (specified by the variable YARP_ROBOT_NAME) or a specific demo can be found in the folder `app/robots/YARP_ROBOT_NAME`.
+
+### Citing this work
+
+```
+@ARTICLE{9237133,
+  author={Gazar, Ahmad and Nava, Gabriele and Chavez, Francisco Javier Andrade and Pucci, Daniele},
+  journal={IEEE Transactions on Robotics}, 
+  title={Jerk Control of Floating Base Systems With Contact-Stable Parameterized Force Feedback}, 
+  year={2021},
+  volume={37},
+  number={1},
+  pages={1-15},
+  keywords={Humanoid robots;Force feedback;Force control;Force;Stability analysis;Dynamics;Contact modeling;force control;jerk control},
+  doi={10.1109/TRO.2020.3005547}}
+```
