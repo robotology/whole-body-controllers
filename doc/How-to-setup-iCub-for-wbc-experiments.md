@@ -68,7 +68,7 @@ Restart the robot to apply the modifications. Check that the joints were success
 
 For IMU calibration, the robot has to be on the pole, in home position (i.e. all joints to 0). Actually, we calibrate the neck `pitch` and `roll` such that the IMU `linear accelerations` readings are, as expected, [0 0 9.81] along the [x, y, z] axis of an inertial reference frame with the `z` axis pointing against the gravity.
 
-You need to receive the acceleration values of the head to be able to calibrate it: you may launch (or create) a program which reads the IMU acceleration data. Just for that, this repository provides the Simulink model [debug_BoschIMU.mdl](https://github.com/robotology/whole-body-controllers/blob/master/utilities/debug_BoschIMU.mdl).
+You need to receive the acceleration values of the head to be able to calibrate it: you may launch (or create) a program which reads the IMU acceleration data.
 
 In `yarpmotorgui`, switch to the tab associated to the head. Then, click the `idle` button for the joints to calibrate: `neck_pitch` and `neck_roll`, allowing you to move them freely. Then, move the head joints until signals are near their desired values. Note the encoder values and proceed as before. 
 
