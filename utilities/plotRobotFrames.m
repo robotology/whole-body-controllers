@@ -84,5 +84,3 @@ for t = 1 : length(testFrames)
     frameTransform = iDynTreeWrappers.getWorldTransform(KinDynModel, testFrames{t});
     testFramesObjects{t} = iDynTreeWrappers.plotFrame(frameTransform, 0.2, 5);
 end
-
-

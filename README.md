@@ -11,7 +11,7 @@
 
 The repository contains `Simulink-based whole-body controllers` developed to control the [iCub](http://www.icub.org/) humanoid robot. It can be imagined as a **starting point** and a **support** repository for a user that intends to develop a new Simulink controller (not necessarily for the iCub robot) in within the framework of the [robotology](https://github.com/robotology) organization. It is worth noting that:
 
-- The controllers stored in this repository are an **overview** of the possibile control frameworks that can be implemented using the `robotology` software infrastructure. Also, the repository contains a [library](library/README.md) of configuration and utility Matlab functions to design simulations with [Gazebo](http://gazebosim.org/) simulator and on the real robot iCub. With the dependency [matlab-whole-body-simulator](https://github.com/dic-iit/matlab-whole-body-simulator) installed, you can also design simulations with a full MATLAB/Simulink simulator and robot visualizer, accessible through the Simulink Library Browser entry `Matlab Whole-body Simulator` (refer to this [README](controllers/floating-base-balancing-torque-control-with-simulator/README.md)).
+- The controllers stored in this repository are an **overview** of the possibile control frameworks that can be implemented using the `robotology` software infrastructure. Also, the repository contains a [library](library/README.md) of configuration and utility Matlab functions to design simulations with [Gazebo](http://gazebosim.org/) simulator and on the real robot iCub. With the dependency [matlab-whole-body-simulator](https://github.com/dic-iit/matlab-whole-body-simulator) installed, you can also design simulations with a full MATLAB/Simulink simulator and robot visualizer, accessible through the Simulink Library Browser entry `Matlab Whole-body Simulator` (refer to this [README](controllers/%2BfloatingBaseBalancingTorqueControlWithSimulator/README.md)).
 
 - The robot dynamics and kinematics is computed run-time by means of [WBToolbox](https://github.com/robotology/wb-toolbox), a Simulink library that wraps [iDyntree](https://github.com/robotology/idyntree). For more information on iDyntree library, see also this [README](https://github.com/robotology/idyntree/blob/master/README.md). 
 
@@ -22,12 +22,12 @@ The repository contains `Simulink-based whole-body controllers` developed to con
 This repository depends upon the following Software:
 
 - [CMake](https://cmake.org/), at least version **3.5**.
-- [Matlab/Simulink](https://it.mathworks.com/products/matlab.html), default version **R2019b**.
+- [Matlab/Simulink](https://it.mathworks.com/products/matlab.html), at least version **R2019b**.
 - [WB-Toolbox](https://github.com/robotology/WB-Toolbox) and [blockfactory](https://github.com/robotology/blockfactory).
 - [matlab-whole-body-simulator](https://github.com/dic-iit/matlab-whole-body-simulator), at least version **2.0.0**.
 - [Gazebo Simulator](http://gazebosim.org/), default version **9.0**.
 - [gazebo-yarp-plugins](https://github.com/robotology/gazebo-yarp-plugins).
-- [icub-gazebo](https://github.com/robotology/icub-gazebo), [icub-gazebo-wholebody](https://github.com/robotology-playground/icub-gazebo-wholebody) and [icub-models](https://github.com/robotology/icub-models) to access iCub models.
+- [icub-gazebo-legacy](https://github.com/robotology-legacy/icub-gazebo-legacy), [icub-gazebo-wholebody](https://github.com/robotology-playground/icub-gazebo-wholebody) and [icub-models](https://github.com/robotology/icub-models) to access iCub models.
 - [whole-body-estimators](https://github.com/robotology/whole-body-estimators) (**Optional**, for using [wholeBodyDynamics](https://github.com/robotology/whole-body-estimators/tree/master/devices/wholeBodyDynamics) device).
 - [YARP](https://github.com/robotology/yarp) and [icub-main](https://github.com/robotology/icub-main).
 
@@ -35,7 +35,7 @@ This repository depends upon the following Software:
 
 The repository is usually tested and developed on **Ubuntu** and **macOS** operating systems. Some functionalities may not work properly on **Windows**.
 
-- It is suggested to install `whole-body-controllers` and most of its dependencies (namely, `YARP`, `icub-main`, `whole-body-estimators`,`icub-gazebo`,`icub-gazebo-wholebody`, `icub-models`, `gazebo-yarp-plugins`, `matlab-whole-body-simulator`, `blockfactory` and `WB-Toolbox` and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_ENABLE_DYNAMICS` option). **Warning**: the superbuild can download and compile the repository also without having Matlab, Simulink and Gazebo installed in the PC, but the functionalities of the repo will be considerably reduced! To access all the features of the repo, install all the [dependencies](https://github.com/robotology/whole-body-controllers/blob/master/README.md#dependencies). Also, in the superbuild you have to enable the `ROBOTOLOGY_USES_GAZEBO` and `ROBOTOLOGY_USES_MATLAB` options.
+- It is suggested to install `whole-body-controllers` and most of its dependencies (namely, `YARP`, `icub-main`, `whole-body-estimators`,`idyntree`, `icub-models`, `gazebo-yarp-plugins`, `matlab-whole-body-simulator`, `blockfactory` and `WB-Toolbox` and their dependencies) using the [robotology-superbuild](https://github.com/robotology/robotology-superbuild) (enable `ROBOTOLOGY_ENABLE_DYNAMICS` option). **Warning**: the superbuild can download and compile the repository also without having Matlab, Simulink and Gazebo installed in the PC, but the functionalities of the repo will be considerably reduced! To access all the features of the repo, install all the [dependencies](https://github.com/robotology/whole-body-controllers/blob/master/README.md#dependencies). Also, in the superbuild you have to enable the `ROBOTOLOGY_USES_GAZEBO` and `ROBOTOLOGY_USES_MATLAB` options.
 
 - Otherwise, after installing all the dependencies, **clone the repository** on your pc by running on a terminal `git clone https://github.com/robotology/whole-body-controllers`, or download the repository. Then (on Ubuntu), open a terminal from the folder where you downloaded whole-body-controllers and run:
    
@@ -107,7 +107,7 @@ When used for controlling real platforms, heavy Simulink models may violate the 
 
 ### Home positions for yarpmotorgui
 
-The repo contains a set of predefined [home positions](utilities/homePositions) to be used with the [yarpmotorgui](https://www.yarp.it/yarpmotorgui.html). By default, if the repo is installed through `robotology-superbuild`, the home positions are installed in the `robotology-superbuild/build/install` directory. Otherwise add the path to the [homePositions](utilities/homePositions) folder to the `YARP_DATA_DIRS` environmental variable in your `.bashrc` file . The command to use the home positions with the yarpmotorgui is `yarpmotorgui --from myHomePosFileName.ini`. 
+The repo contains a set of predefined [home positions](utilities/homePositions) to be used with the [yarpmotorgui](https://www.yarp.it/latest/group__yarpmotorgui.html). By default, if the repo is installed through `robotology-superbuild`, the home positions are installed in the `robotology-superbuild/build/install` directory. Otherwise add the path to the [homePositions](utilities/homePositions) folder to the `YARP_DATA_DIRS` environmental variable in your `.bashrc` file . The command to use the home positions with the yarpmotorgui is `yarpmotorgui --from myHomePosFileName.ini`. 
 
 ## Where do I find legacy materials?
 
@@ -122,7 +122,7 @@ Official legacy repositories are: [mex-wholebodymodel](https://github.com/roboto
 - [joint-space control and centroidal transformation](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingJointControl)
 - [stand-up control 4 contacts](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/master/controllers/torqueBalancingStandup_4Contacts)
 
-You can also find other legacy controllers/simultors in this repository **whole-body-controllers** in specific commits:
+You can also find other legacy controllers/simulators in this repository **whole-body-controllers** in specific commits:
 - [simulink-balancing-simulator@c217f051](https://github.com/robotology/whole-body-controllers/tree/c217f051b16da32c8acc607182524239b3a7d8fb/controllers/simulink-balancing-simulator).
 
 ## Citing this work
