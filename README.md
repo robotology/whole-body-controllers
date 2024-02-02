@@ -27,7 +27,7 @@ This repository depends upon the following Software:
 - [matlab-whole-body-simulator](https://github.com/dic-iit/matlab-whole-body-simulator), at least version **2.0.0**.
 - [Gazebo Simulator](http://gazebosim.org/), default version **9.0**.
 - [gazebo-yarp-plugins](https://github.com/robotology/gazebo-yarp-plugins).
-- [icub-gazebo](https://github.com/robotology/icub-gazebo), [icub-gazebo-wholebody](https://github.com/robotology-playground/icub-gazebo-wholebody) and [icub-models](https://github.com/robotology/icub-models) to access iCub models.
+- [icub-gazebo-legacy](https://github.com/robotology-legacy/icub-gazebo-legacy), [icub-gazebo-wholebody](https://github.com/robotology-playground/icub-gazebo-wholebody) and [icub-models](https://github.com/robotology/icub-models) to access iCub models.
 - [whole-body-estimators](https://github.com/robotology/whole-body-estimators) (**Optional**, for using [wholeBodyDynamics](https://github.com/robotology/whole-body-estimators/tree/master/devices/wholeBodyDynamics) device).
 - [YARP](https://github.com/robotology/yarp) and [icub-main](https://github.com/robotology/icub-main).
 
