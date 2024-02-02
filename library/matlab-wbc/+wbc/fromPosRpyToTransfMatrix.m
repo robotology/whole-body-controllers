@@ -1,9 +1,9 @@
 function H = fromPosRpyToTransfMatrix(pos_rpy)
 
-    % FROMPOSRPYTOTRANSFMATRIX takes as input a pose (position + orientation) 
-    %                           with orientation expressed in roll-pitch-yaw, and 
-    %                           outputs the same pose in terms of transformation 
-    %                           matrix.                       
+    % FROMPOSRPYTOTRANSFMATRIX takes as input a pose (position + orientation)
+    %                           with orientation expressed in roll-pitch-yaw, and
+    %                           outputs the same pose in terms of transformation
+    %                           matrix.
     %
     % FORMAT: H = fromPosRpyToTransfMatrix(pos_rpy)
     %
@@ -12,7 +12,7 @@ function H = fromPosRpyToTransfMatrix(pos_rpy)
     % OUTPUT: - H = [4 * 4] pose (transformation matrix)
     %
     % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
-    %          
+    %
     %          all authors are with the Italian Istitute of Technology (IIT)
     %          email: name.surname@iit.it
     %
@@ -29,6 +29,6 @@ function H = fromPosRpyToTransfMatrix(pos_rpy)
     pos = pos_rpy(1:3);
 
     % compose the transformation matrix
-    H   = [R,  pos; 
-          [0 0 0 1]]; 
+    H   = [R,  pos;
+        [0 0 0 1]];
 end

@@ -1,6 +1,6 @@
 function R = rotationFromRollPitchYaw(rpy)
 
-    % ROTATIONFROMROLLPITCHYAW converts Euler angles (roll-pitch-yaw convention)                     
+    % ROTATIONFROMROLLPITCHYAW converts Euler angles (roll-pitch-yaw convention)
     %                          into a rotation matrix.
     %
     % FORMAT:  R = rotationFromRollPitchYaw(rpy)
