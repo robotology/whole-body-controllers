@@ -28,12 +28,12 @@ addpath('./src/')
 %
 % If you are simulating the robot with Gazebo, remember that it is required
 % to launch Gazebo as follows:
-% 
+%
 %     gazebo -slibgazebo_yarp_clock.so
-% 
+%
 % and properly set the environmental variable YARP_ROBOT_NAME in the .bashrc.
 
-% Simulation time in seconds. For long simulations, put an high number 
+% Simulation time in seconds. For long simulations, put an high number
 % (not inf) for allowing automatic code generation
 Config.SIMULATION_TIME = 70;
 
@@ -46,10 +46,10 @@ Config.tStep           = 0.01;
 %
 % 'YOGA': the robot will perform the YOGA++ demo (highly dynamic movements
 %         while balancing on one foot and two feet)
-%   
+%
 % 'COORDINATOR': the robot can either balance on two feet or move from left
 %                to right follwing a desired center-of-mass trajectory.
-% 
+%
 DEMO_TYPE                     = 'YOGA';
 
 % Config.SCOPES: debugging scopes activation
@@ -68,16 +68,16 @@ Config.CHECK_INTEGRATION_TIME = true;
 Config.PLOT_INTEGRATION_TIME  = false;
 
 % Run robot-specific configuration parameters
-run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m')); 
-run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configStateMachine.m')); 
-run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/gainsAndReferences.m')); 
+run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configRobot.m'));
+run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/configStateMachine.m'));
+run(strcat('app/robots/',getenv('YARP_ROBOT_NAME'),'/gainsAndReferences.m'));
 
 % Deactivate/activate the internal coordinator
 if strcmpi(DEMO_TYPE, 'COORDINATOR')
 
     Config.COORDINATOR_DEMO = true;
-    
+
 elseif strcmpi(DEMO_TYPE, 'YOGA')
-    
+
     Config.COORDINATOR_DEMO = false;
 end

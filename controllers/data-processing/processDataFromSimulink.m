@@ -32,10 +32,10 @@ dockFigures = true;
 
 % desired init and end time in the figures [s]
 timeInit    = 0;
-timeLimit   = 120; 
+timeLimit   = 120;
 
 if dockFigures
-    
+
     set(0,'DefaultFigureWindowStyle','docked')
 else
     set(0,'DefaultFigureWindowStyle','normal')
@@ -46,14 +46,14 @@ dataVariables = whos('*DATA');
 plotList      = {};
 
 for k = 1:length(dataVariables)
-    
+
     plotList{k} = dataVariables(k).name; %#ok<SAGROW>
 end
 
 [plotNumber, ~] = listdlg('PromptString',  'Choose the variables to plot:', ...
-                          'ListString',     plotList, ...
-                          'SelectionMode', 'multiple', ...
-                          'ListSize',       [250 150]);                                
+    'ListString',     plotList, ...
+    'SelectionMode', 'multiple', ...
+    'ListSize',       [250 150]);
 
 % regenerate the plot list with the data selected by user
 plotList = plotList(plotNumber);
@@ -62,16 +62,16 @@ plotList = plotList(plotNumber);
 timeList = {'simulink time'};
 
 if exist('time_Yarp','var')
-    
+
     timeList{2} = 'yarp time';
 end
 
 if length(timeList) > 1
-   
-   [timeNumber, ~] = listdlg('PromptString',  'Choose the time vector to use:', ...
-                             'ListString',     timeList, ...
-                             'SelectionMode', 'single', ...
-                             'ListSize',       [250 150]);   
+
+    [timeNumber, ~] = listdlg('PromptString',  'Choose the time vector to use:', ...
+        'ListString',     timeList, ...
+        'SelectionMode', 'single', ...
+        'ListSize',       [250 150]);
 else
     timeNumber = 1;
 end
@@ -80,50 +80,50 @@ end
 figNumber = 0;
 
 for k = 1:length(plotList)
-    
+
     currentData = eval(plotList{k});
-    
+
     if timeNumber == 1
-        
+
         time = currentData.time;
-        
+
     elseif timeNumber == 2
-        
+
         time = time_Yarp.signals.values;
     end
-    
+
     % get the user defined time length
     timeLimitIndex = sum(time <= timeLimit);
     timeInitIndex  = sum(time <= timeInit);
     tVector        = time(timeInitIndex:timeLimitIndex);
- 
+
     dataStructure  = currentData.signals;
     figNumber      = figNumber + 1;
-    
+
     for kk = 1:length(currentData.signals)
-        
+
         valuesToPlot = squeeze(currentData.signals(kk).values);
-        
+
         % twist data dimensions if necessary
         if size(valuesToPlot,1) < length(time)
-            
+
             valuesToPlot = valuesToPlot';
         end
-        
+
         valuesToPlot = valuesToPlot(timeInitIndex:timeLimitIndex,:);
         yAxisLabel   = currentData.signals(kk).label;
-        
+
         if kk == 1
-            
+
             titleLabel = plotList{k}(1:end-5);
         else
             titleLabel = '';
         end
-        
+
         figure(figNumber)
         subplot(length(currentData.signals),1,kk)
         custom_plot(tVector, valuesToPlot, xAxisLabel, yAxisLabel, titleLabel, ...
-                    lineSize, '', figNumber, printFigure, 0);        
+            lineSize, '', figNumber, printFigure, 0);
     end
 end
 
