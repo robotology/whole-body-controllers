@@ -1,10 +1,10 @@
-function w_omega = rotationalPID_velocity(w_R_b,w_R_b_des,w_omega_des,Kp) 
+function w_omega = rotationalPID_velocity(w_R_b,w_R_b_des,w_omega_des,Kp)
 
     % ROTATIONALPID_VELOCITY implements a controller trajectory tracking inside
     %                        the group SO(3). The angular velocity is assumed
     %                        to be a control input.
     %
-    % FORMAT: w_omega = rotationalPID_velocity(w_R_b,w_R_b_des,w_omega_des,Kp)    
+    % FORMAT: w_omega = rotationalPID_velocity(w_R_b,w_R_b_des,w_omega_des,Kp)
     %
     % INPUT: - w_R_b       = [3 * 3] rotation matrix
     %        - w_R_b_des   = [3 * 3] desired rotation matrix
@@ -15,7 +15,7 @@ function w_omega = rotationalPID_velocity(w_R_b,w_R_b_des,w_omega_des,Kp)
     % OUTPUT: - w_omega    = [3 * 1] input angular velocity
     %
     % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
-    %          
+    %
     %          all authors are with the Italian Istitute of Technology (IIT)
     %          email: name.surname@iit.it
     %

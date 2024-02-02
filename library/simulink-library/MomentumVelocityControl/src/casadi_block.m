@@ -1,14 +1,14 @@
 classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
     % Casadi Implementation of the Momentum Based Velocity COntrol.
-    
+
     properties
         % Public, tunable properties.
-        
+
     end
-    
+
     properties (DiscreteState)
     end
-    
+
     properties (Access = private)
         casadi_optimizer;
         M;
@@ -45,10 +45,10 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
         JTorso;
         SaturationMinJoints;
         SaturationMaxJoints;
-        J_com; 
-        
+        J_com;
+
     end
-    
+
     methods (Access = protected)
         function num = getNumInputsImpl(~)
             num = 36;
@@ -61,9 +61,9 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             dt2 = 'double';
             dt3 = 'double';
             dt4 = 'double';
-            
+
         end
-        
+
         function [dt1,dt2,dt3,dt4,dt5,dt6,dt7,dt8,dt9,dt10,dt11,dt12,dt13,dt14,dt15,dt16,dt17,dt18,dt19,dt20,dt21,dt22,dt23,dt24, ...
                 dt25,dt26,dt27,dt28,dt29,dt30,dt31,dt32,dt33,dt34,dt35,dt36] = getInputDataTypeImpl(~)
             dt1 = 'double';
@@ -242,7 +242,7 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
         end
         function setupImpl(obj,M,h,Jc,Jcmm,nu_k,Jc_dot_nu,C_friction,b_friction,H_star,s_dot_star,tau_meas, contact_status, f_meas, x_com, J_com, w_H_b,...
                 s,CoM_measured,ADD_FRICTION, K_viscous_friction, T, Gamma, baseVelocitySat, jointsVelocitySat, torqueSat, wrenchesSat, tStep, NDOF, epsilon_CoM, CoM_limits,CoM_vel_limits, activateCoMHeightTask, CoMZReferenceVelocity, correctionFeet, ActivateHolonomicConstraint, JTorso)
-            
+
             NDOF = size(K_viscous_friction,1);
             obj.solver_fails_counter = 0;
             import casadi.*
@@ -251,17 +251,17 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             solver = 'osqp';
             p_opts = struct('expand',true);
             s_opts = struct();
-            
+
             obj.casadi_optimizer = casadi.Opti(optimization_type);
             obj.casadi_optimizer.solver(solver, p_opts, s_opts);
-            
+
             %Definition of the decision variables
             obj.tau_k = obj.casadi_optimizer.variable(NDOF);
             obj.s_dot_k_1 = obj.casadi_optimizer.variable(NDOF);
             obj.v_b_k_1 = obj.casadi_optimizer.variable(6);
             obj.f_k = obj.casadi_optimizer.variable(12);
             nu_k_1 = [obj.v_b_k_1; obj.s_dot_k_1];
-            
+
             % Setting the parameter for the optimization solver
             obj.M = obj.casadi_optimizer.parameter(NDOF+6,NDOF+6);
             obj.h = obj.casadi_optimizer.parameter(NDOF+6);
@@ -291,8 +291,8 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             obj.JTorso= obj.casadi_optimizer.parameter(6,NDOF+6);
             obj.SaturationMaxJoints = obj.casadi_optimizer.parameter(NDOF);
             obj.SaturationMinJoints = obj.casadi_optimizer.parameter(NDOF);
-            obj.J_com = obj.casadi_optimizer.parameter(6,NDOF+6); 
-            
+            obj.J_com = obj.casadi_optimizer.parameter(6,NDOF+6);
+
             %Weigth
             Weigth.PosturalTask    = 100;
             Weigth.MomentumLinear  = 2.0;
@@ -302,20 +302,20 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             Weigth.Wrenches        = 0.01;
             Weigth.HolonomicConstraint = 10;
             % Selector Matrix
-            
+
             B           = [ zeros(6,NDOF);  ...
-                            eye(NDOF,NDOF)];
-            
+                eye(NDOF,NDOF)];
+
             % Setting the objective function
             obj.casadi_optimizer.minimize(Weigth.RegTorques*sumsqr(obj.tau_k - obj.tau_meas)+             ... % Torque Regularization
                 Weigth.RegVelocities*sumsqr(nu_k_1(1:6))+                                                 ... % Base Velocity Regularization
                 Weigth.PosturalTask*sumsqr(obj.s_dot_k_1-obj.s_dot_star));                                ... % Postural Task
                 %Weigth.HolonomicConstraint*(1-obj.holonomicConstraintActivation)*sumsqr(obj.Jc*(nu_k_1)));                                     ... %HolonomicCOnstraint
-                %Weigth.Wrenches*sumsqr(obj.f_k) +                                                        ... %Wrenches
-                %Weigth.MomentumAngular*sumsqr(obj.H_star(4:6)-obj.Jcmm(4:6,:)*nu_k_1));                  ... % Angular Momentum
-                %Weigth.MomentumLinear*sumsqr(obj.H_star(1:3)-obj.Jcmm(1:3,:)*nu_k_1));                   ... % Linear Momentum
-            
-            
+            %Weigth.Wrenches*sumsqr(obj.f_k) +                                                        ... %Wrenches
+            %Weigth.MomentumAngular*sumsqr(obj.H_star(4:6)-obj.Jcmm(4:6,:)*nu_k_1));                  ... % Angular Momentum
+            %Weigth.MomentumLinear*sumsqr(obj.H_star(1:3)-obj.Jcmm(1:3,:)*nu_k_1));                   ... % Linear Momentum
+
+
             % Setting Constraint
             % Dynamics
             obj.casadi_optimizer.subject_to((obj.M/obj.t_step + obj.K_friction)*(nu_k_1)-(obj.M*obj.nu_k)/obj.t_step+obj.h== B*obj.tau_k +obj.Jc'*obj.f_k);
@@ -332,11 +332,11 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             obj.casadi_optimizer.subject_to(obj.J_com(1,:)*nu_k_1>=(tanh(obj.epsilon_CoM*(obj.CoM_measured(1)-obj.CoM_min(1)))*obj.CoM_vel_min(1)));
             obj.casadi_optimizer.subject_to(obj.J_com(2,:)*nu_k_1<=(tanh(obj.epsilon_CoM*(obj.CoM_max(2)-obj.CoM_measured(2)))*obj.CoM_vel_max(2)));
             obj.casadi_optimizer.subject_to(obj.J_com(2,:)*nu_k_1>=(tanh(obj.epsilon_CoM*(obj.CoM_measured(2)-obj.CoM_min(2)))*obj.CoM_vel_min(2)));
-            
+
             % Constraint the Torso velocity on the z axis
             %obj.casadi_optimizer.subject_to(obj.ActivateComHeightConstraint*obj.Jcmm(3,7:end)*nu_k_1(7:end) >= obj.ActivateComHeightConstraint*obj.M(1,1)*obj.CoM_Z_reference_velocity);
             obj.casadi_optimizer.subject_to(obj.ActivateComHeightConstraint*obj.JTorso(3,:)*nu_k_1 >= obj.ActivateComHeightConstraint*obj.CoM_Z_reference_velocity);
-%             
+            %
             % Angular Momentum
             % With Control Law
             % obj.casadi_optimizer.subject_to(obj.H_star(4:6,:)==obj.Jcmm(4:6,:)*nu_k_1);
@@ -351,13 +351,13 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             %obj.casadi_optimizer.subject_to(obj.SaturationMinJoints<= obj.s_dot_k_1);
             %obj.casadi_optimizer.subject_to(obj.s_dot_k_1<= obj.SaturationMaxJoints);
             % obj.casadi_optimizeru.sbject_to(Sat.torques_min(1:3)<= obj.tau_k(1:3)<= Sat.torques_max(1:3));
-            
+
         end
-        
+
         function [v_b_star,s_dot_k_1_star,tau_star,f_star] = stepImpl(obj,M,h,Jc,Jcmm,nu_k,Jc_dot_nu,C_friction,b_friction,H_star,s_dot_star,tau_meas, contact_status, f_meas, x_com, J_com, w_H_b,...
                 s,CoM_measured,ADD_FRICTION, K_viscous_friction, T, Gamma, baseVelocitySat, jointsVelocitySat, torqueSat, wrenchesSat, tStep, NDOF,epsilon_CoM, CoM_limits,CoM_vel_limits, activateCoMHeightTask, CoMZReferenceVelocity, correctionFeet, activateHolonomicConstraint, JTorso )
             solver_succeded = true;
-            
+
             % Compute Centroidayl Dynamics
             selector = zeros(length(nu_k),1);
             selector(3) = 1 ;
@@ -369,21 +369,21 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             FORKINEMATICS.xCoM = x_com;
             vel_com = J_com*nu_k;
             FORKINEMATICS.dxCoM = vel_com(1:3);
-            
+
             STATE.nu = nu_k;
             STATE.dx_b = nu_k(1:3);
             STATE.x_b = w_H_b(1:3,4);
             centroidalDyn = centroidalConversion(DYNAMICS,FORKINEMATICS,STATE);
-            
+
             %K friction
             K_friction_new = zeros(NDOF+6);
-            
+
             if(ADD_FRICTION)
                 invTGamma                = eye(size(Gamma))/(T*Gamma);
                 invTGamma_t              = eye(size(Gamma))/(transpose(T*Gamma));
                 K_friction_new(7:end, 7:end) = invTGamma_t*K_viscous_friction*invTGamma;
             end
-            
+
             % Update casadi optimizer parameters
             obj.casadi_optimizer.set_value(obj.M, centroidalDyn.M);
             obj.casadi_optimizer.set_value(obj.h,( centroidalDyn.C_nu+centroidalDyn.g));
@@ -411,10 +411,10 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
             obj.casadi_optimizer.set_value(obj.feet_correction, correctionFeet);
             obj.casadi_optimizer.set_value(obj.holonomicConstraintActivation, activateHolonomicConstraint);
             obj.casadi_optimizer.set_value(obj.JTorso,JTorso);
-            obj.casadi_optimizer.set_value(obj.J_com,J_com); 
-%             obj.casadi_optimizer.set_value(obj.SaturationMaxJoints,jointsVelocitySat(:,2));
-%             obj.casadi_optimizer.set_value(obj.SaturationMinJoints, jointsVelocitySat(:,1));
-            
+            obj.casadi_optimizer.set_value(obj.J_com,J_com);
+            %             obj.casadi_optimizer.set_value(obj.SaturationMaxJoints,jointsVelocitySat(:,2));
+            %             obj.casadi_optimizer.set_value(obj.SaturationMinJoints, jointsVelocitySat(:,1));
+
             % Computing the solution
             try
                 obj.sol = obj.casadi_optimizer.solve; % could raise an error
@@ -432,8 +432,8 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
                     disp(exception.message)
                 end
             end
-            
-            
+
+
             % If the solver did not succed, put to zero the control input
             % and increase the related counter
             if(~solver_succeded)
@@ -447,11 +447,11 @@ classdef casadi_block < matlab.System & matlab.system.mixin.Propagates
                 end
             else
                 obj.solver_fails_counter = 0;
-                
+
             end
-            
+
         end
-        
+
         function resetImpl(obj)
             % Initialize discrete-state properties.
         end

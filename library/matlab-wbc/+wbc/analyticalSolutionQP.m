@@ -3,7 +3,7 @@ function analyticalSolution = analyticalSolutionQP(HessianMatrixQP,gradientQP)
     % ANALYTICALSOLUTIONQP provides the unconstrained solution of a QP
     %                      problem. To be used as possible alternative when
     %                      the WBToolbox "QP block" fails to find a solution.
-    %                                        
+    %
     % FORMAT: analyticalSolution = analyticalSolutionQP(HessianMatrixQP,gradientQP)
     %
     % INPUT:   - HessianMatrixQP = hessian matrix of the QP problem;
@@ -12,7 +12,7 @@ function analyticalSolution = analyticalSolutionQP(HessianMatrixQP,gradientQP)
     % OUTPUT:  - analyticalSolution = the analytical solution of the QP problem.
     %
     % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
-    %          
+    %
     %          all authors are with the Italian Istitute of Technology (IIT)
     %          email: name.surname@iit.it
     %

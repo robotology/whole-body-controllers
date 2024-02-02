@@ -29,12 +29,12 @@ function varargout = simulinkStaticGUI(varargin)
     % Begin initialization code - DO NOT EDIT
     gui_Singleton = 1;
     gui_State = struct('gui_Name',       mfilename, ...
-                       'gui_Singleton',  gui_Singleton, ...
-                       'gui_OpeningFcn', @simulinkStaticGUI_OpeningFcn, ...
-                       'gui_OutputFcn',  @simulinkStaticGUI_OutputFcn, ...
-                       'gui_LayoutFcn',  [] , ...
-                       'gui_Callback',   []);
-                   
+        'gui_Singleton',  gui_Singleton, ...
+        'gui_OpeningFcn', @simulinkStaticGUI_OpeningFcn, ...
+        'gui_OutputFcn',  @simulinkStaticGUI_OutputFcn, ...
+        'gui_LayoutFcn',  [] , ...
+        'gui_Callback',   []);
+
     if nargin && ischar(varargin{1})
         gui_State.gui_Callback = str2func(varargin{1});
     end
@@ -65,7 +65,7 @@ function simulinkStaticGUI_OpeningFcn(hObject, eventdata, handles, varargin) %#o
 
     % UIWAIT makes simulinkStaticGUI wait for user response (see UIRESUME)
     % uiwait(handles.figure1);
-    
+
     % synchronization of the push button status with Simulink GUI
     assignin('base','sl_synch_handles',handles)
 end
@@ -90,12 +90,12 @@ function compileButton_Callback(hObject, eventdata, handles)  %#ok<INUSL>
     % hObject    handle to compileButton (see GCBO)
     % eventdata  reserved - to be defined in a future version of MATLAB
     % handles    structure with handles and user data (see GUIDATA)
-    
+
     % compile the model
     compileModel;
-    
+
     if ~exist('errorMessages','var')
-    
+
         % enable the start/stop button
         set(handles.startButton,'Enable','on')
         set(handles.startButton,'Backgroundcolor','g');
@@ -116,9 +116,9 @@ function startButton_Callback(hObject, eventdata, handles) %#ok<INUSL>
     status = get_param(bdroot,'simulationstatus');
 
     if strcmp(status,'stopped')
-        
+
         set_param(bdroot,'simulationcommand','start')
-        
+
         % Deactivate all buttons, including the start button itself
         set(handles.startButton,'Backgroundcolor',[0.8,0.8,0.8]);
         set(handles.startButton,'Enable','off')
@@ -126,7 +126,7 @@ function startButton_Callback(hObject, eventdata, handles) %#ok<INUSL>
         set(handles.compileButton,'Enable','off')
         set(handles.exitButton,'Backgroundcolor',[0.8,0.8,0.8]);
         set(handles.exitButton,'Enable','off')
-        
+
     else
         error('Model is already running')
     end
@@ -143,31 +143,31 @@ function stopButton_Callback(hObject, eventdata, handles) %#ok<INUSL>
     % hObject    handle to stopModelButton (see GCBO)
     % eventdata  reserved - to be defined in a future version of MATLAB
     % handles    structure with handles and user data (see GUIDATA)
-    
+
     status = get_param(bdroot,'simulationstatus');
 
     % Check the status of the simulation and stop it if it's running
     if strcmp(status,'running')
-        
+
         % Disable the start button unless the user checked the proper
         % checkbox for avoiding to disable it
         if get(handles.checkbox_recompile, 'Value')
-           
+
             set(handles.startButton,'Backgroundcolor',[0.8,0.8,0.8]);
             set(handles.startButton,'Enable','off')
         end
-        
+
         % Enable compile and exit buttons
         set(handles.compileButton,'Backgroundcolor',[1.0,0.6,0.0]);
         set(handles.compileButton,'Enable','on')
         set(handles.exitButton,'Backgroundcolor',[0.0,1.0,1.0]);
         set(handles.exitButton,'Enable','on')
-         
+
         set_param(bdroot, 'SimulationCommand', 'Stop')
     else
         error('Model is not running')
     end
-    
+
     % Assign handles and the startstop object to the base workspace
     assignin('base','sl_synch_handles',handles)
 end
@@ -176,11 +176,11 @@ end
 function exitButton_Callback(hObject, eventdata, handles) %#ok<INUSL>
 
     % EXIT MODEL BUTTON
-    % 
+    %
     % hObject    handle to exitButton (see GCBO)
     % eventdata  reserved - to be defined in a future version of MATLAB
     % handles    structure with handles and user data (see GUIDATA)
-    
+
     closeModel;
 
     % Assign handles and the startstop object to the base workspace

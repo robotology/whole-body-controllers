@@ -9,7 +9,7 @@ function D = diagonalMatrixFromVector(d)
     % OUTPUT: - D = [n * n] diagonal matrix.
     %
     % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
-    %          
+    %
     %          all authors are with the Italian Istitute of Technology (IIT)
     %          email: name.surname@iit.it
     %
@@ -17,6 +17,6 @@ function D = diagonalMatrixFromVector(d)
     %
 
     %% --- Initialization ---
-    
+
     D = diag(d);
 end

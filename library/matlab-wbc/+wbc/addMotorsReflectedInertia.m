@@ -17,8 +17,8 @@ function M_with_inertia = addMotorsReflectedInertia(M,Gamma,T,I_m)
     %     thetaDDot = (T*Gamma)^-1*sDDot (4)
     %
     % where Gamma is a diagonal matrix containing the transmission ratio for
-    % all joints, while T is a block diagonal matrix taking into account the 
-    % fact that some joint movements are obtained by combining the effect of 
+    % all joints, while T is a block diagonal matrix taking into account the
+    % fact that some joint movements are obtained by combining the effect of
     % different motors (see also http://wiki.icub.org/wiki/ICub_coupled_joints).
     % By substituting (4) into (3), multiplying (3) by transpose(T*Gamma)^-1 and
     % finally summing up (3) and (2), one has:
@@ -27,17 +27,17 @@ function M_with_inertia = addMotorsReflectedInertia(M,Gamma,T,I_m)
     %
     %    (M_s+transpose(T*Gamma)^-1*I_m*(T*Gamma)^-1)*sDDot + M_sb*nuDot_b + h_s = J_s^T*f + u (2b)
     %
-    % where u = transpose(T*Gamma)^-1*tau_m. The input joint torques can be 
+    % where u = transpose(T*Gamma)^-1*tau_m. The input joint torques can be
     % calculated from (3) as follows:
     %
-    %    tau_s = u - K_ff*transpose(T*Gamma)^-1*I_m*(T*Gamma)^-1*sDDot 
+    %    tau_s = u - K_ff*transpose(T*Gamma)^-1*I_m*(T*Gamma)^-1*sDDot
     %
     % with K_ff belonging to [0,1].
     %
     % FORMAT: M_with_inertia = addMotorsReflectedInertia(M,Gamma,T,I_m)
     %
     % INPUT:  - M     = [6+n x 6+n] mass matrix;
-    %         - Gamma = [n x n] diagonal matrix that accounts for the transmission 
+    %         - Gamma = [n x n] diagonal matrix that accounts for the transmission
     %                           ratio of the joints in the mechanism;
     %         - T     = [n x n] matrix that accounts for the coupling between
     %                           different joints;
@@ -48,7 +48,7 @@ function M_with_inertia = addMotorsReflectedInertia(M,Gamma,T,I_m)
     %                             inertia.
     %
     % Authors: Gabriele Nava
-    %          
+    %
     %          all authors are with the Italian Istitute of Technology (IIT)
     %          email: name.surname@iit.it
     %
@@ -56,14 +56,14 @@ function M_with_inertia = addMotorsReflectedInertia(M,Gamma,T,I_m)
     %
 
     %% --- Initialization ---
-    
+
     % parameters
     NDOF = size(M,1)-6;
-      
+
     reflectedInertia    = wbc.computeMotorsReflectedInertia(Gamma,T,I_m);
-        
+
     M_reflected_inertia = [zeros(6,6+NDOF);
-                           zeros(NDOF,6) reflectedInertia];
+        zeros(NDOF,6) reflectedInertia];
 
     M_with_inertia      = M + M_reflected_inertia;
 end

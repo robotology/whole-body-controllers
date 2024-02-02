@@ -1,7 +1,7 @@
 function [w_H_b, wImu_H_base, wImu_H_fixedLink_0] = worldToBaseTransformWithIMU(imu_H_fixedLink, imu_H_fixedLink_0, fixedLink_H_base, rpyFromIMU_0, rpyFromIMU, FILTER_IMU_YAW)
 
     % WORLDTOBASETRANSFORMWITHIMU calculates the world-to-base frame transformation
-    %                             matrix. The orientation is updated by 
+    %                             matrix. The orientation is updated by
     %                             using informations from IMU.
     %
     % FORMAT: [w_H_b, wImu_H_base, wImu_H_fixedLink_0] = worldToBaseTransformWithIMU(imu_H_fixedLink, imu_H_fixedLink_0, fixedLink_H_base, rpyFromIMU_0, rpyFormIMU, FILTER_IMU_YAW)
@@ -20,7 +20,7 @@ function [w_H_b, wImu_H_base, wImu_H_fixedLink_0] = worldToBaseTransformWithIMU(
     %                                        transformation matrix at t = 0.
     %
     % Authors: Daniele Pucci, Marie Charbonneau, Gabriele Nava
-    %          
+    %
     %          all authors are with the Italian Istitute of Technology (IIT)
     %          email: name.surname@iit.it
     %
@@ -54,7 +54,7 @@ function [w_H_b, wImu_H_base, wImu_H_fixedLink_0] = worldToBaseTransformWithIMU(
     rollPitchYaw_filtered    = rollPitchYaw_fixedLink;
 
     if FILTER_IMU_YAW
-        
+
         rollPitchYaw_filtered(3) = rollPitchYaw_fixedLink_0(3);
     end
 
@@ -62,14 +62,14 @@ function [w_H_b, wImu_H_base, wImu_H_fixedLink_0] = worldToBaseTransformWithIMU(
 
     % IMU inertial frame to fixed link transform
     wImu_H_fixedLink   = [wImu_R_fixedLink, zeros(3,1)
-                          zeros(1,3),       1     ];
-          
-    wImu_H_fixedLink_0 = [wImu_R_fixedLink_0, zeros(3,1)
-                          zeros(1,3),         1     ];
+        zeros(1,3),       1     ];
 
-    % IMU inertial frame to base link transform             
+    wImu_H_fixedLink_0 = [wImu_R_fixedLink_0, zeros(3,1)
+        zeros(1,3),         1     ];
+
+    % IMU inertial frame to base link transform
     wImu_H_base        = wImu_H_fixedLink * fixedLink_H_base;
 
     %% World to base frame transformation matrix
-    w_H_b              = wImu_H_fixedLink_0\wImu_H_base;   
+    w_H_b              = wImu_H_fixedLink_0\wImu_H_base;
 end

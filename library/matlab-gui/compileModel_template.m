@@ -14,7 +14,7 @@ try
     SIMULINK_MODEL_NAME([], [], [], 'term')
 
 catch ME
-    
+
     errorMessages = ME;
 end
 
