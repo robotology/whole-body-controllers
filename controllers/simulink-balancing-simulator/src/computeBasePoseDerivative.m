@@ -1,9 +1,9 @@
 function pose_base_dot = computeBasePoseDerivative(nu_base_ikin, pose_base)
 
     % COMPUTEBASEPOSEDERIVATIVE computes the base position and orientation
-    %                           time derivative in terms of linear velocity 
+    %                           time derivative in terms of linear velocity
     %                           + quaternion derivative.
-    
+
     %% --- Initialization ---
 
     % angular velocity in body coordinates
