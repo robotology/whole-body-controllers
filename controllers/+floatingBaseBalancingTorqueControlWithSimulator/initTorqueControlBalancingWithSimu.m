@@ -31,12 +31,12 @@ addpath(strcat(MODEL_PATH,'/src/'));
 %
 % If you are simulating the robot with Gazebo, remember that it is required
 % to launch Gazebo as follows:
-% 
+%
 %     gazebo -slibgazebo_yarp_clock.so
-% 
+%
 % and properly set the environmental variable YARP_ROBOT_NAME in the .bashrc.
 
-% Simulation time in seconds. For long simulations, put an high number 
+% Simulation time in seconds. For long simulations, put an high number
 % (not inf) for allowing automatic code generation
 Config.SIMULATION_TIME = 100;
 
@@ -50,10 +50,10 @@ Config.tStepSim        = 0.001; %  1 ms
 %
 % 'YOGA': the robot will perform the YOGA++ demo (highly dynamic movements
 %         while balancing on one foot and two feet)
-%   
+%
 % 'COORDINATOR': the robot can either balance on two feet or move from left
 %                to right follwing a desired center-of-mass trajectory.
-% 
+%
 DEMO_TYPE                     = 'YOGA';
 
 % Config.SCOPES: debugging scopes activation
@@ -90,8 +90,8 @@ run('initVisualizer');
 if strcmpi(DEMO_TYPE, 'COORDINATOR')
 
     Config.COORDINATOR_DEMO = true;
-    
+
 elseif strcmpi(DEMO_TYPE, 'YOGA')
-    
+
     Config.COORDINATOR_DEMO = false;
 end

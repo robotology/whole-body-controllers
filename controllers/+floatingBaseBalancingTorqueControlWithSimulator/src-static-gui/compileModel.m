@@ -12,7 +12,7 @@ try
     torqueControlBalancing([], [], [], 'term')
 
 catch ME
-    
+
     errorMessages = ME;
 end
 

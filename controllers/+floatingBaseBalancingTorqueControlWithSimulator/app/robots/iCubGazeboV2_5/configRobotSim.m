@@ -73,7 +73,7 @@ INCLUDE_COUPLING = true;
 
 % Robot frames list
 FramesSim.BASE = 'root_link';
-FramesSim.IMU = 'imu_frame';
+FramesSim.IMU = 'imu_head_0';
 FramesSim.LEFT_FOOT = 'l_sole';
 FramesSim.RIGHT_FOOT = 'r_sole';
 FramesSim.COM = 'com';

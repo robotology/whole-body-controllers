@@ -37,7 +37,7 @@ Config.N_DOF = numel(WBTConfigRobot.ControlledJoints);
 
 % Frames list
 Frames.BASE       = 'root_link'; 
-Frames.IMU        = 'imu_frame';
+Frames.IMU        = 'imu_head_0';
 Frames.LEFT_FOOT  = 'l_sole';
 Frames.RIGHT_FOOT = 'r_sole';
 Frames.COM        = 'com';
