@@ -122,7 +122,7 @@ Official legacy repositories are: [mex-wholebodymodel](https://github.com/roboto
 - [joint-space control and centroidal transformation](https://github.com/robotology/mex-wholebodymodel/tree/master/controllers/torqueBalancingJointControl)
 - [stand-up control 4 contacts](https://github.com/robotology-legacy/WBI-Toolbox-controllers/tree/master/controllers/torqueBalancingStandup_4Contacts)
 
-You can also find other legacy controllers/simultors in this repository **whole-body-controllers** in specific commits:
+You can also find other legacy controllers/simulators in this repository **whole-body-controllers** in specific commits:
 - [simulink-balancing-simulator@c217f051](https://github.com/robotology/whole-body-controllers/tree/c217f051b16da32c8acc607182524239b3a7d8fb/controllers/simulink-balancing-simulator).
 
 ## Citing this work
