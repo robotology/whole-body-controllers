@@ -107,7 +107,7 @@ When used for controlling real platforms, heavy Simulink models may violate the 
 
 ### Home positions for yarpmotorgui
 
-The repo contains a set of predefined [home positions](utilities/homePositions) to be used with the [yarpmotorgui](https://www.yarp.it/yarpmotorgui.html). By default, if the repo is installed through `robotology-superbuild`, the home positions are installed in the `robotology-superbuild/build/install` directory. Otherwise add the path to the [homePositions](utilities/homePositions) folder to the `YARP_DATA_DIRS` environmental variable in your `.bashrc` file . The command to use the home positions with the yarpmotorgui is `yarpmotorgui --from myHomePosFileName.ini`. 
+The repo contains a set of predefined [home positions](utilities/homePositions) to be used with the [yarpmotorgui](https://www.yarp.it/latest/group__yarpmotorgui.html). By default, if the repo is installed through `robotology-superbuild`, the home positions are installed in the `robotology-superbuild/build/install` directory. Otherwise add the path to the [homePositions](utilities/homePositions) folder to the `YARP_DATA_DIRS` environmental variable in your `.bashrc` file . The command to use the home positions with the yarpmotorgui is `yarpmotorgui --from myHomePosFileName.ini`. 
 
 ## Where do I find legacy materials?
 
