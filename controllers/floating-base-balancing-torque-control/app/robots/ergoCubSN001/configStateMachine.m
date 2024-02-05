@@ -13,7 +13,7 @@ Config.SMOOTH_COM_DES       = true;
 Config.SMOOTH_JOINT_DES     = true;   
 
 % Joint torques saturation [Nm]
-Sat.torque                  = 60;
+Sat.torque                  = 160;
 
 % Joint torques rate of change saturation
 Sat.uDotMax                 = 300;

@@ -3,13 +3,13 @@
 
 %% --- Initialization ---
 
-Config.ON_GAZEBO         = true;
+Config.ON_GAZEBO         = false;
 ROBOT_DOF                = 23;
 Config.GRAV_ACC          = 9.81;
 
 % Robot configuration for WBToolbox
 WBTConfigRobot           = WBToolbox.Configuration;
-WBTConfigRobot.RobotName = 'ergocubSim';
+WBTConfigRobot.RobotName = 'ergocub';
 WBTConfigRobot.UrdfFile  = 'model.urdf';
 WBTConfigRobot.LocalName = 'WBT';
 
@@ -88,8 +88,8 @@ Config.CORRECT_NECK_IMU = false;
 Config.USE_QP_SOLVER    = true; 
 
 % Ports name list
-Ports.WRENCH_LEFT_FOOT  = '/wholeBodyDynamics/left_leg/cartesianEndEffectorWrench:o';
-Ports.WRENCH_RIGHT_FOOT = '/wholeBodyDynamics/right_leg/cartesianEndEffectorWrench:o';
+Ports.WRENCH_LEFT_FOOT  = '/wholeBodyDynamics/left_foot_rear/cartesianEndEffectorWrench:o';
+Ports.WRENCH_RIGHT_FOOT = '/wholeBodyDynamics/right_foot_rear/cartesianEndEffectorWrench:o';
 Ports.IMU               = ['/' WBTConfigRobot.RobotName '/inertial'];
 Ports.NECK_POS          = ['/' WBTConfigRobot.RobotName '/head/state:o'];
 
