@@ -35,7 +35,7 @@ addpath('./src/')
 
 % Simulation time in seconds. For long simulations, put an high number 
 % (not inf) for allowing automatic code generation
-Config.SIMULATION_TIME = 60;
+Config.SIMULATION_TIME = 10;
 
 % Controller period [s]
 Config.tStep           = 0.01;
