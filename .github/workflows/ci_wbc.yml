@@ -1,0 +1,24 @@
+name: CI_WBC
+
+on:
+  push:
+    branches: [ gabrielenava-add-ci ]
+  pull_request:
+    branches: [ gabrielenava-add-ci ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+  
+      - name: Configure and build
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make install
+
