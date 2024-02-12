@@ -1,24 +1,42 @@
-name: CI_WBC
+name: CI_wbc
 
 on:
-  push:
-    branches: [ gabrielenava-add-ci ]
   pull_request:
-    branches: [ gabrielenava-add-ci ]
-
+  push:
+    branches:
+      - master
+        
 jobs:
   build:
-
+    name: '[${{ matrix.os }}@${{ matrix.build_type }}@conda]'
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        build_type: [Debug]
+        
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-  
-      - name: Configure and build
-        run: |
-          mkdir build
-          cd build
-          cmake ..
-          make install
+    - uses: actions/checkout@v3
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        miniforge-variant: Mambaforge
+        miniforge-version: latest
+        channels: conda-forge, robotology
+        channel-priority: true
 
+    - name: Install dependencies
+      run: |
+        conda config --remove channels defaults
+        mamba install cmake compilers make ninja pkg-config
+        mamba install mesa-libgl-cos7-x86_64 mesa-libgl-devel-cos7-x86_64 # CDT packages needed for linking against libGL (https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl)
+        mamba install git ruby libxml2 lxml yaml pyyaml=5.4.1 catkin_pkg ycm-cmake-modules 
+        mamba install yarp
+        echo $CONDA_PREFIX
+
+    # Compile project and run tests
+    - name: Build and Test
+      run: |
+        mkdir -p build
+        cd build
+        cmake -DCMAKE_INSTALL_PREFIX=./install ..
+        cmake --build . --config ${{ matrix.build_type }} 
+        make install
