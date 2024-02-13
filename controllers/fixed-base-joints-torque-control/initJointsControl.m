@@ -45,7 +45,7 @@ Config.SAVE_WORKSPACE  = false;
 % and/or if the (unsigned) difference between two consecutive joints
 % encoders measurements is greater than a given threshold.
 Config.EMERGENCY_STOP_WITH_JOINTS_LIMITS  = false;
-Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES = true;
+Config.EMERGENCY_STOP_WITH_ENCODER_SPIKES = false;
 
 % Verify that the integration time has been respected during the simulation
 Config.CHECK_INTEGRATION_TIME = true;

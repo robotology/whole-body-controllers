@@ -22,7 +22,7 @@ Gain.KD_CoM = 2*sqrt(Gain.KP_CoM)/20;
 
 % Angular momentum gains
 Gain.KI_AngularMomentum = 0.25 ;
-Gain.KP_AngularMomentum = 2*sqrt(Gain.KI_AngularMomentum);
+Gain.KP_AngularMomentum = 2*sqrt(Gain.KI_AngularMomentum) /20;
 
 % Postural task gains
 %                   %  TORSO  %%        LEFT ARM   %%       RIGHT ARM   %%         LEFT LEG           %%         RIGHT LEG           %% 

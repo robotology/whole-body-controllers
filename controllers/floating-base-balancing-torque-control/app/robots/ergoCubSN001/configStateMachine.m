@@ -13,7 +13,7 @@ Config.SMOOTH_COM_DES       = true;
 Config.SMOOTH_JOINT_DES     = true;   
 
 % Joint torques saturation [Nm]
-Sat.torque                  = 160;
+Sat.torque                  = 100;
 
 % Joint torques rate of change saturation
 Sat.uDotMax                 = 300;
@@ -48,7 +48,7 @@ StateMachine.joints_thresholdInContact    = 50;
 StateMachine.initialState                 = 1;
 
 % other configuration parameters for state machine
-StateMachine.tBalancing                   = 1;
+StateMachine.tBalancing                   = 10;
 StateMachine.tBalancingBeforeYoga         = 1;
 StateMachine.yogaExtended                 = true;
 StateMachine.skipYoga                     = false;

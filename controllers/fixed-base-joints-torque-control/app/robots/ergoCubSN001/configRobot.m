@@ -5,7 +5,7 @@
 %% --- Initialization ---
 
 % Gains and parameters for impedance controller
-Config.ON_GAZEBO = true;
+Config.ON_GAZEBO = false;
 ROBOT_DOF        = 23;
 
 % Robot configuration for WBToolbox
